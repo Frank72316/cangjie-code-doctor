@@ -10,6 +10,8 @@
 
 阅读完整的 [项目说明与团队分工（PDF）](docs/project-brief.pdf)，其中包含功能需求、技术方案、模块接口、三人职责、12 周计划和验收建议。
 
+项目仓库：[GitHub](https://github.com/Frank72316/cangjie-code-doctor) · [AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)。两边均为公开仓库。
+
 ## 使用流程
 
 导入仓颉源码及测试用例 → 编译并定位错误 → 检索对应版本文档 → 生成修改建议 → 用户选择应用 → 编译与测试验证 → 输出报告。
@@ -92,6 +94,34 @@
 └── docs/
     └── project-brief.pdf
 ```
+
+## 两个平台的协作与同步
+
+当前设置为本地分别推送到两个远程仓库，没有启用后台自动同步。
+
+- `origin`：GitHub，保留为当前主协作入口。
+- `atomgit`：AtomGit / GitCode，保存相同的 `main` 分支提交。
+- 建议队友统一在 GitHub 提交合并请求；合并后拉取最新 `main`，再推送到 AtomGit。后续也可以由团队统一切换主平台。
+- Git 推送同步指定分支的代码、文档及提交历史；Issue、合并请求、评论和仓库设置不会随之同步。
+- 一个平台推送失败时，另一个平台可能已成功。解决失败原因后补推即可，遇到分支分歧先检查和合并，不使用强制推送覆盖队友提交。
+
+队友从 GitHub 克隆后，添加第二个远程地址（远程配置不会随克隆复制）：
+
+```sh
+git clone https://github.com/Frank72316/cangjie-code-doctor.git
+cd cangjie-code-doctor
+git remote add atomgit https://gitcode.com/A72316/cangjie-code-doctor.git
+```
+
+同步主分支时，先确保本地工作已保存并切换到 `main`，再运行：
+
+```sh
+git pull --ff-only origin main
+git push origin main
+git push atomgit main
+```
+
+两个平台需要各自的登录凭据和推送权限；公开访问只代表可以查看和克隆，不代表任何人都能推送。团队开发分支和标签需要按需另外推送。
 
 ## 参考资料
 
