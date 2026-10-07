@@ -10,7 +10,7 @@
 
 阅读完整的 [项目说明与团队分工（PDF）](docs/project-brief.pdf)，其中包含功能需求、技术方案、模块接口、三人职责、12 周计划和验收建议。
 
-项目仓库：[GitHub](https://github.com/Frank72316/cangjie-code-doctor) · [AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)。两边均为公开仓库。
+主仓库：[AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)。同步副本：[GitHub](https://github.com/Frank72316/cangjie-code-doctor)。两边均为公开仓库；按课程要求，以 AtomGit 为项目提交和团队协作入口。
 
 ## 使用流程
 
@@ -97,20 +97,20 @@
 
 ## 两个平台的协作与同步
 
-当前设置为本地分别推送到两个远程仓库，没有启用后台自动同步。
+按教师要求，AtomGit 为主仓库，GitHub 为同步副本。当前通过本地分别推送保持代码一致，没有启用后台自动同步。
 
-- `origin`：GitHub，保留为当前主协作入口。
-- `atomgit`：AtomGit / GitCode，保存相同的 `main` 分支提交。
-- 建议队友统一在 GitHub 提交合并请求；合并后拉取最新 `main`，再推送到 AtomGit。后续也可以由团队统一切换主平台。
+- `origin`：AtomGit / GitCode，作为默认拉取和推送目标；本地 `main` 跟踪 `origin/main`。
+- `github`：GitHub，保存与主仓库相同的 `main` 分支提交。
+- 队友统一在 AtomGit 提交 Issue、合并请求和代码评审；课程提交使用 AtomGit 链接。合并后从 AtomGit 拉取最新 `main`，再同步至 GitHub。
 - Git 推送同步指定分支的代码、文档及提交历史；Issue、合并请求、评论和仓库设置不会随之同步。
 - 一个平台推送失败时，另一个平台可能已成功。解决失败原因后补推即可，遇到分支分歧先检查和合并，不使用强制推送覆盖队友提交。
 
-队友从 GitHub 克隆后，添加第二个远程地址（远程配置不会随克隆复制）：
+队友从 AtomGit 克隆后，可添加 GitHub 副本地址（额外远程配置不会随克隆复制）：
 
 ```sh
-git clone https://github.com/Frank72316/cangjie-code-doctor.git
+git clone https://gitcode.com/A72316/cangjie-code-doctor.git
 cd cangjie-code-doctor
-git remote add atomgit https://gitcode.com/A72316/cangjie-code-doctor.git
+git remote add github https://github.com/Frank72316/cangjie-code-doctor.git
 ```
 
 同步主分支时，先确保本地工作已保存并切换到 `main`，再运行：
@@ -118,7 +118,20 @@ git remote add atomgit https://gitcode.com/A72316/cangjie-code-doctor.git
 ```sh
 git pull --ff-only origin main
 git push origin main
-git push atomgit main
+git push github main
+```
+
+日常开发提交到 `origin`。GitHub 同步可由一位拥有两边推送权限的维护者完成。主分支只含已合并提交时，直接拉取 AtomGit 后推送 GitHub 即可。
+
+若之前按旧说明配置了 `origin=GitHub`、`atomgit=AtomGit`，先用 `git remote -v` 确认地址，再执行一次：
+
+```sh
+git remote rename origin github
+git remote rename atomgit origin
+git fetch origin
+git branch --set-upstream-to=origin/main main
+git config remote.pushDefault origin
+git config branch.main.pushRemote origin
 ```
 
 两个平台需要各自的登录凭据和推送权限；公开访问只代表可以查看和克隆，不代表任何人都能推送。团队开发分支和标签需要按需另外推送。
