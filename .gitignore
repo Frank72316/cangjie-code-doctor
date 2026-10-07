@@ -1,0 +1,33 @@
+# Build products
+/target/
+/build/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.obj
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+config.local.*
+
+# Logs, generated evaluation results and caches
+*.log
+/runs/
+/tmp/
+/cache/
+__pycache__/
+*.pyc
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
