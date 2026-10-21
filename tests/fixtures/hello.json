@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "trusted-development-capture",
+  "capturedAt": "2026-10-21T01:45:09.1098557Z",
+  "source": {
+    "name": "hello.cj",
+    "text": "main() {\n    println(\"Hello, Cangjie Code Doctor!\")\n}\n",
+    "sha256": "65fb68627ad591876357224b12af8618e2c5af3997c0e8bbbf9e4322f6d79845"
+  },
+  "compiler": {
+    "version": "Cangjie Compiler: 1.0.5 (cjnative)\r\nTarget: x86_64-w64-mingw32",
+    "inputName": "input.cj",
+    "arguments": [
+      "--diagnostic-format=json",
+      "--error-count-limit",
+      "8",
+      "input.cj",
+      "-o",
+      "program.exe"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "artifactCreated": true
+  },
+  "execution": {
+    "attempted": false,
+    "testStatus": "not_run"
+  }
+}

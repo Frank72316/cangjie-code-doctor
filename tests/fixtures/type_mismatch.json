@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "trusted-development-capture",
+  "capturedAt": "2026-10-21T01:45:07.9649287Z",
+  "source": {
+    "name": "type_mismatch.cj",
+    "text": "main() {\n    let count: Int64 = \"three\"\n    println(count)\n}\n",
+    "sha256": "59cb8d96def152e2c5e358ddeb7137426328b8b5652f36a6c8dc684ff2a53534"
+  },
+  "compiler": {
+    "version": "Cangjie Compiler: 1.0.5 (cjnative)\r\nTarget: x86_64-w64-mingw32",
+    "inputName": "input.cj",
+    "arguments": [
+      "--diagnostic-format=json",
+      "--error-count-limit",
+      "8",
+      "input.cj",
+      "-o",
+      "program.exe"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "{\r\n    \"Diags\":[\r\n            {\r\n                \"DiagKind\": \"sema_mismatched_types\",\r\n                \"Severity\": \"error\",\r\n                \"WarnGroup\": \"none\",\r\n                \"DiagCategory\": \"sema\",\r\n                \"Message\": \"mismatched types\",\r\n                \"Location\": {\r\n                    \"File\": \"input.cj\",\r\n                    \"Line\": 2,\r\n                    \"Column\": 24\r\n                },\r\n                \"MainHint\": {\r\n                    \"Content\": \"expected 'Int64', found 'Struct-String'\",\r\n                    \"Range\": {\r\n                        \"Begin\": {\r\n                            \"File\": \"input.cj\",\r\n                            \"Line\": 2,\r\n                            \"Column\": 24\r\n                        },\r\n                        \"End\": {\r\n                            \"File\": \"input.cj\",\r\n                            \"Line\": 2,\r\n                            \"Column\": 31\r\n                        }\r\n                    }\r\n                },\r\n                \"OtherHints\": [],\r\n                \"Notes\": [],\r\n                \"Helps\": []\r\n            }\r\n    ],\r\n    \"Num\":{\r\n        \"Errors\": 1,\r\n        \"PrintedErrors\": 1,\r\n        \"Warnings\": 0,\r\n        \"PrintedWarnings\": 0\r\n    }\r\n}\r\n",
+    "timedOut": false,
+    "artifactCreated": false
+  },
+  "execution": {
+    "attempted": false,
+    "testStatus": "not_run"
+  }
+}

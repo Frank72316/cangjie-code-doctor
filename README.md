@@ -2,7 +2,7 @@
 
 仓颉程序诊断与测试验证工具，面向大学仓颉课程中的单文件练习。通过稳定的诊断、修改和测试流程，开展探索性 A/B 实验，回答：**加入同版本官方文档检索，程序修复成功率是否发生变化？**
 
-当前处于开题与方案设计阶段。本仓库包含设计材料，尚无可运行实现、冻结案例集或实测结果。以下功能和实验均为计划，不代表已经完成。
+当前已开始 M1 基础诊断开发：仓颉诊断解析核心已编译通过，4 个自建样例已采集真实 cjc 输出，本地 Web 预览可定位、编辑副本及导出诊断记录。Windows 仓颉运行时存在启动崩溃，原生自检及实时编译接口尚未贯通；没有冻结案例集或 A/B 实测结果。完整功能清单仍为计划。
 
 主仓库：[AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)；同步副本：[GitHub](https://github.com/Frank72316/cangjie-code-doctor)。按课程要求，以主仓库作为提交与协作入口。
 
@@ -12,6 +12,30 @@
 - [项目说明与团队分工 PDF](docs/project-brief.pdf) · [文字版](docs/project-brief.md)
 - [A/B 实验协议](docs/experiment-protocol.md)：案例划分、冻结、候选选择、判定及结果呈现。
 - [与第三组的定位及合作说明](docs/positioning-and-collaboration.md)：各自的问题与证明方式，以及待协商的合作方向。
+- [开发进度](docs/progress.md)：本次交付、实际验证、阻塞及后续顺序。
+- [开发与复现](docs/development.md) · [Windows 环境排查](docs/environment.md)。
+
+## 运行当前预览
+
+在仓库目录的 PowerShell 中执行：
+
+```powershell
+./scripts/preview.ps1
+```
+
+然后打开 `http://127.0.0.1:8765`。脚本优先使用系统 Node.js，其次查找本机 Codex 已有的运行依赖；也可传 `-NodePath`。预览仅提供静态页面和仓库中已有的诊断记录，没有源码上传、实时编译或候选执行接口。导入的源码只在浏览器内形成副本。
+
+![当前开发预览：真实编译诊断及源码副本](docs/preview.png)
+
+Windows SDK 1.0.5 开发命令（SDK 路径换成自己的安装位置）：
+
+```powershell
+./scripts/build.ps1 -SdkRoot 'D:\Cangjie'
+./scripts/capture-examples.ps1 -SdkRoot 'D:\Cangjie'
+./scripts/test-native.ps1 -SdkRoot 'D:\Cangjie'
+```
+
+第三条在本机仍因运行时初始化崩溃而失败，不能当作通过。采集脚本仅编译清单中经过哈希核对的 4 个可信样例，不执行生成的程序。12 项预览契约检查可用 `node --test tests/viewer.test.mjs` 运行；这不代替仓颉原生测试。
 
 ## 工具与实验
 

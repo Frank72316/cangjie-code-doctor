@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Doctor · 仓颉诊断工作台</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Doctor 首页"><span class="brand-mark">D<span>+</span></span><b>DOCTOR</b><span class="brand-sub">仓颉程序诊断助手</span></a><span class="version">开发预览 · 0.1</span></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">CANGJIE CODE DOCTOR</p><h1>编译诊断工作台</h1><p class="lead">查看编译证据，定位问题，保留每一次判断的依据。</p></div><div class="phase"><span class="phase-dot"></span><div><strong>M1 基础诊断</strong><span>真实编译记录回放</span></div></div></div>
+    <div class="notice"><strong>当前可用</strong><span>查看已采集的样例诊断、导入源码副本、定位与导出记录。实时编译、AI 修复和测试执行尚未接入。</span></div>
+    <section class="sample-bar" aria-label="开发样例"><div><span class="small-label">从一个样例开始</span><p>人工审核的开发样例，不计入 A/B 评估。</p></div><div class="sample-buttons"><button data-case="type_mismatch" class="active">类型不匹配</button><button data-case="undefined_name">未定义名称</button><button data-case="argument_count">参数数量</button><button data-case="hello">正常程序</button></div></section>
+    <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+    <div class="workspace">
+      <section class="panel source-panel" aria-label="源码副本">
+        <div class="panel-head"><div><span class="step">01</span><h2>源码副本</h2></div><div class="actions"><button id="import-source">导入 .cj</button><button id="restore" title="恢复当前记录中的源码副本">恢复记录副本</button></div></div>
+        <div class="filebar"><span id="filename">载入中…</span><span id="source-state" class="tag">记录原文</span></div>
+        <div class="editor-wrap"><pre id="line-numbers" aria-hidden="true">1</pre><textarea id="source" aria-label="仓颉源码副本" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off"></textarea></div>
+        <div class="editor-footer"><span id="line-count">0 行 / 200 行</span><button id="save-source" class="text-button">下载当前副本 ↗</button></div>
+        <div class="source-note">编辑只发生在本页副本中；不会覆盖电脑上的原文件。</div>
+      </section>
+      <section class="panel diagnostic-panel" aria-label="编译诊断">
+        <div class="panel-head"><div><span class="step">02</span><h2>诊断结果</h2></div><span id="exit-code" class="mono muted">—</span></div>
+        <div class="result-header"><span id="compile-status" class="status">载入中</span><span class="behavior">行为未验证</span><p id="compile-detail"></p></div>
+        <div id="stale-notice" class="stale" hidden>源码已变化或已导入其他文件。下面的诊断仅属于原记录，定位已停用，当前副本尚未编译。</div>
+        <div id="diagnostics" class="diagnostics"></div>
+        <details class="raw"><summary>原始编译器输出 <span>保留完整日志</span></summary><h3>stderr</h3><pre id="stderr"></pre><h3>stdout</h3><pre id="stdout"></pre></details>
+      </section>
+    </div>
+    <section class="evidence panel" aria-label="记录依据"><div class="evidence-heading"><div><span class="step">03</span><h2>记录依据</h2></div><div class="actions"><button id="import-record">打开诊断记录</button><button id="export-record" class="primary">导出当前诊断记录</button></div></div><div class="evidence-grid"><div><span class="small-label">编译器</span><strong id="sdk">—</strong></div><div><span class="small-label">采集时间</span><strong id="captured">—</strong></div><div class="hash-block"><span class="small-label">记录源码 SHA-256</span><code id="source-hash">—</code></div></div><p class="evidence-note">导出内容保留采集时的源码与编译器日志。编辑后的副本请单独下载；没有生成修复建议或实验成绩。</p></section>
+    <footer><span>定位 → 依据 → 确认 → 验证</span><span>当前完成基础预览；同版本文档检索与受控实验待实现。</span></footer>
+  </main>
+  <input id="source-file" type="file" accept=".cj" hidden><input id="record-file" type="file" accept=".json" hidden>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>

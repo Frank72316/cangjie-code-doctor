@@ -1,0 +1,9 @@
+{
+  "purpose": "Individually reviewed, trusted development samples only. No imports or macros; compiled but never executed by the capture script.",
+  "sha256": {
+    "argument_count.cj": "5e6612766b92804ebb6313a2b5a5c58e10cecb23b2539856ee8e5c71130810f5",
+    "hello.cj": "65fb68627ad591876357224b12af8618e2c5af3997c0e8bbbf9e4322f6d79845",
+    "type_mismatch.cj": "59cb8d96def152e2c5e358ddeb7137426328b8b5652f36a6c8dc684ff2a53534",
+    "undefined_name.cj": "3a26df5460afd866ab9c6d13c60c13c596eda4a088036cc8c17a366aa703bddb"
+  }
+}

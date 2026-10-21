@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "trusted-development-capture",
+  "capturedAt": "2026-10-21T01:45:08.2665258Z",
+  "source": {
+    "name": "undefined_name.cj",
+    "text": "main() {\n    println(total)\n}\n",
+    "sha256": "3a26df5460afd866ab9c6d13c60c13c596eda4a088036cc8c17a366aa703bddb"
+  },
+  "compiler": {
+    "version": "Cangjie Compiler: 1.0.5 (cjnative)\r\nTarget: x86_64-w64-mingw32",
+    "inputName": "input.cj",
+    "arguments": [
+      "--diagnostic-format=json",
+      "--error-count-limit",
+      "8",
+      "input.cj",
+      "-o",
+      "program.exe"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "{\r\n    \"Diags\":[\r\n            {\r\n                \"DiagKind\": \"sema_undeclared_identifier\",\r\n                \"Severity\": \"error\",\r\n                \"WarnGroup\": \"none\",\r\n                \"DiagCategory\": \"sema\",\r\n                \"Message\": \"undeclared identifier 'total'\",\r\n                \"Location\": {\r\n                    \"File\": \"input.cj\",\r\n                    \"Line\": 2,\r\n                    \"Column\": 13\r\n                },\r\n                \"MainHint\": {\r\n                    \"Content\": \"\",\r\n                    \"Range\": {\r\n                        \"Begin\": {\r\n                            \"File\": \"input.cj\",\r\n                            \"Line\": 2,\r\n                            \"Column\": 13\r\n                        },\r\n                        \"End\": {\r\n                            \"File\": \"input.cj\",\r\n                            \"Line\": 2,\r\n                            \"Column\": 14\r\n                        }\r\n                    }\r\n                },\r\n                \"OtherHints\": [],\r\n                \"Notes\": [],\r\n                \"Helps\": []\r\n            }\r\n    ],\r\n    \"Num\":{\r\n        \"Errors\": 1,\r\n        \"PrintedErrors\": 1,\r\n        \"Warnings\": 0,\r\n        \"PrintedWarnings\": 0\r\n    }\r\n}\r\n",
+    "timedOut": false,
+    "artifactCreated": false
+  },
+  "execution": {
+    "attempted": false,
+    "testStatus": "not_run"
+  }
+}

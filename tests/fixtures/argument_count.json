@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "trusted-development-capture",
+  "capturedAt": "2026-10-21T01:45:08.5298819Z",
+  "source": {
+    "name": "argument_count.cj",
+    "text": "func add(a: Int64, b: Int64): Int64 {\n    a + b\n}\n\nmain() {\n    println(add(2))\n}\n",
+    "sha256": "5e6612766b92804ebb6313a2b5a5c58e10cecb23b2539856ee8e5c71130810f5"
+  },
+  "compiler": {
+    "version": "Cangjie Compiler: 1.0.5 (cjnative)\r\nTarget: x86_64-w64-mingw32",
+    "inputName": "input.cj",
+    "arguments": [
+      "--diagnostic-format=json",
+      "--error-count-limit",
+      "8",
+      "input.cj",
+      "-o",
+      "program.exe"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "{\r\n    \"Diags\":[\r\n            {\r\n                \"DiagKind\": \"sema_wrong_number_of_arguments\",\r\n                \"Severity\": \"error\",\r\n                \"WarnGroup\": \"none\",\r\n                \"DiagCategory\": \"sema\",\r\n                \"Message\": \"missing argument for parameter list '(Int64, Int64)' in call\",\r\n                \"Location\": {\r\n                    \"File\": \"input.cj\",\r\n                    \"Line\": 6,\r\n                    \"Column\": 16\r\n                },\r\n                \"MainHint\": {\r\n                    \"Content\": \"expected 2 arguments, found 1\",\r\n                    \"Range\": {\r\n                        \"Begin\": {\r\n                            \"File\": \"input.cj\",\r\n                            \"Line\": 6,\r\n                            \"Column\": 16\r\n                        },\r\n                        \"End\": {\r\n                            \"File\": \"input.cj\",\r\n                            \"Line\": 6,\r\n                            \"Column\": 19\r\n                        }\r\n                    }\r\n                },\r\n                \"OtherHints\": [],\r\n                \"Notes\": [\r\n                    {\r\n                        \"Message\": \"found candidate\",\r\n                        \"MainHint\": {\r\n                            \"Content\": \"\",\r\n                            \"Range\": {\r\n                                \"Begin\": {\r\n                                    \"File\": \"input.cj\",\r\n                                    \"Line\": 1,\r\n                                    \"Column\": 6\r\n                                },\r\n                                \"End\": {\r\n                                    \"File\": \"input.cj\",\r\n                                    \"Line\": 1,\r\n                                    \"Column\": 9\r\n                                }\r\n                            }\r\n                        },\r\n                        \"OtherHints\": [],\r\n                        \"Help\": null\r\n                    }\r\n                ],\r\n                \"Helps\": []\r\n            }\r\n    ],\r\n    \"Num\":{\r\n        \"Errors\": 1,\r\n        \"PrintedErrors\": 1,\r\n        \"Warnings\": 0,\r\n        \"PrintedWarnings\": 0\r\n    }\r\n}\r\n",
+    "timedOut": false,
+    "artifactCreated": false
+  },
+  "execution": {
+    "attempted": false,
+    "testStatus": "not_run"
+  }
+}
