@@ -31,3 +31,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Independent evaluation tests stay private until release review.
+/data/holdout/
