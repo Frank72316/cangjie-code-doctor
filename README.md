@@ -2,7 +2,7 @@
 
 仓颉程序诊断与测试验证工具，面向大学仓颉课程中的单文件练习。通过稳定的诊断、修改和测试流程，开展探索性 A/B 实验，回答：**加入同版本官方文档检索，程序修复成功率是否发生变化？**
 
-当前已开始 M1 基础诊断开发：仓颉诊断解析核心已编译通过，4 个自建样例已采集真实 cjc 输出，本地 Web 预览可定位、编辑副本及导出诊断记录。Windows 仓颉运行时存在启动崩溃，原生自检及实时编译接口尚未贯通；没有冻结案例集或 A/B 实测结果。完整功能清单仍为计划。
+当前为 0.2 开发版。固定 Linux SDK 1.0.5 下已实际跑通：仓颉核心编译审核样例 → 解析 cjc → 保存快照和记录 → 本地 Web 接口及历史读取；原生自检和 19 项前端/接口检查通过。本机 Windows 仍有运行时启动故障，页面会禁用本机编译并保留记录预览。任意源码编译、AI 修复、隔离验收和 A/B 实验尚未完成。
 
 主仓库：[AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)；同步副本：[GitHub](https://github.com/Frank72316/cangjie-code-doctor)。按课程要求，以主仓库作为提交与协作入口。
 
@@ -23,7 +23,7 @@
 ./scripts/preview.ps1
 ```
 
-然后打开 `http://127.0.0.1:8765`。脚本优先使用系统 Node.js，其次查找本机 Codex 已有的运行依赖；也可传 `-NodePath`。预览仅提供静态页面和仓库中已有的诊断记录，没有源码上传、实时编译或候选执行接口。导入的源码只在浏览器内形成副本。
+然后打开 `http://127.0.0.1:8765`。脚本优先使用系统 Node.js，其次查找本机 Codex 已有依赖；也可传 `-NodePath` 和 `-SdkRoot`。环境就绪时可重新编译四个审核样例，编译和记录由仓颉核心完成。导入/编辑的任意源码只在浏览器内形成副本，尚不提交编译；所有生成程序均不执行。
 
 ![当前开发预览：真实编译诊断及源码副本](docs/preview.png)
 
@@ -35,7 +35,7 @@ Windows SDK 1.0.5 开发命令（SDK 路径换成自己的安装位置）：
 ./scripts/test-native.ps1 -SdkRoot 'D:\Cangjie'
 ```
 
-第三条在本机仍因运行时初始化崩溃而失败，不能当作通过。采集脚本仅编译清单中经过哈希核对的 4 个可信样例，不执行生成的程序。12 项预览契约检查可用 `node --test tests/viewer.test.mjs` 运行；这不代替仓颉原生测试。
+第三条在本机 Windows 仍因运行时初始化崩溃而失败。Linux CI 已通过原生自检、样例编译及 HTTP 联调；详见 [Actions 记录](https://github.com/Frank72316/cangjie-code-doctor/actions)。19 项前端/接口检查可用 `node --test tests/viewer.test.mjs tests/bridge.test.mjs` 运行。Linux 本地启动方式见[开发说明](docs/development.md)。
 
 ## 工具与实验
 
