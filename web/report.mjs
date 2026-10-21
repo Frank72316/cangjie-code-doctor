@@ -1,5 +1,5 @@
-// Read-only development viewer. Production normalization lives in src/*.cj.
-// This adapter renders actual cjc captures while the native runtime is blocked.
+// New records consume native normalized diagnostics. Legacy captures retain a
+// read-only compatibility renderer; no compiler is launched from the browser.
 const encoder = new TextEncoder();
 export const MAX_REPORT_BYTES = 2 * 1024 * 1024;
 export const MAX_SOURCE_BYTES = 64 * 1024;
@@ -27,12 +27,35 @@ export async function readRecord(text) {
       typeof c.artifactCreated !== 'boolean') throw new Error('记录缺少有效的编译器状态。');
   if (encoder.encode(c.stdout + c.stderr).length > 1048576) throw new Error('编译器输出超过 1 MiB。');
   if (r.execution?.attempted !== false || r.execution?.testStatus !== 'not_run') throw new Error('此预览只支持未执行程序的开发记录。');
+  if (r.producer === 'cangjie-core') validateNormalized(r);
   return r;
+}
+function validateNormalized(r) {
+  const n = r.normalized, c = r.compiler;
+  if (!n || !['compile_passed','compile_failed','tool_error'].includes(n.status) ||
+      !['complete','partial','invalid','empty'].includes(n.parseState) || typeof n.detail !== 'string' ||
+      n.exitCode !== c.exitCode || n.rawDiagnostics !== c.stderr + c.stdout || n.testStatus !== 'not_run' || !Array.isArray(n.diagnostics))
+    throw new Error('仓颉结构化结果与原始证据不一致。');
+  for (const d of n.diagnostics) {
+    if (!d || !['code','severity','message','hint','file'].every(k => typeof d[k] === 'string') ||
+        !Number.isSafeInteger(d.line) || !Number.isSafeInteger(d.column) || d.line < 0 || d.column < 0)
+      throw new Error('仓颉诊断项无效。');
+  }
+  if ((n.status === 'compile_passed' && (c.exitCode !== 0 || !c.artifactCreated || n.diagnostics.some(d => d.severity === 'error'))) ||
+      (n.status === 'compile_failed' && c.exitCode !== 1) || (n.status !== 'tool_error' && c.timedOut))
+    throw new Error('仓颉结果状态与进程状态矛盾。');
 }
 export function compileView(record) {
   const c = record.compiler;
   const result = { status: 'tool_error', label: '工具异常', detail: '', diagnostics: [], parseState: 'invalid' };
   try {
+    if (record.producer === 'cangjie-core') {
+      validateNormalized(record);
+      const n = record.normalized;
+      return {...n, label:{compile_passed:'编译通过', compile_failed:'编译未通过', tool_error:'工具异常'}[n.status],
+        detail:n.detail || (n.status === 'compile_passed' ? '已生成编译产物；尚未运行程序或测试。' : '仓颉核心已解析编译器输出，可点击诊断定位。'),
+        diagnostics:n.diagnostics.map(d => ({...d, canLocate:d.file === c.inputName && d.line > 0 && d.line <= record.source.text.split('\n').length}))};
+    }
     if (c.timedOut) throw new Error('编译超时，不能据此判断源码是否正确。');
     if (c.exitCode < 0 || c.exitCode >= 128) throw new Error(`编译器异常退出（${c.exitCode}）。`);
     if (c.stdout.trim() && c.stderr.trim()) throw new Error('两个输出流均有内容，请查看原始日志。');

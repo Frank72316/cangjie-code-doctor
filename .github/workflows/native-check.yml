@@ -31,5 +31,6 @@ jobs:
           cjc -p src -o target/debug/doctor --diagnostic-format=noColor
           node scripts/test-native.mjs target/debug/doctor
           node scripts/test-compiler.mjs target/debug/doctor "$(command -v cjc)"
+          node scripts/test-native-http.mjs target/debug/doctor "$(command -v cjc)"
       - name: Viewer contract checks
-        run: node --test tests/viewer.test.mjs
+        run: node --test tests/*.test.mjs

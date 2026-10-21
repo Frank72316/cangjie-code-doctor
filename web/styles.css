@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.runtime-bar { display:flex; align-items:center; justify-content:space-between; gap:18px; background:#fff; border:1px solid #dce4df; border-radius:7px; padding:13px 18px; margin:0 0 18px; }
+.runtime-bar strong { font-size:12px; }
+.runtime-bar p { margin:4px 0 0; font-size:11px; color:#667a77; }
+.history-row { display:flex; gap:14px; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid #edf1eb; font-size:12px; }
+.history-row button { font-size:11px; }
+@media(max-width:650px) { .runtime-bar,.history-row { align-items:flex-start; flex-direction:column; } }
 :root {
   font-family:"Microsoft YaHei","PingFang SC",sans-serif;
   color:#173437;

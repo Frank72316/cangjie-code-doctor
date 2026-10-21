@@ -1,5 +1,10 @@
-param([string]$NodePath)
+param([string]$NodePath, [string]$SdkRoot = $env:CANGJIE_HOME)
 $ErrorActionPreference = 'Stop'
+if (-not $SdkRoot) {
+    $compilerCommand = Get-Command cjc -ErrorAction SilentlyContinue
+    if ($compilerCommand) { $SdkRoot = Split-Path -Parent (Split-Path -Parent $compilerCommand.Source) }
+}
+if ($SdkRoot -and (Test-Path -LiteralPath (Join-Path $SdkRoot 'envsetup.ps1'))) { . (Join-Path $SdkRoot 'envsetup.ps1') }
 if (-not $NodePath) {
     $nodeCommand = Get-Command node -ErrorAction SilentlyContinue
     if ($nodeCommand) { $NodePath = $nodeCommand.Source }
