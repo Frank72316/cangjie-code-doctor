@@ -109,7 +109,7 @@ cjc 1.0.5 的正常样例成功编译时输出为空，错误 JSON 位于 stderr
 
 ## 验证与后续
 
-Linux 的原生运行及完整 HTTP 链路已在[检查记录 39534258780](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39534258780)通过。自动检查只运行公开的自建开发输入，不访问保留测试或任何密钥，也不是 A/B 实验。
+Linux 的原生运行及完整 HTTP 链路已在[检查记录 39534258780](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39534258780)通过。0.3 新增的真实编译器启动失败及任务记录检查也在[39536799153](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39536799153)通过（提交 `882a53d`，当时为 32 项前端/接口检查；后续本地补充至 33 项）。自动检查只运行公开的自建开发输入，不访问保留测试或任何密钥，也不是 A/B 实验。
 
 0.3 本地增加了失败持久化、取消竞态、服务中断、损坏与超大记录、写盘失败、HTTP 断连和目录边界检查；浏览器中也验证了一次真实 Windows 启动失败的详情展开与 JSON 导出。故障注入输入明确标识为测试，均不计入 A/B。
 
