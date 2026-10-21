@@ -1,4 +1,5 @@
 import { readRecord, compileView, sourceIsCurrent, validateSource, lineRange, MAX_REPORT_BYTES, MAX_SOURCE_BYTES } from './report.mjs';
+import { validateTask, taskLabel } from './task.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
 let currentName = '';
@@ -7,6 +8,8 @@ let health = {available:false};
 let selectedCase = null;
 let compiling = false;
 let compileController = null;
+let historyTimer = null;
+let historyRequest = 0;
 function feedback(message = '') { $('feedback').textContent = message; $('feedback').hidden = !message; }
 function element(tag, text, className) { const e = document.createElement(tag); e.textContent = text; if (className) e.className = className; return e; }
 function current() { return sourceIsCurrent(record, currentName, $('source').value); }
@@ -20,7 +23,8 @@ function refreshSource() {
   $('source-state').classList.toggle('changed', !current());
   $('stale-notice').hidden = !record || current();
   for (const b of document.querySelectorAll('[data-location]')) b.disabled = !current();
-  $('compile-example').disabled = !health.available || !selectedCase || !current() || compiling;
+  $('compile-example').disabled = !health.available || !selectedCase || !current() || compiling || health.busy;
+  $('refresh-health').disabled = compiling || health.busy;
   $('compile-example').textContent = compiling ? '正在编译…' : '重新编译此样例';
   $('cancel-compile').hidden = !compiling;
   document.querySelectorAll('[data-case]').forEach(b => b.disabled = compiling);
@@ -130,23 +134,59 @@ async function refreshHealth(recheck = false) {
   refreshSource();
 }
 async function refreshHistory() {
+  const request = ++historyRequest;
+  clearTimeout(historyTimer);
   try {
     if (!health.token) { $('history').replaceChildren(element('p','当前服务未启用本机任务历史。','small-label')); return; }
     const response = await fetch('/api/history', {headers:{'X-Doctor-Token':health.token}});
     if (!response.ok) throw new Error('无法读取本机任务历史。');
     const data = await response.json();
-    const records = await Promise.all(data.records.map(r => readRecord(JSON.stringify(r))));
-    $('history').replaceChildren();
-    for (const item of records) {
-      const row = element('div','', 'history-row');
-      const view = compileView(item);
-      row.append(element('span',`${item.source.name} · ${view.label}`), element('span',item.capturedAt,'small-label'));
-      const load = element('button','载入记录副本');
-      load.addEventListener('click', () => { ++loading; selectedCase = null; showRecord(item); document.querySelectorAll('[data-case]').forEach(b => b.classList.remove('active')); });
-      row.append(load); $('history').append(row);
+    const tasks = []; let unreadable = data.unreadable || 0;
+    for (const item of data.tasks) {
+      try {
+        validateTask(item);
+        if (item.record) item.record = await readRecord(JSON.stringify(item.record));
+        tasks.push(item);
+      } catch { unreadable++; }
     }
-    if (!records.length) $('history').append(element('p','本机还没有完成的仓颉编译任务。上方四个样例来自已保存的开发记录。','small-label'));
-  } catch (e) { $('history').replaceChildren(element('p',e.message,'small-label')); }
+    if (request !== historyRequest) return;
+    health.busy = data.busy; refreshSource();
+    const expanded = new Set([...document.querySelectorAll('[data-task-detail][open]')].map(e=>e.dataset.taskDetail));
+    $('history').replaceChildren();
+    for (const item of tasks) {
+      const card = element('article','', 'history-card');
+      const row = element('div','', 'history-row');
+      const info = element('div','', 'history-info');
+      info.append(element('strong',`${item.caseId}.cj · ${taskLabel(item)}`),element('span',item.startedAt,'small-label'));
+      const actions = element('div','', 'actions');
+      if (item.record) {
+        const load = element('button',item.state === 'completed' ? '载入记录副本' : '查看已保存诊断');
+        load.addEventListener('click', () => { ++loading; selectedCase = null; showRecord(item.record);
+          document.querySelectorAll('[data-case]').forEach(b => b.classList.remove('active'));
+          if (item.state !== 'completed') feedback('已载入当时保存的诊断；任务状态仍为“' + taskLabel(item) + '”，以历史记录为准。'); });
+        actions.append(load);
+      }
+      const save = element('button','导出任务记录');
+      save.addEventListener('click',()=>download(`doctor-task-${item.taskId}.json`,JSON.stringify(item,null,2),'application/json'));
+      actions.append(save); row.append(info,actions);
+      const detail = element('details','', 'task-detail'); detail.dataset.taskDetail = item.taskId; detail.open = expanded.has(item.taskId);
+      detail.append(element('summary','任务详情与日志'),element('p',item.detail),element('p',`任务编号：${item.taskId}`,'mono'),
+        element('p',`结束时间：${item.finishedAt || '未确认'} · 原因：${item.reason || '正常完成'}`,'small-label'));
+      if (item.process) {
+        detail.append(element('p',`核心退出码：${item.process.exitCode ?? '未返回'} · 信号：${item.process.signal || '无'}`,'small-label'));
+      }
+      const logs = {...(item.logs || {})};
+      if (item.process) { logs['核心 stdout'] = item.process.stdout; logs['核心 stderr'] = item.process.stderr; }
+      for (const [name,log] of Object.entries(logs)) {
+        if (!log || typeof log.text !== 'string') continue;
+        detail.append(element('h3',name + (log.truncated ? '（仅保留前 16 KiB）' : '')),element('pre',log.text || '（空）'));
+      }
+      card.append(row,detail); $('history').append(card);
+    }
+    if (unreadable) $('history').prepend(element('p',`${unreadable} 份任务或诊断文件无法完整读取，原文件已保留；不能将缺失结果计为成功。`,'history-warning'));
+    if (!tasks.length) $('history').append(element('p','本机还没有可显示的编译任务。发起任务后，完成、异常、取消和超时都会留在这里。','small-label'));
+    if (data.busy) historyTimer = setTimeout(refreshHistory,1000);
+  } catch (e) { if (request === historyRequest) $('history').replaceChildren(element('p',e.message,'small-label')); }
 }
 $('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await refreshHistory(); });
 $('refresh-history').addEventListener('click', refreshHistory);
@@ -155,7 +195,8 @@ $('compile-example').addEventListener('click', async () => {
   if (!selectedCase || !current() || !health.available || compiling) return;
   const sourceAtStart = $('source').value, nameAtStart = currentName, caseAtStart = selectedCase;
   const ticket = ++loading;
-  compiling = true; compileController = new AbortController(); refreshSource(); feedback('正在由仓颉核心编译审核样例，不会运行生成的程序。');
+  compiling = true; health.busy = true; compileController = new AbortController(); refreshSource(); feedback('正在由仓颉核心编译审核样例，不会运行生成的程序。');
+  historyTimer = setTimeout(refreshHistory,500);
   try {
     const response = await fetch('/api/compile-example', {method:'POST', headers:{'Content-Type':'application/json','X-Doctor-Token':health.token},
       body:JSON.stringify({caseId:caseAtStart}), signal:compileController.signal});
@@ -165,7 +206,7 @@ $('compile-example').addEventListener('click', async () => {
     if (ticket === loading && currentName === nameAtStart && $('source').value === sourceAtStart) {
       selectedCase = caseAtStart; showRecord(result); feedback('已完成本次编译，诊断及源码快照已写入本机历史。');
     } else { feedback('本次编译已保存到历史。当前副本已有变化，因此保留你的编辑。'); }
-  } catch (e) { feedback(e.name === 'AbortError' ? '已请求取消。未把该任务记为成功，部分排查日志可能已保留。' : e.message); }
+  } catch (e) { feedback(e.name === 'AbortError' ? '已请求取消，正在确认最终状态；若任务先完成，会保留实际结果。请查看下方历史。' : e.message); }
   finally { compiling = false; compileController = null; refreshSource(); await refreshHistory(); }
 });
 loadCase('type_mismatch');

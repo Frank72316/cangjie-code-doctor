@@ -15,6 +15,16 @@ try {
   assert.equal(record.producer,'cangjie-core'); assert.equal(compileView(record).status,'compile_failed');
   assert.equal(record.normalized.diagnostics[0].line,2);
   const history = await (await fetch(base+'/api/history',{headers:{'X-Doctor-Token':health.token}})).json();
-  assert.ok(history.records.some(r=>r.taskId===record.taskId));
+  assert.ok(history.tasks.some(t=>t.taskId===record.taskId && t.state==='completed' && t.record.taskId===record.taskId));
+  // Actual native error after a successful probe (compiler removed/misconfigured).
+  bridge.compiler = resolve('runs/missing-compiler-for-fault-check');
+  const failure = await fetch(base+'/api/compile-example',{method:'POST',headers:{'Content-Type':'application/json','X-Doctor-Token':health.token},body:JSON.stringify({caseId:'hello'})});
+  assert.equal(failure.status,500);
+  const error = await failure.json(); assert.equal(error.taskState,'failed');
+  const failedHistory = await (await fetch(base+'/api/history',{headers:{'X-Doctor-Token':health.token}})).json();
+  const failed = failedHistory.tasks.find(t=>t.taskId===error.taskId);
+  assert.equal(failed.state,'failed'); assert.equal(failed.process.exitCode,3); assert.equal(failed.record,undefined);
+  assert.ok(failed.process.stdout.text.includes('tool_error'));
   console.log('PASS HTTP → Cangjie → cjc → native normalization → browser record contract → persisted history');
+  console.log('PASS actual native launch error → failed task journal → HTTP history');
 } finally { await new Promise(r=>server.close(r)); }

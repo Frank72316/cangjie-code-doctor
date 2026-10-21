@@ -10,6 +10,7 @@ const routes = new Map([
   ['/styles.css', ['web/styles.css', 'text/css; charset=utf-8']],
   ['/app.mjs', ['web/app.mjs', 'text/javascript; charset=utf-8']],
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],
+  ['/task.mjs', ['web/task.mjs', 'text/javascript; charset=utf-8']],
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
@@ -37,7 +38,7 @@ export function makeServer({bridge = null} = {}) {
           if (bridge.busy) { send(409, {error:'正在编译，请稍后检查环境。'}); return; }
           send(200, {...await bridge.probe(), token:bridge.token, busy:bridge.busy}); return;
         }
-        if (req.method === 'GET' && req.url === '/api/history') { send(200, {records:await bridge.history()}); return; }
+        if (req.method === 'GET' && req.url === '/api/history') { send(200, {...await bridge.history(),busy:bridge.busy}); return; }
         if (req.method === 'POST' && req.url === '/api/compile-example') {
           if (req.headers['content-type'] !== 'application/json') { send(415, {error:'Expected JSON'}); return; }
           let body = '', bytes = 0;
@@ -48,12 +49,13 @@ export function makeServer({bridge = null} = {}) {
           const controller = new AbortController();
           const cancel = () => { if (!res.writableEnded) controller.abort(); };
           res.on('close', cancel);
+          if (res.destroyed) controller.abort();
           try { send(200, await bridge.compile(input.caseId, controller.signal)); }
           finally { res.removeListener('close', cancel); }
           return;
         }
         send(404, {error:'Unknown API'}); return;
-      } catch (e) { send(e.status || 500, {error:e.message}); return; }
+      } catch (e) { send(e.status || 500, {error:e.message,taskId:e.taskId,taskState:e.taskState}); return; }
     }
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, {...headers, Allow: 'GET, HEAD'}).end(); return; }
     const route = routes.get(req.url?.split('?')[0]);

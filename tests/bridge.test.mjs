@@ -27,7 +27,7 @@ test('a claimed native pass cannot override a failing compiler', async () => {
 });
 test('transport rejects foreign origin, host, missing token, source text and unknown case', async t => {
   let called = 0;
-  const bridge = {health:{available:true}, token:'test-token', busy:false, history:async()=>[],
+  const bridge = {health:{available:true}, token:'test-token', busy:false, history:async()=>({tasks:[],unreadable:0}),
     compile:async()=>{called++; return nativeRecord();}};
   const server = makeServer({bridge}); await new Promise(r=>server.listen(0,'127.0.0.1',r));
   t.after(()=>new Promise(r=>server.close(r)));
@@ -73,5 +73,6 @@ test('history includes only complete matching native tasks', async () => {
   await mkdir(join(root,'runs/native','b'.repeat(32)),{recursive:true});
   await writeFile(join(root,'runs/native','b'.repeat(32),'record.pending.json'),'{');
   const bridge = new NativeBridge({root}); const history = await bridge.history();
-  assert.equal(history.length,1); assert.equal(history[0].taskId,r.taskId);
+  assert.equal(history.tasks.length,1); assert.equal(history.tasks[0].taskId,r.taskId);
+  assert.equal(history.unreadable,1);
 });

@@ -4,6 +4,15 @@
 .runtime-bar p { margin:4px 0 0; font-size:11px; color:#667a77; }
 .history-row { display:flex; gap:14px; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid #edf1eb; font-size:12px; }
 .history-row button { font-size:11px; }
+.history-card { padding:12px 0; border-bottom:1px solid #edf1eb; }
+.history-row { padding:0 0 8px; border:0; }
+.history-info { min-width:0; overflow-wrap:anywhere; }
+.task-detail { font-size:12px; color:#667a77; }
+.task-detail summary { cursor:pointer; color:#166859; }
+.task-detail h3 { font-size:11px; }
+.task-detail pre { max-height:180px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; padding:10px; background:#f3f5f1; font:11px/1.6 Consolas,monospace; }
+.task-detail p { overflow-wrap:anywhere; }
+.history-warning { padding:10px; color:#8e642b; background:#fff1d8; font-size:12px; border-radius:5px; }
 @media(max-width:650px) { .runtime-bar,.history-row { align-items:flex-start; flex-direction:column; } }
 :root {
   font-family:"Microsoft YaHei","PingFang SC",sans-serif;
