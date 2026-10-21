@@ -1,0 +1,34 @@
+name: Doctor native and viewer checks
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: doctor-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux-native:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install verified official SDK 1.0.5
+        run: bash scripts/install-ci-sdk.sh "$RUNNER_TEMP/doctor-sdk"
+      - name: Compile and execute native checks
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
+          cjc --version
+          mkdir -p target/debug
+          cjc -p src -o target/debug/doctor --diagnostic-format=noColor
+          node scripts/test-native.mjs target/debug/doctor
+      - name: Viewer contract checks
+        run: node --test tests/viewer.test.mjs
