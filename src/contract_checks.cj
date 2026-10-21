@@ -20,6 +20,8 @@ func runSelfTests(): Int64 {
         check(failed.diagnostics[0].line == 2 && failed.diagnostics[0].column == 24, "coordinates")
         check(CompileResult(0, raw).status == "tool_error", "contradictory exit code")
         check(CompileResult(-1073741819, raw).status == "tool_error", "crash with stale JSON")
+        check(CompileResult(11, raw).status == "tool_error", "POSIX signal is not a compiler diagnostic exit")
+        check(!validTaskId("../../other") && validTaskId("0123456789abcdef0123456789abcdef"), "task ID boundary")
         check(CompileResult(0, "{}").status == "tool_error", "missing compiler fields")
         check(CompileResult(1, "{\"Diags\":[],\"Num\":{\"Errors\":2}}").parseState == "partial", "missing diagnostics are partial")
         check(CompileResult(0, "{\"Diags\":[],\"Num\":{\"Errors\":999999999999999999999999}}").status == "tool_error", "overflow does not become zero")

@@ -66,7 +66,7 @@ export function compileView(record) {
     if (c.exitCode === 0 && errors === 0 && !incomplete && c.artifactCreated) {
       result.status = 'compile_passed'; result.label = '编译通过';
       result.detail = '已生成编译产物；尚未运行程序或测试。';
-    } else if (c.exitCode > 0 && errors > 0) {
+    } else if (c.exitCode === 1 && errors > 0) {
       result.status = 'compile_failed'; result.label = '编译未通过';
       result.detail = incomplete ? '部分诊断未完整解析，请同时检查原始日志。' : `编译器报告 ${errors} 个错误，可点击诊断定位。`;
     } else { throw new Error('退出码、诊断或编译产物不一致，不能确认为正常编译。'); }

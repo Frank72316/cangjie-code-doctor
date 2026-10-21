@@ -2,7 +2,7 @@
 cjc-version = "1.0.5"
 name = "doctor"
 description = "Cangjie diagnostic records and trusted example compiler"
-version = "0.1.0"
+version = "0.2.0"
 output-type = "executable"
 src-dir = "src"
 target-dir = "target"

@@ -68,7 +68,7 @@ class CompileResult {
             parseState = if (incomplete) { "partial" } else { "complete" }
             if (exitCode == 0 && errorCount == 0 && !incomplete) {
                 status = "compile_passed"
-            } else if (exitCode > 0 && exitCode < 128 && errorCount > 0) {
+            } else if (exitCode == 1 && errorCount > 0) {
                 status = "compile_failed"
             } else {
                 detail = "Compiler exit status and diagnostics do not confirm a normal compilation"
