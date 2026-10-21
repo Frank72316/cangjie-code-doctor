@@ -121,9 +121,14 @@ $('export-record').addEventListener('click', () => { if (record) download(record
 async function refreshHealth(recheck = false) {
   $('refresh-health').disabled = true;
   try {
-    const response = recheck && health.token ? await fetch('/api/probe', {method:'POST', headers:{'X-Doctor-Token':health.token}}) : await fetch('/api/health');
+    let response = await fetch('/api/health');
     if (!response.ok) throw new Error('环境接口不可用。');
     health = await response.json();
+    if (recheck && health.token && !health.busy) {
+      response = await fetch('/api/probe', {method:'POST',headers:{'X-Doctor-Token':health.token}});
+      if (!response.ok) throw new Error('环境接口不可用。');
+      health = await response.json();
+    }
     $('runtime-title').textContent = health.available ? '本机编译已就绪' : '本机编译暂不可用';
     $('runtime-detail').textContent = health.detail;
   } catch {
@@ -186,7 +191,12 @@ async function refreshHistory() {
     if (unreadable) $('history').prepend(element('p',`${unreadable} 份任务或诊断文件无法完整读取，原文件已保留；不能将缺失结果计为成功。`,'history-warning'));
     if (!tasks.length) $('history').append(element('p','本机还没有可显示的编译任务。发起任务后，完成、异常、取消和超时都会留在这里。','small-label'));
     if (data.busy) historyTimer = setTimeout(refreshHistory,1000);
-  } catch (e) { if (request === historyRequest) $('history').replaceChildren(element('p',e.message,'small-label')); }
+  } catch (e) {
+    if (request === historyRequest) {
+      $('history').replaceChildren(element('p',e.message + ' 可点击“检查环境”重新连接服务。','small-label'));
+      health.busy = false; refreshSource();
+    }
+  }
 }
 $('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await refreshHistory(); });
 $('refresh-history').addEventListener('click', refreshHistory);

@@ -155,6 +155,15 @@ test('corrupt completion cannot hide other tasks or be silently shown as success
   assert.equal(history.tasks.find(t=>t.taskId===first.taskId).state,'failed');
 });
 
+test('a corrupt task receipt cannot fall back to a successful legacy task', async () => {
+  const root = await workspace(), store = new TaskStore(root), id = 'f'.repeat(32);
+  const task = await store.begin(id,'hello');
+  await publish(['compile-example',root,'unused','hello',id,task.startedAt]);
+  await writeFile(join(root,'runs/tasks',id,'start.json'),'{');
+  const history = await store.history();
+  assert.equal(history.tasks.length,0); assert.equal(history.unreadable,1);
+});
+
 test('task storage refuses a runs junction outside the selected repository', async () => {
   const root = await workspace(), outside = await workspace();
   await symlink(outside,join(root,'runs'),process.platform==='win32'?'junction':'dir');

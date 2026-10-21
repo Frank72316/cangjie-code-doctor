@@ -92,11 +92,12 @@ export class TaskStore {
     return logs;
   }
   async history(active = new Set()) {
-    const tasks = new Map(); let unreadable = 0;
+    const tasks = new Map(), journalIds = new Set(); let unreadable = 0;
     try {
       const parent = await this.directory('tasks');
       for (const entry of await readdir(parent,{withFileTypes:true})) {
         if (!entry.isDirectory() || !validTaskId(entry.name)) continue;
+        journalIds.add(entry.name);
         const directory = join(parent,entry.name);
         try {
           const start = validateTask(JSON.parse((await boundedRead(join(directory,'start.json'),directory,META_LIMIT)).text));
@@ -116,6 +117,7 @@ export class TaskStore {
               unknown:'缺少可确认的最终状态；原服务可能仍在运行，未自动重试或终止其他进程。'
             }[state]};
           }
+          delete task.record; // Diagnostics are loaded only from the validated native file.
           tasks.set(task.taskId,task);
         } catch { unreadable++; }
       }
@@ -124,7 +126,7 @@ export class TaskStore {
     try {
       const parent = await this.directory('native');
       for (const entry of await readdir(parent,{withFileTypes:true})) {
-        if (!entry.isDirectory() || !validTaskId(entry.name) || tasks.has(entry.name)) continue;
+        if (!entry.isDirectory() || !validTaskId(entry.name) || journalIds.has(entry.name)) continue;
         try {
           const r = await this.record(entry.name);
           tasks.set(entry.name,{schemaVersion:1,kind:'doctor-task',taskId:entry.name,caseId:r.source.name.replace(/\.cj$/,''),
@@ -138,6 +140,7 @@ export class TaskStore {
       try { task.record = await this.record(task.taskId,task.caseId); }
       catch (e) {
         if (task.state === 'completed') { task.state = 'unknown'; task.reason = 'record_unavailable'; task.detail = '最终状态存在，但诊断记录缺失或校验失败；不能确认编译结果。'; unreadable++; }
+        else if (e.code !== 'ENOENT') { unreadable++; task.detail += ' 另有诊断文件未通过校验，已保留原文件。'; }
       }
       if (['interrupted','unknown'].includes(task.state)) task.logs = await this.logs(task.taskId);
     }
