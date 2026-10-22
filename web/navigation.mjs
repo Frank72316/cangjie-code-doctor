@@ -19,6 +19,7 @@ export function initNavigation() {
     return byPath.get(url.pathname === '/' ? PAGE_ROUTES[0].path : url.pathname) ?? null;
   };
   const render = route => {
+    document.querySelectorAll('.action-menu[open]').forEach(menu => { menu.open = false; });
     document.body.dataset.page = route.path.slice(1);
     for (const page of document.querySelectorAll('[data-page-view]')) page.hidden = page.id !== route.id;
     for (const link of document.querySelectorAll('.nav-item[data-route]')) {

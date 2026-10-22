@@ -75,7 +75,7 @@ test('static preview serves only listed assets and has no compile or upload endp
   const server = makeServer(); await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   t.after(() => new Promise(resolve => server.close(resolve)));
   const base = `http://127.0.0.1:${server.address().port}`;
-  const page = await fetch(base); assert.equal(page.status, 200); assert.match(await page.text(), /编译诊断工作台/);
+  const page = await fetch(base); assert.equal(page.status, 200); assert.match(await page.text(), /id="main-content"/);
   assert.match(page.headers.get('content-security-policy'), /script-src 'self'/);
   assert.equal((await fetch(base + '/fixtures/type_mismatch.json')).status, 200);
   for (const path of ['/../../README.md', '/%2e%2e/.git/config', '/runs/', '/compile', '/.env'])

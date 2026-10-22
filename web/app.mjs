@@ -7,6 +7,7 @@ let currentName = '';
 let loading = 0;
 let health = {available:false};
 let selectedCase = null;
+let loadingSample = false;
 let compiling = false;
 let compileController = null;
 let historyTimer = null;
@@ -23,10 +24,7 @@ function displayTime(value) {
   return Number.isFinite(date.getTime()) ? new Intl.DateTimeFormat('zh-CN', {timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(date) : '未记录';
 }
 function selectSample(name) {
-  document.querySelectorAll('[data-case]').forEach(button => {
-    const active = button.dataset.case === name;
-    button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active));
-  });
+  $('sample-select').value = name || '';
 }
 function current() { return sourceIsCurrent(record, currentName, $('source').value); }
 function documentStatus(message, state = 'idle') {
@@ -40,13 +38,14 @@ function resetDocumentEvidence(clearQuery = false) {
   $('document-evidence-footer').hidden = true; $('document-export-note').hidden = true;
   $('document-metadata').open = false;
   if (clearQuery) $('document-query').value = '';
+  refreshQueryHint();
   documentStatus('当前记录尚未检索。');
 }
 function refreshDocumentControls() {
   const sameSource = current();
   if (!sameSource && (retrievingDocuments || documentEvidence)) resetDocumentEvidence();
-  const ready = health.available && health.token && record && sameSource && !compiling && !health.busy;
-  $('compile-example').disabled = !health.available || !selectedCase || !sameSource || compiling || health.busy || retrievingDocuments;
+  const ready = health.available && health.token && record && sameSource && !compiling && !health.busy && !loadingSample;
+  $('compile-example').disabled = !health.available || !selectedCase || !sameSource || compiling || health.busy || retrievingDocuments || loadingSample;
   $('refresh-health').disabled = compiling || health.busy || retrievingDocuments;
   $('retrieve-documents').disabled = !ready || retrievingDocuments;
   $('retrieve-documents').textContent = retrievingDocuments ? '正在检索…' : '检索文档';
@@ -56,10 +55,15 @@ function refreshDocumentControls() {
   if (!record) documentStatus('载入诊断记录后可检索。');
   else if (!sameSource) documentStatus('源码副本已变化，原诊断对应的检索依据已清除。恢复记录原文后可重新检索。', 'changed');
   else if (!retrievingDocuments && !documentEvidence && $('document-status').dataset.state !== 'error') {
-    if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪，无法进行本机文档检索。请到编译诊断页点击“检查环境”重试。');
+    if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪。请到编译诊断页展开环境详情，点击“检查环境”重试。');
     else if (compiling || health.busy) documentStatus('本机任务进行中，完成后可检索文档。');
     else documentStatus('留空即可按当前诊断检索；也可输入关键词。检索范围为本机文档快照。');
   }
+}
+function refreshQueryHint() {
+  const custom = Boolean($('document-query').value.trim());
+  $('query-indicator').hidden = !custom;
+  document.querySelector('.primary-search p').textContent = custom ? '将使用你填写的自定义关键词。清空后可按当前报错检索。' : '直接使用当前诊断，无需填写关键词。';
 }
 function officialDocumentURL(value) {
   const url = new URL(value);
@@ -84,19 +88,20 @@ async function validateDocumentEvidence(data, sourceRecord, sourceRecordJSON) {
   }
 }
 function renderDocumentEvidence(data) {
-  const usedQuery = element('div', '', 'document-used-query');
-  usedQuery.append(element('span', data.queryOrigin === 'manual' ? '本次手动查询' : '本次查询', 'small-label'),
+  const usedQuery = element('details', '', 'document-used-query');
+  usedQuery.append(element('summary', data.queryOrigin === 'manual' ? '查看本次使用的关键词' : '查看本次使用的报错'),
     element('p', data.query || '（当前诊断没有可用于检索的文字）'));
   $('document-results').replaceChildren(usedQuery);
   for (const [index, result] of data.results.entries()) {
     const card = element('article', '', 'document-card');
-    const heading = element('div', '', 'document-card-heading');
-    const title = element('h3', '');
-    const link = element('a', result.title + ' ↗');
+    const reading = element('details', '', 'document-reading'); reading.open = index === 0;
+    const heading = element('summary', '', 'document-card-heading');
+    const title = element('h3', result.title);
+    const link = element('a', '查看官方完整原文 ↗', 'document-source-link');
     link.href = officialDocumentURL(result.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
-    title.append(link); heading.append(element('span', String(index + 1).padStart(2, '0'), 'document-number'), title);
+    heading.append(element('span', String(index + 1).padStart(2, '0'), 'document-number'), title, element('span', '原文摘录', 'document-toggle'));
     const details = element('details', '', 'document-score');
-    details.append(element('summary', '匹配信息'), element('p', `BM25 匹配分数：${result.score.toFixed(4)}。分数用于当前查询内的排序，不是正确率或置信度。`),
+    details.append(element('summary', '来源、许可与匹配信息'), element('p', `BM25 匹配分数：${result.score.toFixed(4)}。分数用于当前查询内的排序，不是正确率或置信度。`),
       element('p', `条目：${result.id}`));
     const attribution = element('div', '', 'document-attribution');
     const license = element('a', 'CC BY 4.0');
@@ -104,7 +109,11 @@ function renderDocumentEvidence(data) {
     attribution.append(element('span', '仓颉官方文档贡献者 · '), license,
       element('p', 'Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.'),
       element('p', '原文逐字摘录，仅裁去首尾空白、统一换行；未翻译或改写。引用不代表上游作者认可或担保本工具。'));
-    card.append(heading, element('p', result.section, 'document-section'), element('p', result.text, 'document-excerpt'), attribution, details);
+    details.append(attribution);
+    const excerpt = element('p', result.text, 'document-excerpt');
+    excerpt.tabIndex = 0; excerpt.setAttribute('aria-label', '官方文档摘录，可滚动查看全文');
+    reading.append(heading, element('p', result.section + ' · 长摘录可滚动阅读', 'document-section'), excerpt, link, details);
+    card.append(reading);
     $('document-results').append(card);
   }
   const meta = [
@@ -141,12 +150,22 @@ function refreshSource() {
   for (const b of document.querySelectorAll('[data-location]')) b.disabled = !current();
   $('compile-example').disabled = !health.available || !selectedCase || !current() || compiling || health.busy;
   $('refresh-health').disabled = compiling || health.busy;
-  $('compile-example').textContent = compiling ? '正在编译…' : '重新编译此样例';
+  $('compile-example').textContent = compiling ? '正在编译…' : '编译所选样例';
   $('cancel-compile').hidden = !compiling;
-  document.querySelectorAll('[data-case]').forEach(b => b.disabled = compiling);
+  $('sample-select').disabled = compiling || loadingSample;
+  $('restore').hidden = !record || current();
+  $('compile-guidance').textContent = loadingSample ? '正在载入样例…' :
+    !record ? '尚未载入诊断，请从上方选择一个样例重试。' :
+    !current() ? '副本已修改，暂不能编译。请先下载修改，或点击源码下方的“恢复记录副本”。' :
+    !selectedCase ? '当前为导入或历史记录。要发起新编译，请从上方选择审核样例。' :
+    compiling || health.busy ? '本机任务进行中，请等待完成。' :
+    retrievingDocuments ? '文档正在检索，完成后可编译。' :
+    !health.available ? '编译环境暂不可用，请展开下方环境详情。已有记录仍可浏览。' :
+    '当前展示已采集记录；点击编译，获取本次结果。';
   refreshDocumentControls();
 }
 function showRecord(r) {
+  loadingSample = false;
   resetDocumentEvidence(true);
   record = r; currentName = r.source.name; $('source').value = r.source.text;
   const view = compileView(r);
@@ -187,8 +206,10 @@ function showRecord(r) {
   refreshSource(); feedback();
 }
 async function loadCase(name) {
+  loadingSample = true;
   resetDocumentEvidence(true); refreshDocumentControls();
   const ticket = ++loading;
+  refreshSource();
   try {
     const response = await fetch(`/fixtures/${name}.json`);
     if (!response.ok) throw new Error('未能读取样例记录，请先运行采集脚本。');
@@ -196,7 +217,8 @@ async function loadCase(name) {
     if (ticket !== loading) return;
     selectedCase = name; showRecord(r);
     selectSample(name);
-  } catch (e) { if (ticket === loading) feedback(e.message); }
+  } catch (e) { if (ticket === loading) { selectSample(selectedCase); feedback(e.message); } }
+  finally { if (ticket === loading) { loadingSample = false; refreshSource(); } }
 }
 function download(name, text, type) {
   const url = URL.createObjectURL(new Blob([text], {type}));
@@ -207,17 +229,25 @@ async function fileText(file, limit) {
   if (file.size > limit) throw new Error('文件过大，未载入。');
   return new TextDecoder('utf-8', {fatal: true}).decode(await file.arrayBuffer());
 }
-document.querySelectorAll('[data-case]').forEach(b => b.addEventListener('click', () => loadCase(b.dataset.case)));
+$('sample-select').addEventListener('change', event => loadCase(event.target.value));
+$('document-query').addEventListener('input', refreshQueryHint);
+document.querySelectorAll('.action-menu button').forEach(button => button.addEventListener('click', () => {
+  const menu = button.closest('details'); menu.open = false; menu.querySelector('summary').focus();
+}));
+document.querySelectorAll('.action-menu').forEach(menu => menu.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+}));
 $('source').addEventListener('input', refreshSource);
 $('source').addEventListener('scroll', () => { $('line-numbers').scrollTop = $('source').scrollTop; });
 $('restore').addEventListener('click', () => { if (record) { currentName = record.source.name; $('source').value = record.source.text; refreshSource(); feedback(); } });
 $('import-source').addEventListener('click', () => $('source-file').click());
 $('import-record').addEventListener('click', () => $('record-file').click());
-$('record-page-import').addEventListener('click', () => $('record-file').click());
 $('source-file').addEventListener('change', async event => {
   const file = event.target.files[0]; event.target.value = ''; if (!file) return;
   resetDocumentEvidence(true); refreshDocumentControls();
   const ticket = ++loading;
+  loadingSample = false;
+  selectSample(selectedCase); refreshSource();
   try {
     const text = validateSource(file.name, await fileText(file, MAX_SOURCE_BYTES));
     if (ticket !== loading) return;
@@ -232,6 +262,8 @@ $('record-file').addEventListener('change', async event => {
   const file = event.target.files[0]; event.target.value = ''; if (!file) return;
   resetDocumentEvidence(true); refreshDocumentControls();
   const ticket = ++loading;
+  loadingSample = false;
+  selectSample(selectedCase); refreshSource();
   try {
     const r = await readRecord(await fileText(file, MAX_REPORT_BYTES));
     if (ticket !== loading) return;
@@ -243,7 +275,6 @@ $('save-source').addEventListener('click', () => {
   catch (e) { feedback(e.message); }
 });
 $('export-record').addEventListener('click', () => { if (record) download(record.source.name + '.diagnostic.json', JSON.stringify(record, null, 2), 'application/json'); });
-$('record-page-export').addEventListener('click', () => $('export-record').click());
 $('document-form').addEventListener('submit', async event => {
   event.preventDefault();
   if (!health.available || !health.token || !record || !current() || compiling || health.busy || retrievingDocuments) return;
@@ -292,7 +323,8 @@ async function refreshHealth(recheck = false) {
   }
   $('refresh-health').disabled = false;
   document.body.dataset.runtime = health.available ? 'ready' : 'unavailable';
-  $('runtime-summary').textContent = health.available ? '已就绪 · 查看环境详情' : '可继续查看记录 · 展开原因';
+  $('runtime-summary').textContent = health.available ? '环境详情' : '查看原因';
+  if (!health.available) $('environment').open = true;
   refreshSource();
 }
 async function refreshHistory() {
@@ -333,13 +365,14 @@ async function refreshHistory() {
       }
       const save = element('button','导出任务记录');
       save.addEventListener('click',()=>download(`doctor-task-${item.taskId}.json`,JSON.stringify(item,null,2),'application/json'));
-      actions.append(save); row.append(info,actions);
+      row.append(info,actions);
       const detail = element('details','', 'task-detail'); detail.dataset.taskDetail = item.taskId; detail.open = expanded.has(item.taskId);
       detail.append(element('summary','任务详情与日志'),element('p',item.detail),element('p',`任务编号：${item.taskId}`,'mono'),
         element('p',`结束时间：${item.finishedAt || '未确认'} · 原因：${item.reason || '正常完成'}`,'small-label'));
       if (item.process) {
         detail.append(element('p',`核心退出码：${item.process.exitCode ?? '未返回'} · 信号：${item.process.signal || '无'}`,'small-label'));
       }
+      detail.append(save);
       const logs = {...(item.logs || {})};
       if (item.process) { logs['核心 stdout'] = item.process.stdout; logs['核心 stderr'] = item.process.stderr; }
       for (const [name,log] of Object.entries(logs)) {
@@ -357,7 +390,7 @@ async function refreshHistory() {
     if (data.busy) historyTimer = setTimeout(refreshHistory,1000);
   } catch (e) {
     if (request === historyRequest) {
-      $('history').replaceChildren(element('p',e.message + ' 请到编译诊断页点击“检查环境”重新连接服务。','small-label'));
+      $('history').replaceChildren(element('p',e.message + ' 请到编译诊断页展开环境详情，点击“检查环境”重新连接服务。','small-label'));
       health.busy = false; refreshSource();
     }
   }
