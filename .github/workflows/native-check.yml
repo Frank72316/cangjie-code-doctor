@@ -20,6 +20,37 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+      - name: Record submission identity
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+          const env = process.env;
+          const committedAt = execFileSync('git', ['show', '-s', '--format=%cI', 'HEAD'], {encoding:'utf8'}).trim();
+          const url = `${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}`;
+          const receipt = {
+            repository: env.GITHUB_REPOSITORY,
+            commit: env.GITHUB_SHA,
+            ref: env.GITHUB_REF,
+            event: env.GITHUB_EVENT_NAME,
+            runId: env.GITHUB_RUN_ID,
+            attempt: env.GITHUB_RUN_ATTEMPT,
+            committedAt,
+            recordedAtUtc: new Date().toISOString(),
+            runUrl: url
+          };
+          const summary = [
+            '## 提交与验证记录', '',
+            '本摘要关联当前提交与本次 CI，整体检查结果以运行状态为准。',
+            'committedAt 是 Git 提交者时间；recordedAtUtc 是运行器生成摘要的时间，两者均不是精确上传时间。',
+            '平台运行创建时间可在本次 Actions 页面核查；event 为 workflow_dispatch 时属于手动检查。', '',
+            '```json', JSON.stringify(receipt, null, 2), '```', '',
+            `[查看本次平台记录](${url})`, ''
+          ].join('\n');
+          appendFileSync(env.GITHUB_STEP_SUMMARY, summary);
+          console.log(JSON.stringify(receipt, null, 2));
+          NODE
       - name: Install verified official SDK 1.0.5
         run: bash scripts/install-ci-sdk.sh "$RUNNER_TEMP/doctor-sdk"
       - name: Compile and execute native checks

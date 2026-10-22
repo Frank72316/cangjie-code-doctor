@@ -13,6 +13,7 @@
 - [A/B 实验协议](docs/experiment-protocol.md)：案例划分、冻结、候选选择、判定及结果呈现。
 - [与第三组的定位及合作说明](docs/positioning-and-collaboration.md)：各自的问题与证明方式，以及待协商的合作方向。
 - [开发进度](docs/progress.md)：本次交付、实际验证、阻塞及后续顺序。
+- [提交与同步记录](docs/submissions.md)：逐次提交、平台检查时间与老师核验入口。
 - [开发与复现](docs/development.md) · [Windows 环境排查](docs/environment.md)。
 
 ## 运行当前预览
@@ -104,7 +105,7 @@ Windows SDK 1.0.5 开发命令（SDK 路径换成自己的安装位置）：
 
 ## 两个平台的同步
 
-`origin` 为 AtomGit / GitCode，`github` 为 GitHub；本地 `main` 跟踪 `origin/main`。目前通过分别推送保持一致，没有后台自动同步。
+`origin` 为 AtomGit / GitCode，`github` 为 GitHub；本地 `main` 跟踪 `origin/main`。目前通过分别推送保持一致，没有后台自动同步。每次实质性推进及时提交，并更新[开发进度](docs/progress.md)和[提交记录](docs/submissions.md)；GitHub CI 自动生成该次提交的验证摘要。
 
 队友在主仓库提交 Issue、合并请求和评审。维护者在保存本地工作、确认已合并提交后同步：
 
