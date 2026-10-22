@@ -1,5 +1,6 @@
 import { readRecord, compileView, sourceIsCurrent, validateSource, lineRange, sha256, MAX_REPORT_BYTES, MAX_SOURCE_BYTES } from './report.mjs';
 import { validateTask, taskLabel } from './task.mjs';
+import { initNavigation } from './navigation.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
 let currentName = '';
@@ -55,7 +56,7 @@ function refreshDocumentControls() {
   if (!record) documentStatus('载入诊断记录后可检索。');
   else if (!sameSource) documentStatus('源码副本已变化，原诊断对应的检索依据已清除。恢复记录原文后可重新检索。', 'changed');
   else if (!retrievingDocuments && !documentEvidence && $('document-status').dataset.state !== 'error') {
-    if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪，无法进行本机文档检索。可点击上方“检查环境”重试。');
+    if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪，无法进行本机文档检索。请到编译诊断页点击“检查环境”重试。');
     else if (compiling || health.busy) documentStatus('本机任务进行中，完成后可检索文档。');
     else documentStatus('留空即可按当前诊断检索；也可输入关键词。检索范围为本机文档快照。');
   }
@@ -132,6 +133,10 @@ function refreshSource() {
   $('filename').textContent = currentName;
   $('source-state').textContent = current() ? '记录原文' : '未编译副本';
   $('source-state').classList.toggle('changed', !current());
+  document.querySelectorAll('[data-current-source]').forEach(node => { node.textContent = record?.source.name || '尚未载入诊断'; });
+  document.querySelectorAll('[data-current-state]').forEach(node => {
+    node.textContent = record ? `${compileView(record).label} · ${current() ? '副本与记录一致' : '副本已修改，当前展示原诊断记录'}` : '请先在编译诊断页选择样例或打开记录。';
+  });
   $('stale-notice').hidden = !record || current();
   for (const b of document.querySelectorAll('[data-location]')) b.disabled = !current();
   $('compile-example').disabled = !health.available || !selectedCase || !current() || compiling || health.busy;
@@ -208,6 +213,7 @@ $('source').addEventListener('scroll', () => { $('line-numbers').scrollTop = $('
 $('restore').addEventListener('click', () => { if (record) { currentName = record.source.name; $('source').value = record.source.text; refreshSource(); feedback(); } });
 $('import-source').addEventListener('click', () => $('source-file').click());
 $('import-record').addEventListener('click', () => $('record-file').click());
+$('record-page-import').addEventListener('click', () => $('record-file').click());
 $('source-file').addEventListener('change', async event => {
   const file = event.target.files[0]; event.target.value = ''; if (!file) return;
   resetDocumentEvidence(true); refreshDocumentControls();
@@ -237,6 +243,7 @@ $('save-source').addEventListener('click', () => {
   catch (e) { feedback(e.message); }
 });
 $('export-record').addEventListener('click', () => { if (record) download(record.source.name + '.diagnostic.json', JSON.stringify(record, null, 2), 'application/json'); });
+$('record-page-export').addEventListener('click', () => $('export-record').click());
 $('document-form').addEventListener('submit', async event => {
   event.preventDefault();
   if (!health.available || !health.token || !record || !current() || compiling || health.busy || retrievingDocuments) return;
@@ -320,6 +327,7 @@ async function refreshHistory() {
         const load = element('button',item.state === 'completed' ? '载入记录副本' : '查看已保存诊断');
         load.addEventListener('click', () => { ++loading; selectedCase = null; showRecord(item.record);
           selectSample(null);
+          navigation.navigate('/diagnostics');
           if (item.state !== 'completed') feedback('已载入当时保存的诊断；任务状态仍为“' + taskLabel(item) + '”，以历史记录为准。'); });
         actions.append(load);
       }
@@ -349,7 +357,7 @@ async function refreshHistory() {
     if (data.busy) historyTimer = setTimeout(refreshHistory,1000);
   } catch (e) {
     if (request === historyRequest) {
-      $('history').replaceChildren(element('p',e.message + ' 可点击“检查环境”重新连接服务。','small-label'));
+      $('history').replaceChildren(element('p',e.message + ' 请到编译诊断页点击“检查环境”重新连接服务。','small-label'));
       health.busy = false; refreshSource();
     }
   }
@@ -372,20 +380,9 @@ $('compile-example').addEventListener('click', async () => {
     if (ticket === loading && currentName === nameAtStart && $('source').value === sourceAtStart) {
       selectedCase = caseAtStart; showRecord(result); feedback('已完成本次编译，诊断及源码快照已写入本机历史。');
     } else { feedback('本次编译已保存到历史。当前副本已有变化，因此保留你的编辑。'); }
-  } catch (e) { feedback(e.name === 'AbortError' ? '已请求取消，正在确认最终状态；若任务先完成，会保留实际结果。请查看下方历史。' : e.message); }
+  } catch (e) { feedback(e.name === 'AbortError' ? '已请求取消，正在确认最终状态；若任务先完成，会保留实际结果。请到任务历史页查看。' : e.message); }
   finally { compiling = false; compileController = null; refreshSource(); await refreshHistory(); }
 });
+const navigation = initNavigation();
 loadCase('type_mismatch');
 refreshHealth().then(refreshHistory);
-const sectionLinks = [...document.querySelectorAll('.nav-item')];
-const sections = sectionLinks.map(link=>document.querySelector(link.getAttribute('href')));
-function updateNavigation() {
-  let active = 0;
-  for (let i=0;i<sections.length;i++) if (sections[i].getBoundingClientRect().top <= 160) active = i;
-  if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) active = sections.length - 1;
-  sectionLinks.forEach((link,i)=>{ link.classList.toggle('active',i===active); if(i===active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current'); });
-  $('section-name').textContent = sectionLinks[active].getAttribute('aria-label');
-}
-window.addEventListener('scroll',updateNavigation,{passive:true});
-window.addEventListener('resize',updateNavigation);
-updateNavigation();

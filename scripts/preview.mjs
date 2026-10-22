@@ -4,11 +4,14 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, join } from 'node:path';
 import { NativeBridge, EXAMPLE_IDS } from './native-bridge.mjs';
+import { PAGE_ROUTES } from '../web/navigation.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
+const pageRoutes = new Map([['/', PAGE_ROUTES[0]], ...PAGE_ROUTES.map(page => [page.path, page])]);
 const routes = new Map([
-  ['/', ['web/index.html', 'text/html; charset=utf-8']],
+  ...[...pageRoutes.keys()].map(path => [path, ['web/index.html', 'text/html; charset=utf-8']]),
   ['/styles.css', ['web/styles.css', 'text/css; charset=utf-8']],
   ['/app.mjs', ['web/app.mjs', 'text/javascript; charset=utf-8']],
+  ['/navigation.mjs', ['web/navigation.mjs', 'text/javascript; charset=utf-8']],
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],
   ['/task.mjs', ['web/task.mjs', 'text/javascript; charset=utf-8']],
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
@@ -77,10 +80,13 @@ export function makeServer({bridge = null} = {}) {
       } catch (e) { send(e.status || 500, {error:e.message,taskId:e.taskId,taskState:e.taskState,retrievalId:e.retrievalId}); return; }
     }
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, {...headers, Allow: 'GET, HEAD'}).end(); return; }
-    const route = routes.get(req.url?.split('?')[0]);
+    const path = req.url?.split('?')[0];
+    const route = routes.get(path);
     if (!route) { res.writeHead(404, headers).end('Not found'); return; }
     try {
-      const body = await readFile(resolve(root, route[0]));
+      let body = await readFile(resolve(root, route[0]));
+      const page = pageRoutes.get(path);
+      if (page) body = body.toString('utf8').replace(/(<body\b[^>]*\bdata-page=")[^"]*(")/, `$1${page.path.slice(1)}$2`);
       res.writeHead(200, {...headers, 'Content-Type': route[1]});
       res.end(req.method === 'HEAD' ? undefined : body);
     } catch { res.writeHead(503, headers).end('Preview file is unavailable. Run the fixture capture script.'); }
