@@ -1,5 +1,6 @@
 // Independent workspace routes share the current in-memory record and editor.
 export const PAGE_ROUTES = Object.freeze([
+  {path:'/tutorial', id:'usage-guide', label:'使用教程', title:'使用教程与简介'},
   {path:'/diagnostics', id:'workspace', label:'编译诊断', title:'编译诊断工作台'},
   {path:'/documents', id:'document-evidence', label:'文档依据', title:'官方文档依据'},
   {path:'/records', id:'evidence', label:'记录依据', title:'诊断记录依据'},
@@ -15,7 +16,7 @@ export function initNavigation() {
     if (url.origin !== window.location.origin) return null;
     // Old bookmarks used section anchors. Migrate them to the matching page URL.
     if (byHash.has(url.hash)) return byHash.get(url.hash);
-    return byPath.get(url.pathname === '/' ? '/diagnostics' : url.pathname) ?? null;
+    return byPath.get(url.pathname === '/' ? PAGE_ROUTES[0].path : url.pathname) ?? null;
   };
   const render = route => {
     document.body.dataset.page = route.path.slice(1);

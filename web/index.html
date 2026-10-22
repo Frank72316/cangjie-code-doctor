@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Doctor · 仓颉诊断工作台</title><link rel="stylesheet" href="/styles.css">
+  <title>使用教程与简介 · Doctor</title><link rel="stylesheet" href="/styles.css">
 </head>
-<body data-page="diagnostics">
+<body data-page="tutorial">
   <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
     <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></symbol>
+    <symbol id="i-guide" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6Z"/></symbol>
     <symbol id="i-record" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"/><path d="M14 3v5h5M9 12h6m-6 4h6"/></symbol>
     <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v15h-5a5 5 0 0 0-4 2 5 5 0 0 0-4-2H3Z"/></symbol>
     <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2.8 7.5M3 4v7h7m2-4v5l3 2"/></symbol>
@@ -20,10 +21,11 @@
   </defs></svg>
   <a class="skip-link" href="#main-content">跳到当前页面</a>
   <aside class="sidebar" aria-label="工作台导航">
-    <a class="brand" href="/diagnostics" data-route aria-label="Doctor 首页"><span class="brand-mark" aria-hidden="true">D<span>+</span></span><span class="brand-name"><b>Doctor<span>.</span></b><small>仓颉程序诊断助手</small></span></a>
+    <a class="brand" href="/tutorial" data-route aria-label="Doctor 首页"><span class="brand-mark" aria-hidden="true">D<span>+</span></span><span class="brand-name"><b>Doctor<span>.</span></b><small>仓颉程序诊断助手</small></span></a>
     <div class="nav-label">工作空间</div>
     <nav aria-label="页面导航">
-      <a class="nav-item active" href="/diagnostics" data-route aria-label="编译诊断" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span>编译诊断</span><span class="nav-dot" aria-hidden="true"></span></a>
+      <a class="nav-item active" href="/tutorial" data-route aria-label="使用教程" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-guide"/></svg><span>使用教程</span><span class="nav-dot" aria-hidden="true"></span></a>
+      <a class="nav-item" href="/diagnostics" data-route aria-label="编译诊断"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span>编译诊断</span><span class="nav-dot" aria-hidden="true"></span></a>
       <a class="nav-item" href="/documents" data-route aria-label="文档依据"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span>文档依据</span><span class="nav-dot" aria-hidden="true"></span></a>
       <a class="nav-item" href="/records" data-route aria-label="记录依据"><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg><span>记录依据</span><span class="nav-dot" aria-hidden="true"></span></a>
       <a class="nav-item" href="/history" data-route aria-label="任务历史"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg><span>任务历史</span><span class="nav-dot" aria-hidden="true"></span></a>
@@ -34,11 +36,47 @@
     </div>
   </aside>
   <div class="app-shell">
-    <header class="topbar"><div class="breadcrumb"><span>工作空间</span><span class="separator" aria-hidden="true">/</span><strong id="section-name">编译诊断</strong></div><span class="topbar-note"><span class="status-dot" aria-hidden="true"></span>本地运行 · 副本编辑</span></header>
+    <header class="topbar"><div class="breadcrumb"><span>工作空间</span><span class="separator" aria-hidden="true">/</span><strong id="section-name">使用教程</strong></div><span class="topbar-note"><span class="status-dot" aria-hidden="true"></span>本地运行 · 副本编辑</span></header>
     <main id="main-content" tabindex="-1">
       <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+      <section id="usage-guide" class="app-page tutorial" data-page-view aria-labelledby="tutorial-title">
+        <div class="intro"><div><p class="eyebrow">START WITH DOCTOR</p><h1 id="tutorial-title">使用教程与简介</h1><p class="lead">第一次来？从一个小样例开始，知道每一步该做什么。</p></div><span class="offline-label">本地体验 · 无需模型密钥</span></div>
+        <div class="tutorial-hero">
+          <div class="tutorial-welcome"><span class="tutorial-kicker">你好，欢迎使用 Doctor</span><h2>把一条报错，变成有依据的判断。</h2><p>Doctor 面向仓颉编程练习，帮你查看编译报错、定位源码，再查阅同版本官方文档。先跟着下面的步骤体验一次诊断流程。</p><a class="tutorial-start" href="/diagnostics" data-route>去选择第一个样例 <span aria-hidden="true">→</span></a><small>从“类型不匹配”开始，无需准备自己的代码。</small></div>
+          <div class="tutorial-flow" aria-label="本次体验的三个目标"><div><span>01</span><div><strong>读报错</strong><p>找到是哪一行、哪一种错误</p></div></div><div><span>02</span><div><strong>找依据</strong><p>对照官方文档理解语言规则</p></div></div><div><span>03</span><div><strong>留记录</strong><p>保存诊断，回看本次编译</p></div></div></div>
+        </div>
+        <p class="tutorial-scope">当前可体验：4 个审核样例的编译、错误定位与离线文档检索。AI 修复、任意源码编译和程序行为测试尚未开放。</p>
+        <div class="tutorial-layout">
+          <section class="panel tutorial-steps" aria-labelledby="tutorial-steps-title">
+            <div class="tutorial-heading"><div><span class="tutorial-kicker">跟着做一遍</span><h2 id="tutorial-steps-title">从这里开始，完成第一次诊断</h2></div><span class="tutorial-count">5 个步骤</span></div>
+            <ol>
+              <li><div><h3>选择一个带错误的样例</h3><p>进入<a href="/diagnostics" data-route>编译诊断</a>，点击<strong>“类型不匹配”</strong>。先看到的是已采集的诊断记录，第 2 行把字符串 <code>"three"</code> 赋给了整数类型 <code>Int64</code>。</p><div class="tutorial-code"><span>样例第 2 行</span><code>let count: Int64 = "three"</code></div></div></li>
+              <li><div><h3>在本机重新编译一次</h3><p>环境显示<strong>“本机编译已就绪”</strong>后，点击<strong>“重新编译此样例”</strong>。这个样例出现“编译未通过”是预期结果，说明编译器发现了其中的错误。</p><p class="tutorial-hint">按钮不可用时，先点“检查环境”，展开环境详情查看原因。</p></div></li>
+              <li><div><h3>点击报错位置，回到代码</h3><p>点击诊断卡片中的<strong>“第 2 行 · 24 列 ↗”</strong>，编辑器会选中对应位置。此时先保持源码不变，继续查找依据。</p></div></li>
+              <li><div><h3>查阅官方文档</h3><p>进入<a href="/documents" data-route>文档依据</a>，关键词留空，点击<strong>“检索文档”</strong>。系统用当前报错检索本机仓颉 1.0.5 文档摘录；阅读原文与来源，核对类型规则。</p><p class="tutorial-hint">这是离线文档查阅，结果不会自动修改你的代码。</p></div></li>
+              <li><div><h3>保存记录，回看这次编译</h3><p>进入<a href="/records" data-route>记录依据</a>，点击<strong>“导出当前诊断记录”</strong>保存源码原文与编译日志；进入<a href="/history" data-route>任务历史</a>可查看刚才的本机编译。文档页还可以单独<strong>“下载检索证据 JSON”</strong>。</p><p class="tutorial-hint">只浏览样例不会新增任务；点击重新编译并被本机接收后，才会留下任务历史。</p></div></li>
+            </ol>
+          </section>
+          <aside class="tutorial-map" aria-labelledby="tutorial-map-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">功能导航</span><h2 id="tutorial-map-title">每一页用来做什么？</h2></div></div>
+            <a href="/diagnostics" data-route><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><div><h3>编译诊断 <span aria-hidden="true">↗</span></h3><p>选样例、重新编译、定位错误，编辑源码副本。</p></div></a>
+            <a href="/documents" data-route><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><h3>文档依据 <span aria-hidden="true">↗</span></h3><p>查阅同版本官方摘录，保存本次检索依据。</p></div></a>
+            <a href="/records" data-route><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg><div><h3>记录依据 <span aria-hidden="true">↗</span></h3><p>核对采集时间与版本，导入、导出诊断记录。</p></div></a>
+            <a href="/history" data-route><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg><div><h3>任务历史 <span aria-hidden="true">↗</span></h3><p>查看本机最近 20 次编译任务的状态与日志。</p></div></a>
+            <p class="tutorial-map-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>随时点击左侧“使用教程”回来。切换页面会保留当前副本与检索结果。</p>
+          </aside>
+        </div>
+        <section class="panel tutorial-faq" aria-labelledby="tutorial-faq-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">遇到问题时</span><h2 id="tutorial-faq-title">常见问题</h2></div></div>
+          <details><summary>“重新编译此样例”是灰色的，怎么办？</summary><p>先点击“检查环境”，查看环境详情中的提示。本机需要仓颉 SDK 1.0.5 和 Doctor 核心就绪；编译进行中也不能重复提交。若刚导入了文件或修改了副本，请重新选择一个内置样例；编辑内置样例后，也可以点击“恢复记录副本”。</p></details>
+          <details><summary>可以导入自己的代码，或者修改后再编译吗？</summary><p>“导入 .cj”与手动编辑目前用于查看和修改浏览器中的源码副本，尚不能编译任意源码。修改后，旧诊断仍保留，但定位与文档检索暂停，旧检索结果清除，以免与新代码混淆。点击“下载当前副本”保存修改；“恢复记录副本”会恢复当前诊断对应的原文。</p></details>
+          <details><summary>几个下载按钮有什么区别？JSON 都能重新打开吗？</summary><p>“下载当前副本”保存你正在编辑的 .cj 源码；“导出当前诊断记录”保存采集时的源码与编译日志，可通过“打开诊断记录”再次载入。“下载检索证据 JSON”保存文档查询与引用，“导出任务记录”保存任务信息，这两种 JSON 用于留档，不能作为诊断记录导入。</p></details>
+          <details><summary>检索不到文档，是不是说明代码没有问题？</summary><p>不是。目前只检索本机 15 段仓颉 1.0.5 官方文档快照，可以尝试“类型”“函数”等关键词。没有命中只说明这次查询没有找到相关摘录。检索需要本机核心就绪；点击来源链接查看完整原文时需要联网。</p></details>
+          <details><summary>显示“编译通过”，就说明程序做对了吗？</summary><p>编译通过只说明这次编译没有报错。当前不会执行样例生成的程序，因此仍标记“行为未验证”；还不能据此判断运行结果、题目要求或修复是否正确。</p></details>
+          <details><summary>切换页面、刷新或关闭后，我的内容还在吗？</summary><p>使用侧栏切页会保留当前副本、诊断与检索结果。刷新或关闭会清空浏览器中的临时编辑，重新打开时载入默认样例；请先下载需要保留的副本和记录。已保存到本机的编译任务可在“任务历史”中查看，浏览样例、导入记录和文档检索不会新增编译任务。</p></details>
+        </section>
+      </section>
       <section id="workspace" class="app-page workbench" data-page-view aria-labelledby="page-title">
         <div class="intro"><div><p class="eyebrow">CANGJIE CODE DOCTOR</p><h1 id="page-title">编译诊断工作台</h1><p class="lead">读懂报错，定位问题。让每一次修改都有据可循。</p></div><div class="page-actions"><button id="import-record"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg>打开诊断记录</button><button id="export-record" class="primary"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>导出当前诊断记录</button></div></div>
+        <a class="tutorial-entry" href="/tutorial" data-route><svg class="icon" aria-hidden="true"><use href="#i-guide"/></svg><span>第一次使用？查看教程，从一个样例走通诊断流程。</span><span aria-hidden="true">→</span></a>
         <section class="sample-bar" aria-label="开发样例"><div class="sample-label"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><strong>试试开发样例</strong></div><div class="sample-buttons"><button data-case="type_mismatch" class="active" aria-pressed="true">类型不匹配</button><button data-case="undefined_name" aria-pressed="false">未定义名称</button><button data-case="argument_count" aria-pressed="false">参数数量</button><button data-case="hello" aria-pressed="false">正常程序</button></div><span class="sample-note">4 份已审核样例</span></section>
         <section class="runtime-bar" aria-label="本机运行状态"><span class="runtime-icon"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg></span><div class="runtime-copy"><strong id="runtime-title">正在检查本机环境…</strong><details class="runtime-details"><summary id="runtime-summary">查看环境详情</summary><p id="runtime-detail">历史诊断记录可正常浏览。</p></details></div><div class="actions"><button id="refresh-health">检查环境</button><button id="compile-example" class="primary" disabled>重新编译此样例</button><button id="cancel-compile" hidden>取消编译</button></div></section>
         <div class="workspace">
