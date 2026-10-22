@@ -14,7 +14,12 @@ foreach ($name in @('type_mismatch', 'undefined_name', 'argument_count', 'hello'
     $record = Get-Content -LiteralPath (Join-Path $root "tests/fixtures/$name.json") -Raw -Encoding UTF8 | ConvertFrom-Json
     $inputPath = Join-Path $run "$name.json"
     [IO.File]::WriteAllText($inputPath, ($record.compiler.stderr + $record.compiler.stdout), $utf8)
-    $output = & $doctor parse $inputPath $record.compiler.exitCode
+    # SDK 1.0.5 on Windows misdecodes non-ASCII command-line arguments.
+    # Keep the Unicode repository in the process working directory instead.
+    $relativeInput = Join-Path (Join-Path 'runs' (Split-Path -Leaf $run)) "$name.json"
+    Push-Location $root
+    try { $output = & $doctor parse $relativeInput $record.compiler.exitCode }
+    finally { Pop-Location }
     if ($LASTEXITCODE -ne 0) { throw "Native parser failed for $name ($LASTEXITCODE)" }
     $parsed = $output | ConvertFrom-Json
     $expected = if ($name -eq 'hello') { 'compile_passed' } else { 'compile_failed' }

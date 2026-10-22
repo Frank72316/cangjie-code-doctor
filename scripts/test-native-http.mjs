@@ -17,7 +17,9 @@ try {
   const history = await (await fetch(base+'/api/history',{headers:{'X-Doctor-Token':health.token}})).json();
   assert.ok(history.tasks.some(t=>t.taskId===record.taskId && t.state==='completed' && t.record.taskId===record.taskId));
   // Actual native error after a successful probe (compiler removed/misconfigured).
-  bridge.compiler = resolve('runs/missing-compiler-for-fault-check');
+  // Keep the SDK's path encoding so this tests a missing compiler, not a
+  // separate Windows SDK command-line decoding failure in a Unicode repo.
+  bridge.compiler = resolve(bridge.compiler, '..', 'missing-compiler-for-fault-check');
   const failure = await fetch(base+'/api/compile-example',{method:'POST',headers:{'Content-Type':'application/json','X-Doctor-Token':health.token},body:JSON.stringify({caseId:'hello'})});
   assert.equal(failure.status,500);
   const error = await failure.json(); assert.equal(error.taskState,'failed');

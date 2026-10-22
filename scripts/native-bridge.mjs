@@ -16,10 +16,10 @@ function stopTree(child) {
     try { process.kill(-child.pid, 'SIGKILL'); } catch { child.kill('SIGKILL'); }
   }
 }
-export function runNative(executable, args, {timeout = 70000, signal} = {}) {
+export function runNative(executable, args, {timeout = 70000, signal, cwd} = {}) {
   if (signal?.aborted) return Promise.resolve({code:null,signal:null,stdout:'',stderr:'',reason:'cancelled'});
   return new Promise(resolveResult => {
-    const child = spawn(executable, args, {shell:false, windowsHide:true, detached:process.platform !== 'win32', stdio:['ignore','pipe','pipe']});
+    const child = spawn(executable, args, {cwd, shell:false, windowsHide:true, detached:process.platform !== 'win32', stdio:['ignore','pipe','pipe']});
     let stdout = '', stderr = '', size = 0, reason = '', exited = false;
     const stop = why => { if (!reason) { reason = why; stopTree(child); } };
     const timer = setTimeout(() => stop('timeout'), timeout);
@@ -80,7 +80,8 @@ export class NativeBridge {
       const task = await this.store.begin(taskId,caseId);
       let r, result, state = 'failed', reason = 'native_error', detail;
       try {
-        r = await this.executor(this.executable, ['compile-example', this.root, this.compiler, caseId, taskId, task.startedAt], {signal});
+        // Pass the workspace through cwd: SDK 1.0.5 can reject Chinese argv paths on Windows.
+        r = await this.executor(this.executable, ['compile-example', '.', this.compiler, caseId, taskId, task.startedAt], {signal, cwd:this.root});
         if (r.reason || r.signal || r.code !== 0) {
           state = r.reason === 'cancelled' ? 'cancelled' : r.reason === 'timeout' ? 'timed_out' : 'failed';
           reason = r.reason || r.signal || 'native_exit';

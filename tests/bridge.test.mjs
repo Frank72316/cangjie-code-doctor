@@ -4,7 +4,7 @@ import { NativeBridge, runNative } from '../scripts/native-bridge.mjs';
 import { makeServer } from '../scripts/preview.mjs';
 import { readRecord, compileView } from '../web/report.mjs';
 import { readFile, mkdir, mkdtemp, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { request } from 'node:http';
 const original = JSON.parse(await readFile(new URL('fixtures/type_mismatch.json', import.meta.url), 'utf8'));
 function nativeRecord() {
@@ -57,6 +57,15 @@ test('unconfigured backend returns unavailable without starting compilation', as
 test('failed process startup is reported explicitly', async () => {
   const r = await runNative(join(process.cwd(),'missing-native-executable'), [], {timeout:500});
   assert.ok(r.reason); assert.notEqual(r.code, 0);
+});
+test('native processes resolve relative input in the selected Chinese workspace', async () => {
+  await mkdir('runs',{recursive:true});
+  const root = resolve(await mkdtemp('runs/仓颉工作区-'));
+  await writeFile(join(root,'workspace-marker.txt'),'selected workspace');
+  const r = await runNative(process.execPath,
+    ['-e', 'process.stdout.write(require("node:fs").readFileSync("workspace-marker.txt","utf8"))'], {cwd:root});
+  assert.equal(r.code,0,r.stderr); assert.equal(r.reason,'');
+  assert.equal(r.stdout,'selected workspace');
 });
 test('process cancellation and deadline terminate the test process', async () => {
   const controller = new AbortController();

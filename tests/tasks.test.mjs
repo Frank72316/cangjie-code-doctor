@@ -15,12 +15,12 @@ function bridgeFor(root,executor) {
   const bridge = new NativeBridge({root,executable:'test-only-core',compiler:'test-only-compiler',executor});
   bridge.health = {available:true}; return bridge;
 }
-async function publish(args) {
+async function publish(args, {cwd = process.cwd()} = {}) {
   const [,root,,caseId,taskId,capturedAt] = args;
   const record = {...structuredClone(hello),producer:'cangjie-core',taskId,capturedAt,
     normalized:{status:'compile_passed',parseState:'empty',detail:'',exitCode:0,rawDiagnostics:'',testStatus:'not_run',diagnostics:[]}};
   assert.equal(caseId,'hello');
-  const directory = join(root,'runs/native',taskId);
+  const directory = join(resolve(cwd,root),'runs/native',taskId);
   await mkdir(directory,{recursive:true}); await writeFile(join(directory,'record.json'),JSON.stringify(record));
   return record;
 }
@@ -29,11 +29,12 @@ test('task acceptance precedes launch; concurrent requests do not create extra t
   const root = await workspace(); let release, entered;
   const began = new Promise(r=>entered=r), gate = new Promise(r=>release=r);
   let bridge;
-  bridge = bridgeFor(root,async (_,args)=>{
+  bridge = bridgeFor(root,async (_,args,options)=>{
+    assert.equal(args[1],'.'); assert.equal(options.cwd,root);
     const history = await bridge.history();
     assert.equal(history.tasks[0].state,'running');
     assert.equal(JSON.parse(await readFile(join(root,'runs/tasks',args[4],'start.json'))).state,'running');
-    entered(); await gate; return outcome({stdout:JSON.stringify(await publish(args))});
+    entered(); await gate; return outcome({stdout:JSON.stringify(await publish(args,options))});
   });
   const pending = bridge.compile('hello'); await began;
   await assert.rejects(bridge.compile('hello'),e=>e.status===409);
@@ -68,7 +69,7 @@ test('cancel, deadline, signal and excessive output retain distinct terminal cau
 
 test('cancellation retains a record already published but never changes cancelled to passed', async () => {
   const root = await workspace();
-  const bridge = bridgeFor(root,async(_,args)=>{ await publish(args); return outcome({code:null,reason:'cancelled'}); });
+  const bridge = bridgeFor(root,async(_,args,options)=>{ await publish(args,options); return outcome({code:null,reason:'cancelled'}); });
   await assert.rejects(bridge.compile('hello'),e=>e.taskState==='cancelled');
   const task = (await bridge.history()).tasks[0];
   assert.equal(task.state,'cancelled'); assert.equal(taskLabel(task),'已取消');
@@ -77,8 +78,8 @@ test('cancellation retains a record already published but never changes cancelle
 
 test('late cancellation cannot rewrite a completed process and persisted result', async () => {
   const controller = new AbortController();
-  const bridge = bridgeFor(await workspace(),async(_,args)=>{
-    const record = await publish(args); controller.abort(); return outcome({stdout:JSON.stringify(record)});
+  const bridge = bridgeFor(await workspace(),async(_,args,options)=>{
+    const record = await publish(args,options); controller.abort(); return outcome({stdout:JSON.stringify(record)});
   });
   await bridge.compile('hello',controller.signal);
   assert.equal((await bridge.history()).tasks[0].state,'completed');
@@ -87,11 +88,11 @@ test('late cancellation cannot rewrite a completed process and persisted result'
 test('stdout alone, mismatched disk records and corrupt hashes cannot count as completed', async () => {
   for (const kind of ['missing','different','hash']) {
     const root = await workspace();
-    const bridge = bridgeFor(root,async(_,args)=>{
+    const bridge = bridgeFor(root,async(_,args,options)=>{
       let record;
       if (kind === 'missing') record = {...hello,taskId:args[4]};
       else {
-        record = await publish(args);
+        record = await publish(args,options);
         if (kind === 'different') record.capturedAt = '2000-01-01T00:00:00.000Z';
         else { record.source.sha256 = '0'.repeat(64); await writeFile(join(root,'runs/native',args[4],'record.json'),JSON.stringify(record)); }
       }
@@ -109,7 +110,7 @@ test('a pre-cancelled request never launches a native process', async () => {
 });
 
 test('failure to persist the final state is not returned as a successful task', async () => {
-  const bridge = bridgeFor(await workspace(),async(_,args)=>outcome({stdout:JSON.stringify(await publish(args))}));
+  const bridge = bridgeFor(await workspace(),async(_,args,options)=>outcome({stdout:JSON.stringify(await publish(args,options))}));
   bridge.store.finish = async()=>{throw new Error('Injected disk failure');};
   await assert.rejects(bridge.compile('hello'),/状态保存失败/);
   const task = (await bridge.history()).tasks[0];

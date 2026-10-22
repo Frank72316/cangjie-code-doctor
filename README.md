@@ -2,7 +2,7 @@
 
 仓颉程序诊断与测试验证工具，面向大学仓颉课程中的单文件练习。通过稳定的诊断、修改和测试流程，开展探索性 A/B 实验，回答：**加入同版本官方文档检索，程序修复成功率是否发生变化？**
 
-当前为 0.3 开发版。固定 Linux SDK 1.0.5 下已实际跑通：仓颉核心编译审核样例 → 解析 cjc → 保存快照和记录 → 本地 Web 接口及历史读取。新增任务接收与结束记录，异常、取消和超时可查原因、导出记录；33 项本地前端/接口检查通过。本机 Windows 仍有运行时启动故障，页面会禁用本机编译并保留记录预览。任意源码编译、AI 修复、隔离验收和 A/B 实验尚未完成。
+当前为 0.3 开发版。固定 SDK 1.0.5 下已在 Linux 与本机 Windows 实际跑通：仓颉核心编译审核样例 → 解析 cjc → 保存快照和记录 → 本地 Web 接口及历史读取。任务接收与结束记录、异常、取消和超时可查原因并导出；34 项本地前端/接口检查通过。2026-10-22 用户卸载 Windows 更新并重启后，原生启动恢复；中文仓库路径的命令行兼容问题已处理，详见环境记录。任意源码编译、AI 修复、隔离验收和 A/B 实验尚未完成。
 
 主仓库：[AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)；同步副本：[GitHub](https://github.com/Frank72316/cangjie-code-doctor)。按课程要求，以主仓库作为提交与协作入口。
 
@@ -37,7 +37,7 @@ Windows SDK 1.0.5 开发命令（SDK 路径换成自己的安装位置）：
 ./scripts/test-native.ps1 -SdkRoot 'D:\Cangjie'
 ```
 
-第三条在本机 Windows 仍因运行时初始化崩溃而失败。Linux CI 用于原生自检、样例编译及 HTTP 联调；各次结果见 [Actions 记录](https://github.com/Frank72316/cangjie-code-doctor/actions)。33 项前端/接口检查可用 `node --test tests/viewer.test.mjs tests/bridge.test.mjs tests/tasks.test.mjs` 运行。Linux 本地启动方式见[开发说明](docs/development.md)。
+构建与原生自检已在回退后的本机 Windows 通过。Linux CI 用于原生自检、样例编译及 HTTP 联调；各次结果见 [Actions 记录](https://github.com/Frank72316/cangjie-code-doctor/actions)。34 项前端/接口检查可用 `node --test tests/viewer.test.mjs tests/bridge.test.mjs tests/tasks.test.mjs` 运行。完整联调和 Linux 本地启动方式见[开发说明](docs/development.md)。
 
 ## 工具与实验
 

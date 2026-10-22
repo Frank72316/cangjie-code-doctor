@@ -9,8 +9,8 @@ const executable = resolve(process.argv[2]);
 const compiler = resolve(process.argv[3]);
 const id = () => randomUUID().replaceAll('-', '');
 function run(root, name, taskId, expected = 0) {
-  const p = spawnSync(executable, ['compile-example', root, compiler, name, taskId, new Date().toISOString()],
-    {encoding:'utf8', timeout:45000, maxBuffer:3 * 1024 * 1024});
+  const p = spawnSync(executable, ['compile-example', '.', compiler, name, taskId, new Date().toISOString()],
+    {cwd:root, encoding:'utf8', timeout:45000, maxBuffer:3 * 1024 * 1024});
   assert.ifError(p.error); assert.equal(p.signal, null);
   assert.equal(p.status, expected, p.stdout + p.stderr);
   return JSON.parse(p.stdout);

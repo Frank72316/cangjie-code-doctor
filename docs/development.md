@@ -1,6 +1,6 @@
 # 当前实现与复现
 
-更新：2026-10-21，0.3 开发版。固定 Linux SDK 1.0.5 下审核样例的基础诊断链路已实际运行；本机 Windows 原生启动仍失败。任意源码及程序执行尚未开放。
+更新：2026-10-22，0.3 开发版。固定 SDK 1.0.5 下审核样例的基础诊断链路已在 Linux 和本机 Windows 实际运行；Windows 回退复测见[环境记录](environment.md)。任意源码及程序执行尚未开放。
 
 ## 组件职责
 
@@ -8,13 +8,13 @@
 | --- | --- |
 | `src/json.cj`、`diagnostics.cj` | 有界诊断读取、统一结果、原始日志与编译/工具异常区分 |
 | `src/compiler.cj`、`trusted_examples.cj` | 审核样例校验、任务目录、输入快照、SDK 核对、真实 cjc 调用和记录写入 |
-| `src/contract_checks.cj` | 原生确定性自检；Linux 已通过，Windows 尚不能启动 |
+| `src/contract_checks.cj` | 原生确定性自检；Linux 与回退后的 Windows 均通过 |
 | `scripts/native-bridge.mjs`、`preview.mjs` | HTTP 与 CLI 之间的轻量传输；健康探测、请求约束、取消/超时终止、已有记录读取 |
 | `scripts/task-store.mjs`、`web/task.mjs` | 外层进程任务的接收、结束及故障记录；与仓颉诊断结论分别保存 |
 | `web/` | 副本编辑与定位、样例编译入口、历史、原始日志和导出；不解析或执行任意命令 |
 | `tests/fixtures/` | 第一轮 Windows cjc 真实采集记录，保留原有来源 |
 | `scripts/test-native*.mjs`、`test-compiler.mjs` | 原生 CLI、自检、真实编译及 HTTP 联调检查 |
-| `tests/*.test.mjs` | 33 项前端/接口契约检查，包含明确标识的合成故障数据 |
+| `tests/*.test.mjs` | 34 项前端/接口契约检查，包含明确标识的合成故障数据 |
 | `.github/workflows/native-check.yml` | 固定 Ubuntu 22.04 和 SDK 1.0.5 的自动检查 |
 
 新产生的记录由仓颉输出 `normalized` 诊断，页面直接使用。旧夹具保留只读 JavaScript 兼容适配，不能把它当成原生验证。编译业务不在 Node 中重写；当前 HTTP 传输层仍使用 Node，完整实验调度尚未实现。
@@ -30,7 +30,17 @@
 
 打开 `http://127.0.0.1:8765`，Ctrl+C 停止。脚本支持 `-NodePath`，优先使用系统 Node，其次使用本机 Codex 已有依赖。Node.js 要求 22 或更新版本。
 
-本机目前会显示“本机编译暂不可用”，并禁用重新编译按钮；记录查看、编辑、定位和导出仍可使用。加载 SDK 环境后重启服务，才能让服务继承新的 PATH/DLL 设置。“检查环境”会重新探测已配置的核心与编译器。不能把历史编译结果当作当前副本的实时结果。
+回退后的本机环境已可编译审核样例。加载 SDK 环境后重启服务，才能让服务继承新的 PATH/DLL 设置。“检查环境”会重新探测已配置的核心与编译器；失败时仍禁用编译并保留记录查看。不能把历史编译结果当作当前副本的实时结果。
+
+本机 SDK 1.0.5 对中文命令行参数存在解码问题。服务通过进程工作目录传递仓库位置，CLI 的仓库参数使用 `.`，所以仓库可以留在中文目录；SDK 安装路径暂使用 ASCII 字符。单独调用 `parse` 时，从仓库目录传相对 ASCII 文件路径。完整 Windows 复测命令：
+
+```powershell
+. 'D:\Cangjie\envsetup.ps1'
+./scripts/test-native.ps1 -SdkRoot 'D:\Cangjie'
+node scripts/test-native.mjs target/debug/doctor.exe
+node scripts/test-compiler.mjs target/debug/doctor.exe D:/Cangjie/bin/cjc.exe
+node scripts/test-native-http.mjs target/debug/doctor.exe D:/Cangjie/bin/cjc.exe
+```
 
 ## Linux 构建与运行
 
@@ -113,4 +123,4 @@ Linux 的原生运行及完整 HTTP 链路已在[检查记录 39534258780](https
 
 0.3 本地增加了失败持久化、取消竞态、服务中断、损坏与超大记录、写盘失败、HTTP 断连和目录边界检查；浏览器中也验证了一次真实 Windows 启动失败的详情展开与 JSON 导出。故障注入输入明确标识为测试，均不计入 A/B。
 
-下一步：解决本机交互运行环境；验证 Linux 的进程、资源、网络及权限隔离；随后开放任意源码受限编译、公开测试、同版本文档及用户确认修改。详情持续记录在[进度文件](progress.md)。
+下一步：验证 Linux 的进程、资源、网络及权限隔离；随后开放任意源码受限编译、公开测试、同版本文档及用户确认修改。详情持续记录在[进度文件](progress.md)。
