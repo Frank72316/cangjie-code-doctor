@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "sdkVersion": "1.0.5",
+  "snapshotId": "cangjie-1.0.5-f8f8cd75a336-zh-cn-core-01",
+  "sourceRevision": "f8f8cd75a336e23785a4c57bd6091b2adf1e0302",
+  "documents": [
+    {
+      "id": "variables-initialization",
+      "title": "程序结构",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md#L68-L91",
+      "section": "变量",
+      "text": "## 变量\n\n在仓颉编程语言中，一个变量由对应的变量名、数据（值）和若干属性构成，开发者通过变量名访问变量对应的数据，但访问操作需要遵从相关属性的约束（如数据类型、可变性和可见性等）。\n\n变量定义的具体形式为：\n\n```text\n修饰符 变量名: 变量类型 = 初始值\n```\n\n其中**修饰符**用于设置变量的各类属性，可以有一个或多个，常用的修饰符包括：\n\n- 可变性修饰符：`let` 与 `var`，分别对应不可变和可变属性，可变性决定了变量被初始化后其值还能否改变，仓颉变量也由此分为不可变变量和可变变量两类。\n- `const` 修饰符：`const` 是一种特殊的变量修饰符。它用于声明常量，要求在声明时必须初始化，一旦被赋值，其值就不能被改变。这与`let` 修饰符类似，都具有不可变的特性，但`const` 在使用上有更严格的限制。\n- 可见性修饰符：`private` 与 `public` 等，影响全局变量和成员变量的可引用范围，详见后续章节的相关介绍。\n- 静态性修饰符：`static`，影响成员变量的存储和引用方式，详见后续章节的相关介绍。\n\n变量均支持赋值操作符（`=`），与类型无关。`let` 修饰的变量只能被赋值一次，即初始化；`var` 修饰的变量可以被多次赋值。\n\n在定义仓颉变量时，可变性修饰符是必要的，在此基础上，还可以根据需要添加其他修饰符。\n\n- **变量名**应是一个合法的仓颉标识符。\n- **变量类型**指定了变量所持有数据的类型。当初始值具有明确类型时，可以省略变量类型标注，此时编译器可以自动推断出变量类型。\n- **初始值**是一个仓颉表达式，用于初始化变量，如果标注了变量类型，需要保证初始值类型和变量类型一致。在定义全局变量或静态成员变量时，必须指定初始值。在定义局部变量或实例成员变量时，可以省略初始值，但需要标注变量类型，同时要在此变量被引用前完成初始化，否则编译会报错。"
+    },
+    {
+      "id": "immutable-variable",
+      "title": "程序结构",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md#L114-L123",
+      "section": "变量",
+      "text": "如果尝试修改不可变变量，编译时会报错，例如：\n\n<!-- compile.error -->\n\n```cangjie\nmain() {\n    let pi: Float64 = 3.14159\n    pi = 2.71828 // Error, cannot assign to immutable value\n}\n```"
+    },
+    {
+      "id": "lexical-scope",
+      "title": "程序结构",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md#L328-L348",
+      "section": "作用域",
+      "text": "## 作用域\n\n在前文中，初步介绍了如何给仓颉程序元素命名。实际上，除了变量，还可以给函数和自定义类型等命名，在程序中将使用这些名字访问对应的程序元素。\n\n但在实际应用中，需要考虑一些特殊情况：\n\n- 当程序规模较大时，那些简短的名字很容易重复，即产生命名冲突。\n- 结合运行时考虑，在有些代码片段中，另一些程序元素是无效的，对它们的引用会导致运行时错误。例如，某些变量在超出其所在作用域之后。\n- 在某些逻辑构造中，为了表达元素之间的包含关系，不应通过名字直接访问子元素，而是要通过其父元素名间接访问。\n\n为了应对这些问题，现代编程语言引入了“作用域”的概念及设计，将名字和程序元素的绑定关系限制在一定范围里。不同作用域之间可以是并列或无关的，也可以是嵌套或包含关系。一个作用域将明确开发者能用哪些名字访问哪些程序元素，具体规则是：\n\n1. 当前作用域中定义的程序元素与名字的绑定关系，在当前作用域和其内层作用域中是有效的，可以通过此名字直接访问对应的程序元素。\n2. 内层作用域中定义的程序元素与名字的绑定关系，在外层作用域中无效。\n3. 内层作用域可以使用外层作用域中的名字重新定义绑定关系，根据规则 1，此时内层作用域中的命名相当于遮盖了外层作用域中的同名定义，对此称内层作用域的级别比外层作用域的级别高。\n\n在仓颉编程语言中，用一对大括号“\\{\\}”包围一段仓颉代码，即构造了一个新的作用域，其中可以继续使用大括号“\\{\\}”包围仓颉代码，由此产生了嵌套作用域，这些作用域均服从上述规则。特别的，在一个仓颉源文件中，不被任何大括号“\\{\\}”包围的代码，它们所属的作用域被称为“顶层作用域”，即当前文件中“最外层”的作用域，按上述规则，其作用域级别最低。\n\n> **注意：**\n>\n> 仓颉不允许使用单独的大括号“\\{\\}”，大括号必须依赖 if、match、函数体、类体、结构体等其他语法结构存在。"
+    },
+    {
+      "id": "identifier-rules",
+      "title": "标识符",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_programming_concepts/identifier.md#L1-L14",
+      "section": "普通标识符",
+      "text": "# 标识符\n\n在仓颉编程语言中，开发者可以给一些程序元素命名，这些名字被称为“标识符”。\n\n学习标识符之前，需要了解一些 Unicode 字符集概念。在 Unicode 标准中，`XID_Start` 和 `XID_Continue` 属性用于标记可以作为 Unicode 标识符（Identifier）的起始字符和后续字符，其详细定义请参见 [Unicode 标准文档](https://www.unicode.org/reports/tr31/tr31-37.html)。其中， `XID_Start` 包含中文和英文等字符，`XID_Continue` 包含中文、英文和阿拉伯数字等字符。仓颉语言使用 Unicode 标准 15.0.0 。\n\n仓颉编程语言的标识符分为普通标识符和原始标识符两类，它们遵从不同的命名规则。\n\n**普通标识符**不能和仓颉关键字相同，其取自以下两类字符序列：\n\n- 由 `XID_Start` 字符开头，后接任意长度的 `XID_Continue` 字符。\n- 由一个`_`开头，后接至少一个 `XID_Continue` 字符。\n\n仓颉把所有标识符识别为 [Normalization Form C (NFC)](https://www.unicode.org/reports/tr15/tr15-53.html) 后的形式。两个标识符如果在 NFC 后相等，则被认为是相同的标识符。"
+    },
+    {
+      "id": "integer-types",
+      "title": "整数类型",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/integer.md#L1-L24",
+      "section": "整数类型",
+      "text": "# 整数类型\n\n整数类型分为有符号（signed）整数类型和无符号（unsigned）整数类型。\n\n**有符号整数类型**包括 `Int8`、`Int16`、`Int32`、`Int64` 和 `IntNative`，分别用于表示编码长度为 `8-bit`、`16-bit`、`32-bit`、`64-bit` 和平台相关大小的有符号整数值的类型。\n\n**无符号整数类型**包括 `UInt8`、`UInt16`、`UInt32`、`UInt64` 和 `UIntNative`，分别用于表示编码长度为 `8-bit`、`16-bit`、`32-bit`、`64-bit` 和平台相关大小的无符号整数值的类型。\n\n对于编码长度为 `N` 的有符号整数类型，其表示范围为：$-2^{N-1} \\sim 2^{N-1}-1$；对于编码长度为 `N` 的无符号整数类型，其表示范围为：$0 \\sim 2^{N}-1$。下表列出了所有整数类型的表示范围：\n\n| 类型         | 表示范围                                                                                |\n|:-----------|:------------------------------------------------------------------------------------|\n| Int8       | $-2^7 \\sim 2^7-1 (-128 \\sim 127)$                                                   |\n| Int16      | $-2^{15} \\sim 2^{15}-1 (-32,768 \\sim 32,767)$                                       |\n| Int32      | $-2^{31} \\sim 2^{31}-1 (-2,147,483,648 \\sim 2,147,483,647)$                         |\n| Int64      | $-2^{63} \\sim 2^{63}-1 (-9,223,372,036,854,775,808 \\sim 9,223,372,036,854,775,807)$ |\n| IntNative  | platform dependent                                                                  |\n| UInt8      | $0 \\sim 2^8-1 (0 \\sim 255)$                                                         |\n| UInt16     | $0 \\sim 2^{16}-1 (0 \\sim 65,535)$                                                   |\n| UInt32     | $0 \\sim 2^{32}-1 (0 \\sim 4,294,967,295)$                                            |\n| UInt64     | $0 \\sim 2^{64}-1 (0 \\sim 18,446,744,073,709,551,615)$                               |\n| UIntNative | platform dependent                                                                  |\n\n程序具体使用哪种整数类型，取决于该程序中需要处理的整数的性质和范围。在 `Int64` 类型适合的情况下，首选 `Int64` 类型，因为 `Int64` 的表示范围足够大，并且[整数类型字面量](./integer.md#整数类型字面量)在没有类型上下文的情况下默认推断为 `Int64` 类型，可以避免不必要的类型转换。同时，仓颉编程语言中的 `IntNative` 和 `UIntNative`，分别为有符号和无符号整数类型，提供与当前系统一致的位宽长度。这意味二者大小取决于运行它们的平台，使得其在跨平台开发中能够自动适应系统的位宽。"
+    },
+    {
+      "id": "integer-literals",
+      "title": "整数类型",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/integer.md#L26-L59",
+      "section": "整数类型字面量",
+      "text": "## 整数类型字面量\n\n整数类型字面量有 4 种进制表示形式：二进制（使用 `0b` 或 `0B` 前缀）、八进制（使用 `0o` 或 `0O` 前缀）、十进制（没有前缀）、十六进制（使用 `0x` 或 `0X` 前缀）。例如，对于十进制数 `24`，表示成二进制是 `0b00011000`（或 `0B00011000`），表示成八进制是 `0o30`（或 `0O30`），表示成十六进制是 `0x18`（或 `0X18`）。\n\n在各进制表示中，可以使用下划线 `_` 充当分隔符的作用，方便识别数值的位数，如 `0b0001_1000`。\n\n对于整数类型字面量，如果它的值超出了上下文要求的整数类型的表示范围，编译器将会报错。\n\n<!-- compile.error -->\n\n```cangjie\nlet x: Int8 = 128          // Error, 128 out of the range of Int8\nlet y: UInt8 = 256         // Error, 256 out of the range of UInt8\nlet z: Int32 = 0x8000_0000 // Error, 0x8000_0000 out of the range of Int32\n```\n\n在使用整数类型字面量时，可以通过加入后缀来明确整数字面量的类型，后缀与类型的对应为：\n\n|  后缀  | 类型  |  后缀  | 类型   |\n| :----- | :---- | :----  | :----- |\n| i8     | Int8  | u8     | UInt8  |\n| i16    | Int16 | u16    | UInt16 |\n| i32    | Int32 | u32    | UInt32 |\n| i64    | Int64 | u64    | UInt64 |\n\n加入了后缀的整数字面量可以通过以下方式使用：\n\n<!-- compile -->\n\n```cangjie\nvar x = 100i8  // x is 100 with type Int8\nvar y = 0x10u64 // y is 16 with type UInt64\nvar z = 0o432i32  // z is 282 with type Int32\n```"
+    },
+    {
+      "id": "string-literals",
+      "title": "字符串类型",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/strings.md#L1-L18",
+      "section": "字符串字面量",
+      "text": "# 字符串类型\n\n字符串类型使用 `String` 表示，用于表达文本数据，由一串 Unicode 字符组合而成。\n\n## 字符串字面量\n\n字符串字面量分为三类：单行字符串字面量，多行字符串字面量，多行原始字符串字面量。\n\n**单行字符串字面量**的内容定义在一对单引号或一对双引号之内，引号中的内容可以是任意数量的（除了用于定义字符串字面量的非转义的引号和单独出现的 `\\` 之外的）任意字符。单行字符串字面量只能写在同一行，不能跨越多行。举例如下：\n\n<!-- compile -->\n\n```cangjie\nlet s1: String = \"\"\nlet s2 = 'Hello Cangjie Lang'\nlet s3 = \"\\\"Hello Cangjie Lang\\\"\"\nlet s4 = 'Hello Cangjie Lang\\n'\n```"
+    },
+    {
+      "id": "function-definition",
+      "title": "定义函数",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/define_functions.md#L1-L17",
+      "section": "定义函数",
+      "text": "# 定义函数\n\n仓颉使用关键字 `func` 来表示函数定义的开始，`func` 之后依次是函数名、参数列表、可选的函数返回值类型、函数体。其中，函数名可以是任意的合法标识符，参数列表定义在一对圆括号内（多个参数间使用逗号分隔），参数列表和函数返回值类型（如果存在）之间使用冒号分隔，函数体定义在一对花括号内。\n\n函数定义举例：\n\n<!-- compile -->\n\n```cangjie\nfunc add(a: Int64, b: Int64): Int64 {\n    return a + b\n}\n```\n\n上例中定义了一个名为 `add` 的函数，其参数列表由两个 `Int64` 类型的参数 `a` 和 `b` 组成，函数返回值类型为 `Int64`，函数体中将 `a` 和 `b` 相加并返回。\n\n下面依次对函数定义中的参数列表、函数返回值类型和函数体作进一步介绍。"
+    },
+    {
+      "id": "function-parameters",
+      "title": "定义函数",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/define_functions.md#L19-L82",
+      "section": "参数列表",
+      "text": "## 参数列表\n\n一个函数可以拥有 0 个或多个参数，这些参数均定义在函数的参数列表中。根据函数调用时是否需要给定参数名，可以将参数列表中的参数分为两类：非命名参数和命名参数。\n\n非命名参数的定义方式是 `p: T`，其中 `p` 表示参数名，`T` 表示参数 `p` 的类型，参数名和其类型间使用冒号连接。例如，上例中 `add` 函数的两个参数 `a` 和 `b` 均为非命名参数。\n\n命名参数的定义方式是 `p!: T`，与非命名参数的不同是在参数名 `p` 之后多了一个 `!`。可以将上例中 `add` 函数的两个非命名参数修改为命名参数，如下所示：\n\n<!-- compile -->\n\n```cangjie\nfunc add(a!: Int64, b!: Int64): Int64 {\n    return a + b\n}\n```\n\n命名参数还可以设置默认值，通过 `p!: T = e` 方式将参数 `p` 的默认值设置为表达式 `e` 的值。例如，可以将上述 `add` 函数的两个参数的默认值都设置为 `1`：\n\n<!-- compile -->\n\n```cangjie\nfunc add(a!: Int64 = 1, b!: Int64 = 1): Int64 {\n    return a + b\n}\n```\n\n> **注意：**\n>\n> 只能为命名参数设置默认值，不能为非命名参数设置默认值。\n\n参数列表中可以同时定义非命名参数和命名参数，但是需要注意的是，非命名参数只能定义在命名参数之前，也就意味着命名参数之后不能再出现非命名参数。例如，下例中 `add` 函数的参数列表定义是不合法的：\n\n<!-- compile.error -->\n\n```cangjie\nfunc add(a!: Int64, b: Int64): Int64 { // Error, named parameter 'a' must be defined after non-named parameter 'b'\n    return a + b\n}\n```\n\n非命名参数和命名参数的主要差异在于调用时的不同，具体可参见下文[调用函数](./call_functions.md)中的介绍。\n\n函数参数均为不可变变量，在函数定义内不能对其赋值。\n\n<!-- compile.error -->\n\n```cangjie\nfunc add(a: Int64, b: Int64): Int64 {\n    a = a + b // Error\n    return a\n}\n```\n\n函数参数作用域从定义处起至函数体结束：\n\n<!-- compile.error -->\n\n```cangjie\nfunc add(a: Int64, b: Int64): Int64 {\n    var a_ = a // OK\n    var b = b  // Error, redefinition of declaration 'b'\n    return a\n}\n```"
+    },
+    {
+      "id": "function-call",
+      "title": "调用函数",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/call_functions.md#L1-L28",
+      "section": "调用函数",
+      "text": "# 调用函数\n\n函数调用的形式为 `f(arg1, arg2, ..., argn)`。其中，`f` 是要调用的函数的名字，`arg1` 到 `argn` 是 `n` 个调用时的参数（称为实参），要求每个实参的类型必须是对应参数类型的子类型。实参可以有 0 个或多个，当实参个数为 0 时，调用方式为 `f()`。\n\n根据函数定义时参数是非命名参数还是命名参数的差异，函数调用时传实参的方式也有所不同：对于非命名参数，它对应的实参是一个表达式；对于命名参数，它对应的实参需要使用 `p: e` 的形式，其中 `p` 是命名参数的名字，`e` 是表达式（即传递给参数 `p` 的值）。\n\n非命名参数调用举例：\n\n<!-- verify -->\n\n```cangjie\nfunc add(a: Int64, b: Int64) {\n    return a + b\n}\n\nmain() {\n    let x = 1\n    let y = 2\n    let r = add(x, y)\n    println(\"The sum of x and y is ${r}\")\n}\n```\n\n执行结果为：\n\n```text\nThe sum of x and y is 3\n```"
+    },
+    {
+      "id": "named-argument-defaults",
+      "title": "调用函数",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/call_functions.md#L76-L118",
+      "section": "拥有默认值的命名参数",
+      "text": "对于拥有默认值的命名参数，调用时如果没有传实参，那么此参数将使用默认值作为实参的值。例如，下例中调用 `add` 函数时没有为参数 `b` 传实参，那么参数 `b` 的值等于其定义时的默认值 `2`：\n\n<!-- verify -->\n\n```cangjie\nfunc add(a: Int64, b!: Int64 = 2) {\n    return a + b\n}\n\nmain() {\n    let x = 1\n    let r = add(x)\n    println(\"The sum of x and y is ${r}\")\n}\n```\n\n执行结果为：\n\n```text\nThe sum of x and y is 3\n```\n\n对于拥有默认值的命名参数，调用时也可以为其传递新的实参，此时命名参数的值等于新的实参的值，即定义时的默认值将失效。例如，下例中调用 `add` 函数时为参数 `b` 传了新的实参值 `20`，那么参数 `b` 的值就等于 `20`：\n\n<!-- verify -->\n\n```cangjie\nfunc add(a: Int64, b!: Int64 = 2) {\n    return a + b\n}\n\nmain() {\n    let x = 1\n    let r = add(x, b: 20)\n    println(\"The sum of x and y is ${r}\")\n}\n```\n\n执行结果为：\n\n```text\nThe sum of x and y is 21\n```"
+    },
+    {
+      "id": "function-return-types",
+      "title": "定义函数",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/define_functions.md#L84-L113",
+      "section": "函数返回值类型",
+      "text": "## 函数返回值类型\n\n函数返回值类型是函数被调用后得到的值的类型。函数定义时，返回值类型是可选的：可以显式地定义返回值类型（返回值类型定义在参数列表和函数体之间），也可以不定义返回值类型，交由编译器推导确定。\n\n当显式地定义了函数返回值类型时，就要求函数体的类型（关于如何确定函数体的类型可参见下节[函数体](./define_functions.md#函数体)）、函数体中所有 `return e` 表达式中 `e` 的类型是返回值类型的子类型。例如，对于上述 `add` 函数，显式地定义了它的返回值类型为 `Int64`；如果将函数体中的 `return a + b` 修改为 `return (a, b)`，则会因为类型不匹配而报错：\n\n<!-- compile.error -->\n\n```cangjie\n// Error, the type of the expression after return does not match the return type of the function\nfunc add(a: Int64, b: Int64): Int64 {\n    return (a, b)\n}\n```\n\n在函数定义时如果未显式定义返回值类型，编译器将根据函数体的类型以及函数体中所有的 `return` 表达式来共同推导出函数的返回值类型。例如，下例中 `add` 函数的返回值类型虽然被省略，但编译器可以根据 `return a + b` 推导出 `add` 函数的返回值类型是 `Int64`：\n\n<!-- compile -->\n\n```cangjie\nfunc add(a: Int64, b: Int64) {\n    return a + b\n}\n```\n\n> **注意：**\n>\n> 函数的返回值类型并不是任何情况下都可以被推导出来的，如果返回值类型推导失败，编译器会报错。\n>\n> 指定返回类型为 Unit 时，编译器会在函数体中所有可能返回的地方自动插入表达式 return ()，使得函数的返回类型总是为 Unit。"
+    },
+    {
+      "id": "local-variable-scope",
+      "title": "定义函数",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/define_functions.md#L163-L178",
+      "section": "函数体",
+      "text": "在函数体内定义的变量属于局部变量的一种（如上例中的 `r` 变量），它的作用域从其定义之后开始到函数体结束。\n\n对于一个局部变量，允许在其外层作用域中定义同名变量，并且在此局部变量的作用域内，局部变量会“遮盖”外层作用域的同名变量。例如：\n\n<!-- compile -->\n\n```cangjie\nlet r = 0\nfunc add(a: Int64, b: Int64) {\n    var r = 0\n    r = a + b\n    return r\n}\n```\n\n上例中，`add` 函数之前定义了 `Int64` 类型的全局变量 `r`，同时 `add` 函数体内定义了同名的局部变量 `r`，那么在函数体内，所有使用变量 `r` 的地方（如 `r = a + b`），用到的将是局部变量 `r`，即（在函数体内）局部变量 `r` “遮盖”了全局变量 `r`。"
+    },
+    {
+      "id": "numeric-conversion",
+      "title": "类型转换",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/class_and_interface/typecast.md#L1-L51",
+      "section": "数值类型之间的转换",
+      "text": "# 类型转换\n\n仓颉不支持不同类型之间的隐式转换（子类型天然是父类型，所以子类型到父类型的转换不是隐式类型转换），类型转换必须显式地进行。下面将依次介绍数值类型之间的转换，`Rune` 到 `UInt32` 和整数类型到 `Rune` 的转换，以及 `is` 和 `as` 操作符。\n\n## 数值类型之间的转换\n\n对于数值类型（包括：`Int8`，`Int16`，`Int32`，`Int64`，`IntNative`，`UInt8`，`UInt16`，`UInt32`，`UInt64`，`UIntNative`，`Float16`，`Float32`，`Float64`），仓颉支持使用 `T(e)` 的方式得到一个值等于 `e`，类型为 `T` 的值。其中，表达式 `e` 的类型和 `T` 可以是上述任意数值类型。\n\n下面的例子展示了数值类型之间的类型转换：\n\n<!-- verify -->\n\n```cangjie\nmain() {\n    let a: Int8 = 10\n    let b: Int16 = 20\n    let r1 = Int16(a)\n    println(\"The type of r1 is 'Int16', and r1 = ${r1}\")\n    let r2 = Int8(b)\n    println(\"The type of r2 is 'Int8', and r2 = ${r2}\")\n\n    let c: Float32 = 1.0\n    let d: Float64 = 1.123456789\n    let r3 = Float64(c)\n    println(\"The type of r3 is 'Float64', and r3 = ${r3}\")\n    let r4 = Float32(d)\n    println(\"The type of r4 is 'Float32', and r4 = ${r4}\")\n\n    let e: Int64 = 1024\n    let f: Float64 = 1024.1024\n    let r5 = Float64(e)\n    println(\"The type of r5 is 'Float64', and r5 = ${r5}\")\n    let r6 = Int64(f)\n    println(\"The type of r6 is 'Int64', and r6 = ${r6}\")\n}\n```\n\n上述代码的执行结果为：\n\n```text\nThe type of r1 is 'Int16', and r1 = 10\nThe type of r2 is 'Int8', and r2 = 20\nThe type of r3 is 'Float64', and r3 = 1.000000\nThe type of r4 is 'Float32', and r4 = 1.123457\nThe type of r5 is 'Float64', and r5 = 1024.000000\nThe type of r6 is 'Int64', and r6 = 1024\n```\n\n> **注意：**\n>\n> 类型转换时可能发生溢出，若溢出可提前在编译器检测出来，则编译器会直接给出报错，否则根据默认的溢出策略将抛出异常。"
+    },
+    {
+      "id": "unit-type",
+      "title": "Unit 类型",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/unit.md#L1-L5",
+      "section": "Unit 类型",
+      "text": "# Unit 类型\n\n对于那些只关心副作用而不关心值的表达式，它们的类型是 `Unit`。例如，`print` 函数、赋值表达式、复合赋值表达式、自增和自减表达式、循环表达式，它们的类型都是 `Unit`。\n\n`Unit` 类型只有一个值，也是它的字面量：`()`。除了赋值、判等和判不等外，`Unit` 类型不支持其他操作。"
+    }
+  ]
+}

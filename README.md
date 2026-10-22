@@ -2,7 +2,9 @@
 
 仓颉程序诊断与测试验证工具，面向大学仓颉课程中的单文件练习。通过稳定的诊断、修改和测试流程，开展探索性 A/B 实验，回答：**加入同版本官方文档检索，程序修复成功率是否发生变化？**
 
-当前为 0.3 开发版。固定 SDK 1.0.5 下已在 Linux 与本机 Windows 实际跑通：仓颉核心编译审核样例 → 解析 cjc → 保存快照和记录 → 本地 Web 接口及历史读取。任务接收与结束记录、异常、取消和超时可查原因并导出；34 项本地前端/接口检查通过。2026-10-22 用户卸载 Windows 更新并重启后，原生启动恢复；中文仓库路径的命令行兼容问题已处理，详见环境记录。任意源码编译、AI 修复、隔离验收和 A/B 实验尚未完成。
+当前为 0.3 开发版。固定 SDK 1.0.5 下已在 Linux 与本机 Windows 实际跑通：仓颉核心编译审核样例 → 解析 cjc → 保存快照和记录 → 本地 Web 接口及历史读取。任务接收与结束记录、异常、取消和超时可查原因并导出。2026-10-22 用户卸载 Windows 更新并重启后，原生启动恢复；中文仓库路径的命令行兼容问题已处理，详见环境记录。
+
+本轮增加离线文档依据：仓颉核心用 BM25 检索固定版本的 15 段官方原文，界面展示引用并导出与诊断绑定的证据。三个公开开发报错的原生检索、真实接口检查及 42 项本地前端/接口检查通过；新增界面验收待核验，见[开发进度](docs/progress.md)。目前按“先完成离线功能”推进，模型服务与预算尚未选定。任意源码编译、AI 解释与修复、隔离验收、行为测试和正式 A/B 实验尚未完成。
 
 主仓库：[AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)；同步副本：[GitHub](https://github.com/Frank72316/cangjie-code-doctor)。按课程要求，以主仓库作为提交与协作入口。
 
@@ -14,6 +16,7 @@
 - [与第三组的定位及合作说明](docs/positioning-and-collaboration.md)：各自的问题与证明方式，以及待协商的合作方向。
 - [开发进度](docs/progress.md)：本次交付、实际验证、阻塞及后续顺序。
 - [提交与同步记录](docs/submissions.md)：逐次提交、平台检查时间与老师核验入口。
+- [官方文档来源与许可](docs/document-sources.md)：SDK 1.0.5 固定提交、15 段摘录、哈希与离线重建方法。
 - [开发与复现](docs/development.md) · [Windows 环境排查](docs/environment.md)。
 
 ## 运行当前预览
@@ -24,9 +27,9 @@
 ./scripts/preview.ps1
 ```
 
-然后打开 `http://127.0.0.1:8765`。脚本优先使用系统 Node.js，其次查找本机 Codex 已有依赖；也可传 `-NodePath` 和 `-SdkRoot`。环境就绪时可重新编译四个审核样例，编译和记录由仓颉核心完成。导入/编辑的任意源码只在浏览器内形成副本，尚不提交编译；所有生成程序均不执行。
+然后打开 `http://127.0.0.1:8765`。脚本优先使用系统 Node.js，其次查找本机 Codex 已有依赖；也可传 `-NodePath` 和 `-SdkRoot`。环境就绪时可重新编译四个审核样例，编译和记录由仓颉核心完成。在“文档依据”中留空查询可按当前诊断检索，也可输入关键词；结果保留原文、来源和快照信息。导入/编辑的任意源码只在浏览器内形成副本，尚不提交编译；所有生成程序均不执行。
 
-![当前开发预览：源码与诊断并排展示](docs/preview.png)
+![此前布局预览：源码与诊断并排展示，尚未包含本轮文档依据面板](docs/preview.png)
 
 界面采用左侧导航和双栏诊断布局，常用操作集中在顶部；窄屏自动切换为单栏，见[手机布局预览](docs/preview-mobile.png)。记录依据与任务历史位于工作区下方，可直接从导航跳转。环境详情和原始日志可展开查看，历史仍支持失败原因及进程日志。
 
@@ -38,7 +41,15 @@ Windows SDK 1.0.5 开发命令（SDK 路径换成自己的安装位置）：
 ./scripts/test-native.ps1 -SdkRoot 'D:\Cangjie'
 ```
 
-构建与原生自检已在回退后的本机 Windows 通过。Linux CI 用于原生自检、样例编译及 HTTP 联调；各次结果见 [Actions 记录](https://github.com/Frank72316/cangjie-code-doctor/actions)。34 项前端/接口检查可用 `node --test tests/viewer.test.mjs tests/bridge.test.mjs tests/tasks.test.mjs` 运行。完整联调和 Linux 本地启动方式见[开发说明](docs/development.md)。
+构建与原生自检已在回退后的本机 Windows 通过。Linux CI 用于原生自检、样例编译、HTTP 联调及离线检索；各次实际结果见 [Actions 记录](https://github.com/Frank72316/cangjie-code-doctor/actions)。本轮新增检索检查的 Windows 命令如下；先加载 SDK 环境并完成构建：
+
+```powershell
+. 'D:\Cangjie\envsetup.ps1'
+node scripts/test-retrieval.mjs target/debug/doctor.exe D:/Cangjie/bin/cjc.exe
+node --test tests/*.test.mjs
+```
+
+完整联调和 Linux 本地启动方式见[开发说明](docs/development.md)。上述检查使用公开开发记录及明确标识的合成接口数据，不能作为修复成功率或正式 A/B 成绩。
 
 ## 工具与实验
 
@@ -48,8 +59,10 @@ Windows SDK 1.0.5 开发命令（SDK 路径换成自己的安装位置）：
 
 首版限定固定 SDK、单文件 `.cj`、不超过 200 行、仅标准库及确定性标准输入输出测试。部署与验收暂以固定 Linux 容器环境为基线，首周验证后锁定；不承诺多平台隔离适配。
 
-- [ ] 原始源码保护、行列定位和原始诊断展示
-- [ ] 同版本文档检索、中文解释和引用核对
+- [x] 审核样例的源码快照、行列定位和原始诊断展示
+- [x] SDK 1.0.5 官方原文的离线 BM25 检索、引用展示与证据导出
+- [x] 编译任务历史与异常、取消、超时记录
+- [ ] 基于文档依据的模型解释与修复
 - [ ] 候选校验、差异确认、最多两轮修复
 - [ ] 受限编译与运行、公开测试比对、异常及超时处理
 - [ ] 历史回退、JSON/HTML 报告和失败记录
@@ -129,4 +142,4 @@ git remote add github https://github.com/Frank72316/cangjie-code-doctor.git
 - [仓颉官方学习资源](https://cangjie-lang.cn/learn-resource)
 - [CangjieMagic](https://gitcode.com/Cangjie-TPC/CangjieMagic)
 
-材料修订日期：2026-10-21。正式报告、项目简介与本仓库协议保持同一方案口径。
+README 更新日期：2026-10-22。正式报告与项目简介的材料修订日期仍为 2026-10-21；本轮记录离线实现进展，没有把功能检查写成实验结论。

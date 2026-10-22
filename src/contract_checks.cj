@@ -33,7 +33,8 @@ func runSelfTests(): Int64 {
         let text = "引号\"、斜杠\\、换行\n与制表\t"
         check(JsonReader(jsonString(text)).parse().text == text, "JSON string round trip")
         check(JsonReader(failed.toJson()).parse().field("testStatus").text == "not_run", "compile is not a behavior test")
-        println("PASS: diagnostic contract self-tests")
+        runRetrievalChecks()
+        println("PASS: diagnostic and offline retrieval contract self-tests")
         return 0
     } catch (e: Exception) { println(e.message); return 1 }
 }

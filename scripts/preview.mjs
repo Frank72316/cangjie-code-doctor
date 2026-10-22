@@ -39,6 +39,25 @@ export function makeServer({bridge = null} = {}) {
           send(200, {...await bridge.probe(), token:bridge.token, busy:bridge.busy}); return;
         }
         if (req.method === 'GET' && req.url === '/api/history') { send(200, {...await bridge.history(),busy:bridge.busy}); return; }
+        if (req.method === 'POST' && req.url === '/api/retrieve') {
+          if (req.headers['content-type'] !== 'application/json') { send(415,{error:'Expected JSON'}); return; }
+          const chunks = []; let bytes = 0;
+          for await (const chunk of req) {
+            bytes += chunk.length;
+            if (bytes > 2 * 1024 * 1024 + 16384) { send(413,{error:'诊断记录超过大小限制。'}); return; }
+            chunks.push(chunk);
+          }
+          let input;
+          try { input = JSON.parse(Buffer.concat(chunks).toString('utf8')); }
+          catch { send(400,{error:'Invalid JSON'}); return; }
+          const controller = new AbortController();
+          const cancel = () => { if (!res.writableEnded) controller.abort(); };
+          res.on('close',cancel);
+          if (res.destroyed) controller.abort();
+          try { send(200,await bridge.retrieve(input,controller.signal)); }
+          finally { res.removeListener('close',cancel); }
+          return;
+        }
         if (req.method === 'POST' && req.url === '/api/compile-example') {
           if (req.headers['content-type'] !== 'application/json') { send(415, {error:'Expected JSON'}); return; }
           let body = '', bytes = 0;
@@ -55,7 +74,7 @@ export function makeServer({bridge = null} = {}) {
           return;
         }
         send(404, {error:'Unknown API'}); return;
-      } catch (e) { send(e.status || 500, {error:e.message,taskId:e.taskId,taskState:e.taskState}); return; }
+      } catch (e) { send(e.status || 500, {error:e.message,taskId:e.taskId,taskState:e.taskState,retrievalId:e.retrievalId}); return; }
     }
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, {...headers, Allow: 'GET, HEAD'}).end(); return; }
     const route = routes.get(req.url?.split('?')[0]);

@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { join, resolve } from 'node:path';
 import { TaskStore, logExcerpt } from './task-store.mjs';
+import { retrieveEvidence } from './retrieval.mjs';
 
 export const EXAMPLE_IDS = ['type_mismatch', 'undefined_name', 'argument_count', 'hello'];
 function stopTree(child) {
@@ -108,5 +109,12 @@ export class NativeBridge {
   }
   async history() {
     return this.store.history(this.active);
+  }
+  async retrieve(input, signal) {
+    if (!this.health.available) throw Object.assign(new Error(this.health.detail),{status:503});
+    if (this.busy) throw Object.assign(new Error('已有任务正在进行，请稍后检索。'),{status:409});
+    this.busy = true;
+    try { return await retrieveEvidence(this,input,signal); }
+    finally { this.busy = false; }
   }
 }

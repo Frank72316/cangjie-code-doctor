@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "corpusFile": "cangjie-1.0.5.json",
+  "corpusSha256": "aea5e1dd984f73f607a41555ac590ffc4d1ce6627149b660f03fd449c40325c2",
+  "corpusBytes": 25949,
+  "sdkVersion": "1.0.5",
+  "snapshotId": "cangjie-1.0.5-f8f8cd75a336-zh-cn-core-01",
+  "sourceRevision": "f8f8cd75a336e23785a4c57bd6091b2adf1e0302",
+  "sourceTag": "v1.0.5",
+  "sourceRepository": "https://github.com/cangjielanguage/cangjie_docs",
+  "sourceCommitTime": "2025-12-10T18:03:38+08:00",
+  "sourceVerifiedAt": "2026-10-22T20:07:40+08:00",
+  "versionEvidence": [
+    "https://github.com/cangjielanguage/cangjie_docs/releases/tag/v1.0.5",
+    "https://docs.cangjie-lang.cn/docs/1.0.5/"
+  ],
+  "language": "zh-CN",
+  "selectionRevision": 1,
+  "selectionNote": "15 contiguous excerpts from official v1.0.5 development-guide Markdown; outer whitespace trimmed, line endings normalized to LF. No translation, paraphrasing, added error examples, evaluation cases or holdout tests.",
+  "license": {
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "upstreamUrl": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/LICENSE",
+    "localFile": "LICENSE-CC-BY-4.0.txt",
+    "sha256": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661",
+    "copyright": "Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.",
+    "copyrightFile": "COPYRIGHT.txt",
+    "copyrightSha256": "2c981c881f9e506044fdc721266d6cf6c1e372b33c51b379669cd7fb2ce78115"
+  },
+  "sources": [
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md",
+      "sha256": "1a255f0ebf6a9cd41a63a98f666a033382b1da7358f2b838cd0afa39e81f7dad",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_programming_concepts/identifier.md",
+      "sha256": "f9af13f26284e146d6703fcd6076e04fd1c519aa245b13cc1086fe752c9c70df",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_programming_concepts/identifier.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/basic_programming_concepts/identifier.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/integer.md",
+      "sha256": "e92e9a45d545812de7e350e706f83c78f2e3a5c1a14d2bc92ef4d8786b2cf03b",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/integer.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/basic_data_type/integer.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/strings.md",
+      "sha256": "021a5f84bebb14773cfa32d17724d5364d5f148c9bbca97052939400255cbf53",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/strings.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/basic_data_type/strings.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "sha256": "41d0489e6cef21a32781f16ab6572c2206e01e8af31cfb6f83b12fe6f8ce11d7",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/function/define_functions.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "sha256": "0ff39fdb8ae6908920ec60f9b0ded7f5c777e338145ad58372dac2ae0ccd3bdc",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/function/call_functions.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "sha256": "1b7be3357e56a84f313fec936435d5e60ac2968ac5d2fb9eddb3e787d8498fec",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/class_and_interface/typecast.html"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/unit.md",
+      "sha256": "cea37010d3192af26873c7280187f345587914e90de71a6f4c955e3e58a6d6f9",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/unit.md",
+      "hostedUrl": "https://docs.cangjie-lang.cn/docs/1.0.5/dev-guide/source_zh_cn/basic_data_type/unit.html"
+    }
+  ],
+  "excerpts": [
+    {
+      "id": "variables-initialization",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md",
+      "startLine": 68,
+      "endLine": 91,
+      "sha256": "ca996606241312694b1c6095da884936dce938c1ac3f52b04bb799cb0389350a",
+      "characters": 820
+    },
+    {
+      "id": "immutable-variable",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md",
+      "startLine": 114,
+      "endLine": 123,
+      "sha256": "e9a26d37e2541c028050da964a5a659f3b2388b256f0a046e603383b053388c2",
+      "characters": 163
+    },
+    {
+      "id": "lexical-scope",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md",
+      "startLine": 328,
+      "endLine": 348,
+      "sha256": "07bd36d1e3cf4e761f78daab0f7b16f4749dbf5d4468e1ae0e4c55b34cc69a63",
+      "characters": 805
+    },
+    {
+      "id": "identifier-rules",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_programming_concepts/identifier.md",
+      "startLine": 1,
+      "endLine": 14,
+      "sha256": "d139a8be9dd54c3eba044c61c6d157dbeb9b7b89b7f3626981ac5034c3b92c06",
+      "characters": 611
+    },
+    {
+      "id": "integer-types",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/integer.md",
+      "startLine": 1,
+      "endLine": 24,
+      "sha256": "c69f8917da12ad95d57b554768851b03b87d6c186204995c6063031a93ca135c",
+      "characters": 1909
+    },
+    {
+      "id": "integer-literals",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/integer.md",
+      "startLine": 26,
+      "endLine": 59,
+      "sha256": "dccbf9a8c4787d0aa5fef90479a539335e3f7198d2e165064f726e1e70b44655",
+      "characters": 1012
+    },
+    {
+      "id": "string-literals",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/strings.md",
+      "startLine": 1,
+      "endLine": 18,
+      "sha256": "23b68dfa2163ee867c78548f5725b5558d4aedea0a83dd9ea9c7822bcf33cf46",
+      "characters": 376
+    },
+    {
+      "id": "function-definition",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 1,
+      "endLine": 17,
+      "sha256": "768bd773c47c6e9fa3f5cd96a53741399c55a6c18412a17638c7e67505da42c9",
+      "characters": 389
+    },
+    {
+      "id": "function-parameters",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 19,
+      "endLine": 82,
+      "sha256": "cc914b195017651730b5a15fca34cf7d6fc682ac24acd5c7d24042c6ce5a2f40",
+      "characters": 1284
+    },
+    {
+      "id": "function-call",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "startLine": 1,
+      "endLine": 28,
+      "sha256": "b17e55f36909fc517c9d87a8f3f0a90f479a67b3edf174254225b786ae0ddcfa",
+      "characters": 535
+    },
+    {
+      "id": "named-argument-defaults",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "startLine": 76,
+      "endLine": 118,
+      "sha256": "00821e793d77ab803e54ced53398c75ffe6a84dcf4ea92630f0ae6479650d4bb",
+      "characters": 666
+    },
+    {
+      "id": "function-return-types",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 84,
+      "endLine": 113,
+      "sha256": "493b23440ba73fbc65bdcc0b16da3fdc3d152342a4cc7f2689b6705bb9f760b4",
+      "characters": 885
+    },
+    {
+      "id": "local-variable-scope",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 163,
+      "endLine": 178,
+      "sha256": "1c90429fe235a1c4abb04e5dcbd75dda976843886ac60f0dec8f4d8359c79291",
+      "characters": 388
+    },
+    {
+      "id": "numeric-conversion",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "startLine": 1,
+      "endLine": 51,
+      "sha256": "01d492f5d76d7764a99857ca4b866bded5903c256e8577b903582bd253bf2533",
+      "characters": 1429
+    },
+    {
+      "id": "unit-type",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/unit.md",
+      "startLine": 1,
+      "endLine": 5,
+      "sha256": "fe98fc1f71343547bad90572c1b4fa943663ddaf226240a5e4c74f9a55c63db9",
+      "characters": 163
+    }
+  ]
+}

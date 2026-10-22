@@ -1,6 +1,6 @@
 # 当前实现与复现
 
-更新：2026-10-22，0.3 开发版。固定 SDK 1.0.5 下审核样例的基础诊断链路已在 Linux 和本机 Windows 实际运行；Windows 回退复测见[环境记录](environment.md)。任意源码及程序执行尚未开放。
+更新：2026-10-22，0.3 开发版。固定 SDK 1.0.5 下审核样例的基础诊断链路已在 Linux 和本机 Windows 实际运行；Windows 回退复测见[环境记录](environment.md)。本轮增加仓颉原生离线文档检索和引用证据保存。本轮 42 项本地前端/接口检查、原生及真实接口检查通过，新增界面验收待核验。任意源码、程序执行、模型修复和正式 A/B 尚未开放。
 
 ## 组件职责
 
@@ -8,13 +8,16 @@
 | --- | --- |
 | `src/json.cj`、`diagnostics.cj` | 有界诊断读取、统一结果、原始日志与编译/工具异常区分 |
 | `src/compiler.cj`、`trusted_examples.cj` | 审核样例校验、任务目录、输入快照、SDK 核对、真实 cjc 调用和记录写入 |
+| `src/retrieval.cj`、`retrieval_checks.cj` | 原生 BM25、分词、固定中英术语扩展、排序及确定性自检 |
 | `src/contract_checks.cj` | 原生确定性自检；Linux 与回退后的 Windows 均通过 |
 | `scripts/native-bridge.mjs`、`preview.mjs` | HTTP 与 CLI 之间的轻量传输；健康探测、请求约束、取消/超时终止、已有记录读取 |
 | `scripts/task-store.mjs`、`web/task.mjs` | 外层进程任务的接收、结束及故障记录；与仓颉诊断结论分别保存 |
-| `web/` | 副本编辑与定位、样例编译入口、历史、原始日志和导出；不解析或执行任意命令 |
+| `scripts/retrieval.mjs` | 检索输入、版本、语料哈希和原生引用校验；保存请求、快照、结果及失败记录，不在 JavaScript 重算排名 |
+| `data/docs/` | 固定 SDK 1.0.5 官方文档的 15 段摘录、来源清单、许可证及离线重建脚本 |
+| `web/` | 副本编辑与定位、样例编译入口、历史、原始日志、文档依据与导出；不解析或执行任意命令 |
 | `tests/fixtures/` | 第一轮 Windows cjc 真实采集记录，保留原有来源 |
-| `scripts/test-native*.mjs`、`test-compiler.mjs` | 原生 CLI、自检、真实编译及 HTTP 联调检查 |
-| `tests/*.test.mjs` | 34 项前端/接口契约检查，包含明确标识的合成故障数据 |
+| `scripts/test-native*.mjs`、`test-compiler.mjs`、`test-retrieval.mjs` | 原生 CLI、自检、真实编译、离线检索及 HTTP 联调检查 |
+| `tests/*.test.mjs` | 本轮 42 项前端/接口契约检查，包含明确标识的合成故障数据 |
 | `.github/workflows/native-check.yml` | 固定 Ubuntu 22.04 和 SDK 1.0.5 的自动检查 |
 
 新产生的记录由仓颉输出 `normalized` 诊断，页面直接使用。旧夹具保留只读 JavaScript 兼容适配，不能把它当成原生验证。编译业务不在 Node 中重写；当前 HTTP 传输层仍使用 Node，完整实验调度尚未实现。
@@ -40,6 +43,8 @@
 node scripts/test-native.mjs target/debug/doctor.exe
 node scripts/test-compiler.mjs target/debug/doctor.exe D:/Cangjie/bin/cjc.exe
 node scripts/test-native-http.mjs target/debug/doctor.exe D:/Cangjie/bin/cjc.exe
+node scripts/test-retrieval.mjs target/debug/doctor.exe D:/Cangjie/bin/cjc.exe
+node --test tests/*.test.mjs
 ```
 
 ## Linux 构建与运行
@@ -54,6 +59,7 @@ cjc -p src -o target/debug/doctor --diagnostic-format=noColor
 node scripts/test-native.mjs target/debug/doctor
 node scripts/test-compiler.mjs target/debug/doctor "$(command -v cjc)"
 node scripts/test-native-http.mjs target/debug/doctor "$(command -v cjc)"
+node scripts/test-retrieval.mjs target/debug/doctor "$(command -v cjc)"
 node --test tests/*.test.mjs
 node scripts/preview.mjs
 ```
@@ -69,6 +75,7 @@ doctor --version
 doctor --self-test
 doctor parse <编译器原始JSON文件> <编译器退出码>
 doctor compile-example <仓库根目录> <cjc绝对路径> <样例编号> <32位小写十六进制任务编号> <UTC时间>
+doctor retrieve <文档语料JSON文件> <查询JSON文件>
 ```
 
 样例编号只能为 `type_mismatch`、`undefined_name`、`argument_count` 或 `hello`。核心内置逐份审核的精确原文及对应 SHA-256，要求磁盘源文件与原文一致；修改 JSON 清单不能授权新代码。这里的固定哈希仅对应这四个已知样例，并非已实现任意源码的摘要业务。测试另用标准 SHA-256 核对其一致性。
@@ -81,16 +88,42 @@ cjc 1.0.5 的正常样例成功编译时输出为空，错误 JSON 位于 stderr
 
 ## 页面与接口约束
 
-页面选择样例后，在本机环境就绪且副本未改变时可重新编译。接口只接受一个样例编号，不接受源码、路径或命令。新结果显示之前会检查副本是否仍与请求时相同；有后续编辑则只把结果留在历史中，不覆盖编辑。
+页面选择样例后，在本机环境就绪且副本未改变时可重新编译。编译接口只接受一个样例编号，不接受源码、路径或命令。新结果显示之前会检查副本是否仍与请求时相同；有后续编辑则只把结果留在历史中，不覆盖编辑。
 
 - `GET /api/health`：当前环境状态与本次服务启动的操作 token。
 - `POST /api/probe`：重新探测配置中的核心与 SDK。
 - `POST /api/compile-example`：仅接受 `{"caseId":"hello"}` 形式的请求。
+- `POST /api/retrieve`：仅接受 `{"record":诊断记录,"query":"可选关键词"}`；`query` 可省略或留空，使用当前诊断生成查询。不接受文档路径、源码文件路径或命令。
 - `GET /api/history`：`{tasks, unreadable, busy}`，按接收时间返回最近 20 次任务及可验证的诊断；`unreadable` 表示不能完整读取的任务或诊断数量。0.3 接口已替代 0.2 的 `records` 数组。
 
-除健康读取外，API 要求本次服务 token；验证本地主机和来源，不允许跨来源预检授权。编译请求最多 1 KiB，同一服务同时只运行一个编译任务。所有进程使用独立参数数组，禁止 shell 拼接；浏览器中源码或诊断文本仅以文本方式展示。
+除健康读取外，API 要求本次服务 token；验证本地主机和来源，不允许跨来源预检授权。编译请求最多 1 KiB；检索 HTTP 请求最多 2 MiB 加 16 KiB，其中诊断记录仍受 2 MiB 限制、查询不超过 2,000 个 JavaScript 字符单元。同一服务同时只运行一个编译或检索任务。所有进程使用独立参数数组，禁止 shell 拼接；浏览器中源码或诊断文本仅以文本方式展示。
 
 导入限 UTF-8、`.cj`、64 KiB、200 行；单个导入记录最大 2 MiB。编辑器可以暂存超行数内容，下载前再次检查。导出诊断记录保留采集时的源码，当前副本要单独下载。哈希验证一致性，不是数字签名，导入文件中的生产者字段也不是来源认证。
+
+## 离线文档检索与证据
+
+本轮使用 [SDK 1.0.5 官方文档固定提交](document-sources.md)中的 15 段中文原文。来源修订为 `f8f8cd75a336e23785a4c57bd6091b2adf1e0302`，快照为 `cangjie-1.0.5-f8f8cd75a336-zh-cn-core-01`，当前语料 SHA-256 为 `aea5e1dd984f73f607a41555ac590ffc4d1ce6627149b660f03fd449c40325c2`。只读本地 JSON，不请求外部模型服务或在线检索接口。
+
+仓颉核心完成词法检索：ASCII 标识符转小写，连续汉字产生单字与相邻双字词项；使用固定的 `compiler-glossary-v1` 将常见英文编译术语追加为中文查询词。原查询与扩展后的 `effectiveQuery` 都保留。BM25 参数固定为 `k1=1.2`、`b=0.75`，HTTP 入口取前三条，分数相同时按文档 ID 确定顺序。分数只用于当前快照内的相关性排序，不是置信度或修复成功概率。
+
+服务先校验输入诊断及源码 SHA-256，拒绝 SDK 版本不符和工具异常记录，再核对语料与清单的哈希、版本和来源修订。每次检索将语料复制到独立运行目录，并把查询路径作为参数传给仓颉。原生输出返回后，逐项核对查询、配置、版本、排序和引用正文；未知片段、改写原文、重复条目或非法分数不能成为有效证据。只允许官方文档站和官方文档仓库的 HTTPS 引用。
+
+文件位于已忽略的 `runs/retrieval/<检索编号>/`：
+
+| 文件 | 含义 |
+| --- | --- |
+| `request.json` | 查询来源、完整诊断记录、源码和诊断记录哈希、语料哈希、接收时间 |
+| `corpus.json`、`query.json` | 此次实际传给原生检索的固定输入 |
+| `evidence.json` | 已校验的文档结果与来源、排名、算法参数、诊断/源码/语料哈希；先写临时文件再重命名 |
+| `failure.json` | 已接收任务的检索、校验或保存失败说明及有界进程日志（失败时） |
+
+成功结果在最终证据文件写入后才返回；写入失败不能显示成功。检索进程限时 15 秒，沿用输出上限和进程树取消处理。没有词法命中时保存并返回空结果，不补造引用。服务启动前或输入/快照校验阶段拒绝的请求不生成完整检索任务；保存失败可能只留下部分文件，不推断其成功。原子重命名不承诺断电持久化。
+
+页面展示正文引用、原文链接、版本和证据元数据，允许导出 `doctor-document-evidence` JSON。源码变化或切换诊断后，原文档依据被清除，未完成请求被取消；异步结果须与请求时诊断及当前副本一致才能展示。此证据格式不能作为诊断记录导入，检索任务目前也未接入编译任务历史列表。磁盘文件保留供核验，不自动上传。
+
+直接 CLI 的查询 JSON 形如 `{"sdkVersion":"1.0.5","query":"函数 参数 调用","topK":3}`。在仓库根目录使用相对 ASCII 路径调用 `doctor retrieve`，避免 Windows SDK 中文参数问题；完整的记录绑定、允许列表和落盘由 HTTP 传输入口提供，不能把裸 CLI 的通用 JSON 输入当作同样的验收边界。
+
+当前片段覆盖有限的基础类型、变量、作用域和函数规则；用户需要回看完整原文并结合源码核对。展示中文官方文档不等于已经生成中文诊断解释。本阶段未生成修复候选、执行程序或测量修复成功率；模型服务与预算尚未选定，优先完成离线功能。
 
 ## 任务状态与失败记录
 
@@ -123,4 +156,6 @@ Linux 的原生运行及完整 HTTP 链路已在[检查记录 39534258780](https
 
 0.3 本地增加了失败持久化、取消竞态、服务中断、损坏与超大记录、写盘失败、HTTP 断连和目录边界检查；浏览器中也验证了一次真实 Windows 启动失败的详情展开与 JSON 导出。故障注入输入明确标识为测试，均不计入 A/B。
 
-下一步：验证 Linux 的进程、资源、网络及权限隔离；随后开放任意源码受限编译、公开测试、同版本文档及用户确认修改。详情持续记录在[进度文件](progress.md)。
+本轮实际完成本机 `test-native.ps1`、`test-native.mjs`、`test-compiler.mjs`、`test-native-http.mjs` 和 `test-retrieval.mjs` 检查；后者核对三个真实开发诊断的原文引用、哈希、重复排序、无命中、HTTP 和 SDK 不匹配拒绝。`node --test tests/*.test.mjs` 共 42 项通过。新增文档界面验收及本轮发布后的 CI 待核验；不能用以往的 CI 链接代替当前提交结果。
+
+下一步：完成文档依据界面验收，继续完善离线案例、证据和用户确认流程；验证 Linux 的进程、资源、网络及权限隔离后再开放任意源码受限编译与公开测试。模型服务与预算明确后再接 AI 修复和正式 A/B。详情持续记录在[进度文件](progress.md)。

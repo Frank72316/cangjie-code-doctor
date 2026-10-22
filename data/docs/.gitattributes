@@ -1,0 +1,2 @@
+# Preserve the reviewed upstream license bytes across Windows/Linux checkouts.
+*.txt text eol=lf
