@@ -12,6 +12,16 @@ let historyTimer = null;
 let historyRequest = 0;
 function feedback(message = '') { $('feedback').textContent = message; $('feedback').hidden = !message; }
 function element(tag, text, className) { const e = document.createElement(tag); e.textContent = text; if (className) e.className = className; return e; }
+function displayTime(value) {
+  const date = new Date(value);
+  return Number.isFinite(date.getTime()) ? new Intl.DateTimeFormat('zh-CN', {timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(date) : '未记录';
+}
+function selectSample(name) {
+  document.querySelectorAll('[data-case]').forEach(button => {
+    const active = button.dataset.case === name;
+    button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active));
+  });
+}
 function current() { return sourceIsCurrent(record, currentName, $('source').value); }
 function refreshSource() {
   const text = $('source').value;
@@ -32,9 +42,11 @@ function refreshSource() {
 function showRecord(r) {
   record = r; currentName = r.source.name; $('source').value = r.source.text;
   const view = compileView(r);
+  $('diag-count').textContent = view.diagnostics.length;
+  $('diag-count').setAttribute('aria-label',`${view.diagnostics.length} 条诊断`);
   $('compile-status').textContent = view.label; $('compile-status').className = `status ${view.status}`;
   $('compile-detail').textContent = view.detail; $('exit-code').textContent = `exit ${r.compiler.exitCode}`;
-  $('sdk').textContent = r.compiler.version; $('captured').textContent = r.capturedAt ?? '未记录';
+  $('sdk').textContent = r.compiler.version; $('captured').textContent = displayTime(r.capturedAt); $('captured').title = r.capturedAt ?? '';
   $('source-hash').textContent = r.source.sha256;
   $('stdout').textContent = r.compiler.stdout || '（空）'; $('stderr').textContent = r.compiler.stderr || '（空）';
   $('diagnostics').replaceChildren();
@@ -59,7 +71,7 @@ function showRecord(r) {
     card.append(element('small', d.code || '未提供诊断代码')); $('diagnostics').append(card);
   }
   if (!view.diagnostics.length) {
-    const empty = element('div', '', 'empty');
+    const empty = element('div', '', view.status === 'compile_passed' ? 'empty' : 'empty tool-empty');
     empty.append(element('strong', view.status === 'compile_passed' ? '编译器没有报告错误' : '没有可定位的结构化诊断'),
       element('p', view.status === 'compile_passed' ? '这只说明编译成功。程序行为需要通过独立测试进一步验证。' : '请保留并检查下面的原始日志，不将工具异常计为源码正确。'));
     $('diagnostics').append(empty);
@@ -74,7 +86,7 @@ async function loadCase(name) {
     const r = await readRecord(await response.text());
     if (ticket !== loading) return;
     selectedCase = name; showRecord(r);
-    document.querySelectorAll('[data-case]').forEach(b => b.classList.toggle('active', b.dataset.case === name));
+    selectSample(name);
   } catch (e) { if (ticket === loading) feedback(e.message); }
 }
 function download(name, text, type) {
@@ -100,7 +112,7 @@ $('source-file').addEventListener('change', async event => {
     if (ticket !== loading) return;
     currentName = file.name; $('source').value = text; refreshSource();
     selectedCase = null; refreshSource();
-    document.querySelectorAll('[data-case]').forEach(b => b.classList.remove('active'));
+    selectSample(null);
     feedback('已导入本地副本。本预览不会编译或执行导入的源码。');
   } catch (e) { if (ticket === loading) feedback(e.message); }
 });
@@ -110,7 +122,7 @@ $('record-file').addEventListener('change', async event => {
   try {
     const r = await readRecord(await fileText(file, MAX_REPORT_BYTES));
     if (ticket !== loading) return;
-    selectedCase = null; showRecord(r); document.querySelectorAll('[data-case]').forEach(b => b.classList.remove('active'));
+    selectedCase = null; showRecord(r); selectSample(null);
   } catch (e) { if (ticket === loading) feedback(e.message); }
 });
 $('save-source').addEventListener('click', () => {
@@ -136,6 +148,8 @@ async function refreshHealth(recheck = false) {
     $('runtime-detail').textContent = '当前服务没有连接仓颉核心，可继续浏览已采集记录。';
   }
   $('refresh-health').disabled = false;
+  document.body.dataset.runtime = health.available ? 'ready' : 'unavailable';
+  $('runtime-summary').textContent = health.available ? '已就绪 · 查看环境详情' : '可继续查看记录 · 展开原因';
   refreshSource();
 }
 async function refreshHistory() {
@@ -160,14 +174,16 @@ async function refreshHistory() {
     $('history').replaceChildren();
     for (const item of tasks) {
       const card = element('article','', 'history-card');
+      card.dataset.state = item.state === 'completed' && item.record ? item.record.normalized.status : item.state;
       const row = element('div','', 'history-row');
       const info = element('div','', 'history-info');
-      info.append(element('strong',`${item.caseId}.cj · ${taskLabel(item)}`),element('span',item.startedAt,'small-label'));
+      const time = element('span',displayTime(item.startedAt) + ' · 北京时间','small-label'); time.title = item.startedAt;
+      info.append(element('strong',`${item.caseId}.cj · ${taskLabel(item)}`),time);
       const actions = element('div','', 'actions');
       if (item.record) {
         const load = element('button',item.state === 'completed' ? '载入记录副本' : '查看已保存诊断');
         load.addEventListener('click', () => { ++loading; selectedCase = null; showRecord(item.record);
-          document.querySelectorAll('[data-case]').forEach(b => b.classList.remove('active'));
+          selectSample(null);
           if (item.state !== 'completed') feedback('已载入当时保存的诊断；任务状态仍为“' + taskLabel(item) + '”，以历史记录为准。'); });
         actions.append(load);
       }
@@ -189,7 +205,11 @@ async function refreshHistory() {
       card.append(row,detail); $('history').append(card);
     }
     if (unreadable) $('history').prepend(element('p',`${unreadable} 份任务或诊断文件无法完整读取，原文件已保留；不能将缺失结果计为成功。`,'history-warning'));
-    if (!tasks.length) $('history').append(element('p','本机还没有可显示的编译任务。发起任务后，完成、异常、取消和超时都会留在这里。','small-label'));
+    if (!tasks.length) {
+      const empty = element('div','','history-empty'), icon = element('span','↺','history-empty-icon'); icon.setAttribute('aria-hidden','true');
+      const copy = element('div',''); copy.append(element('strong','还没有本机编译任务'),element('p','发起任务后，结果与过程记录会保存在这里。'));
+      empty.append(icon,copy); $('history').append(empty);
+    }
     if (data.busy) historyTimer = setTimeout(refreshHistory,1000);
   } catch (e) {
     if (request === historyRequest) {
@@ -221,3 +241,15 @@ $('compile-example').addEventListener('click', async () => {
 });
 loadCase('type_mismatch');
 refreshHealth().then(refreshHistory);
+const sectionLinks = [...document.querySelectorAll('.nav-item')];
+const sections = sectionLinks.map(link=>document.querySelector(link.getAttribute('href')));
+function updateNavigation() {
+  let active = 0;
+  for (let i=0;i<sections.length;i++) if (sections[i].getBoundingClientRect().top <= 160) active = i;
+  if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) active = sections.length - 1;
+  sectionLinks.forEach((link,i)=>{ link.classList.toggle('active',i===active); if(i===active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current'); });
+  $('section-name').textContent = sectionLinks[active].getAttribute('aria-label');
+}
+window.addEventListener('scroll',updateNavigation,{passive:true});
+window.addEventListener('resize',updateNavigation);
+updateNavigation();
