@@ -1,6 +1,7 @@
 import { readRecord, compileView, sourceIsCurrent, validateSource, lineRange, sha256, MAX_REPORT_BYTES, MAX_SOURCE_BYTES } from './report.mjs';
 import { validateTask, taskLabel } from './task.mjs';
 import { initNavigation } from './navigation.mjs';
+import { lineDiff, validateRevision } from './revision.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
 let currentName = '';
@@ -17,6 +18,10 @@ let documentController = null;
 let retrievingDocuments = false;
 let documentEvidence = null;
 let documentEvidenceJSON = '';
+let revisionSnapshot = null;
+let savedRevision = null;
+let savingRevision = false;
+let revisionListRequest = 0;
 function feedback(message = '') { $('feedback').textContent = message; $('feedback').hidden = !message; }
 function element(tag, text, className) { const e = document.createElement(tag); e.textContent = text; if (className) e.className = className; return e; }
 function displayTime(value) {
@@ -27,6 +32,110 @@ function selectSample(name) {
   $('sample-select').value = name || '';
 }
 function current() { return sourceIsCurrent(record, currentName, $('source').value); }
+function matchesEditor(snapshot) {
+  return snapshot && snapshot.baseRecord === record && snapshot.source.name === currentName && snapshot.source.text === $('source').value;
+}
+function savedCurrent() { return matchesEditor(savedRevision); }
+function allowSourceReplacement() {
+  return !record || current() || savedCurrent() || window.confirm('当前修改尚未保存。继续会替换编辑框中的副本。要放弃这些未保存的修改吗？');
+}
+function revisionStatus(message = '') {
+  $('revision-status').textContent = message; $('revision-status').hidden = !message;
+}
+function refreshRevisionControls() {
+  const changed = record && !current();
+  if (revisionSnapshot && (!matchesEditor(revisionSnapshot) || loadingSample)) {
+    revisionSnapshot = null; $('revision-review').open = false;
+    $('revision-diff').replaceChildren(); $('revision-count').textContent = '';
+    revisionStatus('副本已变化，请重新展开差异，再确认保存。');
+  }
+  $('revision-review').hidden = !changed;
+  $('revision-hint').textContent = savedCurrent() ? '当前修改已存到本机，可在“记录依据”中重新载入。' : '编辑后可查看差异，确认保存到本机。';
+  $('save-revision').disabled = !health.token || !revisionSnapshot || !changed || savingRevision || loadingSample || savedCurrent();
+  $('save-revision').textContent = savingRevision ? '正在保存…' : savedCurrent() ? '这份修改已保存' : '确认保存这份修改';
+  if (!changed) { $('revision-review').open = false; revisionSnapshot = null; revisionStatus(); }
+}
+function renderRevisionReview() {
+  if (!record || current() || loadingSample) return;
+  try {
+    validateSource(currentName, $('source').value);
+    revisionSnapshot = {baseRecord:record,source:{name:currentName,text:$('source').value}};
+    const rows = lineDiff(record.source.text.replace(/\r\n?/g, '\n'), revisionSnapshot.source.text);
+    const added = rows.filter(row => row.kind === 'add').length;
+    const removed = rows.filter(row => row.kind === 'remove').length;
+    $('revision-count').textContent = `+${added} / −${removed}`;
+    $('revision-summary').textContent = `${record.source.name} → ${currentName} · 新增 ${added} 行，删除 ${removed} 行。空白末行也计入比较；原记录的换行格式仍完整保留。`;
+    $('revision-diff').replaceChildren();
+    for (const row of rows) {
+      const line = element('div', '', `diff-line diff-${row.kind}`);
+      line.append(element('span', String(row.beforeLine ?? ''), 'diff-number'), element('span', String(row.afterLine ?? ''), 'diff-number'),
+        element('span', row.kind === 'add' ? '+' : row.kind === 'remove' ? '−' : ' ', 'diff-marker'), element('code', row.text || ' ', 'diff-code'));
+      $('revision-diff').append(line);
+    }
+    revisionStatus(health.token ? '' : '未连接本机保存服务。可先在“源码操作”中下载副本，或检查环境后重试。');
+  } catch (error) { revisionSnapshot = null; $('revision-diff').replaceChildren(); revisionStatus(error.message); }
+  refreshRevisionControls();
+}
+async function readSavedRevision(id) {
+  const response = await fetch(`/api/revisions/${id}`, {headers:{'X-Doctor-Token':health.token}});
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || '无法读取修改记录。');
+  const revision = await validateRevision(data);
+  if (revision.revisionId !== id) throw new Error('修改记录编号不匹配，未载入。');
+  return revision;
+}
+async function refreshRevisions() {
+  const request = ++revisionListRequest;
+  $('refresh-revisions').disabled = true;
+  try {
+    if (!health.token) throw new Error('尚未连接本机修改记录服务。请在编译诊断页检查环境后重试。');
+    const response = await fetch('/api/revisions', {headers:{'X-Doctor-Token':health.token}});
+    const data = await response.json();
+    if (!response.ok || !Array.isArray(data.revisions)) throw new Error(data.error || '无法读取已保存修改。');
+    if (request !== revisionListRequest) return;
+    $('revision-list').replaceChildren();
+    for (const item of data.revisions) {
+      if (!/^[a-f0-9]{32}$/.test(item.revisionId) || typeof item.sourceName !== 'string') throw new Error('修改记录索引无效。');
+      const card = element('article', '', 'revision-card');
+      const row = element('div', '', 'history-row'), info = element('div', '', 'history-info');
+      info.append(element('strong', item.sourceName), element('span', `${displayTime(item.createdAt)} · 人工修改 · 未编译`, 'small-label'));
+      const load = element('button', '载入这份修改');
+      load.addEventListener('click', async () => {
+        if (!allowSourceReplacement()) return;
+        const ticket = ++loading, beforeRecord = record, beforeText = $('source').value, beforeName = currentName;
+        loadingSample = true; refreshSource(); load.disabled = true;
+        try {
+          const revision = await readSavedRevision(item.revisionId);
+          if (ticket !== loading || record !== beforeRecord || currentName !== beforeName || $('source').value !== beforeText) {
+            feedback('读取期间编辑内容已变化，保留当前副本；可再次点击载入。'); return;
+          }
+          selectedCase = null; showRecord(revision.baseRecord); selectSample(null);
+          currentName = revision.source.name; $('source').value = revision.source.text;
+          savedRevision = {baseRecord:record,source:revision.source};
+          refreshSource(); navigation.navigate('/diagnostics');
+          $('revision-review').open = true; renderRevisionReview();
+          feedback('已载入人工修改。右侧仍是原诊断，当前副本尚未编译或测试；可恢复记录原文。');
+        } catch (error) { if (ticket === loading) feedback(error.message); }
+        finally { load.disabled = false; if (ticket === loading) { loadingSample = false; refreshSource(); } }
+      });
+      row.append(info, load); card.append(row);
+      const detail = element('details', '', 'task-detail');
+      detail.append(element('summary', '记录信息与导出'), element('p', `原诊断源码：${item.baseName}`),
+        element('p', `修改编号：${item.revisionId}`, 'mono'), element('p', `修改后 SHA-256：${item.sourceSha256}`, 'mono'));
+      const save = element('button', '下载修改记录 JSON');
+      save.addEventListener('click', async () => {
+        save.disabled = true;
+        try { const revision = await readSavedRevision(item.revisionId); download(`doctor-revision-${revision.revisionId}.json`, JSON.stringify(revision, null, 2), 'application/json'); }
+        catch (error) { feedback(error.message); }
+        finally { save.disabled = false; }
+      });
+      detail.append(save); card.append(detail); $('revision-list').append(card);
+    }
+    if (!data.revisions.length) $('revision-list').append(element('p', '还没有保存的修改。先在编译诊断页编辑副本，展开差异并确认保存。', 'small-label'));
+    if (data.unreadable) $('revision-list').prepend(element('p', `${data.unreadable} 份修改记录无法完整读取，原文件已保留。`, 'history-warning'));
+  } catch (error) { if (request === revisionListRequest) $('revision-list').replaceChildren(element('p', error.message, 'small-label')); }
+  finally { if (request === revisionListRequest) $('refresh-revisions').disabled = false; }
+}
 function documentStatus(message, state = 'idle') {
   $('document-status').textContent = message;
   $('document-status').dataset.state = state;
@@ -156,16 +265,19 @@ function refreshSource() {
   $('restore').hidden = !record || current();
   $('compile-guidance').textContent = loadingSample ? '正在载入样例…' :
     !record ? '尚未载入诊断，请从上方选择一个样例重试。' :
-    !current() ? '副本已修改，暂不能编译。请先下载修改，或点击源码下方的“恢复记录副本”。' :
+    !current() ? '副本已修改，暂不能编译。请在源码下方查看差异并保存，或恢复记录副本。' :
     !selectedCase ? '当前为导入或历史记录。要发起新编译，请从上方选择审核样例。' :
     compiling || health.busy ? '本机任务进行中，请等待完成。' :
     retrievingDocuments ? '文档正在检索，完成后可编译。' :
     !health.available ? '编译环境暂不可用，请展开下方环境详情。已有记录仍可浏览。' :
     '当前展示已采集记录；点击编译，获取本次结果。';
   refreshDocumentControls();
+  refreshRevisionControls();
 }
 function showRecord(r) {
   loadingSample = false;
+  revisionSnapshot = null; savedRevision = null; $('revision-review').open = false; revisionStatus();
+  $('revision-count').textContent = ''; $('revision-diff').replaceChildren();
   resetDocumentEvidence(true);
   record = r; currentName = r.source.name; $('source').value = r.source.text;
   const view = compileView(r);
@@ -206,6 +318,7 @@ function showRecord(r) {
   refreshSource(); feedback();
 }
 async function loadCase(name) {
+  if (!allowSourceReplacement()) { selectSample(selectedCase); return; }
   loadingSample = true;
   resetDocumentEvidence(true); refreshDocumentControls();
   const ticket = ++loading;
@@ -237,13 +350,18 @@ document.querySelectorAll('.action-menu button').forEach(button => button.addEve
 document.querySelectorAll('.action-menu').forEach(menu => menu.addEventListener('keydown', event => {
   if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
 }));
-$('source').addEventListener('input', refreshSource);
+$('source').addEventListener('input', () => {
+  // Typing supersedes pending file/sample/revision reads, even if the user later
+  // restores the same text. An older async response must not replace new input.
+  ++loading; loadingSample = false; selectSample(selectedCase); refreshSource();
+});
 $('source').addEventListener('scroll', () => { $('line-numbers').scrollTop = $('source').scrollTop; });
-$('restore').addEventListener('click', () => { if (record) { currentName = record.source.name; $('source').value = record.source.text; refreshSource(); feedback(); } });
+$('restore').addEventListener('click', () => { if (record && allowSourceReplacement()) { ++loading; loadingSample = false; selectSample(selectedCase); currentName = record.source.name; $('source').value = record.source.text; savedRevision = null; refreshSource(); feedback('已恢复原诊断对应的源码副本；已保存修改仍保留在记录依据页。'); } });
 $('import-source').addEventListener('click', () => $('source-file').click());
 $('import-record').addEventListener('click', () => $('record-file').click());
 $('source-file').addEventListener('change', async event => {
   const file = event.target.files[0]; event.target.value = ''; if (!file) return;
+  if (!allowSourceReplacement()) return;
   resetDocumentEvidence(true); refreshDocumentControls();
   const ticket = ++loading;
   loadingSample = false;
@@ -260,6 +378,7 @@ $('source-file').addEventListener('change', async event => {
 });
 $('record-file').addEventListener('change', async event => {
   const file = event.target.files[0]; event.target.value = ''; if (!file) return;
+  if (!allowSourceReplacement()) return;
   resetDocumentEvidence(true); refreshDocumentControls();
   const ticket = ++loading;
   loadingSample = false;
@@ -275,6 +394,36 @@ $('save-source').addEventListener('click', () => {
   catch (e) { feedback(e.message); }
 });
 $('export-record').addEventListener('click', () => { if (record) download(record.source.name + '.diagnostic.json', JSON.stringify(record, null, 2), 'application/json'); });
+$('revision-review').addEventListener('toggle', () => {
+  if ($('revision-review').open) renderRevisionReview();
+  else { revisionSnapshot = null; $('revision-count').textContent = ''; $('revision-diff').replaceChildren(); refreshRevisionControls(); }
+});
+$('save-revision').addEventListener('click', async () => {
+  if (!matchesEditor(revisionSnapshot) || !health.token || savingRevision || savedCurrent() || loadingSample) return;
+  const snapshot = revisionSnapshot, originalJSON = JSON.stringify(snapshot.baseRecord);
+  savingRevision = true; refreshRevisionControls(); revisionStatus('正在保存已确认的修改…');
+  try {
+    const response = await fetch('/api/revisions', {method:'POST', headers:{'Content-Type':'application/json','X-Doctor-Token':health.token},
+      body:JSON.stringify({...snapshot,confirmed:true})});
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || '保存失败。');
+    const revision = await validateRevision(data);
+    if (JSON.stringify(revision.baseRecord) !== originalJSON || revision.source.name !== snapshot.source.name || revision.source.text !== snapshot.source.text)
+      throw new Error('返回的修改记录与确认内容不符，未标记为已保存。');
+    if (matchesEditor(snapshot)) {
+      savedRevision = snapshot;
+      revisionStatus('已保存到本机。可在“记录依据”重新载入；当前修改仍未编译、未测试。');
+    } else feedback('刚才确认的版本已保存到“记录依据”。当前编辑内容另有变化，请重新审阅后保存。');
+    await refreshRevisions();
+  } catch (error) {
+    const message = `${error.message} 未确认保存成功。请先刷新“记录依据”中的修改记录核对，再决定是否重试；当前副本仍保留。`;
+    if (matchesEditor(snapshot)) revisionStatus(message); else feedback(message);
+  } finally { savingRevision = false; refreshRevisionControls(); }
+});
+$('refresh-revisions').addEventListener('click', refreshRevisions);
+window.addEventListener('beforeunload', event => {
+  if (record && !current() && !savedCurrent()) { event.preventDefault(); event.returnValue = ''; }
+});
 $('document-form').addEventListener('submit', async event => {
   event.preventDefault();
   if (!health.available || !health.token || !record || !current() || compiling || health.busy || retrievingDocuments) return;
@@ -357,7 +506,7 @@ async function refreshHistory() {
       const actions = element('div','', 'actions');
       if (item.record) {
         const load = element('button',item.state === 'completed' ? '载入记录副本' : '查看已保存诊断');
-        load.addEventListener('click', () => { ++loading; selectedCase = null; showRecord(item.record);
+        load.addEventListener('click', () => { if (!allowSourceReplacement()) return; ++loading; selectedCase = null; showRecord(item.record);
           selectSample(null);
           navigation.navigate('/diagnostics');
           if (item.state !== 'completed') feedback('已载入当时保存的诊断；任务状态仍为“' + taskLabel(item) + '”，以历史记录为准。'); });
@@ -395,7 +544,7 @@ async function refreshHistory() {
     }
   }
 }
-$('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await refreshHistory(); });
+$('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await Promise.all([refreshHistory(), refreshRevisions()]); });
 $('refresh-history').addEventListener('click', refreshHistory);
 $('cancel-compile').addEventListener('click', () => compileController?.abort());
 $('compile-example').addEventListener('click', async () => {
@@ -418,4 +567,4 @@ $('compile-example').addEventListener('click', async () => {
 });
 const navigation = initNavigation();
 loadCase('type_mismatch');
-refreshHealth().then(refreshHistory);
+refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions()]));

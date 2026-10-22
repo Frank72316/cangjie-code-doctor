@@ -310,6 +310,35 @@ main>footer { margin-top:auto; padding-top:32px; }
 footer { display:flex; justify-content:space-between; gap:15px; color:#a2aaa6; font-size:10px; }
 footer>span:first-child { letter-spacing:.5px; color:#8f9b94; }
 .footer-dot { padding:0 8px; }
+.revision-review { border-top:1px solid var(--line); }
+.workspace:has(#revision-review[open]) { align-items:start; }
+.source-panel:has(#revision-review[open]) .editor-wrap { height:200px; }
+.revision-review>summary { padding:16px 20px; color:var(--green); cursor:pointer; font-size:13px; font-weight:600; }
+.revision-review>summary>span { float:right; font:12px Consolas,monospace; }
+.revision-body { padding:0 20px 20px; }
+.revision-body>p,.revision-status,.revision-boundary { font-size:12px; line-height:1.8; color:#63766a; overflow-wrap:anywhere; }
+.revision-legend { display:flex; gap:20px; margin:13px 0 8px; }
+.revision-legend>span:first-child { color:#a44840; } .revision-legend>span:last-child { color:#287247; }
+.revision-diff { max-height:310px; overflow:auto; border:1px solid #dce5de; border-radius:6px; background:#fafcf9; font:12px/1.9 Consolas,"Microsoft YaHei",monospace; }
+.diff-line { display:flex; min-width:100%; width:max-content; }
+.diff-number { width:30px; padding:0 5px; flex-shrink:0; color:#7c8c80; text-align:right; user-select:none; }
+.diff-marker { width:20px; text-align:center; flex-shrink:0; }
+.diff-code { white-space:pre; padding-right:14px; font:inherit; }
+.diff-add { background:#e6f3e9; color:#28603e; } .diff-remove { background:#f9eae7; color:#92483e; }
+.revision-boundary { margin:12px 0; }
+.revision-status { margin:0; padding:14px 20px; border-top:1px solid var(--line); }
+.saved-revisions { margin-top:22px; padding:24px; }
+.saved-revisions h2 { font-size:17px; color:#476750; }
+.saved-revisions .evidence-heading p { font-size:12px; margin-top:6px; color:#6d7e70; }
+.revision-card { padding:17px 0; border-top:1px solid var(--line); }
+.revision-card:last-child { padding-bottom:0; }
+.revision-card button { flex-shrink:0; font-size:12px; }
+@media(max-width:480px) {
+  .revision-review>summary,.revision-status { padding:14px; } .revision-body { padding:0 14px 15px; }
+  .revision-body>p,.revision-status,.revision-boundary { font-size:11px; }
+  .revision-review>summary { font-size:12px; } .revision-body>button { width:100%; }
+  .saved-revisions { padding:18px; } .revision-card .history-row { flex-wrap:wrap; }
+}
 [hidden] { display:none!important; }
 @media(min-width:1500px) {
   main { padding-top:28px; } .intro { margin-bottom:24px; } .tutorial-hero { padding:40px; }

@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 import { resolve, join } from 'node:path';
 import { NativeBridge, EXAMPLE_IDS } from './native-bridge.mjs';
 import { PAGE_ROUTES } from '../web/navigation.mjs';
+import { RevisionStore } from './revision-store.mjs';
+import { MAX_REVISION_BYTES } from '../web/revision.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const pageRoutes = new Map([['/', PAGE_ROUTES[0]], ...PAGE_ROUTES.map(page => [page.path, page])]);
 const routes = new Map([
@@ -13,11 +15,12 @@ const routes = new Map([
   ['/app.mjs', ['web/app.mjs', 'text/javascript; charset=utf-8']],
   ['/navigation.mjs', ['web/navigation.mjs', 'text/javascript; charset=utf-8']],
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],
+  ['/revision.mjs', ['web/revision.mjs', 'text/javascript; charset=utf-8']],
   ['/task.mjs', ['web/task.mjs', 'text/javascript; charset=utf-8']],
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
-export function makeServer({bridge = null} = {}) {
+export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null} = {}) {
   return createServer(async (req, res) => {
     const headers = {'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
       'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
@@ -42,6 +45,27 @@ export function makeServer({bridge = null} = {}) {
           send(200, {...await bridge.probe(), token:bridge.token, busy:bridge.busy}); return;
         }
         if (req.method === 'GET' && req.url === '/api/history') { send(200, {...await bridge.history(),busy:bridge.busy}); return; }
+        if (req.url === '/api/revisions' || req.url.startsWith('/api/revisions/')) {
+          if (!revisionStore) { send(503,{error:'修改记录存储尚未配置。'}); return; }
+          if (req.method === 'GET' && req.url === '/api/revisions') { send(200,await revisionStore.list()); return; }
+          if (req.method === 'GET' && /^\/api\/revisions\/[a-f0-9]{32}$/.test(req.url)) {
+            send(200,await revisionStore.get(req.url.slice('/api/revisions/'.length))); return;
+          }
+          if (req.method === 'POST' && req.url === '/api/revisions') {
+            if (req.headers['content-type'] !== 'application/json') { send(415,{error:'Expected JSON'}); return; }
+            const chunks = []; let bytes = 0;
+            for await (const chunk of req) {
+              bytes += chunk.length;
+              if (bytes > MAX_REVISION_BYTES) { send(413,{error:'修改记录超过大小限制。'}); return; }
+              chunks.push(chunk);
+            }
+            let input;
+            try { input = JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks))); }
+            catch { send(400,{error:'Invalid JSON'}); return; }
+            send(200,await revisionStore.save(input)); return;
+          }
+          send(404,{error:'Unknown revision API'}); return;
+        }
         if (req.method === 'POST' && req.url === '/api/retrieve') {
           if (req.headers['content-type'] !== 'application/json') { send(415,{error:'Expected JSON'}); return; }
           const chunks = []; let bytes = 0;
@@ -99,7 +123,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const compiler = process.env.DOCTOR_COMPILER || (process.env.CANGJIE_HOME ? join(process.env.CANGJIE_HOME, 'bin', process.platform === 'win32' ? 'cjc.exe' : 'cjc') : null);
   const bridge = new NativeBridge({root, executable, compiler});
   await bridge.probe();
-  const server = makeServer({bridge});
+  const server = makeServer({bridge,revisionStore:new RevisionStore(root)});
   server.on('error', e => { console.error(e.message); process.exitCode = 1; });
   server.listen(port, '127.0.0.1', () => console.log(`Doctor preview: http://127.0.0.1:${port} (Ctrl+C to stop)`));
 }
