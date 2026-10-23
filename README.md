@@ -6,7 +6,7 @@
 
 仓颉核心用 BM25 检索固定版本的 15 段官方原文，界面展示引用并导出与诊断绑定的证据。使用教程和四项功能各有独立页面；人工副本可核对差异、确认存档、重新载入与回退。第十二轮把已保存修订接入“记录依据”页的公开验证，新增独立验证记录及完整 JSON、静态 HTML 可读报告。报告绑定当次保存的源码和公开测试，原诊断与人工修订保持不变。当前继续“先完成离线功能”，模型服务与预算尚未选定，没有 AI 解释、模型修复或正式 A/B 成绩。
 
-网页公开验证需在 Linux 服务端显式配置 `DOCTOR_SANDBOX_IMAGE` 精确本地镜像 ID，并通过 Docker 资源限制、SDK 1.0.5 与仓颉核心检查。编译后每个公开测试使用新容器，仓颉核心逐字节比对输出；Windows 当前禁用这个执行入口，仍可编辑、存档和读取已有报告。本机没有可用 Docker/WSL，本轮没有安装系统组件。本轮 [Linux CI 39949690080](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39949690080) 已实际通过保存修订、正确/错误期望输出的容器验证、报告与重启读取；125 项 Node 检查全部通过。操作和限制见[容器说明](docs/sandbox.md)、[进度](docs/progress.md)。
+网页公开验证需在 Linux 服务端显式配置 `DOCTOR_SANDBOX_IMAGE` 精确本地镜像 ID，并通过 Docker 资源限制、SDK 1.0.5 与仓颉核心检查。每个公开测试使用新容器，仓颉核心逐字节比对输出；Windows 当前禁用这个执行入口，仍可编辑、存档和读取已有报告。本机没有可用 Docker/WSL，本轮没有安装系统组件。第十四轮加入同工作区的跨进程互斥、创建前持久记录和登记残留资源恢复；缺失报告仍待确认，创建状态不明仍阻断。[Linux CI 39988363371](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39988363371) 实际通过强制中断恢复、原生及网页公开验证回归；Node 183 项中 182 通过、1 项仅适用非 Linux 而跳过。操作和限制见[容器说明](docs/sandbox.md)、[进度](docs/progress.md)。
 
 主仓库：[AtomGit / GitCode](https://gitcode.com/A72316/cangjie-code-doctor)；同步副本：[GitHub](https://github.com/Frank72316/cangjie-code-doctor)。按课程要求，以主仓库作为提交与协作入口。
 
