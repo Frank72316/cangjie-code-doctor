@@ -80,6 +80,8 @@ jobs:
           NODE
       - name: Actual container resource and cleanup checks
         run: node scripts/test-sandbox-isolation.mjs "$DOCTOR_SANDBOX_IMAGE" "$RUNNER_TEMP/doctor-sandbox-isolation.json"
+      - name: Actual process death and registered container recovery
+        run: node scripts/test-sandbox-recovery.mjs "$DOCTOR_SANDBOX_IMAGE"
       - name: Actual Cangjie compilation and public tests in containers
         shell: bash
         run: |

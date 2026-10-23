@@ -21,8 +21,10 @@ async function temporary(t) {
 
 function inspected(container, command) {
   return {
-    Name:`/${container.name}`, Image:image,
-    Config:{Image:image, User:'65534:65534', WorkingDir:'/work', Tty:false, OpenStdin:true, Cmd:command},
+    Id:'b'.repeat(64), Name:`/${container.name}`, Image:image,
+    Config:{Image:image, User:'65534:65534', WorkingDir:'/work', Tty:false, OpenStdin:true, Cmd:command,
+      Labels:container.owner ? {'org.cangjie.doctor.sandbox':'experimental-v1',
+        'org.cangjie.doctor.workspace':container.owner.workspaceId, 'org.cangjie.doctor.operation':container.owner.operationId} : {}},
     HostConfig:{NetworkMode:'none', Privileged:false, ReadonlyRootfs:true, IpcMode:'private', CgroupnsMode:'private',
       PidMode:'', UTSMode:'', PublishAllPorts:false, PortBindings:{}, CapAdd:null, CapDrop:['ALL'],
       SecurityOpt:['no-new-privileges'], Devices:[], DeviceRequests:null, VolumesFrom:null,
@@ -38,7 +40,7 @@ function inspected(container, command) {
   };
 }
 
-function daemon({phase = 'compile', mounts = [], mutate, respond, failCleanup = false, dockerHost} = {}) {
+function daemon({phase = 'compile', mounts = [], mutate, respond, failCleanup = false, dockerHost, owner, leaseFd} = {}) {
   let container, exists = false, actual;
   const calls = [];
   const executor = async (executable, allArgs, options) => {
@@ -53,7 +55,7 @@ function daemon({phase = 'compile', mounts = [], mutate, respond, failCleanup = 
       exists = true; actual = inspected(container, args.slice(args.indexOf(image) + 1)); mutate?.(actual);
       return output(0, `${'b'.repeat(64)}\n`);
     }
-    if (args[0] === 'container' && args[1] === 'inspect') return exists ? output(0, JSON.stringify([actual])) : output(1, '[]', `Error: No such container: ${container.name}`);
+    if (args[0] === 'container' && args[1] === 'inspect') return exists ? output(0, JSON.stringify([actual])) : output(1, '[]', `Error: No such container: ${args[2]}`);
     if (args[0] === 'start') { actual.State.Running = !args.includes('--attach'); return output(0, args.includes('--attach') ? '' : container.name); }
     if (args[0] === 'exec') return output();
     if (args[0] === 'rm') {
@@ -62,7 +64,7 @@ function daemon({phase = 'compile', mounts = [], mutate, respond, failCleanup = 
     }
     throw new Error(`Unexpected Docker command: ${args[0]}`);
   };
-  container = new SandboxContainer({image, phase, mounts, executor, ...(dockerHost ? {dockerHost} : {})});
+  container = new SandboxContainer({image, phase, mounts, executor, owner, leaseFd, ...(dockerHost ? {dockerHost} : {})});
   return {container, calls, actual:() => actual, exists:() => exists};
 }
 
@@ -75,6 +77,46 @@ test('sandbox requires immutable images, a local socket and one phase-specific i
     [{source:resolve('anything'), target:'/input/program'}], [{source:resolve('anything'), target:'/input/input.cj', writable:true}]])
     assert.throws(() => new SandboxContainer({image, phase:'compile', mounts}), /input file/);
   assert.throws(() => new SandboxContainer({image, phase:'compile', mounts:[{}, {}]}), /At most one/);
+});
+
+test('owned containers verify labels and forward the lease descriptor through cleanup', async () => {
+  const owner = {workspaceId:'a'.repeat(64),operationId:'b'.repeat(32)};
+  const {container,calls} = daemon({owner,leaseFd:47});
+  await container.create(['/bin/sleep','30']); await container.start({detached:true}); await container.remove();
+  assert.ok(calls.every(call => call.options.leaseFd === 47));
+  assert.ok(calls[0].args.includes(`org.cangjie.doctor.workspace=${owner.workspaceId}`));
+  assert.equal(calls.find(call => call.args[0] === 'rm').args.at(-1),'b'.repeat(64));
+  const corrupt = daemon({owner,leaseFd:47,mutate:actual => { actual.Config.Labels['org.cangjie.doctor.operation']='c'.repeat(32); }});
+  await assert.rejects(corrupt.container.create(['/bin/true']),/workspace ownership/);
+  assert.equal(corrupt.exists(),true);
+  assert.equal(corrupt.calls.some(call => call.args[0] === 'rm'),false);
+});
+
+test('owned cleanup refuses a replacement ID and create-name conflicts without deleting the foreign object', async () => {
+  const owner = {workspaceId:'a'.repeat(64),operationId:'b'.repeat(32)};
+  const replaced = daemon({owner});
+  await replaced.container.create(['/bin/sleep','30']); replaced.actual().Id = 'c'.repeat(64);
+  assert.equal((await replaced.container.remove()).removed,false);
+  assert.equal(replaced.calls.some(call => call.args[0] === 'rm'),false);
+  const conflict = daemon({owner,respond:({args,container}) => {
+    if (args[0] === 'create') return output(125,'','name already in use');
+    if (args[0] === 'container') {
+      const actual = inspected(container,['/bin/false']);
+      actual.Config.Labels['org.cangjie.doctor.workspace']='e'.repeat(64);
+      return output(0,JSON.stringify([actual]));
+    }
+  }});
+  await assert.rejects(conflict.container.create(['/bin/true']),/Docker create failed/);
+  assert.equal(conflict.calls.some(call => call.args[0] === 'rm'),false);
+  let renamed = false;
+  const moved = daemon({owner,respond:({args,container,actual}) => {
+    if (!renamed || args[0] !== 'container') return;
+    if (args[2] === container.name) return output(1,'[]',`Error: No such container: ${container.name}`);
+    return output(0,JSON.stringify([{...actual,Name:'/renamed-by-local-operator'}]));
+  }});
+  await moved.container.create(['/bin/sleep','30']); renamed = true;
+  assert.equal((await moved.container.remove()).removed,false);
+  assert.equal(moved.calls.some(call => call.args[0] === 'rm'),false);
 });
 
 test('container creation verifies restrictions and fixes the local daemon independently of environment', async () => {

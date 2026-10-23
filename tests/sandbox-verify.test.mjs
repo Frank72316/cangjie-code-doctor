@@ -5,6 +5,7 @@ import { mkdtemp, readFile, rm, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { validateVerification, verifyPublic } from '../scripts/sandbox-verify.mjs';
+import { fakeLifecycleFactory } from './helpers/fake-lifecycle.mjs';
 
 const image = 'sha256:' + 'a'.repeat(64);
 const request = {source:{name:'input.cj', text:'main() { println("hello") }\n'}, tests:[{id:'hello', stdin:'', expectedStdout:'hello\n'}]};
@@ -41,7 +42,7 @@ function fakeDependencies(options={}) {
     const exitCode = Number(args[3]);
     return {code:0,reason:'',stdout:JSON.stringify({status:exitCode ? 'runtime_error' : actual.equals(expected) ? 'passed' : 'failed',exitCode,comparison:'exact_bytes'})};
   };
-  return {containerFactory,executor,platform:'linux',instances,nativeCalls};
+  return {containerFactory,executor,platform:'linux',instances,nativeCalls,lifecycleFactory:fakeLifecycleFactory};
 }
 async function run(t, options={}, input=request) {
   const root = await mkdtemp(join(tmpdir(),'doctor-verify-'));

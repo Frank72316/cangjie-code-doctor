@@ -40,11 +40,12 @@ function dockerEnvironment() {
 // onStop must first remove the named container. Killing a Docker client alone does
 // not terminate the daemon-managed process, so this callback is awaited before kill.
 export async function runSandboxProcess(executable, args, {
-  stdin = Buffer.alloc(0), timeoutMs = 10000, maxBytes = MiB, signal, onStop, env = process.env
+  stdin = Buffer.alloc(0), timeoutMs = 10000, maxBytes = MiB, signal, onStop, env = process.env, leaseFd
 } = {}) {
   boundedInteger(timeoutMs, 'timeout', 300000);
   boundedInteger(maxBytes, 'output bound', 64 * MiB);
   if (!Buffer.isBuffer(stdin) || stdin.length > MAX_INPUT_BYTES) throw new Error('stdin must be a Buffer of at most 64 KiB.');
+  if (leaseFd !== undefined && (!Number.isInteger(leaseFd) || leaseFd < 3)) throw new Error('Invalid execution lease descriptor.');
   if (signal?.aborted) {
     let cleanupDetail = '';
     try { await onStop?.('cancelled'); } catch (error) { cleanupDetail = brief(error.message); }
@@ -52,7 +53,10 @@ export async function runSandboxProcess(executable, args, {
   }
   return new Promise(resolveResult => {
     let child;
-    try { child = spawn(executable, args, {shell:false, windowsHide:true, env, stdio:['pipe','pipe','pipe']}); }
+    // Keep the workspace flock alive until an in-flight Docker client settles,
+    // even if its Node parent is killed while the daemon is creating a container.
+    try { child = spawn(executable, args, {shell:false, windowsHide:true, env,
+      stdio:leaseFd === undefined ? ['pipe','pipe','pipe'] : ['pipe','pipe','pipe',leaseFd]}); }
     catch (error) {
       let cleanupDetail = '';
       Promise.resolve().then(() => onStop?.('launch_error')).catch(cleanup => { cleanupDetail = brief(cleanup.message); }).finally(() =>
@@ -112,13 +116,16 @@ function nonempty(value) { return Array.isArray(value) ? value.length > 0 : valu
 function oneOf(actual, expected) { return Array.isArray(actual) && actual.length === 1 && expected.includes(actual[0]); }
 
 export class SandboxContainer {
-  constructor({image, phase, mounts = [], docker = 'docker', dockerHost = 'unix:///var/run/docker.sock', executor = runSandboxProcess} = {}) {
+  constructor({image, phase, mounts = [], docker = 'docker', dockerHost = 'unix:///var/run/docker.sock', executor = runSandboxProcess, owner, leaseFd} = {}) {
     if (!IMAGE.test(image)) throw new Error('Use an immutable sha256 image ID, never a tag.');
     if (!['compile', 'run'].includes(phase)) throw new Error('Unknown sandbox phase.');
     if (typeof docker !== 'string' || !docker || docker.includes('\0')) throw new Error('Invalid Docker executable.');
     if (typeof dockerHost !== 'string' || !/^unix:\/\/\/[^\s\0,]+$/.test(dockerHost) || dockerHost.slice(7).split('/').includes('..'))
       throw new Error('Docker must use an explicit absolute local Unix socket.');
     if (typeof executor !== 'function') throw new Error('Invalid Docker executor.');
+    if (owner !== undefined && (!owner || Object.keys(owner).sort().join(',') !== 'operationId,workspaceId'
+      || !/^[a-f0-9]{64}$/.test(owner.workspaceId) || !/^[a-f0-9]{32}$/.test(owner.operationId))) throw new Error('Invalid sandbox ownership.');
+    if (leaseFd !== undefined && (!Number.isInteger(leaseFd) || leaseFd < 3)) throw new Error('Invalid execution lease descriptor.');
     if (!Array.isArray(mounts) || mounts.length > 1) throw new Error('At most one input file may be mounted.');
     const destination = phase === 'compile' ? '/input/input.cj' : '/input/program';
     this.mounts = mounts.map(mount => {
@@ -130,6 +137,7 @@ export class SandboxContainer {
     Object.freeze(this.mounts);
     this.name = `doctor-${randomBytes(16).toString('hex')}`;
     this.image = image; this.phase = phase; this.docker = docker; this.dockerHost = dockerHost; this.executor = executor;
+    this.owner = owner ? Object.freeze({...owner}) : null; this.leaseFd = leaseFd;
     this.created = false; this.removed = false; this.cleanupDetail = '';
     const memoryBytes = (phase === 'compile' ? 1024 : 512) * MiB;
     const tmpfs = Object.freeze({
@@ -145,6 +153,8 @@ export class SandboxContainer {
       '--tmpfs', `/work:${tmpfs['/work']}`, '--tmpfs', `/tmp:${tmpfs['/tmp']}`,
       '--ulimit', 'core=0:0', '--ulimit', 'nofile=128:128', '--ulimit', `fsize=${64 * MiB}:${64 * MiB}`
     ];
+    if (this.owner) flags.push('--label', `org.cangjie.doctor.workspace=${this.owner.workspaceId}`,
+      '--label', `org.cangjie.doctor.operation=${this.owner.operationId}`);
     for (const mount of this.mounts) flags.push('--mount', `type=bind,source=${mount.source},target=${mount.target},readonly,bind-propagation=rprivate`);
     this.policy = Object.freeze({version:'doctor-linux-isolation-v1', phase, image, dockerHost, user:'65534:65534',
       memoryBytes, memorySwapBytes:memoryBytes, pids:128, nanoCpus:1e9, shmBytes:16 * MiB,
@@ -167,7 +177,8 @@ export class SandboxContainer {
   }
 
   async execute(args, options = {}) {
-    return processResult(await this.executor(this.docker, ['--host', this.dockerHost, ...args], {...options, env:dockerEnvironment()}));
+    return processResult(await this.executor(this.docker, ['--host', this.dockerHost, ...args],
+      {...options, env:dockerEnvironment(), leaseFd:this.leaseFd}));
   }
 
   async captureLastInspection() {
@@ -226,6 +237,10 @@ export class SandboxContainer {
     if (!h || !c || actual.Name !== `/${this.name}` || actual.Image !== this.image || c.Image !== this.image ||
         c.User !== p.user || c.WorkingDir !== '/work' || c.Tty !== false || c.OpenStdin !== true ||
         JSON.stringify(c.Cmd) !== JSON.stringify(command)) reject('identity or process configuration');
+    if (this.owner && (c.Labels?.['org.cangjie.doctor.sandbox'] !== 'experimental-v1'
+      || c.Labels?.['org.cangjie.doctor.workspace'] !== this.owner.workspaceId
+      || c.Labels?.['org.cangjie.doctor.operation'] !== this.owner.operationId
+      || !/^[a-f0-9]{64}$/.test(actual.Id) || (this.containerId && actual.Id !== this.containerId))) reject('workspace ownership');
     if (h.NetworkMode !== 'none' || h.Privileged !== false || h.ReadonlyRootfs !== true ||
         h.IpcMode !== 'private' || h.CgroupnsMode !== 'private' || (h.PidMode ?? '') !== '' ||
         (h.UTSMode ?? '') !== '' || h.PublishAllPorts || nonempty(h.PortBindings) ||
@@ -250,6 +265,7 @@ export class SandboxContainer {
       const bound = bindings.find(mount => mount.Destination === input.target);
       if (!bound || bound.Source !== input.source || bound.RW !== false || bound.Propagation !== 'rprivate') reject('input mount access');
     }
+    if (this.owner) this.containerId = actual.Id;
     return true;
   }
 
@@ -288,11 +304,41 @@ export class SandboxContainer {
     if (this.removing) return this.removing;
     this.removing = (async () => {
       try {
-        const result = await this.execute(['rm', '--force', '--volumes', this.name], {timeoutMs:10000, maxBytes:64 * 1024});
+        let identifier = this.name;
+        const absent = (result, target) => !result.reason && result.code === 1
+          && result.stdout.toString('utf8').trim() === '[]'
+          && [`Error: No such container: ${target}`, `Error: No such object: ${target}`,
+            `Error response from daemon: No such container: ${target}`, `Error response from daemon: No such object: ${target}`]
+            .includes(result.stderr.toString('utf8').trim());
+        if (this.owner) {
+          const initial = await this.execute(['container', 'inspect', this.name], {timeoutMs:10000, maxBytes:256 * 1024});
+          if (absent(initial, this.name)) {
+            const knownId = this.containerId || this.lastInspection?.Id;
+            if (knownId) {
+              const known = await this.execute(['container','inspect',knownId], {timeoutMs:10000, maxBytes:256 * 1024});
+              if (!absent(known,knownId)) throw new Error('Registered name is absent but its known container ID is not confirmed absent; no deletion performed.');
+            }
+            this.removed = true; this.created = false;
+            return {removed:true, detail:'Registered container absence verified.'};
+          }
+          if (!succeeded(initial)) throw failure('Cleanup inspect', initial);
+          const values = JSON.parse(initial.stdout.toString('utf8')), actual = values?.[0], labels = actual?.Config?.Labels;
+          if (!Array.isArray(values) || values.length !== 1 || actual.Name !== `/${this.name}`
+            || !/^[a-f0-9]{64}$/.test(actual.Id) || (this.containerId && this.containerId !== actual.Id)
+            || actual.Image !== this.image || actual.Config?.Image !== this.image
+            || labels?.['org.cangjie.doctor.sandbox'] !== 'experimental-v1'
+            || labels?.['org.cangjie.doctor.workspace'] !== this.owner.workspaceId
+            || labels?.['org.cangjie.doctor.operation'] !== this.owner.operationId)
+            throw new Error('Container ownership changed; no deletion performed.');
+          identifier = actual.Id; this.lastInspection = actual;
+        }
+        const result = await this.execute(['rm', '--force', '--volumes', identifier], {timeoutMs:10000, maxBytes:64 * 1024});
         // A successful rm is followed by an absence check; an absent container is
         // also safe after launch failure or an earlier cancellation cleanup.
         const check = await this.execute(['container', 'inspect', this.name], {timeoutMs:10000, maxBytes:64 * 1024});
-        if (!check.reason && check.code !== 0 && /no such (?:container|object)/i.test(check.stderr.toString('utf8'))) {
+        const idCheck = this.owner ? await this.execute(['container','inspect',identifier], {timeoutMs:10000, maxBytes:64 * 1024}) : check;
+        if (this.owner ? absent(check,this.name) && absent(idCheck,identifier)
+          : !check.reason && check.code !== 0 && /no such (?:container|object)/i.test(check.stderr.toString('utf8'))) {
           this.removed = true; this.created = false;
           return {removed:true, detail:'Container absence verified.'};
         }

@@ -9,6 +9,7 @@ import { createHash } from 'node:crypto';
 import { RevisionStore } from '../scripts/revision-store.mjs';
 import { VerificationService } from '../scripts/verification-service.mjs';
 import { validateVerificationRecord, MAX_VERIFICATION_BYTES } from '../web/verification.mjs';
+import { fakeLifecycleFactory } from './helpers/fake-lifecycle.mjs';
 
 const fixture = JSON.parse(await readFile(new URL('fixtures/type_mismatch.json', import.meta.url), 'utf8'));
 const image = 'sha256:' + 'a'.repeat(64);
@@ -51,7 +52,7 @@ async function setup(t, options = {}) {
     source:{name:fixture.source.name, text:fixture.source.text.replace('"three"', '3')}, confirmed:true});
   const fakes = probeFakes(options.probe || {});
   const config = {root, revisionStore, core:join(root, 'doctor'), image, bridge, platform:'linux', ...fakes,
-    runner:async request => reportFor(request), ...options};
+    runner:async request => reportFor(request), lifecycleFactory:fakeLifecycleFactory, ...options};
   const service = new VerificationService(config);
   const input = {revisionId:revision.revisionId, tests:structuredClone(tests), confirmed:true};
   return {root, revisionStore, bridge, revision, fakes, config, service, input,
@@ -166,19 +167,30 @@ test('unconfirmed container removal disables further runs while retaining the to
   await assert.rejects(env.service.verify(env.input),error => error.status === 503);
   assert.equal((await env.service.get(record.verificationId)).report.containers.at(-1).cleanup.removed,false);
   const probes = env.fakes.instances.length, nativeCalls = env.fakes.calls.length;
-  assert.equal((await env.service.probe()).code,'cleanup_unconfirmed');
+  env.service.lifecycleFactory = async () => { throw new Error('已登记资源清理仍未确认'); };
+  assert.equal((await env.service.probe()).available,false);
   assert.equal(env.fakes.instances.length,probes); assert.equal(env.fakes.calls.length,nativeCalls);
-  assert.match(env.service.health.detail, /人工核查.*重启服务/);
-  assert.ok(env.service.health.detail.includes(record.report.containers.at(-1).name));
+  assert.match(env.service.health.detail, /清理仍未确认/);
+  assert.equal(env.bridge.busy,false);
+  env.service.lifecycleFactory = async () => ({...await fakeLifecycleFactory(), recovered:[{name:record.report.containers.at(-1).name}]});
+  assert.equal((await env.service.probe()).available,true);
+  assert.equal(env.service.health.recovery.recoveredContainers,1);
+  assert.equal((await env.service.get(record.verificationId)).report.containers.at(-1).cleanup.removed,false);
 });
 
-test('a failed probe cleanup is also latched and cannot be cleared by repeated probes', async t => {
+test('a new probe cleanup failure keeps execution unavailable after attempted recovery', async t => {
   const env = await setup(t, {probe:{cleanupError:true}});
   assert.equal((await env.service.probe()).code,'cleanup_unconfirmed');
   assert.equal(env.fakes.instances.length,1);
   assert.equal((await env.service.probe()).code,'cleanup_unconfirmed');
-  assert.equal(env.fakes.instances.length,1); assert.equal(env.fakes.calls.length,1);
+  assert.equal(env.fakes.instances.length,2); assert.equal(env.fakes.calls.length,2);
   assert.equal(env.bridge.busy,false);
+});
+
+test('workspace lock conflicts stop a probe before native or Docker launch and release the local busy flag', async t => {
+  const env = await setup(t, {lifecycleFactory:async () => { throw Object.assign(new Error('另一服务正在验证'), {status:409}); }});
+  assert.equal((await env.service.probe()).code,'workspace_busy');
+  assert.equal(env.fakes.calls.length,0); assert.equal(env.fakes.instances.length,0); assert.equal(env.bridge.busy,false);
 });
 
 test('request-only records show active only in owning service and unknown after restart', async t => {

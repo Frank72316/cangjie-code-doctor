@@ -1,10 +1,11 @@
-// Experimental Linux development CLI. No HTTP route calls this module.
+// Shared opt-in Linux runner for the development CLI and saved-revision HTTP API.
 import { randomBytes, createHash } from 'node:crypto';
 import { lstat, mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { resolve, join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { SandboxContainer } from './sandbox-container.mjs';
 import { runNative } from './native-bridge.mjs';
+import { openSandboxExecution } from './sandbox-lifecycle.mjs';
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const bytes = text => Buffer.byteLength(text, 'utf8');
@@ -48,12 +49,21 @@ async function nativeJson(executable, args, root, executor, signal) {
 }
 // Dependencies are injected only by deterministic failure tests, never supplied by input JSON.
 export async function verifyPublic(input, {root=process.cwd(), image, core, signal}={},
-  {containerFactory=options => new SandboxContainer(options), executor=runNative, platform=process.platform}={}) {
+  {containerFactory=options => new SandboxContainer(options), executor=runNative, platform=process.platform,
+    lifecycleFactory=openSandboxExecution}={}) {
   input = validateVerification(input);
   if (platform !== 'linux') throw new Error('This development CLI requires Linux and a local Docker daemon; the Windows web preview remains unchanged.');
   if (!/^sha256:[a-f0-9]{64}$/.test(image || '')) throw new Error('Pass the exact locally built image ID, not a tag.');
   if (!core) throw new Error('Pass the trusted Doctor binary.');
   root = resolve(root); core = resolve(core);
+  const lifecycle = await lifecycleFactory(root);
+  try {
+    signal = signal ? AbortSignal.any([signal, lifecycle.lease.signal]) : lifecycle.lease.signal;
+    return await verifyWithLifecycle(input, {root, image, core, signal}, {containerFactory, executor, lifecycle});
+  } finally { await lifecycle.release(); }
+}
+
+async function verifyWithLifecycle(input, {root, image, core, signal}, {containerFactory, executor, lifecycle}) {
   await safeDirectory(join(root, 'runs'));
   await safeDirectory(join(root, 'runs', 'verification'));
   const id = randomBytes(16).toString('hex'), directory = join(root, 'runs', 'verification', id);
@@ -72,7 +82,7 @@ export async function verifyPublic(input, {root=process.cwd(), image, core, sign
     return processRecord(result);
   };
   const withContainer = async (phase, mounts, operation) => {
-    const container = containerFactory({image, phase, mounts});
+    const container = await lifecycle.container({image, phase, mounts}, containerFactory);
     const entry = {name:container.name, phase, policy:container.policy, inspection:null, cleanup:null};
     report.containers.push(entry);
     try { return await operation(container, entry); }

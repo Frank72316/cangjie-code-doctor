@@ -27,13 +27,13 @@ CLI 输入单文件 `.cj` 和最多 8 个公开测试；Web 入口只接受已�
 
 源码最多 64 KiB、200 行；每个 stdin 最多 4 KiB，期望 stdout 最多 16 KiB。`/tmp` 禁止执行，`/work` 允许运行编译工具的临时产物，但有容量限制。Docker 只连接固定本机 Unix socket。创建后与启动前核对 inspect 中实际限制和挂载；配置不符即拒绝启动。超时、取消和输出超限先删除整个命名容器，再终止 Docker 客户端，随后核查容器不存在。
 
-报告中 `policy` 是声明配置，`inspection` 是实际快照。中止前快照可能仍显示 Running，清理结果 `removed:true` 才是当次确认容器已不存在的证据。编译 holder 最长 300 秒，候选程序额外有容器内 5 秒 watchdog，降低宿主 CLI 突然退出后持续运行的风险；突然断电、Docker daemon 故障和清理请求失败仍需人工核查。尚无跨进程任务配额、自动遗留容器回收或生产部署保证。
+报告中 `policy` 是声明配置，`inspection` 是实际快照。中止前快照可能仍显示 Running，清理结果 `removed:true` 才是当次确认容器已不存在的证据。编译 holder 最长 300 秒，候选程序额外有容器内 5 秒 watchdog。第十四轮增加同工作区的跨进程容器验证互斥与已登记资源恢复；创建状态不明、Docker 故障和证据冲突仍须人工核查，尚无全主机配额或生产部署保证。
 
 非 root 容器仍可能连接 rootful Docker daemon，不能称为 rootless Docker。实际探针通过只证明这些开发检查在该主机生效，不等于任意恶意代码的安全认证。当前仅面向受控 Linux 开发/CI 环境与本地回环服务；Web 验证不提供无配置执行、任意命令、镜像选择或宿主产物执行能力。
 
 ## 复现
 
-要求已有 Linux Docker Engine、本机 `/var/run/docker.sock`、cgroup v2 和 Node 22+。以下不安装 WSL、不修改 Windows。SDK 安装目的目录须为空：
+要求已有 Linux Docker Engine、本机 `/var/run/docker.sock`、cgroup v2、Node 22+ 和 util-linux 的 `flock`，工作区位于本机文件系统。NFS/CIFS 等共享盘锁语义不在当前验收范围。以下不安装 WSL、不修改 Windows。SDK 安装目的目录须为空：
 
 ```bash
 bash scripts/install-ci-sdk.sh tmp/sdk-linux-1.0.5
@@ -45,6 +45,7 @@ image=$(node -p "JSON.parse(require('fs').readFileSync('tmp/sandbox-image.json',
 node scripts/test-public-verdict.mjs target/debug/doctor
 node scripts/test-sandbox-isolation.mjs "$image" tmp/sandbox-isolation.json
 node scripts/test-sandbox-verification.mjs "$image" target/debug/doctor
+node scripts/test-sandbox-recovery.mjs "$image"
 ```
 
 自己的公开开发请求可以保存为 `tmp/public-request.json`：
@@ -76,7 +77,19 @@ DOCTOR_SANDBOX_IMAGE="$image" DOCTOR_BINARY="$(pwd)/target/debug/doctor" node sc
 
 每次 Web 验证在 `runs/revision-verifications/<验证编号>/` 保存独立请求及结束记录，完整嵌入所选修订和公开测试；不会更改原诊断或修订的未编译/未测试标记。JSON 完整保留输入、身份、哈希、逐项结果与容器证据，HTML 提供可离线打开的源码差异、编译和公开测试可读报告，无脚本和远程资源。两种报告都只覆盖此次人工修改与公开测试，不自动合并先前文档检索依据，也不是模型修复或正式实验报告。
 
-缺少结束记录时保持“状态待确认”；当前服务活跃任务才显示正在验证。报告损坏或与初始请求不一致不能显示成功。清理失败会锁住当前服务的后续验证，重新探测也不会解除；须人工核查和清理对应容器后再重启。当前没有自动扫描/恢复遗留任务、跨服务独占、累计磁盘配额或多用户调度；不能用重新启动代替清理核查。
+缺少结束记录时保持“状态待确认”；当前服务活跃任务才显示正在验证。报告损坏或与初始请求不一致不能显示成功。清理失败禁用后续验证；重新检查环境须先持锁完成下述恢复核查，重启本身不能证明清理成功。界面在现有环境提示中显示恢复数量；缺失的旧测试结果不补写、不自动重跑。历史读取失败可用原有刷新入口重试，保留当前测试草稿。
+
+## 跨进程互斥与受控恢复
+
+Linux 探针和公开验证共用 `runs/.doctor-execution.lock` 的稳定文件 FD，通过 `flock` 非阻塞独占。同一规范工作区的其他服务/CLI 得到占用错误，不抢锁、不终止原任务；不同工作区独立。Docker 客户端继承该 FD，父 Node 进程突然退出时，仍在运行的客户端继续持锁，直到自身关闭。释放只关闭 FD，不显式解锁、不删除或重命名锁文件。不要手动删除锁文件；锁是协作式互斥，不能抵抗有写权限的外部程序破坏目录。
+
+`runs/sandbox-lifecycle/<operationId>/` 保存容器创建前的不可变 intent、创建尝试/已确认 ID 或未启动证据、清理 receipt；逐份独占写入并同步文件及 Linux 目录。源码不写入生命周期日志。Docker 标签绑定规范工作区哈希和随机 operation ID，随机容器名也记入 intent。正常清理与恢复都先核对名称、镜像、归属标签和已知完整 ID，再按检查到的完整 ID 删除；核对 ID 与名称均不存在后才登记完成，不按 `doctor-` 前缀遍历删除，不调用 `docker prune`。
+
+恢复先校验完整日志再处理未清理条目。记录损坏、链接、归属冲突、Docker 连接失败、删除失败均停止执行，保留证据。创建尝试后未取得可靠完成证据时，一次 inspect 缺失不足以排除 daemon 迟到创建，须保持阻断并人工核查；不能为解除阻断伪造 receipt。已有匹配对象则核对归属并按完整 ID 清理。已确认的创建也须核对记录 ID，拒绝同名替换对象。该机制不处理迁移前无日志的容器，也不自动完成旧任务报告。
+
+扫描设有上限：10000 个 operation、每个 160 个文件、总计 100000 个 intent、单记录 4 KiB，超过上限停止执行并提示人工核查归档。它是有界读取保护，不是累计磁盘配额；自动归档、多用户调度和跨工作区总资源限制仍待实现。只读报告在执行禁用时仍可访问。
+
+实际故障验收脚本 `test-sandbox-recovery.mjs` 在独立工作区启动真实容器、强制终止持锁 Node 服务，验证另一个进程先被拒绝、重启后只清理登记对象，并保留另一工作区的运行容器。Node 套件另验证父进程死亡及真实 `runSandboxProcess` 子进程继承锁。测试不声称复现了所有 Docker daemon 故障或断电情形。
 
 本轮实际 HTTP 验收入口：
 
@@ -92,6 +105,6 @@ node scripts/test-revision-verification-http.mjs "$image" target/debug/doctor
 
 实际容器探针包含权限/只读/断网/cgroup、临时盘满、进程上限、OOM、超时、输出洪泛和取消清理；后三类必须确认容器不存在。实际仓颉检查是正常程序通过、故意错误的期望值失败、类型错误跳过测试。它们都是公开开发验收；Node 故障注入套件与实际容器运行分开记录，没有独立评估案例或 A/B 数据。
 
-CI 摘要保存构建身份、资源探针、容器公开验收和 Web 修订 HTTP 验收 receipt；具体版本、成功或失败及本机限制见[进度](progress.md)、[提交记录](submissions.md)。网页修订接入及人工修改/公开测试 JSON、HTML 报告已实现；部署配额、自动遗留任务处理、评估数据冻结、模型候选与正式 A/B 报告仍需后续完成。
+CI 摘要保存构建身份、资源探针、容器公开验收、进程中断恢复和 Web 修订 HTTP 验收 receipt；具体版本、成功或失败及本机限制见[进度](progress.md)、[提交记录](submissions.md)。网页修订接入、人工修改/公开测试报告及登记资源恢复已实现；部署配额、自动归档、评估数据冻结、模型候选与正式 A/B 报告仍需后续完成。
 
-参考：[Docker 运行参数](https://docs.docker.com/engine/containers/run/)、[资源限制](https://docs.docker.com/engine/containers/resource_constraints/)、[Docker 安全边界](https://docs.docker.com/engine/security/)。
+参考：[Docker 运行参数](https://docs.docker.com/engine/containers/run/)、[资源限制](https://docs.docker.com/engine/containers/resource_constraints/)、[Docker 安全边界](https://docs.docker.com/engine/security/)、[flock 命令](https://man7.org/linux/man-pages/man1/flock.1.html)、[flock 文件描述符语义](https://man7.org/linux/man-pages/man2/flock.2.html)。

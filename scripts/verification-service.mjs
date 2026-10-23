@@ -8,6 +8,7 @@ import { RevisionStore } from './revision-store.mjs';
 import { SandboxContainer } from './sandbox-container.mjs';
 import { verifyPublic } from './sandbox-verify.mjs';
 import { runNative } from './native-bridge.mjs';
+import { openSandboxExecution } from './sandbox-lifecycle.mjs';
 import { validRevisionId } from '../web/revision.mjs';
 import { validatePublicTests, validateVerificationRecord, validVerificationId, MAX_VERIFICATION_BYTES } from '../web/verification.mjs';
 
@@ -53,13 +54,14 @@ function requestBinding(request, record) {
 
 export class VerificationService {
   constructor({root, revisionStore, core, image, bridge, runner = verifyPublic, platform = process.platform,
-    probeExecutor = runNative, containerFactory = options => new SandboxContainer(options)} = {}) {
+    probeExecutor = runNative, containerFactory = options => new SandboxContainer(options), lifecycleFactory = openSandboxExecution} = {}) {
     this.root = resolve(root || process.cwd());
     this.revisionStore = revisionStore || new RevisionStore(this.root);
     this.core = core; this.image = image; this.bridge = bridge;
     // These functions are process configuration for deterministic tests only;
     // makeServer never accepts dependency configuration in an HTTP request.
     this.runner = runner; this.platform = platform; this.probeExecutor = probeExecutor; this.containerFactory = containerFactory;
+    this.lifecycleFactory = lifecycleFactory;
     this.active = new Set(); this.busy = false; this.cleanupBlocked = false;
     this.health = this.configurationHealth();
   }
@@ -80,38 +82,45 @@ export class VerificationService {
     this.cleanupBlocked = true;
     const known = names.filter(name => typeof name === 'string' && /^doctor-[a-f0-9]{32}$/.test(name));
     this.health = {available:false, code:'cleanup_unconfirmed',
-      detail:`容器清理尚未确认${known.length ? '：' + known.join('、') : '（未取得可靠编号）'}。请先人工核查并清理这些容器，再重启服务；再次检查环境不会自动恢复验证。`};
+      detail:`容器清理尚未确认${known.length ? '：' + known.join('、') : '（未取得可靠编号）'}。请重新检查环境；服务会核对已登记资源的归属并尝试清理，确认前不能继续验证。`};
   }
   async probe() {
-    if (this.cleanupBlocked) return this.health;
     const configuration = this.configurationHealth();
     if (configuration.code !== 'not_probed') { this.health = configuration; return this.health; }
     this.acquire();
-    let container, problem = '', version = '', cleanup;
+    let container, lifecycle, problem = '', version = '', cleanup, problemCode = 'verification_unavailable';
     try {
-      const native = await this.probeExecutor(this.core, ['--version'], {cwd:this.root, timeout:8000});
+      // Recovery runs under the same OS lease as new containers. A restart alone
+      // never counts as proof that a previous process removed its resources.
+      lifecycle = await this.lifecycleFactory(this.root);
+      this.cleanupBlocked = false;
+      const signal = lifecycle.lease.signal;
+      const native = await this.probeExecutor(this.core, ['--version'], {cwd:this.root, timeout:8000, signal});
       if (native.code !== 0 || native.reason || native.signal || !native.stdout?.startsWith('Cangjie Code Doctor 0.3.0'))
         throw new Error('仓颉核心未能正常启动。');
-      container = this.containerFactory({image:this.image, phase:'compile', mounts:[]});
+      container = await lifecycle.container({image:this.image, phase:'compile', mounts:[]}, this.containerFactory);
       await container.create(['/bin/sleep', '30']);
-      const started = await container.start({detached:true, timeoutMs:10000});
+      const started = await container.start({detached:true, timeoutMs:10000, signal});
       if (started.code !== 0 || started.reason) throw new Error('隔离检查容器未能启动。');
-      const sdk = await container.exec(['/opt/doctor/with-sdk.sh', 'cjc', '--version'], {timeoutMs:10000, maxBytes:65536});
+      const sdk = await container.exec(['/opt/doctor/with-sdk.sh', 'cjc', '--version'], {timeoutMs:10000, maxBytes:65536, signal});
       version = sdk.stdout.toString('utf8').trim();
       if (sdk.code !== 0 || sdk.reason || !version.startsWith('Cangjie Compiler: 1.0.5 (')) throw new Error('容器 SDK 1.0.5 未就绪。');
       const inspection = await container.inspect();
       if (inspection.Image !== this.image || !inspection.State?.Running || inspection.State?.OOMKilled || inspection.State?.Error)
         throw new Error('隔离检查容器状态异常。');
-    } catch (error) { problem = brief(error.message); }
+    } catch (error) { problem = brief(error.message); if (error.status === 409) problemCode = 'workspace_busy'; }
     finally {
       if (container) {
         try { cleanup = await container.remove(); }
         catch (error) { cleanup = {removed:false, detail:brief(error.message)}; }
         if (!cleanup?.removed) this.blockCleanup([container.name]);
       }
-      if (!this.cleanupBlocked) this.health = problem ? {available:false, code:'verification_unavailable', detail:brief(problem)}
+      try { await lifecycle?.release(); } catch (error) { problem = brief(error.message); }
+      if (!this.cleanupBlocked || !lifecycle) this.health = problem ? {available:false, code:problemCode, detail:brief(problem)}
           : {available:true, code:'ready', detail:'已核对 Linux 容器限制和 SDK 1.0.5，可验证保存后的修改副本与公开测试。',
             image:this.image, sdkVersion:'1.0.5', compilerVersion:version};
+      if (lifecycle?.recovered.length) this.health.recovery = {recoveredContainers:lifecycle.recovered.length,
+        detail:`已确认清理 ${lifecycle.recovered.length} 个已登记的残留资源；缺少结束报告的旧任务仍为状态待确认，请重新提交验证。`};
       this.release();
     }
     return this.health;

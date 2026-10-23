@@ -9,12 +9,13 @@ const node = (tag, text = '', className = '') => {
 };
 const time = value => value ? new Intl.DateTimeFormat('zh-CN', {timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(value)) : '未确认';
 const statusNames = {passed:'通过', failed:'输出不符', runtime_error:'运行异常', timeout:'超时', output_limit:'输出超限', oom:'内存超限', tool_error:'工具异常', cancelled:'已取消', launch_error:'启动失败', not_run:'未运行'};
+const unfinishedDetail = '这条记录没有完整结束结果。即使重新检查环境时清理了已登记的残留资源，也不能补出原来的编译与测试结论；记录仍为“状态待确认”，不会自动重跑。';
 
 // This panel always works on immutable saved revisions, never on the editor.
 export function initVerificationUI({getHealth, refreshHealth, download, onActivityChange = () => {}}) {
   let selected = null, loading = false, submitting = false, remoteBusy = false;
   let selectionRequest = 0, historyRequest = 0, testSequence = 0, timer = null;
-  let shownResult = null;
+  let shownResult = null, statusOrigin = '';
   const fields = [];
   const api = async (path, options = {}) => {
     const token = getHealth().token;
@@ -24,7 +25,8 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     if (!response.ok) throw new Error(data.error || '验证服务暂不可用。');
     return data;
   };
-  const setStatus = (text, state = '') => {
+  const setStatus = (text, state = '', origin = '') => {
+    statusOrigin = origin;
     $('verification-status').textContent = text;
     $('verification-status').dataset.state = state;
     $('verification-status').hidden = !text;
@@ -45,7 +47,12 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     $('verification-run').disabled = !selected || loading || busy || !health.token || !environment?.available;
     $('verification-run').textContent = submitting ? '正在编译并验证…' : '编译并验证这份修改';
     $('verification-environment').dataset.state = environment?.available ? 'ready' : 'unavailable';
-    $('verification-environment').textContent = submitting ? '正在验证选中的已保存副本。可切换页面；请保持本页面打开，完成后结果会存到本机。' : busy ? '本机正在处理一个验证任务，完成后可继续。' : environment?.available ? '容器验证已就绪。点击下方按钮即确认编译并运行这份已保存修改。' : environment?.detail || '当前未启用 Linux 容器验证。此电脑需配置本地 Linux Docker 环境；可继续编辑、保存修改和查看已有报告。';
+    let environmentMessage = submitting ? '正在验证选中的已保存副本。可切换页面；请保持本页面打开，完成后结果会存到本机。' : busy ? '本机正在处理其他任务，完成后可继续验证。' : environment?.available ? '容器验证已就绪。点击下方按钮即确认编译并运行这份已保存修改。' : environment?.detail || '当前未启用 Linux 容器验证。此电脑需配置本地 Linux Docker 环境；可继续编辑、保存修改和查看已有报告。';
+    const recovery = environment?.recovery;
+    if (Number.isSafeInteger(recovery?.recoveredContainers) && recovery.recoveredContainers >= 0 && typeof recovery.detail === 'string') {
+      environmentMessage += ` 恢复检查：已清理 ${recovery.recoveredContainers} 个已登记的残留容器。${recovery.detail.trim().slice(0, 500)} 缺失的旧任务结果仍待确认，清理不代表验证通过。`;
+    }
+    $('verification-environment').textContent = environmentMessage;
     $('verification-target').textContent = loading ? '正在核对已保存副本…' : selected ? `${selected.source.name} · 保存于 ${time(selected.createdAt)}（北京时间）` : '先在编译诊断页编辑源码，查看差异并确认保存，再回到这里选择。';
     $('verification-source').hidden = !selected;
     $('verification-test-count').textContent = `${fields.length} / 8 条`;
@@ -102,7 +109,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     const view = verificationView(data), report = data.report;
     destination.replaceChildren(); destination.dataset.tone = view.tone;
     destination.append(node('h3', view.label), node('p', `${view.compileLabel} · ${view.testLabel}`, 'verification-verdict'),
-      node('p', view.detail), node('p', `仅对应 ${data.revision.source.name} 的已保存版本 ${data.revision.revisionId.slice(0, 8)}。公开测试通过仅说明这些测试的输出符合期望。`, 'verification-result-scope'));
+      node('p', data.state === 'unknown' ? unfinishedDetail : view.detail), node('p', `仅对应 ${data.revision.source.name} 的已保存版本 ${data.revision.revisionId.slice(0, 8)}。公开测试通过仅说明这些测试的输出符合期望。`, 'verification-result-scope'));
     if (data.detail && data.detail !== view.detail) destination.append(node('p', data.detail, 'verification-result-scope'));
     const details = node('details', '', 'verification-report-detail'); details.append(node('summary', '查看源码、测试与原始日志'));
     details.append(node('p', `修改编号：${data.revision.revisionId}`, 'mono'), node('p', `源码 SHA-256：${data.revision.source.sha256}`, 'mono'),
@@ -114,7 +121,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     for (const [index, test] of data.tests.entries()) {
       const result = report?.tests?.[index];
       const testDetail = node('details', '', 'verification-test-result');
-      testDetail.append(node('summary', `公开测试 ${index + 1} · ${statusNames[result?.status] || '未运行'}`),
+      testDetail.append(node('summary', `公开测试 ${index + 1} · ${data.state === 'unknown' ? '未取得结果' : statusNames[result?.status] || '未运行'}`),
         node('p', `输入：${JSON.stringify(test.stdin)}`, 'mono'), node('p', `期望 stdout：${JSON.stringify(test.expectedStdout)}`, 'mono'));
       if (result?.process) testDetail.append(node('p', `实际 stdout：${JSON.stringify(result.process.stdout)}`, 'mono'),
         node('p', `退出码：${result.process.exitCode ?? '未返回'} · 原因：${result.process.reason || '正常结束'}`),
@@ -124,7 +131,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     destination.append(details);
     if (includeDownloads) appendDownloads(destination, data);
   };
-  const refresh = async () => {
+  const refresh = async ({userInitiated = false} = {}) => {
     const request = ++historyRequest; clearTimeout(timer); $('verification-refresh').disabled = true;
     try {
       const data = await api('/api/verifications');
@@ -136,7 +143,9 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
       if (remoteBusy) onActivityChange(true);
       else if (wasBusy && !submitting) { await refreshHealth(); if (request !== historyRequest) return; }
       const expanded = new Set([...$('verification-history').querySelectorAll('[data-verification][open]')].map(item => item.dataset.verification));
-      $('verification-history').replaceChildren(); $('verification-history-count').textContent = `${data.verifications.length} 份`;
+      const unknown = data.verifications.filter(item => item.state === 'unknown' || item.state === 'running' && !item.active).length;
+      $('verification-history').replaceChildren(); $('verification-history-count').textContent = `${data.verifications.length} 份${unknown ? ` · ${unknown} 份待确认` : ''}`;
+      if (unknown) $('verification-history').append(node('p', unfinishedDetail, 'history-warning'));
       for (const item of data.verifications) {
         if (!validRevisionId(item.verificationId) || !validRevisionId(item.revisionId) || typeof item.sourceName !== 'string' || !Number.isFinite(Date.parse(item.createdAt))) throw new Error('验证记录索引含无效条目。');
         const entry = node('details', '', 'verification-history-entry'); entry.dataset.verification = item.verificationId;
@@ -146,15 +155,23 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
         entry.append(summary, body); entry.addEventListener('toggle', async () => {
           if (!entry.open || fetched) return; fetched = true; body.replaceChildren(node('p', '正在核对完整记录…'));
           try { renderResult(await readVerification(item.verificationId), body); }
-          catch (error) { fetched = false; body.replaceChildren(node('p', error.message)); }
+          catch (error) { fetched = false; body.replaceChildren(node('p', `${error.message} 可点击上方“刷新验证状态”重试，或收起后再次展开。`)); }
         });
         $('verification-history').append(entry); entry.open = expanded.has(item.verificationId);
       }
       if (!data.verifications.length) $('verification-history').append(node('p', '还没有验证记录。环境就绪后，选择已保存修改并提交公开测试。', 'small-label'));
       if (data.unreadable) $('verification-history').prepend(node('p', `${data.unreadable} 份记录无法完整读取，原文件已保留；缺失结果不能计为通过。`, 'history-warning'));
+      if (statusOrigin === 'history') setStatus('验证记录已刷新，当前填写的测试草稿保持不变。');
       if (data.busy) timer = setTimeout(refresh, 2000);
     } catch (error) {
-      if (request === historyRequest) $('verification-history').replaceChildren(node('p', error.message, 'small-label'));
+      if (request === historyRequest) {
+        $('verification-history-count').textContent = '未能读取';
+        $('verification-history').replaceChildren(node('p', `${error.message} 请点击“刷新验证状态”重试；当前测试草稿保持不变。`, 'small-label'));
+        if (userInitiated || submitting) {
+          $('verification-history').closest('.verification-history-disclosure').open = true;
+          setStatus('验证记录暂时未能读取。已展开下方记录区域，请点击“刷新验证状态”重试；当前测试草稿保持不变。', 'error', 'history');
+        }
+      }
     } finally { if (request === historyRequest) { $('verification-refresh').disabled = false; refreshControls(); } }
   };
   const selectRevision = async () => {
@@ -183,7 +200,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
   };
   $('verification-revision').addEventListener('change', selectRevision);
   $('verification-add-test').addEventListener('click', addTest);
-  $('verification-refresh').addEventListener('click', async () => { await refreshHealth(); await refresh(); });
+  $('verification-refresh').addEventListener('click', async () => { await refreshHealth(); await refresh({userInitiated:true}); });
   $('verification-form').addEventListener('submit', async event => {
     event.preventDefault(); const environment = getHealth().verification;
     if (!selected || loading || submitting || remoteBusy || getHealth().busy || environment?.busy || !environment?.available) return;
@@ -199,7 +216,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
       shownResult = data; renderResult(data, $('verification-result')); $('verification-result').hidden = false;
       setStatus('验证记录已保存。下方结果只对应本次选择的已保存副本和公开测试。');
     } catch (error) { setStatus(`${error.message} 未确认本次验证完成；请展开验证记录核对，不能据此判断修改通过。`, 'error'); }
-    finally { submitting = false; await refreshHealth(); onActivityChange(false); await refresh(); refreshControls(); }
+    finally { submitting = false; await refreshHealth(); onActivityChange(false); await refresh({userInitiated:true}); refreshControls(); }
   });
   addTest(); refreshControls();
   return {setRevisions, refreshControls, refresh};
