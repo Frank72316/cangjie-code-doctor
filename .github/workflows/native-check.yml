@@ -85,3 +85,8 @@ jobs:
         run: |
           source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
           node scripts/test-sandbox-verification.mjs "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor
+      - name: Actual saved revision HTTP verification and report recovery
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
+          node scripts/test-revision-verification-http.mjs "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor

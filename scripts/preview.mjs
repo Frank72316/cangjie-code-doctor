@@ -1,4 +1,4 @@
-// Loopback-only UI and thin transport for the Cangjie core. No arbitrary source execution.
+// Loopback-only UI and transport. Saved revision execution requires configured Linux containers.
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -7,6 +7,7 @@ import { NativeBridge, EXAMPLE_IDS } from './native-bridge.mjs';
 import { PAGE_ROUTES } from '../web/navigation.mjs';
 import { RevisionStore } from './revision-store.mjs';
 import { MAX_REVISION_BYTES } from '../web/revision.mjs';
+import { VerificationService } from './verification-service.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const pageRoutes = new Map([['/', PAGE_ROUTES[0]], ...PAGE_ROUTES.map(page => [page.path, page])]);
 const routes = new Map([
@@ -16,11 +17,13 @@ const routes = new Map([
   ['/navigation.mjs', ['web/navigation.mjs', 'text/javascript; charset=utf-8']],
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],
   ['/revision.mjs', ['web/revision.mjs', 'text/javascript; charset=utf-8']],
+  ['/verification.mjs', ['web/verification.mjs', 'text/javascript; charset=utf-8']],
+  ['/verification-ui.mjs', ['web/verification-ui.mjs', 'text/javascript; charset=utf-8']],
   ['/task.mjs', ['web/task.mjs', 'text/javascript; charset=utf-8']],
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
-export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null} = {}) {
+export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null} = {}) {
   return createServer(async (req, res) => {
     const headers = {'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
       'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
@@ -32,7 +35,8 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
     if (req.url?.startsWith('/api/')) {
       try {
         if (req.method === 'GET' && req.url === '/api/health') {
-          send(200, {...(bridge?.health ?? {available:false, code:'preview_only', detail:'静态记录预览，未配置仓颉核心。'}), token:bridge?.token, busy:bridge?.busy ?? false}); return;
+          send(200, {...(bridge?.health ?? {available:false, code:'preview_only', detail:'静态记录预览，未配置仓颉核心。'}), token:bridge?.token, busy:bridge?.busy ?? false,
+            verification:verificationService?.health ?? {available:false,code:'not_configured',detail:'当前服务尚未配置 Linux 容器验证；已保存修改仍可浏览。'}}); return;
         }
         // API data and mutation require the local origin plus a per-start token.
         // Regular cross-origin pages cannot read the token or add this header without preflight.
@@ -42,9 +46,39 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
         }
         if (req.method === 'POST' && req.url === '/api/probe') {
           if (bridge.busy) { send(409, {error:'正在编译，请稍后检查环境。'}); return; }
-          send(200, {...await bridge.probe(), token:bridge.token, busy:bridge.busy}); return;
+          const native = await bridge.probe();
+          if (verificationService) await verificationService.probe();
+          send(200, {...native, token:bridge.token, busy:bridge.busy,verification:verificationService?.health}); return;
         }
         if (req.method === 'GET' && req.url === '/api/history') { send(200, {...await bridge.history(),busy:bridge.busy}); return; }
+        if (req.url === '/api/verifications' || req.url.startsWith('/api/verifications/')) {
+          if (!verificationService) { send(503,{error:'当前服务未配置修改验证记录。'}); return; }
+          if (req.method === 'GET' && req.url === '/api/verifications') { send(200,{ ...await verificationService.list(), busy:bridge.busy }); return; }
+          if (req.method === 'GET' && /^\/api\/verifications\/[a-f0-9]{32}$/.test(req.url)) {
+            send(200,await verificationService.get(req.url.slice('/api/verifications/'.length))); return;
+          }
+          if (req.method === 'POST' && req.url === '/api/verifications') {
+            if (req.headers['content-type'] !== 'application/json') { send(415,{error:'Expected JSON'}); return; }
+            const chunks=[]; let bytes=0;
+            for await (const chunk of req) {
+              bytes += chunk.length;
+              // JSON escaping may use six bytes per character; tests are bounded after decoding too.
+              if (bytes > 1024*1024) { send(413,{error:'公开测试请求过大。'}); return; }
+              chunks.push(chunk);
+            }
+            let input;
+            try { input=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks))); }
+            catch { send(400,{error:'Invalid JSON'}); return; }
+            const controller=new AbortController();
+            const cancel=()=> { if (!res.writableEnded) controller.abort(); };
+            res.on('close',cancel);
+            if (res.destroyed) controller.abort();
+            try { send(200,await verificationService.verify(input,controller.signal)); }
+            finally { res.removeListener('close',cancel); }
+            return;
+          }
+          send(404,{error:'Unknown verification API'}); return;
+        }
         if (req.url === '/api/revisions' || req.url.startsWith('/api/revisions/')) {
           if (!revisionStore) { send(503,{error:'修改记录存储尚未配置。'}); return; }
           if (req.method === 'GET' && req.url === '/api/revisions') { send(200,await revisionStore.list()); return; }
@@ -101,7 +135,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
           return;
         }
         send(404, {error:'Unknown API'}); return;
-      } catch (e) { send(e.status || 500, {error:e.message,taskId:e.taskId,taskState:e.taskState,retrievalId:e.retrievalId}); return; }
+      } catch (e) { send(e.status || 500, {error:e.message,taskId:e.taskId,taskState:e.taskState,retrievalId:e.retrievalId,verificationId:e.verificationId,verificationState:e.verificationState}); return; }
     }
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, {...headers, Allow: 'GET, HEAD'}).end(); return; }
     const path = req.url?.split('?')[0];
@@ -123,7 +157,10 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const compiler = process.env.DOCTOR_COMPILER || (process.env.CANGJIE_HOME ? join(process.env.CANGJIE_HOME, 'bin', process.platform === 'win32' ? 'cjc.exe' : 'cjc') : null);
   const bridge = new NativeBridge({root, executable, compiler});
   await bridge.probe();
-  const server = makeServer({bridge,revisionStore:new RevisionStore(root)});
+  const revisionStore = new RevisionStore(root);
+  const verificationService = new VerificationService({root,revisionStore,core:executable,image:process.env.DOCTOR_SANDBOX_IMAGE,bridge});
+  await verificationService.probe();
+  const server = makeServer({bridge,revisionStore,verificationService});
   server.on('error', e => { console.error(e.message); process.exitCode = 1; });
   server.listen(port, '127.0.0.1', () => console.log(`Doctor preview: http://127.0.0.1:${port} (Ctrl+C to stop)`));
 }

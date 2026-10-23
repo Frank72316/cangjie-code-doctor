@@ -2,6 +2,7 @@ import { readRecord, compileView, sourceIsCurrent, validateSource, lineRange, sh
 import { validateTask, taskLabel } from './task.mjs';
 import { initNavigation } from './navigation.mjs';
 import { lineDiff, validateRevision } from './revision.mjs';
+import { initVerificationUI } from './verification-ui.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
 let currentName = '';
@@ -22,6 +23,7 @@ let revisionSnapshot = null;
 let savedRevision = null;
 let savingRevision = false;
 let revisionListRequest = 0;
+let verificationUI = null;
 function feedback(message = '') { $('feedback').textContent = message; $('feedback').hidden = !message; }
 function element(tag, text, className) { const e = document.createElement(tag); e.textContent = text; if (className) e.className = className; return e; }
 function displayTime(value) {
@@ -93,12 +95,13 @@ async function refreshRevisions() {
     const data = await response.json();
     if (!response.ok || !Array.isArray(data.revisions)) throw new Error(data.error || '无法读取已保存修改。');
     if (request !== revisionListRequest) return;
+    verificationUI?.setRevisions(data.revisions);
     $('revision-list').replaceChildren();
     for (const item of data.revisions) {
       if (!/^[a-f0-9]{32}$/.test(item.revisionId) || typeof item.sourceName !== 'string') throw new Error('修改记录索引无效。');
       const card = element('article', '', 'revision-card');
       const row = element('div', '', 'history-row'), info = element('div', '', 'history-info');
-      info.append(element('strong', item.sourceName), element('span', `${displayTime(item.createdAt)} · 人工修改 · 未编译`, 'small-label'));
+      info.append(element('strong', item.sourceName), element('span', `${displayTime(item.createdAt)} · 人工确认副本`, 'small-label'));
       const load = element('button', '载入这份修改');
       load.addEventListener('click', async () => {
         if (!allowSourceReplacement()) return;
@@ -114,7 +117,7 @@ async function refreshRevisions() {
           savedRevision = {baseRecord:record,source:revision.source};
           refreshSource(); navigation.navigate('/diagnostics');
           $('revision-review').open = true; renderRevisionReview();
-          feedback('已载入人工修改。右侧仍是原诊断，当前副本尚未编译或测试；可恢复记录原文。');
+          feedback('已载入人工修改，右侧仍是原诊断。这份修改的独立验证结果请到“记录依据”查看；也可恢复记录原文。');
         } catch (error) { if (ticket === loading) feedback(error.message); }
         finally { load.disabled = false; if (ticket === loading) { loadingSample = false; refreshSource(); } }
       });
@@ -249,7 +252,7 @@ function refreshSource() {
   $('line-numbers').textContent = Array.from({length: lines}, (_, i) => i + 1).join('\n');
   $('line-count').textContent = `${lines} 行 / 200 行`;
   $('filename').textContent = currentName;
-  $('source-state').textContent = current() ? '记录原文' : '未编译副本';
+  $('source-state').textContent = current() ? '记录原文' : '已修改副本';
   $('source-state').classList.toggle('changed', !current());
   document.querySelectorAll('[data-current-source]').forEach(node => { node.textContent = record?.source.name || '尚未载入诊断'; });
   document.querySelectorAll('[data-current-state]').forEach(node => {
@@ -265,7 +268,7 @@ function refreshSource() {
   $('restore').hidden = !record || current();
   $('compile-guidance').textContent = loadingSample ? '正在载入样例…' :
     !record ? '尚未载入诊断，请从上方选择一个样例重试。' :
-    !current() ? '副本已修改，暂不能编译。请在源码下方查看差异并保存，或恢复记录副本。' :
+    !current() ? '副本已修改。请在源码下方查看差异并保存，再到“记录依据”验证已保存版本；此处仅编译审核样例。' :
     !selectedCase ? '当前为导入或历史记录。要发起新编译，请从上方选择审核样例。' :
     compiling || health.busy ? '本机任务进行中，请等待完成。' :
     retrievingDocuments ? '文档正在检索，完成后可编译。' :
@@ -273,6 +276,7 @@ function refreshSource() {
     '当前展示已采集记录；点击编译，获取本次结果。';
   refreshDocumentControls();
   refreshRevisionControls();
+  verificationUI?.refreshControls();
 }
 function showRecord(r) {
   loadingSample = false;
@@ -373,7 +377,7 @@ $('source-file').addEventListener('change', async event => {
     currentName = file.name; $('source').value = text; refreshSource();
     selectedCase = null; refreshSource();
     selectSample(null);
-    feedback('已导入本地副本。本预览不会编译或执行导入的源码。');
+    feedback('已导入编辑副本。核对差异并保存后，可在“记录依据”中查看容器验证是否就绪。');
   } catch (e) { if (ticket === loading) feedback(e.message); }
 });
 $('record-file').addEventListener('change', async event => {
@@ -412,7 +416,7 @@ $('save-revision').addEventListener('click', async () => {
       throw new Error('返回的修改记录与确认内容不符，未标记为已保存。');
     if (matchesEditor(snapshot)) {
       savedRevision = snapshot;
-      revisionStatus('已保存到本机。可在“记录依据”重新载入；当前修改仍未编译、未测试。');
+      revisionStatus('已保存到本机。下一步到“记录依据”选择这份修改，填写公开测试并查看验证环境。当前保存操作未执行编译或测试。');
     } else feedback('刚才确认的版本已保存到“记录依据”。当前编辑内容另有变化，请重新审阅后保存。');
     await refreshRevisions();
   } catch (error) {
@@ -475,6 +479,7 @@ async function refreshHealth(recheck = false) {
   $('runtime-summary').textContent = health.available ? '环境详情' : '查看原因';
   if (!health.available) $('environment').open = true;
   refreshSource();
+  verificationUI?.refreshControls();
 }
 async function refreshHistory() {
   const request = ++historyRequest;
@@ -544,7 +549,7 @@ async function refreshHistory() {
     }
   }
 }
-$('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await Promise.all([refreshHistory(), refreshRevisions()]); });
+$('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh()]); });
 $('refresh-history').addEventListener('click', refreshHistory);
 $('cancel-compile').addEventListener('click', () => compileController?.abort());
 $('compile-example').addEventListener('click', async () => {
@@ -566,5 +571,7 @@ $('compile-example').addEventListener('click', async () => {
   finally { compiling = false; compileController = null; refreshSource(); await refreshHistory(); }
 });
 const navigation = initNavigation();
+verificationUI = initVerificationUI({getHealth:() => health, refreshHealth:() => refreshHealth(), download,
+  onActivityChange:active => { if (active) health.busy = true; refreshSource(); }});
 loadCase('type_mismatch');
-refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions()]));
+refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh()]));

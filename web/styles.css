@@ -333,6 +333,99 @@ footer>span:first-child { letter-spacing:.5px; color:#8f9b94; }
 .revision-card { padding:17px 0; border-top:1px solid var(--line); }
 .revision-card:last-child { padding-bottom:0; }
 .revision-card button { flex-shrink:0; font-size:12px; }
+.revision-verification { margin-bottom:22px; padding:26px; }
+.verification-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; margin-bottom:24px; }
+.verification-heading .tutorial-kicker { margin-bottom:5px; }
+.verification-heading h2 { color:#345b48; font-size:20px; }
+.verification-heading p { color:#6a7a70; font-size:13px; margin-top:7px; }
+.verification-label { display:block; font-size:13px; font-weight:600; color:#425e4d; margin-bottom:10px; }
+#verification-revision { display:block; width:100%; min-width:0; max-width:100%; min-height:43px; border:1px solid #d8e3dc; border-radius:7px; padding:9px 12px; color:#3d5647; background:#fff; font:inherit; font-size:13px; line-height:1.6; }
+#verification-revision:disabled { background:#f5f7f5; color:#809085; }
+.verification-target { font-size:12px; color:#738377; margin-top:8px; overflow-wrap:anywhere; }
+.verification-source { margin-top:12px; font-size:12px; color:#5c7462; }
+.verification-source summary { cursor:pointer; }
+.verification-source p { margin:12px 0; color:#708275; overflow-wrap:anywhere; }
+.verification-source pre,.verification-report-detail pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:280px; overflow:auto; border-radius:6px; background:#f1f5f1; padding:13px; font:12px/1.8 Consolas,"Microsoft YaHei",monospace; }
+.verification-tests-heading { display:flex; align-items:center; justify-content:space-between; gap:15px; margin:25px 0 6px; }
+.verification-tests-heading .verification-label { margin:0; }
+.verification-help { color:#78877c; font-size:11px; line-height:1.85; margin-bottom:13px; }
+.verification-help code { font-family:Consolas,monospace; color:#526f5c; }
+.verification-test { min-width:0; border:1px solid #e1e9e2; border-radius:9px; padding:15px; margin:0; background:#fafcf9; }
+.verification-test-heading { color:#7c8c7d; padding:0 7px; font-size:11px; }
+.verification-test-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.verification-test-grid>div { min-width:0; }
+.verification-test-grid label { display:block; color:#516c59; font-size:12px; margin-bottom:8px; }
+.verification-test-grid textarea { display:block; width:100%; border:1px solid #d6e0d8; border-radius:6px; padding:10px; resize:vertical; min-height:85px; max-height:280px; font:12px/1.75 Consolas,"Microsoft YaHei",monospace; color:#354e40; background:#fff; }
+.verification-test-grid textarea:focus-visible { outline:2px solid #56ab94; outline-offset:1px; }
+.verification-test-grid textarea:disabled { color:#7c8c80; background:#f1f4f0; }
+.verification-test-grid textarea::placeholder { color:#8c9a8e; }
+.verification-test-grid small { display:block; font-size:10px; color:#7d8d80; margin-top:8px; }
+.verification-test-grid label.verification-newline { display:flex; align-items:flex-start; gap:6px; margin:9px 0 0; font-size:11px; color:#647c68; }
+.verification-newline input { margin:3px 0 0; accent-color:var(--green); }
+.verification-output-preview { display:flex; align-items:baseline; gap:4px; color:#839181; font-size:10px; margin-top:8px; }
+.verification-exact-output { display:block; flex:1; min-width:0; color:#6b7f68; max-height:65px; overflow:auto; overflow-wrap:anywhere; white-space:pre-wrap; }
+.verification-test>.text-button { display:block; margin-top:13px; font-size:11px; }
+.verification-more-tests { margin-top:14px; }
+.verification-more-tests>summary { color:#69856e; cursor:pointer; font-size:12px; }
+#verification-extra-tests { display:grid; gap:14px; margin-top:15px; }
+#verification-add-test { min-height:32px; font-size:11px; font-weight:500; margin-top:12px; }
+.verification-submit { display:flex; align-items:center; justify-content:space-between; gap:24px; border-top:1px solid #e5ebe4; margin-top:23px; padding-top:21px; }
+.verification-submit p { color:#6b7d6e; font-size:12px; line-height:1.8; }
+.verification-submit p[data-state="unavailable"] { color:#987842; }
+.verification-submit button { flex-shrink:0; min-height:42px; }
+.verification-status { color:#687e6b; font-size:12px; line-height:1.9; margin-top:15px; overflow-wrap:anywhere; }
+.verification-status[data-state="error"] { color:#a05548; }
+.verification-result { border:1px solid #e2dfca; border-radius:9px; background:#fbfaf4; padding:19px; margin-top:21px; }
+.verification-result[data-tone="success"] { border-color:#cde0d2; background:#f0f8f1; }
+.verification-result[data-tone="error"] { border-color:#e5d8d2; background:#fcf8f5; }
+.verification-result h3,.verification-history-body h3 { font-size:16px; margin:0 0 7px; color:#47634e; }
+.verification-result>p,.verification-history-body>p { color:#637866; font-size:12px; line-height:1.85; }
+.verification-verdict { font-weight:600; margin-bottom:7px; }
+.verification-result p.verification-result-scope,.verification-history-body p.verification-result-scope { color:#81907d; font-size:11px; margin-top:8px; overflow-wrap:anywhere; }
+.verification-report-detail { margin-top:15px; font-size:12px; }
+.verification-report-detail>summary { color:#5c7b61; cursor:pointer; }
+.verification-report-detail p { overflow-wrap:anywhere; font-size:11px; color:#74856f; margin-top:9px; }
+.verification-report-detail h4 { font-size:12px; color:#5a735d; margin:14px 0 6px; font-weight:600; }
+.verification-report-detail pre { max-height:220px; margin:6px 0; }
+.verification-test-result { border-top:1px solid #dde6d9; margin-top:13px; padding-top:11px; }
+.verification-test-result>summary { cursor:pointer; color:#66805f; }
+.verification-downloads { display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+.verification-downloads button { min-height:33px; font-size:11px; font-weight:500; }
+.verification-history-disclosure { border-top:1px solid #e5ebe4; margin-top:24px; }
+.verification-history-disclosure>summary { display:flex; align-items:center; gap:13px; padding-top:20px; list-style:none; cursor:pointer; }
+.verification-history-disclosure>summary::-webkit-details-marker { display:none; }
+.verification-history-disclosure>summary strong { color:#526e58; font-size:13px; font-weight:600; }
+.verification-history-disclosure>summary span { color:#8d9a87; font-size:11px; margin-left:auto; }
+.verification-history-disclosure>summary::after { content:"+"; color:#809578; font-size:19px; }
+.verification-history-disclosure[open]>summary::after { content:"−"; }
+.verification-history-content { padding-top:17px; }
+.verification-history-top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:15px; }
+.verification-history-top p { color:#788873; font-size:11px; }
+.verification-history-top button { flex-shrink:0; font-size:11px; min-height:32px; padding:6px 10px; }
+.verification-history-entry { border-top:1px solid #e5ebe1; }
+.verification-history-entry>summary { cursor:pointer; padding:15px 2px; color:#5d785c; font-size:12px; }
+.verification-history-entry>summary strong { font-weight:500; overflow-wrap:anywhere; }
+.verification-history-entry>summary span { display:block; margin:5px 0 0 16px; color:#87957f; font-size:10px; }
+.verification-history-body { padding:0 2px 18px; }
+@media(max-width:700px) {
+  .verification-test-grid { grid-template-columns:1fr; gap:17px; }
+  .verification-submit { align-items:stretch; flex-direction:column; gap:13px; }
+}
+@media(max-width:480px) {
+  .revision-verification { padding:18px; }
+  .verification-heading { flex-wrap:wrap; gap:11px; margin-bottom:20px; }
+  .verification-heading h2 { font-size:18px; } .verification-heading p { font-size:12px; }
+  .verification-heading .offline-label { font-size:9px; }
+  .verification-label { font-size:12px; }
+  #verification-revision { font-size:11px; padding:9px; }
+  .verification-target,.verification-submit p { font-size:11px; }
+  .verification-test { padding:12px; }
+  .verification-help { font-size:10px; }
+  .verification-submit button { width:100%; font-size:12px; }
+  .verification-history-top { align-items:flex-start; flex-wrap:wrap; gap:10px; }
+  .verification-result { padding:14px; }
+  .verification-downloads button { flex:1; font-size:10px; }
+}
 @media(max-width:480px) {
   .revision-review>summary,.revision-status { padding:14px; } .revision-body { padding:0 14px 15px; }
   .revision-body>p,.revision-status,.revision-boundary { font-size:11px; }

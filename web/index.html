@@ -46,7 +46,7 @@
           <div class="tutorial-welcome"><span class="tutorial-kicker">仓颉程序诊断助手</span><h2>看懂仓颉报错，<br>从一个样例开始。</h2><p>不用准备代码，先用“类型不匹配”样例体验一次完整的诊断与文档查阅。</p><a class="tutorial-start" href="/diagnostics" data-route>进入编译诊断 <span aria-hidden="true">→</span></a><small>进入后选择样例，再点击“编译所选样例”。</small></div>
           <div class="tutorial-flow" aria-label="首次操作顺序"><div><span>01</span><div><strong>选样例，点编译</strong><p>从“类型不匹配”开始</p></div></div><div><span>02</span><div><strong>读报错，点位置</strong><p>回到对应代码行</p></div></div><div><span>03</span><div><strong>查文档，找依据</strong><p>核对同版本官方语言规则</p></div></div></div>
         </div>
-        <p class="tutorial-scope">当前可体验：4 个审核样例的编译、错误定位与离线文档检索。AI 修复、任意源码编译和程序行为测试尚未开放。</p>
+        <p class="tutorial-scope">从 4 个审核样例体验编译、定位与离线文档检索。修改后先审阅保存；配置了 Linux 容器的开发环境可在“记录依据”中验证已保存副本的公开测试。当前没有 AI 修复。</p>
         <details class="guide-disclosure"><summary><strong>跟着做：第一次诊断</strong><span>展开 5 步操作说明</span></summary><div class="tutorial-layout">
           <section class="panel tutorial-steps" aria-labelledby="tutorial-steps-title">
             <div class="tutorial-heading"><div><span class="tutorial-kicker">跟着做一遍</span><h2 id="tutorial-steps-title">从这里开始，完成第一次诊断</h2></div><span class="tutorial-count">5 个步骤</span></div>
@@ -61,17 +61,18 @@
           <aside class="tutorial-map" aria-labelledby="tutorial-map-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">功能导航</span><h2 id="tutorial-map-title">每一页用来做什么？</h2></div></div>
             <a href="/diagnostics" data-route><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><div><h3>编译诊断 <span aria-hidden="true">↗</span></h3><p>选样例、重新编译、定位错误，编辑源码副本。</p></div></a>
             <a href="/documents" data-route><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><h3>文档依据 <span aria-hidden="true">↗</span></h3><p>查阅同版本官方摘录，保存本次检索依据。</p></div></a>
-            <a href="/records" data-route><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg><div><h3>记录依据 <span aria-hidden="true">↗</span></h3><p>核对采集信息，导入、导出诊断，重新载入已保存修改。</p></div></a>
+            <a href="/records" data-route><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg><div><h3>记录依据 <span aria-hidden="true">↗</span></h3><p>选择已保存修改，填写公开测试，查看验证报告与诊断依据。</p></div></a>
             <a href="/history" data-route><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg><div><h3>任务历史 <span aria-hidden="true">↗</span></h3><p>查看本机最近 20 次编译任务的状态与日志。</p></div></a>
             <p class="tutorial-map-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>随时点击左侧“使用教程”回来。切换页面会保留当前副本与检索结果。</p>
           </aside>
         </div></details>
         <section class="panel tutorial-faq" aria-labelledby="tutorial-faq-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">遇到问题时</span><h2 id="tutorial-faq-title">常见问题</h2></div></div>
           <details><summary>“编译所选样例”是灰色的，怎么办？</summary><p>在编译诊断页展开环境详情，查看提示并点击“检查环境”。本机需要仓颉 SDK 1.0.5 和 Doctor 核心就绪；编译进行中也不能重复提交。若刚导入了文件或修改了副本，请重新选择一个内置样例；编辑内置样例后，也可以点击“恢复记录副本”。</p></details>
-          <details><summary>可以导入自己的代码，或者修改后再编译吗？</summary><p>“源码操作”中的“导入 .cj 文件”与手动编辑目前用于查看和修改浏览器中的源码副本，尚不能编译任意源码。修改后，旧诊断仍保留，但定位与文档检索暂停，旧检索结果清除，以免与新代码混淆。修改后展开源码下方“查看修改并保存”，核对差异，再点击“确认保存这份修改”；之后可在“记录依据”的“已保存修改”中重新载入。也可在“源码操作”中下载 .cj 副本。“恢复记录副本”只恢复编辑框中的原文，已经保存的修改仍保留。</p></details>
-          <details><summary>几个下载按钮有什么区别？JSON 都能重新打开吗？</summary><p>“下载当前副本”保存你正在编辑的 .cj 源码；“导出当前诊断记录”保存采集时的源码与编译日志，可通过“打开诊断记录”再次载入。“下载检索证据 JSON”保存文档查询与引用，“导出任务记录”保存任务信息，这两种 JSON 用于留档，不能作为诊断记录导入。“下载修改记录 JSON”包含人工修改与绑定的原诊断，也不能当作诊断 JSON 导入；已保存修改可直接从本机列表载入。</p></details>
+          <details><summary>修改后，怎么验证自己的程序？</summary><p>在编译诊断页编辑或导入 .cj 副本，展开“查看修改并保存”，核对差异后确认保存。再进入“记录依据”，选择这份已保存修改，填写程序输入和期望输出，点击“编译并验证这份修改”。这需要已配置的本地 Linux Docker 环境；本机未就绪时会显示原因并禁用按钮。验证始终使用你选择的已保存版本，不会替换编辑框。每次测试按原始字节比较输出，包含空格与换行；程序使用 println 时，期望输出通常需要勾选末尾换行。这里只验证公开测试，不代表所有输入或保留测试都通过。</p></details>
+          <details><summary>修改源码后，为什么原诊断与检索不能继续定位？</summary><p>修改后，旧诊断仍对应原文，因此定位与文档检索暂停，旧检索结果清除，以免与新代码混淆。“恢复记录副本”只恢复编辑框中的原文，已经保存的修改和独立验证报告仍保留。可在“记录依据”重新载入已保存修改，继续编辑。</p></details>
+          <details><summary>几个下载按钮有什么区别？JSON 都能重新打开吗？</summary><p>“下载当前副本”保存正在编辑的 .cj 源码；“导出当前诊断记录”保存采集时的源码与编译日志，可通过“打开诊断记录”再次载入。检索证据、任务记录和修改记录 JSON 用于分别留档，不能作为诊断记录导入。验证报告把已保存修改、公开测试与实际结果放在一起，可下载 JSON 或用浏览器打开的可读 HTML；它同样不能当作诊断 JSON 导入。已保存修改与验证报告可直接从本机列表查看。</p></details>
           <details><summary>检索不到文档，是不是说明代码没有问题？</summary><p>不是。目前只检索本机 15 段仓颉 1.0.5 官方文档快照，可以尝试“类型”“函数”等关键词。没有命中只说明这次查询没有找到相关摘录。检索需要本机核心就绪；点击来源链接查看完整原文时需要联网。</p></details>
-          <details><summary>显示“编译通过”，就说明程序做对了吗？</summary><p>编译通过只说明这次编译没有报错。当前不会执行样例生成的程序，因此仍标记“行为未验证”；还不能据此判断运行结果、题目要求或修复是否正确。</p></details>
+          <details><summary>显示“编译通过”，就说明程序做对了吗？</summary><p>编译通过只说明这次编译没有报错。编译诊断页的审核样例只编译、不执行，仍标记“行为未验证”。记录依据页的独立容器验证会运行你提供的公开测试；即使显示“公开测试通过”，结论也只适用于这份已保存源码和这些输入，不能据此宣称修复完全正确或 A/B 实验有效。</p></details>
           <details><summary>切换页面、刷新或关闭后，我的内容还在吗？</summary><p>使用侧栏切页会保留当前副本、诊断与检索结果。刷新或关闭后重新载入默认样例。未保存编辑可能丢失，离开前会提示；请先确认保存修改，或下载需要保留的副本。已确认的修改存于本机，重新打开后到“记录依据”载入。已保存到本机的编译任务可在“任务历史”中查看，浏览样例、导入记录和文档检索不会新增编译任务。</p></details>
         </section>
       </section>
@@ -82,7 +83,7 @@
         <details id="environment" class="environment"><summary><span class="status-dot" aria-hidden="true"></span><strong id="runtime-title">正在检查本机环境…</strong><span id="runtime-summary">环境详情</span></summary><div class="environment-body"><p id="runtime-detail">历史诊断记录可正常浏览。</p><button id="refresh-health">检查环境</button></div></details>
         <div class="workspace">
           <section class="panel source-panel" aria-label="源码副本">
-            <div class="panel-head"><div class="panel-title"><span class="step-number">01</span><h2>源码副本</h2></div><details class="action-menu"><summary>源码操作</summary><div class="menu-items"><button id="import-source">导入 .cj 文件</button><button id="save-source">下载当前副本</button><small>导入的源码仅供编辑，暂不支持编译。</small></div></details></div>
+            <div class="panel-head"><div class="panel-title"><span class="step-number">01</span><h2>源码副本</h2></div><details class="action-menu"><summary>源码操作</summary><div class="menu-items"><button id="import-source">导入 .cj 文件</button><button id="save-source">下载当前副本</button><small>导入后先核对差异并保存，再到记录依据查看验证环境。</small></div></details></div>
             <div class="filebar"><div class="file-tab"><span class="file-icon" aria-hidden="true">CJ</span><span id="filename">载入中…</span></div><span id="source-state" class="tag">记录原文</span></div>
             <div class="editor-wrap"><pre id="line-numbers" aria-hidden="true">1</pre><textarea id="source" aria-label="仓颉源码副本" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off"></textarea></div>
             <div class="editor-footer"><div><span class="editor-dot" aria-hidden="true"></span><span id="line-count">0 行 / 200 行</span><span class="encoding">UTF-8</span></div><span>仅编辑副本</span></div>
@@ -99,7 +100,7 @@
             <details class="raw"><summary><span>原始编译器输出</span><span class="raw-caption">stdout / stderr</span></summary><h3>stderr</h3><pre id="stderr"></pre><h3>stdout</h3><pre id="stdout"></pre></details>
           </section>
         </div>
-        <div class="scope-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><p>当前可查看、编辑和定位；环境就绪后可编译审核样例。任意源码编译、AI 修复和测试执行待开放。开发样例不计入 A/B 评估。</p></div>
+        <div class="scope-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><p>此页编译审核样例，不执行生成程序。修改后审阅保存，再到“记录依据”查看容器验证；需要已配置的 Linux Docker 环境。开发样例和公开测试不计入正式 A/B 成绩。</p></div>
       </section>
       <section id="document-evidence" class="app-page" data-page-view aria-labelledby="document-title">
         <div class="intro"><div><p class="eyebrow">REFERENCE</p><h1 id="document-title">文档依据</h1><p class="lead">用当前报错查找官方原文，帮助你核对语言规则。</p></div><span class="offline-label">仓颉 1.0.5 · 离线快照</span></div>
@@ -116,10 +117,26 @@
         </div>
       </section>
       <section id="evidence" class="app-page" data-page-view aria-labelledby="record-title">
-        <div class="intro"><div><p class="eyebrow">RECORD</p><h1 id="record-title">记录依据</h1><p class="lead">保存诊断依据，重新载入已经确认的人工修改。</p></div><div class="page-actions"><button id="import-record"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg>打开诊断记录</button><button id="export-record" class="primary"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>导出当前诊断记录</button></div></div>
+        <div class="intro"><div><p class="eyebrow">RECORD</p><h1 id="record-title">记录依据</h1><p class="lead">先选择已保存修改，再用公开测试核对实际结果。</p></div><div class="page-actions"><button id="import-record"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg>打开诊断记录</button><button id="export-record"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>导出当前诊断记录</button></div></div>
         <div class="record-context"><span class="section-icon"><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg></span><div><span class="small-label">当前诊断</span><strong data-current-source>正在载入…</strong><p data-current-state></p></div><a href="/diagnostics" data-route class="context-link">查看源码与诊断 →</a></div>
+        <section class="panel revision-verification" aria-labelledby="verification-title">
+          <div class="verification-heading"><div><span class="tutorial-kicker">修改后的下一步</span><h2 id="verification-title">验证已保存修改</h2><p>用具体的输入与期望输出，检查这份修改是否符合预期。</p></div><span class="offline-label">公开测试 · 无 AI 调用</span></div>
+          <form id="verification-form">
+            <label for="verification-revision" class="verification-label">1. 选择已确认的副本</label><select id="verification-revision" aria-describedby="verification-target"><option value="">正在读取已保存修改…</option></select>
+            <p id="verification-target" class="verification-target">先保存修改，再在这里选择。</p>
+            <details id="verification-source" class="verification-source" hidden><summary>核对这份源码</summary><p>这份已保存源码的 SHA-256：<code id="verification-source-hash"></code></p><pre id="verification-source-text"></pre></details>
+            <div class="verification-tests-heading"><span class="verification-label">2. 填写公开测试</span><span id="verification-test-count" class="small-label">1 / 8 条</span></div>
+            <p class="verification-help">按原文精确比较输出，空格和末尾换行都会影响结果。下方用 <code>\n</code> 显示换行；只填写可公开的测试。</p>
+            <div id="verification-first-test"></div>
+            <details class="verification-more-tests"><summary>补充更多测试（可选）</summary><div id="verification-extra-tests"></div><button id="verification-add-test" type="button">添加一条公开测试</button></details>
+            <div class="verification-submit"><p id="verification-environment" role="status">正在检查验证环境…</p><button id="verification-run" class="primary" type="submit" disabled>编译并验证这份修改</button></div>
+          </form>
+          <p id="verification-status" class="verification-status" role="status" aria-live="polite" hidden></p>
+          <section id="verification-result" class="verification-result" aria-label="本次已保存修改验证结果" aria-live="polite" hidden></section>
+          <details class="verification-history-disclosure"><summary><strong>验证记录与报告</strong><span id="verification-history-count">正在读取…</span></summary><div class="verification-history-content"><div class="verification-history-top"><p>最近 20 次。展开记录可查看结果，下载 JSON 或可读报告。</p><button id="verification-refresh" type="button">刷新验证状态</button></div><div id="verification-history" aria-live="polite"></div></div></details>
+        </section>
         <div class="evidence panel"><div class="evidence-heading"><div class="panel-title"><span class="section-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><div><h2>采集信息</h2><p>保留原始信息，让诊断可以追溯。</p></div></div><span class="section-label">EVIDENCE</span></div><div class="evidence-grid"><div><span class="small-label">编译器版本</span><strong id="sdk">—</strong></div><div><span class="small-label">采集时间 · 北京时间</span><strong id="captured">—</strong></div><div class="hash-block"><span class="small-label">源码 SHA-256</span><code id="source-hash">—</code></div></div><p class="evidence-note">导出记录包含采集时的源码与编译器日志；编辑后的副本可在编译诊断页审阅保存，也可单独下载。</p></div>
-        <section class="panel saved-revisions" aria-labelledby="saved-revisions-title"><div class="evidence-heading"><div><h2 id="saved-revisions-title">已保存修改</h2><p>最近 20 份人工确认的副本，可重新载入继续编辑。</p></div><button id="refresh-revisions">刷新修改记录</button></div><p class="revision-boundary">这些修改尚未编译或测试，不能作为修复成功记录。</p><div id="revision-list" aria-live="polite">正在读取…</div></section>
+        <section class="panel saved-revisions" aria-labelledby="saved-revisions-title"><div class="evidence-heading"><div><h2 id="saved-revisions-title">已保存修改</h2><p>最近 20 份人工确认的副本，可重新载入继续编辑。</p></div><button id="refresh-revisions">刷新修改记录</button></div><p class="revision-boundary">保存修改本身不执行编译或测试；独立验证的结果请查看上方“验证记录与报告”。</p><div id="revision-list" aria-live="polite">正在读取…</div></section>
         <div class="record-guide"><h2>这份记录包含什么？</h2><div class="record-guide-grid"><div><span>01</span><h3>采集时的源码</h3><p>保存诊断对应的原文。编辑中的副本不会覆盖这份记录。</p></div><div><span>02</span><h3>编译器原始输出</h3><p>保留退出码、stdout 和 stderr，可回到诊断页展开查看。</p></div><div><span>03</span><h3>一致性校验</h3><p>SHA-256 用于核对内容是否变化；它不证明程序行为正确。</p></div></div></div>
       </section>
       <section id="task-history" class="app-page" data-page-view aria-labelledby="history-title">
