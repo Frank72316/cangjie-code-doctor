@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "kind": "doctor-sdk-compatibility-probe",
+  "developmentOnly": true,
+  "checkedAt": "2026-10-23T12:25:17.275Z",
+  "codeCommit": "e19e959c8218b259e903b198366de20f8831959a",
+  "platform": "Windows 11 25H2 x64",
+  "osBuild": "26200.9711",
+  "sdkVersion": "1.2.0",
+  "channel": "STS",
+  "sourcePage": "https://cangjie-lang.cn/download/1.2.0",
+  "archive": "cangjie-sdk-windows-x64-1.2.0.zip",
+  "archiveSha256": "7bd5088ad56fb03c1214e73ea076de5ac08580cc419a8cbd46a524ee1ca250bf",
+  "isolation": "Fresh SDK extraction and source copy in an ASCII path; SDK PATH entries scoped to a new PowerShell process.",
+  "helloSource": "main() {\n    println(\"Cangjie STS isolated probe\")\n}\n",
+  "steps": [
+    {"label": "cjc-version", "args": ["--version"], "exitCode": 0, "stdout": "Cangjie Compiler: 1.2.0 (cjnative)\r\nTarget: x86_64-w64-mingw32\r\n", "stderr": ""},
+    {"label": "hello-compile", "args": ["hello.cj", "-o", "hello-sts.exe", "--diagnostic-format=noColor"], "exitCode": 0, "stdout": "", "stderr": ""},
+    {"label": "hello-run", "args": [], "exitCode": 3221225477, "signedExitCode": -1073741819, "exitHex": "0xC0000005", "stdout": "", "stderr": ""},
+    {"label": "cjpm-version", "args": ["--version"], "exitCode": 3221225477, "signedExitCode": -1073741819, "exitHex": "0xC0000005", "stdout": "", "stderr": ""},
+    {"label": "doctor-compile", "args": ["-p", "src", "-o", "doctor-sts.exe", "--diagnostic-format=noColor"], "exitCode": 0, "stdout": "", "stderr": ""},
+    {"label": "doctor-version", "args": ["--version"], "exitCode": 3221225477, "signedExitCode": -1073741819, "exitHex": "0xC0000005", "stdout": "", "stderr": ""}
+  ],
+  "conclusion": "Both minimal hello and current Doctor compile, but hello, cjpm and Doctor fail to start with 0xC0000005. The STS trial did not restore runtime availability on this host.",
+  "defaultsChanged": false,
+  "projectBaseline": "1.0.5",
+  "systemRebooted": false,
+  "scope": "Local compatibility check only, not a formal A/B result or a general claim about all Windows hosts."
+}

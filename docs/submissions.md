@@ -122,6 +122,12 @@
 
 第十二轮功能发布与实测补记：[83715cde21a818fd975c9941403f73659b235aaa](https://github.com/Frank72316/cangjie-code-doctor/commit/83715cde21a818fd975c9941403f73659b235aaa) 提交于 2026-10-23 19:56:41，GitCode 与 GitHub main 已核对一致；[push CI 39949690080](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39949690080) 创建于 19:56:53、完成于 19:58:13（北京时间），成功。125 项 Node 检查全部通过、无跳过；原生回归、7 项容器探针、3 条 CLI 公开路径和新增 2 条真实 HTTP 验证路径通过。正确期望得到 passed、故意不符得到 test_failed，修订不变、报告与新服务读取正常，全部容器确认清理；不是 A/B 或学生成绩。这些时间不是精确上传时间。后续文档提交只补齐实际验收和范围，不修改历史成败。
 
+## 第十三轮：STS 兼容性检查（2026-10-23）
+
+- 按用户要求试用官方 1.2.0 STS，核对 ZIP 哈希后重新解压，在独立英文目录、独立进程 SDK 环境中重新编译最小 hello 与当前 Doctor。两个编译均成功，hello、Doctor 和 cjpm 的启动均为 `0xC0000005`，试验没有恢复本机运行。保留失败，不更改默认 SDK 或系统设置。
+- 提交内容仅为脱敏检查 JSON、环境/进度与提交记录。未上传 SDK、二进制、完整机器日志或本机临时文件；没有新功能或 A/B 成绩。当前提交的双仓同步和 CI 待实际发生后核对，Linux 基线 CI 成功也不能改写本机 STS 的失败。
+- 上轮最终文档提交 [e19e959c8218b259e903b198366de20f8831959a](https://github.com/Frank72316/cangjie-code-doctor/commit/e19e959c8218b259e903b198366de20f8831959a) 提交于 2026-10-23 20:00:12，两平台 main 已核对一致；[push CI 39950103556](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39950103556) 创建于 20:00:21、完成于 20:01:54（北京时间），成功。时间来源分别登记，不作为精确上传时间。
+
 ## 后续每轮登记内容
 
 第十一轮发布与修复补记（2026-10-23）：[aaf1f81](https://github.com/Frank72316/cangjie-code-doctor/commit/aaf1f81d8858ccb8aeb82b15cd6de36f4ebc0629) 提交于 17:25:52，两平台 main 已核对一致。对应 push [CI 39931843386](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39931843386) 创建于 17:26:12；原生检查、21 项新判定、89 项 Node 检查与镜像构建通过，但容器非 root 用户读取 SDK 被拒绝，整体失败。该失败保留，后续镜像权限修复提交再实际复测，不改变原有时间或成败。上述时间不是精确上传时间。
