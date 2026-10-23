@@ -1,6 +1,6 @@
 # Linux 容器公开测试开发入口
 
-更新：2026-10-23。当前是独立开发 CLI，尚未接入网页或正式 A/B。本机 Windows 没有可用 Docker/WSL，实际资源与仓颉容器验收在已有 Linux CI 完成后，以对应 SHA 的运行记录为证据；提交前不预称通过。
+更新：2026-10-23。当前是独立开发 CLI，尚未接入网页或正式 A/B。本机 Windows 没有可用 Docker/WSL。[CI 39932727970](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39932727970) 已实际通过 7 项运行容器限制与清理检查、3 条仓颉编译/公开测试路径，代码版本为 `d576f1d`。首次 SDK 权限失败及修复过程保留在[进度记录](progress.md)，不以本地模拟检查代替真实容器证据。
 
 ## 实现与边界
 
