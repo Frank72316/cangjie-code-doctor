@@ -2,7 +2,7 @@
 
 更新：2026-10-23，第十二轮。独立开发 CLI 已接入显式启用的 Linux Web 修订验证：网页选择已保存副本、提交公开输入与期望输出，单独留存验证记录，导出 JSON/静态 HTML 报告。模型和正式 A/B 尚未接入。本机 Windows 没有可用 Docker/WSL，且原生启动再次 `0xC0000005`，当前只能保存修改和查看已有报告，不能执行容器验证。
 
-前轮 [CI 39932727970](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39932727970) 已实际通过 7 项运行容器限制与清理检查、3 条仓颉编译/公开测试路径，代码版本为 `d576f1d`。首次 SDK 权限失败及修复过程保留在[进度记录](progress.md)。本轮新增 HTTP 验收脚本将在当前提交的 CI 中单独运行，不能用此前 CI 或本地模拟检查代替本轮真实 HTTP 容器证据。
+前轮 [CI 39932727970](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39932727970) 已实际通过 7 项运行容器限制与清理检查、3 条仓颉编译/公开测试路径，代码版本为 `d576f1d`。首次 SDK 权限失败及修复过程保留在[进度记录](progress.md)。本轮新增 HTTP 验收已在提交 `83715cd` 的 [CI 39949690080](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39949690080) 实际通过，详细身份与结果见进度记录；合成检查另列。
 
 ## 实现与边界
 
@@ -84,7 +84,7 @@ DOCTOR_SANDBOX_IMAGE="$image" DOCTOR_BINARY="$(pwd)/target/debug/doctor" node sc
 node scripts/test-revision-verification-http.mjs "$image" target/debug/doctor
 ```
 
-该脚本保存一份人工修订，再通过真实 HTTP 入口验证正确期望与故意错误期望两条路径，检查通过/不符区分、原修订不变、报告读取、服务重启后读取、请求授权与额外源码拒绝。本轮提交前这两条真实路径尚待当前 CI 执行；合成服务/契约检查不是其运行证据。
+该脚本保存一份人工修订，再通过真实 HTTP 入口验证正确期望与故意错误期望两条路径，检查通过/不符区分、原修订不变、报告读取、服务重启后读取、请求授权与额外源码拒绝。提交 `83715cd` 的 CI 已实际通过两条路径，并确认原修订不变、重读正常和全部容器清理；两条路径来自同一公开开发修订，不是两个独立评估案例。
 
 ## 留痕与验收
 

@@ -217,7 +217,7 @@ JSON 使用 `doctor-revision-verification` 格式，包含原诊断与人工修�
 
 ## 验证与后续
 
-第十二轮新增 `tests/verification-service.test.mjs`、`tests/verification-report.test.mjs` 等服务、报告和 HTTP 契约检查，合成故障数据明确标识；真实 HTTP 验收由 `scripts/test-revision-verification-http.mjs` 在 Linux Docker 环境运行。同一份实际保存的人工修订分别使用正确期望 `3\n` 与错误期望 `4\n`，要求真实编译/执行后得到通过与输出不符，并检查原修订不变、历史读取、重启读取及授权拒绝。新增脚本已加入 CI；本轮提交前尚未运行当前 SHA 的 CI，不预称这两条路径已通过，实际结果见[进度](progress.md)和[提交记录](submissions.md)。
+第十二轮新增 `tests/verification-service.test.mjs`、`tests/verification-report.test.mjs` 等服务、报告和 HTTP 契约检查，合成故障数据明确标识；真实 HTTP 验收由 `scripts/test-revision-verification-http.mjs` 在 Linux Docker 环境运行。同一份实际保存的人工修订分别使用正确期望 `3\n` 与错误期望 `4\n`，要求真实编译/执行后得到通过与输出不符，并检查原修订不变、历史读取、重启读取及授权拒绝。新增脚本已在提交 `83715cd` 的 [CI 39949690080](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39949690080) 实际通过，两条路径与 125 项 Node 检查无失败；具体身份、时间和范围见[进度](progress.md)和[提交记录](submissions.md)。
 
 复现命令（先完成 SDK、原生核心和镜像构建）：
 
@@ -249,4 +249,4 @@ Linux 的原生运行及完整 HTTP 链路已在[检查记录 39534258780](https
 
 本轮 Windows SDK 1.0.5 的 `test-native-http.mjs` 与 `test-retrieval.mjs` 通过；JavaScript 语法及差异格式检查通过。完整本地套件 56 项，55 项通过、0 失败、1 项因 Windows 文件符号链接权限跳过，细节见[进度记录](progress.md)。最终重载页面与重启服务后，从修订恢复原诊断源码再检索，返回三条官方摘录。这些仍是开发验收，不是学生试用、修复成功率或 A/B；本次提交 CI 待发布后核验。
 
-下一步：完成本轮真实 Linux HTTP 验收和界面检查后，继续完善部署配额、跨服务独占与遗留任务恢复，扩充公开开发案例并邀请实际用户试用。人工修改/公开测试报告已实现；模型候选、两轮修复、保留测试、冻结与 A/B 汇总仍未完成。模型服务与预算明确后再接 AI，详情持续记录在[进度文件](progress.md)。
+下一步：本轮真实 Linux HTTP 验收和界面检查已完成，继续完善部署配额、跨服务独占与遗留任务恢复，扩充公开开发案例并邀请实际用户试用。人工修改/公开测试报告已实现；模型候选、两轮修复、保留测试、冻结与 A/B 汇总仍未完成。模型服务与预算明确后再接 AI，详情持续记录在[进度文件](progress.md)。
