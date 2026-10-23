@@ -41,11 +41,20 @@
     <main id="main-content" tabindex="-1">
       <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
       <section id="usage-guide" class="app-page tutorial" data-page-view aria-labelledby="tutorial-title">
-        <div class="intro"><div><p class="eyebrow">GETTING STARTED</p><h1 id="tutorial-title">开始使用 Doctor</h1><p class="lead">查看报错、定位代码、查阅依据。先走通这三步。</p></div><span class="offline-label">离线体验 · 无需密钥</span></div>
+        <div class="intro"><div><p class="eyebrow">GETTING STARTED</p><h1 id="tutorial-title">从报错，到理解</h1><p class="lead">查看报错、定位代码、查阅依据。先走通这三步。</p></div><span class="offline-label">离线体验 · 无需密钥</span></div>
         <div class="tutorial-hero">
           <div class="tutorial-welcome"><span class="tutorial-kicker">仓颉程序诊断助手</span><h2>看懂仓颉报错，<br>从一个样例开始。</h2><p>不用准备代码，先用“类型不匹配”样例体验一次完整的诊断与文档查阅。</p><a class="tutorial-start" href="/diagnostics" data-route>进入编译诊断 <span aria-hidden="true">→</span></a><small>进入后选择样例，再点击“编译所选样例”。</small></div>
-          <div class="tutorial-flow" aria-label="首次操作顺序"><div><span>01</span><div><strong>选样例，点编译</strong><p>从“类型不匹配”开始</p></div></div><div><span>02</span><div><strong>读报错，点位置</strong><p>回到对应代码行</p></div></div><div><span>03</span><div><strong>查文档，找依据</strong><p>核对同版本官方语言规则</p></div></div></div>
+          <aside class="tutorial-example" aria-label="类型不匹配讲解示例">
+            <div class="example-bar"><span class="example-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>类型不匹配 · 讲解示例</span></div>
+            <pre class="example-code"><code><span class="example-line"><span class="example-line-number" aria-hidden="true">1</span><span><span class="example-keyword">main</span>() {</span></span>
+<span class="example-line example-error"><span class="example-line-number" aria-hidden="true">2</span><span>    <span class="example-keyword">let</span> count: <span class="example-type">Int64</span> = <span class="example-string">"three"</span></span></span>
+<span class="example-line"><span class="example-line-number" aria-hidden="true">3</span><span>    println(count)</span></span>
+<span class="example-line"><span class="example-line-number" aria-hidden="true">4</span><span>}</span></span></code></pre>
+            <div class="example-insight"><span class="example-status">类型不匹配</span><p><code>"three"</code> 是字符串，<code>count</code> 声明为整数 <code>Int64</code>。先看清冲突，再查阅类型规则。</p></div>
+            <p class="example-caption">仅为讲解示例，非本次编译输出。</p>
+          </aside>
         </div>
+        <div class="tutorial-flow" aria-label="首次操作顺序"><div><span>01</span><div><strong>选样例，点编译</strong><p>从“类型不匹配”开始</p></div></div><div><span>02</span><div><strong>读报错，点位置</strong><p>回到对应代码行</p></div></div><div><span>03</span><div><strong>查文档，找依据</strong><p>核对同版本官方语言规则</p></div></div></div>
         <p class="tutorial-scope">从 4 个审核样例体验编译、定位与离线文档检索。修改后先审阅保存；配置了 Linux 容器的开发环境可在“记录依据”中验证已保存副本的公开测试。当前没有 AI 修复。</p>
         <details class="guide-disclosure"><summary><strong>跟着做：第一次诊断</strong><span>展开 5 步操作说明</span></summary><div class="tutorial-layout">
           <section class="panel tutorial-steps" aria-labelledby="tutorial-steps-title">
@@ -122,13 +131,17 @@
         <section class="panel revision-verification" aria-labelledby="verification-title">
           <div class="verification-heading"><div><span class="tutorial-kicker">修改后的下一步</span><h2 id="verification-title">验证已保存修改</h2><p>用具体的输入与期望输出，检查这份修改是否符合预期。</p></div><span class="offline-label">公开测试 · 无 AI 调用</span></div>
           <form id="verification-form">
+            <div class="verification-selection">
             <label for="verification-revision" class="verification-label">1. 选择已确认的副本</label><select id="verification-revision" aria-describedby="verification-target"><option value="">正在读取已保存修改…</option></select>
             <p id="verification-target" class="verification-target">先保存修改，再在这里选择。</p>
             <details id="verification-source" class="verification-source" hidden><summary>核对这份源码</summary><p>这份已保存源码的 SHA-256：<code id="verification-source-hash"></code></p><pre id="verification-source-text"></pre></details>
+            </div>
+            <div class="verification-tests">
             <div class="verification-tests-heading"><span class="verification-label">2. 填写公开测试</span><span id="verification-test-count" class="small-label">1 / 8 条</span></div>
             <p class="verification-help">按原文精确比较输出，空格和末尾换行都会影响结果。下方用 <code>\n</code> 显示换行；只填写可公开的测试。</p>
             <div id="verification-first-test"></div>
             <details class="verification-more-tests"><summary>补充更多测试（可选）</summary><div id="verification-extra-tests"></div><button id="verification-add-test" type="button">添加一条公开测试</button></details>
+            </div>
             <div class="verification-submit"><p id="verification-environment" role="status">正在检查验证环境…</p><button id="verification-run" class="primary" type="submit" disabled>编译并验证这份修改</button></div>
           </form>
           <p id="verification-status" class="verification-status" role="status" aria-live="polite" hidden></p>
