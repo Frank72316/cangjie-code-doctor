@@ -15,7 +15,7 @@ concurrency:
 jobs:
   linux-native:
     runs-on: ubuntu-22.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -64,5 +64,24 @@ jobs:
           node scripts/test-compiler.mjs target/debug/doctor "$(command -v cjc)"
           node scripts/test-native-http.mjs target/debug/doctor "$(command -v cjc)"
           node scripts/test-retrieval.mjs target/debug/doctor "$(command -v cjc)"
+          node scripts/test-public-verdict.mjs target/debug/doctor
       - name: Viewer contract checks
         run: node --test tests/*.test.mjs
+      - name: Build isolated SDK image from dedicated context
+        shell: bash
+        run: |
+          bash scripts/build-sandbox-image.sh "$RUNNER_TEMP/doctor-sdk/cangjie" "$RUNNER_TEMP/doctor-sandbox-image.json"
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          const receipt = JSON.parse(readFileSync(`${process.env.RUNNER_TEMP}/doctor-sandbox-image.json`, 'utf8'));
+          if (!/^sha256:[a-f0-9]{64}$/.test(receipt.image)) throw new Error('Missing immutable image ID');
+          appendFileSync(process.env.GITHUB_ENV, `DOCTOR_SANDBOX_IMAGE=${receipt.image}\n`);
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY, '\n## Development container image identity\n\n```json\n' + JSON.stringify(receipt, null, 2) + '\n```\n');
+          NODE
+      - name: Actual container resource and cleanup checks
+        run: node scripts/test-sandbox-isolation.mjs "$DOCTOR_SANDBOX_IMAGE" "$RUNNER_TEMP/doctor-sandbox-isolation.json"
+      - name: Actual Cangjie compilation and public tests in containers
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
+          node scripts/test-sandbox-verification.mjs "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor

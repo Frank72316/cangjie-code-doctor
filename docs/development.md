@@ -4,12 +4,17 @@
 
 ## 组件职责
 
+2026-10-23 增补：新增独立 Linux 容器开发 CLI，详见[容器开发与验收](sandbox.md)。Node 只管理 Docker 进程、文件快照和有界字节流；编译诊断继续交由仓颉 `parse`，公开 stdout 判定新增仓颉 `check-output`。本轮未增加 Web 编译或执行端点，未接入人工修订列表。当前本机 Windows 的旧、新 Doctor 均再次启动崩溃，原有“回退后通过”是历史检查，当前状态见[环境记录](environment.md)。
+
 | 路径 | 当前职责 |
 | --- | --- |
 | `src/json.cj`、`diagnostics.cj` | 有界诊断读取、统一结果、原始日志与编译/工具异常区分 |
 | `src/compiler.cj`、`trusted_examples.cj` | 审核样例校验、任务目录、输入快照、SDK 核对、真实 cjc 调用和记录写入 |
 | `src/retrieval.cj`、`retrieval_checks.cj` | 原生 BM25、分词、固定中英术语扩展、排序及确定性自检 |
 | `src/contract_checks.cj` | 原生确定性自检；Linux 与回退后的 Windows 均通过 |
+| `src/verification.cj` | 公开测试 stdout 的有界原始字节比较；退出非零判运行错误，缺文件或超大判工具错误 |
+| `scripts/sandbox-container.mjs`、`sandbox-verify.mjs` | 独立 Linux 开发 CLI；容器限制核对、断网编译与逐例运行、原生判定、输入/输出/清理报告 |
+| `sandbox/`、`scripts/build-sandbox-image.sh`、`test-sandbox-*.mjs` | 专用构建上下文、实际镜像身份、真实 Docker 限制探针及三个公开仓颉开发检查 |
 | `scripts/native-bridge.mjs`、`preview.mjs` | HTTP 与 CLI 之间的轻量传输；健康探测、请求约束、取消/超时终止、已有记录读取 |
 | `scripts/task-store.mjs`、`web/task.mjs` | 外层进程任务的接收、结束及故障记录；与仓颉诊断结论分别保存 |
 | `scripts/revision-store.mjs`、`web/revision.mjs` | 人工副本的有界逐行差异、确认输入、哈希绑定、修订存档与读取校验；不产生编译或测试结论 |

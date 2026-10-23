@@ -7,6 +7,18 @@ main(args: Array<String>): Int64 {
     // Cangjie main receives user arguments without the executable name.
     if (args.size == 1 && args[0] == "--version") { println("Cangjie Code Doctor 0.3.0"); return 0 }
     if (args.size == 1 && args[0] == "--self-test") { return runSelfTests() }
+    if (args.size > 0 && args[0] == "check-output") {
+        try {
+            if (args.size != 4) {
+                throw Exception("Usage: doctor check-output <actual-stdout-file> <expected-stdout-file> <program-exit-code>")
+            }
+            println(checkPublicOutput(args[1], args[2], Int64.parse(args[3])))
+            return 0
+        } catch (e: Exception) {
+            println("{\"status\":\"tool_error\",\"detail\":" + jsonString(e.message) + "}")
+            return 3
+        }
+    }
     if (args.size == 3 && args[0] == "retrieve") {
         try { println(retrieveDocuments(args[1], args[2])); return 0 }
         catch (e: Exception) { println("{\"status\":\"tool_error\",\"detail\":" + jsonString(e.message) + "}"); return 3 }
@@ -19,7 +31,8 @@ main(args: Array<String>): Int64 {
         println("Usage: doctor parse <cjc-json-file> <compiler-exit-code>")
         println("       doctor compile-example <repo> <cjc> <example-id> <task-id> <utc-time>")
         println("       doctor retrieve <corpus-file> <query-file>")
-        println("Only reviewed examples may be compiled. Generated programs are never run.")
+        println("       doctor check-output <actual-stdout-file> <expected-stdout-file> <program-exit-code>")
+        println("compile-example only compiles reviewed samples. check-output only compares captured public-test bytes.")
         return 2
     }
     try {
