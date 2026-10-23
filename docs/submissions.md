@@ -113,6 +113,8 @@
 
 ## 后续每轮登记内容
 
+第十一轮发布与修复补记（2026-10-23）：[aaf1f81](https://github.com/Frank72316/cangjie-code-doctor/commit/aaf1f81d8858ccb8aeb82b15cd6de36f4ebc0629) 提交于 17:25:52，两平台 main 已核对一致。对应 push [CI 39931843386](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/39931843386) 创建于 17:26:12；原生检查、21 项新判定、89 项 Node 检查与镜像构建通过，但容器非 root 用户读取 SDK 被拒绝，整体失败。该失败保留，后续镜像权限修复提交再实际复测，不改变原有时间或成败。上述时间不是精确上传时间。
+
 每个实际完成阶段及时提交，不等期末集中上传。每轮留下以下信息：
 
 | 字段 | 要求 |
