@@ -1,8 +1,10 @@
-import { readRecord, compileView, sourceIsCurrent, validateSource, lineRange, sha256, MAX_REPORT_BYTES, MAX_SOURCE_BYTES } from './report.mjs';
+import { readRecord, compileView, sourceIsCurrent, validateSource, lineRange, MAX_REPORT_BYTES, MAX_SOURCE_BYTES } from './report.mjs';
 import { validateTask, taskLabel } from './task.mjs';
 import { initNavigation } from './navigation.mjs';
 import { lineDiff, validateRevision } from './revision.mjs';
 import { initVerificationUI } from './verification-ui.mjs';
+import { validateDocumentEvidence, officialDocumentURL } from './document-evidence.mjs';
+import { revisionHTML } from './revision-report.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
 let currentName = '';
@@ -19,6 +21,9 @@ let documentController = null;
 let retrievingDocuments = false;
 let documentEvidence = null;
 let documentEvidenceJSON = '';
+// Retained only as an explicitly selectable reference for the original diagnosis.
+// Editing still invalidates live document results and error locations.
+let revisionReference = null;
 let revisionSnapshot = null;
 let savedRevision = null;
 let savingRevision = false;
@@ -37,7 +42,10 @@ function current() { return sourceIsCurrent(record, currentName, $('source').val
 function matchesEditor(snapshot) {
   return snapshot && snapshot.baseRecord === record && snapshot.source.name === currentName && snapshot.source.text === $('source').value;
 }
-function savedCurrent() { return matchesEditor(savedRevision); }
+function chosenReference() {
+  return $('attach-document-evidence').checked && revisionReference?.baseRecord === record ? revisionReference.evidence : null;
+}
+function savedCurrent() { return matchesEditor(savedRevision) && (savedRevision.retrievalId || null) === (chosenReference()?.retrievalId || null); }
 function allowSourceReplacement() {
   return !record || current() || savedCurrent() || window.confirm('当前修改尚未保存。继续会替换编辑框中的副本。要放弃这些未保存的修改吗？');
 }
@@ -55,6 +63,22 @@ function refreshRevisionControls() {
   $('revision-hint').textContent = savedCurrent() ? '当前修改已存到本机，可在“记录依据”中重新载入。' : '编辑后可查看差异，确认保存到本机。';
   $('save-revision').disabled = !health.token || !revisionSnapshot || !changed || savingRevision || loadingSample || savedCurrent();
   $('save-revision').textContent = savingRevision ? '正在保存…' : savedCurrent() ? '这份修改已保存' : '确认保存这份修改';
+  const reference = revisionReference?.baseRecord === record ? revisionReference.evidence : null;
+  $('revision-reference-option').hidden = !reference;
+  $('revision-reference-empty').hidden = Boolean(reference);
+  $('attach-document-evidence').disabled = savingRevision;
+  $('revision-reference-summary').textContent = reference ? `附带原诊断的文档检索记录（${reference.results.length} 条摘录）` : '';
+  $('revision-reference-detail').replaceChildren();
+  if (reference) {
+    $('revision-reference-detail').append(element('p', `SDK ${reference.sdkVersion} · ${reference.snapshotId}`),
+      element('p', `查询：${reference.query || '（空）'}`), element('p', `检索编号：${reference.retrievalId}`, 'mono'));
+    for (const hit of reference.results) {
+      const item = element('details'); item.append(element('summary', hit.title), element('p', hit.text, 'reference-excerpt'));
+      const link = element('a', '查看官方原文 ↗', 'context-link'); link.href = officialDocumentURL(hit.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
+      item.append(link); $('revision-reference-detail').append(item);
+    }
+    if (!reference.results.length) $('revision-reference-detail').append(element('p', '该次检索没有命中；附带记录仅保存这次查询，不表示代码正确。'));
+  }
   if (!changed) { $('revision-review').open = false; revisionSnapshot = null; revisionStatus(); }
 }
 function renderRevisionReview() {
@@ -114,7 +138,9 @@ async function refreshRevisions() {
           }
           selectedCase = null; showRecord(revision.baseRecord); selectSample(null);
           currentName = revision.source.name; $('source').value = revision.source.text;
-          savedRevision = {baseRecord:record,source:revision.source};
+          revisionReference = revision.documentEvidence ? {baseRecord:record,evidence:structuredClone(revision.documentEvidence)} : null;
+          $('attach-document-evidence').checked = Boolean(revisionReference);
+          savedRevision = {baseRecord:record,source:revision.source,retrievalId:revision.documentEvidence?.retrievalId};
           refreshSource(); navigation.navigate('/diagnostics');
           $('revision-review').open = true; renderRevisionReview();
           feedback('已载入人工修改，右侧仍是原诊断。这份修改的独立验证结果请到“记录依据”查看；也可恢复记录原文。');
@@ -133,6 +159,15 @@ async function refreshRevisions() {
         finally { save.disabled = false; }
       });
       detail.append(save); card.append(detail); $('revision-list').append(card);
+      const readable = element('button', '下载可读修改报告 HTML');
+      readable.addEventListener('click', async () => {
+        readable.disabled = true;
+        try { const revision = await readSavedRevision(item.revisionId); download(`doctor-revision-${revision.revisionId}.html`, revisionHTML(revision), 'text/html;charset=utf-8'); }
+        catch (error) { feedback(error.message); }
+        finally { readable.disabled = false; }
+      });
+      detail.append(readable, element('p', item.documentEvidenceCount === undefined ? '旧版记录未附带文档依据。' :
+        item.documentEvidenceCount === null ? '此修改未附带文档依据。' : `附带原诊断检索记录：${item.documentEvidenceCount} 条摘录。可读报告包含原文与来源。`));
     }
     if (!data.revisions.length) $('revision-list').append(element('p', '还没有保存的修改。先在编译诊断页编辑副本，展开差异并确认保存。', 'small-label'));
     if (data.unreadable) $('revision-list').prepend(element('p', `${data.unreadable} 份修改记录无法完整读取，原文件已保留。`, 'history-warning'));
@@ -149,7 +184,7 @@ function resetDocumentEvidence(clearQuery = false) {
   $('document-results').replaceChildren(); $('document-metadata-list').replaceChildren();
   $('document-evidence-footer').hidden = true; $('document-export-note').hidden = true;
   $('document-metadata').open = false;
-  if (clearQuery) $('document-query').value = '';
+  if (clearQuery) { $('document-query').value = ''; revisionReference = null; $('attach-document-evidence').checked = false; }
   refreshQueryHint();
   documentStatus('当前记录尚未检索。');
 }
@@ -165,7 +200,7 @@ function refreshDocumentControls() {
   $('export-document-evidence').disabled = !documentEvidence || !sameSource || retrievingDocuments;
   $('document-results').setAttribute('aria-busy', String(retrievingDocuments));
   if (!record) documentStatus('载入诊断记录后可检索。');
-  else if (!sameSource) documentStatus('源码副本已变化，原诊断对应的检索依据已清除。恢复记录原文后可重新检索。', 'changed');
+  else if (!sameSource) documentStatus('副本已修改，当前文档结果已清除。先前检索可在“查看修改并保存”中作为原诊断参考附带保存，不作为新代码的诊断。', 'changed');
   else if (!retrievingDocuments && !documentEvidence && $('document-status').dataset.state !== 'error') {
     if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪。请到编译诊断页展开环境详情，点击“检查环境”重试。');
     else if (compiling || health.busy) documentStatus('本机任务进行中，完成后可检索文档。');
@@ -176,28 +211,6 @@ function refreshQueryHint() {
   const custom = Boolean($('document-query').value.trim());
   $('query-indicator').hidden = !custom;
   document.querySelector('.primary-search p').textContent = custom ? '将使用你填写的自定义关键词。清空后可按当前报错检索。' : '直接使用当前诊断，无需填写关键词。';
-}
-function officialDocumentURL(value) {
-  const url = new URL(value);
-  const allowed = url.hostname === 'docs.cangjie-lang.cn' ||
-    (url.hostname === 'github.com' && url.pathname.startsWith('/cangjielanguage/cangjie_docs/'));
-  if (url.protocol !== 'https:' || url.username || url.password || url.port || !allowed) throw new Error('检索结果含无效的官方文档链接。');
-  return url.href;
-}
-async function validateDocumentEvidence(data, sourceRecord, sourceRecordJSON) {
-  if (data?.schemaVersion !== 1 || data.kind !== 'doctor-document-evidence' ||
-      !['retrievalId','createdAt','recordSha256','compilerVersion','snapshotId','query','corpusSha256'].every(key => typeof data[key] === 'string') ||
-      data.sourceSha256 !== sourceRecord.source.sha256 || data.compilerVersion !== sourceRecord.compiler.version ||
-      data.sdkVersion !== '1.0.5' || data.algorithm !== 'bm25' || !Array.isArray(data.results) ||
-      !data.parameters || data.parameters.k1 !== 1.2 || data.parameters.b !== 0.75 ||
-      !/^[a-f0-9]{64}$/.test(data.corpusSha256) || !Number.isFinite(Date.parse(data.createdAt)))
-    throw new Error('检索依据格式无效或与当前原诊断不一致，未展示结果。');
-  if (data.recordSha256 !== await sha256(sourceRecordJSON)) throw new Error('检索依据的诊断记录 SHA-256 不匹配，未展示结果。');
-  for (const result of data.results) {
-    if (!result || !['id','title','url','section','text'].every(key => typeof result[key] === 'string') ||
-        !Number.isFinite(result.score) || result.score < 0) throw new Error('文档摘录格式无效，未展示结果。');
-    officialDocumentURL(result.url);
-  }
 }
 function renderDocumentEvidence(data) {
   const usedQuery = element('details', '', 'document-used-query');
@@ -402,21 +415,26 @@ $('revision-review').addEventListener('toggle', () => {
   if ($('revision-review').open) renderRevisionReview();
   else { revisionSnapshot = null; $('revision-count').textContent = ''; $('revision-diff').replaceChildren(); refreshRevisionControls(); }
 });
+$('attach-document-evidence').addEventListener('change', refreshRevisionControls);
 $('save-revision').addEventListener('click', async () => {
   if (!matchesEditor(revisionSnapshot) || !health.token || savingRevision || savedCurrent() || loadingSample) return;
   const snapshot = revisionSnapshot, originalJSON = JSON.stringify(snapshot.baseRecord);
+  const reference = chosenReference();
+  const referenceJSON = reference ? JSON.stringify(reference) : null;
   savingRevision = true; refreshRevisionControls(); revisionStatus('正在保存已确认的修改…');
   try {
     const response = await fetch('/api/revisions', {method:'POST', headers:{'Content-Type':'application/json','X-Doctor-Token':health.token},
-      body:JSON.stringify({...snapshot,confirmed:true})});
+      body:JSON.stringify({...snapshot,confirmed:true,...(reference ? {retrievalId:reference.retrievalId} : {})})});
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || '保存失败。');
     const revision = await validateRevision(data);
     if (JSON.stringify(revision.baseRecord) !== originalJSON || revision.source.name !== snapshot.source.name || revision.source.text !== snapshot.source.text)
       throw new Error('返回的修改记录与确认内容不符，未标记为已保存。');
-    if (matchesEditor(snapshot)) {
-      savedRevision = snapshot;
-      revisionStatus('已保存到本机。下一步到“记录依据”选择这份修改，填写公开测试并查看验证环境。当前保存操作未执行编译或测试。');
+    if ((revision.documentEvidence ? JSON.stringify(revision.documentEvidence) : null) !== referenceJSON)
+      throw new Error('返回的文档依据与本次确认不一致，未标记为已保存。');
+    if (matchesEditor(snapshot) && (chosenReference()?.retrievalId || null) === (reference?.retrievalId || null)) {
+      savedRevision = {...snapshot,retrievalId:reference?.retrievalId};
+      revisionStatus(`已保存到本机${reference ? '，并附带原诊断文档依据' : ''}。可到“记录依据”下载可读修改报告，或填写公开测试并查看验证环境。当前保存操作未执行编译或测试。`);
     } else feedback('刚才确认的版本已保存到“记录依据”。当前编辑内容另有变化，请重新审阅后保存。');
     await refreshRevisions();
   } catch (error) {
@@ -434,7 +452,8 @@ $('document-form').addEventListener('submit', async event => {
   const query = $('document-query').value.trim();
   if (query.length > 2000) { documentStatus('检索关键词不能超过 2000 个字符。', 'error'); return; }
   resetDocumentEvidence();
-  const ticket = ++documentRequest, originalRecord = record, originalJSON = JSON.stringify(originalRecord);
+  revisionReference = null; $('attach-document-evidence').checked = false;
+  const ticket = ++documentRequest, originalRecord = record;
   const controller = new AbortController(); documentController = controller; retrievingDocuments = true;
   documentStatus('正在由仓颉核心检索本机文档快照…', 'loading'); refreshDocumentControls();
   try {
@@ -442,9 +461,11 @@ $('document-form').addEventListener('submit', async event => {
       body:JSON.stringify({record:originalRecord, query}), signal:controller.signal});
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || '文档检索失败，请稍后重试。');
-    await validateDocumentEvidence(data, originalRecord, originalJSON);
+    await validateDocumentEvidence(data, originalRecord);
     if (ticket !== documentRequest || record !== originalRecord || !current()) return;
     documentEvidence = data; documentEvidenceJSON = JSON.stringify(data, null, 2);
+    revisionReference = {baseRecord:originalRecord,evidence:structuredClone(data)};
+    $('attach-document-evidence').checked = true;
     renderDocumentEvidence(data);
   } catch (error) {
     if (ticket === documentRequest && record === originalRecord && current())

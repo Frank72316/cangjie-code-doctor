@@ -327,6 +327,14 @@ footer>span:first-child { letter-spacing:.5px; color:#8f9b94; }
 .diff-add { background:#e6f3e9; color:#28603e; } .diff-remove { background:#f9eae7; color:#92483e; }
 .revision-boundary { margin:12px 0; }
 .revision-status { margin:0; padding:14px 20px; border-top:1px solid var(--line); }
+.revision-reference { margin:16px 0; padding:15px; border:1px solid #dbe5d7; border-radius:9px; background:#f5f8f0; color:#52694e; font-size:13px; overflow-wrap:anywhere; }
+.revision-reference label { display:flex; align-items:flex-start; gap:9px; color:#2d523b; font-weight:600; }
+.revision-reference input { margin:5px 0 0; flex-shrink:0; accent-color:var(--green); }
+.revision-reference p { margin-top:9px; line-height:1.85; }
+.revision-reference details { margin-top:11px; }
+.revision-reference summary { cursor:pointer; color:#386748; }
+.reference-excerpt { max-height:180px; overflow:auto; white-space:pre-wrap; }
+.task-detail>button+button { margin-left:8px; }
 .saved-revisions { margin-top:22px; padding:24px; }
 .saved-revisions h2 { font-size:17px; color:#476750; }
 .saved-revisions .evidence-heading p { font-size:13px; margin-top:6px; color:#6d7e70; }

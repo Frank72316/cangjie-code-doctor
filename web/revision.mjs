@@ -1,7 +1,8 @@
 // Offline manual edits are evidence of a user decision, never a compiler result.
 import { readRecord, sha256, validateSource, MAX_REPORT_BYTES, MAX_SOURCE_BYTES } from './report.mjs';
+import { validateDocumentEvidence, MAX_DOCUMENT_EVIDENCE_BYTES } from './document-evidence.mjs';
 
-export const MAX_REVISION_BYTES = MAX_REPORT_BYTES + MAX_SOURCE_BYTES * 6 + 4096;
+export const MAX_REVISION_BYTES = MAX_REPORT_BYTES + MAX_SOURCE_BYTES * 6 + MAX_DOCUMENT_EVIDENCE_BYTES + 4096;
 const encoder = new TextEncoder();
 export const validRevisionId = value => typeof value === 'string' && /^[a-f0-9]{32}$/.test(value);
 function exactKeys(value, keys) {
@@ -21,15 +22,19 @@ async function validateBaseAndSource(baseRecord, source) {
     throw new Error('修改副本与原诊断记录相同，无需保存。');
 }
 export async function validateRevisionInput(input) {
-  if (!exactKeys(input, ['baseRecord','source','confirmed']) || input.confirmed !== true)
-    throw new Error('请核对差异并明确确认保存；只接受原记录、修改副本和确认状态。');
+  const keys = ['baseRecord','source','confirmed'];
+  if (input && Object.hasOwn(input,'retrievalId')) keys.push('retrievalId');
+  if (!exactKeys(input, keys) || input.confirmed !== true || (keys.includes('retrievalId') && !validRevisionId(input.retrievalId)))
+    throw new Error('请核对差异并明确确认保存；只接受原记录、修改副本、确认状态及可选检索编号。');
   candidateSource(input.source);
   await validateBaseAndSource(input.baseRecord, input.source);
   return input;
 }
 export async function validateRevision(data) {
-  if (!exactKeys(data, ['schemaVersion','kind','revisionId','createdAt','baseRecord','recordSha256',
-    'source','origin','compileStatus','testStatus','execution']) || data.schemaVersion !== 1 ||
+  const keys = ['schemaVersion','kind','revisionId','createdAt','baseRecord','recordSha256',
+    'source','origin','compileStatus','testStatus','execution'];
+  if (data?.schemaVersion === 2) keys.push('documentEvidence','documentEvidenceSha256');
+  if (!exactKeys(data, keys) || ![1,2].includes(data.schemaVersion) ||
       data.kind !== 'doctor-manual-revision' || !validRevisionId(data.revisionId) ||
       typeof data.createdAt !== 'string' || !Number.isFinite(Date.parse(data.createdAt)) ||
       new Date(data.createdAt).toISOString() !== data.createdAt || data.origin !== 'manual' ||
@@ -41,6 +46,15 @@ export async function validateRevision(data) {
   await validateBaseAndSource(data.baseRecord, data.source);
   if (data.recordSha256 !== await sha256(JSON.stringify(data.baseRecord)) ||
       data.source.sha256 !== await sha256(data.source.text)) throw new Error('修改记录 SHA-256 不匹配。');
+  if (data.schemaVersion === 2) {
+    if (data.documentEvidence === null) {
+      if (data.documentEvidenceSha256 !== null) throw new Error('未附带文档依据时不能声明依据摘要。');
+    } else {
+      await validateDocumentEvidence(data.documentEvidence,data.baseRecord);
+      if (data.documentEvidenceSha256 !== await sha256(JSON.stringify(data.documentEvidence)))
+        throw new Error('修改记录中的文档依据 SHA-256 不匹配。');
+    }
+  }
   return data;
 }
 

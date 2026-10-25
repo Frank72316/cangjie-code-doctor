@@ -89,7 +89,7 @@ test('saved manual revisions reload intact while the compiler record remains unc
   assert.equal(await validateRevision(saved),saved);
   assert.deepEqual(await new RevisionStore(root).get(saved.revisionId),saved);
   assert.deepEqual(await store.list(),{revisions:[{revisionId:saved.revisionId,createdAt:saved.createdAt,
-    sourceName:saved.source.name,sourceSha256:saved.source.sha256,baseName:original.source.name}],unreadable:0});
+    sourceName:saved.source.name,sourceSha256:saved.source.sha256,baseName:original.source.name,documentEvidenceCount:null}],unreadable:0});
   const another = await store.save(input());
   assert.notEqual(another.revisionId,saved.revisionId);
   assert.deepEqual(await store.get(saved.revisionId),saved);

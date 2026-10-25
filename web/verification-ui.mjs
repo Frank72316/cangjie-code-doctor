@@ -1,5 +1,6 @@
 import { validateRevision, validRevisionId } from './revision.mjs';
 import { validatePublicTests, validateVerificationRecord, verificationView, verificationHTML } from './verification.mjs';
+import { officialDocumentURL } from './document-evidence.mjs';
 
 const $ = id => document.getElementById(id);
 const node = (tag, text = '', className = '') => {
@@ -11,12 +12,39 @@ const time = value => value ? new Intl.DateTimeFormat('zh-CN', {timeZone:'Asia/S
 const statusNames = {passed:'通过', failed:'输出不符', runtime_error:'运行异常', timeout:'超时', output_limit:'输出超限', oom:'内存超限', tool_error:'工具异常', cancelled:'已取消', launch_error:'启动失败', not_run:'未运行'};
 const unfinishedDetail = '这条记录没有完整结束结果。即使重新检查环境时清理了已登记的残留资源，也不能补出原来的编译与测试结论；记录仍为“状态待确认”，不会自动重跑。';
 
+function appendDocumentEvidence(destination, revision) {
+  const evidence = revision.documentEvidence;
+  const details = node('details', '', 'verification-report-detail');
+  details.append(node('summary', evidence ? `原诊断文档依据 · ${evidence.results.length} 条摘录` : '原诊断文档依据 · 未附带'));
+  if (!evidence) {
+    details.append(node('p', '这份修改未附带文档依据，不能据此判断是否曾查阅文档或修改是否正确。'));
+  } else {
+    details.append(node('p', '以下文档对应修改前的原诊断，保留的是保存修改时确认附带的检索结果，不是对修改后代码的验证。'),
+      node('p', `SDK ${evidence.sdkVersion} · 文档快照：${evidence.snapshotId}`),
+      node('p', `检索编号：${evidence.retrievalId} · ${time(evidence.createdAt)}（北京时间）`),
+      node('p', `检索内容：${evidence.query || '（空）'}`),
+      node('p', `文档依据 SHA-256：${revision.documentEvidenceSha256}`, 'mono'));
+    if (!evidence.results.length) details.append(node('p', '本次检索没有命中。没有匹配不说明代码正确，也不说明官方文档没有相关说明。'));
+    for (const match of evidence.results) {
+      const excerpt = node('details', '', 'verification-test-result');
+      const link = node('a', '查看官方完整原文 ↗');
+      link.href = officialDocumentURL(match.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
+      excerpt.append(node('summary', `${match.title} · ${match.section}`), node('pre', match.text), link);
+      details.append(excerpt);
+    }
+    details.append(node('p', '仓颉官方文档贡献者 · CC BY 4.0。原文逐字摘录，仅裁去首尾空白、统一换行；引用不代表上游作者认可本工具。'));
+  }
+  destination.append(details);
+}
+
 // This panel always works on immutable saved revisions, never on the editor.
 export function initVerificationUI({getHealth, refreshHealth, download, onActivityChange = () => {}}) {
   let selected = null, loading = false, submitting = false, remoteBusy = false;
   let selectionRequest = 0, historyRequest = 0, testSequence = 0, timer = null;
   let shownResult = null, statusOrigin = '';
   const fields = [];
+  const selectedEvidence = node('div');
+  $('verification-source').append(selectedEvidence);
   const api = async (path, options = {}) => {
     const token = getHealth().token;
     if (!token) throw new Error('尚未连接本机服务。已有编辑内容不会受影响。');
@@ -115,6 +143,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     details.append(node('p', `修改编号：${data.revision.revisionId}`, 'mono'), node('p', `源码 SHA-256：${data.revision.source.sha256}`, 'mono'),
       node('p', `验证编号：${data.verificationId}`, 'mono'), node('p', `创建：${time(data.createdAt)} · 结束：${time(data.finishedAt)}（北京时间）`),
       node('h4', '这次验证的已保存源码'), node('pre', data.revision.source.text));
+    appendDocumentEvidence(details, data.revision);
     if (report?.compile?.process) {
       details.append(node('h4', '编译器 stderr'), node('pre', report.compile.process.stderr || '（空）'), node('h4', '编译器 stdout'), node('pre', report.compile.process.stdout || '（空）'));
     }
@@ -184,6 +213,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
       if (revision.revisionId !== id) throw new Error('修改记录编号不匹配，未选择。');
       selected = revision; $('verification-source-text').textContent = revision.source.text;
       $('verification-source-hash').textContent = revision.source.sha256;
+      selectedEvidence.replaceChildren(); appendDocumentEvidence(selectedEvidence, revision);
       if (!shownResult) setStatus('此处验证已保存的副本，不会载入或替换编译诊断页中的编辑内容。');
     } catch (error) { if (request === selectionRequest) setStatus(error.message, 'error'); }
     finally { if (request === selectionRequest) { loading = false; refreshControls(); } }

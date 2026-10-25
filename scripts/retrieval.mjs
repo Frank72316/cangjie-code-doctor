@@ -3,6 +3,7 @@ import { open, realpath, mkdir, writeFile, rename } from 'node:fs/promises';
 import { join, sep } from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import { readRecord, compileView } from '../web/report.mjs';
+import { validateDocumentEvidence } from '../web/document-evidence.mjs';
 import { logExcerpt } from './task-store.mjs';
 
 const CORPUS_LIMIT = 256 * 1024;
@@ -32,7 +33,7 @@ async function boundedText(file, parent, limit) {
     return new TextDecoder('utf-8',{fatal:true}).decode(buffer.subarray(0,size));
   } finally { await handle.close(); }
 }
-async function corpusSnapshot(root) {
+export async function corpusSnapshot(root) {
   const canonicalRoot = await realpath(root);
   const manifest = JSON.parse(await boundedText(join(root,'data/docs/manifest.json'),canonicalRoot,16384));
   if (manifest.corpusFile !== 'cangjie-1.0.5.json' || manifest.sdkVersion !== '1.0.5' ||
@@ -52,7 +53,7 @@ async function corpusSnapshot(root) {
   }
   return {corpus,text,sha256:manifest.corpusSha256};
 }
-function validatedResult(result, corpus, query) {
+export function validatedResult(result, corpus, query) {
   if (result?.schemaVersion !== 1 || result.sdkVersion !== corpus.sdkVersion || result.snapshotId !== corpus.snapshotId ||
       result.sourceRevision !== corpus.sourceRevision || result.algorithm !== 'bm25' || result.query !== query ||
       result.parameters?.k1 !== 1.2 || result.parameters?.b !== 0.75 || result.topK !== 3 ||
@@ -110,6 +111,7 @@ export async function retrieveEvidence(bridge, input, signal) {
     const evidence = {...result,kind:'doctor-document-evidence',retrievalId,createdAt,
       sourceName:record.source.name,sourceSha256:record.source.sha256,recordSha256:request.recordSha256,
       compilerVersion:record.compiler.version,corpusSha256:snapshot.sha256,queryOrigin:request.queryOrigin};
+    await validateDocumentEvidence(evidence,record);
     await writeFile(join(directory,'evidence.pending.json'),JSON.stringify(evidence),{flag:'wx'});
     await rename(join(directory,'evidence.pending.json'),join(directory,'evidence.json'));
     return evidence;

@@ -64,7 +64,7 @@
               <li><div><h3>在本机重新编译一次</h3><p>环境显示<strong>“本机编译已就绪”</strong>后，点击<strong>“编译所选样例”</strong>。这个样例出现“编译未通过”是预期结果，说明编译器发现了其中的错误。</p><p class="tutorial-hint">按钮不可用时，展开“环境详情”查看原因，再点“检查环境”。</p></div></li>
               <li><div><h3>点击报错位置，回到代码</h3><p>点击诊断卡片中的<strong>“第 2 行 · 24 列 ↗”</strong>，编辑器会选中对应位置。此时先保持源码不变，继续查找依据。</p></div></li>
               <li><div><h3>查阅官方文档</h3><p>进入<a href="/documents" data-route>文档依据</a>，关键词留空，点击<strong>“检索文档”</strong>。系统用当前报错检索本机仓颉 1.0.5 文档摘录；阅读原文与来源，核对类型规则。</p><p class="tutorial-hint">这是离线文档查阅，结果不会自动修改你的代码。</p></div></li>
-              <li><div><h3>保存记录，回看这次编译</h3><p>进入<a href="/records" data-route>记录依据</a>，点击<strong>“导出当前诊断记录”</strong>保存源码原文与编译日志；进入<a href="/history" data-route>任务历史</a>可查看刚才的本机编译。文档页还可以单独<strong>“下载检索证据 JSON”</strong>。</p><p class="tutorial-hint">只浏览样例不会新增任务；点击重新编译并被本机接收后，才会留下任务历史。</p></div></li>
+              <li><div><h3>修改、核对，再保存</h3><p>回到编译诊断，将 <code>"three"</code> 改为 <code>3</code>，展开<strong>“查看修改并保存”</strong>。核对差异和所附的原诊断文档，再确认保存。进入<a href="/records" data-route>记录依据</a>，在已保存修改中展开“记录信息与导出”，下载<strong>可读修改报告 HTML</strong>，即可回看差异、摘录和来源。</p><p class="tutorial-hint">保存本身不会编译或测试。原编译日志可单独导出，任务历史可回看真实样例编译；后续公开测试需要配置好的 Linux 容器环境。</p></div></li>
             </ol>
           </section>
           <aside class="tutorial-map" aria-labelledby="tutorial-map-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">功能导航</span><h2 id="tutorial-map-title">每一页用来做什么？</h2></div></div>
@@ -78,8 +78,8 @@
         <section class="panel tutorial-faq" aria-labelledby="tutorial-faq-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">遇到问题时</span><h2 id="tutorial-faq-title">常见问题</h2></div></div>
           <details><summary>“编译所选样例”是灰色的，怎么办？</summary><p>在编译诊断页展开环境详情，查看提示并点击“检查环境”。本机需要仓颉 SDK 1.0.5 和 Doctor 核心就绪；编译进行中也不能重复提交。若刚导入了文件或修改了副本，请重新选择一个内置样例；编辑内置样例后，也可以点击“恢复记录副本”。</p></details>
           <details><summary>修改后，怎么验证自己的程序？</summary><p>在编译诊断页编辑或导入 .cj 副本，展开“查看修改并保存”，核对差异后确认保存。再进入“记录依据”，选择这份已保存修改，填写程序输入和期望输出，点击“编译并验证这份修改”。这需要已配置的本地 Linux Docker 环境；本机未就绪时会显示原因并禁用按钮。验证始终使用你选择的已保存版本，不会替换编辑框。每次测试按原始字节比较输出，包含空格与换行；程序使用 println 时，期望输出通常需要勾选末尾换行。这里只验证公开测试，不代表所有输入或保留测试都通过。</p></details>
-          <details><summary>修改源码后，为什么原诊断与检索不能继续定位？</summary><p>修改后，旧诊断仍对应原文，因此定位与文档检索暂停，旧检索结果清除，以免与新代码混淆。“恢复记录副本”只恢复编辑框中的原文，已经保存的修改和独立验证报告仍保留。可在“记录依据”重新载入已保存修改，继续编辑。</p></details>
-          <details><summary>几个下载按钮有什么区别？JSON 都能重新打开吗？</summary><p>“下载当前副本”保存正在编辑的 .cj 源码；“导出当前诊断记录”保存采集时的源码与编译日志，可通过“打开诊断记录”再次载入。检索证据、任务记录和修改记录 JSON 用于分别留档，不能作为诊断记录导入。验证报告把已保存修改、公开测试与实际结果放在一起，可下载 JSON 或用浏览器打开的可读 HTML；它同样不能当作诊断 JSON 导入。已保存修改与验证报告可直接从本机列表查看。</p></details>
+          <details><summary>修改源码后，为什么原诊断与检索不能继续定位？</summary><p>修改后，旧诊断仍对应原文，因此定位与文档检索暂停，文档页清除当前结果。先前完成的检索可以在“查看修改并保存”中作为原诊断参考附带，也可以取消勾选；它不代表对新代码的诊断。“恢复记录副本”只恢复编辑框中的原文，已保存修改与报告仍保留。切换原诊断或导入源码会清除当前参考选择。</p></details>
+          <details><summary>几个下载按钮有什么区别？JSON 都能重新打开吗？</summary><p>“下载当前副本”保存正在编辑的 .cj 源码；“导出当前诊断记录”保存采集时的源码与编译日志，可通过“打开诊断记录”再次载入。检索证据、任务记录和修改记录 JSON 用于分别留档，不能作为诊断记录导入。可读修改报告 HTML 包含人工确认的差异、原诊断与所附文档；独立验证报告再记录公开测试及实际结果，两者都可离线用浏览器阅读。已保存修改与验证报告可直接从本机列表查看。</p></details>
           <details><summary>检索不到文档，是不是说明代码没有问题？</summary><p>不是。目前只检索本机 15 段仓颉 1.0.5 官方文档快照，可以尝试“类型”“函数”等关键词。没有命中只说明这次查询没有找到相关摘录。检索需要本机核心就绪；点击来源链接查看完整原文时需要联网。</p></details>
           <details><summary>显示“编译通过”，就说明程序做对了吗？</summary><p>编译通过只说明这次编译没有报错。编译诊断页的审核样例只编译、不执行，仍标记“行为未验证”。记录依据页的独立容器验证会运行你提供的公开测试；即使显示“公开测试通过”，结论也只适用于这份已保存源码和这些输入，不能据此宣称修复完全正确或 A/B 实验有效。</p></details>
           <details><summary>切换页面、刷新或关闭后，我的内容还在吗？</summary><p>使用侧栏切页会保留当前副本、诊断与检索结果。刷新或关闭后重新载入默认样例。未保存编辑可能丢失，离开前会提示；请先确认保存修改，或下载需要保留的副本。已确认的修改存于本机，重新打开后到“记录依据”载入。已保存到本机的编译任务可在“任务历史”中查看，浏览样例、导入记录和文档检索不会新增编译任务。</p></details>
@@ -97,7 +97,7 @@
             <div class="editor-wrap"><pre id="line-numbers" aria-hidden="true">1</pre><textarea id="source" aria-label="仓颉源码副本" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off"></textarea></div>
             <div class="editor-footer"><div><span class="editor-dot" aria-hidden="true"></span><span id="line-count">0 行 / 200 行</span><span class="encoding">UTF-8</span></div><span>仅编辑副本</span></div>
             <div class="source-note"><span id="revision-hint">编辑后可查看差异，确认保存到本机。</span><button id="restore" hidden>恢复记录副本</button></div>
-            <details id="revision-review" class="revision-review" hidden><summary>查看修改并保存 <span id="revision-count"></span></summary><div class="revision-body"><p id="revision-summary"></p><p class="revision-legend"><span>− 原记录</span><span>+ 当前修改</span></p><div id="revision-diff" class="revision-diff" tabindex="0" role="region" aria-label="修改差异，可滚动查看"></div><p class="revision-boundary">确认仅保存这份人工修改，尚未编译或测试。原诊断与源文件保持原样。</p><button id="save-revision" class="primary">确认保存这份修改</button></div></details>
+            <details id="revision-review" class="revision-review" hidden><summary>查看修改并保存 <span id="revision-count"></span></summary><div class="revision-body"><p id="revision-summary"></p><p class="revision-legend"><span>− 原记录</span><span>+ 当前修改</span></p><div id="revision-diff" class="revision-diff" tabindex="0" role="region" aria-label="修改差异，可滚动查看"></div><div class="revision-reference"><div id="revision-reference-option" hidden><label><input id="attach-document-evidence" type="checkbox"><span id="revision-reference-summary"></span></label><details><summary>核对附带的文档</summary><div id="revision-reference-detail"></div></details><p>这些资料对应原诊断，不是修改后代码的诊断，也不证明修改正确。可取消勾选。</p></div><p id="revision-reference-empty">本次未附带文档依据。先查阅原诊断的文档，再编辑副本，即可选择一起保存。</p></div><p class="revision-boundary">确认仅保存这份人工修改及所选参考记录，尚未编译或测试。原诊断与源文件保持原样。</p><button id="save-revision" class="primary">确认保存这份修改</button></div></details>
             <p id="revision-status" class="revision-status" role="status" aria-live="polite" hidden></p>
           </section>
           <section class="panel diagnostic-panel" aria-label="编译诊断">
@@ -122,7 +122,7 @@
         <p id="document-status" class="document-status" role="status" aria-live="polite">载入诊断记录后可检索。</p>
         <div id="document-results" class="document-results"></div>
         <div id="document-evidence-footer" class="document-evidence-footer" hidden><details id="document-metadata" class="document-metadata"><summary>版本与检索依据</summary><dl id="document-metadata-list"></dl></details><button id="export-document-evidence" disabled><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>下载检索证据 JSON</button></div>
-        <p id="document-export-note" class="document-export-note" hidden>检索证据用于留档，不能作为诊断记录导入。文档检索不调用 AI，不自动修改代码。</p>
+        <p id="document-export-note" class="document-export-note" hidden>检索证据可单独留档。回到编译诊断编辑副本后，也可在“查看修改并保存”中选择附带原诊断依据。文档检索不调用 AI，不自动修改代码。</p>
         </div>
       </section>
       <section id="evidence" class="app-page" data-page-view aria-labelledby="record-title">

@@ -257,3 +257,51 @@ test('unknown-task HTML cannot claim cleanup or test success from a missing term
   assert.match(html,/未取得全部清理确认/);
   assert.doesNotMatch(html,/公开测试通过|本次记录中的容器均确认不存在/);
 });
+
+function attachDocumentFixture(record, results) {
+  const evidence = {schemaVersion:1,sdkVersion:'1.0.5',snapshotId:'synthetic-contract-snapshot',sourceRevision:'synthetic-contract-revision',
+    algorithm:'bm25',parameters:{k1:1.2,b:0.75},query:'Int64',effectiveQuery:'Int64',queryExpansion:'compiler-glossary-v1',
+    tokenizer:'ascii-lower-identifier+cjk-unigram-bigram-v1',topK:3,results,kind:'doctor-document-evidence',retrievalId:'e'.repeat(32),
+    createdAt:record.createdAt,sourceName:record.revision.baseRecord.source.name,sourceSha256:record.revision.baseRecord.source.sha256,
+    recordSha256:record.revision.recordSha256,compilerVersion:record.revision.baseRecord.compiler.version,corpusSha256:'f'.repeat(64),queryOrigin:'manual'};
+  Object.assign(record.revision,{schemaVersion:2,documentEvidence:evidence,documentEvidenceSha256:digest(JSON.stringify(evidence))});
+  return record;
+}
+
+test('verification exports v1 without evidence and v2 evidence without altering saved revision status',async t => {
+  const legacy = await fixture(t); legacy.revision.schemaVersion = 1;
+  delete legacy.revision.documentEvidence; delete legacy.revision.documentEvidenceSha256;
+  await validateVerificationRecord(legacy);
+  assert.match(verificationHTML(legacy),/本次修改未附带文档检索依据/);
+  const record = attachDocumentFixture(await fixture(t),[{id:'synthetic',title:'Synthetic document excerpt',
+    url:'https://docs.cangjie-lang.cn/docs/1.0.5/',section:'Synthetic section',text:'Synthetic reference text.',score:1}]);
+  const before = structuredClone(record.revision);
+  await validateVerificationRecord(record);
+  const html = verificationHTML(record);
+  for (const value of [record.revision.documentEvidenceSha256,record.revision.documentEvidence.retrievalId,
+    record.revision.documentEvidence.snapshotId,record.revision.documentEvidence.sourceRevision,'CC BY 4.0']) assert.ok(html.includes(value));
+  assert.equal((html.match(/<h2>原诊断文档依据<\/h2>/g) || []).length,1);
+  assert.match(html,/不是修改后源码的新诊断，也不证明修改正确或已通过测试/);
+  assert.deepEqual(record.revision,before);
+  assert.equal(record.revision.compileStatus,'not_run'); assert.equal(record.revision.testStatus,'not_run');
+  assert.equal(verificationView(record).label,'公开测试通过','only the independent synthetic verification claims a test result');
+});
+
+test('zero-match and hostile evidence remain references rather than verification results',async t => {
+  const record = attachDocumentFixture(await fixture(t),[]);
+  record.state = 'unknown'; record.report = null; record.finishedAt = null;
+  await validateVerificationRecord(record);
+  assert.match(verificationHTML(record),/该次查询没有命中；无匹配不表示源码正确/);
+  assert.equal(verificationView(record).label,'状态待确认');
+  const payload = '</pre><script>alert(1)</script><img src=x onerror=alert(1)>';
+  record.revision.documentEvidence.results = [{id:'synthetic',title:payload,section:payload,text:payload,
+    url:'https://docs.cangjie-lang.cn/docs/1.0.5/',score:1}];
+  record.revision.documentEvidenceSha256 = digest(JSON.stringify(record.revision.documentEvidence));
+  await validateVerificationRecord(record);
+  const html = verificationHTML(record);
+  assert.match(html,/&lt;script&gt;alert\(1\)&lt;\/script&gt;/);
+  assert.doesNotMatch(html,/<(?:script|img|iframe|object|embed)\b/i);
+  record.revision.documentEvidence.results[0].url = 'javascript:alert(1)';
+  record.revision.documentEvidenceSha256 = digest(JSON.stringify(record.revision.documentEvidence));
+  await assert.rejects(validateVerificationRecord(record),/官方文档链接/);
+});

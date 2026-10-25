@@ -6,6 +6,10 @@ import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { NativeBridge } from './native-bridge.mjs';
 import { makeServer } from './preview.mjs';
+import { RevisionStore } from './revision-store.mjs';
+import { readRecord, compileView, sha256 } from '../web/report.mjs';
+import { validateRevision } from '../web/revision.mjs';
+import { revisionHTML } from '../web/revision-report.mjs';
 
 const bridge = new NativeBridge({root:process.cwd(),executable:resolve(process.argv[2]),compiler:resolve(process.argv[3])});
 assert.equal((await bridge.probe()).available,true);
@@ -44,4 +48,60 @@ try {
   const changed = structuredClone(record); changed.compiler.version='Cangjie Compiler: 1.2.0 (cjnative)';
   assert.equal((await fetch(base+'/api/retrieve',{method:'POST',headers,body:JSON.stringify({record:changed})})).status,422);
   console.log('PASS HTTP official-document retrieval, empty matches and SDK mismatch rejection');
+
+  // A confirmed manual edit references a server-owned completed native retrieval.
+  // Saving and exporting it never compiles or executes this candidate source.
+  const source = {name:record.source.name,text:record.source.text.replace('"three"','4')};
+  const saveRevision = input => fetch(base+'/api/revisions',{
+    method:'POST',headers,body:JSON.stringify({baseRecord:record,source,confirmed:true,...input})
+  });
+  const savedResponse = await saveRevision({retrievalId:result.retrievalId});
+  assert.equal(savedResponse.status,200);
+  const revision = await validateRevision(await savedResponse.json());
+  assert.equal(revision.schemaVersion,2);
+  assert.deepEqual(revision.documentEvidence,result);
+  assert.equal(revision.documentEvidenceSha256,await sha256(JSON.stringify(result)));
+  assert.equal(revision.compileStatus,'not_run');
+  assert.equal(revision.testStatus,'not_run');
+  assert.equal(revision.execution.attempted,false);
+  const readResponse = await fetch(`${base}/api/revisions/${revision.revisionId}`,{headers});
+  assert.equal(readResponse.status,200);
+  assert.deepEqual(await readResponse.json(),revision);
+  assert.deepEqual(await new RevisionStore(process.cwd()).get(revision.revisionId),revision);
+  console.log('PASS HTTP native retrieval → confirmed revision v2 → GET and fresh-store evidence persistence');
+
+  const differentRecord = structuredClone(record);
+  differentRecord.compiler.stdout += '\n';
+  await readRecord(JSON.stringify(differentRecord));
+  assert.equal(compileView(differentRecord).status,compileView(record).status);
+  const mismatchResponse = await saveRevision({baseRecord:differentRecord,retrievalId:result.retrievalId});
+  assert.equal(mismatchResponse.status,400,'The same source with different compiler evidence is a different diagnosis');
+  assert.equal(typeof (await mismatchResponse.json()).error,'string');
+  console.log('PASS HTTP rejects native evidence bound to a different valid diagnosis');
+
+  const unreferencedResponse = await saveRevision({});
+  assert.equal(unreferencedResponse.status,200);
+  const unreferenced = await validateRevision(await unreferencedResponse.json());
+  assert.equal(unreferenced.schemaVersion,2);
+  assert.equal(unreferenced.documentEvidence,null);
+  assert.equal(unreferenced.documentEvidenceSha256,null);
+  const noMatchResponse = await saveRevision({retrievalId:empty.retrievalId});
+  assert.equal(noMatchResponse.status,200);
+  const noMatch = await validateRevision(await noMatchResponse.json());
+  assert.deepEqual(noMatch.documentEvidence,empty);
+  assert.deepEqual(noMatch.documentEvidence.results,[]);
+  assert.equal(noMatch.documentEvidenceSha256,await sha256(JSON.stringify(empty)));
+  assert.notEqual(noMatch.documentEvidence,null,'A completed zero-match retrieval is distinct from no attached evidence');
+  console.log('PASS HTTP revisions distinguish unreferenced edits from completed zero-match native retrievals');
+
+  const html = revisionHTML(revision);
+  assert.ok(html.includes(result.retrievalId));
+  assert.ok(html.includes(result.recordSha256));
+  assert.ok(html.includes(result.corpusSha256));
+  assert.ok(html.includes(result.results[0].url.replaceAll('&','&amp;')));
+  assert.match(html,/未编译/);
+  assert.match(html,/未测试/);
+  assert.match(revisionHTML(unreferenced),/未附带/);
+  assert.match(revisionHTML(noMatch),/没有命中/);
+  console.log('PASS offline revision HTML includes actual native citations and keeps uncompiled/untested boundaries');
 } finally { await new Promise(r=>server.close(r)); }

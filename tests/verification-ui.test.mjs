@@ -126,6 +126,64 @@ test('recovered resources leave unknown history unknown without asserting tests 
   assert.match(entry.textContent,/状态待确认/);
   assert.match(entry.textContent,/公开测试 1 · 未取得结果/);
   assert.match(entry.textContent,/不会自动重跑/);
+  assert.match(entry.textContent,/原诊断文档依据 · 未附带/);
   assert.deepEqual(record,original);
   assert.ok(env.calls.every(call => !call.options.method), 'viewing unknown history must not run anything');
+});
+
+function attachDocumentFixture(record, results=[]) {
+  const evidence = {schemaVersion:1,sdkVersion:'1.0.5',snapshotId:'synthetic-ui-snapshot',sourceRevision:'synthetic-ui-revision',
+    algorithm:'bm25',parameters:{k1:1.2,b:0.75},query:'Int64',effectiveQuery:'Int64',queryExpansion:'compiler-glossary-v1',
+    tokenizer:'ascii-lower-identifier+cjk-unigram-bigram-v1',topK:3,results,kind:'doctor-document-evidence',retrievalId:'e'.repeat(32),
+    createdAt:'2026-10-23T23:59:59.000Z',sourceName:baseRecord.source.name,sourceSha256:baseRecord.source.sha256,
+    recordSha256:record.revision.recordSha256,compilerVersion:baseRecord.compiler.version,corpusSha256:'f'.repeat(64),queryOrigin:'manual'};
+  Object.assign(record.revision,{schemaVersion:2,documentEvidence:evidence,documentEvidenceSha256:hash(JSON.stringify(evidence))});
+  return record;
+}
+const descendants = item => item.children.flatMap(child => [child,...descendants(child)]);
+async function openHistory(env, record) {
+  env.queue({verifications:[{verificationId:record.verificationId,revisionId:record.revision.revisionId,
+    sourceName:record.revision.source.name,createdAt:record.createdAt,state:record.state,active:false,status:'not_run'}],unreadable:0,busy:false});
+  await env.ui.refresh();
+  const entry = env.get('verification-history').children.find(child => child.dataset.verification);
+  entry.open = true; env.queue(record); await entry.emit('toggle');
+  return entry;
+}
+
+test('selected saved source and history show the same original references without executing a test',async t => {
+  const env = setup(t), payload = '</pre><script>alert(1)</script><img src=x onerror=alert(1)>';
+  const record = attachDocumentFixture(unknownRecord(),[{id:'synthetic-ui',title:payload,section:'Reference only',
+    text:payload,url:'https://docs.cangjie-lang.cn/docs/1.0.5/',score:1}]), before = structuredClone(record);
+  env.get('verification-revision').value = record.revision.revisionId;
+  env.queue(record.revision); await env.get('verification-revision').emit('change');
+  const selected = env.get('verification-source');
+  assert.equal(selected.hidden,false);
+  assert.match(selected.textContent,/原诊断文档依据 · 1 条摘录/);
+  assert.ok(selected.textContent.includes(record.revision.documentEvidenceSha256));
+  const entry = await openHistory(env,record);
+  assert.match(entry.textContent,/状态待确认/);
+  assert.match(entry.textContent,/不是对修改后代码的验证/);
+  assert.match(entry.textContent,/SDK 1.0.5 · 文档快照：synthetic-ui-snapshot/);
+  for (const container of [selected,entry]) {
+    const nodes = descendants(container);
+    assert.ok(nodes.some(item => item.tagName === 'PRE' && item.textContent === payload));
+    assert.ok(nodes.some(item => item.tagName === 'A' && item.href === record.revision.documentEvidence.results[0].url && item.rel === 'noopener noreferrer'));
+    assert.ok(nodes.every(item => !['SCRIPT','IMG','IFRAME','OBJECT'].includes(item.tagName)));
+  }
+  assert.deepEqual(record,before);
+  assert.equal(record.revision.compileStatus,'not_run'); assert.equal(record.revision.testStatus,'not_run');
+  assert.ok(env.calls.every(call => !call.options.method));
+});
+
+test('zero-match history has a specific boundary and invalid source links prevent evidence rendering',async t => {
+  const env = setup(t), record = attachDocumentFixture(unknownRecord());
+  let entry = await openHistory(env,record);
+  assert.match(entry.textContent,/本次检索没有命中。没有匹配不说明代码正确/);
+  assert.match(entry.textContent,/原诊断文档依据 · 0 条摘录/);
+  record.revision.documentEvidence.results = [{id:'bad-url',title:'Synthetic',section:'Synthetic',text:'Untrusted',score:1,url:'javascript:alert(1)'}];
+  record.revision.documentEvidenceSha256 = hash(JSON.stringify(record.revision.documentEvidence));
+  entry = await openHistory(env,record);
+  assert.match(entry.textContent,/无效的官方文档链接/);
+  assert.ok(descendants(entry).every(item => item.tagName !== 'A'));
+  assert.doesNotMatch(entry.textContent,/原诊断文档依据 · 1 条摘录/);
 });

@@ -1,6 +1,7 @@
 // Shared persisted-report contract. This validates consistency, not a signature.
 import { validateRevision, lineDiff } from './revision.mjs';
 import { sha256 } from './report.mjs';
+import { documentEvidenceHTML } from './document-evidence.mjs';
 const encoder = new TextEncoder();
 export const MAX_VERIFICATION_BYTES = 16 * 1024 * 1024;
 export const validVerificationId = value => typeof value === 'string' && /^[a-f0-9]{32}$/.test(value);
@@ -142,6 +143,7 @@ export function verificationHTML(data) {
 <p>Doctor · 离线开发记录</p><h1>修改与公开测试报告</h1><p><strong>${escape(view.label)}</strong> · ${escape(view.compileLabel)} · ${escape(view.testLabel)}</p><p class="scope">${escape(view.detail)}</p>
 <section><h2>记录身份</h2><p>验证编号：<code>${escape(data.verificationId)}</code></p><p>修订编号：<code>${escape(data.revision.revisionId)}</code></p><p>接收时间：${escape(data.createdAt)}；结束时间：${escape(data.finishedAt || '未确认')}</p><p>源码：${escape(data.revision.source.name)}；SHA-256：<code>${escape(data.revision.source.sha256)}</code></p><p>原诊断记录 SHA-256：<code>${escape(data.revision.recordSha256)}</code></p><p>SDK：${escape(report?.sdkVersion || '未确认')}；镜像：<code>${escape(report?.image || '未确认')}</code></p></section>
 <section><h2>已确认的源码差异</h2><pre>${escape(diff)}</pre><details><summary>修改后的完整源码</summary><pre>${escape(data.revision.source.text)}</pre></details></section>
+${data.revision.documentEvidence ? `<p class="scope">文档依据 SHA-256：<code>${escape(data.revision.documentEvidenceSha256)}</code></p>` : ''}${documentEvidenceHTML(data.revision.documentEvidence)}
 <section><h2>编译结果</h2><p>${escape(view.compileLabel)}；退出码：${escape(report?.compile?.process?.exitCode ?? '未取得')}</p><h3>stdout</h3><pre>${escape(report?.compile?.process?.stdout || '无')}</pre><h3>stderr</h3><pre>${escape(report?.compile?.process?.stderr || '无')}</pre><p>异常或说明：${escape(report?.compile?.process?.reason || report?.detail || data.detail || '无')}</p></section>
-<h2>公开测试</h2>${tests}<section><h2>清理与结论范围</h2><p>容器清理：${report?.containers?.length && report.containers.every(c=>c.cleanup?.removed) ? '本次记录中的容器均确认不存在' : '未取得全部清理确认'}</p><p>本报告绑定已保存修改，可能与编辑器当前内容不同。记录由本机服务生成，不含数字签名；哈希用于一致性核对，不证明外部来源真实性。没有保留测试、模型修复或正式 A/B 结论。原诊断与人工确认记录保持不变；文档检索证据需另行导出。</p></section></body></html>`;
+<h2>公开测试</h2>${tests}<section><h2>清理与结论范围</h2><p>容器清理：${report?.containers?.length && report.containers.every(c=>c.cleanup?.removed) ? '本次记录中的容器均确认不存在' : '未取得全部清理确认'}</p><p>本报告绑定已保存修改，可能与编辑器当前内容不同。记录由本机服务生成，不含数字签名；哈希用于一致性核对，不证明外部来源真实性。没有保留测试、模型修复或正式 A/B 结论。原诊断与人工确认记录保持不变；附带文档只对应原诊断的检索，不证明修改正确。</p></section></body></html>`;
 }

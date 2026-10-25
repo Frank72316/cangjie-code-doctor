@@ -4,6 +4,7 @@ import { join, resolve } from 'node:path';
 import { randomBytes } from 'node:crypto';
 import { sha256 } from '../web/report.mjs';
 import { validateRevisionInput, validateRevision, validRevisionId, MAX_REVISION_BYTES } from '../web/revision.mjs';
+import { readCompletedRetrieval } from './retrieval-evidence-store.mjs';
 
 function failure(status, message) { return Object.assign(new Error(message), {status}); }
 async function childDirectory(parent, name, create = false) {
@@ -42,14 +43,20 @@ export class RevisionStore {
     return childDirectory(runs, 'revisions', create);
   }
   async save(input) {
+    // Freeze before the first await: callers cannot swap the confirmed text or ID
+    // while validation and disk reads are in flight.
+    try { input = JSON.parse(JSON.stringify(input)); }
+    catch { throw failure(400, '修改记录请求不是有效的 JSON 数据。'); }
     try { await validateRevisionInput(input); }
     catch (error) { throw failure(400, error.message); }
     // JSON cloning also freezes the accepted base record against caller mutation.
     const baseRecord = JSON.parse(JSON.stringify(input.baseRecord));
     const source = {name:input.source.name,text:input.source.text,sha256:await sha256(input.source.text)};
-    const revision = {schemaVersion:1,kind:'doctor-manual-revision',revisionId:randomBytes(16).toString('hex'),
+    const documentEvidence = input.retrievalId ? await readCompletedRetrieval(this.root,input.retrievalId,baseRecord) : null;
+    const revision = {schemaVersion:2,kind:'doctor-manual-revision',revisionId:randomBytes(16).toString('hex'),
       createdAt:new Date().toISOString(),baseRecord,recordSha256:await sha256(JSON.stringify(baseRecord)),
-      source,origin:'manual',compileStatus:'not_run',testStatus:'not_run',execution:{attempted:false}};
+      source,origin:'manual',compileStatus:'not_run',testStatus:'not_run',execution:{attempted:false},
+      documentEvidence,documentEvidenceSha256:documentEvidence ? await sha256(JSON.stringify(documentEvidence)) : null};
     await validateRevision(revision);
     const parent = await this.directory(true), directory = join(parent,revision.revisionId);
     await mkdir(directory); // Exclusive ID; never replace an earlier confirmed edit.
@@ -81,7 +88,8 @@ export class RevisionStore {
       try {
         const revision = await this.get(entry.name);
         revisions.push({revisionId:revision.revisionId,createdAt:revision.createdAt,sourceName:revision.source.name,
-          sourceSha256:revision.source.sha256,baseName:revision.baseRecord.source.name});
+          sourceSha256:revision.source.sha256,baseName:revision.baseRecord.source.name,
+          documentEvidenceCount:revision.documentEvidence?.results.length ?? null});
       } catch { unreadable++; }
     }
     revisions.sort((a,b) => b.createdAt.localeCompare(a.createdAt) || a.revisionId.localeCompare(b.revisionId));
