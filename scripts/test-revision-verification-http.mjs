@@ -8,6 +8,7 @@ import { RevisionStore } from './revision-store.mjs';
 import { VerificationService } from './verification-service.mjs';
 import { makeServer } from './preview.mjs';
 import { validateVerificationRecord, verificationHTML } from '../web/verification.mjs';
+import { validateEvidenceBundle } from '../web/evidence-bundle.mjs';
 
 const [image, binary] = process.argv.slice(2);
 assert.ok(image && binary);
@@ -57,6 +58,15 @@ try {
   assert.equal(JSON.stringify(baseRecord),originalJSON);
   const list=await (await request('/api/verifications')).json();
   assert.equal(list.verifications.length,2); assert.equal(list.unreadable,0);
+  const inventory = await request('/api/storage');
+  assert.equal(inventory.status,200); assert.ok((await inventory.json()).bytes > 0);
+  const exported = await request('/api/evidence-export',{confirmed:true});
+  assert.equal(exported.status,200);
+  const bundle = await validateEvidenceBundle(await exported.json());
+  assert.equal(bundle.counts.revisions,1); assert.equal(bundle.counts.verifications,2);
+  assert.deepEqual(bundle.verifications.map(item=>item.report.status).sort(),['passed','test_failed']);
+  assert.equal(JSON.stringify(await revisionStore.get(revision.revisionId)),savedBefore,'Export must not rewrite source evidence');
+  console.log('PASS real saved revision and public verification evidence bundle, with unchanged source records');
   // A fresh service can read the persisted report without a configured execution image.
   const restarted=new VerificationService({root,revisionStore,core,bridge,platform:'win32'});
   assert.equal(restarted.health.available,false);

@@ -151,6 +151,15 @@
         <div class="evidence panel"><div class="evidence-heading"><div class="panel-title"><span class="section-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><div><h2>采集信息</h2><p>保留原始信息，让诊断可以追溯。</p></div></div><span class="section-label">EVIDENCE</span></div><div class="evidence-grid"><div><span class="small-label">编译器版本</span><strong id="sdk">—</strong></div><div><span class="small-label">采集时间 · 北京时间</span><strong id="captured">—</strong></div><div class="hash-block"><span class="small-label">源码 SHA-256</span><code id="source-hash">—</code></div></div><p class="evidence-note">导出记录包含采集时的源码与编译器日志；编辑后的副本可在编译诊断页审阅保存，也可单独下载。</p></div>
         <section class="panel saved-revisions" aria-labelledby="saved-revisions-title"><div class="evidence-heading"><div><h2 id="saved-revisions-title">已保存修改</h2><p>最近 20 份人工确认的副本，可重新载入继续编辑。</p></div><button id="refresh-revisions">刷新修改记录</button></div><p class="revision-boundary">保存修改本身不执行编译或测试；独立验证的结果请查看上方“验证记录与报告”。</p><div id="revision-list" aria-live="polite">正在读取…</div></section>
         <div class="record-guide"><h2>这份记录包含什么？</h2><div class="record-guide-grid"><div><span>01</span><h3>采集时的源码</h3><p>保存诊断对应的原文。编辑中的副本不会覆盖这份记录。</p></div><div><span>02</span><h3>编译器原始输出</h3><p>保留退出码、stdout 和 stderr，可回到诊断页展开查看。</p></div><div><span>03</span><h3>一致性校验</h3><p>SHA-256 用于核对内容是否变化；它不证明程序行为正确。</p></div></div></div>
+        <details id="storage-panel" class="panel storage-panel"><summary><strong>存储与材料导出</strong><span>需要整理过程资料时展开</span></summary>
+          <div class="storage-body"><p>查看本机运行文件占用，集中下载已保存修改与独立验证材料。只统计和导出，不清理记录。</p>
+            <div class="storage-actions"><button id="storage-refresh" type="button">刷新存储概况</button><button id="storage-export" type="button">下载修改与验证材料 JSON</button></div>
+            <p id="storage-status" class="storage-status" role="status" aria-live="polite">展开后读取本机存储概况。</p>
+            <div id="storage-results" hidden><strong id="storage-total"></strong><p id="storage-scan-time" class="small-label"></p><dl id="storage-groups" class="storage-groups"></dl><ul id="storage-issues" class="storage-issues" hidden></ul></div>
+            <p class="storage-boundary">导出汇总全部已保存修改与独立验证记录，最多 200 条、32 MiB，超限或记录损坏时会停止，不会只导出最近 20 条。文件包含源码和公开测试，分享前请自行检查。</p>
+            <p class="storage-boundary">材料包保留报告中的日志摘录，不包含单独编译任务、未附带的检索、容器工作目录、独立原始输出文件或保留测试。它不是完整工作区备份，也不能通过“打开诊断记录”导入。哈希用于核对内容，不是数字签名。尚未启用自动清理或磁盘配额。</p>
+          </div>
+        </details>
       </section>
       <section id="task-history" class="app-page" data-page-view aria-labelledby="history-title">
         <div class="intro"><div><p class="eyebrow">TASK HISTORY</p><h1 id="history-title">本机编译历史</h1><p class="lead">回看每一次编译的结果、日志与失败原因。</p></div><button id="refresh-history"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>刷新历史</button></div>
