@@ -15,6 +15,19 @@ Mega Doodles Pack 的许可核对自作者固定版本的 [`README.md`](https://
 
 ## 手绘插画对应
 
+### 人物插画补充（2026-10-30）
+
+从 [Pablo Stanley 的 Open Doodles 官网](https://www.opendoodles.com/) 直接链接获取两张 SVG。官网声明可免费用于商业及个人用途；[授权声明记录](../web/assets/licenses/open-doodles-permission.txt) 保留所见原文与日期，不将其表述为另行核实的 CC0 法律文本。来源、字节数和 SHA-256 见 [`people/SOURCE.json`](../web/assets/people/SOURCE.json)。
+
+| 本地文件 | 官方直链 | 页面用途 | 字节数 |
+| --- | --- | --- | --- |
+| `people/reading-side.svg` | [reading-side.svg](https://opendoodles.s3-us-west-1.amazonaws.com/reading-side.svg) | 教程首屏的阅读人物与绿植 | 60,495 |
+| `people/sitting.svg` | [sitting.svg](https://opendoodles.s3-us-west-1.amazonaws.com/sitting.svg) | 无任务历史时的坐姿人物 | 54,781 |
+
+两图原始字节、配色、图形和文件名均未修改，viewBox 均为 `0 0 1024 768`；仅由外部 CSS 控制展示尺寸。XML 解析及脚本、事件属性、外部资源引用、嵌入图片检查通过。图片不承载状态信息，空状态仍以文字说明；不可读记录或后台繁忙时不显示人物插画。正常历史列表不添加装饰。教程原编程桌面 SVG 继续作为已有素材保留，但本轮首屏改用人物。
+
+### 物件贴纸
+
 选材时实际查看了作者整套预览和带编号 PNG 缩略图，核对书本、铅笔、灯泡的形状后选取对应 SVG。
 
 | 本地文件 | 原始 SVG 与逐个出处 | 字节数 |

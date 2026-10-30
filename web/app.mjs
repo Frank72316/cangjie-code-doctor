@@ -559,9 +559,13 @@ async function refreshHistory() {
     }
     if (unreadable) $('history').prepend(element('p',`${unreadable} 份任务或诊断文件无法完整读取，原文件已保留；不能将缺失结果计为成功。`,'history-warning'));
     if (!tasks.length) {
-      const empty = element('div','','history-empty'), icon = element('span','↺','history-empty-icon'); icon.setAttribute('aria-hidden','true');
+      const empty = element('div','','history-empty');
+      const illustration = element('img','','history-empty-person');
+      illustration.src = '/assets/people/sitting.svg'; illustration.alt = ''; illustration.width = 1024; illustration.height = 768;
+      illustration.setAttribute('aria-hidden','true');
       const copy = element('div',''); copy.append(element('strong','还没有本机编译任务'),element('p','发起任务后，结果与过程记录会保存在这里。'));
-      empty.append(icon,copy); $('history').append(empty);
+      if (!unreadable && !data.busy) empty.append(illustration);
+      empty.append(copy); $('history').append(empty);
     }
     if (data.busy) historyTimer = setTimeout(refreshHistory,1000);
   } catch (e) {
