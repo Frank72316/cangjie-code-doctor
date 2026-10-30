@@ -42,16 +42,6 @@
       "sourceDetails": "../../scripts/vendor/rough/SOURCE.json",
       "generator": "../../scripts/generate-sketch-assets.mjs",
       "changes": "Development-only tool. Fixed-seed original Doctor compositions generated into static sketch/*.svg. No Rough.js browser runtime."
-    },
-    {
-      "name": "Open Doodles",
-      "author": "Pablo Stanley",
-      "homepage": "https://www.opendoodles.com/",
-      "acquiredOn": "2026-10-30",
-      "license": "Author website permission: free for commercial and personal use",
-      "licenseFile": "licenses/open-doodles-permission.txt",
-      "sourceDetails": "people/SOURCE.json",
-      "changes": "Two original SVGs with unchanged bytes, colors and geometry. Reading person on tutorial; seated person only in empty task history."
     }
   ],
   "icons": [
@@ -115,18 +105,13 @@
   "files": [
     {
       "path": "credits.html",
-      "bytes": 3890,
-      "sha256": "6cfb8b6a5a2b513e0783884935a4c72bdeea4588c639a6c690c9c78693f32d84"
+      "bytes": 3309,
+      "sha256": "58a5aebf16426c8c65718191aa7b6ee49b6e8f08fdc1aed10fbd05e42964faa7"
     },
     {
       "path": "doctor-icons.svg",
       "bytes": 6333,
       "sha256": "39488f2a0eabfe81a9486ac72bc42f45add0c7368bb838831d2b8c76955473d4"
-    },
-    {
-      "path": "doodles/SOURCE.json",
-      "bytes": 1009,
-      "sha256": "68ee11fe4e8fae64ae6d1e9066327336b4da8287ae9d7b6ca11149b46694d056"
     },
     {
       "path": "doodles/book.svg",
@@ -144,6 +129,11 @@
       "sha256": "0db2b28ffdf7c7221f0d6c608a08642e28dcc773aec5114efbf54c4c62422858"
     },
     {
+      "path": "doodles/SOURCE.json",
+      "bytes": 1009,
+      "sha256": "68ee11fe4e8fae64ae6d1e9066327336b4da8287ae9d7b6ca11149b46694d056"
+    },
+    {
       "path": "jetbrains-mono-regular.woff2",
       "bytes": 92380,
       "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff"
@@ -159,11 +149,6 @@
       "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
     },
     {
-      "path": "licenses/open-doodles-permission.txt",
-      "bytes": 908,
-      "sha256": "71ae7f6a712a7e2dd86d13cc1a9d37d572cc5923ab002329e955c285263c76aa"
-    },
-    {
       "path": "licenses/phosphor-MIT.txt",
       "bytes": 1071,
       "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2"
@@ -172,21 +157,6 @@
       "path": "licenses/rough-MIT.txt",
       "bytes": 1068,
       "sha256": "dca9a392272606ac748ac0976a2a1133f14eef841c27beaa51a844d53c56a09d"
-    },
-    {
-      "path": "people/SOURCE.json",
-      "bytes": 1766,
-      "sha256": "d9d145aba8a8d05fc194eb98217414e4b33a23163c3ecff5ecb3fee6061f9692"
-    },
-    {
-      "path": "people/reading-side.svg",
-      "bytes": 60495,
-      "sha256": "bc98d93429c03fe206050649841d0cecab51c928fcb6f7e842ff4af6a5585593"
-    },
-    {
-      "path": "people/sitting.svg",
-      "bytes": 54781,
-      "sha256": "6245f1c3b2b2a9ce37ec7a6e58c8e3ccd0d2dc3445116a9329c3fdd47062d062"
     },
     {
       "path": "phosphor/arrow-clockwise-duotone.svg",

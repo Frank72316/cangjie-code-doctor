@@ -19,11 +19,9 @@ const routes = new Map([
     [`/assets/sketch/${name}.svg`, [`web/assets/sketch/${name}.svg`, 'image/svg+xml']]),
   ...['book', 'pencil', 'lightbulb'].map(name =>
     [`/assets/doodles/${name}.svg`, [`web/assets/doodles/${name}.svg`, 'image/svg+xml']]),
-  ...['reading-side', 'sitting'].map(name =>
-    [`/assets/people/${name}.svg`, [`web/assets/people/${name}.svg`, 'image/svg+xml']]),
   ['/assets/jetbrains-mono-regular.woff2', ['web/assets/jetbrains-mono-regular.woff2', 'font/woff2']],
   ['/assets/credits.html', ['web/assets/credits.html', 'text/html; charset=utf-8']],
-  ...['phosphor-MIT.txt', 'jetbrains-mono-OFL.txt', 'rough-MIT.txt', 'mega-doodles-CC-BY-SA-4.0.txt', 'open-doodles-permission.txt'].map(name =>
+  ...['phosphor-MIT.txt', 'jetbrains-mono-OFL.txt', 'rough-MIT.txt', 'mega-doodles-CC-BY-SA-4.0.txt'].map(name =>
     [`/assets/licenses/${name}`, [`web/assets/licenses/${name}`, 'text/plain; charset=utf-8']]),
   ['/app.mjs', ['web/app.mjs', 'text/javascript; charset=utf-8']],
   ['/navigation.mjs', ['web/navigation.mjs', 'text/javascript; charset=utf-8']],

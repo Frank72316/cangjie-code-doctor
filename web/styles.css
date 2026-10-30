@@ -474,7 +474,7 @@ button.primary:not(:disabled),.tutorial-start { box-shadow:0 3px 8px #38322912; 
 .source-note,.verification-help,.scope-note,.tutorial-scope { text-wrap:pretty; }
 [hidden] { display:none!important; }
 
-/* Asset treatment: local Phosphor SVGs and JetBrains Mono. */
+/* Asset treatment: local Phosphor SVGs, Hero Patterns and JetBrains Mono. */
 code,pre,textarea,.mono { font-variant-ligatures:none; }
 .tutorial-flow .icon { width:25px; height:25px; }
 .tutorial-flow strong small { font:11px var(--mono); color:#80796e; margin-right:7px; }
@@ -505,11 +505,6 @@ code,pre,textarea,.mono { font-variant-ligatures:none; }
 .sketch-scene>img { display:block; width:100%; height:auto; }
 .sketch-scene::after { content:""; position:absolute; top:4%; left:-15px; width:65px; height:42px; background:url("/assets/sketch/arrow.svg") center/contain no-repeat; pointer-events:none; transform:rotate(12deg); }
 .sketch-scene figcaption { text-align:center; font:18px/1.6 var(--hand); color:#78725e; transform:rotate(-3deg); }
-.people-scene { padding:0 0 8px; }
-.people-scene>img { max-width:430px; margin:0 auto; }
-.people-scene::after { top:3%; left:1%; transform:rotate(28deg); }
-.people-scene figcaption { margin-top:2px; }
-.history-empty-person { display:block; width:156px; height:117px; object-fit:contain; flex-shrink:0; }
 .sketch-underline { position:relative; display:inline-block; padding-bottom:3px; }
 .sketch-underline::after { content:""; position:absolute; bottom:-6px; left:-3%; width:108%; height:13px; background:url("/assets/sketch/underline.svg") center/100% 100% no-repeat; pointer-events:none; }
 .tutorial-flow>div:nth-child(3) { background:#eee0d4; border-color:#cdb39c; }
@@ -572,9 +567,6 @@ code,pre,textarea,.mono { font-variant-ligatures:none; }
   .document-evidence-footer { flex-wrap:wrap; } .document-metadata { flex-basis:100%; }
 }
 @media(max-width:480px) {
-  .people-scene { max-width:300px; }
-  .history-empty:has(.history-empty-person) { flex-direction:column; text-align:center; padding:20px 16px 24px; }
-  .history-empty-person { width:144px; height:108px; }
   html { scroll-padding-top:65px; } .sidebar { padding:16px 15px 0; } .brand { margin-bottom:15px; gap:9px; } .brand-name b { font-size:21px; }
   .sidebar nav { gap:3px; padding-bottom:11px; } .nav-item { flex-direction:column; gap:4px; padding:8px 2px; font-size:12px; border-radius:7px; } .nav-item .icon { width:17px; height:17px; }
   .topbar { height:45px; padding:0 16px; gap:10px; } .breadcrumb { font-size:12px; gap:9px; } .topbar-note { font-size:12px; gap:5px; }

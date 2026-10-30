@@ -83,11 +83,9 @@ test('static preview serves only listed assets and has no compile or upload endp
     ['sketch/frame.svg','image/svg+xml'], ['sketch/underline.svg','image/svg+xml'],
     ['sketch/paper.svg','image/svg+xml'], ['sketch/arrow.svg','image/svg+xml'],
     ['doodles/book.svg','image/svg+xml'], ['doodles/pencil.svg','image/svg+xml'], ['doodles/lightbulb.svg','image/svg+xml'],
-    ['people/reading-side.svg','image/svg+xml'], ['people/sitting.svg','image/svg+xml'],
     ['jetbrains-mono-regular.woff2','font/woff2'], ['credits.html','text/html'],
     ['licenses/phosphor-MIT.txt','text/plain'], ['licenses/rough-MIT.txt','text/plain'],
     ['licenses/mega-doodles-CC-BY-SA-4.0.txt','text/plain'],
-    ['licenses/open-doodles-permission.txt','text/plain'],
     ['licenses/jetbrains-mono-OFL.txt','text/plain']
   ]) {
     const asset = await fetch(base + '/assets/' + path);
