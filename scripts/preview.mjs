@@ -14,6 +14,15 @@ const pageRoutes = new Map([['/', PAGE_ROUTES[0]], ...PAGE_ROUTES.map(page => [p
 const routes = new Map([
   ...[...pageRoutes.keys()].map(path => [path, ['web/index.html', 'text/html; charset=utf-8']]),
   ['/styles.css', ['web/styles.css', 'text/css; charset=utf-8']],
+  ['/assets/doctor-icons.svg', ['web/assets/doctor-icons.svg', 'image/svg+xml']],
+  ...['hero-desk', 'underline', 'arrow', 'frame', 'paper'].map(name =>
+    [`/assets/sketch/${name}.svg`, [`web/assets/sketch/${name}.svg`, 'image/svg+xml']]),
+  ...['book', 'pencil', 'lightbulb'].map(name =>
+    [`/assets/doodles/${name}.svg`, [`web/assets/doodles/${name}.svg`, 'image/svg+xml']]),
+  ['/assets/jetbrains-mono-regular.woff2', ['web/assets/jetbrains-mono-regular.woff2', 'font/woff2']],
+  ['/assets/credits.html', ['web/assets/credits.html', 'text/html; charset=utf-8']],
+  ...['phosphor-MIT.txt', 'jetbrains-mono-OFL.txt', 'rough-MIT.txt', 'mega-doodles-CC-BY-SA-4.0.txt'].map(name =>
+    [`/assets/licenses/${name}`, [`web/assets/licenses/${name}`, 'text/plain; charset=utf-8']]),
   ['/app.mjs', ['web/app.mjs', 'text/javascript; charset=utf-8']],
   ['/navigation.mjs', ['web/navigation.mjs', 'text/javascript; charset=utf-8']],
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],

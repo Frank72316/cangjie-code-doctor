@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "acquiredOn": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "sources": [
+    {
+      "name": "Phosphor Icons",
+      "repository": "https://github.com/phosphor-icons/core",
+      "commit": "2b75f3ad12b420c9504ef05df8d2564a28f8500e",
+      "license": "MIT",
+      "licenseFile": "licenses/phosphor-MIT.txt",
+      "upstreamPath": "assets/duotone/<name>-duotone.svg",
+      "changes": "14 unchanged originals in phosphor/; geometry combined into doctor-icons.svg symbols with currentColor fill and no stroke."
+    },
+    {
+      "name": "JetBrains Mono",
+      "repository": "https://github.com/JetBrains/JetBrainsMono",
+      "commit": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "license": "OFL-1.1",
+      "licenseFile": "licenses/jetbrains-mono-OFL.txt",
+      "upstreamPath": "fonts/webfonts/JetBrainsMono-Regular.woff2",
+      "changes": "Unchanged font binary; local filename normalized."
+    },
+    {
+      "name": "Mega Doodles Pack",
+      "author": "Maria Letta",
+      "repository": "https://github.com/MariaLetta/mega-doodles-pack",
+      "commit": "4383d4323ddf11d79523ae9ee961ab5a08283d0d",
+      "license": "CC-BY-SA-4.0",
+      "licenseFile": "licenses/mega-doodles-CC-BY-SA-4.0.txt",
+      "sourceDetails": "doodles/SOURCE.json",
+      "changes": "Three original SVG files retained unchanged in original colors; local filenames renamed to book.svg, pencil.svg and lightbulb.svg."
+    },
+    {
+      "name": "Rough.js",
+      "author": "Preet Shihn and contributors",
+      "repository": "https://github.com/rough-stuff/rough",
+      "version": "4.6.6",
+      "gitHead": "56a2762171b1294d643501e8d14f120db6b27bd7",
+      "license": "MIT",
+      "licenseFile": "licenses/rough-MIT.txt",
+      "sourceDetails": "../../scripts/vendor/rough/SOURCE.json",
+      "generator": "../../scripts/generate-sketch-assets.mjs",
+      "changes": "Development-only tool. Fixed-seed original Doctor compositions generated into static sketch/*.svg. No Rough.js browser runtime."
+    }
+  ],
+  "icons": [
+    {
+      "source": "compass",
+      "id": "i-guide"
+    },
+    {
+      "source": "code",
+      "id": "i-code"
+    },
+    {
+      "source": "book-open",
+      "id": "i-book"
+    },
+    {
+      "source": "file-text",
+      "id": "i-record"
+    },
+    {
+      "source": "clock-counter-clockwise",
+      "id": "i-history"
+    },
+    {
+      "source": "upload-simple",
+      "id": "i-upload"
+    },
+    {
+      "source": "download-simple",
+      "id": "i-download"
+    },
+    {
+      "source": "shield-check",
+      "id": "i-shield"
+    },
+    {
+      "source": "info",
+      "id": "i-info"
+    },
+    {
+      "source": "arrow-clockwise",
+      "id": "i-refresh"
+    },
+    {
+      "source": "desktop",
+      "id": "i-monitor"
+    },
+    {
+      "source": "arrow-right",
+      "id": "i-arrow-right"
+    },
+    {
+      "source": "magnifying-glass",
+      "id": "i-search"
+    },
+    {
+      "source": "check-circle",
+      "id": "i-check"
+    }
+  ],
+  "files": [
+    {
+      "path": "credits.html",
+      "bytes": 3309,
+      "sha256": "58a5aebf16426c8c65718191aa7b6ee49b6e8f08fdc1aed10fbd05e42964faa7"
+    },
+    {
+      "path": "doctor-icons.svg",
+      "bytes": 6333,
+      "sha256": "39488f2a0eabfe81a9486ac72bc42f45add0c7368bb838831d2b8c76955473d4"
+    },
+    {
+      "path": "doodles/book.svg",
+      "bytes": 9513,
+      "sha256": "0da736641e5f3131d7885c225120d7e0a29b7cc66c5c4998bfc31be4868daf06"
+    },
+    {
+      "path": "doodles/lightbulb.svg",
+      "bytes": 7143,
+      "sha256": "dbfc416009a47ee1f872da118d4a4be763d357022c0341f8ce8d4872434da578"
+    },
+    {
+      "path": "doodles/pencil.svg",
+      "bytes": 6227,
+      "sha256": "0db2b28ffdf7c7221f0d6c608a08642e28dcc773aec5114efbf54c4c62422858"
+    },
+    {
+      "path": "doodles/SOURCE.json",
+      "bytes": 1009,
+      "sha256": "68ee11fe4e8fae64ae6d1e9066327336b4da8287ae9d7b6ca11149b46694d056"
+    },
+    {
+      "path": "jetbrains-mono-regular.woff2",
+      "bytes": 92380,
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff"
+    },
+    {
+      "path": "licenses/jetbrains-mono-OFL.txt",
+      "bytes": 4399,
+      "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697"
+    },
+    {
+      "path": "licenses/mega-doodles-CC-BY-SA-4.0.txt",
+      "bytes": 20138,
+      "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+    },
+    {
+      "path": "licenses/phosphor-MIT.txt",
+      "bytes": 1071,
+      "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2"
+    },
+    {
+      "path": "licenses/rough-MIT.txt",
+      "bytes": 1068,
+      "sha256": "dca9a392272606ac748ac0976a2a1133f14eef841c27beaa51a844d53c56a09d"
+    },
+    {
+      "path": "phosphor/arrow-clockwise-duotone.svg",
+      "bytes": 369,
+      "sha256": "66db0c380b84dcb949ab83e2670443c012c72e73c59197e1173cc9abc3abc781"
+    },
+    {
+      "path": "phosphor/arrow-right-duotone.svg",
+      "bytes": 291,
+      "sha256": "5a480091cae4701fba918894eaa657bcbb3c705d0cb7a0eee954506f09aec11c"
+    },
+    {
+      "path": "phosphor/book-open-duotone.svg",
+      "bytes": 519,
+      "sha256": "114456d637f78d1a748ef70768d3635c8f927fdfeed095a4ca9ded6f975ab8f5"
+    },
+    {
+      "path": "phosphor/check-circle-duotone.svg",
+      "bytes": 412,
+      "sha256": "d9c7016e83a81c8ef1a250a307acc6d29d5c492fc46066ab5e5e7446a65b48f6"
+    },
+    {
+      "path": "phosphor/clock-counter-clockwise-duotone.svg",
+      "bytes": 482,
+      "sha256": "4de8888a05bd3b4cabcce6135f48d89f8606c3b237ac1b2e9fbcc90cc17fd855"
+    },
+    {
+      "path": "phosphor/code-duotone.svg",
+      "bytes": 513,
+      "sha256": "bafb91fe5a241756d0102490d48d7146c74e81831414a6f6d3792835c5f65ed1"
+    },
+    {
+      "path": "phosphor/compass-duotone.svg",
+      "bytes": 500,
+      "sha256": "00b82ffc59e709c6605a7fe02a0c541c49e2d26c4d58f5dad557ddaeae76e745"
+    },
+    {
+      "path": "phosphor/desktop-duotone.svg",
+      "bytes": 433,
+      "sha256": "bf8a8a436772763ff5e430428c3c2850c601057fef1009dee7a24a02ed709c3b"
+    },
+    {
+      "path": "phosphor/download-simple-duotone.svg",
+      "bytes": 402,
+      "sha256": "68ffe027868f3e33b2788d5cc246dbcb47a86f210b39a2866ab7e2d1cddee9a4"
+    },
+    {
+      "path": "phosphor/file-text-duotone.svg",
+      "bytes": 457,
+      "sha256": "6b0867a397af11f3c0a66091a4e17e3c172a42f48812ba99fc8157d9093cb7ea"
+    },
+    {
+      "path": "phosphor/info-duotone.svg",
+      "bytes": 422,
+      "sha256": "dec9ea1394c618d6d576ba43e0f08eea265eaf20046e98bc3da19eb4b8da73e8"
+    },
+    {
+      "path": "phosphor/magnifying-glass-duotone.svg",
+      "bytes": 316,
+      "sha256": "7a840ea2341e75cf1d9187e07223be4501d6c6078a064a4097be07c1b3a52fb6"
+    },
+    {
+      "path": "phosphor/shield-check-duotone.svg",
+      "bytes": 644,
+      "sha256": "e42c34a900022e60b41136a5744989af1cfb977247079afbfaf5a8440b86fd91"
+    },
+    {
+      "path": "phosphor/upload-simple-duotone.svg",
+      "bytes": 409,
+      "sha256": "f95c3c5150c3c15e27828fd1600cc8b00a60c236b7c911da89941da4bfdb336e"
+    },
+    {
+      "path": "sketch/arrow.svg",
+      "bytes": 704,
+      "sha256": "1c9415ba75d2e7bef4b36ff69fdac81b95af9d4744cd6e6a7c85dab50b3367c4"
+    },
+    {
+      "path": "sketch/frame.svg",
+      "bytes": 746,
+      "sha256": "3b95715acf6c26c6470b533a011e7c4b92be4f60116a9b9c87fd4dbb43801e39"
+    },
+    {
+      "path": "sketch/hero-desk.svg",
+      "bytes": 20525,
+      "sha256": "5147bc05afde4b9e4ad9f470e7b54d3dd896d11aa4fe999e2446c5e88b2c8265"
+    },
+    {
+      "path": "sketch/paper.svg",
+      "bytes": 8316,
+      "sha256": "d872a7e0756b9d22eabcae50b970de5137b2e7b700d4c60780a78cd331073813"
+    },
+    {
+      "path": "sketch/underline.svg",
+      "bytes": 676,
+      "sha256": "f9d9bba2db8ff53a00051e24f83a09acdebd082d8c76a5585bdd1941d2f34527"
+    }
+  ]
+}

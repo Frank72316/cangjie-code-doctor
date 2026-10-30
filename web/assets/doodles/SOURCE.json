@@ -1,0 +1,26 @@
+{
+  "author": "Maria Letta",
+  "repository": "https://github.com/MariaLetta/mega-doodles-pack",
+  "commit": "4383d4323ddf11d79523ae9ee961ab5a08283d0d",
+  "license": "CC-BY-SA-4.0",
+  "licenseDeclaration": "https://github.com/MariaLetta/mega-doodles-pack/blob/4383d4323ddf11d79523ae9ee961ab5a08283d0d/README.md",
+  "licenseFile": "../licenses/mega-doodles-CC-BY-SA-4.0.txt",
+  "changes": "Original colors, shapes and bytes retained. Only local filenames changed.",
+  "files": [
+    {
+      "path": "book.svg",
+      "originalPath": "doodles/svg/doodle-45.svg",
+      "sha256": "0da736641e5f3131d7885c225120d7e0a29b7cc66c5c4998bfc31be4868daf06"
+    },
+    {
+      "path": "pencil.svg",
+      "originalPath": "doodles/svg/doodle-68.svg",
+      "sha256": "0db2b28ffdf7c7221f0d6c608a08642e28dcc773aec5114efbf54c4c62422858"
+    },
+    {
+      "path": "lightbulb.svg",
+      "originalPath": "doodles/svg/doodle-122.svg",
+      "sha256": "dbfc416009a47ee1f872da118d4a4be763d357022c0341f8ce8d4872434da578"
+    }
+  ]
+}

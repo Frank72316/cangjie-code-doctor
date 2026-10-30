@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100">
+<title>手绘弯箭头</title>
+<!-- Original Doctor artwork. Generated deterministically with Rough.js 4.6.6; see scripts/generate-sketch-assets.mjs. -->
+<g stroke-linecap="round" stroke-linejoin="round">
+<path d="M13.63 18.09 C16.84 23, 21.15 40.79, 31.61 48.22 C42.06 55.64, 60.86 63.41, 76.35 62.66 C91.84 61.91, 113.27 49.9, 124.54 43.73 C135.81 37.55, 140.82 28.61, 143.95 25.6" stroke="#3c403b" stroke-width="2.1" fill="none"/>
+<path d="M123.4 27.31 C127.45 26.9, 132.61 24.24, 145.34 20.87 M144.38 22.57 C144.23 30.36, 143.47 38.52, 142.33 43.56" stroke="#3c403b" stroke-width="2.1" fill="none"/>
+</g>
+</svg>

@@ -4,3 +4,8 @@
 *.json text eol=lf
 *.sh text eol=lf
 *.yml text eol=lf
+# Keep pinned third-party bytes and generated SVG hashes identical across checkouts.
+web/assets/** -text
+scripts/vendor/rough/** -text
+# Upstream license notices are kept verbatim, including original whitespace.
+web/assets/licenses/* -whitespace

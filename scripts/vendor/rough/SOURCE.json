@@ -1,0 +1,26 @@
+{
+  "name": "roughjs",
+  "version": "4.6.6",
+  "repository": "https://github.com/rough-stuff/rough",
+  "gitHead": "56a2762171b1294d643501e8d14f120db6b27bd7",
+  "packageUrl": "https://registry.npmjs.org/roughjs/-/roughjs-4.6.6.tgz",
+  "packageIntegrity": "sha512-ZUz/69+SYpFN/g/lUlo2FXcIjRkSu3nDarreVdGGndHEBJ6cXPdKguS8JGxwj5HA5xIbVKSmLgr5b3AWxtRfvQ==",
+  "bundle": {
+    "sourcePath": "package/bundled/rough.cjs.js",
+    "localPath": "rough.cjs",
+    "sha256": "f10ad1eacdb19b1a837ad311f80de596ef206046247a3fae9951d8f2adc59e36",
+    "modified": false
+  },
+  "license": {
+    "spdx": "MIT",
+    "sourcePath": "package/LICENSE",
+    "localPath": "LICENSE",
+    "sha256": "dca9a392272606ac748ac0976a2a1133f14eef841c27beaa51a844d53c56a09d",
+    "publicCopy": "web/assets/licenses/rough-MIT.txt"
+  },
+  "purpose": "Development-only deterministic SVG generation. Not served to browser; no install scripts executed.",
+  "apiReferences": [
+    "https://github.com/rough-stuff/rough/wiki",
+    "https://github.com/rough-stuff/rough/blob/56a2762171b1294d643501e8d14f120db6b27bd7/src/generator.ts"
+  ]
+}

@@ -78,6 +78,22 @@ test('static preview serves only listed assets and has no compile or upload endp
   const page = await fetch(base); assert.equal(page.status, 200); assert.match(await page.text(), /id="main-content"/);
   assert.match(page.headers.get('content-security-policy'), /script-src 'self'/);
   assert.equal((await fetch(base + '/fixtures/type_mismatch.json')).status, 200);
+  for (const [path, type] of [
+    ['doctor-icons.svg','image/svg+xml'], ['sketch/hero-desk.svg','image/svg+xml'],
+    ['sketch/frame.svg','image/svg+xml'], ['sketch/underline.svg','image/svg+xml'],
+    ['sketch/paper.svg','image/svg+xml'], ['sketch/arrow.svg','image/svg+xml'],
+    ['doodles/book.svg','image/svg+xml'], ['doodles/pencil.svg','image/svg+xml'], ['doodles/lightbulb.svg','image/svg+xml'],
+    ['jetbrains-mono-regular.woff2','font/woff2'], ['credits.html','text/html'],
+    ['licenses/phosphor-MIT.txt','text/plain'], ['licenses/rough-MIT.txt','text/plain'],
+    ['licenses/mega-doodles-CC-BY-SA-4.0.txt','text/plain'],
+    ['licenses/jetbrains-mono-OFL.txt','text/plain']
+  ]) {
+    const asset = await fetch(base + '/assets/' + path);
+    assert.equal(asset.status, 200, path); assert.ok(asset.headers.get('content-type').startsWith(type), path);
+    assert.ok((await asset.arrayBuffer()).byteLength > 0, path);
+  }
+  assert.equal((await fetch(base + '/assets/not-allowlisted.svg')).status, 404);
+  assert.equal((await fetch(base + '/scripts/vendor/rough/rough.cjs')).status, 404);
   for (const path of ['/../../README.md', '/%2e%2e/.git/config', '/runs/', '/compile', '/.env'])
     assert.equal((await fetch(base + path)).status, 404);
   assert.equal((await fetch(base + '/', {method:'POST', body:'main() {}'})).status, 405);

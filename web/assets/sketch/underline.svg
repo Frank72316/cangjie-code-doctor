@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 26" width="320" height="26">
+<title>手绘双划线</title>
+<!-- Original Doctor artwork. Generated deterministically with Rough.js 4.6.6; see scripts/generate-sketch-assets.mjs. -->
+<g stroke-linecap="round" stroke-linejoin="round">
+<path d="M6.29 9.45 C20.36 9.12, 56.9 8.42, 89.85 8.43 C122.8 8.45, 166.93 9.9, 204.01 9.55 C241.1 9.2, 294.27 6.88, 312.38 6.33" stroke="#d27a53" stroke-width="2.7" fill="none"/>
+<path d="M26.78 18.37 C40.78 17.92, 80.94 15.91, 110.6 15.69 C140.27 15.47, 174.61 17.26, 204.78 17.06 C234.95 16.86, 277 14.77, 291.61 14.48" stroke="#d27a53" stroke-width="1.2" fill="none"/>
+</g>
+</svg>
