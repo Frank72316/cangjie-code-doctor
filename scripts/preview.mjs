@@ -9,6 +9,7 @@ import { RevisionStore } from './revision-store.mjs';
 import { MAX_REVISION_BYTES } from '../web/revision.mjs';
 import { VerificationService } from './verification-service.mjs';
 import { StorageService } from './storage-service.mjs';
+import { applyVoxelTheme, voxelRoutes } from './voxel-theme.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const pageRoutes = new Map([['/', PAGE_ROUTES[0]], ...PAGE_ROUTES.map(page => [page.path, page])]);
 const routes = new Map([
@@ -37,8 +38,11 @@ const routes = new Map([
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
-export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null,
+export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, previewTheme = null,
   storageService = bridge?.root ? new StorageService({root:bridge.root,revisionStore,verificationService}) : null} = {}) {
+  if (previewTheme !== null && previewTheme !== 'voxel') throw new Error('Unknown preview theme');
+  if (previewTheme && (bridge || revisionStore || verificationService || storageService)) throw new Error('Design previews cannot connect to workbench services');
+  const activeRoutes = previewTheme === 'voxel' ? new Map([...routes, ...voxelRoutes]) : routes;
   let storageExporting = false, storageScanning = false, activeWrites = 0;
   return createServer(async (req, res) => {
     const headers = {'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
@@ -52,7 +56,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
       let writeHeld = false, exportHeld = false, scanHeld = false;
       try {
         if (req.method === 'GET' && req.url === '/api/health') {
-          send(200, {...(bridge?.health ?? {available:false, code:'preview_only', detail:'静态记录预览，未配置仓颉核心。'}), token:bridge?.token, busy:bridge?.busy ?? false,
+          send(200, {...(bridge?.health ?? {available:false, code:'preview_only', detail:previewTheme ? '这是独立界面试稿，未连接编译与保存服务。请通过页面顶部“原工作台”继续实际操作；此处未检测本机 SDK。' : '静态记录预览，未配置仓颉核心。'}), token:bridge?.token, busy:bridge?.busy ?? false,
             verification:verificationService?.health ?? {available:false,code:'not_configured',detail:'当前服务尚未配置 Linux 容器验证；已保存修改仍可浏览。'}}); return;
         }
         // API data and mutation require the local origin plus a per-start token.
@@ -189,12 +193,13 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
     }
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, {...headers, Allow: 'GET, HEAD'}).end(); return; }
     const path = req.url?.split('?')[0];
-    const route = routes.get(path);
+    const route = activeRoutes.get(path);
     if (!route) { res.writeHead(404, headers).end('Not found'); return; }
     try {
       let body = await readFile(resolve(root, route[0]));
       const page = pageRoutes.get(path);
       if (page) body = body.toString('utf8').replace(/(<body\b[^>]*\bdata-page=")[^"]*(")/, `$1${page.path.slice(1)}$2`);
+      if (page && previewTheme === 'voxel') body = applyVoxelTheme(body);
       res.writeHead(200, {...headers, 'Content-Type': route[1]});
       res.end(req.method === 'HEAD' ? undefined : body);
     } catch { res.writeHead(503, headers).end('Preview file is unavailable. Run the fixture capture script.'); }

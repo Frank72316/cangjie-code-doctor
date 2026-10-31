@@ -9,3 +9,6 @@ web/assets/** -text
 scripts/vendor/rough/** -text
 # Upstream license notices are kept verbatim, including original whitespace.
 web/assets/licenses/* -whitespace
+web/assets/voxel/*-license.txt -whitespace
+web/assets/voxel/fonts/LICENSES/cubic-11/OFL.txt -whitespace
+web/voxel-preview.css text eol=lf

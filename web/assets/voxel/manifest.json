@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "acquiredOn": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "scope": "All files in web/assets/voxel, including attribution HTML/CSS and source records, excluding this manifest itself. Original PNG/font/license bytes are unchanged; credits.html and credits.css are authored for Doctor.",
+  "sources": [
+    "SOURCE.json",
+    "fonts/SOURCE.json"
+  ],
+  "files": [
+    {
+      "path": "SOURCE.json",
+      "bytes": 5089,
+      "sha256": "3e90c42d2a9fd1a856bcc5ceeb6025cb2ed62194231a97675730063611cf9bc2"
+    },
+    {
+      "path": "credits.css",
+      "bytes": 2240,
+      "sha256": "6b808a43f9b1c8ea28497b28e248fd78c29015191f532c80a1ba0e2ee4794fd9"
+    },
+    {
+      "path": "credits.html",
+      "bytes": 3290,
+      "sha256": "d462a41e217c90cd7ae74a3988c0e1a5e677d6f4892c21c6acca9e476c6eef23"
+    },
+    {
+      "path": "diamond-ore.png",
+      "bytes": 5409,
+      "sha256": "150ce3e47cd87dceec1803218847b40b90c87d1d7f8d9335fa9478914c40de8c"
+    },
+    {
+      "path": "dirt.png",
+      "bytes": 3831,
+      "sha256": "fff7cf42c901e597cc8e212e070daf9e691032b49466d2e51ade930ad433fca1"
+    },
+    {
+      "path": "fonts/LICENSES/ark-pixel/OFL.txt",
+      "bytes": 4412,
+      "sha256": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee"
+    },
+    {
+      "path": "fonts/LICENSES/cubic-11/OFL.txt",
+      "bytes": 5364,
+      "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188"
+    },
+    {
+      "path": "fonts/LICENSES/galmuri/LICENSE.txt",
+      "bytes": 4360,
+      "sha256": "86a3ee9495f942f0243f18c103da9faca27adb88142613edb8bb852e56c892c1"
+    },
+    {
+      "path": "fonts/OFL.txt",
+      "bytes": 4418,
+      "sha256": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63"
+    },
+    {
+      "path": "fonts/SOURCE.json",
+      "bytes": 2639,
+      "sha256": "ac3aaddddc2a628e46a7cf21dc8733e72f563cfd52928ea2b74652b42faff3ad"
+    },
+    {
+      "path": "fonts/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+      "bytes": 701520,
+      "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
+    },
+    {
+      "path": "grass-side.png",
+      "bytes": 5359,
+      "sha256": "4aff6bc1ec36f93de3702b75e67dc1b77fc74400087fbc8d03f4aec869a6171e"
+    },
+    {
+      "path": "grass-top.png",
+      "bytes": 4052,
+      "sha256": "6e91371f300c74179fb164d1c731b174f58ce68670b63b4925734b13053bf01d"
+    },
+    {
+      "path": "kenney-pixel-ui-license.txt",
+      "bytes": 665,
+      "sha256": "cbab1059d9afa2965e78478b73e2f1cbdeafc0b31eee475e0b312f773872adc7"
+    },
+    {
+      "path": "kenney-voxel-license.txt",
+      "bytes": 621,
+      "sha256": "b095efc2547e48565fe5d084473c9c8e7f40a881032e1f37e0032120c6204fe5"
+    },
+    {
+      "path": "pickaxe.png",
+      "bytes": 3885,
+      "sha256": "5f5829aa7aefe99c6736712a13d97f4f6b23272501dbc3db810e4bdeda216cb1"
+    },
+    {
+      "path": "stone.png",
+      "bytes": 3254,
+      "sha256": "e53319b547c6172c72c299e21631fecf5434dc75c013b22538146badaf768d1f"
+    },
+    {
+      "path": "ui-green-pressed.png",
+      "bytes": 214,
+      "sha256": "6b858d99b059629e6288e8e68b4cb8bf2d05bcced8e2c0d53f7b9951a8563ee1"
+    },
+    {
+      "path": "ui-green.png",
+      "bytes": 230,
+      "sha256": "3dddc0527f257d782c8f4aafab2e5f6d219861f52734fa8d87f289204a928c83"
+    },
+    {
+      "path": "ui-grey-pressed.png",
+      "bytes": 201,
+      "sha256": "318a0aede7a6a14d89337b11b9a5ea0aaefa3c7d5c53f2383ad86b27baea1bf7"
+    },
+    {
+      "path": "ui-grey.png",
+      "bytes": 216,
+      "sha256": "af913e560e8cf0159d46e6f42981ab0adb813ecdc3b23cb181e4afa52699068c"
+    },
+    {
+      "path": "ui-panel.png",
+      "bytes": 272,
+      "sha256": "4b6eadb1565f2b7890001b19e978eaf64830efa618dae554b43d0af4122fccde"
+    },
+    {
+      "path": "wood.png",
+      "bytes": 1968,
+      "sha256": "034f0c8cf6ea6d42cae74eaf0665f10c9331baa79cc9d305190ee90880c4849e"
+    }
+  ]
+}

@@ -48,9 +48,23 @@ Mega Doodles Pack 的许可核对自作者固定版本的 [`README.md`](https://
 
 ## 清单与验证范围
 
-- [`web/assets/manifest.json`](../web/assets/manifest.json) 保存素材和工具的固定源版本、图标对应关系，以及除清单自身外每个资产文件的字节数与 SHA-256；清单不作为运行时依赖。
+- [`web/assets/manifest.json`](../web/assets/manifest.json) 保存默认手绘版素材和工具的固定源版本、图标对应关系，以及该批资产文件的字节数与 SHA-256；不包含下述独立 `voxel/` 试稿目录，清单不作为运行时依赖。
 - 图标 sprite 为 **6,333 字节**，三张原始贴纸合计 **22,883 字节**，Regular WOFF2 为 **92,380 字节**。
 - 已检查 SVG 可解析为 XML，图标 symbol 数为 14，所选素材 SVG 不含脚本、事件处理属性或外链引用；字体文件头为 `wOF2`。下载的插画没有作为程序执行；Rough.js 的开发时运行与静态产物检查由该生成工具单独记录。
 - 此处仅记录素材来源与静态检查。页面实际布局、字体渲染、交互和提交结果由本轮界面验收与进度记录另行登记，不把素材检查写成完整功能验证。
 
 以后更新素材时应重新固定官方版本、保留相应许可、核对修改说明并重算清单，不直接替换为未记录的 CDN 链接。
+
+## 独立方块试稿（2026-10-31）
+
+本批仅供 `node scripts/preview-voxel.mjs` 启动的 `8766` 设计试稿，默认网站不加载。素材是 Kenney 原创方块视觉，不是从 Minecraft 游戏提取的资源；原始 PNG/WOFF2/许可保持字节不变，场景与书本由项目 CSS 组合。试稿仍沿用原 Phosphor 图标和 JetBrains 代码字体，正文使用系统字体。
+
+| 素材 | 来源与许可 | 使用方式 |
+| --- | --- | --- |
+| Voxel Pack | [Kenney 作者发布页](https://opengameart.org/content/voxel-pack)，CC0；[原始许可](../web/assets/voxel/kenney-voxel-license.txt) | 草顶/草侧、石头、钻石矿、木材与铁镐，128×128 PNG。CSS 三面组合构成草地岛，木材用于工作台与书本。包内另保留泥土纹理供试稿选择。 |
+| Pixel UI Pack | [Kenney 作者发布页](https://opengameart.org/content/pixel-ui-pack-750-assets)，Kenney Vleugels / Lynn Evers，CC0；[原始许可](../web/assets/voxel/kenney-pixel-ui-license.txt) | 灰/绿按钮与按下状态使用 CSS 九宫格边框，48×48 PNG；另保留灰面板供试稿选择。 |
+| Fusion Pixel | [TakWolf 官方 2026.10.25 发布](https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.10.25)，SIL OFL 1.1 | 12px 比例简体中文 Regular 原始 WOFF2，701,520 字节，未裁剪；主许可与三份上游许可都保留在 `fonts/`。只用于品牌、标题与少量导航，代码和正文保持易读字体。 |
+
+[素材署名页](../web/assets/voxel/credits.html)、[包来源与 ZIP 哈希](../web/assets/voxel/SOURCE.json)、[字体固定版本与哈希](../web/assets/voxel/fonts/SOURCE.json) 均保存在仓库。新增 [manifest.json](../web/assets/voxel/manifest.json) 覆盖本试稿素材目录的 23 个文件，包含来源记录和原创署名页，排除清单自身；12 张 PNG 共 28,891 字节。清单与主程序、截图分别管理。
+
+浏览器仅请求本地资源；静态服务器对预览素材使用精确允许列表，未开放任意目录读取。实际视觉与响应式检查见[第二十一轮进度](progress.md)。

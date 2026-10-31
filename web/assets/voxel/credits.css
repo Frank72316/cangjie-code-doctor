@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@font-face { font-family:"Fusion Pixel"; src:url("fonts/fusion-pixel-12px-proportional-zh_hans.otf.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+* { box-sizing:border-box; }
+body { margin:0; color:#364239; background:#e7eae5; font:15px/1.85 "Segoe UI","Microsoft YaHei",sans-serif; }
+main { max-width:940px; margin:36px auto; padding:26px 32px; background:#f9faf6; border:3px solid #485448; box-shadow:6px 6px 0 #bfc8bb; }
+nav,.links { display:flex; flex-wrap:wrap; gap:10px 24px; }
+nav { justify-content:space-between; padding-bottom:20px; border-bottom:2px solid #d3d9cf; }
+a { color:#356826; text-decoration:underline; text-underline-offset:4px; }
+a:hover { color:#234c18; }
+a:focus-visible { outline:3px solid #569c38; outline-offset:4px; }
+header { display:flex; align-items:center; gap:18px; margin:30px 0 16px; }
+.block { width:54px; height:54px; flex-shrink:0; border:2px solid #3e6631; background:url("grass-side.png") center/54px 54px; box-shadow:4px 4px 0 #c5cdbb; }
+.eyebrow { margin:0 0 5px; color:#68765e; font-size:11px; font-weight:700; letter-spacing:1.2px; }
+h1 { margin:0; color:#304827; font:400 30px/1.4 "Fusion Pixel","Microsoft YaHei",sans-serif; }
+h2 { margin:0 0 12px; color:#33452c; font-size:19px; line-height:1.5; }
+p { margin:0 0 14px; }
+.intro { color:#586451; margin-bottom:26px; }
+section { display:flex; align-items:flex-start; gap:20px; padding:25px 0; border-top:2px solid #d3d9cf; }
+.number { display:grid; place-items:center; width:40px; height:40px; flex-shrink:0; background:#dfeccf; border:2px solid #8fa17d; color:#49653a; font:400 20px/1 "Fusion Pixel",monospace; }
+.links { margin-bottom:0; font-size:14px; }
+.upstream { margin:14px 0 0; color:#667060; font-size:13px; }
+footer { border-top:2px solid #d3d9cf; padding-top:22px; color:#68715f; font-size:13px; overflow-wrap:anywhere; }
+footer p:last-child { margin-bottom:0; }
+@media(max-width:640px) { main { margin:14px; padding:20px; } nav { font-size:13px; } header { align-items:flex-start; gap:13px; } h1 { font-size:24px; } .block { width:44px; height:44px; background-size:44px 44px; } section { gap:12px; } .number { width:30px; height:30px; font-size:16px; } h2 { font-size:17px; } }

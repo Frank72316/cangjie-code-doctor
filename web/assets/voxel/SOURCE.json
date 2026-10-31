@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "acquiredOn": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "sources": [
+    {
+      "id": "kenney-voxel",
+      "name": "Voxel pack (base)",
+      "author": "Kenney Vleugels",
+      "publisher": "Kenney",
+      "page": "https://opengameart.org/content/voxel-pack",
+      "download": "https://opengameart.org/sites/default/files/voxel-pack-updated.zip",
+      "license": "CC0-1.0",
+      "licenseFile": "kenney-voxel-license.txt",
+      "archiveBytes": 1267464,
+      "archiveSha256": "667c05e3f6d95718aaef888c7fc06f7137ba5dede95f4574deb17d4436257958"
+    },
+    {
+      "id": "kenney-pixel-ui",
+      "name": "Pixel UI pack",
+      "author": "Kenney Vleugels, with help by Lynn Evers",
+      "publisher": "Kenney",
+      "page": "https://opengameart.org/content/pixel-ui-pack-750-assets",
+      "download": "https://opengameart.org/sites/default/files/PixelUIpack.zip",
+      "license": "CC0-1.0",
+      "licenseFile": "kenney-pixel-ui-license.txt",
+      "archiveBytes": 141881,
+      "archiveSha256": "b76f2f60f2be76eb8e66511038fa4d48faec11e638316fa37d06084878cdf0c7"
+    }
+  ],
+  "changes": "Selected original PNG and license bytes retained unchanged; local filenames normalized. Display scaling, background repetition and CSS block faces are applied outside these image files. No game code or downloaded programs are executed.",
+  "files": [
+    {
+      "path": "grass-top.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/grass_top.png",
+      "bytes": 4052,
+      "sha256": "6e91371f300c74179fb164d1c731b174f58ce68670b63b4925734b13053bf01d",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "grass-side.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/dirt_grass.png",
+      "bytes": 5359,
+      "sha256": "4aff6bc1ec36f93de3702b75e67dc1b77fc74400087fbc8d03f4aec869a6171e",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "dirt.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/dirt.png",
+      "bytes": 3831,
+      "sha256": "fff7cf42c901e597cc8e212e070daf9e691032b49466d2e51ade930ad433fca1",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "stone.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/stone.png",
+      "bytes": 3254,
+      "sha256": "e53319b547c6172c72c299e21631fecf5434dc75c013b22538146badaf768d1f",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "wood.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/wood.png",
+      "bytes": 1968,
+      "sha256": "034f0c8cf6ea6d42cae74eaf0665f10c9331baa79cc9d305190ee90880c4849e",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "diamond-ore.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/stone_diamond.png",
+      "bytes": 5409,
+      "sha256": "150ce3e47cd87dceec1803218847b40b90c87d1d7f8d9335fa9478914c40de8c",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "pickaxe.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Items/pick_iron.png",
+      "bytes": 3885,
+      "sha256": "5f5829aa7aefe99c6736712a13d97f4f6b23272501dbc3db810e4bdeda216cb1",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "kenney-voxel-license.txt",
+      "source": "kenney-voxel",
+      "upstreamPath": "License.txt",
+      "bytes": 621,
+      "sha256": "b095efc2547e48565fe5d084473c9c8e7f40a881032e1f37e0032120c6204fe5"
+    },
+    {
+      "path": "ui-grey.png",
+      "source": "kenney-pixel-ui",
+      "upstreamPath": "9-Slice/Colored/grey.png",
+      "bytes": 216,
+      "sha256": "af913e560e8cf0159d46e6f42981ab0adb813ecdc3b23cb181e4afa52699068c",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "path": "ui-grey-pressed.png",
+      "source": "kenney-pixel-ui",
+      "upstreamPath": "9-Slice/Colored/grey_pressed.png",
+      "bytes": 201,
+      "sha256": "318a0aede7a6a14d89337b11b9a5ea0aaefa3c7d5c53f2383ad86b27baea1bf7",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "path": "ui-green.png",
+      "source": "kenney-pixel-ui",
+      "upstreamPath": "9-Slice/Colored/green.png",
+      "bytes": 230,
+      "sha256": "3dddc0527f257d782c8f4aafab2e5f6d219861f52734fa8d87f289204a928c83",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "path": "ui-green-pressed.png",
+      "source": "kenney-pixel-ui",
+      "upstreamPath": "9-Slice/Colored/green_pressed.png",
+      "bytes": 214,
+      "sha256": "6b858d99b059629e6288e8e68b4cb8bf2d05bcced8e2c0d53f7b9951a8563ee1",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "path": "ui-panel.png",
+      "source": "kenney-pixel-ui",
+      "upstreamPath": "9-Slice/Ancient/grey.png",
+      "bytes": 272,
+      "sha256": "4b6eadb1565f2b7890001b19e978eaf64830efa618dae554b43d0af4122fccde",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "path": "kenney-pixel-ui-license.txt",
+      "source": "kenney-pixel-ui",
+      "upstreamPath": "License.txt",
+      "bytes": 665,
+      "sha256": "cbab1059d9afa2965e78478b73e2f1cbdeafc0b31eee475e0b312f773872adc7"
+    }
+  ]
+}
