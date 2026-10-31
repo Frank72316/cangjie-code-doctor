@@ -151,6 +151,51 @@
       "upstreamPath": "License.txt",
       "bytes": 665,
       "sha256": "cbab1059d9afa2965e78478b73e2f1cbdeafc0b31eee475e0b312f773872adc7"
+    },
+    {
+      "path": "nav-sand.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/sand.png",
+      "bytes": 3118,
+      "sha256": "0aee535d03a084d00fd6b80aaa7f09b644e677106caef65c227c4664a15ea14b",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "nav-brick.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/brick_red.png",
+      "bytes": 2652,
+      "sha256": "12ea2e07af0fb20b6b4890738ccf9e45334f804f1896be7a4a77000eab5208d3",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "nav-snow.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/snow.png",
+      "bytes": 3014,
+      "sha256": "9b863378ecc4f807a72120fcbbacdc26fbf9dcf11573769a0d2e3aff4d014200",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "nav-water.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/water.png",
+      "bytes": 2329,
+      "sha256": "8bf6b51ea13652f1937c83fd0649dcd45a91dd246814886236ac0458f256eb4b",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "nav-gold.png",
+      "source": "kenney-voxel",
+      "upstreamPath": "PNG/Tiles/stone_gold.png",
+      "bytes": 6011,
+      "sha256": "f91e5b4d3200d98a280b6cae50d98b464b106759143f5e37c4467a3dd7f5fc63",
+      "width": 128,
+      "height": 128
     }
   ]
 }

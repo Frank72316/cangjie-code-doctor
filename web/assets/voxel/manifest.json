@@ -10,8 +10,8 @@
   "files": [
     {
       "path": "SOURCE.json",
-      "bytes": 5089,
-      "sha256": "3e90c42d2a9fd1a856bcc5ceeb6025cb2ed62194231a97675730063611cf9bc2"
+      "bytes": 6423,
+      "sha256": "1fe2507a292cd30ceb6684b0862061d1e5d7fc0b024a29f5e3b8c5bfd44aa241"
     },
     {
       "path": "credits.css",
@@ -20,8 +20,8 @@
     },
     {
       "path": "credits.html",
-      "bytes": 3290,
-      "sha256": "d462a41e217c90cd7ae74a3988c0e1a5e677d6f4892c21c6acca9e476c6eef23"
+      "bytes": 3454,
+      "sha256": "108bc8d2381d3b5aa1aaaeccc77d836c8b0e43eb5fe4791af4429dad0d34f0b6"
     },
     {
       "path": "diamond-ore.png",
@@ -82,6 +82,31 @@
       "path": "kenney-voxel-license.txt",
       "bytes": 621,
       "sha256": "b095efc2547e48565fe5d084473c9c8e7f40a881032e1f37e0032120c6204fe5"
+    },
+    {
+      "path": "nav-brick.png",
+      "bytes": 2652,
+      "sha256": "12ea2e07af0fb20b6b4890738ccf9e45334f804f1896be7a4a77000eab5208d3"
+    },
+    {
+      "path": "nav-gold.png",
+      "bytes": 6011,
+      "sha256": "f91e5b4d3200d98a280b6cae50d98b464b106759143f5e37c4467a3dd7f5fc63"
+    },
+    {
+      "path": "nav-sand.png",
+      "bytes": 3118,
+      "sha256": "0aee535d03a084d00fd6b80aaa7f09b644e677106caef65c227c4664a15ea14b"
+    },
+    {
+      "path": "nav-snow.png",
+      "bytes": 3014,
+      "sha256": "9b863378ecc4f807a72120fcbbacdc26fbf9dcf11573769a0d2e3aff4d014200"
+    },
+    {
+      "path": "nav-water.png",
+      "bytes": 2329,
+      "sha256": "8bf6b51ea13652f1937c83fd0649dcd45a91dd246814886236ac0458f256eb4b"
     },
     {
       "path": "pickaxe.png",

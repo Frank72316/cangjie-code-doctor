@@ -4,7 +4,7 @@ export const voxelRoutes = [
   ['/assets/voxel/credits.html', ['web/assets/voxel/credits.html', 'text/html; charset=utf-8']],
   ...[
     ['credits.css', 'text/css; charset=utf-8'],
-    ...['grass-top', 'grass-side', 'dirt', 'stone', 'wood', 'diamond-ore', 'pickaxe', 'ui-grey', 'ui-green', 'ui-grey-pressed', 'ui-green-pressed', 'ui-panel'].map(name => [`${name}.png`, 'image/png']),
+    ...['grass-top', 'grass-side', 'dirt', 'stone', 'wood', 'diamond-ore', 'pickaxe', 'ui-grey', 'ui-green', 'ui-grey-pressed', 'ui-green-pressed', 'ui-panel', 'nav-sand', 'nav-brick', 'nav-snow', 'nav-water', 'nav-gold'].map(name => [`${name}.png`, 'image/png']),
     ['fonts/fusion-pixel-12px-proportional-zh_hans.otf.woff2', 'font/woff2'],
     ...['SOURCE.json', 'manifest.json', 'fonts/SOURCE.json'].map(name => [name, 'application/json; charset=utf-8']),
     ...['kenney-voxel-license.txt', 'kenney-pixel-ui-license.txt', 'fonts/OFL.txt', 'fonts/LICENSES/ark-pixel/OFL.txt', 'fonts/LICENSES/cubic-11/OFL.txt', 'fonts/LICENSES/galmuri/LICENSE.txt'].map(name => [name, 'text/plain; charset=utf-8']),
@@ -12,6 +12,11 @@ export const voxelRoutes = [
 ];
 
 const cube = (position, material = 'grass') => `<span class="block block-${position} block-${material}"><i class="block-top"></i><i class="block-left"></i><i class="block-right"></i></span>`;
+// Decorative cubes keep navigation names and status text independent of the artwork.
+const miniCube = material => `<span class="voxel-cube voxel-cube-${material}" aria-hidden="true"><i class="cube-top"></i><i class="cube-left"></i><i class="cube-right"></i></span>`;
+const navMaterials = {tutorial:'nav-sand', diagnostics:'nav-brick', documents:'nav-snow', records:'nav-gold', history:'nav-water'};
+const headingMaterials = {'GETTING STARTED':'grass', DIAGNOSE:'ore', REFERENCE:'wood', RECORD:'stone', 'TASK HISTORY':'dirt'};
+const sidebarGarden = `<div class="voxel-sidebar-garden" aria-hidden="true"><span class="garden-ground garden-rear">${miniCube('nav-snow')}</span><span class="garden-tree"><i class="tree-trunk"></i><span class="tree-crown">${miniCube('nav-snow')}</span></span><span class="garden-ground garden-left">${miniCube('nav-water')}</span><span class="garden-ground garden-front">${miniCube('nav-snow')}</span><span class="garden-ground garden-right">${miniCube('nav-snow')}</span><i class="garden-flower"></i></div>`;
 const landscape = `<figure class="voxel-scene" aria-label="草地方块、矿石和工作台组成的小岛插画">
   <div class="voxel-sky" aria-hidden="true"><span class="pixel-cloud cloud-one"></span><span class="pixel-cloud cloud-two"></span><span class="pixel-sun"></span></div>
   <div class="voxel-island" aria-hidden="true">
@@ -27,6 +32,9 @@ export function applyVoxelTheme(html) {
   return html
     .replace('</head>', '<link rel="stylesheet" href="/voxel-preview.css"></head>')
     .replace(/<body data-page="([a-z]+)">/, '<body data-page="$1" data-theme="voxel">')
+    .replace(/(<a class="nav-item[^>]*href="\/([a-z]+)"[^>]*>)<svg[^>]*>[\s\S]*?<\/svg>/g, (match, link, page) => navMaterials[page] ? link + miniCube(navMaterials[page]) : match)
+    .replace('<div class="sidebar-bottom">', `<div class="sidebar-bottom">${sidebarGarden}`)
+    .replace(/<p class="eyebrow">([^<]+)<\/p>/g, (match, label) => headingMaterials[label] ? `<p class="eyebrow"><span class="voxel-heading-blocks" aria-hidden="true">${miniCube(headingMaterials[label])}${miniCube('stone')}</span>${label}</p>` : match)
     .replace('本地运行 · 副本编辑', '方块风格 · 独立预览')
     .replace('<main id="main-content" tabindex="-1">', '<main id="main-content" tabindex="-1"><div class="voxel-preview-note">设计试稿 <span>可切换五个页面、查看和编辑样例；编译与保存请回到原工作台。</span><a href="http://127.0.0.1:8765/tutorial">原工作台 ↗</a></div>')
     .replace('DOCTOR / 你的程序诊断手记', 'DOCTOR / 方块工作台')

@@ -115,3 +115,45 @@ footer { border-color:#bcc6b1; color:#65745a; }
 @media(max-width:700px) { h1 { font-size:30px; } .tutorial-hero { grid-template-columns:1fr; } .tutorial-welcome h2 { font-size:36px; } .tutorial-welcome>p { max-width:440px; } .voxel-scene { width:100%; max-width:470px; justify-self:center; height:288px; } .voxel-island { top:0; transform:translateX(-50%) scale(.8); } .tutorial-flow strong { font-size:16px; } .tutorial-flow>div>span { margin-bottom:10px; } .voxel-preview-note a { margin-left:0; } }
 @media(max-width:480px) { .nav-item { font-family:inherit; font-size:12px; } .topbar-note { font-size:11px; } .voxel-preview-note { margin-bottom:20px; gap:3px 10px; } .voxel-preview-note span { flex-basis:100%; order:2; } .voxel-preview-note a { margin-left:auto; } h1 { font-size:30px; } .tutorial-hero { padding:20px; gap:22px; } .tutorial-welcome h2 { font-size:30px; } .tutorial-start { font-size:18px; } .voxel-scene { height:250px; } .voxel-island { top:-15px; transform:translateX(-50%) scale(.65); } .tutorial-flow>div>span { margin:0; width:46px; height:46px; } .tutorial-flow strong { font-size:18px; } .tutorial-flow strong small { display:inline; margin-right:7px; } .pixel-sun { right:25px; top:20px; width:24px; height:24px; } .voxel-scene figcaption { font-size:12px; } }
 @media(max-width:350px) { .tutorial-hero { padding:16px; } .voxel-island { transform:translateX(-50%) scale(.54); top:-27px; } .voxel-scene { height:228px; } }
+
+/* Small material accents: decorative only, never used as success indicators. */
+.voxel-cube { --cube-top:url("/assets/voxel/grass-top.png"); --cube-side:url("/assets/voxel/grass-side.png"); position:relative; display:inline-block; width:30px; height:32px; flex-shrink:0; pointer-events:none; filter:drop-shadow(0 3px 1px #11210b40); }
+.voxel-cube i { display:block; position:absolute; inset:0; background-size:30px 30px; image-rendering:pixelated; }
+.cube-top { clip-path:polygon(50% 0,100% 25%,50% 50%,0 25%); background-image:var(--cube-top); }
+.cube-left { clip-path:polygon(0 25%,50% 50%,50% 100%,0 75%); background-image:linear-gradient(#0001,#0001),var(--cube-side); }
+.cube-right { clip-path:polygon(50% 50%,100% 25%,100% 75%,50% 100%); background-image:linear-gradient(#0004,#0004),var(--cube-side); }
+.voxel-cube-stone { --cube-top:url("/assets/voxel/stone.png"); --cube-side:url("/assets/voxel/stone.png"); }
+.voxel-cube-ore { --cube-top:url("/assets/voxel/stone.png"); --cube-side:url("/assets/voxel/diamond-ore.png"); }
+.voxel-cube-wood { --cube-top:url("/assets/voxel/wood.png"); --cube-side:url("/assets/voxel/wood.png"); }
+.voxel-cube-dirt { --cube-top:url("/assets/voxel/dirt.png"); --cube-side:url("/assets/voxel/dirt.png"); }
+.voxel-cube-nav-sand { --cube-top:url("/assets/voxel/nav-sand.png"); --cube-side:url("/assets/voxel/nav-sand.png"); }
+.voxel-cube-nav-brick { --cube-top:url("/assets/voxel/nav-brick.png"); --cube-side:url("/assets/voxel/nav-brick.png"); }
+.voxel-cube-nav-snow { --cube-top:url("/assets/voxel/nav-snow.png"); --cube-side:url("/assets/voxel/nav-snow.png"); }
+.voxel-cube-nav-water { --cube-top:url("/assets/voxel/nav-water.png"); --cube-side:url("/assets/voxel/nav-water.png"); }
+.voxel-cube-nav-gold { --cube-top:url("/assets/voxel/nav-gold.png"); --cube-side:url("/assets/voxel/nav-gold.png"); }
+.nav-item { gap:11px; }
+.nav-item>.voxel-cube { width:27px; height:29px; }
+.nav-item.active>.voxel-cube { filter:drop-shadow(0 3px 0 #233219); }
+.nav-item:hover>.voxel-cube { transform:translateY(-1px); }
+.intro .eyebrow { display:flex; align-items:center; gap:10px; min-height:25px; }
+.voxel-heading-blocks { position:relative; display:inline-block; width:42px; height:25px; flex-shrink:0; pointer-events:none; }
+.voxel-heading-blocks>.voxel-cube { position:absolute; width:21px; height:23px; left:0; top:0; filter:drop-shadow(0 2px 0 #7c916942); }
+.voxel-heading-blocks>.voxel-cube+ .voxel-cube { width:16px; height:18px; left:23px; top:6px; }
+.document-panel,.history-panel,.tutorial-faq { background-image:linear-gradient(#eef3e4cc,#eef3e4cc),url("/assets/voxel/grass-top.png"); background-size:84px 5px,84px 5px; background-position:24px 0; background-repeat:no-repeat; }
+.history-panel { background-image:linear-gradient(#dfe7d3aa,#dfe7d3aa),url("/assets/voxel/stone.png"); }
+.record-guide>h2 { display:flex; align-items:center; gap:9px; }
+.record-guide>h2::before { content:""; width:12px; height:12px; flex-shrink:0; background:#91af69; box-shadow:3px 3px #58753d,inset 2px 2px #c3d6a7; }
+.voxel-sidebar-garden { position:relative; width:160px; height:86px; margin:0 auto 13px; pointer-events:none; }
+.garden-ground { position:absolute; }
+.garden-ground>.voxel-cube { width:46px; height:46px; }
+.garden-rear { left:57px; top:27px; }.garden-left { left:34px; top:38px; }.garden-front { left:57px; top:49px; }.garden-right { left:80px; top:38px; }
+.garden-tree { position:absolute; width:55px; height:57px; left:52px; top:0; }
+.tree-trunk { position:absolute; top:27px; left:25px; width:10px; height:29px; background:#986b3d url("/assets/voxel/wood.png") center/24px; box-shadow:4px 0 #614b2d; image-rendering:pixelated; }
+.tree-crown { position:absolute; top:-3px; left:7px; }
+.tree-crown>.voxel-cube { width:43px; height:43px; }
+.garden-flower { position:absolute; left:115px; top:48px; width:3px; height:12px; background:#90ae57; box-shadow:0 -6px #eed27b,4px -3px #eed27b,-4px -3px #eed27b; }
+@media(max-width:1150px) { .nav-item { gap:9px; padding-left:11px; padding-right:11px; } .nav-item>.voxel-cube { width:24px; height:26px; } }
+@media(max-height:800px) { .voxel-sidebar-garden { display:none; } }
+@media(max-width:899px) { .nav-item { padding-left:4px; padding-right:4px; } .nav-item>.voxel-cube { width:22px; height:24px; } }
+@media(max-width:700px) { .nav-item { gap:4px; } .voxel-heading-blocks { width:35px; } .voxel-heading-blocks>.voxel-cube { width:18px; height:20px; } .voxel-heading-blocks>.voxel-cube+.voxel-cube { width:13px; height:15px; left:20px; top:6px; } }
+@media(max-width:480px) { .nav-item>.voxel-cube { width:20px; height:22px; } .nav-item { padding:8px 2px; } .document-panel,.history-panel,.tutorial-faq { background-position:16px 0; background-size:60px 4px,60px 4px; } }

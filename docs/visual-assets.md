@@ -65,6 +65,18 @@ Mega Doodles Pack 的许可核对自作者固定版本的 [`README.md`](https://
 | Pixel UI Pack | [Kenney 作者发布页](https://opengameart.org/content/pixel-ui-pack-750-assets)，Kenney Vleugels / Lynn Evers，CC0；[原始许可](../web/assets/voxel/kenney-pixel-ui-license.txt) | 灰/绿按钮与按下状态使用 CSS 九宫格边框，48×48 PNG；另保留灰面板供试稿选择。 |
 | Fusion Pixel | [TakWolf 官方 2026.10.25 发布](https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.10.25)，SIL OFL 1.1 | 12px 比例简体中文 Regular 原始 WOFF2，701,520 字节，未裁剪；主许可与三份上游许可都保留在 `fonts/`。只用于品牌、标题与少量导航，代码和正文保持易读字体。 |
 
-[素材署名页](../web/assets/voxel/credits.html)、[包来源与 ZIP 哈希](../web/assets/voxel/SOURCE.json)、[字体固定版本与哈希](../web/assets/voxel/fonts/SOURCE.json) 均保存在仓库。新增 [manifest.json](../web/assets/voxel/manifest.json) 覆盖本试稿素材目录的 23 个文件，包含来源记录和原创署名页，排除清单自身；12 张 PNG 共 28,891 字节。清单与主程序、截图分别管理。
+[素材署名页](../web/assets/voxel/credits.html)、[包来源与 ZIP 哈希](../web/assets/voxel/SOURCE.json)、[字体固定版本与哈希](../web/assets/voxel/fonts/SOURCE.json) 均保存在仓库。[manifest.json](../web/assets/voxel/manifest.json) 初版覆盖 23 个文件，第二十二轮补材后覆盖 **28 个文件**，包含来源记录和原创署名页，排除清单自身；原 12 张 PNG 共 28,891 字节，新 5 张共 17,124 字节，合计 46,015 字节。清单与主程序、截图分别管理。
 
 浏览器仅请求本地资源；静态服务器对预览素材使用精确允许列表，未开放任意目录读取。实际视觉与响应式检查见[第二十一轮进度](progress.md)。
+
+第二十二轮根据用户反馈补充侧栏独立材质，避免重复右侧草地/木材/石头。以下均来自上表同一个固定 Voxel ZIP、CC0 许可，保持 128×128 原始 PNG 字节；各项哈希已加入来源与清单。
+
+| 侧栏入口 | 本地文件 | 原包路径 |
+| --- | --- | --- |
+| 使用教程 | `nav-sand.png` | `PNG/Tiles/sand.png` |
+| 编译诊断 | `nav-brick.png` | `PNG/Tiles/brick_red.png` |
+| 文档依据 | `nav-snow.png` | `PNG/Tiles/snow.png` |
+| 记录依据 | `nav-gold.png` | `PNG/Tiles/stone_gold.png` |
+| 任务历史 | `nav-water.png` | `PNG/Tiles/water.png` |
+
+立体小方块、侧栏雪地小景与标题装饰由 CSS 组合，新增纹理没有用于表示诊断或测试成功。原 Phosphor 导航图形在独立试稿中由装饰方块替换，文字与无障碍名称保留；默认工作台仍使用原图标。标题、边饰沿用原纹理，木材仅用于雪景树干。布局验收见[第二十二轮进度](progress.md)。
