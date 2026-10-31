@@ -5,14 +5,10 @@
   "scope": "All files in web/assets/voxel, including attribution HTML/CSS and source records, excluding this manifest itself. Original PNG/font/license bytes are unchanged; credits.html and credits.css are authored for Doctor.",
   "sources": [
     "SOURCE.json",
-    "fonts/SOURCE.json"
+    "fonts/SOURCE.json",
+    "items/SOURCE.json"
   ],
   "files": [
-    {
-      "path": "SOURCE.json",
-      "bytes": 6423,
-      "sha256": "1fe2507a292cd30ceb6684b0862061d1e5d7fc0b024a29f5e3b8c5bfd44aa241"
-    },
     {
       "path": "credits.css",
       "bytes": 2240,
@@ -20,8 +16,8 @@
     },
     {
       "path": "credits.html",
-      "bytes": 3454,
-      "sha256": "108bc8d2381d3b5aa1aaaeccc77d836c8b0e43eb5fe4791af4429dad0d34f0b6"
+      "bytes": 4971,
+      "sha256": "6b823fef88da15999c2f0921c82a0fadbd47b69db79ff2d26247b0112d06c325"
     },
     {
       "path": "diamond-ore.png",
@@ -32,6 +28,11 @@
       "path": "dirt.png",
       "bytes": 3831,
       "sha256": "fff7cf42c901e597cc8e212e070daf9e691032b49466d2e51ade930ad433fca1"
+    },
+    {
+      "path": "fonts/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+      "bytes": 701520,
+      "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
     },
     {
       "path": "fonts/LICENSES/ark-pixel/OFL.txt",
@@ -59,11 +60,6 @@
       "sha256": "ac3aaddddc2a628e46a7cf21dc8733e72f563cfd52928ea2b74652b42faff3ad"
     },
     {
-      "path": "fonts/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
-      "bytes": 701520,
-      "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
-    },
-    {
       "path": "grass-side.png",
       "bytes": 5359,
       "sha256": "4aff6bc1ec36f93de3702b75e67dc1b77fc74400087fbc8d03f4aec869a6171e"
@@ -72,6 +68,46 @@
       "path": "grass-top.png",
       "bytes": 4052,
       "sha256": "6e91371f300c74179fb164d1c731b174f58ce68670b63b4925734b13053bf01d"
+    },
+    {
+      "path": "items/book.png",
+      "bytes": 315,
+      "sha256": "f938db90f1e8811732e95a78d8ee383757c9db1101b58fa66b69dead9b6aafed"
+    },
+    {
+      "path": "items/clock.png",
+      "bytes": 306,
+      "sha256": "8d8f8528421d5ef4bd8664a53af37287c8a95327d4d8d456c3637e929c0a0904"
+    },
+    {
+      "path": "items/compass.png",
+      "bytes": 314,
+      "sha256": "12defd901dc6358875f29b3c7454be310d762effed1c42610d851a5cb1da6ab6"
+    },
+    {
+      "path": "items/enchanted-book.png",
+      "bytes": 348,
+      "sha256": "43113defd6e7e9ff5f5aa8f1f6479e7f62688499c4392c6fc3adf821d6990974"
+    },
+    {
+      "path": "items/LICENSE.md",
+      "bytes": 18625,
+      "sha256": "ccf0e8ce183761bf82700126cc45a4e907b2cede024e65e3fef5c2338b9b7063"
+    },
+    {
+      "path": "items/pickaxe.png",
+      "bytes": 320,
+      "sha256": "4c9c4cbc90feae2f56c19ec86098013c7d697a1c13b895d20f48b8f417a3de0a"
+    },
+    {
+      "path": "items/README.md",
+      "bytes": 3459,
+      "sha256": "4528feea41eb9d324f1fe7aca046471a32db60cd071c4e0b954555be56da8aba"
+    },
+    {
+      "path": "items/SOURCE.json",
+      "bytes": 5220,
+      "sha256": "b97bf5a004b752c6cf509c3a7f1511ff7c3f81daa2e5dee714db4a612c4ad2f3"
     },
     {
       "path": "kenney-pixel-ui-license.txt",
@@ -112,6 +148,11 @@
       "path": "pickaxe.png",
       "bytes": 3885,
       "sha256": "5f5829aa7aefe99c6736712a13d97f4f6b23272501dbc3db810e4bdeda216cb1"
+    },
+    {
+      "path": "SOURCE.json",
+      "bytes": 6423,
+      "sha256": "1fe2507a292cd30ceb6684b0862061d1e5d7fc0b024a29f5e3b8c5bfd44aa241"
     },
     {
       "path": "stone.png",

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "acquiredOn": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "name": "Pixel Perfection Community Edition (CE) — selected item textures",
+  "repository": "https://github.com/Athemis/PixelPerfectionCE",
+  "commit": "28e38cab7c1f03f86364ef704f705bebcc13cb3d",
+  "commitDate": "2021-12-20T14:00:13Z",
+  "tree": "eb064f221690fee56f87250fd11419db7c015dc4",
+  "authors": [
+    "XSSheep — original creator",
+    "Pixel Perfection CE community contributors: StonePendant, freejusticehere, Stingraych, Nova_Wostra, lazerl0rd, and other repository contributors"
+  ],
+  "license": "CC-BY-SA-4.0",
+  "licenseFile": "LICENSE.md",
+  "licenseUrl": "https://github.com/Athemis/PixelPerfectionCE/blob/28e38cab7c1f03f86364ef704f705bebcc13cb3d/LICENSE.md",
+  "readmeFile": "README.md",
+  "readmeUrl": "https://github.com/Athemis/PixelPerfectionCE/blob/28e38cab7c1f03f86364ef704f705bebcc13cb3d/README.md",
+  "attribution": "Pixel Perfection by XSSheep; Pixel Perfection CE community contributors. Selected item textures licensed under CC BY-SA 4.0. Source and license are preserved in this directory and linked from the Doctor asset credits page.",
+  "changes": "Original PNG, LICENSE.md and README.md bytes are preserved; only local PNG filenames are normalized. Browser display enlargement with image-rendering: pixelated and the enchanted-book icon frame with static purple accents are authored in Doctor CSS outside the PNG files. The purple frame is not an original upstream texture or an animation.",
+  "provenance": "Downloaded only selected PNG images and documentation from the author/community repository at the pinned commit. These are resource-pack artworks, not files extracted from a Mojang game installation. README identifies CC BY-SA 4.0 and disallows copying unlicensed Minecraft content. Git blob hashes were checked against the complete GitHub API tree; no upstream code was executed.",
+  "files": [
+    {
+      "path": "compass.png",
+      "upstreamPath": "assets/minecraft/textures/item/compass_16.png",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/compass_16.png",
+      "bytes": 314,
+      "sha256": "12defd901dc6358875f29b3c7454be310d762effed1c42610d851a5cb1da6ab6",
+      "gitBlobSha1": "1221d332914e64ed500685a67dcb37896c0e1ee7",
+      "use": "tutorial",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "pickaxe.png",
+      "upstreamPath": "assets/minecraft/textures/item/iron_pickaxe.png",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/iron_pickaxe.png",
+      "bytes": 320,
+      "sha256": "4c9c4cbc90feae2f56c19ec86098013c7d697a1c13b895d20f48b8f417a3de0a",
+      "gitBlobSha1": "97d310667459cddc460ae63b10905f18f22ed44c",
+      "use": "diagnostics",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "book.png",
+      "upstreamPath": "assets/minecraft/textures/item/book.png",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/book.png",
+      "bytes": 315,
+      "sha256": "f938db90f1e8811732e95a78d8ee383757c9db1101b58fa66b69dead9b6aafed",
+      "gitBlobSha1": "c8e0d84b75a260efa60fd49d25fd010ad1363417",
+      "use": "documents",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "enchanted-book.png",
+      "upstreamPath": "assets/minecraft/textures/item/enchanted_book.png",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/enchanted_book.png",
+      "bytes": 348,
+      "sha256": "43113defd6e7e9ff5f5aa8f1f6479e7f62688499c4392c6fc3adf821d6990974",
+      "gitBlobSha1": "3be680e0561c3a0a511a225182a4fc2f8f6335d8",
+      "use": "records",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "clock.png",
+      "upstreamPath": "assets/minecraft/textures/item/clock_00.png",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/clock_00.png",
+      "bytes": 306,
+      "sha256": "8d8f8528421d5ef4bd8664a53af37287c8a95327d4d8d456c3637e929c0a0904",
+      "gitBlobSha1": "51a306a2bb9ada9ec242eb63715d3eaa7eb6ce33",
+      "use": "history",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "LICENSE.md",
+      "upstreamPath": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/LICENSE.md",
+      "bytes": 18625,
+      "sha256": "ccf0e8ce183761bf82700126cc45a4e907b2cede024e65e3fef5c2338b9b7063",
+      "gitBlobSha1": "033217724f8631eeb12987b30d76e8a62f275ceb"
+    },
+    {
+      "path": "README.md",
+      "upstreamPath": "README.md",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/README.md",
+      "bytes": 3459,
+      "sha256": "4528feea41eb9d324f1fe7aca046471a32db60cd071c4e0b954555be56da8aba",
+      "gitBlobSha1": "e390294f10aef3d14ae0def17b7c5c6e9d3609da"
+    }
+  ]
+}

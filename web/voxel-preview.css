@@ -132,9 +132,13 @@ footer { border-color:#bcc6b1; color:#65745a; }
 .voxel-cube-nav-water { --cube-top:url("/assets/voxel/nav-water.png"); --cube-side:url("/assets/voxel/nav-water.png"); }
 .voxel-cube-nav-gold { --cube-top:url("/assets/voxel/nav-gold.png"); --cube-side:url("/assets/voxel/nav-gold.png"); }
 .nav-item { gap:11px; }
-.nav-item>.voxel-cube { width:27px; height:29px; }
-.nav-item.active>.voxel-cube { filter:drop-shadow(0 3px 0 #233219); }
-.nav-item:hover>.voxel-cube { transform:translateY(-1px); }
+.nav-item-art { position:relative; display:grid; place-items:center; width:36px; height:36px; flex-shrink:0; border:2px solid #56604f; background:#20271f; box-shadow:inset 2px 2px #11190f,1px 1px #71806450; pointer-events:none; }
+.nav-item-art img { display:block; width:32px; height:32px; object-fit:contain; image-rendering:pixelated; filter:drop-shadow(1px 1px #111a0dcc); }
+.nav-item.active .nav-item-art { border-color:#a2bc80; background:#34452a; box-shadow:inset 2px 2px #1c2d16,1px 1px #c4dc9e70; }
+.nav-item:hover .nav-item-art { transform:translateY(-1px); }
+.nav-item .nav-item-art-enchanted-book,.nav-item.active .nav-item-art-enchanted-book { background:#382a48; border-color:#8e72aa; box-shadow:inset 2px 2px #251a31,1px 1px #ad8ac94a; }
+.nav-item-art-enchanted-book img { filter:drop-shadow(0 0 2px #bf88d9); }
+.nav-item-art-enchanted-book::after { content:""; position:absolute; top:4px; right:3px; width:3px; height:3px; background:#e0bef6; box-shadow:-3px 3px #a47abc,0 6px #d3adeb,-23px 21px #c295df; }
 .intro .eyebrow { display:flex; align-items:center; gap:10px; min-height:25px; }
 .voxel-heading-blocks { position:relative; display:inline-block; width:42px; height:25px; flex-shrink:0; pointer-events:none; }
 .voxel-heading-blocks>.voxel-cube { position:absolute; width:21px; height:23px; left:0; top:0; filter:drop-shadow(0 2px 0 #7c916942); }
@@ -152,8 +156,8 @@ footer { border-color:#bcc6b1; color:#65745a; }
 .tree-crown { position:absolute; top:-3px; left:7px; }
 .tree-crown>.voxel-cube { width:43px; height:43px; }
 .garden-flower { position:absolute; left:115px; top:48px; width:3px; height:12px; background:#90ae57; box-shadow:0 -6px #eed27b,4px -3px #eed27b,-4px -3px #eed27b; }
-@media(max-width:1150px) { .nav-item { gap:9px; padding-left:11px; padding-right:11px; } .nav-item>.voxel-cube { width:24px; height:26px; } }
+@media(max-width:1150px) { .nav-item { gap:9px; padding-left:9px; padding-right:9px; } }
 @media(max-height:800px) { .voxel-sidebar-garden { display:none; } }
-@media(max-width:899px) { .nav-item { padding-left:4px; padding-right:4px; } .nav-item>.voxel-cube { width:22px; height:24px; } }
+@media(max-width:899px) { .nav-item { padding-left:4px; padding-right:4px; } }
 @media(max-width:700px) { .nav-item { gap:4px; } .voxel-heading-blocks { width:35px; } .voxel-heading-blocks>.voxel-cube { width:18px; height:20px; } .voxel-heading-blocks>.voxel-cube+.voxel-cube { width:13px; height:15px; left:20px; top:6px; } }
-@media(max-width:480px) { .nav-item>.voxel-cube { width:20px; height:22px; } .nav-item { padding:8px 2px; } .document-panel,.history-panel,.tutorial-faq { background-position:16px 0; background-size:60px 4px,60px 4px; } }
+@media(max-width:480px) { .nav-item { padding:8px 2px; } .document-panel,.history-panel,.tutorial-faq { background-position:16px 0; background-size:60px 4px,60px 4px; } }
