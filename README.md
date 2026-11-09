@@ -12,7 +12,7 @@
 
 ## 阅读入口
 
-- [正式开题报告 PDF](docs/proposal.pdf) · [可编辑 Word](docs/proposal.docx)
+- [正式开题报告 PDF](docs/proposal.pdf) · [可编辑 Word](docs/proposal.docx)：2026-11-09 按教师建议修订，保持开题方案口径，不包含当前开发进度或实验成绩。
 - [项目说明与团队分工 PDF](docs/project-brief.pdf) · [文字版](docs/project-brief.md)
 - [A/B 实验协议](docs/experiment-protocol.md)：案例划分、冻结、候选选择、判定及结果呈现。
 - [与第三组的定位及合作说明](docs/positioning-and-collaboration.md)：各自的问题与证明方式，以及待协商的合作方向。
