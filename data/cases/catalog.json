@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "kind": "doctor-public-case-catalog",
+  "sdkVersion": "1.0.5",
+  "cases": [
+    {
+      "id": "type_mismatch",
+      "familyId": "type_mismatch",
+      "split": "development",
+      "category": "type",
+      "title": "整数变量类型不匹配",
+      "task": "无标准输入。将整数变量 count 初始化为整数 3，并输出其值及一个 LF 换行。",
+      "sourcePath": "examples/type_mismatch.cj",
+      "sourceSha256": "59cb8d96def152e2c5e358ddeb7137426328b8b5652f36a6c8dc684ff2a53534",
+      "initialExpectation": "compile-error",
+      "origin": {
+        "kind": "project-example",
+        "reference": "examples/README.md；自建开发示例，题意与公开测试为本轮登记的练习约定。",
+        "permission": "project-owned"
+      },
+      "publicTests": [
+        {
+          "id": "default",
+          "stdin": "",
+          "expectedStdout": "3\n"
+        }
+      ],
+      "review": {
+        "reviewers": [],
+        "referenceSha256": null,
+        "initialEvidenceSha256": null,
+        "holdoutCommitmentSha256": null
+      }
+    },
+    {
+      "id": "undefined_name",
+      "familyId": "undefined_name",
+      "split": "development",
+      "category": "scope-or-api",
+      "title": "使用未声明变量",
+      "task": "无标准输入。定义整数变量 total，其值为 5，并输出其值及一个 LF 换行。",
+      "sourcePath": "examples/undefined_name.cj",
+      "sourceSha256": "3a26df5460afd866ab9c6d13c60c13c596eda4a088036cc8c17a366aa703bddb",
+      "initialExpectation": "compile-error",
+      "origin": {
+        "kind": "project-example",
+        "reference": "examples/README.md；自建开发示例，题意与公开测试为本轮登记的练习约定。",
+        "permission": "project-owned"
+      },
+      "publicTests": [
+        {
+          "id": "default",
+          "stdin": "",
+          "expectedStdout": "5\n"
+        }
+      ],
+      "review": {
+        "reviewers": [],
+        "referenceSha256": null,
+        "initialEvidenceSha256": null,
+        "holdoutCommitmentSha256": null
+      }
+    },
+    {
+      "id": "argument_count",
+      "familyId": "argument_count",
+      "split": "development",
+      "category": "scope-or-api",
+      "title": "函数缺少实参",
+      "task": "无标准输入。保留两个 Int64 参数的 add 函数，计算 2 与 3 之和并输出及一个 LF 换行。",
+      "sourcePath": "examples/argument_count.cj",
+      "sourceSha256": "5e6612766b92804ebb6313a2b5a5c58e10cecb23b2539856ee8e5c71130810f5",
+      "initialExpectation": "compile-error",
+      "origin": {
+        "kind": "project-example",
+        "reference": "examples/README.md；自建开发示例，题意与公开测试为本轮登记的练习约定。",
+        "permission": "project-owned"
+      },
+      "publicTests": [
+        {
+          "id": "default",
+          "stdin": "",
+          "expectedStdout": "5\n"
+        }
+      ],
+      "review": {
+        "reviewers": [],
+        "referenceSha256": null,
+        "initialEvidenceSha256": null,
+        "holdoutCommitmentSha256": null
+      }
+    },
+    {
+      "id": "hello",
+      "familyId": "hello",
+      "split": "development",
+      "category": "correct",
+      "title": "正常输出回归",
+      "task": "无标准输入。输出 Hello, Cangjie Code Doctor!，以一个 LF 换行结束。",
+      "sourcePath": "examples/hello.cj",
+      "sourceSha256": "65fb68627ad591876357224b12af8618e2c5af3997c0e8bbbf9e4322f6d79845",
+      "initialExpectation": "passes-public-tests",
+      "origin": {
+        "kind": "project-example",
+        "reference": "examples/README.md；自建开发示例，题意与公开测试为本轮登记的练习约定。",
+        "permission": "project-owned"
+      },
+      "publicTests": [
+        {
+          "id": "default",
+          "stdin": "",
+          "expectedStdout": "Hello, Cangjie Code Doctor!\n"
+        }
+      ],
+      "review": {
+        "reviewers": [],
+        "referenceSha256": null,
+        "initialEvidenceSha256": null,
+        "holdoutCommitmentSha256": null
+      }
+    }
+  ]
+}
