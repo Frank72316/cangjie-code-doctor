@@ -161,3 +161,20 @@ footer { border-color:#bcc6b1; color:#65745a; }
 @media(max-width:899px) { .nav-item { padding-left:4px; padding-right:4px; } }
 @media(max-width:700px) { .nav-item { gap:4px; } .voxel-heading-blocks { width:35px; } .voxel-heading-blocks>.voxel-cube { width:18px; height:20px; } .voxel-heading-blocks>.voxel-cube+.voxel-cube { width:13px; height:15px; left:20px; top:6px; } }
 @media(max-width:480px) { .nav-item { padding:8px 2px; } .document-panel,.history-panel,.tutorial-faq { background-position:16px 0; background-size:60px 4px,60px 4px; } }
+
+/* A pixel circuit badge identifies AI; existing item navigation stays intact. */
+.nav-item .ai-nav-mark { width:30px; height:28px; border:2px solid #8e9cb0; border-radius:0; color:#c5dcf3; background:#39485e; font:16px var(--pixel); box-shadow:inset 2px 2px #60758c,2px 2px #141b1f; margin:0 5px; }
+.ai-step,.ai-state,.ai-field input,.ai-config-result,.ai-capabilities,.ai-spark,.ai-feature-symbol,.ai-capability h3 span,.ai-local-card { border-radius:0; }
+.ai-step { background:#e2e8d4; border:2px solid #aab899; color:#4d6143; box-shadow:inset 2px 2px #fff; }
+.ai-card-heading,.ai-connection-footer { border-color:#bfc7b5; background:#eef1e6; }
+.ai-form { background:#f8f9f4; }
+.ai-preview-note { background:#eef0e2; border-color:#9eaa79; color:#636e4b; }.ai-preview-note strong { color:#52623f; }
+.ai-field input { border:2px solid #a8b69d; background:#fbfcf6; box-shadow:inset 2px 2px #e8ecdf; }
+.ai-field input[aria-invalid="true"] { border-color:#ac6246; }
+.ai-state { border-color:#bdc5b0; background:#e7ebde; }
+.ai-capabilities { background:#e6edda; border:2px solid #9cae87; box-shadow:inset 3px 3px #f8fbef,4px 5px #becbad; }
+.ai-capabilities>h2 { font:400 30px/1.5 var(--pixel); }
+.ai-spark,.ai-feature-symbol { border:2px solid #afbc98; box-shadow:inset 2px 2px #faffed; }
+.ai-local-card { border:2px solid #c1c8b2; background:#f2f4e9; }
+@media(max-width:899px) { .nav-item .ai-nav-mark { width:24px; height:24px; margin:0; font-size:14px; } }
+@media(max-width:700px) { .nav-item { font-size:16px; } }

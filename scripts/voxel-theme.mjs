@@ -40,7 +40,7 @@ export function applyVoxelTheme(html) {
     .replace('<div class="sidebar-bottom">', `<div class="sidebar-bottom">${sidebarGarden}`)
     .replace(/<p class="eyebrow">([^<]+)<\/p>/g, (match, label) => headingMaterials[label] ? `<p class="eyebrow"><span class="voxel-heading-blocks" aria-hidden="true">${miniCube(headingMaterials[label])}${miniCube('stone')}</span>${label}</p>` : match)
     .replace('本地运行 · 副本编辑', '方块风格 · 独立预览')
-    .replace('<main id="main-content" tabindex="-1">', '<main id="main-content" tabindex="-1"><div class="voxel-preview-note">设计试稿 <span>可切换五个页面、查看和编辑样例；编译与保存请回到原工作台。</span><a href="http://127.0.0.1:8765/tutorial">原工作台 ↗</a></div>')
+    .replace('<main id="main-content" tabindex="-1">', '<main id="main-content" tabindex="-1"><div class="voxel-preview-note">设计试稿 <span>可切换六个页面、查看和编辑样例；编译与保存请回到原工作台。</span><a href="http://127.0.0.1:8765/tutorial">原工作台 ↗</a></div>')
     .replace('DOCTOR / 你的程序诊断手记', 'DOCTOR / 方块工作台')
     .replace('带上好奇心就好。从一个小样例开始，读报错、找位置，再翻一翻官方文档。', '从一个小样例开始。读懂报错，定位代码，再找到有依据的修改方向。')
     .replace(/<figure class="sketch-scene"[\s\S]*?<\/figure>/, landscape)

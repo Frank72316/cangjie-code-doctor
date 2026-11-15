@@ -26,6 +26,7 @@ const routes = new Map([
     [`/assets/licenses/${name}`, [`web/assets/licenses/${name}`, 'text/plain; charset=utf-8']]),
   ['/app.mjs', ['web/app.mjs', 'text/javascript; charset=utf-8']],
   ['/navigation.mjs', ['web/navigation.mjs', 'text/javascript; charset=utf-8']],
+  ['/ai-settings.mjs', ['web/ai-settings.mjs', 'text/javascript; charset=utf-8']],
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],
   ['/revision.mjs', ['web/revision.mjs', 'text/javascript; charset=utf-8']],
   ['/document-evidence.mjs', ['web/document-evidence.mjs', 'text/javascript; charset=utf-8']],

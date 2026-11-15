@@ -30,9 +30,9 @@ test('starting a voxel preview does not change the default workbench or expose i
   }
 });
 
-test('voxel preview keeps five direct page entries and serves its isolated stylesheet', async t => {
+test('voxel preview keeps six direct page entries and serves its isolated stylesheet', async t => {
   const preview = await listen(t, {previewTheme:'voxel'});
-  for (const page of ['tutorial', 'diagnostics', 'documents', 'records', 'history']) {
+  for (const page of ['tutorial', 'diagnostics', 'documents', 'ai', 'records', 'history']) {
     const response = await fetch(`${preview}/${page}`);
     assert.equal(response.status, 200, page);
     assert.match(response.headers.get('content-type'), /^text\/html/);
