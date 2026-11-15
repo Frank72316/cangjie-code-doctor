@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "kind": "doctor-experiment-config",
+  "sdkVersion": "1.0.5",
+  "catalogPath": "data/cases/catalog.json",
+  "sharedModel": {
+    "provider": null,
+    "modelId": null,
+    "temperature": null,
+    "topP": null,
+    "maxOutputTokens": null,
+    "seed": null
+  },
+  "budget": { "currency": null, "maxCost": null },
+  "environment": {
+    "platform": "linux-docker",
+    "imageId": null,
+    "toolCommit": null,
+    "toolAcceptanceSha256": null,
+    "holdoutIsolationSha256": null
+  },
+  "templates": { "sharedPrompt": null, "publicFeedback": null },
+  "retrieval": {
+    "algorithm": "bm25",
+    "topK": 3,
+    "k1": 1.2,
+    "b": 0.75,
+    "queryExpansion": "compiler-glossary-v1",
+    "tokenizer": "ascii-lower-identifier+cjk-unigram-bigram-v1"
+  },
+  "protocol": {
+    "groups": { "A": "without-documents", "B": "with-documents" },
+    "maxRounds": 2,
+    "pairOrder": "catalog-alternating-ab-ba",
+    "retrievalAcrossRounds": "fixed-first-round",
+    "feedback": "own-public-results-only",
+    "stop": "public-pass-or-cancel-or-no-change-or-budget-or-round-limit",
+    "candidateSelection": "latest-format-valid",
+    "invalidResponseConsumesRound": true,
+    "serviceFailurePairRetries": 1,
+    "holdoutAccess": "independent-after-all-candidates-locked",
+    "success": "compile-and-all-public-and-holdout",
+    "correctCases": "separate-regression-no-model",
+    "plannedErrorCases": 16,
+    "plannedRegressionCases": 4,
+    "maxPlannedGenerations": 64
+  }
+}

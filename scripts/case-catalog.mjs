@@ -28,7 +28,10 @@ function publicPath(value, kind) {
 
 // Inspect each component and read through a bounded handle. This is an offline
 // preparation check, not a hostile concurrent-writer sandbox or an authenticity proof.
-async function readBounded(root, relative, maxBytes) {
+export async function readBounded(root, relative, maxBytes) {
+  // Callers must also restrict the material kind; this shared reader never accepts traversal.
+  requireThat(typeof relative === 'string' && /^[a-zA-Z0-9_./-]+$/.test(relative)
+    && !relative.startsWith('/') && !relative.split('/').some(part => !part || part === '.' || part === '..'), '材料相对路径无效。');
   root = resolve(root);
   requireThat(await realpath(root) === root,'请使用无链接的工作区真实路径。');
   let path = root;

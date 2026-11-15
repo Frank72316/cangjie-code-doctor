@@ -117,6 +117,8 @@ node --test tests/*.test.mjs
 
 2026-11-11 增加离线案例准备入口：运行 `node scripts/check-cases.mjs` 可查看案例数量和逐例缺口，`--json` 导出摘要，`--baseline` 比对材料变化。`--require-complete` 在登记不齐时返回2。检查不编译、不调用模型、不读取保留测试，登记齐全也不代表实验已冻结。字段与退出码见[使用说明](docs/case-preparation.md)。
 
+2026-11-15 增加实验配置登记：运行 `node scripts/check-experiment.mjs`，统一核对共享模型参数、预算、环境声明、提示模板和现有案例、文档；`--baseline` 指出四类材料变化，`--require-complete` 拒绝未齐全登记。默认保留未确定项，不调用模型、不启动实验。见[实验准备说明](docs/experiment-preparation.md)。
+
 | 项目 | 计划 |
 | --- | --- |
 | 案例 | 30 个：10 个开发，20 个评估；同源题目及变体放在同一划分 |

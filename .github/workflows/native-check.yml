@@ -69,6 +69,8 @@ jobs:
         run: node --test tests/*.test.mjs
       - name: Public case preparation checks (no experiment execution)
         run: node scripts/check-cases.mjs
+      - name: Experiment configuration checks (offline, not a freeze)
+        run: node scripts/check-experiment.mjs
       - name: Build isolated SDK image from dedicated context
         shell: bash
         run: |
