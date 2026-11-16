@@ -147,15 +147,10 @@ footer { border-color:#bcc6b1; color:#65745a; }
 .history-panel { background-image:linear-gradient(#dfe7d3aa,#dfe7d3aa),url("/assets/voxel/stone.png"); }
 .record-guide>h2 { display:flex; align-items:center; gap:9px; }
 .record-guide>h2::before { content:""; width:12px; height:12px; flex-shrink:0; background:#91af69; box-shadow:3px 3px #58753d,inset 2px 2px #c3d6a7; }
-.voxel-sidebar-garden { position:relative; width:160px; height:86px; margin:0 auto 13px; pointer-events:none; }
-.garden-ground { position:absolute; }
-.garden-ground>.voxel-cube { width:46px; height:46px; }
-.garden-rear { left:57px; top:27px; }.garden-left { left:34px; top:38px; }.garden-front { left:57px; top:49px; }.garden-right { left:80px; top:38px; }
-.garden-tree { position:absolute; width:55px; height:57px; left:52px; top:0; }
-.tree-trunk { position:absolute; top:27px; left:25px; width:10px; height:29px; background:#986b3d url("/assets/voxel/wood.png") center/24px; box-shadow:4px 0 #614b2d; image-rendering:pixelated; }
-.tree-crown { position:absolute; top:-3px; left:7px; }
-.tree-crown>.voxel-cube { width:43px; height:43px; }
-.garden-flower { position:absolute; left:115px; top:48px; width:3px; height:12px; background:#90ae57; box-shadow:0 -6px #eed27b,4px -3px #eed27b,-4px -3px #eed27b; }
+.nav-item .nav-item-art-book,.nav-item.active .nav-item-art-book { background:#203e36; border-color:#99ab78; box-shadow:inset 2px 2px #142a24,1px 1px #b5c99c40; }
+.nav-item-art-book img { filter:drop-shadow(1px 1px #0d211ccc); }
+.voxel-sidebar-garden { position:relative; width:170px; height:142px; margin:0 auto 10px; pointer-events:none; }
+.voxel-sidebar-garden img { display:block; width:170px; height:auto; }
 @media(max-width:1150px) { .nav-item { gap:9px; padding-left:9px; padding-right:9px; } }
 @media(max-height:800px) { .voxel-sidebar-garden { display:none; } }
 @media(max-width:899px) { .nav-item { padding-left:4px; padding-right:4px; } }

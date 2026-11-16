@@ -1,6 +1,7 @@
 // Optional visual preview. The default workbench does not load these assets.
 export const voxelRoutes = [
   ['/voxel-preview.css', ['web/voxel-preview.css', 'text/css; charset=utf-8']],
+  ['/assets/voxel/winter-garden.svg', ['web/assets/voxel/winter-garden.svg', 'image/svg+xml']],
   ['/assets/voxel/credits.html', ['web/assets/voxel/credits.html', 'text/html; charset=utf-8']],
   ...[
     ['credits.css', 'text/css; charset=utf-8'],
@@ -20,7 +21,7 @@ const miniCube = material => `<span class="voxel-cube voxel-cube-${material}" ar
 const navItems = {tutorial:'compass', diagnostics:'pickaxe', documents:'book', records:'enchanted-book', history:'clock'};
 const inventoryIcon = item => `<span class="nav-item-art nav-item-art-${item}" aria-hidden="true"><img src="/assets/voxel/items/${item}.png" alt="" width="32" height="32"></span>`;
 const headingMaterials = {'GETTING STARTED':'grass', DIAGNOSE:'ore', REFERENCE:'wood', RECORD:'stone', 'TASK HISTORY':'dirt'};
-const sidebarGarden = `<div class="voxel-sidebar-garden" aria-hidden="true"><span class="garden-ground garden-rear">${miniCube('nav-snow')}</span><span class="garden-tree"><i class="tree-trunk"></i><span class="tree-crown">${miniCube('nav-snow')}</span></span><span class="garden-ground garden-left">${miniCube('nav-water')}</span><span class="garden-ground garden-front">${miniCube('nav-snow')}</span><span class="garden-ground garden-right">${miniCube('nav-snow')}</span><i class="garden-flower"></i></div>`;
+const sidebarGarden = `<div class="voxel-sidebar-garden" aria-hidden="true"><img src="/assets/voxel/winter-garden.svg" width="180" height="150" alt=""></div>`;
 const landscape = `<figure class="voxel-scene" aria-label="草地方块、矿石和工作台组成的小岛插画">
   <div class="voxel-sky" aria-hidden="true"><span class="pixel-cloud cloud-one"></span><span class="pixel-cloud cloud-two"></span><span class="pixel-sun"></span></div>
   <div class="voxel-island" aria-hidden="true">

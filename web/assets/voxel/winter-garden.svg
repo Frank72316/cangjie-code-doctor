@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 150" width="180" height="150">
+  <!-- Original Doctor decoration: layered snow pine, lantern and ice island. -->
+  <path d="M14 123 88 94 167 123 93 149Z" fill="#17231e" opacity=".5"/>
+  <path d="M17 100 88 66 163 101 92 137Z" fill="#e9f5f1"/>
+  <path d="M17 100 92 137 92 148 17 111Z" fill="#a8cbd0"/>
+  <path d="M92 137 163 101 163 112 92 148Z" fill="#729fae"/>
+  <path d="M17 100 88 66 163 101 148 108 89 81 31 107Z" fill="#fffdf4"/>
+  <path d="M49 116 80 101 110 115 79 130Z" fill="#a8dde6"/>
+  <path d="M53 116 79 104 103 115 77 127Z" fill="#c7edf0"/>
+  <path d="M61 115 76 108 82 111 67 118Z" fill="#edffff"/>
+  <path d="M94 130V139M146 110V119" stroke="#badbe0" stroke-width="3"/>
+  <path d="M60 75 68 75 68 99 60 95Z" fill="#926a45"/>
+  <path d="M68 75 73 72 73 95 68 99Z" fill="#614a35"/>
+  <path d="M27 77 66 38 104 77 66 95Z" fill="#3c7056"/>
+  <path d="M66 38 104 77 66 95Z" fill="#285344"/>
+  <path d="M34 72 66 38 98 72 83 69 76 75 65 69 52 77 47 69Z" fill="#d9e9dd"/>
+  <path d="M34 72 66 38 66 69 52 77 47 69Z" fill="#f5f6e9"/>
+  <path d="M36 59 66 25 95 59 66 74Z" fill="#4b8060"/>
+  <path d="M66 25 95 59 66 74Z" fill="#2b5d48"/>
+  <path d="M40 55 66 25 91 55 80 52 74 58 65 52 53 60 49 53Z" fill="#d7e8dd"/>
+  <path d="M40 55 66 25 65 52 53 60 49 53Z" fill="#f8f8ed"/>
+  <path d="M45 40 66 10 86 40 66 51Z" fill="#43745b"/>
+  <path d="M66 10 86 40 66 51Z" fill="#2a5344"/>
+  <path d="M48 36 66 10 83 36 74 33 69 39 61 34 54 39Z" fill="#e0eee5"/>
+  <path d="M48 36 66 10 61 34 54 39Z" fill="#fffff3"/>
+  <path d="M110 109 127 101 141 108 123 117Z" fill="#c3dbd8"/>
+  <path d="M119 64H124V108H119Z" fill="#8c6d48"/>
+  <path d="M124 64H127V106L124 108Z" fill="#554934"/>
+  <path d="M118 62H143V66H118Z" fill="#b59a6b"/>
+  <path d="M121 60H142V62H121Z" fill="#f3f6e9"/>
+  <path d="M137 65V73" stroke="#554934" stroke-width="3"/>
+  <path d="M126 74H148V96H126Z" fill="#f4cc69" opacity=".08"/>
+  <path d="M131 74H144V90H131Z" fill="#493f33"/>
+  <path d="M133 76H142V87H133Z" fill="#efb653"/>
+  <path d="M135 77H139V85H135Z" fill="#fff1b1"/>
+  <path d="M130 73H145V76H130ZM131 87H144V90H131Z" fill="#9b8050"/>
+  <path d="M130 72H144V74H130Z" fill="#f1f5e6"/>
+  <path d="M39 108 45 105 51 108 45 112Z" fill="#fffdf4"/>
+  <path d="M140 116 146 113 152 116 146 120Z" fill="#f4fbf5"/>
+  <g fill="#d8e8df" opacity=".65"><path d="M32 27h3v3h-3zM109 28h3v3h-3zM149 45h2v2h-2zM22 62h2v2h-2z"/></g>
+</svg>
