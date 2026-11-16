@@ -125,6 +125,19 @@
       <section id="evidence" class="app-page" data-page-view aria-labelledby="record-title">
         <div class="intro"><div><p class="eyebrow">RECORD</p><h1 id="record-title">记录依据</h1><p class="lead">这里保存你的修改和报告。先选一份已保存修改；测试功能可用时，再填写输入与期望输出。</p></div><div class="page-actions"><button id="import-record"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-upload"/></svg>打开诊断记录</button><button id="export-record"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-download"/></svg>导出当前诊断记录</button></div></div>
         <div class="record-context"><span class="section-icon"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-record"/></svg></span><div><span class="small-label">当前诊断</span><strong data-current-source>正在载入…</strong><p data-current-state></p></div><a href="/diagnostics" data-route class="context-link">查看源码与诊断 →</a></div>
+        <details id="evidence-review-panel" class="panel storage-panel evidence-review-panel">
+          <summary><strong>已有报告回看</strong><span>打开 JSON，串起报错、依据、修改与测试</span></summary>
+          <div class="storage-body">
+            <p>已有修改报告、验证报告或材料包？在这里打开，无需编译环境，适合核对过程与答辩截图。</p>
+            <label class="review-file-label" for="evidence-review-file">选择报告 JSON（最多 32 MiB）</label>
+            <input id="evidence-review-file" type="file" accept=".json,application/json" aria-describedby="evidence-review-status">
+            <p id="evidence-review-status" class="storage-status" role="status" aria-live="polite">只在当前页面读取文件，不上传，不改写历史或编辑中的源码。</p>
+            <div id="evidence-review-picker" hidden><label for="evidence-review-select">选择要回看的记录</label><select id="evidence-review-select"></select></div>
+            <div id="evidence-review-result" class="evidence-review-result" hidden></div>
+            <div class="storage-actions"><button id="evidence-review-download" type="button" disabled>下载这份回看报告 HTML</button><button id="evidence-review-clear" type="button" disabled>清空回看</button></div>
+          </div>
+        </details>
+
         <section class="panel revision-verification" aria-labelledby="verification-title">
           <div class="verification-heading"><div><span class="tutorial-kicker">修改后的下一步</span><h2 id="verification-title">验证已保存修改</h2><p>用具体的输入与期望输出，检查这份修改是否符合预期。</p></div><span class="offline-label">公开测试 · 无 AI 调用</span></div>
           <form id="verification-form">

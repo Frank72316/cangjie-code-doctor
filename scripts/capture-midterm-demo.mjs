@@ -13,6 +13,7 @@ import { readRecord, compileView } from '../web/report.mjs';
 import { validateRevision } from '../web/revision.mjs';
 import { revisionHTML } from '../web/revision-report.mjs';
 import { validateVerificationRecord, verificationHTML } from '../web/verification.mjs';
+import { readEvidenceReview, reviewHTML, reviewOutcome } from '../web/evidence-review.mjs';
 
 const [binary, compiler, image] = process.argv.slice(2);
 if (process.platform !== 'linux' || !binary || !compiler || !/^sha256:[a-f0-9]{64}$/.test(image || '')) {
@@ -68,6 +69,11 @@ try {
   assert.ok(verification.report.containers.every(c=>c.cleanup.removed));
   await save('04-verification.json',verification);
   await save('04-verification.html',verificationHTML(verification));
+  const review=await readEvidenceReview(JSON.stringify(verification));
+  assert.equal(review.entries.length,1);
+  assert.equal(reviewOutcome(review.entries[0]).label,'公开测试通过');
+  assert.deepEqual(review.entries[0].revision,revision);
+  await save('05-workflow-review.html',reviewHTML(review.entries[0]));
   receipt.steps.push({step:'linux-container-public-test',verificationId:verification.verificationId,status:verification.report.status,containersRemoved:true});
   assert.deepEqual(await request('/api/revisions/'+revision.revisionId),revision);
   assert.deepEqual(await new RevisionStore(root).get(revision.revisionId),revision);
@@ -78,7 +84,7 @@ try {
   receipt.steps.push({step:'reread-records-and-original',status:'passed'});
   receipt.status='passed';
   const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-  await save('index.html',`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Doctor 中期演示 · 真实开发案例</title><style>body{font:16px/1.8 "Microsoft YaHei",sans-serif;background:#f5f3e9;color:#303b32;margin:0;padding:40px}main{max-width:1000px;margin:auto}h1{font-size:34px}small{color:#65735f}section{background:white;border:1px solid #ccd1c4;padding:24px;margin:20px 0;border-radius:8px}code{overflow-wrap:anywhere}a{color:#416b35}strong{color:#416b35}li{margin:12px 0}</style><main><small>DOCTOR · 中期答辩材料 / 历史运行回看</small><h1>一条类型错误，从诊断到验证</h1><p>本页展示真实 Linux 开发运行的记录，可在本机离线查看。它不是本机 Windows 的即时编译，也不是 AI 修复或正式 A/B 实验。</p><section><strong>真实流程已通过</strong><ol><li>编译原程序：第 2 行把字符串赋给整数，真实编译失败。</li><li>检索 SDK 1.0.5 官方文档，保留来源与摘要。</li><li>按固定开发示例将 <code>"three"</code> 改为 <code>3</code>，由脚本调用确认保存接口。</li><li>在受限 Linux 容器重新编译并运行公开测试，输出 <code>3\\n</code>，通过。</li><li>重新读取修订、验证与任务历史，确认原诊断未被改写。</li></ol></section><section><h2>查看证据</h2><p><a href="03-revision.html">修改差异与文档依据报告 →</a></p><p><a href="04-verification.html">公开测试与容器验证报告 →</a></p><p><a href="manifest.json">运行时间、提交版本与文件哈希 →</a></p><p>初始诊断 JSON、检索依据 JSON、修订 JSON 和验证 JSON 均在同一目录。</p></section><small>开始时间（UTC）：${esc(receipt.startedAt)}<br>提交：<code>${esc(receipt.commit)}</code><br>${receipt.ciRunUrl?`平台记录：<a href="${esc(receipt.ciRunUrl)}">本次 GitHub Actions</a>`:''}<br>本例是公开开发案例，不计入正式评估集；一个通过的测试不证明所有输入都正确。</small></main></html>`);
+  await save('index.html',`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Doctor 中期演示 · 真实开发案例</title><style>body{font:16px/1.8 "Microsoft YaHei",sans-serif;background:#f5f3e9;color:#303b32;margin:0;padding:40px}main{max-width:1000px;margin:auto}h1{font-size:34px}small{color:#65735f}section{background:white;border:1px solid #ccd1c4;padding:24px;margin:20px 0;border-radius:8px}code{overflow-wrap:anywhere}a{color:#416b35}strong{color:#416b35}li{margin:12px 0}</style><main><small>DOCTOR · 中期答辩材料 / 历史运行回看</small><h1>一条类型错误，从诊断到验证</h1><p>本页展示真实 Linux 开发运行的记录，可在本机离线查看。它不是本机 Windows 的即时编译，也不是 AI 修复或正式 A/B 实验。</p><section><strong>真实流程已通过</strong><ol><li>编译原程序：第 2 行把字符串赋给整数，真实编译失败。</li><li>检索 SDK 1.0.5 官方文档，保留来源与摘要。</li><li>按固定开发示例将 <code>"three"</code> 改为 <code>3</code>，由脚本调用确认保存接口。</li><li>在受限 Linux 容器重新编译并运行公开测试，输出 <code>3\\n</code>，通过。</li><li>重新读取修订、验证与任务历史，确认原诊断未被改写。</li></ol></section><section><h2>查看证据</h2><p><a href="05-workflow-review.html">完整流程回看报告 →</a></p><p><a href="03-revision.html">修改差异与文档依据报告 →</a></p><p><a href="04-verification.html">公开测试与容器验证报告 →</a></p><p><a href="manifest.json">运行时间、提交版本与文件哈希 →</a></p><p>初始诊断 JSON、检索依据 JSON、修订 JSON 和验证 JSON 均在同一目录。</p></section><small>开始时间（UTC）：${esc(receipt.startedAt)}<br>提交：<code>${esc(receipt.commit)}</code><br>${receipt.ciRunUrl?`平台记录：<a href="${esc(receipt.ciRunUrl)}">本次 GitHub Actions</a>`:''}<br>本例是公开开发案例，不计入正式评估集；一个通过的测试不证明所有输入都正确。</small></main></html>`);
 } catch(error) {
   receipt.status='failed';receipt.error=error.message;throw error;
 } finally {

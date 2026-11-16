@@ -700,3 +700,22 @@ body[data-page="ai"] #ai-assistant { display:block; }
 .storage-groups dd { margin:0; color:#686561; }
 .storage-issues { padding-left:20px; }
 .storage-boundary { margin-top:13px; color:#72706d; font-size:12px; }
+
+.evidence-review-panel { margin:0 0 24px; }
+.review-file-label { display:block; font-weight:600; margin:16px 0 8px; }
+#evidence-review-file { display:block; max-width:100%; font:inherit; }
+#evidence-review-picker label { display:block; margin:14px 0 6px; }
+#evidence-review-select { width:100%; min-width:0; padding:10px; font:inherit; }
+.review-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.review-heading h3 { margin:0; font-size:20px; }
+.review-verdict { padding:4px 10px; border:1px solid #b8c4b3; background:#edf3e5; color:#385637; font-size:13px; }
+.review-verdict.error,.review-verdict.warning { background:#faf0dd; color:#795325; border-color:#d7be90; }
+.review-boundary { border-left:3px solid #8d9b6b; padding:8px 12px; background:#f0f2e8; }
+.review-meta { color:#66695e; font-size:12px; }
+.review-stages { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:20px 0; }
+.review-stage { min-width:0; padding:18px; background:#fafbf7; border:1px solid #d2dbc9; }
+.review-stage h4 { margin:0 0 12px; font-size:15px; color:#42613b; }
+.evidence-review-result details { margin:12px 0; border-top:1px dashed #cbd2c2; padding-top:10px; }
+.evidence-review-result summary { cursor:pointer; font-weight:600; }
+.evidence-review-result pre { white-space:pre-wrap; overflow-wrap:anywhere; background:#eef1e9; padding:12px; font:12px/1.7 var(--mono,monospace); max-height:260px; overflow:auto; }
+@media(max-width:700px) { .review-stages { grid-template-columns:1fr; } .review-stage { padding:14px; } }

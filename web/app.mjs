@@ -6,6 +6,7 @@ import { initVerificationUI } from './verification-ui.mjs';
 import { validateDocumentEvidence, officialDocumentURL } from './document-evidence.mjs';
 import { revisionHTML } from './revision-report.mjs';
 import { initStorageUI } from './storage-ui.mjs';
+import { initEvidenceReviewUI } from './evidence-review-ui.mjs';
 import { initAISettings } from './ai-settings.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
@@ -629,5 +630,6 @@ initAISettings();
 verificationUI = initVerificationUI({getHealth:() => health, refreshHealth:() => refreshHealth(), download,
   onActivityChange:active => { if (active) health.busy = true; refreshSource(); }});
 initStorageUI({getHealth:() => health, download});
+initEvidenceReviewUI({download});
 loadCase('type_mismatch');
 refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh()]));
