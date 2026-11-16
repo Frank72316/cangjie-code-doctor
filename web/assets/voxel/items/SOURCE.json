@@ -33,14 +33,15 @@
     },
     {
       "path": "pickaxe.png",
-      "upstreamPath": "assets/minecraft/textures/item/iron_pickaxe.png",
-      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/iron_pickaxe.png",
-      "bytes": 320,
-      "sha256": "4c9c4cbc90feae2f56c19ec86098013c7d697a1c13b895d20f48b8f417a3de0a",
-      "gitBlobSha1": "97d310667459cddc460ae63b10905f18f22ed44c",
+      "upstreamPath": "assets/minecraft/textures/item/diamond_pickaxe.png",
+      "url": "https://raw.githubusercontent.com/Athemis/PixelPerfectionCE/28e38cab7c1f03f86364ef704f705bebcc13cb3d/assets/minecraft/textures/item/diamond_pickaxe.png",
+      "bytes": 339,
+      "sha256": "470e7de92d93f064de0124cbf89dea0468fe710d2ff2dd80760de78143175357",
+      "gitBlobSha1": "4c8815e8b7522b202c828572da76c422319dccac",
       "use": "diagnostics",
       "width": 16,
-      "height": 16
+      "height": 16,
+      "acquiredOn": "2026-11-16"
     },
     {
       "path": "book.png",
@@ -91,5 +92,6 @@
       "sha256": "4528feea41eb9d324f1fe7aca046471a32db60cd071c4e0b954555be56da8aba",
       "gitBlobSha1": "e390294f10aef3d14ae0def17b7c5c6e9d3609da"
     }
-  ]
+  ],
+  "updatedOn": "2026-11-16"
 }

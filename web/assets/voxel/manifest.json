@@ -16,8 +16,8 @@
     },
     {
       "path": "credits.html",
-      "bytes": 4971,
-      "sha256": "6b823fef88da15999c2f0921c82a0fadbd47b69db79ff2d26247b0112d06c325"
+      "bytes": 4974,
+      "sha256": "9750cb04897a259fb21c67e79f17d721f37adf8a62182f7e5b67794b6c31e495"
     },
     {
       "path": "diamond-ore.png",
@@ -96,8 +96,8 @@
     },
     {
       "path": "items/pickaxe.png",
-      "bytes": 320,
-      "sha256": "4c9c4cbc90feae2f56c19ec86098013c7d697a1c13b895d20f48b8f417a3de0a"
+      "bytes": 339,
+      "sha256": "470e7de92d93f064de0124cbf89dea0468fe710d2ff2dd80760de78143175357"
     },
     {
       "path": "items/README.md",
@@ -106,8 +106,8 @@
     },
     {
       "path": "items/SOURCE.json",
-      "bytes": 5220,
-      "sha256": "b97bf5a004b752c6cf509c3a7f1511ff7c3f81daa2e5dee714db4a612c4ad2f3"
+      "bytes": 5289,
+      "sha256": "762c332739241b025520020dbd3b84f4ed0000380a3e1cf2cb5a11aa24cbe041"
     },
     {
       "path": "kenney-pixel-ui-license.txt",
@@ -189,5 +189,6 @@
       "bytes": 1968,
       "sha256": "034f0c8cf6ea6d42cae74eaf0665f10c9331baa79cc9d305190ee90880c4849e"
     }
-  ]
+  ],
+  "updatedOn": "2026-11-16"
 }
