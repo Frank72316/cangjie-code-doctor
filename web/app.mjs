@@ -268,7 +268,7 @@ function refreshBeginnerGuide() {
   $('onboarding-capability').textContent = health.available
     ? '可以重新编译样例、定位报错、检索官方文档并保存修改。测试是否可用，请到“测试验证”查看。'
     : health.token
-      ? '可以查看已有报错、定位代码、编辑并保存副本。当前不能重新编译或检索文档，可以先把操作流程走一遍。'
+      ? '这台电脑当前不能编译和检索，但下面4步仍能完成：看已有报错、改代码、保存修改、下载报告。'
       : '可以查看已有报错、定位和编辑副本。当前未连接保存服务，需要保留修改时请在“源码操作”中下载副本。';
   let title, detail;
   if (loadingSample || !record) {

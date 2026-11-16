@@ -37,44 +37,22 @@
         <a href="/records" data-route data-journey-path="/records"><b>4</b><span>看报告<small>已保存修改 · 测试结果</small></span></a>
       </nav>
       <section id="usage-guide" class="app-page tutorial" data-page-view aria-labelledby="tutorial-title">
-        <div class="intro"><div><p class="eyebrow">GETTING STARTED</p><h1 id="tutorial-title">第一次使用，从这里开始</h1><p class="lead">不用先准备代码，也不用填写 API Key。跟着一个内置样例认识工作台。</p></div><span class="offline-label">新手入门</span></div>
-        <div class="tutorial-hero">
-          <div class="tutorial-welcome"><span class="tutorial-kicker">DOCTOR / 你的程序诊断手记</span><h2>先看一个报错，<br><span class="sketch-underline">再试着改好它。</span></h2><p>从“类型不匹配”样例开始：找到第 2 行的错误，查阅规则，再核对并保存自己的修改。</p><a class="tutorial-start" href="/diagnostics" data-route>开始：查看示例报错 <svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-arrow-right"/></svg></a><small>已有操作会保留；进入后可在“选择样例”中切换为“类型不匹配”。</small></div>
-          <figure class="sketch-scene" aria-label="手绘编程工作台插画"><img src="/assets/sketch/hero-desk.svg" width="600" height="400" alt="手绘电脑、代码便签、书本和铅笔"><figcaption>一条报错，也是一条线索。</figcaption></figure>
-        </div>
-        <a class="returning-entry" href="/records" data-route><span class="returning-symbol" aria-hidden="true">↗</span><span><strong>已经有报告？直接打开</strong><small>选择修改 / 验证 JSON 或材料包，回看完整过程；无需编译环境。</small></span><span aria-hidden="true">→</span></a>
-        <div class="onboarding-availability" role="status"><strong>现在可以做什么？</strong><p id="onboarding-capability">正在检查本机服务；已有样例记录可以先查看。</p></div>
-        <div class="tutorial-flow" aria-label="首次操作顺序"><div><span aria-hidden="true"><img src="/assets/doodles/pencil.svg" alt="" width="46" height="46"></span><div><strong><small>01</small>看懂报错</strong><p>点击行号，定位出错代码</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/lightbulb.svg" alt="" width="46" height="46"></span><div><strong><small>02</small>查阅依据</strong><p>先读官方规则，再修改</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/book.svg" alt="" width="46" height="46"></span><div><strong><small>03</small>保存后验证</strong><p>先确认修改，再检查测试条件</p></div></div></div>
-        <p class="tutorial-scope">先完成“看报错 → 查依据 → 保存修改”，再查看报告。保存与测试是两回事；AI 功能仍在准备中。</p>
-        <details class="guide-disclosure"><summary><strong><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-guide"/></svg>跟着做：第一次诊断</strong><span>展开 5 步操作说明</span></summary>          <aside class="tutorial-example tutorial-example-detail" aria-label="类型不匹配讲解示例">
-            <div class="example-bar"><span class="example-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>类型不匹配 · 讲解示例</span></div>
-            <pre class="example-code"><code><span class="example-line"><span class="example-line-number" aria-hidden="true">1</span><span><span class="example-keyword">main</span>() {</span></span>
-<span class="example-line example-error"><span class="example-line-number" aria-hidden="true">2</span><span>    <span class="example-keyword">let</span> count: <span class="example-type">Int64</span> = <span class="example-string">"three"</span></span></span>
-<span class="example-line"><span class="example-line-number" aria-hidden="true">3</span><span>    println(count)</span></span>
-<span class="example-line"><span class="example-line-number" aria-hidden="true">4</span><span>}</span></span></code></pre>
-            <div class="example-insight"><span class="example-status">类型不匹配</span><p><code>"three"</code> 是字符串，<code>count</code> 声明为整数 <code>Int64</code>。先看清冲突，再查阅类型规则。</p></div>
-            <p class="example-caption">仅为讲解示例，非本次编译输出。</p>
-          </aside><div class="tutorial-layout">
-          <section class="panel tutorial-steps" aria-labelledby="tutorial-steps-title">
-            <div class="tutorial-heading"><div><span class="tutorial-kicker">跟着做一遍</span><h2 id="tutorial-steps-title">从这里开始，完成第一次诊断</h2></div><span class="tutorial-count">5 个步骤</span></div>
-            <ol>
-              <li><div><h3>选择一个带错误的样例</h3><p>进入<a href="/diagnostics" data-route>编译诊断</a>，在“选择样例”中选择<strong>“类型不匹配”</strong>。先看到的是已采集的诊断记录，第 2 行把字符串 <code>"three"</code> 赋给了整数类型 <code>Int64</code>。</p><div class="tutorial-code"><span>样例第 2 行</span><code>let count: Int64 = "three"</code></div></div></li>
-              <li><div><h3>可选：在本机重新编译</h3><p>环境显示<strong>“本机编译已就绪”</strong>后，点击<strong>“编译所选样例”</strong>。这个样例出现“编译未通过”是预期结果，说明编译器发现了其中的错误。</p><p class="tutorial-hint">按钮不可用时，可以跳过这一步，直接阅读已采集的报错。需要排查时再展开“环境详情”。</p></div></li>
-              <li><div><h3>点击报错位置，回到代码</h3><p>点击诊断卡片中的<strong>“第 2 行 · 24 列 ↗”</strong>，编辑器会选中对应位置。此时先保持源码不变，继续查找依据。</p></div></li>
-              <li><div><h3>查阅官方文档</h3><p>本机核心就绪时，进入<a href="/documents" data-route>文档依据</a>，关键词留空，点击<strong>“检索文档”</strong>。系统用当前报错检索本机仓颉 1.0.5 文档摘录；阅读原文与来源，核对类型规则。</p><p class="tutorial-hint">检索不可用时，可先阅读本页的类型错误讲解，再练习修改。检索结果不会自动修改代码。</p></div></li>
-              <li><div><h3>修改、核对，再保存</h3><p>回到编译诊断，将 <code>"three"</code> 改为 <code>3</code>，展开<strong>“查看修改并保存”</strong>。核对差异和所附的原诊断文档，再确认保存。进入<a href="/records" data-route>记录与报告</a>，在已保存修改中展开“记录信息与导出”，下载<strong>可读修改报告 HTML</strong>，即可回看差异、摘录和来源。</p><p class="tutorial-hint">保存本身不会编译或测试。原编译日志可单独导出，任务历史可回看真实样例编译；后续公开测试需要配置好的 Linux 容器环境。</p></div></li>
-            </ol>
-          </section>
-          <aside class="tutorial-map" aria-labelledby="tutorial-map-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">功能导航</span><h2 id="tutorial-map-title">每一页用来做什么？</h2></div></div>
-            <a href="/diagnostics" data-route><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-code"/></svg><div><h3>编译诊断 <span aria-hidden="true">↗</span></h3><p>选样例、重新编译、定位错误，编辑源码副本。</p></div></a>
-            <a href="/documents" data-route><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-book"/></svg><div><h3>文档依据 <span aria-hidden="true">↗</span></h3><p>查阅同版本官方摘录，保存本次检索依据。</p></div></a>
-            <a href="/ai" data-route><span class="ai-nav-mark" aria-hidden="true">AI</span><div><h3>AI 助手 <span aria-hidden="true">↗</span></h3><p>填写自己的连接信息与 API Key；当前可检查填写，模型功能待接入。</p></div></a>
-            <a href="/verify" data-route><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-check"/></svg><div><h3>测试验证 <span aria-hidden="true">↗</span></h3><p>选择已保存修改，在环境就绪时运行公开测试。</p></div></a>
-            <a href="/records" data-route><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-record"/></svg><div><h3>记录与报告 <span aria-hidden="true">↗</span></h3><p>打开材料包，回看流程，下载报告或继续编辑已保存修改。</p></div></a>
-            <a href="/history" data-route><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-history"/></svg><div><h3>任务历史 <span aria-hidden="true">↗</span></h3><p>查看本机最近 20 次编译任务的状态与日志。</p></div></a>
-            <p class="tutorial-map-note"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-info"/></svg>随时点击左侧“使用教程”回来。切换页面会保留当前副本与检索结果。</p>
-          </aside>
+        <div class="intro"><div><p class="eyebrow">GETTING STARTED</p><h1 id="tutorial-title">第一次使用，从这里开始</h1><p class="lead">照着下面 4 步操作：打开样例 → 改一个值 → 保存 → 下载报告。</p></div><span class="offline-label">新手入门</span></div>
+        <div class="onboarding-availability" role="status"><strong>先做下面的小练习，不用点击编译，也不用填密钥</strong><p id="onboarding-capability">正在检查本机服务；已有样例记录可以先查看。</p></div>
+        <section class="first-practice" aria-labelledby="practice-title"><div class="practice-heading"><div><span class="tutorial-kicker">第一次只做这一件事</span><h2 id="practice-title">把一行代码改对，保存一份修改报告</h2><p>完成标志：下载到一份能打开的修改报告。这个练习不运行程序。</p></div><a class="tutorial-start" href="/diagnostics" data-route>去做第 1 步：打开样例 →</a></div>
+        <ol class="practice-cards">
+          <li><span class="practice-number">1</span><div><h3>打开样例，找到第 2 行</h3><p>点击上面的绿色按钮。在新页面上方的<strong>“选择样例”</strong>中选择<strong>“类型不匹配”</strong>。</p><p class="practice-expect">你会看到：左边是代码，右边是已有的“编译未通过”记录。点右边带“第 2 行”的按钮，左边会选中出错位置。</p></div></li>
+          <li><span class="practice-number">2</span><div><h3>只把 <code>"three"</code> 改成 <code>3</code></h3><p>在左侧代码框中，把第 2 行的 <code>"three"</code>（包括两边引号）删掉，输入数字 <code>3</code>。其他代码不动。</p><pre>let count: Int64 = 3</pre><p class="practice-expect">为什么这样改？Int64要求整数，带引号的“three”是文字。改完后右边仍是旧报错，这是正常的，还没有重新编译。</p></div></li>
+          <li><span class="practice-number">3</span><div><h3>核对差异，点“确认保存”</h3><p>在代码框下面，展开<strong>“查看修改并保存”</strong>。确认减号行是旧代码、加号行是整数 <code>3</code>，然后点<strong>“确认保存这份修改”</strong>。</p><p class="practice-expect">看到“已保存到本机”就成功了。保存只是记下修改，不等于程序已通过测试。若保存不可用，用“源码操作 → 下载当前副本”先保留代码。</p></div></li>
+          <li><span class="practice-number">4</span><div><h3>下载并打开自己的修改报告</h3><p>点左侧<strong>“记录与报告”</strong> → 展开<strong>“已保存修改”</strong> → 找刚刚保存的时间 → 展开<strong>“记录信息与导出”</strong> → 点<strong>“下载可读修改报告 HTML”</strong>。</p><p class="practice-expect">在浏览器下载列表中打开它。看到修改前后代码，以及“未编译 / 未测试”的说明，这次入门练习就完成了。</p></div></li>
+        </ol><p class="practice-note">练习时随时点左侧“使用教程”回来；通过侧栏切页会保留编辑内容。不要刷新或关闭页面，未保存的修改可能丢失。</p></section>
+        <details class="guide-disclosure"><summary><strong>练习结束后，再了解其他功能</strong><span>查文档、运行测试、打开已有报告</span></summary><div class="practice-extra">
+          <h3>想知道为什么报错？</h3><p>在修改代码之前，进入“文档依据”，点击“检索文档”。读完再回到代码修改。按钮灰色说明本机核心未就绪；可以先按上面的讲解练习，不需要在这里排查系统。</p>
+          <h3>想检查修改后输出对不对？</h3><p>保存后进入“测试验证”。本机显示测试环境已就绪时，选刚保存的副本，程序输入留空，期望输出填 <code>3</code>，勾选“在期望输出末尾补一个换行（LF）”，再点击“编译并验证这份修改”。只有出现“公开测试通过”，才表示本次测试通过。按钮灰色时，这一步暂时不能做。</p>
+          <h3>别人给了你报告文件？</h3><p>去“记录与报告”，在“已有报告回看”里选择修改或验证 JSON、材料包。它只是回看历史结果，不运行程序。没有这类文件也不影响上面的入门练习。</p>
         </div></details>
+        <div class="tutorial-hero practice-decoration"><div class="tutorial-welcome"><span class="tutorial-kicker">DOCTOR / 你的程序诊断手记</span><h2>先完成一次小练习，<br>再探索其他功能。</h2><p>这个工作台帮你看报错、改副本、保存依据，再检查修改结果。AI 功能还未接入，入门不需要 API Key。</p></div><figure class="sketch-scene" aria-label="手绘编程工作台插画"><img src="/assets/sketch/hero-desk.svg" width="600" height="400" alt="手绘电脑、代码便签、书本和铅笔"><figcaption>一条报错，也是一条线索。</figcaption></figure></div>
+        <div class="tutorial-flow" aria-label="记住这三个区别"><div><span aria-hidden="true"><img src="/assets/doodles/pencil.svg" alt="" width="46" height="46"></span><div><strong>编辑</strong><p>改的是副本，不覆盖原文件</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/lightbulb.svg" alt="" width="46" height="46"></span><div><strong>保存</strong><p>记下修改，不会自动运行</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/book.svg" alt="" width="46" height="46"></span><div><strong>测试</strong><p>需要可用环境，单独看结果</p></div></div></div>
         <section class="panel tutorial-faq" aria-labelledby="tutorial-faq-title"><div class="tutorial-heading"><div><span class="tutorial-kicker">遇到问题时</span><h2 id="tutorial-faq-title">常见问题</h2></div></div>
           <details><summary>“编译所选样例”是灰色的，怎么办？</summary><p>在编译诊断页展开环境详情，查看提示并点击“检查环境”。本机需要仓颉 SDK 1.0.5 和 Doctor 核心就绪；编译进行中也不能重复提交。若刚导入了文件或修改了副本，请重新选择一个内置样例；编辑内置样例后，也可以点击“恢复记录副本”。</p></details>
           <details><summary>修改后，怎么验证自己的程序？</summary><p>在编译诊断页编辑或导入 .cj 副本，展开“查看修改并保存”，核对差异后确认保存。再进入“测试验证”，选择这份已保存修改，填写程序输入和期望输出，点击“编译并验证这份修改”。这需要已配置的本地 Linux Docker 环境；本机未就绪时会显示原因并禁用按钮。验证始终使用你选择的已保存版本，不会替换编辑框。每次测试按原始字节比较输出，包含空格与换行；程序使用 println 时，期望输出通常需要勾选末尾换行。这里只验证公开测试，不代表所有输入或保留测试都通过。</p></details>
@@ -88,6 +66,7 @@
       <section id="workspace" class="app-page workbench" data-page-view aria-labelledby="page-title">
         <div class="intro"><div><p class="eyebrow">DIAGNOSE</p><h1 id="page-title">编译诊断</h1><p class="lead">先读代码，再看诊断。点击报错行号，就能找到出错的位置。</p></div><a class="context-link" href="/tutorial" data-route>查看使用教程 ↗</a></div>
         <aside class="beginner-guide" aria-label="当前操作提示"><strong id="beginner-title">先查看示例报错</strong><p id="beginner-detail">正在载入记录…</p></aside>
+        <details class="practice-inline"><summary>第一次用？展开“类型不匹配”练习步骤</summary><ol><li>在下方“选择样例”中选择“类型不匹配”，点击诊断中的“第 2 行”定位。</li><li>在代码中将 <code>"three"</code>（包括引号）改成 <code>3</code>；第2行应为 <code>let count: Int64 = 3</code>。</li><li>代码框下展开“查看修改并保存”，核对后点“确认保存这份修改”。不需要点击编译。</li><li>侧栏“记录与报告” → “已保存修改” → 最近记录的“记录信息与导出” → “下载可读修改报告 HTML”。</li></ol><p>右侧旧报错不会因编辑而自动消失。保存成功也不代表测试通过。</p></details>
         <section class="diagnosis-toolbar" aria-label="选择并编译样例"><div class="sample-picker"><label for="sample-select">选择样例</label><select id="sample-select"><option value="" disabled>当前载入的记录</option><option value="type_mismatch" selected>类型不匹配</option><option value="undefined_name">未定义名称</option><option value="argument_count">参数数量</option><option value="hello">正常程序</option></select></div><div class="actions"><button id="compile-example" class="primary" disabled><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-code"/></svg>编译所选样例</button><button id="cancel-compile" hidden>取消编译</button></div></section>
         <details id="environment" class="environment"><summary><span class="status-dot" aria-hidden="true"></span><strong id="runtime-title">正在检查本机环境…</strong><span id="runtime-summary">环境详情</span></summary><div class="environment-body"><p id="compile-guidance" class="compile-guidance" role="status">先浏览已采集记录；点击编译后获取本次结果。</p><p id="runtime-detail">历史诊断记录可正常浏览。</p><button id="refresh-health">检查环境</button></div></details>
         <div class="workspace">
