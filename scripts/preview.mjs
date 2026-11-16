@@ -10,9 +10,11 @@ import { MAX_REVISION_BYTES } from '../web/revision.mjs';
 import { VerificationService } from './verification-service.mjs';
 import { StorageService } from './storage-service.mjs';
 import { applyVoxelTheme, voxelRoutes } from './voxel-theme.mjs';
+import { applyCompanion, companionRoutes } from './companion-theme.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const pageRoutes = new Map([['/', PAGE_ROUTES[0]], ...PAGE_ROUTES.map(page => [page.path, page])]);
 const routes = new Map([
+  ...companionRoutes,
   ...[...pageRoutes.keys()].map(path => [path, ['web/index.html', 'text/html; charset=utf-8']]),
   ['/styles.css', ['web/styles.css', 'text/css; charset=utf-8']],
   ['/assets/doctor-icons.svg', ['web/assets/doctor-icons.svg', 'image/svg+xml']],
@@ -201,6 +203,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
       const page = pageRoutes.get(path);
       if (page) body = body.toString('utf8').replace(/(<body\b[^>]*\bdata-page=")[^"]*(")/, `$1${page.path.slice(1)}$2`);
       if (page && previewTheme === 'voxel') body = applyVoxelTheme(body);
+      if (page) body = applyCompanion(body, root);
       res.writeHead(200, {...headers, 'Content-Type': route[1]});
       res.end(req.method === 'HEAD' ? undefined : body);
     } catch { res.writeHead(503, headers).end('Preview file is unavailable. Run the fixture capture script.'); }

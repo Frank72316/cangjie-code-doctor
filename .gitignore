@@ -34,3 +34,6 @@ Desktop.ini
 
 # Independent evaluation tests stay private until release review.
 /data/holdout/
+
+# Local mascot derivatives; source skin redistribution permission not yet verified.
+/web/assets/local-companion/
