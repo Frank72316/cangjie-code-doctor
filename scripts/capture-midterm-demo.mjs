@@ -97,9 +97,20 @@ try {
   const failedReview=await readEvidenceReview(JSON.stringify(failed));
   assert.equal(reviewOutcome(failedReview.entries[0]).label,'公开测试未通过');
   await save('07-output-mismatch-review.html',reviewHTML(failedReview.entries[0]));
-  const bundle=await validateEvidenceBundle(await request('/api/evidence-export',{confirmed:true}));
-  assert.ok(bundle.verifications.some(v=>v.verificationId===verification.verificationId));
-  assert.ok(bundle.verifications.some(v=>v.verificationId===failed.verificationId));
+  const fullBundle=await validateEvidenceBundle(await request('/api/evidence-export',{confirmed:true}));
+  // The CI workspace also contains earlier setup checks. Explicitly select the
+  // two demo paths; never claim this curated artifact is a full workspace export.
+  const revisionIds=new Set([revision.revisionId,wrongRevision.revisionId]);
+  const verificationIds=new Set([verification.verificationId,failed.verificationId]);
+  const bundle={...fullBundle,
+    revisions:fullBundle.revisions.filter(r=>revisionIds.has(r.revisionId)),
+    verifications:fullBundle.verifications.filter(v=>verificationIds.has(v.verificationId)),
+    manifest:fullBundle.manifest.filter(e=>(e.type==='revision'?revisionIds:verificationIds).has(e.id)),
+    counts:{revisions:2,verifications:2},
+    limitations:[...fullBundle.limitations,'Explicitly curated: only the two midterm developer candidates, not a full export, AI trial or A/B experiment.']};
+  await validateEvidenceBundle(bundle);
+  const selectedReview=await readEvidenceReview(JSON.stringify(bundle));
+  assert.equal(selectedReview.entries.length,2);
   await save('08-outcomes-bundle.json',bundle);
   receipt.steps.push({step:'deliberately-wrong-developer-candidate',revisionId:wrongRevision.revisionId,
     verificationId:failed.verificationId,status:'test_failed',expectedStdout:'3\n',actualStdout:'4\n',
