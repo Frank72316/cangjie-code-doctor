@@ -10,6 +10,9 @@ import { createHash } from 'node:crypto';
 import { RevisionStore } from '../scripts/revision-store.mjs';
 import { validatePublicTests, validateVerificationRecord, verificationView, verificationHTML,
   MAX_VERIFICATION_BYTES } from '../web/verification.mjs';
+import { verificationIntegrity, verificationRequestText } from '../web/process-evidence.mjs';
+import { readEvidenceReview } from '../web/evidence-review.mjs';
+import { validateEvidenceBundle } from '../web/evidence-bundle.mjs';
 
 const baseRecord = JSON.parse(await readFile(new URL('fixtures/type_mismatch.json',import.meta.url),'utf8'));
 const image = 'sha256:' + 'a'.repeat(64);
@@ -56,6 +59,108 @@ async function rejectsMutations(seed,mutations) {
     await assert.rejects(validateVerificationRecord(record),{name:'Error'},name);
   }
 }
+
+function withRawBytes(record) {
+  record.report.schemaVersion=2;
+  record.report.requestSha256=digest(verificationRequestText(record.revision.source,record.tests));
+  for(const process of [record.report.compile.process,...record.report.tests.map(t=>t.process)].filter(Boolean))
+    for(const stream of ['stdout','stderr']) process[`${stream}Base64`]=Buffer.from(process[stream]).toString('base64');
+  return record;
+}
+function outputFailure(record,bytes=Buffer.from('4\n')) {
+  const result=record.report.tests[0];
+  record.report.status='test_failed';record.report.testStatus='failed';result.status='failed';
+  result.process={...processRecord(bytes.toString('utf8')),stdoutBytes:bytes.length,stdoutSha256:digest(bytes),stdoutBase64:bytes.toString('base64'),stderrBase64:''};
+  result.verdict={...result.verdict,status:'failed',stdoutMatches:false,actualBytes:bytes.length};
+  return record;
+}
+
+test('v2 binds raw bytes and canonical public inputs, keeps success and failure distinct',async t=>{
+  const good=withRawBytes(await fixture(t)), bad=outputFailure(structuredClone(good));
+  for(const record of [good,bad]){
+    await validateVerificationRecord(record);
+    assert.equal(verificationIntegrity(record).state,'verified');
+    assert.match(verificationHTML(record),/已采集输出字节核验通过/);
+    await readEvidenceReview(JSON.stringify(record));
+  }
+  assert.equal(verificationView(bad).label,'公开测试未通过');
+  assert.equal(verificationRequestText({text:'x',name:'x.cj'},[{expectedStdout:'x',stdin:'',id:'x'}]),
+    verificationRequestText({name:'x.cj',text:'x'},[{id:'x',stdin:'',expectedStdout:'x'}]));
+});
+
+test('v2 rejects missing/noncanonical raw encoding, changed text, length, hash, source, input and verdict',async t=>{
+  const record=outputFailure(withRawBytes(await fixture(t)));
+  await rejectsMutations(record,[
+    ['changed stdout display',r=>r.report.tests[0].process.stdout='999\n'],
+    ['changed stderr display',r=>r.report.tests[0].process.stderr='different'],
+    ['changed stdout digest',r=>r.report.tests[0].process.stdoutSha256='0'.repeat(64)],
+    ['changed stderr digest',r=>r.report.tests[0].process.stderrSha256='0'.repeat(64)],
+    ['changed output byte count',r=>r.report.tests[0].process.stdoutBytes++],
+    ['changed raw stdout',r=>r.report.tests[0].process.stdoutBase64=Buffer.from('5\n').toString('base64')],
+    ['missing raw stdout',r=>delete r.report.tests[0].process.stdoutBase64],
+    ['missing raw stderr',r=>delete r.report.compile.process.stderrBase64],
+    ['noncanonical base64 pad bits',r=>r.report.tests[0].process.stdoutBase64='NB=='],
+    ['base64 whitespace',r=>r.report.tests[0].process.stdoutBase64+='\n'],
+    ['source changed',r=>r.report.source.text+='//changed'],
+    ['public input changed',r=>r.tests[0].stdin='1'],
+    ['public expected output changed at same length',r=>r.tests[0].expectedStdout='9\n'],
+    ['native mismatch flipped',r=>r.report.tests[0].verdict.stdoutMatches=true],
+    ['compiler raw diagnostic changed',r=>r.report.compile.normalized.rawDiagnostics='different'],
+    ['compiler exit changed',r=>r.report.compile.normalized.exitCode=1],
+  ]);
+  // Even if all digests of the request are recomputed, an inconsistent native
+  // comparison cannot be made valid just by altering the expected output.
+  record.tests[0].expectedStdout='4\n';record.report.requestSha256=digest(verificationRequestText(record.revision.source,record.tests));
+  await assert.rejects(validateVerificationRecord(record),/实际输出字节/);
+});
+
+test('raw invalid UTF-8 and BOM are preserved, never hashed as replacement text',async t=>{
+  for(const bytes of [Buffer.from([0xff,10]),Buffer.from([0xef,0xbb,0xbf,52,10])]){
+    const record=outputFailure(withRawBytes(await fixture(t)),bytes);
+    await validateVerificationRecord(record);
+    assert.equal(verificationIntegrity(record).state,'verified');
+    assert.equal(Buffer.from(record.report.tests[0].process.stdoutBase64,'base64').equals(bytes),true);
+    record.report.tests[0].process.stdoutSha256=digest('wrong decoded bytes');
+    await assert.rejects(validateVerificationRecord(record));
+  }
+});
+
+test('legacy contradictions are rejected, unrecoverable replacement text is explicitly limited',async t=>{
+  const legacy=await fixture(t);
+  assert.equal(verificationIntegrity(legacy).state,'legacy');
+  assert.match(verificationHTML(legacy),/旧版报告 · 原始字节核验受限/);
+  const bad=outputFailure(structuredClone(legacy));
+  delete bad.report.tests[0].process.stdoutBase64;delete bad.report.tests[0].process.stderrBase64;
+  await rejectsMutations(bad,[
+    ['audited text defect',r=>r.report.tests[0].process.stdout='999\n'],
+    ['audited hash defect',r=>r.report.tests[0].process.stdoutSha256='0'.repeat(64)],
+    ['audited compiler defect',r=>r.report.compile.process.stderr='changed log'],
+  ]);
+  const undecodable=outputFailure(structuredClone(legacy),Buffer.from([0xff,10]));
+  delete undecodable.report.tests[0].process.stdoutBase64;delete undecodable.report.tests[0].process.stderrBase64;
+  await validateVerificationRecord(undecodable);
+  assert.equal(verificationIntegrity(undecodable).state,'legacy');
+});
+
+test('abnormal v2 captured streams are verified without promoting incomplete results',async t=>{
+  const record=withRawBytes(await fixture(t)),result=record.report.tests[0];
+  record.report.status='test_failed';record.report.testStatus='failed';result.status='timeout';
+  result.process.reason='timeout';result.process.exitCode=null;delete result.verdict;
+  await validateVerificationRecord(record);assert.equal(verificationView(record).label,'公开测试未通过');
+  assert.match(verificationIntegrity(record).detail,/已采集部分/);
+  result.process.stderr='changed';await assert.rejects(validateVerificationRecord(record));
+});
+
+test('bundle rehash cannot hide inconsistent nested bytes; old records remain byte-for-byte unchanged',async t=>{
+  const record=outputFailure(withRawBytes(await fixture(t)));
+  const bundle={schemaVersion:1,kind:'doctor-evidence-bundle',exportedAt:new Date().toISOString(),scope:'saved-revisions-and-verifications',
+    revisions:[record.revision],verifications:[record],counts:{revisions:1,verifications:1},limitations:['Synthetic contract fixture.'],manifest:[]};
+  const seal=()=>{bundle.manifest=[{type:'revision',id:record.revision.revisionId,sha256:digest(JSON.stringify(record.revision))},
+    {type:'verification',id:record.verificationId,sha256:digest(JSON.stringify(record))}];};
+  seal();const before=JSON.stringify(bundle);await validateEvidenceBundle(bundle);await readEvidenceReview(before);assert.equal(JSON.stringify(bundle),before);
+  record.report.tests[0].process.stdout='999\n';seal();
+  await assert.rejects(validateEvidenceBundle(bundle));await assert.rejects(readEvidenceReview(JSON.stringify(bundle)));
+});
 
 test('complete synthetic evidence binds a real saved manual revision without changing its unverified state',async t => {
   const record = await fixture(t), before = structuredClone(record.revision);

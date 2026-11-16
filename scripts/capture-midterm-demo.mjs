@@ -12,7 +12,7 @@ import { makeServer } from './preview.mjs';
 import { readRecord, compileView } from '../web/report.mjs';
 import { validateRevision } from '../web/revision.mjs';
 import { revisionHTML } from '../web/revision-report.mjs';
-import { validateVerificationRecord, verificationHTML } from '../web/verification.mjs';
+import { validateVerificationRecord, verificationHTML, verificationIntegrity } from '../web/verification.mjs';
 import { readEvidenceReview, reviewHTML, reviewOutcome } from '../web/evidence-review.mjs';
 import { validateEvidenceBundle } from '../web/evidence-bundle.mjs';
 import { outputDifference } from '../web/output-difference.mjs';
@@ -112,6 +112,31 @@ try {
   const selectedReview=await readEvidenceReview(JSON.stringify(bundle));
   assert.equal(selectedReview.entries.length,2);
   await save('08-outcomes-bundle.json',bundle);
+  const integrityChecks=[];
+  for (const item of [verification,failed]) {
+    assert.equal(item.report.schemaVersion,2);
+    assert.equal(verificationIntegrity(item).state,'verified');
+    const processes=[['compile',item.report.compile.process],...item.report.tests.map((t,i)=>[`test-${i}`,t.process])];
+    for (const [prefix,process] of processes) for (const stream of ['stdout','stderr']) {
+      const original=await readFile(join(root,'runs','verification',item.report.id,`${prefix}.${stream}`));
+      assert.deepEqual(Buffer.from(process[`${stream}Base64`],'base64'),original);
+    }
+    const serialized=JSON.stringify(item);
+    for (const [name,mutate] of [
+      ['changed-test-output',r=>r.report.tests[0].process.stdout='999\n'],
+      ['changed-test-digest',r=>r.report.tests[0].process.stdoutSha256='0'.repeat(64)],
+      ['changed-compiler-output',r=>r.report.compile.process.stderr='altered'],
+      ['changed-public-input',r=>r.tests[0].stdin='altered']
+    ]) {
+      const altered=structuredClone(item);mutate(altered);
+      await assert.rejects(validateVerificationRecord(altered));
+      await assert.rejects(readEvidenceReview(JSON.stringify(altered)));
+      integrityChecks.push({verificationId:item.verificationId,check:name,result:'rejected'});
+    }
+    assert.equal(JSON.stringify(item),serialized);
+  }
+  await save('09-integrity-checks.json',{scope:'Content consistency checks, not source authentication or A/B.',
+    originalRawFilesMatch:true,successStatus:verification.report.status,failureStatus:failed.report.status,checks:integrityChecks});
   receipt.steps.push({step:'deliberately-wrong-developer-candidate',revisionId:wrongRevision.revisionId,
     verificationId:failed.verificationId,status:'test_failed',expectedStdout:'3\n',actualStdout:'4\n',
     requirementUnchanged:true,containersRemoved:true,scope:'Expected failure demonstration, not AI repair or A/B.'});

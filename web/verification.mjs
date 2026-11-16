@@ -3,6 +3,8 @@ import { validateRevision, lineDiff } from './revision.mjs';
 import { sha256 } from './report.mjs';
 import { documentEvidenceHTML } from './document-evidence.mjs';
 import { outputDifference } from './output-difference.mjs';
+import { validateProcessBytes, verificationIntegrity, verificationRequestText } from './process-evidence.mjs';
+export { verificationIntegrity } from './process-evidence.mjs';
 const encoder = new TextEncoder();
 export const MAX_VERIFICATION_BYTES = 16 * 1024 * 1024;
 export const validVerificationId = value => typeof value === 'string' && /^[a-f0-9]{32}$/.test(value);
@@ -23,16 +25,17 @@ export function validatePublicTests(tests, {allowEmpty=false}={}) {
   }
   return structuredClone(tests);
 }
-function validateProcess(value, maximum) {
+async function validateProcess(value, maximum, rawRequired) {
   requireThat(value && (value.exitCode === null || Number.isInteger(value.exitCode)) && text(value.reason,1024)
     && text(value.stdout,maximum*3) && text(value.stderr,maximum*3)
     && Number.isInteger(value.stdoutBytes) && value.stdoutBytes >= 0
     && Number.isInteger(value.stderrBytes) && value.stderrBytes >= 0
     && value.stdoutBytes + value.stderrBytes <= maximum
     && digest(value.stdoutSha256) && digest(value.stderrSha256), '验证进程输出或字节边界无效。');
+  return validateProcessBytes(value,maximum,rawRequired);
 }
 async function validateSandboxReport(report, revision, tests) {
-  requireThat(report && report.schemaVersion === 1 && report.kind === 'doctor-sandbox-verification'
+  requireThat(report && [1,2].includes(report.schemaVersion) && report.kind === 'doctor-sandbox-verification'
     && validVerificationId(report.id) && report.developmentOnly === true && report.scope === 'public-tests-only'
     && report.sdkVersion === '1.0.5' && /^sha256:[a-f0-9]{64}$/.test(report.image)
     && iso(report.startedAt) && iso(report.finishedAt) && report.finishedAt >= report.startedAt
@@ -44,10 +47,19 @@ async function validateSandboxReport(report, revision, tests) {
     && report.compile && ['not_run','compile_passed','compile_failed','tool_error'].includes(report.compile.status)
     && Array.isArray(report.tests) && report.tests.length === tests.length
     && Array.isArray(report.containers) && report.containers.length <= tests.length + 1, '验证状态或测试数量无效。');
-  if (report.compile.process) validateProcess(report.compile.process,1024*1024);
+  const rawRequired=report.schemaVersion===2;
+  if (rawRequired) requireThat(report.requestSha256 === await sha256(verificationRequestText(revision.source,tests)),
+    '验证输入摘要与源码或公开测试不一致。');
+  if (report.compile.process) await validateProcess(report.compile.process,1024*1024,rawRequired);
+  if (rawRequired && report.compile.normalized) {
+    const normalized=report.compile.normalized, process=report.compile.process;
+    requireThat(process && normalized.exitCode===process.exitCode && normalized.rawDiagnostics===process.stderr+process.stdout
+      && normalized.testStatus==='not_run' && (report.compile.status==='tool_error' || normalized.status===report.compile.status),
+      '编译原生判定与原始日志或退出码不一致。');
+  }
   for (const [index,test] of report.tests.entries()) {
     requireThat(test.id === tests[index].id && ['not_run','passed','failed','runtime_error','timeout','output_limit','cancelled','oom','tool_error','launch_error'].includes(test.status), '测试结果与请求的顺序或编号不一致。');
-    if (test.process) validateProcess(test.process,65536);
+    const processBytes=test.process ? await validateProcess(test.process,65536,rawRequired) : null;
     if (['passed','failed','runtime_error'].includes(test.status)) {
       const verdict = test.verdict;
       requireThat(test.process && !test.process.reason && Number.isInteger(test.process.exitCode)
@@ -57,6 +69,11 @@ async function validateSandboxReport(report, revision, tests) {
       '原生公开测试判定缺失或不一致。');
       requireThat(test.status === 'runtime_error' ? verdict.exitCode !== 0
         : verdict.exitCode === 0 && verdict.stdoutMatches === (test.status === 'passed'), '测试通过状态与原生退出码或比较结果不一致。');
+      if (processBytes?.stdout) {
+        const expected=encoder.encode(tests[index].expectedStdout), actual=processBytes.stdout;
+        const matches=actual.length===expected.length && actual.every((byte,i)=>byte===expected[i]);
+        requireThat(verdict.stdoutMatches===matches,'原生输出判定与实际输出字节或期望输出不一致。');
+      }
       if (test.status === 'passed') requireThat(verdict.actualBytes === verdict.expectedBytes
         && test.process.stdout === tests[index].expectedStdout && test.process.stdoutSha256 === await sha256(tests[index].expectedStdout), '通过记录的输出或哈希不一致。');
     }
@@ -133,7 +150,7 @@ const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp
 const resultNames={passed:'通过',failed:'输出不符',runtime_error:'运行异常',timeout:'超时',output_limit:'输出超限',cancelled:'已取消',oom:'内存超限',tool_error:'工具异常',launch_error:'启动失败',not_run:'未运行'};
 // Call after validateVerificationRecord. All candidate text is HTML escaped.
 export function verificationHTML(data) {
-  const view=verificationView(data), report=data.report;
+  const view=verificationView(data), report=data.report, integrity=verificationIntegrity(data);
   const tests=data.tests.map((test,index) => {
     const result=report?.tests[index];
     const difference=outputDifference(test,result);
@@ -142,7 +159,7 @@ export function verificationHTML(data) {
   const diff=lineDiff(data.revision.baseRecord.source.text,data.revision.source.text).map(row =>
     `${row.kind === 'add' ? '+' : row.kind === 'remove' ? '−' : ' '} ${row.text}`).join('\n');
   return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Doctor 修改与公开测试报告</title><style>body{max-width:1080px;margin:40px auto;padding:0 22px;font:15px/1.7 system-ui,sans-serif;color:#18352b;background:#f6f8f4}h1{font-size:28px}h2{margin-top:30px}section{background:white;border:1px solid #d9e2da;border-radius:12px;padding:20px;margin:18px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eff3ef;padding:12px;border-radius:6px;min-height:24px}code,p{overflow-wrap:anywhere}.columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.scope{color:#59685f}@media(max-width:700px){.columns{grid-template-columns:1fr}body{margin:20px auto}}@media print{body{background:white}section{break-inside:avoid}}</style></head><body>
-<p>Doctor · 离线开发记录</p><h1>修改与公开测试报告</h1><p><strong>${escape(view.label)}</strong> · ${escape(view.compileLabel)} · ${escape(view.testLabel)}</p><p class="scope">${escape(view.detail)}</p>
+<p>Doctor · 离线开发记录</p><h1>修改与公开测试报告</h1><p><strong>${escape(view.label)}</strong> · ${escape(view.compileLabel)} · ${escape(view.testLabel)}</p><p class="scope">${escape(view.detail)}</p><section><h2>${escape(integrity.label)}</h2><p>${escape(integrity.detail)}</p></section>
 <section><h2>记录身份</h2><p>验证编号：<code>${escape(data.verificationId)}</code></p><p>修订编号：<code>${escape(data.revision.revisionId)}</code></p><p>接收时间：${escape(data.createdAt)}；结束时间：${escape(data.finishedAt || '未确认')}</p><p>源码：${escape(data.revision.source.name)}；SHA-256：<code>${escape(data.revision.source.sha256)}</code></p><p>原诊断记录 SHA-256：<code>${escape(data.revision.recordSha256)}</code></p><p>SDK：${escape(report?.sdkVersion || '未确认')}；镜像：<code>${escape(report?.image || '未确认')}</code></p></section>
 <section><h2>已确认的源码差异</h2><pre>${escape(diff)}</pre><details><summary>修改后的完整源码</summary><pre>${escape(data.revision.source.text)}</pre></details></section>
 ${data.revision.documentEvidence ? `<p class="scope">文档依据 SHA-256：<code>${escape(data.revision.documentEvidenceSha256)}</code></p>` : ''}${documentEvidenceHTML(data.revision.documentEvidence)}

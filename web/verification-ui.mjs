@@ -2,6 +2,7 @@ import { validateRevision, validRevisionId } from './revision.mjs';
 import { validatePublicTests, validateVerificationRecord, verificationView, verificationHTML } from './verification.mjs';
 import { officialDocumentURL } from './document-evidence.mjs';
 import { outputDifference } from './output-difference.mjs';
+import { verificationIntegrity } from './process-evidence.mjs';
 
 const $ = id => document.getElementById(id);
 const node = (tag, text = '', className = '') => {
@@ -139,6 +140,8 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
     destination.replaceChildren(); destination.dataset.tone = view.tone;
     destination.append(node('h3', view.label), node('p', `${view.compileLabel} · ${view.testLabel}`, 'verification-verdict'),
       node('p', data.state === 'unknown' ? unfinishedDetail : view.detail), node('p', `仅对应 ${data.revision.source.name} 的已保存版本 ${data.revision.revisionId.slice(0, 8)}。公开测试通过仅说明这些测试的输出符合期望。`, 'verification-result-scope'));
+    const integrity=verificationIntegrity(data);
+    destination.append(node('p',`${integrity.label}。${integrity.detail}`,`evidence-integrity ${integrity.state}`));
     if (data.detail && data.detail !== view.detail) destination.append(node('p', data.detail, 'verification-result-scope'));
     const details = node('details', '', 'verification-report-detail'); details.append(node('summary', '查看源码、测试与原始日志'));
     details.append(node('p', `修改编号：${data.revision.revisionId}`, 'mono'), node('p', `源码 SHA-256：${data.revision.source.sha256}`, 'mono'),

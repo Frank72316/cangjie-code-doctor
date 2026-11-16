@@ -1,4 +1,5 @@
 import { validateEvidenceBundle, MAX_EVIDENCE_BUNDLE_BYTES } from './evidence-bundle.mjs';
+import { verificationIntegrity } from './process-evidence.mjs';
 
 const $ = id => document.getElementById(id);
 const groupNames = {tasks:'编译任务记录',native:'编译诊断与产物',retrieval:'文档检索过程',revisions:'已保存修改','revision-verifications':'独立验证记录',other:'其他运行文件'};
@@ -86,7 +87,8 @@ export function initStorageUI({getHealth,download}) {
       const json = JSON.stringify(data);
       download(`doctor-evidence-${exportDate(data.exportedAt)}.json`,json,'application/json');
       const unknown = data.verifications.filter(item => item.state === 'unknown').length;
-      setStatus(`已核验并下载 ${data.counts.revisions} 份修改、${data.counts.verifications} 份独立验证记录${unknown ? `，其中 ${unknown} 份验证仍待确认` : ''}。导出不改变原记录或验证结论。`);
+      const legacy = data.verifications.filter(item => verificationIntegrity(item).state==='legacy').length;
+      setStatus(`已核对结构与已有摘要并下载 ${data.counts.revisions} 份修改、${data.counts.verifications} 份独立验证记录${unknown ? `，其中 ${unknown} 份验证仍待确认` : ''}${legacy ? `；${legacy} 份旧版报告原始字节核验受限` : ''}。导出不改变原记录或验证结论。`);
     } catch (error) { setStatus(`${error.message} 本次没有下载材料，也没有删除本机记录。`,true); }
     finally { exporting = false; controls(); }
   });

@@ -240,6 +240,22 @@ test('terminal report must bind the saved request, and corrupt reports are not h
   await assert.rejects(env.service.get(record.verificationId), error => error.status === 400);
 });
 
+test('stored output contradictions are refused on reread and counted as unreadable', async t => {
+  const env=await setup(t);await env.ready();
+  const record=await env.service.verify(env.input);
+  const path=join(env.root,'runs/revision-verifications',record.verificationId,'verification.json');
+  for (const mutate of [r=>r.report.tests[0].process.stdout='999\n',
+    r=>r.report.tests[0].process.stdoutSha256='0'.repeat(64),r=>r.report.compile.process.stderr='altered']) {
+    const altered=structuredClone(record);mutate(altered);
+    await writeFile(path,JSON.stringify(altered));
+    await assert.rejects(env.service.get(record.verificationId));
+    const listed=await env.service.list();
+    assert.equal(listed.unreadable,1);assert.equal(listed.verifications.length,0);
+  }
+  await writeFile(path,JSON.stringify(record));
+  assert.deepEqual(await env.service.get(record.verificationId),record);
+});
+
 test('verification store refuses linked directories and linked record files', async t => {
   const env = await setup(t), outside = await mkdtemp(join(tmpdir(),'doctor-verification-outside-'));
   t.after(() => rm(outside,{recursive:true,force:true}));

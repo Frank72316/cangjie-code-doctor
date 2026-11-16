@@ -3,6 +3,7 @@ import { compileView } from './report.mjs';
 import { lineDiff } from './revision.mjs';
 import { officialDocumentURL } from './document-evidence.mjs';
 import { outputDifference } from './output-difference.mjs';
+import { verificationIntegrity } from './process-evidence.mjs';
 
 const $ = id => document.getElementById(id);
 const node = (tag,text='',className='') => {
@@ -33,6 +34,7 @@ export function initEvidenceReviewUI({download}) {
     heading.append(node('h3',r.source.name),node('strong',outcome.label,`review-verdict ${outcome.tone}`));
     root.append(heading,node('p','已有报告回看 · 本次没有编译或运行程序','review-boundary'),
       node('p',`修改保存：${time(r.createdAt)}；验证结束：${time(v?.finishedAt)}（北京时间）`,'review-meta'));
+    if(v){const integrity=verificationIntegrity(v);root.append(node('p',`${integrity.label}。${integrity.detail}`,`evidence-integrity ${integrity.state}`));}
     const grid=node('div','','review-stages');
     const stage=(title,summary)=>{const e=node('section','','review-stage');e.append(node('h4',title),node('p',summary));grid.append(e);return e;};
     const diagnosis=stage('01 原报错',base.label);
@@ -92,7 +94,7 @@ export function initEvidenceReviewUI({download}) {
         option.value=String(i);$('evidence-review-select').append(option);
       }
       $('evidence-review-select').value='0';$('evidence-review-picker').hidden=data.entries.length<2;
-      status(`已打开 ${file.name || '报告 JSON'} · 内容与记录哈希核对通过 · ${data.entries.length} 份可回看记录。此校验不认证来源，也没有执行程序。`);render();
+      status(`已打开 ${file.name || '报告 JSON'} · 结构与已有摘要检查完成 · ${data.entries.length} 份可回看记录。输出核验范围见下方；本次没有执行程序。`);render();
     }catch(error){if(request===generation){discard();status(`打开失败：${error.message} 请检查所选文件。`,true);}}
   };
   $('evidence-review-file').addEventListener('change',async event=>{const file=event.target.files?.[0];event.target.value='';await openFile(file);});

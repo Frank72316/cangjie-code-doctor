@@ -39,6 +39,7 @@ const routes = new Map([
   ['/evidence-review.mjs', ['web/evidence-review.mjs', 'text/javascript; charset=utf-8']],
   ['/evidence-review-ui.mjs', ['web/evidence-review-ui.mjs', 'text/javascript; charset=utf-8']],
   ['/output-difference.mjs', ['web/output-difference.mjs', 'text/javascript; charset=utf-8']],
+  ['/process-evidence.mjs', ['web/process-evidence.mjs', 'text/javascript; charset=utf-8']],
   ['/evidence-bundle.mjs', ['web/evidence-bundle.mjs', 'text/javascript; charset=utf-8']],
   ['/task.mjs', ['web/task.mjs', 'text/javascript; charset=utf-8']],
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>

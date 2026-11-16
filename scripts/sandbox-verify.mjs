@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { SandboxContainer } from './sandbox-container.mjs';
 import { runNative } from './native-bridge.mjs';
 import { openSandboxExecution } from './sandbox-lifecycle.mjs';
+import { verificationRequestText } from '../web/process-evidence.mjs';
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const bytes = text => Buffer.byteLength(text, 'utf8');
@@ -31,7 +32,8 @@ export function validateVerification(input) {
 function processRecord(result) {
   return {exitCode:result.code, reason:result.reason || '', stdout:result.stdout.toString('utf8'), stderr:result.stderr.toString('utf8'),
     stdoutBytes:result.stdout.length, stderrBytes:result.stderr.length, stdoutSha256:hash(result.stdout), stderrSha256:hash(result.stderr),
-    displayEncoding:'UTF-8 replacement; original bytes saved separately', cleanupDetail:result.cleanupDetail || ''};
+    stdoutBase64:result.stdout.toString('base64'), stderrBase64:result.stderr.toString('base64'),
+    displayEncoding:'UTF-8 replacement; original bytes embedded as Base64 and saved separately', cleanupDetail:result.cleanupDetail || ''};
 }
 function stateRecord(inspect) {
   if (!inspect) return null;
@@ -69,7 +71,7 @@ async function verifyWithLifecycle(input, {root, image, core, signal}, {containe
   const id = randomBytes(16).toString('hex'), directory = join(root, 'runs', 'verification', id);
   await mkdir(directory, {mode:0o700});
   const sourcePath = join(directory, 'input.cj'), artifactPath = join(directory, 'program');
-  const report = {schemaVersion:1, kind:'doctor-sandbox-verification', id, startedAt:new Date().toISOString(),
+  const report = {schemaVersion:2, kind:'doctor-sandbox-verification', requestSha256:hash(verificationRequestText(input.source,input.tests)), id, startedAt:new Date().toISOString(),
     developmentOnly:true, scope:'public-tests-only', image, sdkVersion:'1.0.5', source:{...input.source, sha256:hash(input.source.text)},
     status:'tool_error', compile:{status:'not_run'}, tests:input.tests.map(test => ({id:test.id, status:'not_run'})),
     testStatus:'not_run', containers:[], detail:''};

@@ -108,3 +108,9 @@ node scripts/test-revision-verification-http.mjs "$image" target/debug/doctor
 CI 摘要保存构建身份、资源探针、容器公开验收、进程中断恢复和 Web 修订 HTTP 验收 receipt；具体版本、成功或失败及本机限制见[进度](progress.md)、[提交记录](submissions.md)。网页修订接入、人工修改/公开测试报告及登记资源恢复已实现；部署配额、自动归档、评估数据冻结、模型候选与正式 A/B 报告仍需后续完成。
 
 参考：[Docker 运行参数](https://docs.docker.com/engine/containers/run/)、[资源限制](https://docs.docker.com/engine/containers/resource_constraints/)、[Docker 安全边界](https://docs.docker.com/engine/security/)、[flock 命令](https://man7.org/linux/man-pages/man1/flock.1.html)、[flock 文件描述符语义](https://man7.org/linux/man-pages/man2/flock.2.html)。
+
+### 原始输出一致性（2026-11-16）
+
+新容器报告的内层版本为2（外层验证记录仍为1）。每路输出嵌入规范Base64原字节，核对字节数、SHA-256与UTF-8替换显示；requestSha256按固定字段顺序绑定源码名称/正文、测试ID/输入/期望，原生精确字节比较必须与这些字节相符。服务读取、单份及汇总包导入使用同一校验，任一矛盾拒绝。HTML只由校验后的记录生成。
+
+旧版仍可阅读，但显示“原始字节核验受限”；无替换字符的文本可核对长度及摘要，含替换字符且缺原字节时不能完整核对，不补造证据。新报告的绿色核验提示与测试成败分开，异常只核验已捕获部分。无签名摘要不能认证作者或阻止所有字段一致重写，不等于重新执行、AI修复或正式实验成绩。
