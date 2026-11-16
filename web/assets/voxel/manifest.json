@@ -16,8 +16,8 @@
     },
     {
       "path": "credits.html",
-      "bytes": 5377,
-      "sha256": "8930c46c7ebee357ff598c23402bbd0bd586cfb6cc4ffc45f4d420dd4aa6c26b"
+      "bytes": 5389,
+      "sha256": "51b0f4fcff108063c10ccb62abe0294ad2498e79c9759ebbc588b446b638f735"
     },
     {
       "path": "diamond-ore.png",
@@ -191,8 +191,8 @@
     },
     {
       "path": "winter-garden.svg",
-      "bytes": 2466,
-      "sha256": "ab34e9da6ba15e29813487d040836d69a531a047ecb850d4b21b4076d7f136cc"
+      "bytes": 10409,
+      "sha256": "06fab7157eba3a2bf428331386161cc9cb6a8b96deeaa1ac8ed14f071a50d180"
     }
   ],
   "updatedOn": "2026-11-16"
