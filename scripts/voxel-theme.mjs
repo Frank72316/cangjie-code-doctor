@@ -48,6 +48,6 @@ export function applyVoxelTheme(html, {preview = true} = {}) {
     .replace('<img src="/assets/doodles/book.svg" alt="" width="46" height="46">', '<span class="pixel-book"></span>')
     .replace('href="/assets/credits.html"', 'href="/assets/voxel/credits.html"');
   return preview ? themed
-    .replace('<main id="main-content" tabindex="-1">', '<main id="main-content" tabindex="-1"><div class="voxel-preview-note">设计试稿 <span>可切换六个页面、查看和编辑样例；编译与保存请回到原工作台。</span><a href="http://127.0.0.1:8765/tutorial">原工作台 ↗</a></div>')
+    .replace('<main id="main-content" tabindex="-1">', '<main id="main-content" tabindex="-1"><div class="voxel-preview-note">设计试稿 <span>可切换七个页面、查看和编辑样例；编译与保存请回到原工作台。</span><a href="http://127.0.0.1:8765/tutorial">原工作台 ↗</a></div>')
     .replace('进入后选择样例，再点击“编译所选样例”。', '先预览诊断页，熟悉从报错到定位的过程。') : themed;
 }

@@ -65,7 +65,7 @@ function refreshRevisionControls() {
     revisionStatus('副本已变化，请重新展开差异，再确认保存。');
   }
   $('revision-review').hidden = !changed;
-  $('revision-hint').textContent = savedCurrent() ? '当前修改已存到本机，可在“记录依据”中重新载入。' : '编辑后可查看差异，确认保存到本机。';
+  $('revision-hint').textContent = savedCurrent() ? '当前修改已存到本机，可在“记录与报告”中重新载入。' : '编辑后可查看差异，确认保存到本机。';
   $('save-revision').disabled = !health.token || !revisionSnapshot || !changed || savingRevision || loadingSample || savedCurrent();
   $('save-revision').textContent = savingRevision ? '正在保存…' : savedCurrent() ? '这份修改已保存' : '确认保存这份修改';
   const reference = revisionReference?.baseRecord === record ? revisionReference.evidence : null;
@@ -148,7 +148,7 @@ async function refreshRevisions() {
           savedRevision = {baseRecord:record,source:revision.source,retrievalId:revision.documentEvidence?.retrievalId};
           refreshSource(); navigation.navigate('/diagnostics');
           $('revision-review').open = true; renderRevisionReview();
-          feedback('已载入人工修改，右侧仍是原诊断。这份修改的独立验证结果请到“记录依据”查看；也可恢复记录原文。');
+          feedback('已载入人工修改，右侧仍是原诊断。这份修改的独立验证结果请到“记录与报告”查看；也可恢复记录原文。');
         } catch (error) { if (ticket === loading) feedback(error.message); }
         finally { load.disabled = false; if (ticket === loading) { loadingSample = false; refreshSource(); } }
       });
@@ -266,7 +266,7 @@ function renderDocumentEvidence(data) {
 }
 function refreshBeginnerGuide() {
   $('onboarding-capability').textContent = health.available
-    ? '可以重新编译样例、定位报错、检索官方文档并保存修改。测试是否可用，请到“记录依据”查看。'
+    ? '可以重新编译样例、定位报错、检索官方文档并保存修改。测试是否可用，请到“测试验证”查看。'
     : health.token
       ? '可以查看已有报错、定位代码、编辑并保存副本。当前不能重新编译或检索文档，可以先把操作流程走一遍。'
       : '可以查看已有报错、定位和编辑副本。当前未连接保存服务，需要保留修改时请在“源码操作”中下载副本。';
@@ -274,7 +274,7 @@ function refreshBeginnerGuide() {
   if (loadingSample || !record) {
     title = '先选择一个样例'; detail = '建议从“类型不匹配”开始。样例载入后，会同时显示代码和已有报错。';
   } else if (savedCurrent()) {
-    title = '这份修改已保存'; detail = '点击代码下方“修改已保存，去查看报告”，回看差异或继续测试。保存不代表编译、测试通过。';
+    title = '这份修改已保存'; detail = '点击代码下方“修改已保存，去测试验证”，检查运行条件并填写公开测试；已有报告在“记录与报告”。保存不代表编译、测试通过。';
   } else if (!current()) {
     title = '下一步：核对修改，再保存'; detail = health.token
       ? '在代码下方展开“查看修改并保存”，核对差异后确认。右侧仍是修改前的报错，不是新代码的结果。'
@@ -287,7 +287,7 @@ function refreshBeginnerGuide() {
       : '编译暂不可用，但已有记录仍能定位和阅读。先点击诊断卡片中的行号；新手可对照教程编辑副本。';
   } else {
     title = '先读当前诊断结果'; detail = compileView(record).status === 'compile_passed'
-      ? '编译通过只说明没有编译错误。修改后仍需保存，再到“记录依据”检查测试条件。'
+      ? '编译通过只说明没有编译错误。修改后仍需保存，再到“测试验证”检查测试条件。'
       : '当前记录没有可定位的报错。请核对诊断状态，必要时展开“原始编译器输出”；工具异常不代表代码正确。';
   }
   $('beginner-title').textContent = title;
@@ -315,7 +315,7 @@ function refreshSource() {
   $('restore').hidden = !record || current();
   $('compile-guidance').textContent = loadingSample ? '正在载入样例…' :
     !record ? '尚未载入诊断，请从上方选择一个样例重试。' :
-    !current() ? '副本已修改。请在源码下方查看差异并保存，再到“记录依据”验证已保存版本；此处仅编译审核样例。' :
+    !current() ? '副本已修改。请在源码下方查看差异并保存，再到“测试验证”验证已保存版本；此处仅编译审核样例。' :
     !selectedCase ? '当前为导入或历史记录。要发起新编译，请从上方选择审核样例。' :
     compiling || health.busy ? '本机任务进行中，请等待完成。' :
     retrievingDocuments ? '文档正在检索，完成后可编译。' :
@@ -407,7 +407,7 @@ $('source').addEventListener('input', () => {
   ++loading; loadingSample = false; selectSample(selectedCase); refreshSource();
 });
 $('source').addEventListener('scroll', () => { $('line-numbers').scrollTop = $('source').scrollTop; });
-$('restore').addEventListener('click', () => { if (record && allowSourceReplacement()) { ++loading; loadingSample = false; selectSample(selectedCase); currentName = record.source.name; $('source').value = record.source.text; savedRevision = null; refreshSource(); feedback('已恢复原诊断对应的源码副本；已保存修改仍保留在记录依据页。'); } });
+$('restore').addEventListener('click', () => { if (record && allowSourceReplacement()) { ++loading; loadingSample = false; selectSample(selectedCase); currentName = record.source.name; $('source').value = record.source.text; savedRevision = null; refreshSource(); feedback('已恢复原诊断对应的源码副本；已保存修改仍保留在记录与报告页。'); } });
 $('import-source').addEventListener('click', () => $('source-file').click());
 $('import-record').addEventListener('click', () => $('record-file').click());
 $('source-file').addEventListener('change', async event => {
@@ -424,7 +424,7 @@ $('source-file').addEventListener('change', async event => {
     currentName = file.name; $('source').value = text; refreshSource();
     selectedCase = null; refreshSource();
     selectSample(null);
-    feedback('已导入编辑副本。核对差异并保存后，可在“记录依据”中查看容器验证是否就绪。');
+    feedback('已导入编辑副本。核对差异并保存后，可在“记录与报告”中查看容器验证是否就绪。');
   } catch (e) { if (ticket === loading) feedback(e.message); }
 });
 $('record-file').addEventListener('change', async event => {
@@ -468,11 +468,11 @@ $('save-revision').addEventListener('click', async () => {
       throw new Error('返回的文档依据与本次确认不一致，未标记为已保存。');
     if (matchesEditor(snapshot) && (chosenReference()?.retrievalId || null) === (reference?.retrievalId || null)) {
       savedRevision = {...snapshot,retrievalId:reference?.retrievalId};
-      revisionStatus(`已保存到本机${reference ? '，并附带原诊断文档依据' : ''}。可到“记录依据”下载可读修改报告，或填写公开测试并查看验证环境。当前保存操作未执行编译或测试。`);
-    } else feedback('刚才确认的版本已保存到“记录依据”。当前编辑内容另有变化，请重新审阅后保存。');
+      revisionStatus(`已保存到本机${reference ? '，并附带原诊断文档依据' : ''}。可到“记录与报告”下载可读修改报告，或到“测试验证”填写公开测试并查看环境。当前保存操作未执行编译或测试。`);
+    } else feedback('刚才确认的版本已保存到“记录与报告”。当前编辑内容另有变化，请重新审阅后保存。');
     await refreshRevisions();
   } catch (error) {
-    const message = `${error.message} 未确认保存成功。请先刷新“记录依据”中的修改记录核对，再决定是否重试；当前副本仍保留。`;
+    const message = `${error.message} 未确认保存成功。请先刷新“记录与报告”中的修改记录核对，再决定是否重试；当前副本仍保留。`;
     if (matchesEditor(snapshot)) revisionStatus(message); else feedback(message);
   } finally { savingRevision = false; refreshRevisionControls(); }
 });

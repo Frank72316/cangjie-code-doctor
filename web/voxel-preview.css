@@ -173,3 +173,5 @@ footer { border-color:#bcc6b1; color:#65745a; }
 .ai-local-card { border:2px solid #c1c8b2; background:#f2f4e9; }
 @media(max-width:899px) { .nav-item .ai-nav-mark { width:24px; height:24px; margin:0; font-size:14px; } }
 @media(max-width:700px) { .nav-item { font-size:16px; } }
+@media(max-width:700px){.sidebar .nav-item{font-size:14px;gap:4px}.sidebar .nav-item-art{width:24px;height:24px}.sidebar .nav-item-art img{width:20px;height:20px}.sidebar .nav-verify-art{width:24px;height:24px;font-size:20px}}
+@media(max-width:360px){.sidebar nav{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar .nav-item[href="/ai"]{grid-column:1/-1}}

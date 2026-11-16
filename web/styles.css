@@ -722,3 +722,21 @@ body[data-page="ai"] #ai-assistant { display:block; }
 .evidence-review-result summary { cursor:pointer; font-weight:600; }
 .evidence-review-result pre { white-space:pre-wrap; overflow-wrap:anywhere; background:#eef1e9; padding:12px; font:12px/1.7 var(--mono,monospace); max-height:260px; overflow:auto; }
 @media(max-width:700px) { .review-stages { grid-template-columns:1fr; } .review-stage { padding:14px; } }
+/* Task-oriented entry points: one purpose per page, secondary records collapsed. */
+.journey-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+body[data-page="verify"] .journey-nav{display:grid}
+.returning-entry{display:flex;align-items:center;gap:16px;padding:19px 22px;margin:18px 0;border:1px solid var(--line);background:#f7f8f1;color:var(--ink)}
+.returning-entry>span:nth-child(2){flex:1;min-width:0}.returning-entry strong{display:block;font-size:16px}.returning-entry small{display:block;margin-top:6px;color:var(--muted);line-height:1.7}.returning-entry:hover{border-color:var(--accent);background:#edf2e5}
+.returning-symbol{font-size:25px;color:var(--accent)}
+.page-next-link{display:inline-block;margin-top:20px;font-weight:600;color:var(--accent)}
+.nav-verify-art{width:32px;height:32px;display:grid;place-items:center;flex-shrink:0;border:2px solid #a2bca4;background:#35594b;color:#cff5d7;box-shadow:inset 2px 2px #719381,2px 2px #142b22;font:bold 25px/1 monospace}
+#verification-availability{margin-bottom:22px}#verification-availability .context-link{display:inline-block;margin-top:8px}
+#evidence>.verification-history-disclosure{margin:22px 0;padding:18px 22px;border:1px solid var(--line);background:#f8f9f4}
+#evidence>.saved-revisions{padding:0}#evidence>.saved-revisions .evidence-heading{margin-top:10px}.storage-body>.record-context{margin-top:14px}.storage-body>.page-actions{margin:18px 0}
+.beginner-guide a{text-decoration:underline;text-underline-offset:3px;color:var(--accent)}
+@media(max-width:650px){.journey-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.returning-entry{padding:15px;gap:12px}.returning-entry small{font-size:12px}.intro .context-link{white-space:normal}}
+body[data-page="verify"] #verification-page{display:block}
+@media(min-width:900px){.brand{margin-bottom:26px}.nav-divider{margin-top:13px}.sidebar nav{gap:4px}.nav-item{padding-top:8px;padding-bottom:8px}}
+@media(min-width:900px) and (max-height:800px){.sidebar{padding-top:22px}.brand{margin-bottom:18px}.nav-divider{margin-top:9px;padding-bottom:5px}.nav-item{padding-top:5px;padding-bottom:5px}}
+@media(min-width:701px) and (max-width:899px){.sidebar nav{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.sidebar .nav-item[href="/ai"]{grid-column:1/-1}.nav-verify-art{width:28px;height:28px;font-size:22px}}

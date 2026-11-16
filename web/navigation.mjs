@@ -3,8 +3,9 @@ export const PAGE_ROUTES = Object.freeze([
   {path:'/tutorial', id:'usage-guide', label:'使用教程', title:'使用教程与简介'},
   {path:'/diagnostics', id:'workspace', label:'编译诊断', title:'编译诊断工作台'},
   {path:'/documents', id:'document-evidence', label:'文档依据', title:'官方文档依据'},
+  {path:'/verify', id:'verification-page', label:'测试验证', title:'已保存修改测试验证'},
   {path:'/ai', id:'ai-assistant', label:'AI 助手', title:'AI 助手与连接设置'},
-  {path:'/records', id:'evidence', label:'记录依据', title:'诊断记录依据'},
+  {path:'/records', id:'evidence', label:'记录与报告', title:'记录与报告'},
   {path:'/history', id:'task-history', label:'任务历史', title:'本机编译历史'}
 ].map(Object.freeze));
 

@@ -65,7 +65,7 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
   const invalidateResult = () => {
     if (shownResult) {
       shownResult = null; $('verification-result').replaceChildren(); $('verification-result').hidden = true;
-      setStatus('验证对象或测试已变化。先前结果仍保存在下方“验证记录与报告”中。');
+      setStatus('验证对象或测试已变化。先前结果仍保存在“记录与报告”页的验证记录中。');
     }
   };
   const refreshControls = () => {
@@ -83,6 +83,10 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
       environmentMessage += ` 恢复检查：已清理 ${recovery.recoveredContainers} 个已登记的残留容器。${recovery.detail.trim().slice(0, 500)} 缺失的旧任务结果仍待确认，清理不代表验证通过。`;
     }
     $('verification-environment').textContent = environmentMessage;
+    $('verification-availability-title').textContent = environment?.available ? '测试环境已就绪' : '本机暂不能运行测试';
+    $('verification-availability-detail').textContent = environment?.available
+      ? '选好已保存副本，填写输入与期望输出后，再确认运行。'
+      : '可以先准备测试内容，或前往记录与报告回看已有结果。运行测试需要配置好的 Linux 容器环境。';
     $('verification-target').textContent = loading ? '正在核对已保存副本…' : selected ? `${selected.source.name} · 保存于 ${time(selected.createdAt)}（北京时间）` : '先在编译诊断页编辑源码，查看差异并确认保存，再回到这里选择。';
     $('verification-source').hidden = !selected;
     $('verification-test-count').textContent = `${fields.length} / 8 条`;
