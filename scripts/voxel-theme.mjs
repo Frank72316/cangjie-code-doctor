@@ -41,7 +41,6 @@ export function applyVoxelTheme(html, {preview = true} = {}) {
     .replace(/<p class="eyebrow">([^<]+)<\/p>/g, (match, label) => headingMaterials[label] ? `<p class="eyebrow"><span class="voxel-heading-blocks" aria-hidden="true">${miniCube(headingMaterials[label])}${miniCube('stone')}</span>${label}</p>` : match)
     .replace('本地运行 · 副本编辑', preview ? '方块风格 · 独立预览' : '正式工作台 · 本地服务')
     .replace('DOCTOR / 你的程序诊断手记', 'DOCTOR / 方块工作台')
-    .replace('带上好奇心就好。从一个小样例开始，读报错、找位置，再翻一翻官方文档。', '从一个小样例开始。读懂报错，定位代码，再找到有依据的修改方向。')
     .replace(/<figure class="sketch-scene"[\s\S]*?<\/figure>/, landscape)
     .replace('/assets/doodles/pencil.svg', '/assets/voxel/pickaxe.png')
     .replace('/assets/doodles/lightbulb.svg', '/assets/voxel/diamond-ore.png')

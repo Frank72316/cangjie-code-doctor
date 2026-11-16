@@ -30,6 +30,10 @@ export function initNavigation() {
       else link.removeAttribute('aria-current');
     }
     document.getElementById('section-name').textContent = route.label;
+    for (const link of document.querySelectorAll('[data-journey-path]')) {
+      if (link.dataset.journeyPath === route.path) link.setAttribute('aria-current', 'step');
+      else link.removeAttribute('aria-current');
+    }
     document.title = `${route.title} · Doctor`;
     document.getElementById('main-content').focus({preventScroll:true});
     window.scrollTo({top:0, left:0, behavior:'instant'});

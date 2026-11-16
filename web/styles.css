@@ -1,4 +1,19 @@
 @charset "UTF-8";
+/* Guidance is page navigation, never a claim that a workflow has completed. */
+.journey-nav{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
+body[data-page="diagnostics"] .journey-nav,body[data-page="documents"] .journey-nav,body[data-page="records"] .journey-nav{display:grid}
+.journey-nav a{display:flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid #d8d6c9;background:#f8f7f0;border-radius:6px;color:#6b6e61;font-weight:600;min-width:0}
+.journey-nav b{display:grid;place-items:center;width:27px;height:27px;flex-shrink:0;background:#e9eadd;font-size:13px}
+.journey-nav small{display:block;font-size:11px;font-weight:400;margin-top:2px;color:#737568}
+.journey-nav a[aria-current="step"]{background:#e8efdc;border-color:#809660;color:#354d2a;box-shadow:inset 0 3px #809660}
+.journey-nav a[aria-current="step"] b{background:#647e4d;color:white}
+.onboarding-availability{margin:18px 0 22px;padding:14px 18px;border-left:3px solid #8b9c70;background:#f2f3e9;color:#555f4c;font-size:13px}
+.onboarding-availability strong{display:block;margin-bottom:3px;font-size:13px}
+.beginner-guide{padding:11px 16px;margin:0 0 16px;border:1px solid #c9d2bb;background:#f0f4e9;border-radius:6px}
+.beginner-guide>span{display:block;color:#6b795c;font-size:11px;margin-bottom:4px}.beginner-guide>strong{display:block;color:#3a4e2f;font-size:17px}.beginner-guide>p{font-size:13px;color:#5b6652;margin-top:5px;max-width:760px}
+.saved-next{display:block;padding:14px 18px;margin:10px 18px 18px;background:#e7eedc;border:1px solid #aebf98;color:#3b572c;font-weight:600}.saved-next[hidden]{display:none}
+.nav-state{font-size:10px;font-family:inherit;font-weight:400;opacity:.8;margin-left:auto;white-space:nowrap}
+@media(max-width:600px){.journey-nav{gap:5px;margin-bottom:20px}.journey-nav a{padding:10px 7px;gap:6px;font-size:12px}.journey-nav small{display:none}.journey-nav b{width:21px;height:23px;font-size:11px}.beginner-guide{padding:13px 15px}.beginner-guide>strong{font-size:15px}.nav-state{display:none}}
 @font-face { font-family:"JetBrains Mono"; src:url("/assets/jetbrains-mono-regular.woff2") format("woff2"); font-style:normal; font-weight:400; font-display:swap; }
 :root { color-scheme:light; font-family:"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif; color:#4a4941; background:#f8f5ec; font-size:14px; line-height:1.7; --accent:#a94f32; --line:#d9d2c3; --muted:#777064; --sidebar:228px; --ink:#353b36; --soft:#f3ecde; --mono:"JetBrains Mono","Cascadia Code",Consolas,"Microsoft YaHei",monospace; --hand:"KaiTi","STKaiti","Kaiti SC","Microsoft YaHei",serif; --shadow:3px 4px 0 #e5dfd1; }
 * { box-sizing:border-box; }

@@ -15,10 +15,11 @@
       <span class="nav-divider">诊断与查阅</span>
       <a class="nav-item" href="/diagnostics" data-route aria-label="编译诊断"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-code"/></svg><span>编译诊断</span><span class="nav-dot" aria-hidden="true"></span></a>
       <a class="nav-item" href="/documents" data-route aria-label="文档依据"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-book"/></svg><span>文档依据</span><span class="nav-dot" aria-hidden="true"></span></a>
-      <a class="nav-item" href="/ai" data-route aria-label="AI 助手"><span class="ai-nav-mark" aria-hidden="true">AI</span><span>AI 助手</span><span class="nav-dot" aria-hidden="true"></span></a>
       <span class="nav-divider">记录与回看</span>
       <a class="nav-item" href="/records" data-route aria-label="记录依据"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-record"/></svg><span>记录依据</span><span class="nav-dot" aria-hidden="true"></span></a>
       <a class="nav-item" href="/history" data-route aria-label="任务历史"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-history"/></svg><span>任务历史</span><span class="nav-dot" aria-hidden="true"></span></a>
+      <span class="nav-divider">可选功能</span>
+      <a class="nav-item" href="/ai" data-route aria-label="AI 助手"><span class="ai-nav-mark" aria-hidden="true">AI</span><span>AI 助手</span><small class="nav-state">待接入</small><span class="nav-dot" aria-hidden="true"></span></a>
     </nav>
     <div class="sidebar-bottom">
       <div class="local-space"><span class="local-symbol"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-monitor"/></svg></span><div><strong>本地工作区</strong><span>开发预览 <b>v0.3</b></span></div></div>
@@ -28,14 +29,20 @@
     <header class="topbar"><div class="breadcrumb"><span>工作空间</span><span class="separator" aria-hidden="true">/</span><strong id="section-name">使用教程</strong></div><span class="topbar-note"><span class="status-dot" aria-hidden="true"></span>本地运行 · 副本编辑</span></header>
     <main id="main-content" tabindex="-1">
       <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+      <nav class="journey-nav" aria-label="操作路线（当前页面，不代表完成状态）">
+        <a href="/diagnostics" data-route data-journey-path="/diagnostics"><b>1</b><span>看报错<small>定位代码 · 修改副本</small></span></a>
+        <a href="/documents" data-route data-journey-path="/documents"><b>2</b><span>查依据<small>阅读同版本官方文档</small></span></a>
+        <a href="/records" data-route data-journey-path="/records"><b>3</b><span>看报告<small>已保存修改 · 测试结果</small></span></a>
+      </nav>
       <section id="usage-guide" class="app-page tutorial" data-page-view aria-labelledby="tutorial-title">
-        <div class="intro"><div><p class="eyebrow">GETTING STARTED</p><h1 id="tutorial-title">从报错，到理解</h1><p class="lead">查看报错、定位代码、查阅依据。先走通这三步。</p></div><span class="offline-label">离线体验 · 无需密钥</span></div>
+        <div class="intro"><div><p class="eyebrow">GETTING STARTED</p><h1 id="tutorial-title">第一次使用，从这里开始</h1><p class="lead">不用先准备代码，也不用填写 API Key。跟着一个内置样例认识工作台。</p></div><span class="offline-label">新手入门</span></div>
         <div class="tutorial-hero">
-          <div class="tutorial-welcome"><span class="tutorial-kicker">DOCTOR / 你的程序诊断手记</span><h2>遇到报错，<br><span class="sketch-underline">从这里找线索。</span></h2><p>带上好奇心就好。从一个小样例开始，读报错、找位置，再翻一翻官方文档。</p><a class="tutorial-start" href="/diagnostics" data-route>进入编译诊断 <svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-arrow-right"/></svg></a><small>进入后选择样例，再点击“编译所选样例”。</small></div>
+          <div class="tutorial-welcome"><span class="tutorial-kicker">DOCTOR / 你的程序诊断手记</span><h2>先看一个报错，<br><span class="sketch-underline">再试着改好它。</span></h2><p>从“类型不匹配”样例开始：找到第 2 行的错误，查阅规则，再核对并保存自己的修改。</p><a class="tutorial-start" href="/diagnostics" data-route>开始：查看示例报错 <svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-arrow-right"/></svg></a><small>已有操作会保留；进入后可在“选择样例”中切换为“类型不匹配”。</small></div>
           <figure class="sketch-scene" aria-label="手绘编程工作台插画"><img src="/assets/sketch/hero-desk.svg" width="600" height="400" alt="手绘电脑、代码便签、书本和铅笔"><figcaption>一条报错，也是一条线索。</figcaption></figure>
         </div>
-        <div class="tutorial-flow" aria-label="首次操作顺序"><div><span aria-hidden="true"><img src="/assets/doodles/pencil.svg" alt="" width="46" height="46"></span><div><strong><small>01</small>选择样例</strong><p>选好后，点击编译</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/lightbulb.svg" alt="" width="46" height="46"></span><div><strong><small>02</small>定位报错</strong><p>回到对应代码行</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/book.svg" alt="" width="46" height="46"></span><div><strong><small>03</small>查阅依据</strong><p>核对同版本官方语言规则</p></div></div></div>
-        <p class="tutorial-scope">从 4 个审核样例体验编译、定位与离线文档检索。修改后先审阅保存；配置了 Linux 容器的开发环境可在“记录依据”中验证已保存副本的公开测试。当前没有 AI 修复。</p>
+        <div class="onboarding-availability" role="status"><strong>现在可以做什么？</strong><p id="onboarding-capability">正在检查本机服务；已有样例记录可以先查看。</p></div>
+        <div class="tutorial-flow" aria-label="首次操作顺序"><div><span aria-hidden="true"><img src="/assets/doodles/pencil.svg" alt="" width="46" height="46"></span><div><strong><small>01</small>看懂报错</strong><p>点击行号，定位出错代码</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/lightbulb.svg" alt="" width="46" height="46"></span><div><strong><small>02</small>查阅依据</strong><p>先读官方规则，再修改</p></div></div><div><span aria-hidden="true"><img src="/assets/doodles/book.svg" alt="" width="46" height="46"></span><div><strong><small>03</small>保存与回看</strong><p>核对差异，保存修改报告</p></div></div></div>
+        <p class="tutorial-scope">先完成“看报错 → 查依据 → 保存修改”，再查看报告。保存与测试是两回事；AI 功能仍在准备中。</p>
         <details class="guide-disclosure"><summary><strong><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-guide"/></svg>跟着做：第一次诊断</strong><span>展开 5 步操作说明</span></summary>          <aside class="tutorial-example tutorial-example-detail" aria-label="类型不匹配讲解示例">
             <div class="example-bar"><span class="example-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>类型不匹配 · 讲解示例</span></div>
             <pre class="example-code"><code><span class="example-line"><span class="example-line-number" aria-hidden="true">1</span><span><span class="example-keyword">main</span>() {</span></span>
@@ -75,10 +82,10 @@
         </section>
       </section>
       <section id="workspace" class="app-page workbench" data-page-view aria-labelledby="page-title">
-        <div class="intro"><div><p class="eyebrow">DIAGNOSE</p><h1 id="page-title">编译诊断</h1><p class="lead">先选择样例并编译，再点击报错位置查看代码。</p></div><a class="context-link" href="/tutorial" data-route>查看使用教程 ↗</a></div>
+        <div class="intro"><div><p class="eyebrow">DIAGNOSE</p><h1 id="page-title">编译诊断</h1><p class="lead">先读代码，再看诊断。点击报错行号，就能找到出错的位置。</p></div><a class="context-link" href="/tutorial" data-route>查看使用教程 ↗</a></div>
+        <aside class="beginner-guide" aria-label="当前操作提示"><strong id="beginner-title">先查看示例报错</strong><p id="beginner-detail">正在载入记录…</p></aside>
         <section class="diagnosis-toolbar" aria-label="选择并编译样例"><div class="sample-picker"><label for="sample-select">选择样例</label><select id="sample-select"><option value="" disabled>当前载入的记录</option><option value="type_mismatch" selected>类型不匹配</option><option value="undefined_name">未定义名称</option><option value="argument_count">参数数量</option><option value="hello">正常程序</option></select></div><div class="actions"><button id="compile-example" class="primary" disabled><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-code"/></svg>编译所选样例</button><button id="cancel-compile" hidden>取消编译</button></div></section>
-        <p id="compile-guidance" class="compile-guidance" role="status">先浏览已采集记录；点击编译后获取本次结果。</p>
-        <details id="environment" class="environment"><summary><span class="status-dot" aria-hidden="true"></span><strong id="runtime-title">正在检查本机环境…</strong><span id="runtime-summary">环境详情</span></summary><div class="environment-body"><p id="runtime-detail">历史诊断记录可正常浏览。</p><button id="refresh-health">检查环境</button></div></details>
+        <details id="environment" class="environment"><summary><span class="status-dot" aria-hidden="true"></span><strong id="runtime-title">正在检查本机环境…</strong><span id="runtime-summary">环境详情</span></summary><div class="environment-body"><p id="compile-guidance" class="compile-guidance" role="status">先浏览已采集记录；点击编译后获取本次结果。</p><p id="runtime-detail">历史诊断记录可正常浏览。</p><button id="refresh-health">检查环境</button></div></details>
         <div class="workspace">
           <section class="panel source-panel" aria-label="源码副本">
             <div class="panel-head"><div class="panel-title"><span class="step-number">01</span><h2>源码副本</h2></div><details class="action-menu"><summary>源码操作</summary><div class="menu-items"><button id="import-source">导入 .cj 文件</button><button id="save-source">下载当前副本</button><small>导入后先核对差异并保存，再到记录依据查看验证环境。</small></div></details></div>
@@ -88,6 +95,7 @@
             <div class="source-note"><span id="revision-hint">编辑后可查看差异，确认保存到本机。</span><button id="restore" hidden>恢复记录副本</button></div>
             <details id="revision-review" class="revision-review" hidden><summary>查看修改并保存 <span id="revision-count"></span></summary><div class="revision-body"><p id="revision-summary"></p><p class="revision-legend"><span>− 原记录</span><span>+ 当前修改</span></p><div id="revision-diff" class="revision-diff" tabindex="0" role="region" aria-label="修改差异，可滚动查看"></div><div class="revision-reference"><div id="revision-reference-option" hidden><label><input id="attach-document-evidence" type="checkbox"><span id="revision-reference-summary"></span></label><details><summary>核对附带的文档</summary><div id="revision-reference-detail"></div></details><p>这些资料对应原诊断，不是修改后代码的诊断，也不证明修改正确。可取消勾选。</p></div><p id="revision-reference-empty">本次未附带文档依据。先查阅原诊断的文档，再编辑副本，即可选择一起保存。</p></div><p class="revision-boundary">确认仅保存这份人工修改及所选参考记录，尚未编译或测试。原诊断与源文件保持原样。</p><button id="save-revision" class="primary">确认保存这份修改</button></div></details>
             <p id="revision-status" class="revision-status" role="status" aria-live="polite" hidden></p>
+            <a id="saved-next" class="saved-next" href="/records" data-route hidden>修改已保存，去查看报告 →</a>
           </section>
           <section class="panel diagnostic-panel" aria-label="编译诊断">
             <div class="panel-head"><div class="panel-title"><span class="step-number">02</span><h2>诊断结果</h2><span id="diag-count" class="count-badge">0</span></div><span id="exit-code" class="mono muted">—</span></div>
@@ -115,7 +123,7 @@
         </div>
       </section>
       <section id="evidence" class="app-page" data-page-view aria-labelledby="record-title">
-        <div class="intro"><div><p class="eyebrow">RECORD</p><h1 id="record-title">记录依据</h1><p class="lead">先选择已保存修改，再用公开测试核对实际结果。</p></div><div class="page-actions"><button id="import-record"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-upload"/></svg>打开诊断记录</button><button id="export-record"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-download"/></svg>导出当前诊断记录</button></div></div>
+        <div class="intro"><div><p class="eyebrow">RECORD</p><h1 id="record-title">记录依据</h1><p class="lead">这里保存你的修改和报告。先选一份已保存修改；测试功能可用时，再填写输入与期望输出。</p></div><div class="page-actions"><button id="import-record"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-upload"/></svg>打开诊断记录</button><button id="export-record"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-download"/></svg>导出当前诊断记录</button></div></div>
         <div class="record-context"><span class="section-icon"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-record"/></svg></span><div><span class="small-label">当前诊断</span><strong data-current-source>正在载入…</strong><p data-current-state></p></div><a href="/diagnostics" data-route class="context-link">查看源码与诊断 →</a></div>
         <section class="panel revision-verification" aria-labelledby="verification-title">
           <div class="verification-heading"><div><span class="tutorial-kicker">修改后的下一步</span><h2 id="verification-title">验证已保存修改</h2><p>用具体的输入与期望输出，检查这份修改是否符合预期。</p></div><span class="offline-label">公开测试 · 无 AI 调用</span></div>

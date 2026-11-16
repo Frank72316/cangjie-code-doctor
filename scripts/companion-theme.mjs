@@ -22,7 +22,7 @@ export function applyCompanion(html, root) {
       ${context === 'ai' ? '<a href="/tutorial" data-route>先跟我看看使用教程 →</a>' : ''}</div>
   </aside>`;
   return html.replace('</head>', '<link rel="stylesheet" href="/companion.css"></head>')
-    .replace('<div class="tutorial-hero">', `${card('tutorial')}<div class="tutorial-hero">`)
+    .replace('<div class="tutorial-flow"', `${card('tutorial')}<div class="tutorial-flow"`)
     .replace('<aside class="ai-companion" aria-labelledby="ai-capabilities-title">', `<aside class="ai-companion" aria-labelledby="ai-capabilities-title">${card('ai')}`)
     .replace('</body>', '<script type="module" src="/companion.mjs"></script></body>');
 }

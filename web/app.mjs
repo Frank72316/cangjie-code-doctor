@@ -56,6 +56,8 @@ function revisionStatus(message = '') {
 }
 function refreshRevisionControls() {
   const changed = record && !current();
+  $('saved-next').hidden = !savedCurrent();
+  refreshBeginnerGuide();
   if (revisionSnapshot && (!matchesEditor(revisionSnapshot) || loadingSample)) {
     revisionSnapshot = null; $('revision-review').open = false;
     $('revision-diff').replaceChildren(); $('revision-count').textContent = '';
@@ -260,6 +262,35 @@ function renderDocumentEvidence(data) {
   $('document-evidence-footer').hidden = false; $('document-export-note').hidden = false;
   documentStatus(data.results.length ? `找到 ${data.results.length} 条文档摘录。请结合原文与当前源码核对；相关性排序不保证能够解释或修复错误。` :
     '本次查询在文档快照中没有命中。无匹配不表示源码正确，也不表示官方文档没有相关说明；可换用更具体的关键词。', 'ready');
+}
+function refreshBeginnerGuide() {
+  $('onboarding-capability').textContent = health.available
+    ? '可以重新编译样例、定位报错、检索官方文档并保存修改。测试是否可用，请到“记录依据”查看。'
+    : health.token
+      ? '可以查看已有报错、定位代码、编辑并保存副本。当前不能重新编译或检索文档，可以先把操作流程走一遍。'
+      : '可以查看已有报错、定位和编辑副本。当前未连接保存服务，需要保留修改时请在“源码操作”中下载副本。';
+  let title, detail;
+  if (loadingSample || !record) {
+    title = '先选择一个样例'; detail = '建议从“类型不匹配”开始。样例载入后，会同时显示代码和已有报错。';
+  } else if (savedCurrent()) {
+    title = '这份修改已保存'; detail = '点击代码下方“修改已保存，去查看报告”，回看差异或继续测试。保存不代表编译、测试通过。';
+  } else if (!current()) {
+    title = '下一步：核对修改，再保存'; detail = health.token
+      ? '在代码下方展开“查看修改并保存”，核对差异后确认。右侧仍是修改前的报错，不是新代码的结果。'
+      : '当前未连接保存服务。在“源码操作”中选择“下载当前副本”保留修改；右侧仍是原诊断。';
+  } else if (compiling || health.busy || retrievingDocuments) {
+    title = '正在处理，请稍等'; detail = '结果返回后再查看报错位置；这时不需要重复点击编译。';
+  } else if (compileView(record).diagnostics.some(d => d.canLocate)) {
+    title = '下一步：点击报错行号'; detail = health.available
+      ? '定位后点击“查找文档依据”，先阅读规则，再改代码。当前显示的是已有记录；重新编译需点击“编译所选样例”。'
+      : '编译暂不可用，但已有记录仍能定位和阅读。先点击诊断卡片中的行号；新手可对照教程编辑副本。';
+  } else {
+    title = '先读当前诊断结果'; detail = compileView(record).status === 'compile_passed'
+      ? '编译通过只说明没有编译错误。修改后仍需保存，再到“记录依据”检查测试条件。'
+      : '当前记录没有可定位的报错。请核对诊断状态，必要时展开“原始编译器输出”；工具异常不代表代码正确。';
+  }
+  $('beginner-title').textContent = title;
+  $('beginner-detail').textContent = detail;
 }
 function refreshSource() {
   const text = $('source').value;
@@ -500,7 +531,7 @@ async function refreshHealth(recheck = false) {
   $('refresh-health').disabled = false;
   document.body.dataset.runtime = health.available ? 'ready' : 'unavailable';
   $('runtime-summary').textContent = health.available ? '环境详情' : '查看原因';
-  if (!health.available) $('environment').open = true;
+  // The concise status stays visible; technical failure details open on demand.
   refreshSource();
   verificationUI?.refreshControls();
 }
