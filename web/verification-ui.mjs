@@ -1,6 +1,7 @@
 import { validateRevision, validRevisionId } from './revision.mjs';
 import { validatePublicTests, validateVerificationRecord, verificationView, verificationHTML } from './verification.mjs';
 import { officialDocumentURL } from './document-evidence.mjs';
+import { outputDifference } from './output-difference.mjs';
 
 const $ = id => document.getElementById(id);
 const node = (tag, text = '', className = '') => {
@@ -152,6 +153,8 @@ export function initVerificationUI({getHealth, refreshHealth, download, onActivi
       const testDetail = node('details', '', 'verification-test-result');
       testDetail.append(node('summary', `公开测试 ${index + 1} · ${data.state === 'unknown' ? '未取得结果' : statusNames[result?.status] || '未运行'}`),
         node('p', `输入：${JSON.stringify(test.stdin)}`, 'mono'), node('p', `期望 stdout：${JSON.stringify(test.expectedStdout)}`, 'mono'));
+      const difference = outputDifference(test,result);
+      if (difference) { testDetail.open=true; testDetail.append(node('p',difference,'output-difference')); }
       if (result?.process) testDetail.append(node('p', `实际 stdout：${JSON.stringify(result.process.stdout)}`, 'mono'),
         node('p', `退出码：${result.process.exitCode ?? '未返回'} · 原因：${result.process.reason || '正常结束'}`),
         node('h4', '运行 stderr'), node('pre', result.process.stderr || '（空）'));

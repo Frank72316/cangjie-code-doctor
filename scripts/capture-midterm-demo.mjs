@@ -14,6 +14,8 @@ import { validateRevision } from '../web/revision.mjs';
 import { revisionHTML } from '../web/revision-report.mjs';
 import { validateVerificationRecord, verificationHTML } from '../web/verification.mjs';
 import { readEvidenceReview, reviewHTML, reviewOutcome } from '../web/evidence-review.mjs';
+import { validateEvidenceBundle } from '../web/evidence-bundle.mjs';
+import { outputDifference } from '../web/output-difference.mjs';
 
 const [binary, compiler, image] = process.argv.slice(2);
 if (process.platform !== 'linux' || !binary || !compiler || !/^sha256:[a-f0-9]{64}$/.test(image || '')) {
@@ -75,6 +77,35 @@ try {
   assert.deepEqual(review.entries[0].revision,revision);
   await save('05-workflow-review.html',reviewHTML(review.entries[0]));
   receipt.steps.push({step:'linux-container-public-test',verificationId:verification.verificationId,status:verification.report.status,containersRemoved:true});
+  // Deliberately wrong developer candidate under the SAME public requirement.
+  // This demonstrates compile success != behavior success, not an AI attempt.
+  const wrongRevision=await validateRevision(await request('/api/revisions',{
+    baseRecord:record,source:{name:record.source.name,text:record.source.text.replace('"three"','4')},
+    retrievalId:evidence.retrievalId,confirmed:true
+  }));
+  const failed=await validateVerificationRecord(await request('/api/verifications',{
+    revisionId:wrongRevision.revisionId,tests:[{id:'count',stdin:'',expectedStdout:'3\n'}],confirmed:true
+  }));
+  assert.equal(failed.state,'completed');assert.equal(failed.report.status,'test_failed');
+  assert.equal(failed.report.compile.status,'compile_passed');
+  assert.equal(failed.report.tests[0].status,'failed');
+  assert.equal(failed.report.tests[0].process.stdout,'4\n');
+  assert.equal(failed.tests[0].expectedStdout,verification.tests[0].expectedStdout);
+  assert.ok(failed.report.containers.every(c=>c.cleanup.removed));
+  assert.match(outputDifference(failed.tests[0],failed.report.tests[0]),/第 1 行、第 1 个字符/);
+  await save('06-output-mismatch.json',failed);
+  const failedReview=await readEvidenceReview(JSON.stringify(failed));
+  assert.equal(reviewOutcome(failedReview.entries[0]).label,'公开测试未通过');
+  await save('07-output-mismatch-review.html',reviewHTML(failedReview.entries[0]));
+  const bundle=await validateEvidenceBundle(await request('/api/evidence-export',{confirmed:true}));
+  assert.ok(bundle.verifications.some(v=>v.verificationId===verification.verificationId));
+  assert.ok(bundle.verifications.some(v=>v.verificationId===failed.verificationId));
+  await save('08-outcomes-bundle.json',bundle);
+  receipt.steps.push({step:'deliberately-wrong-developer-candidate',revisionId:wrongRevision.revisionId,
+    verificationId:failed.verificationId,status:'test_failed',expectedStdout:'3\n',actualStdout:'4\n',
+    requirementUnchanged:true,containersRemoved:true,scope:'Expected failure demonstration, not AI repair or A/B.'});
+  assert.deepEqual(await request('/api/verifications/'+failed.verificationId),failed);
+  assert.deepEqual(await request('/api/revisions/'+wrongRevision.revisionId),wrongRevision);
   assert.deepEqual(await request('/api/revisions/'+revision.revisionId),revision);
   assert.deepEqual(await new RevisionStore(root).get(revision.revisionId),revision);
   assert.deepEqual(await request('/api/verifications/'+verification.verificationId),verification);
@@ -84,7 +115,7 @@ try {
   receipt.steps.push({step:'reread-records-and-original',status:'passed'});
   receipt.status='passed';
   const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-  await save('index.html',`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Doctor 中期演示 · 真实开发案例</title><style>body{font:16px/1.8 "Microsoft YaHei",sans-serif;background:#f5f3e9;color:#303b32;margin:0;padding:40px}main{max-width:1000px;margin:auto}h1{font-size:34px}small{color:#65735f}section{background:white;border:1px solid #ccd1c4;padding:24px;margin:20px 0;border-radius:8px}code{overflow-wrap:anywhere}a{color:#416b35}strong{color:#416b35}li{margin:12px 0}</style><main><small>DOCTOR · 中期答辩材料 / 历史运行回看</small><h1>一条类型错误，从诊断到验证</h1><p>本页展示真实 Linux 开发运行的记录，可在本机离线查看。它不是本机 Windows 的即时编译，也不是 AI 修复或正式 A/B 实验。</p><section><strong>真实流程已通过</strong><ol><li>编译原程序：第 2 行把字符串赋给整数，真实编译失败。</li><li>检索 SDK 1.0.5 官方文档，保留来源与摘要。</li><li>按固定开发示例将 <code>"three"</code> 改为 <code>3</code>，由脚本调用确认保存接口。</li><li>在受限 Linux 容器重新编译并运行公开测试，输出 <code>3\\n</code>，通过。</li><li>重新读取修订、验证与任务历史，确认原诊断未被改写。</li></ol></section><section><h2>查看证据</h2><p><a href="05-workflow-review.html">完整流程回看报告 →</a></p><p><a href="03-revision.html">修改差异与文档依据报告 →</a></p><p><a href="04-verification.html">公开测试与容器验证报告 →</a></p><p><a href="manifest.json">运行时间、提交版本与文件哈希 →</a></p><p>初始诊断 JSON、检索依据 JSON、修订 JSON 和验证 JSON 均在同一目录。</p></section><small>开始时间（UTC）：${esc(receipt.startedAt)}<br>提交：<code>${esc(receipt.commit)}</code><br>${receipt.ciRunUrl?`平台记录：<a href="${esc(receipt.ciRunUrl)}">本次 GitHub Actions</a>`:''}<br>本例是公开开发案例，不计入正式评估集；一个通过的测试不证明所有输入都正确。</small></main></html>`);
+  await save('index.html',`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Doctor 中期演示 · 真实开发案例</title><style>body{font:16px/1.8 "Microsoft YaHei",sans-serif;background:#f5f3e9;color:#303b32;margin:0;padding:40px}main{max-width:1000px;margin:auto}h1{font-size:34px}small{color:#65735f}section{background:white;border:1px solid #ccd1c4;padding:24px;margin:20px 0;border-radius:8px}code{overflow-wrap:anywhere}a{color:#416b35}strong{color:#416b35}li{margin:12px 0}</style><main><small>DOCTOR · 中期答辩材料 / 历史运行回看</small><h1>一条类型错误，从诊断到验证</h1><p>本页展示真实 Linux 开发运行的记录，可在本机离线查看。它不是本机 Windows 的即时编译，也不是 AI 修复或正式 A/B 实验。</p><section><strong>真实采集与核对完成</strong><ol><li>编译原程序：第 2 行把字符串赋给整数，真实编译失败。</li><li>检索 SDK 1.0.5 官方文档，保留来源与摘要。</li><li>按固定开发示例将 <code>"three"</code> 改为 <code>3</code>，由脚本调用确认保存接口。</li><li>在受限 Linux 容器重新编译并运行公开测试，输出 <code>3\\n</code>，通过。</li><li>增加故意错误的开发候选：把字符串改为整数 4，保持期望输出 3 不变。编译通过，但实际输出 4，公开测试未通过；保留独立失败报告。</li><li>重新读取修订、验证与任务历史，确认原诊断未被改写。这是两条开发展示路径，不是 A/B 对照或成功率统计。</li></ol></section><section><h2>查看证据</h2><p><a href="07-output-mismatch-review.html">编译通过、输出不符：失败案例 →</a></p><p><a href="08-outcomes-bundle.json">下载两条路径材料包，在工作台回看 →</a></p><p><a href="05-workflow-review.html">完整流程回看报告 →</a></p><p><a href="03-revision.html">修改差异与文档依据报告 →</a></p><p><a href="04-verification.html">公开测试与容器验证报告 →</a></p><p><a href="manifest.json">运行时间、提交版本与文件哈希 →</a></p><p>初始诊断 JSON、检索依据 JSON、修订 JSON 和验证 JSON 均在同一目录。</p></section><small>开始时间（UTC）：${esc(receipt.startedAt)}<br>提交：<code>${esc(receipt.commit)}</code><br>${receipt.ciRunUrl?`平台记录：<a href="${esc(receipt.ciRunUrl)}">本次 GitHub Actions</a>`:''}<br>本例是公开开发案例，不计入正式评估集；一个通过的测试不证明所有输入都正确。</small></main></html>`);
 } catch(error) {
   receipt.status='failed';receipt.error=error.message;throw error;
 } finally {

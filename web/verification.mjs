@@ -2,6 +2,7 @@
 import { validateRevision, lineDiff } from './revision.mjs';
 import { sha256 } from './report.mjs';
 import { documentEvidenceHTML } from './document-evidence.mjs';
+import { outputDifference } from './output-difference.mjs';
 const encoder = new TextEncoder();
 export const MAX_VERIFICATION_BYTES = 16 * 1024 * 1024;
 export const validVerificationId = value => typeof value === 'string' && /^[a-f0-9]{32}$/.test(value);
@@ -135,7 +136,8 @@ export function verificationHTML(data) {
   const view=verificationView(data), report=data.report;
   const tests=data.tests.map((test,index) => {
     const result=report?.tests[index];
-    return `<section><h3>${escape(test.id)} · ${escape(resultNames[result?.status] || '未确认')}</h3><p>退出码：${escape(result?.process?.exitCode ?? '未取得')}；判定方式：比较原始字节（包含尾部换行）。</p><div class="columns"><div><h4>公开输入</h4><pre>${escape(test.stdin)}</pre></div><div><h4>期望输出</h4><pre>${escape(test.expectedStdout)}</pre></div><div><h4>实际 stdout</h4><pre>${escape(result?.process?.stdout ?? '未取得')}</pre></div></div><details><summary>精确文本、stderr 与异常</summary><p>期望输出（JSON 转义）：<code>${escape(JSON.stringify(test.expectedStdout))}</code></p><p>实际输出（JSON 转义）：<code>${escape(result?.process ? JSON.stringify(result.process.stdout) : '未取得')}</code></p><h4>stderr</h4><pre>${escape(result?.process?.stderr || '无')}</pre><p>异常：${escape(result?.process?.reason || '无')}</p></details></section>`;
+    const difference=outputDifference(test,result);
+    return `<section><h3>${escape(test.id)} · ${escape(resultNames[result?.status] || '未确认')}</h3>${difference?`<p>${escape(difference)}</p>`:''}<p>退出码：${escape(result?.process?.exitCode ?? '未取得')}；判定方式：比较原始字节（包含尾部换行）。</p><div class="columns"><div><h4>公开输入</h4><pre>${escape(test.stdin)}</pre></div><div><h4>期望输出</h4><pre>${escape(test.expectedStdout)}</pre></div><div><h4>实际 stdout</h4><pre>${escape(result?.process?.stdout ?? '未取得')}</pre></div></div><details><summary>精确文本、stderr 与异常</summary><p>期望输出（JSON 转义）：<code>${escape(JSON.stringify(test.expectedStdout))}</code></p><p>实际输出（JSON 转义）：<code>${escape(result?.process ? JSON.stringify(result.process.stdout) : '未取得')}</code></p><h4>stderr</h4><pre>${escape(result?.process?.stderr || '无')}</pre><p>异常：${escape(result?.process?.reason || '无')}</p></details></section>`;
   }).join('');
   const diff=lineDiff(data.revision.baseRecord.source.text,data.revision.source.text).map(row =>
     `${row.kind === 'add' ? '+' : row.kind === 'remove' ? '−' : ' '} ${row.text}`).join('\n');

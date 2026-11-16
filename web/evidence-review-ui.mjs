@@ -2,6 +2,7 @@ import { readEvidenceReview, reviewOutcome, reviewHTML, MAX_REVIEW_BYTES } from 
 import { compileView } from './report.mjs';
 import { lineDiff } from './revision.mjs';
 import { officialDocumentURL } from './document-evidence.mjs';
+import { outputDifference } from './output-difference.mjs';
 
 const $ = id => document.getElementById(id);
 const node = (tag,text='',className='') => {
@@ -54,9 +55,12 @@ export function initEvidenceReviewUI({download}) {
     tests.append(node('p',outcome.detail));
     for(const [i,t] of (v?.tests || []).entries()){
       const result=v.report?.tests[i];
-      tests.append(detail(`${t.id} · ${testNames[result?.status] || '未取得结果'}`,
+      const testDetail=detail(`${t.id} · ${testNames[result?.status] || '未取得结果'}`,
         node('p',`输入：${JSON.stringify(t.stdin)}`),node('p',`期望输出：${JSON.stringify(t.expectedStdout)}`),
-        node('p',`实际输出：${result?.process?JSON.stringify(result.process.stdout):'未取得'}`)));
+        node('p',`实际输出：${result?.process?JSON.stringify(result.process.stdout):'未取得'}`));
+      const difference=outputDifference(t,result);
+      if(difference){testDetail.open=true;testDetail.append(node('p',difference,'output-difference'));}
+      tests.append(testDetail);
     }
     root.append(grid);
     const identity=detail('核对记录身份与来源说明',

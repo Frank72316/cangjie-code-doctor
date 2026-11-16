@@ -165,6 +165,8 @@ test('output mismatch stays failed even when the program exited normally',async 
   await validateVerificationRecord(record);
   assert.equal(verificationView(record).label,'公开测试未通过');
   assert.equal(verificationView(record).tone,'error');
+  assert.match(verificationHTML(record),/显示文本首个差异：第 1 行、第 1 个字符/);
+  assert.match(verificationHTML(record),/期望 &quot;3&quot;，实际 &quot;4&quot;/);
   await rejectsMutations(record,[['failed run cannot claim aggregate success',r => r.report.status = 'passed']]);
 });
 
