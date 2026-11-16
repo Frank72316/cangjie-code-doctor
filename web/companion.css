@@ -6,6 +6,7 @@
 .bunny-hint{position:absolute;bottom:0;font-size:11px;line-height:18px;white-space:nowrap}
 .bunny-copy{min-width:0}.bunny-label{display:block;font-size:11px;letter-spacing:.08em;color:#9c7784;margin-bottom:6px}
 .bunny-copy strong{display:block;font-size:18px;line-height:1.5}.bunny-copy p{font-size:13px;line-height:1.7;margin:5px 0;color:#817079}.bunny-copy a{display:inline-block;font-size:13px;color:#775968;padding:5px 0;text-underline-offset:4px}
+.bunny-tips{margin:9px 0 0;padding-left:17px;font-size:13px;line-height:1.75;color:#6e6266;overflow-wrap:anywhere}.bunny-tips li+li{margin-top:6px}.bunny-tips li::marker{color:#a87585}
 .bunny-ai{gap:12px;padding:12px;margin-bottom:0}.bunny-ai .bunny-greet{width:96px}.bunny-ai img{width:88px;height:110px}.bunny-ai .bunny-copy strong{font-size:16px}
 [data-theme="voxel"] .bunny-card{border:2px solid #c9c6b3;border-radius:0;background:#f5f2e8;box-shadow:inset 3px 3px #fffdf6,3px 3px #dedaca}
 [data-theme="voxel"] .bunny-copy strong{font-family:var(--pixel);font-size:22px;font-weight:400}

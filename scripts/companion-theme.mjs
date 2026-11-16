@@ -15,7 +15,11 @@ export function applyCompanion(html, root) {
     <button type="button" class="bunny-greet" aria-label="让小兔挥手" title="点一下，打个招呼">
       <img src="/assets/local-companion/bunny-still.png" width="280" height="350" alt="白粉垂耳兔女生" decoding="async"><span class="bunny-hint">打个招呼</span>
     </button>
-    <div class="bunny-copy"><span class="bunny-label">你的工作台小伙伴</span><strong>${context === 'tutorial' ? '从一条报错开始吧' : '先走通流程，再接入 AI'}</strong><p>${context === 'tutorial' ? '选个样例，找到出错的位置。' : '没有密钥，也可以先体验离线诊断。'}</p>${context === 'ai' ? '<a href="/tutorial" data-route>看看使用教程 →</a>' : ''}</div>
+    <div class="bunny-copy"><span class="bunny-label">TIPS · 小兔提醒</span><strong>${context === 'tutorial' ? '陪你从第一条报错开始' : '接入前，先记住这两点'}</strong>
+      <ul class="bunny-tips">${context === 'tutorial'
+        ? '<li>先选一个样例，再点击报错，回到对应的代码行。</li><li>查文档时核对 SDK 版本；编译通过后，还要用测试检查结果。</li>'
+        : '<li>当前只检查填写格式，可以先用演示文本体验，不必填真实密钥。</li><li>填写通过不代表连接成功；真正调用模型的功能还在准备中。</li>'}</ul>
+      ${context === 'ai' ? '<a href="/tutorial" data-route>先跟我看看使用教程 →</a>' : ''}</div>
   </aside>`;
   return html.replace('</head>', '<link rel="stylesheet" href="/companion.css"></head>')
     .replace('<div class="tutorial-hero">', `${card('tutorial')}<div class="tutorial-hero">`)
