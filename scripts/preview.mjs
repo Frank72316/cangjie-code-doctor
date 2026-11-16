@@ -41,11 +41,14 @@ const routes = new Map([
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
-export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, previewTheme = null,
+export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, previewTheme = null, workbenchTheme = null,
   storageService = bridge?.root ? new StorageService({root:bridge.root,revisionStore,verificationService}) : null} = {}) {
   if (previewTheme !== null && previewTheme !== 'voxel') throw new Error('Unknown preview theme');
+  if (workbenchTheme !== null && workbenchTheme !== 'voxel') throw new Error('Unknown workbench theme');
+  if (previewTheme && workbenchTheme) throw new Error('Choose preview or workbench theme');
   if (previewTheme && (bridge || revisionStore || verificationService || storageService)) throw new Error('Design previews cannot connect to workbench services');
-  const activeRoutes = previewTheme === 'voxel' ? new Map([...routes, ...voxelRoutes]) : routes;
+  const voxel = previewTheme === 'voxel' || workbenchTheme === 'voxel';
+  const activeRoutes = voxel ? new Map([...routes, ...voxelRoutes]) : routes;
   let storageExporting = false, storageScanning = false, activeWrites = 0;
   return createServer(async (req, res) => {
     const headers = {'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
@@ -202,7 +205,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
       let body = await readFile(resolve(root, route[0]));
       const page = pageRoutes.get(path);
       if (page) body = body.toString('utf8').replace(/(<body\b[^>]*\bdata-page=")[^"]*(")/, `$1${page.path.slice(1)}$2`);
-      if (page && previewTheme === 'voxel') body = applyVoxelTheme(body);
+      if (page && voxel) body = applyVoxelTheme(body, {preview:previewTheme === 'voxel'});
       if (page) body = applyCompanion(body, root);
       res.writeHead(200, {...headers, 'Content-Type': route[1]});
       res.end(req.method === 'HEAD' ? undefined : body);
@@ -219,7 +222,12 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const revisionStore = new RevisionStore(root);
   const verificationService = new VerificationService({root,revisionStore,core:executable,image:process.env.DOCTOR_SANDBOX_IMAGE,bridge});
   await verificationService.probe();
-  const server = makeServer({bridge,revisionStore,verificationService});
+  const workbenchTheme = process.env.DOCTOR_WORKBENCH_THEME || null;
+  const server = makeServer({bridge,revisionStore,verificationService,workbenchTheme});
   server.on('error', e => { console.error(e.message); process.exitCode = 1; });
-  server.listen(port, '127.0.0.1', () => console.log(`Doctor preview: http://127.0.0.1:${port} (Ctrl+C to stop)`));
+  server.listen(port, '127.0.0.1', () => {
+    console.log(`Doctor workbench: http://127.0.0.1:${port}/tutorial (Ctrl+C to stop)`);
+    console.log(`Native compiler: ${bridge.health.available ? 'ready' : 'unavailable'}; public verification: ${verificationService.health.available ? 'ready' : 'unavailable'}`);
+    if (!bridge.health.available) console.log(bridge.health.detail);
+  });
 }

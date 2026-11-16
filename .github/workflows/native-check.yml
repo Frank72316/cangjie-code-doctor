@@ -96,3 +96,16 @@ jobs:
         run: |
           source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
           node scripts/test-revision-verification-http.mjs "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor
+      - name: Capture real midterm development workflow
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
+          node scripts/capture-midterm-demo.mjs target/debug/doctor "$(command -v cjc)" "$DOCTOR_SANDBOX_IMAGE"
+      - name: Preserve midterm workflow evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: midterm-development-evidence
+          path: runs/midterm-demo/
+          if-no-files-found: warn
+          retention-days: 30

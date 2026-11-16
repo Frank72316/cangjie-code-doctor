@@ -92,3 +92,21 @@ test('visual preview rejects unknown themes and every workbench service attachme
     assert.throws(() => makeServer({previewTheme:'voxel', [service]:{}}), /cannot connect to workbench services/, service);
   }
 });
+
+test('formal voxel styling preserves runtime health and requires the same local API token', async t => {
+  const bridge={health:{available:false,code:'runtime_unavailable',detail:'Native runtime unavailable'},token:'synthetic-test-token',busy:false,history:async()=>({tasks:[]})};
+  const base=await listen(t,{bridge,workbenchTheme:'voxel'});
+  const html=await (await fetch(base+'/tutorial')).text();
+  assert.match(html,/data-theme="voxel"/);
+  assert.match(html,/正式工作台 · 本地服务/);
+  assert.doesNotMatch(html,/设计试稿|编译与保存请回到原工作台/);
+  assert.equal((await fetch(base+'/assets/voxel/grass-top.png')).status,200);
+  const health=await (await fetch(base+'/api/health')).json();
+  assert.equal(health.available,false);
+  assert.equal(health.code,'runtime_unavailable');
+  assert.equal((await fetch(base+'/api/history')).status,403);
+  assert.equal((await fetch(base+'/api/history',{headers:{'X-Doctor-Token':bridge.token,Origin:'https://example.invalid'}})).status,403);
+  assert.equal((await fetch(base+'/api/history',{headers:{'X-Doctor-Token':bridge.token,Origin:base}})).status,200);
+  assert.throws(()=>makeServer({workbenchTheme:'unknown'}),/Unknown workbench theme/);
+  assert.throws(()=>makeServer({workbenchTheme:'voxel',previewTheme:'voxel'}),/Choose preview or workbench/);
+});
