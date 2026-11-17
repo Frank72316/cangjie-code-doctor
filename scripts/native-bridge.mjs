@@ -65,7 +65,7 @@ export class NativeBridge {
       if (compiler.code !== 0 || compiler.reason || compiler.signal || !compiler.stdout.startsWith('Cangjie Compiler: 1.0.5 (')) {
         this.health = {available:false, code:'sdk_unavailable', detail:'SDK 1.0.5 编译器未就绪；现有诊断记录仍可浏览。'};
       } else {
-        this.health = {available:true, code:'ready', detail:'仓颉核心已就绪。仅可重新编译四个已审核样例，程序不会运行。', version:r.stdout.trim()};
+        this.health = {available:true, code:'ready', detail:'仓颉核心已就绪。原始样例入口只编译；当前修改可用代码框下的本机验证入口运行。', version:r.stdout.trim(),compilerVersion:compiler.stdout.trim()};
       }
     }
     return this.health;

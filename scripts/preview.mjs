@@ -1,4 +1,4 @@
-// Loopback-only UI and transport. Saved revision execution requires configured Linux containers.
+// Loopback-only UI. Separate trusted manual local checks and Linux container verification.
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -8,6 +8,7 @@ import { PAGE_ROUTES } from '../web/navigation.mjs';
 import { RevisionStore } from './revision-store.mjs';
 import { MAX_REVISION_BYTES } from '../web/revision.mjs';
 import { VerificationService } from './verification-service.mjs';
+import { LocalCheckService } from './local-check-service.mjs';
 import { StorageService } from './storage-service.mjs';
 import { applyVoxelTheme, voxelRoutes } from './voxel-theme.mjs';
 import { applyCompanion, companionRoutes } from './companion-theme.mjs';
@@ -35,6 +36,8 @@ const routes = new Map([
   ['/revision-report.mjs', ['web/revision-report.mjs', 'text/javascript; charset=utf-8']],
   ['/verification.mjs', ['web/verification.mjs', 'text/javascript; charset=utf-8']],
   ['/verification-ui.mjs', ['web/verification-ui.mjs', 'text/javascript; charset=utf-8']],
+  ['/local-check.mjs', ['web/local-check.mjs', 'text/javascript; charset=utf-8']],
+  ['/local-check-ui.mjs', ['web/local-check-ui.mjs', 'text/javascript; charset=utf-8']],
   ['/storage-ui.mjs', ['web/storage-ui.mjs', 'text/javascript; charset=utf-8']],
   ['/evidence-review.mjs', ['web/evidence-review.mjs', 'text/javascript; charset=utf-8']],
   ['/evidence-review-ui.mjs', ['web/evidence-review-ui.mjs', 'text/javascript; charset=utf-8']],
@@ -45,12 +48,12 @@ const routes = new Map([
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
-export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, previewTheme = null, workbenchTheme = null,
+export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, localCheckService = null, previewTheme = null, workbenchTheme = null,
   storageService = bridge?.root ? new StorageService({root:bridge.root,revisionStore,verificationService}) : null} = {}) {
   if (previewTheme !== null && previewTheme !== 'voxel') throw new Error('Unknown preview theme');
   if (workbenchTheme !== null && workbenchTheme !== 'voxel') throw new Error('Unknown workbench theme');
   if (previewTheme && workbenchTheme) throw new Error('Choose preview or workbench theme');
-  if (previewTheme && (bridge || revisionStore || verificationService || storageService)) throw new Error('Design previews cannot connect to workbench services');
+  if (previewTheme && (bridge || revisionStore || verificationService || localCheckService || storageService)) throw new Error('Design previews cannot connect to workbench services');
   const voxel = previewTheme === 'voxel' || workbenchTheme === 'voxel';
   const activeRoutes = voxel ? new Map([...routes, ...voxelRoutes]) : routes;
   let storageExporting = false, storageScanning = false, activeWrites = 0;
@@ -67,6 +70,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
       try {
         if (req.method === 'GET' && req.url === '/api/health') {
           send(200, {...(bridge?.health ?? {available:false, code:'preview_only', detail:previewTheme ? '这是独立界面试稿，未连接编译与保存服务。请通过页面顶部“原工作台”继续实际操作；此处未检测本机 SDK。' : '静态记录预览，未配置仓颉核心。'}), token:bridge?.token, busy:bridge?.busy ?? false,
+            localCheck:localCheckService?.health ?? {available:false},
             verification:verificationService?.health ?? {available:false,code:'not_configured',detail:'当前服务尚未配置 Linux 容器验证；已保存修改仍可浏览。'}}); return;
         }
         // API data and mutation require the local origin plus a per-start token.
@@ -75,7 +79,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
             (req.headers.origin && req.headers.origin !== `http://${expectedHost}`)) {
           send(403, {error:'请从本地 Doctor 页面操作。'}); return;
         }
-        const writes = ['/api/probe','/api/compile-example','/api/retrieve','/api/revisions','/api/verifications'];
+        const writes = ['/api/probe','/api/compile-example','/api/retrieve','/api/revisions','/api/verifications','/api/local-checks'];
         if (req.method === 'POST' && writes.includes(req.url)) {
           if (storageExporting) { send(409,{error:'正在整理材料，请待导出结束后重试。'}); return; }
           activeWrites++; writeHeld = true;
@@ -111,9 +115,24 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
           if (bridge.busy) { send(409, {error:'正在编译，请稍后检查环境。'}); return; }
           const native = await bridge.probe();
           if (verificationService) await verificationService.probe();
-          send(200, {...native, token:bridge.token, busy:bridge.busy,verification:verificationService?.health}); return;
+          send(200, {...native, token:bridge.token, busy:bridge.busy,verification:verificationService?.health,localCheck:localCheckService?.health}); return;
         }
         if (req.method === 'GET' && req.url === '/api/history') { send(200, {...await bridge.history(),busy:bridge.busy}); return; }
+        if (req.url === '/api/local-checks' || req.url.startsWith('/api/local-checks/')) {
+          if (!localCheckService) { send(503,{error:'本机修改验证未启用。'}); return; }
+          if(req.method==='GET' && req.url==='/api/local-checks'){send(200,await localCheckService.list());return;}
+          if(req.method==='GET' && /^\/api\/local-checks\/[a-f0-9]{32}$/.test(req.url)){send(200,await localCheckService.get(req.url.slice('/api/local-checks/'.length)));return;}
+          if(req.method==='POST' && req.url==='/api/local-checks'){
+            if(req.headers['content-type']!=='application/json'){send(415,{error:'Expected JSON'});return;}
+            const chunks=[];let bytes=0;
+            for await(const chunk of req){bytes+=chunk.length;if(bytes>131072){send(413,{error:'验证请求过大。'});return;}chunks.push(chunk);}
+            let input;try{input=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks)));}catch{send(400,{error:'Invalid JSON'});return;}
+            const controller=new AbortController(),cancel=()=>{if(!res.writableEnded)controller.abort();};res.on('close',cancel);
+            if(res.destroyed)controller.abort();
+            try{send(200,await localCheckService.check(input,controller.signal));}finally{res.removeListener('close',cancel);}return;
+          }
+          send(404,{error:'Unknown local check API'});return;
+        }
         if (req.url === '/api/verifications' || req.url.startsWith('/api/verifications/')) {
           if (!verificationService) { send(503,{error:'当前服务未配置修改验证记录。'}); return; }
           if (req.method === 'GET' && req.url === '/api/verifications') { send(200,{ ...await verificationService.list(), busy:bridge.busy }); return; }
@@ -226,12 +245,15 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const revisionStore = new RevisionStore(root);
   const verificationService = new VerificationService({root,revisionStore,core:executable,image:process.env.DOCTOR_SANDBOX_IMAGE,bridge});
   await verificationService.probe();
+  const localCheckService = new LocalCheckService({root,bridge,revisionStore,enabled:process.env.DOCTOR_LOCAL_CHECK !== '0'});
+  await localCheckService.loadExamples();
   const workbenchTheme = process.env.DOCTOR_WORKBENCH_THEME || 'voxel';
-  const server = makeServer({bridge,revisionStore,verificationService,workbenchTheme});
+  const server = makeServer({bridge,revisionStore,verificationService,localCheckService,workbenchTheme});
   server.on('error', e => { console.error(e.message); process.exitCode = 1; });
   server.listen(port, '127.0.0.1', () => {
     console.log(`Doctor workbench: http://127.0.0.1:${port}/tutorial (Ctrl+C to stop)`);
-    console.log(`Native compiler: ${bridge.health.available ? 'ready' : 'unavailable'}; public verification: ${verificationService.health.available ? 'ready' : 'unavailable'}`);
+    console.log(`Native compiler: ${bridge.health.available ? 'ready' : 'unavailable'}; trusted local check: ${localCheckService.health.available ? 'ready' : 'unavailable'}`);
+    console.log(`Isolated container tests: ${verificationService.health.available ? 'ready' : 'not configured (optional; local check is separate)'}`);
     if (!bridge.health.available) console.log(bridge.health.detail);
   });
 }

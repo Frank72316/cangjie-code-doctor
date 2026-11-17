@@ -8,6 +8,7 @@ import { revisionHTML } from './revision-report.mjs';
 import { initStorageUI } from './storage-ui.mjs';
 import { initEvidenceReviewUI } from './evidence-review-ui.mjs';
 import { initAISettings } from './ai-settings.mjs';
+import { initLocalCheckUI } from './local-check-ui.mjs';
 const $ = id => document.getElementById(id);
 let record = null;
 let currentName = '';
@@ -32,6 +33,7 @@ let savedRevision = null;
 let savingRevision = false;
 let revisionListRequest = 0;
 let verificationUI = null;
+let localCheckUI = null;
 function feedback(message = '') { $('feedback').textContent = message; $('feedback').hidden = !message; }
 function element(tag, text, className) { const e = document.createElement(tag); e.textContent = text; if (className) e.className = className; return e; }
 function displayTime(value) {
@@ -56,6 +58,7 @@ function revisionStatus(message = '') {
   $('revision-status').textContent = message; $('revision-status').hidden = !message;
 }
 function refreshRevisionControls() {
+  localCheckUI?.refresh();
   const changed = record && !current();
   $('saved-next').hidden = !savedCurrent();
   refreshBeginnerGuide();
@@ -145,7 +148,7 @@ async function refreshRevisions() {
           currentName = revision.source.name; $('source').value = revision.source.text;
           revisionReference = revision.documentEvidence ? {baseRecord:record,evidence:structuredClone(revision.documentEvidence)} : null;
           $('attach-document-evidence').checked = Boolean(revisionReference);
-          savedRevision = {baseRecord:record,source:revision.source,retrievalId:revision.documentEvidence?.retrievalId};
+          savedRevision = {baseRecord:record,source:revision.source,revisionId:revision.revisionId,retrievalId:revision.documentEvidence?.retrievalId};
           refreshSource(); navigation.navigate('/diagnostics');
           $('revision-review').open = true; renderRevisionReview();
           feedback('已载入人工修改，右侧仍是原诊断。这份修改的独立验证结果请到“记录与报告”查看；也可恢复记录原文。');
@@ -266,28 +269,28 @@ function renderDocumentEvidence(data) {
 }
 function refreshBeginnerGuide() {
   $('onboarding-capability').textContent = health.available
-    ? '可以重新编译样例、定位报错、检索官方文档并保存修改。测试是否可用，请到“测试验证”查看。'
+    ? '可以定位报错、查文档、修改代码，再在代码框下直接保存并验证。'
     : health.token
-      ? '这台电脑当前不能编译和检索，但下面4步仍能完成：看已有报错、改代码、保存修改、下载报告。'
+      ? '本机编译尚未就绪：仍可看已有报错、改代码和单独保存，但当前不能完成运行步骤。'
       : '可以查看已有报错、定位和编辑副本。当前未连接保存服务，需要保留修改时请在“源码操作”中下载副本。';
   let title, detail;
   if (loadingSample || !record) {
     title = '先选择一个样例'; detail = '建议从“类型不匹配”开始。样例载入后，会同时显示代码和已有报错。';
   } else if (savedCurrent()) {
-    title = '这份修改已保存'; detail = '点击代码下方“修改已保存，去测试验证”，检查运行条件并填写公开测试；已有报告在“记录与报告”。保存不代表编译、测试通过。';
+    title = '这份修改已保存'; detail = '点击代码框下“验证这份修改”，实际结果会直接显示在按钮下。已有结果在“记录与报告 → 本机修改验证”。';
   } else if (!current()) {
-    title = '下一步：核对修改，再保存'; detail = health.token
-      ? '在代码下方展开“查看修改并保存”，核对差异后确认。右侧仍是修改前的报错，不是新代码的结果。'
+    title = '下一步：验证当前修改'; detail = health.token
+      ? '点击代码框下“保存并验证这份修改”，查看实际输出。右侧保留修改前报错供对照。'
       : '当前未连接保存服务。在“源码操作”中选择“下载当前副本”保留修改；右侧仍是原诊断。';
   } else if (compiling || health.busy || retrievingDocuments) {
     title = '正在处理，请稍等'; detail = '结果返回后再查看报错位置；这时不需要重复点击编译。';
   } else if (compileView(record).diagnostics.some(d => d.canLocate)) {
     title = '下一步：点击报错行号'; detail = health.available
-      ? '定位后点击“查找文档依据”，先阅读规则，再改代码。当前显示的是已有记录；重新编译需点击“编译所选样例”。'
+      ? '定位后点击“查找文档依据”，先阅读规则，再改代码。当前显示的是已有记录；重新编译需点击“重新编译原始样例”。'
       : '编译暂不可用，但已有记录仍能定位和阅读。先点击诊断卡片中的行号；新手可对照教程编辑副本。';
   } else {
     title = '先读当前诊断结果'; detail = compileView(record).status === 'compile_passed'
-      ? '编译通过只说明没有编译错误。修改后仍需保存，再到“测试验证”检查测试条件。'
+      ? '编译通过只说明没有编译错误。修改后在代码框下点“保存并验证”，查看实际运行结果。'
       : '当前记录没有可定位的报错。请核对诊断状态，必要时展开“原始编译器输出”；工具异常不代表代码正确。';
   }
   $('beginner-title').textContent = title;
@@ -309,13 +312,13 @@ function refreshSource() {
   for (const b of document.querySelectorAll('[data-location]')) b.disabled = !current();
   $('compile-example').disabled = !health.available || !selectedCase || !current() || compiling || health.busy;
   $('refresh-health').disabled = compiling || health.busy;
-  $('compile-example').textContent = compiling ? '正在编译…' : '编译所选样例';
+  $('compile-example').textContent = compiling ? '正在编译…' : '重新编译原始样例';
   $('cancel-compile').hidden = !compiling;
   $('sample-select').disabled = compiling || loadingSample;
   $('restore').hidden = !record || current();
   $('compile-guidance').textContent = loadingSample ? '正在载入样例…' :
     !record ? '尚未载入诊断，请从上方选择一个样例重试。' :
-    !current() ? '副本已修改。请在源码下方查看差异并保存，再到“测试验证”验证已保存版本；此处仅编译审核样例。' :
+    !current() ? '副本已修改。请点击代码框下“保存并验证这份修改”；上方按钮只重新编译原始样例。' :
     !selectedCase ? '当前为导入或历史记录。要发起新编译，请从上方选择审核样例。' :
     compiling || health.busy ? '本机任务进行中，请等待完成。' :
     retrievingDocuments ? '文档正在检索，完成后可编译。' :
@@ -450,7 +453,9 @@ $('revision-review').addEventListener('toggle', () => {
   else { revisionSnapshot = null; $('revision-count').textContent = ''; $('revision-diff').replaceChildren(); refreshRevisionControls(); }
 });
 $('attach-document-evidence').addEventListener('change', refreshRevisionControls);
-$('save-revision').addEventListener('click', async () => {
+async function saveCurrentRevision() {
+  if (savedCurrent() && savedRevision.revisionId) return savedRevision;
+  if (!matchesEditor(revisionSnapshot)) renderRevisionReview();
   if (!matchesEditor(revisionSnapshot) || !health.token || savingRevision || savedCurrent() || loadingSample) return;
   const snapshot = revisionSnapshot, originalJSON = JSON.stringify(snapshot.baseRecord);
   const reference = chosenReference();
@@ -467,15 +472,17 @@ $('save-revision').addEventListener('click', async () => {
     if ((revision.documentEvidence ? JSON.stringify(revision.documentEvidence) : null) !== referenceJSON)
       throw new Error('返回的文档依据与本次确认不一致，未标记为已保存。');
     if (matchesEditor(snapshot) && (chosenReference()?.retrievalId || null) === (reference?.retrievalId || null)) {
-      savedRevision = {...snapshot,retrievalId:reference?.retrievalId};
-      revisionStatus(`已保存到本机${reference ? '，并附带原诊断文档依据' : ''}。可到“记录与报告”下载可读修改报告，或到“测试验证”填写公开测试并查看环境。当前保存操作未执行编译或测试。`);
+      savedRevision = {...snapshot,revisionId:revision.revisionId,retrievalId:reference?.retrievalId};
+      revisionStatus(`已保存到本机${reference ? '，并附带原诊断文档依据' : ''}。点击本页“验证这份修改”查看实际运行结果。单独保存不代表通过验证。`);
     } else feedback('刚才确认的版本已保存到“记录与报告”。当前编辑内容另有变化，请重新审阅后保存。');
     await refreshRevisions();
+    return matchesEditor(snapshot) ? savedRevision : null;
   } catch (error) {
     const message = `${error.message} 未确认保存成功。请先刷新“记录与报告”中的修改记录核对，再决定是否重试；当前副本仍保留。`;
     if (matchesEditor(snapshot)) revisionStatus(message); else feedback(message);
   } finally { savingRevision = false; refreshRevisionControls(); }
-});
+}
+$('save-revision').addEventListener('click', saveCurrentRevision);
 $('refresh-revisions').addEventListener('click', refreshRevisions);
 window.addEventListener('beforeunload', event => {
   if (record && !current() && !savedCurrent()) { event.preventDefault(); event.returnValue = ''; }
@@ -625,6 +632,7 @@ $('compile-example').addEventListener('click', async () => {
   } catch (e) { feedback(e.name === 'AbortError' ? '已请求取消，正在确认最终状态；若任务先完成，会保留实际结果。请到任务历史页查看。' : e.message); }
   finally { compiling = false; compileController = null; refreshSource(); await refreshHistory(); }
 });
+localCheckUI = initLocalCheckUI({context:() => ({health,record,source:{name:currentName,text:$('source').value},changed:record && !current(),saved:savedCurrent(),loading:loadingSample || savingRevision}),saveRevision:saveCurrentRevision,refreshHealth:() => refreshHealth(),download});
 const navigation = initNavigation();
 initAISettings();
 verificationUI = initVerificationUI({getHealth:() => health, refreshHealth:() => refreshHealth(), download,
@@ -632,4 +640,4 @@ verificationUI = initVerificationUI({getHealth:() => health, refreshHealth:() =>
 initStorageUI({getHealth:() => health, download});
 initEvidenceReviewUI({download});
 loadCase('type_mismatch');
-refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh()]));
+refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh(), localCheckUI.history()]));
