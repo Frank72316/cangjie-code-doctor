@@ -1,4 +1,4 @@
-// Optional visual preview. The default workbench does not load these assets.
+// Shared pixel theme for the formal workbench and the read-only design preview.
 export const voxelRoutes = [
   ['/voxel-preview.css', ['web/voxel-preview.css', 'text/css; charset=utf-8']],
   ['/assets/voxel/winter-garden.svg', ['web/assets/voxel/winter-garden.svg', 'image/svg+xml']],

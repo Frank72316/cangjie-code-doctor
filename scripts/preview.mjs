@@ -226,7 +226,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const revisionStore = new RevisionStore(root);
   const verificationService = new VerificationService({root,revisionStore,core:executable,image:process.env.DOCTOR_SANDBOX_IMAGE,bridge});
   await verificationService.probe();
-  const workbenchTheme = process.env.DOCTOR_WORKBENCH_THEME || null;
+  const workbenchTheme = process.env.DOCTOR_WORKBENCH_THEME || 'voxel';
   const server = makeServer({bridge,revisionStore,verificationService,workbenchTheme});
   server.on('error', e => { console.error(e.message); process.exitCode = 1; });
   server.listen(port, '127.0.0.1', () => {
