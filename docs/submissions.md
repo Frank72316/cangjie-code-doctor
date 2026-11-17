@@ -9,6 +9,11 @@
 - **GitCode 同步确认**：以 `git ls-remote origin refs/heads/main` 与本地 SHA 的核对结果为准。核对时间只能说明当时远端已经包含该版本，不能反推历史上传时间。历史服务器接收时间未留存的，明确标为未核实。
 - 老师可打开提交详情查看改动、父提交与时间，再打开平台运行链接查看实际检查记录。平台显示时区可能不同，对照时应换算；GitHub API 中的 `Z` 表示 UTC。
 
+## 第四十二轮：答辩PPT进度表达（2026-11-17，提交前记录）
+
+- 更新中期PPT开头进度表，将第9页替换为30例案例成果，并同步后续计划与备注；12页渲染及结构检查通过。包含本节的提交按真实时间同步双仓，当前SHA和CI结果保存本地回执，不为补记自身SHA追加空提交。
+- 前轮18974ab20b1d247fb881d9e826e7e993ba364ca1提交于2026-11-17 14:35:21，双仓一致：GitCode ls-remote核对，GitHub因Git传输失败改用官方Git Data API校验原提交SHA后正常快进并由refs API核对。[push CI 44032575934](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/44032575934)成功，创建14:37:22、完成更新14:39:43；时间分别来自Git和平台，不是精确上传时间。
+
 ## 第四十一轮：30例案例材料（2026-11-17，提交前记录）
 
 - 实际发布补记：174bcca677a097b3825fc5faf11ba562c1d33a8e 已同步GitCode和GitHub；GitCode用ls-remote核对。GitHub普通推送多次连接失败，改用官方Git Data API逐个校验blob/tree/commit SHA，确认完全等于原提交后正常快进（force:false），refs API核对一致，没有改写时间或历史。[push CI 44031743458](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/44031743458)成功，创建14:30:41、完成更新14:33:09。30例容器初始行为符合预期，真实制品校验后补登记证据；本次后续提交包含证据登记与案例阅读目录，不改变原验收成败。
