@@ -15,7 +15,7 @@ async function fixture() {
   await mkdir(join(root,'runs'),{recursive:true});
   const directory=await mkdtemp(join(root,'runs/case-contract-'));
   await mkdir(join(directory,'examples'),{recursive:true});
-  await mkdir(join(directory,'data/cases'),{recursive:true});
+  await mkdir(join(directory,'data/cases/sources'),{recursive:true});
   const catalog=structuredClone(sourceCatalog);
   for (const item of catalog.cases) await writeFile(join(directory,item.sourcePath),await readFile(join(root,item.sourcePath)));
   const save=()=>writeFile(join(directory,'data/cases/catalog.json'),JSON.stringify(catalog));
@@ -23,11 +23,11 @@ async function fixture() {
   return {directory,catalog,save,check:()=>checkCaseCatalog({root:directory})};
 }
 
-test('real public catalogue reports four development cases, no evaluation or invented reviews',async()=>{
+test('real public catalogue reports 10 development and 20 evaluation drafts without invented reviews',async()=>{
   const report=await checkCaseCatalog({root});
-  assert.equal(report.counts.development,4); assert.equal(report.counts.evaluation,0);
-  assert.equal(report.blockers.length,4); assert.equal(report.metadataComplete,false);
-  assert.equal(report.experimentFrozen,false); assert.equal(report.manifest.length,4);
+  assert.equal(report.counts.development,10); assert.equal(report.counts.evaluation,20);
+  assert.equal(report.blockers.length,30); assert.equal(report.metadataComplete,false);
+  assert.equal(report.experimentFrozen,false); assert.equal(report.manifest.length,30);
   const output=JSON.stringify(report);
   assert.ok(!output.includes('expectedStdout')); assert.ok(!output.includes('println'));
   assert.ok(!output.includes('reviewers')); assert.equal(report.datasetSha256.length,64);
@@ -125,10 +125,10 @@ test('declared complete synthetic metadata never means a frozen or executed expe
 test('snapshot comparison detects changed tests, added/removed cases and changed execution order',async()=>{
   const f=await fixture(), before=await f.check();
   f.catalog.cases[0].publicTests[0].expectedStdout='different\n';
-  f.catalog.cases.pop();
+  const removed=f.catalog.cases.pop().id;
   const added=structuredClone(f.catalog.cases[1]); added.id='extra'; f.catalog.cases.unshift(added);
   await f.save(); const current=await f.check(); const diff=compareCaseSnapshots(before,current);
-  assert.deepEqual(diff.added,['extra']); assert.deepEqual(diff.removed,['hello']);
+  assert.deepEqual(diff.added,['extra']); assert.deepEqual(diff.removed,[removed]);
   assert.deepEqual(diff.changed,['type_mismatch']); assert.equal(diff.unchanged,false);
   f.catalog.cases.reverse(); await f.save(); const order=compareCaseSnapshots(current,await f.check());
   assert.equal(order.orderChanged,true); assert.deepEqual(order.changed,[]); assert.equal(order.unchanged,false);

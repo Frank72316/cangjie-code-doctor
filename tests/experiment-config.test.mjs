@@ -14,7 +14,7 @@ const sourceCatalog=JSON.parse(await readFile(join(root,'data/cases/catalog.json
 async function fixture() {
   await mkdir(join(root,'runs'),{recursive:true});
   const directory=await mkdtemp(join(root,'runs/experiment-contract-'));
-  for (const path of ['examples','data/cases','data/docs','data/experiments/prompts']) await mkdir(join(directory,path),{recursive:true});
+  for (const path of ['examples','data/cases/sources','data/docs','data/experiments/prompts']) await mkdir(join(directory,path),{recursive:true});
   const config=structuredClone(base),catalog=structuredClone(sourceCatalog);
   for (const item of catalog.cases) await writeFile(join(directory,item.sourcePath),await readFile(join(root,item.sourcePath)));
   for (const path of ['data/docs/manifest.json','data/docs/cangjie-1.0.5.json']) await writeFile(join(directory,path),await readFile(join(root,path)));
@@ -33,7 +33,7 @@ async function fixture() {
 
 test('real draft links actual materials, reports missing dependencies, never enables execution',async()=>{
   const report=await checkExperimentConfig({root});
-  assert.equal(report.counts.development,4); assert.equal(report.counts.evaluation,0);
+  assert.equal(report.counts.development,10); assert.equal(report.counts.evaluation,20);
   assert.equal(report.metadataComplete,false); assert.equal(report.experimentFrozen,false);
   assert.equal(report.executionAuthorized,false); assert.equal(report.protocol.maxPlannedGenerations,64);
   for (const field of ['sharedModel.provider','budget.maxCost','environment.imageId','templates.sharedPrompt','cases'])

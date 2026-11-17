@@ -96,6 +96,19 @@ jobs:
         run: |
           source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
           node scripts/test-revision-verification-http.mjs "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor
+      - name: Check case construction in isolated SDK containers
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/doctor-sdk/cangjie/envsetup.sh"
+          node scripts/verify-case-initials.mjs "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor
+      - name: Preserve case construction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: case-initial-behavior
+          path: runs/case-initials/
+          if-no-files-found: warn
+          retention-days: 30
       - name: Capture real midterm development workflow
         shell: bash
         run: |
