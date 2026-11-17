@@ -1,0 +1,315 @@
+{
+  "kind": "doctor-case-construction-acceptance",
+  "schemaVersion": 1,
+  "startedAt": "2026-11-17T06:32:25.759Z",
+  "commit": "174bcca677a097b3825fc5faf11ba562c1d33a8e",
+  "datasetSha256": "4e845591a112051539156e1dc848c2e71d8ab915d819de8ab9f53ecab7c75f9f",
+  "image": "sha256:17fe3185cbfb9c3e5e55903e47bfb58a70ba0f1d51c665ef07337c450a376e8b",
+  "scope": "Initial public behavior only; no reference validation, held-out tests, model calls or A/B results.",
+  "results": [
+    {
+      "id": "type_mismatch",
+      "split": "development",
+      "category": "type",
+      "sourceSha256": "59cb8d96def152e2c5e358ddeb7137426328b8b5652f36a6c8dc684ff2a53534",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "dfef55520b4c594ed4ebe2b417bbeffdec4cf1457d380b04fa359a99937f047f"
+    },
+    {
+      "id": "undefined_name",
+      "split": "development",
+      "category": "scope-or-api",
+      "sourceSha256": "3a26df5460afd866ab9c6d13c60c13c596eda4a088036cc8c17a366aa703bddb",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "712edc24c39c863e2db06fcb09999b383cc87c1e70e3caa9ede1ba9895156dcf"
+    },
+    {
+      "id": "argument_count",
+      "split": "development",
+      "category": "scope-or-api",
+      "sourceSha256": "5e6612766b92804ebb6313a2b5a5c58e10cecb23b2539856ee8e5c71130810f5",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "2cc1913bf673b547c27f33056bb79f616374932f94f5936f9cc75169a8913a7e"
+    },
+    {
+      "id": "hello",
+      "split": "development",
+      "category": "correct",
+      "sourceSha256": "65fb68627ad591876357224b12af8618e2c5af3997c0e8bbbf9e4322f6d79845",
+      "expected": "passed",
+      "actual": "passed",
+      "accepted": true,
+      "reportSha256": "51b044a3615da108ee4e0a4a80d97a2fe3b11fe63d2fd633dfb6e4f330e8594d"
+    },
+    {
+      "id": "dev_string_quote",
+      "split": "development",
+      "category": "syntax",
+      "sourceSha256": "60f25708ec21110899cff7e09b5f7ec546fce6bb008c15b39077e33210af8f2d",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "2882e122b1c794c0c2d0d743e1a395d8f0bf9b6e73f710d7100b55b2a20f5999"
+    },
+    {
+      "id": "dev_dangling_else",
+      "split": "development",
+      "category": "syntax",
+      "sourceSha256": "4ba6419e4bafbf92eed1ef791429ad6b93625159724c417e46348b1ce1385595",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "b2fda236319f9b8b4ebbcc8dd0a26d6c89717ed17e92c3bb6418aaac1abd5e08"
+    },
+    {
+      "id": "dev_immutable",
+      "split": "development",
+      "category": "type",
+      "sourceSha256": "caab976d347d2264bb4c4fb947d8b57f2901d4af60beec95ea0fe999ebfcec59",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "1655404ccd0254fd17f79ca62cd7be96dc4c36bd7e6b6ea24929f858e9c0e157"
+    },
+    {
+      "id": "dev_compare_bool",
+      "split": "development",
+      "category": "type",
+      "sourceSha256": "764eb1e781464894b21a721bb82911a1207f4a9e4a16a1203f9832a3c66b2cf9",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "ea529eb2b9fc60b8816a73de13aa7077b8ce686c85f6195a15719e8b31b65815"
+    },
+    {
+      "id": "dev_rectangle",
+      "split": "development",
+      "category": "logic",
+      "sourceSha256": "bd00a0393bddf47ff3ff74a2d128d37a5daeecdaf0f6f0d450d05ee63f5adc86",
+      "expected": "test_failed",
+      "actual": "test_failed",
+      "accepted": true,
+      "reportSha256": "1894923f6a6aaedf2650bd870d454a25ec7ff98a15a6923a91b60a794ffe1014"
+    },
+    {
+      "id": "dev_square",
+      "split": "development",
+      "category": "correct",
+      "sourceSha256": "6c4a8638015016d44ee6fe7ad5620bbfdcacd9e952fd44367d0b5d627d6e4517",
+      "expected": "passed",
+      "actual": "passed",
+      "accepted": true,
+      "reportSha256": "4273f2b6badc4094cd39947afac479611df9b18fd9f11ad086f6f4714bd7e7b8"
+    },
+    {
+      "id": "eval_parameter_colon",
+      "split": "evaluation",
+      "category": "syntax",
+      "sourceSha256": "fa40b85fe53d7c7201b5fb3de26bc8de097fe1391606f2ec48c80b7012afff66",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "1f26a8086399352837569c42e68ccb9cbd3560190da8e12ffc73b1fb25f79d74"
+    },
+    {
+      "id": "eval_argument_separator",
+      "split": "evaluation",
+      "category": "syntax",
+      "sourceSha256": "e66ee06dbdd2583b444d5b3740418d30c1c44e8a038e45af36773f7939a91789",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "7db9badbf72864d6c0985bd65501a012b6047a67c10fda1dae3c8474eef4d4e1"
+    },
+    {
+      "id": "eval_array_delimiter",
+      "split": "evaluation",
+      "category": "syntax",
+      "sourceSha256": "59574e8ef5973c928e9c1fd56274910991deb347923c0b9f4763365138e5d49b",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "04ea1cb7f3497481513b321b9ff8f8f919a447b3d0f4b9ea2092ae63e0c578a9"
+    },
+    {
+      "id": "eval_block_end",
+      "split": "evaluation",
+      "category": "syntax",
+      "sourceSha256": "3548f96a6b365c7e73dfbf81875541744d99571f17e29d15237a7fc8512b82e2",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "ded8481188aa6316fc6939b1ffdc6844563b19a79edf0e0f1f6163d20ce61dd8"
+    },
+    {
+      "id": "eval_return_type",
+      "split": "evaluation",
+      "category": "type",
+      "sourceSha256": "0fc4d0595c1e930f0506914302947e08778e00a06518598bff6efd289b7062dc",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "ce6e33d5f709c62fe4ef7f2a501bdcf645f8626df4ab3de7d9862d5cc2682b05"
+    },
+    {
+      "id": "eval_bool_arithmetic",
+      "split": "evaluation",
+      "category": "type",
+      "sourceSha256": "17d1d5b75eb94620ad2eab678f401d569c24aea9ea22ba783e1bbd25f50f0508",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "4a6938b235cb26d0c7f4b8cf1ebe4fc96623b8b2c867019bcefdc038c80f42a6"
+    },
+    {
+      "id": "eval_condition_type",
+      "split": "evaluation",
+      "category": "type",
+      "sourceSha256": "d176a7520aabe26ce9d479c6a9ecde8d0f0061e3575e42f255f385d83b072f78",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "888e4499f80878b48b349837b00fadb619f834ac0e2832876e35e4d64ab18923"
+    },
+    {
+      "id": "eval_array_element",
+      "split": "evaluation",
+      "category": "type",
+      "sourceSha256": "942630eae4b866ff523ae10b20c8b8a383231ae6474f1da2394920cf2d83b0db",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "7003a4105bdf4f004e3cb74146ff0d27a3c2cca2491c2d228badf263720836d7"
+    },
+    {
+      "id": "eval_unknown_function",
+      "split": "evaluation",
+      "category": "scope-or-api",
+      "sourceSha256": "1a960ed0613453881c6b2ec7f8ac508ff28b5a9885c5e89cfc76795f2ca43f0e",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "b07cc220ce75931430aac14c461000568de6fe1897fdde72a20b0a3e21f0c3dc"
+    },
+    {
+      "id": "eval_block_scope",
+      "split": "evaluation",
+      "category": "scope-or-api",
+      "sourceSha256": "b79e9cafc3a22e7369aca1680fead0090c8d9500566ea9859fdb37f9458fa47d",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "1355466d208a019014d954ec68ca2f12d3ff0bce855c8173ae544d1d8a3300b7"
+    },
+    {
+      "id": "eval_unknown_member",
+      "split": "evaluation",
+      "category": "scope-or-api",
+      "sourceSha256": "69252bdbd5655970f77de949a8d337904ccce830261497ecb87c49896afc9a23",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "da800192c13cdfd9c2a03773ec3f38bce93a5079bd992221d59b33592e7d4f62"
+    },
+    {
+      "id": "eval_loop_scope",
+      "split": "evaluation",
+      "category": "scope-or-api",
+      "sourceSha256": "b48a570f05270ad51696e251d086b1de93628fba7e42e4a5bdfe1c38da794122",
+      "expected": "compile_failed",
+      "actual": "compile_failed",
+      "accepted": true,
+      "reportSha256": "a987f8e2f5d22f0242eaf3160637d5b715cc0b7e71c199a550dbfd575b222423"
+    },
+    {
+      "id": "eval_maximum",
+      "split": "evaluation",
+      "category": "logic",
+      "sourceSha256": "54c5b0c5929f5f9aa66871aebb0dc3f6ade14ee594041e948b2247ed7883fadf",
+      "expected": "test_failed",
+      "actual": "test_failed",
+      "accepted": true,
+      "reportSha256": "a7919e1743b6e22c2a02ae438166a864228f10bb31e9f2b1c324b544d2bc39db"
+    },
+    {
+      "id": "eval_absolute",
+      "split": "evaluation",
+      "category": "logic",
+      "sourceSha256": "515977e2da2f51d6ef488745a85bfcd3f279642327c310bbfd39cf7873e92199",
+      "expected": "test_failed",
+      "actual": "test_failed",
+      "accepted": true,
+      "reportSha256": "e1b90d3788e61cfb029e5fd92d5e7be831181073470e9e2a1b888057eb3551e8"
+    },
+    {
+      "id": "eval_accumulation",
+      "split": "evaluation",
+      "category": "logic",
+      "sourceSha256": "e44f0f8393c509f92ed2281374df7d9d6b7e1b79e13b9feee891144edad75c06",
+      "expected": "test_failed",
+      "actual": "test_failed",
+      "accepted": true,
+      "reportSha256": "dd603c25caf494d7fd73de24b80f1e19f77a3b743b13f29fd4a8013a9797fe9d"
+    },
+    {
+      "id": "eval_leap_year",
+      "split": "evaluation",
+      "category": "logic",
+      "sourceSha256": "ce671fb767522fc7991c546f83e3faea184c9ec8cb658f441cc6ebb078a565cd",
+      "expected": "test_failed",
+      "actual": "test_failed",
+      "accepted": true,
+      "reportSha256": "1414489ce24e0f9937171b882573607672a06711f14a344ba996897fd74270ce"
+    },
+    {
+      "id": "eval_clamp",
+      "split": "evaluation",
+      "category": "correct",
+      "sourceSha256": "a59ddf7251d8a65396b28216effedb97d16284d4f85c83fffa0c8e42ab3509a4",
+      "expected": "passed",
+      "actual": "passed",
+      "accepted": true,
+      "reportSha256": "e3210196eedd48a8f84b432c3d9fa7c635b9aa2c911dfaa325168d7a674add25"
+    },
+    {
+      "id": "eval_gcd",
+      "split": "evaluation",
+      "category": "correct",
+      "sourceSha256": "6a9a76b3170093aadbc60e43dfd0a64d523d979a19f8118c08401636b6f781d6",
+      "expected": "passed",
+      "actual": "passed",
+      "accepted": true,
+      "reportSha256": "01f19c5d3e88992ede72a4373eb64e10114a4bbe985ddd04249822c2eb91d64c"
+    },
+    {
+      "id": "eval_even",
+      "split": "evaluation",
+      "category": "correct",
+      "sourceSha256": "bf1fc4dc2af87ae27f3f7428f22943ee0673f870bf77d98e8be0fd2ebaeb41c9",
+      "expected": "passed",
+      "actual": "passed",
+      "accepted": true,
+      "reportSha256": "abca589a417e93f9317abcbda6c4c1aab23a7a0018e8d01c1afdd48bde63b348"
+    },
+    {
+      "id": "eval_array_sum",
+      "split": "evaluation",
+      "category": "correct",
+      "sourceSha256": "9533e2d50fcbeb8e3ed42f01ba8137a5a105c088279fd8b667ba85f4d997d681",
+      "expected": "passed",
+      "actual": "passed",
+      "accepted": true,
+      "reportSha256": "053a25ae4697dd433532574e69e29df8cedeb9e6f6fd62ffa3b98e245aafabc8"
+    }
+  ],
+  "finishedAt": "2026-11-17T06:32:55.126Z",
+  "accepted": true,
+  "runUrl": "https://github.com/Frank72316/cangjie-code-doctor/actions/runs/44031743458",
+  "note": "Dataset digest refers to the tested pre-registration catalogue. Reference drafts and independent holdout tests were not validated."
+}

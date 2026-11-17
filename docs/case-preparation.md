@@ -4,6 +4,8 @@
 
 ## 本轮已准备的材料
 
+- 真实验收结果：2026-11-17 [Linux CI 44031743458](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/44031743458)中30/30例初始行为符合预期；每例原始报告摘要已核验并登记，汇总见[初始行为证据](../data/cases/initial-evidence.json)。这是原程序的问题暴露/正确回归验收，不是修复率，也未验证参考草稿或保留测试。便于阅读的题目列表见[30例目录](case-index.md)。
+
 - [案例清单](../data/cases/catalog.json)包含30例题意、源码摘要、公开测试、来源和划分；[源码目录](../data/cases/sources/)新增26例，原4例仍在 examples。算法题公开入口使用固定调用，覆盖普通、零值、负数或边界；独立保留验证以后需要另建函数测试入口，重复同一无输入程序不能冒充新的保留覆盖。
 - 30份参考修正版草稿保存在本机被忽略的 `data/holdout/reference-drafts/`，仅在清单登记摘要，不上传答案；摘要表示文件已经准备，不表示经两人复核或独立验证。参考实现不是保留测试，`holdoutCommitmentSha256` 仍为 null。
 - 新命令 `node scripts/verify-case-initials.mjs <精确镜像ID> <Doctor二进制>` 在 Linux 复用现有容器边界，逐例核对初始编译/公开输出与登记预期；运行时异常不能代替预期的逻辑输出错误。原 Web 编译入口仍只允许原四例，不开放任意源码宿主执行。

@@ -11,6 +11,8 @@
 
 ## 第四十一轮：30例案例材料（2026-11-17，提交前记录）
 
+- 实际发布补记：174bcca677a097b3825fc5faf11ba562c1d33a8e 已同步GitCode和GitHub；GitCode用ls-remote核对。GitHub普通推送多次连接失败，改用官方Git Data API逐个校验blob/tree/commit SHA，确认完全等于原提交后正常快进（force:false），refs API核对一致，没有改写时间或历史。[push CI 44031743458](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/44031743458)成功，创建14:30:41、完成更新14:33:09。30例容器初始行为符合预期，真实制品校验后补登记证据；本次后续提交包含证据登记与案例阅读目录，不改变原验收成败。
+
 - 新增26例源码、补齐30例题意/公开测试/来源/参考草稿摘要，新增隔离初始行为验收及制品留存；参考答案只保存本机忽略目录。真实CI结果及同步回执在发布后核验，登记项缺口继续保留，不虚填复核或正式实验结果。
 - 前轮12ce025994e0e1205f2b225b5478b7629090bdf3提交于2026-11-17 00:09:19，双仓main已核对一致；GitHub经HTTP/1.1重试成功、refs API核对。[push CI 43904674637](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/43904674637)成功，创建00:11:12、完成更新00:12:46。以上不是精确上传时间。
 
