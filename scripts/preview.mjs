@@ -33,6 +33,7 @@ const routes = new Map([
   ['/report.mjs', ['web/report.mjs', 'text/javascript; charset=utf-8']],
   ['/revision.mjs', ['web/revision.mjs', 'text/javascript; charset=utf-8']],
   ['/document-evidence.mjs', ['web/document-evidence.mjs', 'text/javascript; charset=utf-8']],
+  ['/document-guide.mjs', ['web/document-guide.mjs', 'text/javascript; charset=utf-8']],
   ['/revision-report.mjs', ['web/revision-report.mjs', 'text/javascript; charset=utf-8']],
   ['/verification.mjs', ['web/verification.mjs', 'text/javascript; charset=utf-8']],
   ['/verification-ui.mjs', ['web/verification-ui.mjs', 'text/javascript; charset=utf-8']],

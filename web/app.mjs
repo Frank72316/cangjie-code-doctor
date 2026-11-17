@@ -4,6 +4,7 @@ import { initNavigation } from './navigation.mjs';
 import { lineDiff, validateRevision } from './revision.mjs';
 import { initVerificationUI } from './verification-ui.mjs';
 import { validateDocumentEvidence, officialDocumentURL } from './document-evidence.mjs';
+import { documentGuide, appendDocumentText } from './document-guide.mjs';
 import { revisionHTML } from './revision-report.mjs';
 import { initStorageUI } from './storage-ui.mjs';
 import { initEvidenceReviewUI } from './evidence-review-ui.mjs';
@@ -221,15 +222,46 @@ function refreshQueryHint() {
   document.querySelector('.primary-search p').textContent = custom ? '将使用你填写的自定义关键词。清空后可按当前报错检索。' : '直接使用当前诊断，无需填写关键词。';
 }
 function renderDocumentEvidence(data) {
+  const results = $('document-results');
+  results.replaceChildren();
+  const guides = documentGuide(data, compileView(record).diagnostics, record.source.text);
+  for (const guide of guides) {
+    const panel = element('article', '', 'document-guide');
+    panel.append(element('p', guide.line ? `看第 ${guide.line} 行 · 报错解读` : '报错解读', 'document-guide-label'),
+      element('h2', guide.title));
+    if (guide.code) panel.append(element('pre', guide.code.trim(), 'document-guide-code'));
+    if (guide.meaning) panel.append(element('p', guide.meaning));
+    if (guide.check) panel.append(element('h3', '你要检查什么'), element('p', guide.check));
+    if (guide.quotes.length) {
+      panel.append(element('h3', '对应的官方规则'));
+      const rules = element('div', '', 'document-key-rules');
+      for (const quote of guide.quotes) {
+        const block = element('div', '', 'document-key-rule');
+        block.append(element('strong', quote.label));
+        const excerpt = element('blockquote', ''); appendDocumentText(excerpt, quote.quote);
+        const link = element('a', `${quote.section} · 查看出处 ↗`, 'document-source-link');
+        link.href = officialDocumentURL(quote.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
+        block.append(excerpt, link); rules.append(block);
+      }
+      panel.append(rules);
+    } else panel.append(element('p', '本次结果没有提供能直接说明这条报错的关键规则。可用更具体的关键词重查；不要把关键词命中当成修复依据。', 'document-guide-unmatched'));
+    const raw = element('details', '', 'document-score');
+    raw.append(element('summary', '查看编译器原始报错'), element('pre', guide.diagnostic));
+    const back = element('a', '回到代码，修改并验证 →', 'document-guide-action');
+    back.href = '/diagnostics'; back.setAttribute('data-route','');
+    panel.append(raw, back, element('p', '以上解读来自本地规则，非 AI；引用节选自本次检索结果。', 'document-guide-label'));
+    results.append(panel);
+  }
+  if (data.results.length) results.append(element('h3', guides.length ? '本次命中的文档 · 按需展开' : '关键词检索结果 · 按需展开', 'document-list-heading'));
   const usedQuery = element('details', '', 'document-used-query');
   usedQuery.append(element('summary', data.queryOrigin === 'manual' ? '查看本次使用的关键词' : '查看本次使用的报错'),
     element('p', data.query || '（当前诊断没有可用于检索的文字）'));
-  $('document-results').replaceChildren(usedQuery);
+  results.append(usedQuery);
   for (const [index, result] of data.results.entries()) {
     const card = element('article', '', 'document-card');
-    const reading = element('details', '', 'document-reading'); reading.open = index === 0;
+    const reading = element('details', '', 'document-reading'); reading.open = guides.length === 0 && index === 0;
     const heading = element('summary', '', 'document-card-heading');
-    const title = element('h3', result.title);
+    const title = element('h3', result.section === result.title ? result.title : `${result.section} · ${result.title}`);
     const link = element('a', '查看官方完整原文 ↗', 'document-source-link');
     link.href = officialDocumentURL(result.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
     heading.append(element('span', String(index + 1).padStart(2, '0'), 'document-number'), title, element('span', '原文摘录', 'document-toggle'));
@@ -243,9 +275,11 @@ function renderDocumentEvidence(data) {
       element('p', 'Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.'),
       element('p', '原文逐字摘录，仅裁去首尾空白、统一换行；未翻译或改写。引用不代表上游作者认可或担保本工具。'));
     details.append(attribution);
-    const excerpt = element('p', result.text, 'document-excerpt');
+    const excerpt = element('div', '', 'document-excerpt'); appendDocumentText(excerpt, result.text);
     excerpt.tabIndex = 0; excerpt.setAttribute('aria-label', '官方文档摘录，可滚动查看全文');
-    reading.append(heading, element('p', result.section + ' · 长摘录可滚动阅读', 'document-section'), excerpt, link, details);
+    const exactText = element('details', '', 'document-score');
+    exactText.append(element('summary', '查看原始 Markdown 文本'), element('pre', result.text));
+    reading.append(heading, element('p', '官方摘录 · 已排版，完整文本可在下方展开', 'document-section'), excerpt, link, exactText, details);
     card.append(reading);
     $('document-results').append(card);
   }
@@ -264,7 +298,7 @@ function renderDocumentEvidence(data) {
   $('document-metadata-list').replaceChildren();
   for (const [name, value] of meta) $('document-metadata-list').append(element('dt', name), element('dd', value));
   $('document-evidence-footer').hidden = false; $('document-export-note').hidden = false;
-  documentStatus(data.results.length ? `找到 ${data.results.length} 条文档摘录。请结合原文与当前源码核对；相关性排序不保证能够解释或修复错误。` :
+  documentStatus(data.results.length ? (guides.length ? '先看报错和关键规则，再返回代码修改。' : `找到 ${data.results.length} 条文档，请按关键词核对内容。`) :
     '本次查询在文档快照中没有命中。无匹配不表示源码正确，也不表示官方文档没有相关说明；可换用更具体的关键词。', 'ready');
 }
 function refreshBeginnerGuide() {
@@ -508,6 +542,7 @@ $('document-form').addEventListener('submit', async event => {
     revisionReference = {baseRecord:originalRecord,evidence:structuredClone(data)};
     $('attach-document-evidence').checked = true;
     renderDocumentEvidence(data);
+    if (!$('document-evidence').hidden) $('document-results').scrollIntoView({block:'start'});
   } catch (error) {
     if (ticket === documentRequest && record === originalRecord && current())
       documentStatus(error.name === 'AbortError' ? '本次检索已取消，可重新检索。' : error.message, 'error');
