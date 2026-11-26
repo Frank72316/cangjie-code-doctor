@@ -1,0 +1,764 @@
+{
+  "kind": "doctor-challenge-materials-validation",
+  "createdAt": "2026-11-26T08:58:00.888Z",
+  "commit": "13fa998c501152d4d72911b991ab20167ae6427f",
+  "image": "sha256:09077e8f2fdabb487a08e702bd5101a2f0b459f60de0f707e30222c8ad8b05f0",
+  "catalogSha256": "c7d2ac5cfb06fc7debcca680d1d6347ba720c12aa9422ec079f78f2090a22469",
+  "holdoutSha256": "da0e12729b410155d4b04df55fd6a748bf9009ce5044036d51154e636960ba62",
+  "modelCalls": 0,
+  "modelDifficultyCalibrated": false,
+  "results": [
+    {
+      "caseId": "state_bank",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 7,
+      "referenceSha256": "eb32ad6973af6187cb14e2d023e027853b99abc772a6c1e9d12988214eadd72c",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "4f1088a54a45a465ddad72e801f9e35c0ffa9c94615b06b8e08df2c655cd7b91",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "6abfde9d2b111d96d9e7e04de35468408decdc162dd492691b507a88b47c32fa",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "state_books",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 6,
+      "referenceSha256": "08d80d299a4a297e324b5e984e1f1ed47211665305a276f02f009ae9fcc0c0b3",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "9dd9bb4708c35d43941bd6d54fe164835c14a17ebf969182a5b72583c56035d8",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "5b2581c0b56649ebb1f37b0507ac50ddc002e386b1d735d5c7e809bf01df986f",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "state_camel_map",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 7,
+      "referenceSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "3e801423b6842d8d75c81c4f77910daf25e9ef120b5690ad7bbf9a9a564a84cb",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "2a995a81a573a9deab72fa49107c1debcf773126b2a34093be6717a11a5578dd",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "state_registration",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 7,
+      "referenceSha256": "f295f5cdbc3ce58170d6d0835754185b5f77d29ba0a8adcbeac9365613fc500e",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "97da63887c236594ad0db0147d45d9415420cfa42ab35bb020d7d844e0260340",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "ef4ac4d049bf3c4cafec10b085f16aebb79388d879520ec6c4606f9b43dc22e8",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "state_complex",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 6,
+      "referenceSha256": "8fb5cd2a73b61f00b239b2a9845fe41933ba5e3f7350766d8f5cc7590285016b",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "3742a50c724fe60270993795bfedb4e95d0d9b003ea087cc846440c0a73c91b6",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "9284a12318ce22284a440070c48d28c6a04d44d7039b8c6a52ddde8b1a799b8a",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "state_hotel",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 6,
+      "referenceSha256": "eff4c60d919d11da5ba3dc4a8767538dcb8d0b0b6920584fd7e882edbe8346b3",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "65409edd240ff683a3328905f01eb467fdb1a925ca1d8088162d5dce293962ed",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "12819692a7baa01d3ec0e9d5376755dc8a208baa0a403a91d766df4b32072e8f",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "state_rpg",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 5,
+      "referenceSha256": "0f5f76af9f3f1c1da568fd7d15a584ae81f98b7e94ce5f1a4775a0a7be49347a",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "fb50253a09bec41c5074377accaac98e003456af0dd3ff7ffdbd62a2237ac8bd",
+          "status": "passed",
+          "killed": false
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "fb50f33926f56cb6d79ccebd3ee38c2e274798709fd3d104ecdaf3c1a6f2090a",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": false
+    },
+    {
+      "caseId": "state_pagination",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "assertions": 7,
+      "referenceSha256": "1a7a34c22fc98fb910e602f72c2360591828c1917c9c3831da3a6b57abc7c349",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "d549af97a440cab294936887ef6b7510f16ced81fcff35681987f075d89c3744",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "236c2e365925a843bef927fe50ee9117200211427cc38ab50b9f4cfdb0dcf1a7",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "dev_brackets",
+      "split": "development",
+      "stratum": "stateful",
+      "assertions": 5,
+      "referenceSha256": "3f394b5c00dbe0263c30d552620e7b107e92e3f5dd7e6273cef9f1f361042f91",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "2193e272145dce064d567bbc8f6cd89598fccd12dc716afb00339d82be164c60",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "7572bb8288374867a095b5b89e70c9b269d646312696716383cd080b05997903",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "dev_bit_status",
+      "split": "development",
+      "stratum": "stateful",
+      "assertions": 5,
+      "referenceSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "88fbe246ae59d32ef9432ab52cfe5ad477c31af100037814d54966bef63907e7",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "1a7f6b4642d436dd64b5edb00d42fd85f397ccfbf89f31006c9f0d6f9529ff66",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_knapsack",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 8,
+      "referenceSha256": "f3c64cfb96698aa8af8dfe33edbeed218d42a70f89a2ea80f151cbdba643368a",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "0a86580be7d513c749e52636b60d90c663e5d45cd7576278174582bba0f630c0",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "9caa757d2297793e1383afd94bbb2add2af2f45fd1622c7c85e487d96e33ae98",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 10,
+      "referenceSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "ac54e0ab39cb2c93e9e5180a88630f522974038c6d32665e7ac08f85407abaff",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "c2e0beea36f52a21f92898ed5af76c9f55ea3776a352076338c3c751be22b523",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_lis",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 8,
+      "referenceSha256": "8ab16a35faa541bfc3f71ce902738beae0c666ce2f043b0e52dd7e0dbef636d5",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "fb078a089180c49fb4e0fe187c1e47401cdabfcf356ce77273fc20fc4a22301c",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "16cfc1899f82842b0ec0e49532210a6c9cddc33b33db4142481d494f1e6c6b58",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_common_substring",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 8,
+      "referenceSha256": "ef1078a5acbe1c862932f78a951535f1e947c9f215dc39b20dfc669fd7ec391e",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "6698294622ccc6c26c8b7a4088ad66958e6b82051b9c531a0f842d581b393697",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "6006feeb625787e7b23ed10cacffd72e9196abffaab1b004af0abcb0f9a27b7c",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_max_segment",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 8,
+      "referenceSha256": "8606086292e8185dae0e0b328f920abbc933258104722cbf077abd7b5b828f65",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "8e4015aa44c03af55b1f23a679bfced71af7aaaa4e458457c8e858818fd2e5aa",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "5b6a6e5f3fbff4187f9a06daa8576e4905235e17b2dd0cebb80a7091be4d4120",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_coin_change",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 8,
+      "referenceSha256": "f69a62ce1fe7e93fd3875da8ed74a7d81288eeaf1696ca6dfda50ee3b2254ff4",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "b9f91b7fd1834c508a6dde0e24e583eb6c2f6da7f65917bcfc786be5e60087f2",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "e618501f8de876e0853d24c4f8e4fd65af940dc3381d7257371df8a425780bf2",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 5,
+      "referenceSha256": "c3f125f404977e4912564f4837a72286d823550bbe24a10c37b73a7fbe6405ad",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "fa4b9008750b0610164477f84b0de7344f6b8c8f61d653a1c860e9e58ab7c59a",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "272b8c58c5ae2601358a05f7a6b424e8a72b44c14e73712c4546c0d35abf9da0",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "assertions": 9,
+      "referenceSha256": "1ea521b56b03972f52f415e92c91cc66eb593712620da54c500975d18ca4200a",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "5048f90613a4bcd328108afd30ef62d5a6d4ca803692a4cc211557d70edbca51",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "bea506c28d4c8bae45cb11921170eda9af77cb7d6508ea846808e5df8e3d4464",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "split": "development",
+      "stratum": "algorithm",
+      "assertions": 7,
+      "referenceSha256": "07dae86caa3e08464e6235041246e6aecbdfa3bb4f39540c9d00e535505bc0cd",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "8fca8cda7cf2346483826fc4e0c2b7dd819718472c2ef6649fb947077306b007",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "ff100fb341297a0806b79e9416eac2b7de1b00aebbf62cd597712de24cdc6ed4",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "dev_base_digits",
+      "split": "development",
+      "stratum": "algorithm",
+      "assertions": 7,
+      "referenceSha256": "9ce1eed8b502113d4a09bbbc78f8c31a1529b378c44d1b636c4185b5146dd2e4",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "894e352a91cacf113ea1fc19158fe8ad61ec04a4ad067f6dc33fa3540b7d0a5b",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "ac47093569f2b7a8883c45ac89ad1914308b35cca857f2a7529d30dc65e6c7bf",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 15,
+      "referenceSha256": "504a45292d471051f09014eedc18fd73864aab8fad30be1aaf7b4fd06fe07f2f",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "68e4e863e655a39bab87981509bfdf360f4fb4c19db0e5c1c1b3d683d9d2f6bb",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "10cd29240b0df21ef3c68958752f0d92f88174e329ed4d224104d37fe64c9ca0",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_stable_unique",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 5,
+      "referenceSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "8a22762a9f96bf24ccc38bd9888b5238447600aae5465ce0c66c47b6f48a964a",
+          "status": "compile_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "c7ef745c13a5f32bab4d77d768670a4f8daf4890c9bd46a112482becdc8c590a",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "compile_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_frequency",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 3,
+      "referenceSha256": "80269b41a8a7ebe3cb209326062614f8b706ccf621169af414923aa9e59b7fa8",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "229ed0fb889434307ed70adef2e138b1e162e1d98c7aad598ce03e18f2ea0b42",
+          "status": "compile_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "01de8570effeb02910ee5381afe6522b6fcdc31250ffc0ae44aff0b788d24cd7",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "compile_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_copy_filter",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 5,
+      "referenceSha256": "c1c28c43774d2e3a0a48a9eb42ff279959d90453f26bac4a3475acf1b970f4a9",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "511c9a62252eb886dbea23ae64454d8da8bcac494f570b126f2adb6eb346050a",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "3dd35505db8b760743ee3d5c0abee82b18080a8c95b52ab1cf27b2ec966c635b",
+          "status": "compile_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "compile_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 5,
+      "referenceSha256": "6e12b079f3d0e4c1c028233a5a294e03606a23317942dda90f02dd489871bbfd",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "0142725a0834eb36bffaee5ba9a6904baedab460571a386f10f577ad6c7453a6",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "6aa39530d73fce9e77d7bba20fea442ab72eb6239dc0ea4a63c1a31e8178b948",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_parse_skip",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 5,
+      "referenceSha256": "1abb67724b9cd34b529b507658a4c83db1535fa77ec556dcc887f442931ba777",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "53caa42cfb5d4ea762b50a3de9266db226ab41384e4d4fee9bcac03486164936",
+          "status": "compile_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "b9dedd19062b08e0e46d99a8faa1a1d935d5c6f81e55830d0e174cbdc2731f3f",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "compile_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 5,
+      "referenceSha256": "54fbca38dec70553212e79ce27dab699b910b237fba252cc1f3d1178553294da",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "984ca9f706b9117135941514a033f79d6a5224a9340b22382e7989efa4036f24",
+          "status": "compile_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "b6da51ebb225f3bc97c99577a0077ca2c1b93890411e6f9ddf12ab67c1ac2d8d",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "compile_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "api_range_slice",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "assertions": 6,
+      "referenceSha256": "291fcfcf4cdbb19da825a35c2c274dd2818ea913066ec10fc47ff435e3b972ce",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "8b966557277b2356d484ea53e5f371f1d68a681918c4b9d459c957e08ed1e999",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "485d868992f7bb7ac41cf49ef26117e6c1e56767ca97f9e44e49186292dc5e95",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "dev_named_splice",
+      "split": "development",
+      "stratum": "language-api",
+      "assertions": 4,
+      "referenceSha256": "2aa2babae6d92dc48636214ea420e46388f168dfe31a54908189d980b58e40c2",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "3f13b60120d4580018ff04b63627a87f48b09c0f21c4ee36a0cf20513007d46c",
+          "status": "compile_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "7c9d3606aa20cfd5ad4b902ef1389a8b0e57f3ee6a270072896663a97cb33c59",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "compile_failed",
+      "accepted": true
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "split": "development",
+      "stratum": "language-api",
+      "assertions": 4,
+      "referenceSha256": "d8686a6b1cccf7b8d10058381ba2bd68cee160c73080674f73d32a64f43b107a",
+      "mutants": [
+        {
+          "id": "fault-1",
+          "sourceSha256": "59c8180f59cf6e0c4b03f95debd3da0bf6a391796ff6514546cadc7440f8a41e",
+          "status": "test_failed",
+          "killed": true
+        },
+        {
+          "id": "fault-2",
+          "sourceSha256": "b2c4db78ed7b39ee85ae568c9c948cdd5a8b6fbfec73b1ebf5029d7dc7abaf8d",
+          "status": "test_failed",
+          "killed": true
+        }
+      ],
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "initial": "test_failed",
+      "accepted": true
+    }
+  ],
+  "finishedAt": "2026-11-26T09:02:50.788Z",
+  "accepted": false
+}

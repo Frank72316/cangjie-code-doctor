@@ -5,6 +5,10 @@ test('challenge schedule preserves cases and balances three conditions per repli
  const {catalog}=await challengeCatalog(),jobs=challengeSchedule(catalog.cases);
  assert.equal(jobs.length,216);assert.equal(new Set(jobs.map(j=>[j.caseId,j.repeat,j.group].join('/'))).size,216);
  for(const group of ['A','B','C'])assert.equal(jobs.filter(j=>j.group===group).length,72);
+ for(const c of catalog.cases.filter(c=>c.split==='evaluation'))for(const group of ['A','B','C']){
+  const positions=[1,2,3].map(repeat=>jobs.filter(j=>j.caseId===c.id&&j.repeat===repeat).findIndex(j=>j.group===group));
+  assert.equal(new Set(positions).size,3,'Each condition occupies each position once per case');
+ }
  assert.equal(challengeSchedule(catalog.cases,'development',1).length,18);assert.ok(jobs.every(j=>!j.caseId.startsWith('dev_')));
 });
 test('public requests vary only documents and exclude private/curation metadata',async()=>{

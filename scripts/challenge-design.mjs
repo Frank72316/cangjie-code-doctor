@@ -6,7 +6,10 @@ const orders=[['A','B','C'],['B','C','A'],['C','A','B'],['A','C','B'],['C','B','
 export function challengeSchedule(cases,split='evaluation',repeats=3){
  const strata=['language-api','algorithm','stateful'],selected=strata.map(s=>cases.filter(c=>c.split===split&&c.stratum===s).sort((a,b)=>a.id.localeCompare(b.id,'en'))),interleaved=[];
  for(let i=0;i<selected[0].length;i++)for(const list of selected)if(list[i])interleaved.push(list[i]);
- return Array.from({length:repeats},(_,repeat)=>interleaved.flatMap((c,i)=>orders[(i+repeat)%6].map(group=>({caseId:c.id,repeat:repeat+1,group,maxRounds:2})))).flat();
+ return Array.from({length:repeats},(_,repeat)=>interleaved.flatMap((c,i)=>{
+  const block=i%6<3?0:3,order=orders[block+((i%3+repeat)%3)];
+  return order.map(group=>({caseId:c.id,repeat:repeat+1,group,maxRounds:2}));
+ })).flat();
 }
 export function challengeQuery(c,feedback){
  const stop=new Set('func public private var let return if else while for in import std main Int64 Float64 String Bool Unit Array ArrayList HashMap println true false this new class override static'.toLowerCase().split(' '));
