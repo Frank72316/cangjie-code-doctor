@@ -42,6 +42,8 @@
 
 首轮材料验收 [45785574677](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45785574677) 为 29/30：RPG 测试把元组下标误写为 `.0`，参考程序因此无法编译；已按同版本文档改为 `[0]`。后续复核又补强该题连续未升级时的累计测试，防止覆盖经验的单故障漏过。完整复测另行留存，没有模型生成结果参与这些修正，原失败记录保留。
 
+最终[材料验收45788677064](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45788677064)已通过全部30题门槛；60个单故障中54个运行失败、6个编译失败。150份报告与冻结源码/测试摘要逐一核对，见[准备报告及回执](experiments/2026-11-26-challenge/report.md)。这不改变“模型难度尚未校准”的状态。
+
 ## 4. 三组对照与固定输入
 
 | 组别 | 模型获得的信息 | 用途 |
@@ -96,5 +98,6 @@ B 使用项目原生仓颉 BM25，k1=1.2、b=0.75、topK=3；查询由初始诊�
 1. `scripts/verify-challenge-materials.mjs`：仅 Linux 不可变镜像，产出材料回执、初始公开反馈与加密完整证据；由 `challenge-materials.yml` 调度。
 2. `node --test tests/challenge-data.test.mjs tests/challenge-design.test.mjs`：清单、摘要、分割、条件顺序和提示差异检查。
 3. SDK 环境就绪后运行 `node scripts/prepare-challenge-design.mjs <initial-feedback.json> <receipt.json> <不存在的输出目录>`。脚本拒绝不通过或哈希不一致的材料回执，调用原生 BM25，保存 A/B/C 首轮请求与哈希、顺序表；没有联网模型调用代码。
+4. 本机保留钥匙就绪后，可运行 `node scripts/check-challenge-material-evidence.mjs <材料归档目录>`，解密并核对全部150份报告的源码、测试请求摘要、材料门槛和容器清理状态。该操作不运行候选、不调用模型。
 
 实际验收与提交过程见[进度](progress.md)和[提交记录](submissions.md)。后续先用独立开发集验证难度，再完成并冻结二轮执行器；不能把此文档里的计划数量写成已做实验数量。

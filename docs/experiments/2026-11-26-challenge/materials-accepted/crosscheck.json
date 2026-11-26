@@ -1,0 +1,16 @@
+{
+  "kind": "doctor-challenge-evidence-crosscheck",
+  "createdAt": "2026-11-26T10:13:39.098Z",
+  "reports": 150,
+  "catalogSha256": "c7d2ac5cfb06fc7debcca680d1d6347ba720c12aa9422ec079f78f2090a22469",
+  "holdoutSha256": "eeb9119903a600cdf7c7425759c504e29da7db1ea8e0d46f07993eea4b034bb5",
+  "evidenceSha256": "7582bac3c5611e8dae07e17f7f0b21080ac5ebfa42ff835ae8d95c86ef771fa2",
+  "verdicts": {
+    "passed": 60,
+    "test_failed": 78,
+    "compile_failed": 12
+  },
+  "sourceAndTestRequestHashesMatched": true,
+  "containerCleanupConfirmed": true,
+  "modelCalls": 0
+}

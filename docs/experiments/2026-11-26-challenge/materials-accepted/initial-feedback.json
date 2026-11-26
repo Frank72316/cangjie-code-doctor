@@ -1,0 +1,491 @@
+[
+  {
+    "caseId": "state_bank",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "state_books",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "state_camel_map",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "runtime_error",
+        "stdout": "",
+        "stderr": "An exception has occurred:\nNoneValueException: Value does not exist!\n\n\t at _CNac7HashMapIG_G0_EixHG_.exception_outlined_func(/devcloud/slavespace/usr1/4ee0f10fd9b24192af5e394290bb462a/cangjie/cangjie_runtime/std/libs/std/collection/hash_map.cj:842)\n\t at std.collection.HashMap<...>::[](T0)(/devcloud/slavespace/usr1/4ee0f10fd9b24192af5e394290bb462a/cangjie/cangjie_runtime/std/libs/std/collection/hash_map.cj:842)\n\t at default.CamelCaseMap::__getitem__(std.core::String)(/input/input.cj:13)\n\t at default.main()(/input/input.cj:47)\n"
+      }
+    ]
+  },
+  {
+    "caseId": "state_registration",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "state_complex",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "state_hotel",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "state_rpg",
+    "status": "test_failed",
+    "diagnostics": [
+      {
+        "code": "chir_dce_unused_variable",
+        "severity": "warning",
+        "message": "unused variable:'damage'",
+        "hint": "unused variable",
+        "file": "/input/input.cj",
+        "line": 21,
+        "column": 13
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\ntrue\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "state_pagination",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "dev_brackets",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "dev_bit_status",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_knapsack",
+    "status": "test_failed",
+    "diagnostics": [
+      {
+        "code": "chir_dce_unused_variable",
+        "severity": "warning",
+        "message": "unused variable:'values'",
+        "hint": "unused variable",
+        "file": "/input/input.cj",
+        "line": 2,
+        "column": 38
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_edit_distance",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_lis",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_common_substring",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "true\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_max_segment",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_coin_change",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_shortest_paths",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "algo_next_permutation",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "runtime_error",
+        "stdout": "false\n",
+        "stderr": "An exception has occurred:\nIndexOutOfBoundsException: The length of the array is 3, but the index is -1.\n\t at default.nextPermutation(std.core::Array<...>)(/input/input.cj:8)\n\t at default.main()(/input/input.cj:17)\n"
+      }
+    ]
+  },
+  {
+    "caseId": "dev_lower_bound",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "dev_base_digits",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_rune_rotate",
+    "status": "test_failed",
+    "diagnostics": [
+      {
+        "code": "chir_dce_unused_variable",
+        "severity": "warning",
+        "message": "unused variable:'k'",
+        "hint": "unused variable",
+        "file": "/input/input.cj",
+        "line": 2,
+        "column": 28
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\nfalse\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_stable_unique",
+    "status": "compile_failed",
+    "diagnostics": [
+      {
+        "code": "sema_not_member_of",
+        "severity": "error",
+        "message": "'push' is not a member of class 'ArrayList<Int64>'",
+        "hint": "",
+        "file": "/input/input.cj",
+        "line": 6,
+        "column": 83
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "not_run",
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_frequency",
+    "status": "compile_failed",
+    "diagnostics": [
+      {
+        "code": "sema_not_member_of",
+        "severity": "error",
+        "message": "'getOrDefault' is not a member of class 'HashMap<Struct-String, Int64>'",
+        "hint": "",
+        "file": "/input/input.cj",
+        "line": 5,
+        "column": 85
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "not_run",
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_copy_filter",
+    "status": "compile_failed",
+    "diagnostics": [
+      {
+        "code": "sema_mismatched_types",
+        "severity": "error",
+        "message": "mismatched types",
+        "hint": "expected 'Struct-Range<Int64>', found 'Int64'",
+        "file": "/input/input.cj",
+        "line": 6,
+        "column": 53
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "not_run",
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_matrix_alias",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_parse_skip",
+    "status": "compile_failed",
+    "diagnostics": [
+      {
+        "code": "sema_undeclared_identifier",
+        "severity": "error",
+        "message": "undeclared identifier 'parseInt'",
+        "hint": "",
+        "file": "/input/input.cj",
+        "line": 5,
+        "column": 38
+      },
+      {
+        "code": "sema_unused_import",
+        "severity": "warning",
+        "message": "unused import 'std.convert.*'",
+        "hint": "unused import",
+        "file": "/input/input.cj",
+        "line": 2,
+        "column": 1
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "not_run",
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_optional_clamp",
+    "status": "compile_failed",
+    "diagnostics": [
+      {
+        "code": "sema_wrong_number_of_arguments",
+        "severity": "error",
+        "message": "missing argument for parameter list '(Generics-T, Generics-T, Struct-Array<Generics-T>)' in call",
+        "hint": "expected 3 arguments, found 2",
+        "file": "/input/input.cj",
+        "line": 3,
+        "column": 32
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "not_run",
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "api_range_slice",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "runtime_error",
+        "stdout": "false\n",
+        "stderr": "An exception has occurred:\nIndexOutOfBoundsException: The length of the array is 3, but the index is -2.\n\t at default.closedSlice::lambda.0()(/input/input.cj:5)\n\t at default.closedSlice(std.core::Array<...>, Int64, Int64)(/input/input.cj:5)\n\t at default.main()(/input/input.cj:10)\n"
+      }
+    ]
+  },
+  {
+    "caseId": "dev_named_splice",
+    "status": "compile_failed",
+    "diagnostics": [
+      {
+        "code": "sema_not_member_of",
+        "severity": "error",
+        "message": "'insertAll' is not a member of class 'ArrayList<Int64>'",
+        "hint": "",
+        "file": "/input/input.cj",
+        "line": 5,
+        "column": 6
+      }
+    ],
+    "tests": [
+      {
+        "id": "public",
+        "status": "not_run",
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "caseId": "dev_tuple_aggregate",
+    "status": "test_failed",
+    "diagnostics": [],
+    "tests": [
+      {
+        "id": "public",
+        "status": "failed",
+        "stdout": "false\n",
+        "stderr": ""
+      }
+    ]
+  }
+]

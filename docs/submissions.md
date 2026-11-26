@@ -9,6 +9,12 @@
 - **GitCode 同步确认**：以 `git ls-remote origin refs/heads/main` 与本地 SHA 的核对结果为准。核对时间只能说明当时远端已经包含该版本，不能反推历史上传时间。历史服务器接收时间未留存的，明确标为未核实。
 - 老师可打开提交详情查看改动、父提交与时间，再打开平台运行链接查看实际检查记录。平台显示时区可能不同，对照时应换算；GitHub API 中的 `Z` 表示 UTC。
 
+## 第五十八轮：真实材料通过、输入快照与证据归档（2026-11-26，提交前记录）
+
+- 前轮63e2b28eb1219fbfe1ee2eb21b6bd6c462bb0d6d提交于17:03:49，GitCode推送成功，GitHub首次连接重置后正常重试成功。GitCode ls-remote与GitHub ref API均核对相同SHA；GitHub ls-remote发生连接重置，如实保留传输限制。[push CI45788640804](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45788640804)于17:04:44创建、17:10:13更新成功。
+- 独立[材料workflow_dispatch45788677064](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45788677064)于17:04:59创建、17:14:42更新成功；150份报告全部下载核对并加密长期保存。此为参考和测试材料验收，0次新模型调用，不登记模型修复率。
+- 本轮提交实际归档结果、30题离线三组输入和可复核脚本，并修复Windows中文路径问题。正常同步双仓后核对当前SHA与push CI；本节不预写本提交自身SHA或未来检查结果，不为补记自身SHA创建空提交。
+
 ## 第五十七轮：保留状态序列与顺序平衡修正（2026-11-26，提交前记录）
 
 - 前轮13fa998c501152d4d72911b991ab20167ae6427f提交于16:55:59，两平台main经ls-remote核对一致；[push CI45787399444](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45787399444)于16:56:14创建、16:58:44更新至成功。独立[材料复测45787456605](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45787456605)于16:56:38创建，结果另记。

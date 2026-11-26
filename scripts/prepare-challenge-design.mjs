@@ -1,6 +1,6 @@
 // Offline only: compile feedback + Cangjie BM25 + deterministic request schedule.
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
-import {resolve} from 'node:path';
+import {resolve,relative} from 'node:path';
 import {challengeCatalog} from './challenge-data.mjs';
 import {challengeCorpus,challengeSchedule,challengeQuery,challengeMessages,CHALLENGE_SETTINGS} from './challenge-design.mjs';
 import {validatedResult} from './retrieval.mjs';
@@ -13,7 +13,9 @@ await mkdir(output);const core=resolve(process.env.DOCTOR_CORE||('target/debug/d
 for(const c of snapshot.catalog.cases){
  const f=feedback.find(f=>f.caseId===c.id);if(!f)throw Error('Initial feedback missing');
  const query=challengeQuery(c,f),queryPath=resolve(output,c.id+'-query.json');await writeFile(queryPath,JSON.stringify({sdkVersion:'1.0.5',query,topK:3}));
- const p=await runNative(core,['retrieve','data/experiments/challenge-v1/corpus.json',queryPath],{cwd:process.cwd(),timeout:15000});if(p.code!==0||p.reason||p.stderr.trim())throw Error('Native BM25 unavailable');
+ // SDK 1.0.5 on Windows rejects Chinese absolute argv paths; cwd already supplies the workspace.
+ const nativeQueryPath=relative(process.cwd(),queryPath).replaceAll('\\','/');
+ const p=await runNative(core,['retrieve','data/experiments/challenge-v1/corpus.json',nativeQueryPath],{cwd:process.cwd(),timeout:15000});if(p.code!==0||p.reason||p.stderr.trim())throw Error('Native BM25 unavailable');
  const retrieval=validatedResult(JSON.parse(p.stdout),docs.corpus,query),requests={};for(const group of ['A','B','C'])requests[group]={...CHALLENGE_SETTINGS,messages:challengeMessages(c,f,group,retrieval,docs.corpus)};
  const chapters=retrieval.results.map(d=>docs.manifest.excerpts.find(e=>e.id===d.id).sourcePath);
  prepared.push({caseId:c.id,split:c.split,stratum:c.stratum,query,retrieval,topicChapterHit:chapters.some(p=>c.docTopics.some(t=>p.includes(t))),requests,requestHashes:Object.fromEntries(Object.entries(requests).map(([g,r])=>[g,sha(r)]))});
