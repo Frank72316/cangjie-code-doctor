@@ -37,6 +37,6 @@ for ax,panel,title in zip(axes, ["prior","transfer"], ["旧题复测 · 8 题","
         for j,value in enumerate(row):
             ax.text(j,i,str(value),ha="center",va="center",fontsize=12,color="white" if value==3 else "#232f32")
 fig.subplots_adjust(left=.12,right=.98,top=.75,bottom=.12)
-fig.suptitle("替换第三段文档后，模型一次能修好几次？",x=.035,y=.965,ha="left",fontsize=19)
+fig.suptitle("四种文档条件下，每道仓颉程序的首轮修复结果",x=.035,y=.965,ha="left",fontsize=19)
 fig.text(.035,.025,"每格是同一题三次独立请求中通过编译、公开样例和保留测试的次数。每次只允许生成一份修复。",fontsize=10)
 fig.savefig(folder/"outcomes.png",dpi=160,bbox_inches="tight",facecolor="white")

@@ -1,0 +1,295 @@
+{
+  "cases": [
+    {
+      "id": "api_rune_rotate",
+      "panel": "prior",
+      "gold": "structs-3284",
+      "retrieved": "structs-2580",
+      "top3": false,
+      "pass": {
+        "R": 0,
+        "M": 0,
+        "G": 3,
+        "P": 0
+      }
+    },
+    {
+      "id": "new_odd_runes",
+      "panel": "transfer",
+      "gold": "structs-3284",
+      "retrieved": "structs-3474",
+      "top3": false,
+      "pass": {
+        "R": 0,
+        "M": 0,
+        "G": 3,
+        "P": 0
+      }
+    },
+    {
+      "id": "api_matrix_alias",
+      "panel": "prior",
+      "gold": "structs-45",
+      "retrieved": "collections-470",
+      "top3": false,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "api_stable_unique",
+      "panel": "prior",
+      "gold": "collections-352",
+      "retrieved": "collections-470",
+      "top3": false,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "new_suffix_once",
+      "panel": "transfer",
+      "gold": "structs-3121",
+      "retrieved": "structs-2873",
+      "top3": false,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "api_parse_skip",
+      "panel": "prior",
+      "gold": "convert-775",
+      "retrieved": "structs-2580",
+      "top3": false,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "api_frequency",
+      "panel": "prior",
+      "gold": "structs-3246",
+      "retrieved": "collections-332",
+      "top3": false,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "new_limited_fields",
+      "panel": "transfer",
+      "gold": "structs-3193",
+      "retrieved": "structs-3193",
+      "top3": true,
+      "pass": {
+        "R": 0,
+        "M": 3,
+        "G": 3,
+        "P": 0
+      }
+    },
+    {
+      "id": "api_optional_clamp",
+      "panel": "prior",
+      "gold": "enums-226",
+      "retrieved": "enums-226",
+      "top3": true,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "api_copy_filter",
+      "panel": "prior",
+      "gold": "collections-287",
+      "retrieved": "collections-470",
+      "top3": false,
+      "pass": {
+        "R": 3,
+        "M": 3,
+        "G": 3,
+        "P": 3
+      }
+    },
+    {
+      "id": "new_trim_set",
+      "panel": "transfer",
+      "gold": "structs-3425",
+      "retrieved": "structs-3425",
+      "top3": true,
+      "pass": {
+        "R": 3,
+        "M": 0,
+        "G": 0,
+        "P": 3
+      }
+    },
+    {
+      "id": "api_range_slice",
+      "panel": "prior",
+      "gold": "structs-97",
+      "retrieved": "structs-97",
+      "top3": true,
+      "pass": {
+        "R": 3,
+        "M": 2,
+        "G": 3,
+        "P": 2
+      }
+    }
+  ],
+  "overall": {
+    "R": {
+      "passed": 27,
+      "attempts": 36,
+      "input": 102615,
+      "output": 5974,
+      "estimateCNY": 0.253022
+    },
+    "M": {
+      "passed": 26,
+      "attempts": 36,
+      "input": 85308,
+      "output": 5633,
+      "estimateCNY": 0.21568
+    },
+    "G": {
+      "passed": 33,
+      "attempts": 36,
+      "input": 82656,
+      "output": 5546,
+      "estimateCNY": 0.20968
+    },
+    "P": {
+      "passed": 26,
+      "attempts": 36,
+      "input": 82383,
+      "output": 6044,
+      "estimateCNY": 0.213118
+    }
+  },
+  "panels": {
+    "prior": {
+      "R": {
+        "passed": 21,
+        "attempts": 24,
+        "input": 69321,
+        "output": 3969,
+        "estimateCNY": 0.170394
+      },
+      "M": {
+        "passed": 20,
+        "attempts": 24,
+        "input": 58032,
+        "output": 4096,
+        "estimateCNY": 0.148832
+      },
+      "G": {
+        "passed": 24,
+        "attempts": 24,
+        "input": 55818,
+        "output": 4034,
+        "estimateCNY": 0.143908
+      },
+      "P": {
+        "passed": 20,
+        "attempts": 24,
+        "input": 55740,
+        "output": 4166,
+        "estimateCNY": 0.144808
+      }
+    },
+    "transfer": {
+      "R": {
+        "passed": 6,
+        "attempts": 12,
+        "input": 33294,
+        "output": 2005,
+        "estimateCNY": 0.082628
+      },
+      "M": {
+        "passed": 6,
+        "attempts": 12,
+        "input": 27276,
+        "output": 1537,
+        "estimateCNY": 0.066848
+      },
+      "G": {
+        "passed": 9,
+        "attempts": 12,
+        "input": 26838,
+        "output": 1512,
+        "estimateCNY": 0.065772
+      },
+      "P": {
+        "passed": 6,
+        "attempts": 12,
+        "input": 26643,
+        "output": 1878,
+        "estimateCNY": 0.06831
+      }
+    }
+  },
+  "comparisons": {
+    "GminusP": {
+      "differencePoints": 19.4444,
+      "percentile95": [
+        -13.8889,
+        50
+      ],
+      "better": 4,
+      "tied": 7,
+      "worse": 1
+    },
+    "MminusR": {
+      "differencePoints": -2.7778,
+      "percentile95": [
+        -27.7778,
+        22.2222
+      ],
+      "better": 1,
+      "tied": 9,
+      "worse": 2
+    },
+    "GminusM": {
+      "differencePoints": 19.4444,
+      "percentile95": [
+        0,
+        41.6667
+      ],
+      "better": 3,
+      "tied": 9,
+      "worse": 0
+    }
+  },
+  "retrieval": {
+    "top1": 4,
+    "top3": 4,
+    "cases": 12
+  },
+  "statusCounts": {
+    "test_failed": 18,
+    "passed": 112,
+    "compile_failed": 14
+  },
+  "estimatedCNY": 0.8915
+}
