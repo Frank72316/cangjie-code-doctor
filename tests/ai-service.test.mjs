@@ -55,10 +55,20 @@ test('retrieved documents sent only when archived evidence binds to original rec
  const corpus=JSON.parse(await readFile(new URL('../data/docs/cangjie-1.0.5.json',import.meta.url),'utf8'));
  const id='1'.repeat(32),dir=await root();
  const evidence={schemaVersion:1,sdkVersion:'1.0.5',snapshotId:corpus.snapshotId,sourceRevision:corpus.sourceRevision,algorithm:'bm25',parameters:{k1:1.2,b:0.75},query:'类型',effectiveQuery:'类型',queryExpansion:'compiler-glossary-v1',tokenizer:'ascii-lower-identifier+cjk-unigram-bigram-v1',topK:3,results:[{...corpus.documents[0],score:1}],kind:'doctor-document-evidence',retrievalId:id,createdAt:new Date().toISOString(),sourceName:record.source.name,sourceSha256:record.source.sha256,recordSha256:digest(JSON.stringify(record)),compilerVersion:record.compiler.version,corpusSha256:'a'.repeat(64),queryOrigin:'manual'};
+ const corpusText=await readFile(new URL('../data/docs/cangjie-1.0.5.json',import.meta.url),'utf8');evidence.corpusSha256=digest(corpusText);
+ await mkdir(join(dir,'data/docs'),{recursive:true});
+ await writeFile(join(dir,'data/docs/cangjie-1.0.5.json'),corpusText);
+ await writeFile(join(dir,'data/docs/manifest.json'),await readFile(new URL('../data/docs/manifest.json',import.meta.url)));
  await mkdir(join(dir,'runs/retrieval',id),{recursive:true});await writeFile(join(dir,'runs/retrieval',id,'evidence.json'),JSON.stringify(evidence));
+ const folder=join(dir,'runs/retrieval',id);
+ await writeFile(join(folder,'corpus.json'),corpusText);
+ await writeFile(join(folder,'query.json'),JSON.stringify({sdkVersion:'1.0.5',query:'类型',topK:3}));
+ await writeFile(join(folder,'request.json'),JSON.stringify({schemaVersion:1,kind:'doctor-retrieval-request',retrievalId:id,createdAt:evidence.createdAt,sourceSha256:record.source.sha256,recordSha256:evidence.recordSha256,corpusSha256:evidence.corpusSha256,query:'类型',queryOrigin:'manual',record}));
  const s=new AIService({root:dir,config,fetcher:async(_,o)=>{
   const context=JSON.parse(JSON.parse(o.body).messages[1].content);assert.equal(context.documents[0].text,corpus.documents[0].text);return response();}});
  assert.equal((await s.explain({...body,retrievalId:id})).retrievalId,id);
+ evidence.results[0].text+=' forged';await writeFile(join(folder,'evidence.json'),JSON.stringify(evidence));
+ await assert.rejects(s.explain({...body,retrievalId:id}),/快照/);assert.equal(s.health.used,1);
 });
 test('cancelled, malformed and oversized responses fail without a second request',async()=>{
  for(const mode of ['cancel','malformed','oversized']){

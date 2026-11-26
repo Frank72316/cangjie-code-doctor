@@ -107,7 +107,9 @@
           <div class="primary-search"><div><h2>根据报错查找依据</h2><p>直接使用当前诊断，无需填写关键词。</p></div><button id="retrieve-documents" type="submit" class="primary" disabled>检索文档</button></div>
           <details class="keyword-options"><summary>自定义关键词（可选）<span id="query-indicator" hidden> · 已填写</span></summary><label for="document-query">检索关键词</label><input id="document-query" type="text" maxlength="2000" autocomplete="off" placeholder="例如：类型、函数；留空使用当前报错" aria-describedby="document-help"><p id="document-help" class="document-help">填写后使用这些关键词检索；清空后恢复使用当前诊断。</p></details>
         </form>
+        <details class="panel document-history"><summary>找回当前报错以前检索过的文档</summary><p>无需仓颉核心或 AI。只显示与当前原诊断、官方快照一致的历史记录，不会重新检索。</p><button id="load-document-history" type="button">查找本机历史文档</button><p id="document-history-status" role="status"></p><div id="document-history-list" class="ai-history-list"></div></details>
         <p id="document-status" class="document-status" role="status" aria-live="polite">载入诊断记录后可检索。</p>
+        <p id="document-restored" class="ai-preview-note" hidden></p>
         <div id="document-results" class="document-results"></div>
         <div id="document-evidence-footer" class="document-evidence-footer" hidden><details id="document-metadata" class="document-metadata"><summary>版本与检索依据</summary><dl id="document-metadata-list"></dl></details><button id="export-document-evidence" disabled><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-download"/></svg>下载检索证据 JSON</button></div>
         <a class="page-next-link" href="/diagnostics" data-route>读完依据，返回代码修改并验证 →</a>
@@ -178,7 +180,7 @@
             <div class="ai-form">
               <p id="ai-local-status" role="status">正在读取本地配置…</p><button id="ai-refresh" type="button">刷新配置状态（不调用模型）</button>
               <div class="ai-field"><strong>将发送的程序</strong><p id="ai-source-name"></p><a href="/diagnostics" data-route>查看或切换代码 →</a></div>
-              <label class="ai-option"><input id="ai-use-docs" type="checkbox">附带本次检索的官方文档</label><p id="ai-document-count" class="small-label"></p>
+              <label class="ai-option"><input id="ai-use-docs" type="checkbox">附带当前选中的官方文档</label><p id="ai-document-count" class="small-label"></p>
               <p class="ai-preview-note">每次只问一次，关闭思考模式，最多输出 1500 tokens。每次启动最多 10 次请求，失败也计入次数；没有自动重试。</p>
               <label class="ai-option"><input id="ai-consent" type="checkbox">同意将当前原代码、编译报错和勾选的文档发送至 DeepSeek，产生 API 费用。</label>
               <div class="ai-form-actions"><button id="ai-send" class="primary" disabled>解释报错并给修改建议</button><button id="ai-stop" hidden>停止等待</button></div>

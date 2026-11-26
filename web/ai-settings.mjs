@@ -38,7 +38,7 @@ export function initAISettings({context,download},doc=document) {
     $('ai-source-name').textContent=c.record ? `${c.record.source.name}${valid?'':' · 请恢复原诊断或重新载入记录'}` : '请先选择诊断样例';
     $('ai-use-docs').disabled=!c.evidence || !valid || !!controller;
     if(!c.evidence)$('ai-use-docs').checked=false;
-    $('ai-document-count').textContent=c.evidence ? `可附带 ${c.evidence.results.length} 条已检索原文` : '尚未检索文档，可先去“文档依据”检索';
+    $('ai-document-count').textContent=c.evidence ? `可附带 ${c.evidence.results.length} 条原文 · 检索时间：${when(c.evidence.createdAt)}` : '尚未选择文档，可先去“文档依据”检索或恢复历史记录';
     $('ai-send').disabled=!!controller || !valid || !status?.configured || status.busy || status.used>=status.limit || !$('ai-consent').checked;
     $('ai-stop').hidden=!controller;
     $('ai-consent').disabled=!!controller;

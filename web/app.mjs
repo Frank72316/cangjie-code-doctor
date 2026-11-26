@@ -24,6 +24,7 @@ let historyRequest = 0;
 let documentRequest = 0;
 let documentController = null;
 let retrievingDocuments = false;
+let documentRecovery = false;
 let documentEvidence = null;
 let documentEvidenceJSON = '';
 // Retained only as an explicitly selectable reference for the original diagnosis.
@@ -190,13 +191,15 @@ function documentStatus(message, state = 'idle') {
 }
 function resetDocumentEvidence(clearQuery = false) {
   ++documentRequest; documentController?.abort(); documentController = null;
-  retrievingDocuments = false; documentEvidence = null; documentEvidenceJSON = '';
+  retrievingDocuments = false; documentRecovery = false; documentEvidence = null; documentEvidenceJSON = '';
+  $('document-history-list').replaceChildren(); $('document-history-status').textContent=''; $('document-restored').hidden=true;
   $('document-results').replaceChildren(); $('document-metadata-list').replaceChildren();
   $('document-evidence-footer').hidden = true; $('document-export-note').hidden = true;
   $('document-metadata').open = false;
   if (clearQuery) { $('document-query').value = ''; revisionReference = null; $('attach-document-evidence').checked = false; }
   refreshQueryHint();
   documentStatus('当前记录尚未检索。');
+  aiUI?.refresh();
 }
 function refreshDocumentControls() {
   const sameSource = current();
@@ -205,14 +208,16 @@ function refreshDocumentControls() {
   $('compile-example').disabled = !health.available || !selectedCase || !sameSource || compiling || health.busy || retrievingDocuments || loadingSample;
   $('refresh-health').disabled = compiling || health.busy || retrievingDocuments;
   $('retrieve-documents').disabled = !ready || retrievingDocuments;
-  $('retrieve-documents').textContent = retrievingDocuments ? '正在检索…' : '检索文档';
+  $('load-document-history').disabled = !health.token || !record || !sameSource || retrievingDocuments || loadingSample || compiling;
+  for(const button of $('document-history-list').querySelectorAll('button'))button.disabled=$('load-document-history').disabled;
+  $('retrieve-documents').textContent = retrievingDocuments && !documentRecovery ? '正在检索…' : '检索文档';
   $('document-query').disabled = !record || !sameSource || retrievingDocuments;
   $('export-document-evidence').disabled = !documentEvidence || !sameSource || retrievingDocuments;
   $('document-results').setAttribute('aria-busy', String(retrievingDocuments));
   if (!record) documentStatus('载入诊断记录后可检索。');
   else if (!sameSource) documentStatus('副本已修改，当前文档结果已清除。先前检索可在“查看修改并保存”中作为原诊断参考附带保存，不作为新代码的诊断。', 'changed');
   else if (!retrievingDocuments && !documentEvidence && $('document-status').dataset.state !== 'error') {
-    if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪。请到编译诊断页展开环境详情，点击“检查环境”重试。');
+    if (!health.available || !health.token) documentStatus('仓颉核心暂未就绪，不能重新检索。可展开上方入口找回以前检索过的文档，或到编译诊断页检查环境。');
     else if (compiling || health.busy) documentStatus('本机任务进行中，完成后可检索文档。');
     else documentStatus('留空即可按当前诊断检索；也可输入关键词。检索范围为本机文档快照。');
   }
@@ -332,7 +337,6 @@ function refreshBeginnerGuide() {
   $('beginner-detail').textContent = detail;
 }
 function refreshSource() {
-  aiUI?.refresh();
   const text = $('source').value;
   const lines = text.split('\n').length;
   $('line-numbers').textContent = Array.from({length: lines}, (_, i) => i + 1).join('\n');
@@ -361,6 +365,7 @@ function refreshSource() {
     !health.available ? '编译环境暂不可用，请展开下方环境详情。已有记录仍可浏览。' :
     '当前展示已采集记录；点击编译，获取本次结果。';
   refreshDocumentControls();
+  aiUI?.refresh();
   refreshRevisionControls();
   verificationUI?.refreshControls();
 }
@@ -557,6 +562,39 @@ $('export-document-evidence').addEventListener('click', () => {
   if (!documentEvidence || !current() || retrievingDocuments) return;
   download(`${record.source.name}.document-evidence.json`, documentEvidenceJSON, 'application/json');
 });
+async function recoverDocuments(retrievalId){
+  if(!health.token || !record || !current() || retrievingDocuments || loadingSample || compiling)return;
+  const originalRecord=record,ticket=++documentRequest,controller=new AbortController();
+  documentController=controller;retrievingDocuments=true;documentRecovery=true;refreshDocumentControls();
+  $('document-history-status').textContent=retrievalId?'正在核对原诊断与文档快照…':'正在查找与当前原诊断一致的记录…';
+  try{
+    const response=await fetch('/api/retrieval-history',{method:'POST',headers:{'Content-Type':'application/json','X-Doctor-Token':health.token},
+      body:JSON.stringify({record:originalRecord,...(retrievalId?{retrievalId}:{})}),signal:controller.signal});
+    const data=await response.json();if(!response.ok)throw Error(data.error||'历史文档读取失败。');
+    if(ticket!==documentRequest || record!==originalRecord || !current())return;
+    if(retrievalId){
+      await validateDocumentEvidence(data,originalRecord);
+      if(ticket!==documentRequest || record!==originalRecord || !current())return;
+      documentEvidence=data;documentEvidenceJSON=JSON.stringify(data,null,2);
+      revisionReference={baseRecord:originalRecord,evidence:structuredClone(data)};$('attach-document-evidence').checked=true;
+      $('document-query').value=data.queryOrigin==='manual'?data.query:'';refreshQueryHint();renderDocumentEvidence(data);
+      $('document-restored').textContent=`已恢复历史检索 · ${displayTime(data.createdAt)}（北京时间）。这不是本次新检索；仅供当前原诊断参考。可前往 AI 助手，勾选附带这些文档。`;
+      $('document-restored').hidden=false;$('document-history-status').textContent='已恢复，未运行仓颉核心，也未调用 AI。';aiUI?.refresh();
+      if(!$('document-evidence').hidden)$('document-restored').scrollIntoView({block:'start'});
+    }else{
+      const list=$('document-history-list');list.replaceChildren();
+      $('document-history-status').textContent=(data.items.length?`找到 ${data.items.length} 条可用记录。`:'未找到与当前原诊断一致的完整历史记录。核心恢复后可重新检索。')+
+        (data.unavailable?` 另有 ${data.unavailable} 个归档未完成、损坏或无法核对，未作为依据展示。`:'');
+      for(const item of data.items){
+        const row=element('div','','ai-history-row'),info=element('div',''),button=element('button','恢复这次文档');button.type='button';
+        info.append(element('strong',`${displayTime(item.createdAt)} · ${item.count} 条文档`),element('p',item.queryOrigin==='manual'?`自定义关键词：${item.query}`:'按这份原诊断检索'));
+        button.addEventListener('click',()=>recoverDocuments(item.retrievalId));row.append(info,button);list.append(row);
+      }
+    }
+  }catch(e){if(ticket===documentRequest)$('document-history-status').textContent=e.name==='AbortError'?'读取已取消。':e.message;}
+  finally{if(ticket===documentRequest){retrievingDocuments=false;documentRecovery=false;documentController=null;refreshDocumentControls();}}
+}
+$('load-document-history').addEventListener('click',()=>recoverDocuments());
 async function refreshHealth(recheck = false) {
   $('refresh-health').disabled = true;
   try {

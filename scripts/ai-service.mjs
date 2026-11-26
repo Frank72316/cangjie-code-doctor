@@ -2,7 +2,7 @@ import {readFile, mkdir, writeFile, rename} from 'node:fs/promises';
 import {join} from 'node:path';
 import {randomBytes, createHash} from 'node:crypto';
 import {readRecord, compileView} from '../web/report.mjs';
-import {validateDocumentEvidence} from '../web/document-evidence.mjs';
+import {readCompletedRetrieval} from './retrieval-evidence-store.mjs';
 import {AIHistory} from './ai-history.mjs';
 const fail=(message,status=400)=>Object.assign(new Error(message),{status});
 const hash=value=>createHash('sha256').update(value).digest('hex');
@@ -47,9 +47,8 @@ export class AIService {
       let evidence=null;
       if(input.retrievalId!=null) {
         if(!/^[a-f0-9]{32}$/.test(input.retrievalId))throw fail('文档检索编号无效。');
-        try { evidence=JSON.parse(await readFile(join(this.root,'runs/retrieval',input.retrievalId,'evidence.json'),'utf8'));
-          await validateDocumentEvidence(evidence,record);
-        } catch {throw fail('文档依据不存在或不属于当前原诊断，请重新检索。');}
+        try { evidence=await readCompletedRetrieval(this.root,input.retrievalId,record);
+        } catch {throw fail('文档依据不完整、与当前原诊断不符或未通过官方快照核对，请重新选择。');}
       }
       const content={language:'Cangjie',sdkVersion:'1.0.5',source:record.source,
         diagnostics:view.diagnostics,documents:evidence?.results.map(({id,title,url,text})=>({id,title,url,text}))??[]};

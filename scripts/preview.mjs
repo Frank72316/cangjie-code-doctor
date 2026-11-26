@@ -10,6 +10,7 @@ import { MAX_REVISION_BYTES } from '../web/revision.mjs';
 import { VerificationService } from './verification-service.mjs';
 import { LocalCheckService } from './local-check-service.mjs';
 import { AIService, loadAIConfig } from './ai-service.mjs';
+import { recoverRetrieval } from './retrieval-evidence-store.mjs';
 import { StorageService } from './storage-service.mjs';
 import { applyVoxelTheme, voxelRoutes } from './voxel-theme.mjs';
 import { applyCompanion, companionRoutes } from './companion-theme.mjs';
@@ -200,7 +201,7 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
           }
           send(404,{error:'Unknown revision API'}); return;
         }
-        if (req.method === 'POST' && req.url === '/api/retrieve') {
+        if (req.method === 'POST' && ['/api/retrieve','/api/retrieval-history'].includes(req.url)) {
           if (req.headers['content-type'] !== 'application/json') { send(415,{error:'Expected JSON'}); return; }
           const chunks = []; let bytes = 0;
           for await (const chunk of req) {
@@ -211,6 +212,10 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
           let input;
           try { input = JSON.parse(Buffer.concat(chunks).toString('utf8')); }
           catch { send(400,{error:'Invalid JSON'}); return; }
+          if(req.url==='/api/retrieval-history'){
+            if(!bridge.root){send(503,{error:'未配置本机记录目录。'});return;}
+            send(200,await recoverRetrieval(bridge.root,input));return;
+          }
           const controller = new AbortController();
           const cancel = () => { if (!res.writableEnded) controller.abort(); };
           res.on('close',cancel);

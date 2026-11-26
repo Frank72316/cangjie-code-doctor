@@ -6,6 +6,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { RevisionStore } from '../scripts/revision-store.mjs';
 import { retrieveEvidence } from '../scripts/retrieval.mjs';
+import { recoverRetrieval } from '../scripts/retrieval-evidence-store.mjs';
+import { makeServer } from '../scripts/preview.mjs';
 import { validateRevision, validateRevisionInput } from '../web/revision.mjs';
 import { sha256 } from '../web/report.mjs';
 import { validateDocumentEvidence, officialDocumentURL, documentEvidenceHTML, MAX_DOCUMENT_EVIDENCE_BYTES } from '../web/document-evidence.mjs';
@@ -38,6 +40,47 @@ async function fixture(t,{noHits=false}={}) {
 async function mutateJSON(file,mutate) {
   const value=JSON.parse(await readFile(file,'utf8')); mutate(value); await writeFile(file,JSON.stringify(value));
 }
+
+test('recovery lists only complete matching original diagnoses, preserving native timestamps and queries',async t=>{
+  const {root,evidence}=await fixture(t);
+  const list=await recoverRetrieval(root,{record:original});assert.equal(list.items.length,1);assert.equal(list.items[0].createdAt,evidence.createdAt);
+  assert.equal(list.items[0].query,'类型');assert.equal(list.items[0].count,2);
+  assert.deepEqual(await recoverRetrieval(root,{record:original,retrievalId:evidence.retrievalId}),evidence);
+  const different=structuredClone(original);different.capturedAt='2026-01-01T00:00:00.000Z';
+  assert.equal((await recoverRetrieval(root,{record:different})).items.length,0);
+  await assert.rejects(recoverRetrieval(root,{record:different,retrievalId:evidence.retrievalId}));
+  for(const bad of [{record:original,path:'../'},{record:original,retrievalId:'../'},{record:{}}])await assert.rejects(recoverRetrieval(root,bad),e=>e.status===400);
+});
+test('recovery excludes broken or contradictory records and preserves zero-hit history',async t=>{
+  const empty=await fixture(t,{noHits:true});assert.equal((await recoverRetrieval(empty.root,{record:original})).items[0].count,0);
+  for(const mode of ['failure','missing','forged']){
+    const {root,directory}=await fixture(t);
+    if(mode==='failure')await writeFile(join(directory,'failure.json'),'{}');
+    if(mode==='missing')await unlink(join(directory,'query.json'));
+    if(mode==='forged')await mutateJSON(join(directory,'evidence.json'),e=>{e.results[0].text+=' forged';});
+    const list=await recoverRetrieval(root,{record:original});assert.equal(list.items.length,0);assert.equal(list.unavailable,1);
+  }
+});
+test('recovery rejects linked directories and changed pinned corpus, and bounds directory scanning',async t=>{
+  const {root,directory}=await fixture(t);const base=join(root,'runs/retrieval');
+  await symlink(directory,join(base,'f'.repeat(32)),process.platform==='win32'?'junction':'dir');
+  let list=await recoverRetrieval(root,{record:original});assert.equal(list.items.length,1);assert.equal(list.unavailable,1);
+  await writeFile(join(root,'data/docs/cangjie-1.0.5.json'),'{}');list=await recoverRetrieval(root,{record:original});assert.equal(list.items.length,0);
+  for(let i=0;i<499;i++)await mkdir(join(base,i.toString(16).padStart(32,'0')));
+  await assert.rejects(recoverRetrieval(root,{record:original}),/500/);
+});
+test('recovery HTTP remains available with a failed core and requires token and origin',async t=>{
+  const {root,evidence}=await fixture(t);let calls=0;
+  const server=makeServer({bridge:{root,token:'recovery-test',health:{available:false},retrieve:()=>{calls++;throw Error('must not run');}}});
+  await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
+  const url=`http://127.0.0.1:${server.address().port}/api/retrieval-history`,headers={'Content-Type':'application/json','X-Doctor-Token':'recovery-test'};
+  const send=(input,h=headers)=>fetch(url,{method:'POST',headers:h,body:JSON.stringify(input)});
+  assert.equal((await send({record:original},{'Content-Type':'application/json'})).status,403);
+  assert.equal((await send({record:original},{...headers,Origin:'https://evil.example'})).status,403);
+  assert.equal((await send({record:original},{...headers,'Content-Type':'text/plain'})).status,415);
+  assert.equal((await (await send({record:original})).json()).items.length,1);
+  assert.deepEqual(await (await send({record:original,retrievalId:evidence.retrievalId})).json(),evidence);assert.equal(calls,0);
+});
 
 test('an explicitly selected local retrieval is archived with the confirmed revision and survives source removal',async t => {
   const {root,evidence,store,directory}=await fixture(t);

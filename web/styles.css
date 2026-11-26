@@ -775,6 +775,9 @@ body[data-page="verify"] #verification-page{display:block}
 .ai-capabilities p { margin:16px 0; line-height:1.8; }
 #ai-answer { max-height:none; max-width:none; border:0; padding-top:0; }
 .ai-history-panel { margin-top:24px; padding:24px; }
+.document-history { margin-top:20px; padding:20px; }
+.document-history summary { font-weight:700; cursor:pointer; }
+.document-history p { margin:12px 0; }
 .ai-history-heading { display:flex; gap:18px; justify-content:space-between; align-items:center; }
 .ai-history-heading p { margin-top:8px; color:var(--muted); }
 .ai-history-list { display:grid; gap:10px; margin-top:16px; max-height:360px; overflow:auto; }

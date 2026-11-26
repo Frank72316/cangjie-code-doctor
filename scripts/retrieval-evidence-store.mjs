@@ -1,8 +1,8 @@
 // Attach only a completed local retrieval whose original record and pinned corpus agree.
-import { lstat, open, realpath } from 'node:fs/promises';
+import { lstat, open, realpath, opendir } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { join } from 'node:path';
-import { sha256, MAX_REPORT_BYTES } from '../web/report.mjs';
+import { sha256, readRecord, MAX_REPORT_BYTES } from '../web/report.mjs';
 import { validateDocumentEvidence, MAX_DOCUMENT_EVIDENCE_BYTES } from '../web/document-evidence.mjs';
 import { corpusSnapshot, validatedResult } from './retrieval.mjs';
 
@@ -71,4 +71,34 @@ export async function readCompletedRetrieval(root, retrievalId, baseRecord) {
     if (error.code === 'ENOENT') throw fail('未找到完整的本机文档检索依据，请重新检索后保存。');
     throw fail(error.message);
   }
+}
+
+// Recovery reads stored native results; it never reruns ranking or calls the SDK.
+export async function recoverRetrieval(root,input) {
+  if (!input || typeof input!=='object' || Array.isArray(input) || !Object.hasOwn(input,'record') ||
+      Object.keys(input).some(k=>!['record','retrievalId'].includes(k))) throw fail('请提供原诊断记录，不接受路径或自定义查询。');
+  let record;
+  try{record=await readRecord(JSON.stringify(input.record));}catch{throw fail('原诊断记录无效，请重新载入。');}
+  if(Object.hasOwn(input,'retrievalId'))return readCompletedRetrieval(root,input.retrievalId,record);
+  let directory;
+  try {directory=await childDirectory(await childDirectory(await realpath(root),'runs'),'retrieval');}
+  catch(e){if(e.code==='ENOENT')return {items:[],unavailable:0};throw fail('本机文档历史目录不可读取。');}
+  const ids=[];
+  for await(const entry of await opendir(directory)){
+    if(ids.length>=500)throw fail('文档归档超过扫描上限 500 条，未展示可能遗漏的历史列表。');
+    ids.push(entry.name);
+  }
+  const digest=await sha256(JSON.stringify(record)),items=[];let unavailable=0;
+  for(const id of ids){
+    if(!/^[a-f0-9]{32}$/.test(id)){unavailable++;continue;}
+    try{
+      const folder=await childDirectory(directory,id);
+      const evidence=JSON.parse(await boundedText(join(folder,'evidence.json'),MAX_DOCUMENT_EVIDENCE_BYTES));
+      if(evidence.recordSha256!==digest)continue;
+      const verified=await readCompletedRetrieval(root,id,record);
+      items.push({retrievalId:id,createdAt:verified.createdAt,query:verified.query,queryOrigin:verified.queryOrigin,count:verified.results.length});
+    }catch{unavailable++;}
+  }
+  items.sort((a,b)=>b.createdAt.localeCompare(a.createdAt)||a.retrievalId.localeCompare(b.retrievalId));
+  return {items,unavailable};
 }
