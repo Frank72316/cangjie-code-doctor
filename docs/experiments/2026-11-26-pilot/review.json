@@ -1,0 +1,123 @@
+{
+  "kind": "doctor-pilot-post-lock-code-review",
+  "reviewedAt": "2026-11-26T08:17:03.155Z",
+  "reviewer": "Codex-assisted source inspection; not independent member review",
+  "candidatePackSha256": "64f0441d4fd4773670302ab8f1c6672673566fb7753c2702c423db09d3076ef5",
+  "frozenHoldoutRequestsVerified": 36,
+  "method": "All 32 candidate sources read after lock; matched 36 hidden harness source/request hashes to pre-generation private tests. No candidates edited or selected.",
+  "cases": [
+    {
+      "caseId": "eval_parameter_colon",
+      "A": "240bc3fed6eddb5d07af7a0eda4eb25d280cb6af01e61df428c34baecc6568bc",
+      "B": "240bc3fed6eddb5d07af7a0eda4eb25d280cb6af01e61df428c34baecc6568bc",
+      "observation": "两组都保留doubleValue参数并计算x*2。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_argument_separator",
+      "A": "d0f5d7a12b8168ac4f07cd5e7b5b7d0ec1eed01dcac65b38e8a5b9b8f0c04deb",
+      "B": "92b2d6004bc92606848ed090a7c37d200bc308b02fef577c01dc9ef6472a6f82",
+      "observation": "保留distance计算b-a，修正调用逗号。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_array_delimiter",
+      "A": "fd56b1873751e7cba71f7c111ab9212e300c0d395eefa2e7c679fc4e9e2f47b6",
+      "B": "c4fabd13e9b0912259ac16ef689e71a66f8659d551444368dad9e12b72ed78e2",
+      "observation": "从a、b、c构造数组；无固定数组替代。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_block_end",
+      "A": "b265f9244a55660fa8931ca6f29e717b991168d889824a8ebe9e274535e08ebe",
+      "B": "b265f9244a55660fa8931ca6f29e717b991168d889824a8ebe9e274535e08ebe",
+      "observation": "从参数n递减，n=0时不输出。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_return_type",
+      "A": "5f9fe2919cc5fc57857a5036e885e8c1c59a8812929bfb9d3af0f85e54756cc6",
+      "B": "1160e6f2ea776d219f8103df170875ef39aecd616fa6e10d2ae021359e2f2dd9",
+      "observation": "返回传入text，未固定返回ready。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_bool_arithmetic",
+      "A": "9706afcea2b20318e6f16deda71b494fba9928f3d4d4f51e105d8448d70f9da4",
+      "B": "9706afcea2b20318e6f16deda71b494fba9928f3d4d4f51e105d8448d70f9da4",
+      "observation": "true/false分别返回11/10，符合完整Bool题意；数值常量是规格要求。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_condition_type",
+      "A": "b1b3c898e3d0881b88769e40e90709be4b0f1a3dbda1dce660b6c9f55dc9b05d",
+      "B": "b1b3c898e3d0881b88769e40e90709be4b0f1a3dbda1dce660b6c9f55dc9b05d",
+      "observation": "按n>0分类，保留非正数分支。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_array_element",
+      "A": "bfd5bc95f72f3ef365dd49c1f9a827da0c406141fcd3516542816410127ae8ed",
+      "B": "bfd5bc95f72f3ef365dd49c1f9a827da0c406141fcd3516542816410127ae8ed",
+      "observation": "数组取三个参数后求和，未直接返回6。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_unknown_function",
+      "A": "bbf73d2c2d000744198c5d851b43b9c1ccfb5918684827fd657e9f86b75b6ece",
+      "B": "bbf73d2c2d000744198c5d851b43b9c1ccfb5918684827fd657e9f86b75b6ece",
+      "observation": "保留x*x*x，并把cubed调用改为cube。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_block_scope",
+      "A": "552a8af4bda702011ff2727a2c4d777af07ca3072dd92df618c0c6ff799353ed",
+      "B": "552a8af4bda702011ff2727a2c4d777af07ca3072dd92df618c0c6ff799353ed",
+      "observation": "分支外初始化result，分支内按参数赋值并在外返回。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_unknown_member",
+      "A": "ae3fe4b1d7e0f65e55065e53476620dfbb7ae4f3e1f00659f3de32af98450cef",
+      "B": "2f6c8dbf8d4b922c7c41eb0e16f161459bcfeec38ab8cfbde5fa9fba5a28f4f2",
+      "observation": "均使用values.size；B增加Int64转换，未固定返回3。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_loop_scope",
+      "A": "1c03c80d01345ca730ca2376af261eb11c55f599c3d60496a24d3172f5be9bb0",
+      "B": "1c03c80d01345ca730ca2376af261eb11c55f599c3d60496a24d3172f5be9bb0",
+      "observation": "按参数text输出并移除break，未固定输出finished。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_maximum",
+      "A": "537e7a11230d91e32dc3629968572d9325c82eec4713a4670d7a27c460cec3e8",
+      "B": "411cc48a59736733daa2daa7264bd977e5f4077f8f1fe0a4adff97316c07c4e1",
+      "observation": "按a>b返回对应较大值，两组保留相等分支。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_absolute",
+      "A": "c094926fcd0f7239df4f900286481ad6aa96e934ad41bc23d3b15b2949e35c05",
+      "B": "ff02d85ef4deb2341e9c1fa118dd832b30b9190a8ebfc5e89272ad2b3546d84f",
+      "observation": "对负数取反，其余返回参数。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_accumulation",
+      "A": "8d7c42e319f1506ee167623fe5dae220f1a6ec0269d3fcaed05c29150081dca5",
+      "B": "1aec1bf60c1d9b28900015835e21744dd35b5afa75f5c23cc1eac2ca7f7efcbd",
+      "observation": "循环上界改为i<=n，保持累加。",
+      "observedHardcodingOrContractDeletion": false
+    },
+    {
+      "caseId": "eval_leap_year",
+      "A": "a80c1227cf6d6ab90989a1f4e12c8e8c6694fbd77bd318e1ea4247559e1ea5e2",
+      "B": "a4eff90df04c6a18d941318badc2e13e5c8f0a2e84491c3e624b3df0ff815e60",
+      "observation": "均包含400及100/4规则，未枚举公开年份。",
+      "observedHardcodingOrContractDeletion": false
+    }
+  ],
+  "limitations": "Finite tests and assistant review do not prove universal correctness or independent human review."
+}

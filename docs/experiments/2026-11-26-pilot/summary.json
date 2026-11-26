@@ -1,0 +1,1001 @@
+{
+  "kind": "doctor-pilot-results",
+  "scope": "single-round-frozen-holdout-pilot",
+  "freezeSha256": "891012b96d8dee4f254cf954538faeecc8d1c54e981f9de6dab26bb6f853dd5c",
+  "holdoutSha256": "a5dead67c880809c33743790c64d289ff025649e951787f33a89691d60a0a46d",
+  "candidatePackSha256": "64f0441d4fd4773670302ab8f1c6672673566fb7753c2702c423db09d3076ef5",
+  "startedAt": "2026-11-26T08:10:54.076Z",
+  "generatedAt": "2026-11-26T08:11:22.353Z",
+  "finishedAt": "2026-11-26T08:15:12.862Z",
+  "toolCommit": "cc5ae0421f653cb7fb7002d68ab5b7f18d3b5c88",
+  "image": "sha256:37f439fa748133107e3c4017185b066f4ae47a3ab4fc8235175dcbdf7c5cbda7",
+  "byArm": {
+    "A": {
+      "calls": 16,
+      "inputTokens": 6371,
+      "outputTokens": 1059,
+      "missingUsage": 0,
+      "estimatedPeakCNY": 0.021214000000000004,
+      "generated": 16,
+      "compiled": 16,
+      "publicPassed": 16,
+      "allPassed": 16
+    },
+    "B": {
+      "calls": 16,
+      "inputTokens": 34168,
+      "outputTokens": 1073,
+      "missingUsage": 0,
+      "estimatedPeakCNY": 0.07692,
+      "generated": 16,
+      "compiled": 16,
+      "publicPassed": 16,
+      "allPassed": 16
+    }
+  },
+  "summary": {
+    "denominator": 16,
+    "A": 16,
+    "B": 16,
+    "differencePoints": 0,
+    "paired": {
+      "both": 16,
+      "onlyA": 0,
+      "onlyB": 0,
+      "neither": 0
+    },
+    "regression": {
+      "passed": 4,
+      "total": 4
+    },
+    "scope": "single-round-frozen-holdout-pilot"
+  },
+  "categories": [
+    {
+      "category": "syntax",
+      "denominator": 4,
+      "A": 4,
+      "B": 4,
+      "differencePoints": 0,
+      "paired": {
+        "both": 4,
+        "onlyA": 0,
+        "onlyB": 0,
+        "neither": 0
+      },
+      "regression": {
+        "passed": 0,
+        "total": 0
+      },
+      "scope": "single-round-frozen-holdout-pilot"
+    },
+    {
+      "category": "type",
+      "denominator": 4,
+      "A": 4,
+      "B": 4,
+      "differencePoints": 0,
+      "paired": {
+        "both": 4,
+        "onlyA": 0,
+        "onlyB": 0,
+        "neither": 0
+      },
+      "regression": {
+        "passed": 0,
+        "total": 0
+      },
+      "scope": "single-round-frozen-holdout-pilot"
+    },
+    {
+      "category": "scope-or-api",
+      "denominator": 4,
+      "A": 4,
+      "B": 4,
+      "differencePoints": 0,
+      "paired": {
+        "both": 4,
+        "onlyA": 0,
+        "onlyB": 0,
+        "neither": 0
+      },
+      "regression": {
+        "passed": 0,
+        "total": 0
+      },
+      "scope": "single-round-frozen-holdout-pilot"
+    },
+    {
+      "category": "logic",
+      "denominator": 4,
+      "A": 4,
+      "B": 4,
+      "differencePoints": 0,
+      "paired": {
+        "both": 4,
+        "onlyA": 0,
+        "onlyB": 0,
+        "neither": 0
+      },
+      "regression": {
+        "passed": 0,
+        "total": 0
+      },
+      "scope": "single-round-frozen-holdout-pilot"
+    }
+  ],
+  "rows": [
+    {
+      "caseId": "eval_parameter_colon",
+      "category": "syntax",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "-4\n0\n14\n"
+          }
+        ],
+        "reportId": "a732ccfe9402f1e7fa38ff1b8b060ef4",
+        "holdoutReportId": "7fa33212fa94ca35ffc5fa6e72a9419a",
+        "codeSha256": "240bc3fed6eddb5d07af7a0eda4eb25d280cb6af01e61df428c34baecc6568bc"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "-4\n0\n14\n"
+          }
+        ],
+        "reportId": "12e522aba866255d68c83ac012b5092c",
+        "holdoutReportId": "50c909de6df5851e3e6c9cf1947c736c",
+        "codeSha256": "240bc3fed6eddb5d07af7a0eda4eb25d280cb6af01e61df428c34baecc6568bc"
+      }
+    },
+    {
+      "caseId": "eval_argument_separator",
+      "category": "syntax",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "7\n5\n"
+          }
+        ],
+        "reportId": "01bb5a4d3fed569f72eeba65ac12166a",
+        "holdoutReportId": "bad018b122bbd958d79e050aedcdabc6",
+        "codeSha256": "92b2d6004bc92606848ed090a7c37d200bc308b02fef577c01dc9ef6472a6f82"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "7\n5\n"
+          }
+        ],
+        "reportId": "314edcd07dbfbca390f9093a14943f4a",
+        "holdoutReportId": "d7d77e3051caf7aa3d87b9b594da381c",
+        "codeSha256": "d0f5d7a12b8168ac4f07cd5e7b5b7d0ec1eed01dcac65b38e8a5b9b8f0c04deb"
+      }
+    },
+    {
+      "caseId": "eval_array_delimiter",
+      "category": "syntax",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "2\n6\n"
+          }
+        ],
+        "reportId": "78847769c36eab8bbb9adb7751a09b67",
+        "holdoutReportId": "37ecfe637eb6c4de75ad317592763110",
+        "codeSha256": "fd56b1873751e7cba71f7c111ab9212e300c0d395eefa2e7c679fc4e9e2f47b6"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "2\n6\n"
+          }
+        ],
+        "reportId": "0fecebcf33d5dbf7475a24d5c81dbe0f",
+        "holdoutReportId": "98a524e92a2c9949bbcfe5ac0c04d0fc",
+        "codeSha256": "c4fabd13e9b0912259ac16ef689e71a66f8659d551444368dad9e12b72ed78e2"
+      }
+    },
+    {
+      "caseId": "eval_block_end",
+      "category": "syntax",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "3\n2\n1\n"
+          }
+        ],
+        "reportId": "3954a4e28b9ac696e524a58405615893",
+        "holdoutReportId": "f503669675dc9e62f10318b7d0995491",
+        "codeSha256": "b265f9244a55660fa8931ca6f29e717b991168d889824a8ebe9e274535e08ebe"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "3\n2\n1\n"
+          }
+        ],
+        "reportId": "7fc6df894bab8394b8c70ccbebda99b6",
+        "holdoutReportId": "ac570c8eab2447a1826ef65edf3796fe",
+        "codeSha256": "b265f9244a55660fa8931ca6f29e717b991168d889824a8ebe9e274535e08ebe"
+      }
+    },
+    {
+      "caseId": "eval_return_type",
+      "category": "type",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "ready\n"
+          }
+        ],
+        "reportId": "4067feac9a8dc6a98bd30b4a63bc21ae",
+        "holdoutReportId": "a962d69d51b8200879a5778eadf05853",
+        "codeSha256": "5f9fe2919cc5fc57857a5036e885e8c1c59a8812929bfb9d3af0f85e54756cc6"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "ready\n"
+          }
+        ],
+        "reportId": "5fb342c3898e5ab25a45bf5747befa93",
+        "holdoutReportId": "44afd2beab644686886195d967753eb8",
+        "codeSha256": "1160e6f2ea776d219f8103df170875ef39aecd616fa6e10d2ae021359e2f2dd9"
+      }
+    },
+    {
+      "caseId": "eval_bool_arithmetic",
+      "category": "type",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "11\n10\n"
+          }
+        ],
+        "reportId": "b889cc2c74b262b0115be81308f20413",
+        "holdoutReportId": "dd66314f7780d4a6150072b7aa24b59c",
+        "codeSha256": "9706afcea2b20318e6f16deda71b494fba9928f3d4d4f51e105d8448d70f9da4"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "11\n10\n"
+          }
+        ],
+        "reportId": "74b73737e7ae4b4954dbcd7a39bf9554",
+        "holdoutReportId": "9047c0e6a288921ecf49a46cbf3ec43d",
+        "codeSha256": "9706afcea2b20318e6f16deda71b494fba9928f3d4d4f51e105d8448d70f9da4"
+      }
+    },
+    {
+      "caseId": "eval_condition_type",
+      "category": "type",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "positive\nother\nother\n"
+          }
+        ],
+        "reportId": "7b76d3e0a28c6af4d9e9020823605358",
+        "holdoutReportId": "ea6e0f050ff8c241a52bbaecfeea90e3",
+        "codeSha256": "b1b3c898e3d0881b88769e40e90709be4b0f1a3dbda1dce660b6c9f55dc9b05d"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "positive\nother\nother\n"
+          }
+        ],
+        "reportId": "42594089277cdef9088e68db1a12c924",
+        "holdoutReportId": "d4c1ffd23ddd4f8b612e4d0fd009d107",
+        "codeSha256": "b1b3c898e3d0881b88769e40e90709be4b0f1a3dbda1dce660b6c9f55dc9b05d"
+      }
+    },
+    {
+      "caseId": "eval_array_element",
+      "category": "type",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "6\n"
+          }
+        ],
+        "reportId": "9b0714d52a45bed35b12458d115e0595",
+        "holdoutReportId": "043ea1afc8dcae8a647610abd65d270a",
+        "codeSha256": "bfd5bc95f72f3ef365dd49c1f9a827da0c406141fcd3516542816410127ae8ed"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "6\n"
+          }
+        ],
+        "reportId": "1fcb053af27fe8ae7eec985f9bd7aba2",
+        "holdoutReportId": "413dbbda4ea8f9b4ffc313190576f822",
+        "codeSha256": "bfd5bc95f72f3ef365dd49c1f9a827da0c406141fcd3516542816410127ae8ed"
+      }
+    },
+    {
+      "caseId": "eval_unknown_function",
+      "category": "scope-or-api",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "8\n-1\n"
+          }
+        ],
+        "reportId": "23be00e090cc7755cba7a65123fb5f58",
+        "holdoutReportId": "90c8aa572d64d1c571e2423b5aa1c724",
+        "codeSha256": "bbf73d2c2d000744198c5d851b43b9c1ccfb5918684827fd657e9f86b75b6ece"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "8\n-1\n"
+          }
+        ],
+        "reportId": "f4b275ddb4f3e364779f82a9ad6a384a",
+        "holdoutReportId": "1074749c37bc1d8a3af2f25ad1b96b6a",
+        "codeSha256": "bbf73d2c2d000744198c5d851b43b9c1ccfb5918684827fd657e9f86b75b6ece"
+      }
+    },
+    {
+      "caseId": "eval_block_scope",
+      "category": "scope-or-api",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "9\n"
+          }
+        ],
+        "reportId": "24875eed688301dc802dcac703e82830",
+        "holdoutReportId": "dd68173b02f540f0ff5c1f1c7b901ce6",
+        "codeSha256": "552a8af4bda702011ff2727a2c4d777af07ca3072dd92df618c0c6ff799353ed"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "9\n"
+          }
+        ],
+        "reportId": "be9da018be30e74a32233b39c32571aa",
+        "holdoutReportId": "c695f49a380c62a114c9163b457b028f",
+        "codeSha256": "552a8af4bda702011ff2727a2c4d777af07ca3072dd92df618c0c6ff799353ed"
+      }
+    },
+    {
+      "caseId": "eval_unknown_member",
+      "category": "scope-or-api",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "3\n"
+          }
+        ],
+        "reportId": "4558fc90fcb7825d071820c354bb3d14",
+        "holdoutReportId": "23962c29c996b0f52e01a1327c413596",
+        "codeSha256": "ae3fe4b1d7e0f65e55065e53476620dfbb7ae4f3e1f00659f3de32af98450cef"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "3\n"
+          }
+        ],
+        "reportId": "fc979bf9acd862f8da50ac189ea1958d",
+        "holdoutReportId": "06f9a17be1e70f8268a1a9418e7eebfe",
+        "codeSha256": "2f6c8dbf8d4b922c7c41eb0e16f161459bcfeec38ab8cfbde5fa9fba5a28f4f2"
+      }
+    },
+    {
+      "caseId": "eval_loop_scope",
+      "category": "scope-or-api",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "finished\n"
+          }
+        ],
+        "reportId": "b7a524b98df4ab5fa3f223ff34720e81",
+        "holdoutReportId": "88f55a5c8c6c18645d194d42a68667de",
+        "codeSha256": "1c03c80d01345ca730ca2376af261eb11c55f599c3d60496a24d3172f5be9bb0"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "finished\n"
+          }
+        ],
+        "reportId": "5e134307c35305541556f39e86bc5d54",
+        "holdoutReportId": "57b89fe4a90a025054a29bb6b73ac111",
+        "codeSha256": "1c03c80d01345ca730ca2376af261eb11c55f599c3d60496a24d3172f5be9bb0"
+      }
+    },
+    {
+      "caseId": "eval_maximum",
+      "category": "logic",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "5\n7\n-4\n"
+          }
+        ],
+        "reportId": "cbc47692c24e61de2c0e93f60940c9eb",
+        "holdoutReportId": "bfb52c517fa143bdcd5ca5b71d483e82",
+        "codeSha256": "537e7a11230d91e32dc3629968572d9325c82eec4713a4670d7a27c460cec3e8"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "5\n7\n-4\n"
+          }
+        ],
+        "reportId": "4adf267cfccab8720fa8138b71aaf98d",
+        "holdoutReportId": "fe7ab163ae95dbab6772069b662fc761",
+        "codeSha256": "411cc48a59736733daa2daa7264bd977e5f4077f8f1fe0a4adff97316c07c4e1"
+      }
+    },
+    {
+      "caseId": "eval_absolute",
+      "category": "logic",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "5\n0\n3\n"
+          }
+        ],
+        "reportId": "737efd3673b339846c89777f28635367",
+        "holdoutReportId": "f3582e6342f39ed2bfaaa4274f002279",
+        "codeSha256": "ff02d85ef4deb2341e9c1fa118dd832b30b9190a8ebfc5e89272ad2b3546d84f"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "5\n0\n3\n"
+          }
+        ],
+        "reportId": "ef69b6b192a4a651776785273ccc8275",
+        "holdoutReportId": "0670a1c47cc58916d15e5fa8243df107",
+        "codeSha256": "c094926fcd0f7239df4f900286481ad6aa96e934ad41bc23d3b15b2949e35c05"
+      }
+    },
+    {
+      "caseId": "eval_accumulation",
+      "category": "logic",
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "0\n1\n10\n"
+          }
+        ],
+        "reportId": "55a626d2c477ff3fda013471136fb3c7",
+        "holdoutReportId": "32f432e2f7af63e0ae1f988524c4eb2c",
+        "codeSha256": "8d7c42e319f1506ee167623fe5dae220f1a6ec0269d3fcaed05c29150081dca5"
+      },
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "0\n1\n10\n"
+          }
+        ],
+        "reportId": "f64859b548a736734b146491b2b9addf",
+        "holdoutReportId": "5a028791f62ce4599d7b8627f5a3486c",
+        "codeSha256": "1aec1bf60c1d9b28900015835e21744dd35b5afa75f5c23cc1eac2ca7f7efcbd"
+      }
+    },
+    {
+      "caseId": "eval_leap_year",
+      "category": "logic",
+      "B": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\nfalse\ntrue\nfalse\n"
+          }
+        ],
+        "reportId": "9e993cccf8365460f28802fed39b8750",
+        "holdoutReportId": "7f3f8dd2670f1e6d61cc7a9e78984828",
+        "codeSha256": "a4eff90df04c6a18d941318badc2e13e5c8f0a2e84491c3e624b3df0ff815e60"
+      },
+      "A": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\nfalse\ntrue\nfalse\n"
+          }
+        ],
+        "reportId": "cb1926d7ad55f703fb0219403d538a37",
+        "holdoutReportId": "96713b05d8c8383066590c156a1ab371",
+        "codeSha256": "a80c1227cf6d6ab90989a1f4e12c8e8c6694fbd77bd318e1ea4247559e1ea5e2"
+      }
+    },
+    {
+      "caseId": "eval_clamp",
+      "category": "correct",
+      "regression": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "0\n50\n100\n"
+          }
+        ],
+        "reportId": "296529e5ec3c48c59a3d3a54cd3a7430",
+        "holdoutReportId": "a3501f580edc471cadde13cdf0d53fa7"
+      }
+    },
+    {
+      "caseId": "eval_gcd",
+      "category": "correct",
+      "regression": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "6\n7\n"
+          }
+        ],
+        "reportId": "17c2447fa8f8e7da9e5d20d29355262e",
+        "holdoutReportId": "62dd70326fc46c866a1d7d9529a60b59"
+      }
+    },
+    {
+      "caseId": "eval_even",
+      "category": "correct",
+      "regression": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\nfalse\n"
+          }
+        ],
+        "reportId": "d130491e229654f9df5d2fc56772f247",
+        "holdoutReportId": "49d3e114a67043a85a3eeaa8985149eb"
+      }
+    },
+    {
+      "caseId": "eval_array_sum",
+      "category": "correct",
+      "regression": {
+        "status": "passed",
+        "publicStatus": "passed",
+        "holdoutStatus": "passed",
+        "compile": "compile_passed",
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "3\n0\n"
+          }
+        ],
+        "reportId": "a41f478cb2ce0b30bd284193564e2eb5",
+        "holdoutReportId": "5448e8ea3cc3e5244ced9eaecafa3c7c"
+      }
+    }
+  ],
+  "reportHashes": {
+    "eval_parameter_colon-A-public": "64963cb500fd321c855f40f634c4eb94d57eb0d376e83ddb7fc11c1580b08a32",
+    "eval_parameter_colon-A-holdout": "6b6b0dd0d71b2caece981527dc78ef0f109871c0e028f39ef6ac25700997b47f",
+    "eval_parameter_colon-B-public": "fbc51b0223e11132fa92a2356929da6b7be643750be9d48269f0f4f882352ba1",
+    "eval_parameter_colon-B-holdout": "b1739fa395e638ca99c9d3b1eef0ae01e5f14c9c0030483fd797697a7584f363",
+    "eval_argument_separator-A-public": "de408ccfd796d990101ed5df960befad375da943c7689726877e296577aeea05",
+    "eval_argument_separator-A-holdout": "fab4b32d45b0bb760236f67a4bc285025cab7c9ed7a290a1369510d28bfb2269",
+    "eval_argument_separator-B-public": "50d6c307864291cf36e0c48af208cb37931cd736743eb5a7a4d2e78ea66c91f9",
+    "eval_argument_separator-B-holdout": "ddacab2cf0eba2229ee2adfd3601f634f3ebf9abe07e3b5945eca565325a6e24",
+    "eval_array_delimiter-A-public": "05b2abdecafa37e982fad212e1850fc744d31cb433d1ac86dd9377eacdbb17ff",
+    "eval_array_delimiter-A-holdout": "b4a12604aef7aac4ecf9868f0fe0fa3c5b867f85da2d932facabe9d7f863300e",
+    "eval_array_delimiter-B-public": "b3defaed29d17abe96968168d8f14e06f3c383ad4e6bf8ec66ee533c402587cc",
+    "eval_array_delimiter-B-holdout": "ec3333ea8e9176bcab0569d3fd9759bc6c505f987f35d616f0660c755f7e5b6d",
+    "eval_block_end-A-public": "92efcc6f49d1b8b1cc14d85fcf3dccbcecabffd47ef26782c52afd9c6afbcb8e",
+    "eval_block_end-A-holdout": "a3df196ceb7a04c33683b1ebbae0650441afb49e31dd4d368114cd73460a292b",
+    "eval_block_end-B-public": "7663865bd28de74926b33bf114c1ccab45117902ef773ed74632e71c2d70f1db",
+    "eval_block_end-B-holdout": "8d53b3241f96663b8e7a62e2638c5d9376be5e751a9360faa9de1003a6d3c9e2",
+    "eval_return_type-A-public": "4387c66e53a30c845425536b0eb975ce4a48cf6b5246a3e2a52607fc1f4e3c9c",
+    "eval_return_type-A-holdout": "3892c3016f202e73323820ad88757b143b314a740118206d4c177db15d9c03f3",
+    "eval_return_type-B-public": "ef45fcbab6ec123daa5cdb1bebd6918252eeba3b3d54aec1e8c3c1c5ef075db9",
+    "eval_return_type-B-holdout": "2859d7d7e53aa9403400bc754e115281dd148a050a9925a8afc6c6e98a79324d",
+    "eval_bool_arithmetic-A-public": "e7aecfd3a8cbf417cae4e2b9a772aa2878f74937d7b6b8832bd1cef10fa8209b",
+    "eval_bool_arithmetic-A-holdout": "eb2b7a672ed8746be1ccdf3a8c782e5896dbd46a0f28a3826d713e924b7eefc4",
+    "eval_bool_arithmetic-B-public": "5af6535dc3f8ea3277f251e38638ee6949c9a5575a69b63e644bef7c30ac8c44",
+    "eval_bool_arithmetic-B-holdout": "5994bd59117b7a94e4b7372748a53eeaa7e4f31f8edd6e18ca8c6b32feb6c07f",
+    "eval_condition_type-A-public": "20bbec48c984800e4cd08a84d0315d8273e422c83cee7fc215982f887b45d010",
+    "eval_condition_type-A-holdout": "4c0277949ce6795c58c387a474ddb23bd036364c3e173b6f6b54b93b5595c670",
+    "eval_condition_type-B-public": "f77a1a020eb09e204cea971d544b7dc548606fcca83ecfc9e20c90a4233b853b",
+    "eval_condition_type-B-holdout": "ccd03d2ef538b27e3418ae16ed0ace2001de76b9ef925aaeab08ee83f43e3f9b",
+    "eval_array_element-A-public": "0c0028effbc0cf09b7a2233de7074580697e50df3d3a1e774046b30e31955853",
+    "eval_array_element-A-holdout": "db5328a1ce547cebb655c234866a175ae9da2ad80948e31bb501fd848b605c87",
+    "eval_array_element-B-public": "8c24d8ffbf2fe399b47fedfc232088cc3d416d247a3a5f22fa7802c85847ca97",
+    "eval_array_element-B-holdout": "5d70d1985206a2f6c505a07aca39f2d62dcb27168fc4c3858d90548e7a8e92d9",
+    "eval_unknown_function-A-public": "b011383748f7c55622f915ff71b1ce36ae8a8ea9cfa7b1092b7f770339cd0530",
+    "eval_unknown_function-A-holdout": "6ec4e201a919438cd865f520910ddf413ff2fa15a332602cf921502115f6fd15",
+    "eval_unknown_function-B-public": "a8613f750ccadabf8da0814e1df6867ef068a1493d2bcf21323d5f0d66091441",
+    "eval_unknown_function-B-holdout": "3caacbab383eedf066daab4f4ebb0e0b278d5f802c65cdbc5d16d52e4beb351f",
+    "eval_block_scope-A-public": "55f0b7c83664dc543b3b6916c80de4dd49629652e6a1ec1c12878dca5691ab91",
+    "eval_block_scope-A-holdout": "14d511f4917adc015b8a40488ba91ad2790d144a67901fb949d720f8626fe1ce",
+    "eval_block_scope-B-public": "8c3147dd54bdede3af3265b8cef1b62b1e3635817acb3432164774f9031b4844",
+    "eval_block_scope-B-holdout": "e315667c77185dd47f174f36d63c75d1796ec9207a3c909463d3f307b3908561",
+    "eval_unknown_member-A-public": "f54b28a528f8d4833300d443f6508966474b42d6ce565217ed6f4a616e994836",
+    "eval_unknown_member-A-holdout": "24f196b531f0d80983b1d556ce6b131b1e190caa440287a0fef8e4b879f71a88",
+    "eval_unknown_member-B-public": "e1ab6f21a4c4f9af66b56df6d07ad8ed4b087403a8c80ec3e4059d5aae68b1cb",
+    "eval_unknown_member-B-holdout": "7b809069e2347e00dd5c8d7fe579fefe0fff00e33872cbaf1fafe1992cee78a3",
+    "eval_loop_scope-A-public": "b1322f9d860de919c764b921fd6d0a69703930fc4cacfb16715dc8016ba463e3",
+    "eval_loop_scope-A-holdout": "6f81aa7aaab49fe0dea32258c3adb3e09b75f5975426f304446e8f7332979fbc",
+    "eval_loop_scope-B-public": "3f327e67a19c7decf550a6ec8be247fbc293bbf0a01f53ffb56dc337c3009534",
+    "eval_loop_scope-B-holdout": "ce5250f2e4ba1189e15dde447681b4344aee8016d1055d351b3b96a3a73f6f42",
+    "eval_maximum-A-public": "e10e530ac5176d68f47b57106c83d486d55262e3a582ac5ae59eac5159074150",
+    "eval_maximum-A-holdout": "7c479d862e2b354b53334fe5d5e48c2cc52c17f552a2051f3a55f2896d5327e1",
+    "eval_maximum-B-public": "4b15ed3dd6edc9f20d85123d64c1bbd729150610d118ab534b2c0270dab19f09",
+    "eval_maximum-B-holdout": "d0deb2944e0583d8c73ea01aafe3cd201bdb7f0d28e3dc6290575e6cf9bad6db",
+    "eval_absolute-A-public": "dff57c9f094e787d1e4d225019b7ecaaad94c1a346b08e1020e5ca655a6dacc0",
+    "eval_absolute-A-holdout": "2787b95f0e11e54b06e6283c0affb9a8d0294a24ef3245025ef75bb9f6921962",
+    "eval_absolute-B-public": "8533e15dee0fdafdfbb6c2a21fa596c176c5f1f7453f00f243d3da36834ef1b6",
+    "eval_absolute-B-holdout": "bbce6540d7215df4fbcedcc83b9446c196cb56ef64e564deea5b2609ce10460b",
+    "eval_accumulation-A-public": "5d33c0b8f683ef2d0295e7958f09488711d6a814e07081877e1cde0ba44c902b",
+    "eval_accumulation-A-holdout": "e518916a9d1b3afc6dd6f06cac6c470f463092934956a153115054575bfa9ac7",
+    "eval_accumulation-B-public": "c8b79548f7d8c288394c5ab357dc77072c2ea2d87e5b0feae1b8b80fa34fda20",
+    "eval_accumulation-B-holdout": "26ae125982bf222cbcb70b775882e2f1221f300086e1609a0f8fc5c13c300827",
+    "eval_leap_year-A-public": "3c91c0417235f5c712963f6e2c61d27677fb2924bb3b32529853fb41a285eab1",
+    "eval_leap_year-A-holdout": "cc94e741f2edef84b5e3aa55e39a1f02b32c7861e3cc775ef0be96e45700cda8",
+    "eval_leap_year-B-public": "52022a7f769d66166bc875c6b3c64304ed604ea0c57dd9b74c4393a7ecaa0b2b",
+    "eval_leap_year-B-holdout": "1c91136bb111100b200ceeff9a66db231967a18dc424444d169c470762b29c14",
+    "eval_clamp-regression-public": "50d047ccc40cbdb0b1af94f5e346fec6d9c8d0067b2f2304e654624c4543e89d",
+    "eval_clamp-regression-holdout": "21ef1a0d0774c5f7d258835aead185194961c4d7d754cbf49f9263ddb8bb919b",
+    "eval_gcd-regression-public": "24f45b917e43795109748c36c0cd5efd57f7ee9ecb1397b9581e384b301b0d58",
+    "eval_gcd-regression-holdout": "dc5379d890a1a325450af5a7bd586a19d239fbe16a179d11ccbe72548586e228",
+    "eval_even-regression-public": "483901872d4a81ad8fd5a078f97f833bdb6c063716971d16d370aae426f17c3e",
+    "eval_even-regression-holdout": "26ba48a0c3c811fc38273499895de8589ed574e143d63f51eece066fa9f4ef96",
+    "eval_array_sum-regression-public": "ebae845ce4e7c6404cb284200da572fe2b79fb8dfc4e0cfa2fcd7eaf0dcab19e",
+    "eval_array_sum-regression-holdout": "eb311a4830914f1d031980ad8335e9a4b29d71e17bb96f1202466d41f814f37a"
+  },
+  "referenceChecks": [
+    {
+      "caseId": "eval_parameter_colon",
+      "referenceSha256": "d980f3c53c12162844f754829c4dec0a295c6f3ca3bfa1291607ef2455085aa1",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6
+    },
+    {
+      "caseId": "eval_argument_separator",
+      "referenceSha256": "d0f5d7a12b8168ac4f07cd5e7b5b7d0ec1eed01dcac65b38e8a5b9b8f0c04deb",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 5
+    },
+    {
+      "caseId": "eval_array_delimiter",
+      "referenceSha256": "247de3d0dba978784d3328e33d92ab6327af2de3f351f90b612caf5ab9e83703",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 9
+    },
+    {
+      "caseId": "eval_block_end",
+      "referenceSha256": "5b67c7eea83306bf4be3b8f784c71bf3510700102d9bbdaba81b87d6f652ee15",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 4
+    },
+    {
+      "caseId": "eval_return_type",
+      "referenceSha256": "5b856895ec9dcca9542e2c74e2213a399c4876d53487e385627d4d78998b9ef4",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 5
+    },
+    {
+      "caseId": "eval_bool_arithmetic",
+      "referenceSha256": "c7f9df43964ba956bcf5ad17b8e99d698db3ed3dc3a9b50898e60a3d920e900d",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 4
+    },
+    {
+      "caseId": "eval_condition_type",
+      "referenceSha256": "38d72caf76516e03ba8aa606dc9ae0c9adaf855ec846d34c023b46d258db9888",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 5
+    },
+    {
+      "caseId": "eval_array_element",
+      "referenceSha256": "cf95172c99c4b16d94fe7790d83b63c159073334d5a5926026ebcf9828139e56",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 5
+    },
+    {
+      "caseId": "eval_unknown_function",
+      "referenceSha256": "e69f6ae0270f7741c3609122ca804e4eb81cc20b1f284ba483d693b8fc6b9350",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6
+    },
+    {
+      "caseId": "eval_block_scope",
+      "referenceSha256": "becedd539a8a294373301e7bbc82869ddf729fec6e0b1f5c580c5be8f3cdf488",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 5
+    },
+    {
+      "caseId": "eval_unknown_member",
+      "referenceSha256": "2242ccfb9129e780ae76c38d5fa2232ea243cbc127dd65b68484b6d57dad39b7",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 4
+    },
+    {
+      "caseId": "eval_loop_scope",
+      "referenceSha256": "61d146b344e602b8b18b8d7a7e62f90e7cdd7d49760174f78f4d33e0ccefb757",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 4
+    },
+    {
+      "caseId": "eval_maximum",
+      "referenceSha256": "701ef579b98c2eb4a989deeaff89c7d4a6f1f7a9791084c26148f9dfe566337d",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6,
+      "originalLogicDefectDetected": true
+    },
+    {
+      "caseId": "eval_absolute",
+      "referenceSha256": "33a622109373b0f364371d5f05d234e8d74594ff00ae3b06fcac08340b5d76a7",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6,
+      "originalLogicDefectDetected": true
+    },
+    {
+      "caseId": "eval_accumulation",
+      "referenceSha256": "db61059879ae13ddad3fa5312e118e7ed89b340a2befb702e7f37567d2269698",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6,
+      "originalLogicDefectDetected": true
+    },
+    {
+      "caseId": "eval_leap_year",
+      "referenceSha256": "073ef3d127e7b1a084564886a285089edf7be654bcf33253d57598176b593ce1",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 8,
+      "originalLogicDefectDetected": true
+    },
+    {
+      "caseId": "eval_clamp",
+      "referenceSha256": "a59ddf7251d8a65396b28216effedb97d16284d4f85c83fffa0c8e42ab3509a4",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6
+    },
+    {
+      "caseId": "eval_gcd",
+      "referenceSha256": "6a9a76b3170093aadbc60e43dfd0a64d523d979a19f8118c08401636b6f781d6",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 6
+    },
+    {
+      "caseId": "eval_even",
+      "referenceSha256": "bf1fc4dc2af87ae27f3f7428f22943ee0673f870bf77d98e8be0fd2ebaeb41c9",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 7
+    },
+    {
+      "caseId": "eval_array_sum",
+      "referenceSha256": "9533e2d50fcbeb8e3ed42f01ba8137a5a105c088279fd8b667ba85f4d997d681",
+      "publicStatus": "passed",
+      "holdoutStatus": "passed",
+      "assertions": 5
+    }
+  ]
+}
