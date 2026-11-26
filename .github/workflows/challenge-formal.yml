@@ -1,0 +1,48 @@
+name: Formal challenge evaluation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: doctor-formal-challenge
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: bash scripts/install-ci-sdk.sh "$RUNNER_TEMP/sdk"
+      - name: Build trusted core and isolated SDK
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          mkdir -p target/debug
+          cjc -p src -o target/debug/doctor --diagnostic-format=noColor
+          bash scripts/build-sandbox-image.sh "$RUNNER_TEMP/sdk/cangjie" "$RUNNER_TEMP/image.json"
+          echo "DOCTOR_SANDBOX_IMAGE=$(node -p "JSON.parse(require('fs').readFileSync(process.env.RUNNER_TEMP+'/image.json')).image")" >> "$GITHUB_ENV"
+      - name: Compile and run public cases
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          node scripts/score-challenge-development.mjs public "$DOCTOR_SANDBOX_IMAGE" --formal
+      - uses: actions/upload-artifact@v4
+        with:
+          name: formal-public-feedback
+          path: runs/evaluation-public/receipt.json
+          retention-days: 30
+      - name: Wait for locked second-round data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/wait-formal-repairs.mjs
+      - name: Score locked candidates in the same SDK image
+        env:
+          CHALLENGE_TEST_KEY: ${{ secrets.DOCTOR_CHALLENGE_HOLDOUT_V1 }}
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          node scripts/score-challenge-development.mjs score "$DOCTOR_SANDBOX_IMAGE" --formal
+      - uses: actions/upload-artifact@v4
+        with:
+          name: formal-scored-evidence
+          path: runs/evaluation-score/
+          retention-days: 30

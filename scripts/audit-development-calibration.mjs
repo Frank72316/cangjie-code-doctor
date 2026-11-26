@@ -1,4 +1,5 @@
 // Recompute the six-case calibration result from locked responses and encrypted sandbox evidence.
+import {gunzipSync} from 'node:zlib';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createDecipheriv } from 'node:crypto';
@@ -8,11 +9,23 @@ import { harnessSource } from './pilot-holdout.mjs';
 import { sha, candidate } from './pilot-common.mjs';
 import { usageCost } from './pilot-generate.mjs';
 import { followupRequest } from './development-feedback.mjs';
+import { formalPublicSource } from './formal-public-harness.mjs';
 
 const dir='docs/experiments/2026-11-26-challenge/';
+const formal=process.argv.includes('--formal');
+const split=formal?'evaluation':'development';
+const prefix=formal?'formal/':'dev-';
 const load=async name=>JSON.parse(await readFile(dir+name+'.json','utf8'));
-const first=await load('dev-first'), second=await load('dev-second'), initialPublic=await load('dev-public');
-const design=await load('offline-design'), receipt=await load('dev-scored/receipt'), sealed=await load('dev-scored/evidence.enc');
+const first=await load(prefix+'first'), second=await load(prefix+'second'), initialPublic=await load(prefix+'public');
+const design=await load('offline-design'), receipt=await load(prefix+'scored/receipt'), sealed=await load(prefix+'scored/evidence.enc');
+if (formal) {
+  const freeze=await load('formal/freeze');
+  assert.equal(sha(design),freeze.designSha256);
+  assert.equal(first.freezeSha256,sha(freeze));
+  assert.equal(second.freezeSha256,sha(freeze));
+  assert.equal(first.results.length,216);
+  assert.equal(initialPublic.results.length,216);
+}
 assert.equal(receipt.firstSha256,sha(first));
 assert.equal(receipt.secondSha256,sha(second));
 assert.equal(second.publicReceiptSha256,sha(initialPublic));
@@ -23,7 +36,8 @@ const key=(await readFile('data/holdout/challenge-v1/key.txt','utf8')).trim();
 const privateData=privateChallenge(snapshot,key);
 const decrypt=createDecipheriv('aes-256-gcm',Buffer.from(key,'hex'),Buffer.from(sealed.iv,'hex'));
 decrypt.setAuthTag(Buffer.from(sealed.tag,'hex'));
-const raw=Buffer.concat([decrypt.update(Buffer.from(sealed.data,'base64')),decrypt.final()]).toString('utf8');
+const decrypted=Buffer.concat([decrypt.update(Buffer.from(sealed.data,'base64')),decrypt.final()]);
+const raw=(sealed.encoding==='gzip'?gunzipSync(decrypted):decrypted).toString('utf8');
 assert.equal(sha(raw),sealed.sha256);
 const reports=JSON.parse(raw), used=new Set();
 function checkReport(id,code,name,tests,status) {
@@ -39,24 +53,25 @@ function checkReport(id,code,name,tests,status) {
 }
 const totals=Object.fromEntries(['A','B','C'].map(g=>[g,{first:0,final:0,calls:0,inputTokens:0,outputTokens:0,estimatedPeakCNY:0}]));
 const cases=[];
-for (const [index,{caseId,group}] of design.development.entries()) {
-  const problem=snapshot.catalog.cases.find(c=>c.id===caseId && c.split==='development');
+for (const [index,{caseId,group,repeat}] of design[split].entries()) {
+  const problem=snapshot.catalog.cases.find(c=>c.id===caseId && c.split===split);
   const hidden=privateData.cases.find(h=>h.id===caseId);
   const item=design.cases.find(c=>c.caseId===caseId);
   const publicCheck=initialPublic.results[index], original=first.results[index];
+  if(formal){assert.equal(original.repeat,repeat);assert.equal(publicCheck.repeat,repeat);assert.equal(receipt.image,initialPublic.image);}
   const followup=followupRequest(item.requests[group], original, publicCheck);
   const attempts=[[original,item.requests[group]]];
-  if (followup) attempts.push([second.results.find(c=>c.caseId===caseId && c.group===group),followup]);
+  if (followup) attempts.push([second.results.find(c=>c.caseId===caseId && c.group===group && (!formal || c.repeat===repeat)),followup]);
   let firstStatus, finalStatus;
   for (const [i,[response,request]] of attempts.entries()) {
     assert.equal(response.caseId,caseId);assert.equal(response.group,group);
     assert.equal(response.requestSha256,sha(request));
-    const row=receipt.results.find(r=>r.caseId===caseId && r.group===group && r.round===i+1);
+    const row=receipt.results.find(r=>r.caseId===caseId && r.group===group && r.round===i+1 && (!formal || r.repeat===repeat));
     let status=response.status;
     if (response.status==='generated') {
       assert.equal(candidate(response.answer),response.code);
       assert.equal(sha(response.code),row.codeSha256);
-      checkReport(row.publicReportId,response.code,problem.source.name,problem.publicTests,row.public.status);
+      checkReport(row.publicReportId,formal ? formalPublicSource(response.code,problem) : response.code,problem.source.name,problem.publicTests,row.public.status);
       if (!i) assert.deepEqual(row.public,publicCheck.public);
       status=row.public.status;
       if (status==='passed') {
@@ -76,7 +91,7 @@ for (const [index,{caseId,group}] of design.development.entries()) {
     t.estimatedPeakCNY+=response.costUpperEstimateCNY;
   }
   totals[group].first+=Number(firstStatus==='passed');totals[group].final+=Number(finalStatus==='passed');
-  cases.push({caseId,group,first:firstStatus,final:finalStatus});
+  cases.push({caseId,group,...(formal?{repeat,stratum:problem.stratum}:{}),first:firstStatus,final:finalStatus});
 }
 assert.equal(used.size,reports.length);assert.equal(used.size,receipt.reports);
 assert.equal(receipt.results.length,first.results.length+second.results.length);

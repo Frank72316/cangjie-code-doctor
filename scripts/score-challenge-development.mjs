@@ -1,11 +1,13 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createCipheriv, randomBytes } from 'node:crypto';
+import { gzipSync } from 'node:zlib';
 import { challengeCatalog, privateChallenge } from './challenge-data.mjs';
 import { sha, candidate } from './pilot-common.mjs';
 import { harnessSource } from './pilot-holdout.mjs';
 import { verifyPublic } from './sandbox-verify.mjs';
 import { followupRequest } from './development-feedback.mjs';
+import { formalPublicSource } from './formal-public-harness.mjs';
 
 const [phase, image] = process.argv.slice(2);
 if (process.platform !== 'linux' || !/^sha256:[a-f0-9]{64}$/.test(image) || !['public','score'].includes(phase)) throw Error('Expected Linux SDK image and phase');
@@ -23,6 +25,8 @@ if (formal) {
   if (!pack.finishedAt || pack.freezeSha256 !== sha(freeze) || sha(design) !== freeze.designSha256 || snapshot.holdoutSha256 !== design.holdoutSha256) throw Error('Formal run identity mismatch');
 }
 const evidence = [];
+const previousReports = formal && phase === 'score'
+  ? JSON.parse(await readFile('runs/evaluation-public/public-reports.json','utf8')) : [];
 const results = [];
 const output = 'runs/' + split + '-' + phase;
 await mkdir(output,{recursive:true});
@@ -62,8 +66,17 @@ for (const [index, first] of pack.results.entries()) {
     results.push(result);
     if (row.status !== 'generated') continue;
     if (candidate(row.answer) !== row.code || sha(row.code) !== row.codeSha256) throw Error('Candidate changed');
-    const source = {name:problem.source.name,text:row.code};
-    const pub = await verify(source,problem.publicTests);
+    const source = {name:problem.source.name,text:formal ? formalPublicSource(row.code,problem) : row.code};
+    let pub;
+    if (formal && phase === 'score' && round === 1) {
+      const saved = publicReceipt.results[index];
+      pub = previousReports.find(report => report.id === saved.publicReportId);
+      if (!pub || pub.image !== image || pub.source.sha256 !== sha(source.text) ||
+          pub.status !== saved.status || saved.repeat !== repeat) throw Error('Stored public evidence mismatch');
+      evidence.push(pub);
+    } else {
+      pub = await verify(source,problem.publicTests);
+    }
     result.public = publicFeedback(pub);
     result.status = pub.status;
     result.publicReportId = pub.id;
@@ -86,8 +99,8 @@ if (key) {
   const iv=randomBytes(12);
   const cipher=createCipheriv('aes-256-gcm',Buffer.from(key,'hex'),iv);
   const raw=JSON.stringify(evidence);
-  const data=Buffer.concat([cipher.update(raw),cipher.final()]);
-  await writeFile(output+'/evidence.enc.json',JSON.stringify({iv:iv.toString('hex'),tag:cipher.getAuthTag().toString('hex'),sha256:sha(raw),data:data.toString('base64')}));
+  const data=Buffer.concat([cipher.update(formal ? gzipSync(raw) : raw),cipher.final()]);
+  await writeFile(output+'/evidence.enc.json',JSON.stringify({encoding:formal?'gzip':'utf8',iv:iv.toString('hex'),tag:cipher.getAuthTag().toString('hex'),sha256:sha(raw),data:data.toString('base64')}));
 } else {
   await writeFile(output+'/public-reports.json',JSON.stringify(evidence));
 }
