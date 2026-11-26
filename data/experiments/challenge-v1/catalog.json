@@ -1,0 +1,1022 @@
+{
+  "kind": "doctor-challenge-catalog",
+  "version": 1,
+  "language": "Cangjie",
+  "sdkVersion": "1.0.5",
+  "status": "materials-validation-before-model-calibration",
+  "cases": [
+    {
+      "id": "state_bank",
+      "familyId": "state_bank",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "BankAccount：初始余额非负；deposit和withdraw参数非负，非法或透支抛异常且余额不变；transfer先扣后存，自转账余额不变；view_balance返回当前余额。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_bank.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nclass BankAccount {\n\n    var balance: Int64\n\n    public init(balance!: Int64 = 0) {\n        this.balance = balance\n    }\n\n    public func deposit(amount: Int64): Int64 {\n        if (amount < 0) {\n            throw Exception(\"Invalid amount\")\n        }\n        this.balance += amount\n        return this.balance\n    }\n\n    public func withdraw(amount: Int64): Int64 {\n        if (amount < 0) {\n            throw Exception(\"Invalid amount\")\n        }\n        if (amount > this.balance) {\n            throw Exception(\"Insufficient balance.\")\n        }\n        this.balance += amount\n        return this.balance\n    }\n\n    public func view_balance(): Int64 {\n        return this.balance\n    }\n\n    public func transfer(other_account: BankAccount, amount: Int64): Unit {\n        this.withdraw(amount)\n        other_account.deposit(amount + 1)\n    }\n}\n\nmain() {\nlet a = BankAccount(balance: 50); let b = BankAccount(balance: 5)\na.transfer(b, 10)\nprintln(a.view_balance() == 40 && b.view_balance() == 15)\nprintln(a.deposit(0) == 40)\n}\n"
+      },
+      "sourceSha256": "f4e6e824d97ebbd9b1d3eee6dc29b4702d454f0c6343a9d784de886f605cfd8c",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "8",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_books",
+      "familyId": "state_books",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "BookManagement库存：add_book默认数量1，存在时累加；remove_book不足或书不存在时抛异常且不改库存，减到0删除键；查询不存在返回0。数量均为正整数。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_books.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.HashMap\n\nclass BookManagement {\n\n    let inventory: HashMap<String, Int64>\n\n    public init() {\n        this.inventory = HashMap<String, Int64>()\n    }\n\n    public func add_book(title: String, quantity!: Int64=1): Unit {\n        if (this.inventory.contains(title)) {\n            this.inventory[title] = quantity\n        } else {\n            this.inventory.add(title, quantity)\n        }\n    }\n\n    public func remove_book(title: String, quantity: Int64): Unit {\n        if (!this.inventory.contains(title) || this.inventory[title] < quantity) {\n            throw Exception(\"Invalid operation\")\n        }\n        this.inventory[title] -= 1\n        if (this.inventory[title] == 0) {\n            this.inventory.remove(title)\n        }\n    }\n\n    public func view_inventory(): HashMap<String, Int64> {\n        return this.inventory\n    }\n\n    public func view_book_quantity(title: String): Int64 {\n        if (!this.inventory.contains(title)) {\n            return 0\n        }\n        return this.inventory[title]\n    }\n}\n\nmain() {\nlet b = BookManagement(); b.add_book(\"a\", quantity: 2); b.add_book(\"a\", quantity: 3)\nprintln(b.view_book_quantity(\"a\") == 5)\nb.remove_book(\"a\", 2)\nprintln(b.view_book_quantity(\"a\") == 3)\n}\n"
+      },
+      "sourceSha256": "f6eb5e0a24e62e703707ce0115d6791ab1be9dec5d07e633a2ee0efbbbb07c0f",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "13",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_camel_map",
+      "familyId": "state_camel_map",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "CamelCaseMap：字符串键按下划线分割，首段保持原样，后续段ASCII首字母大写其余小写后拼接；get/set/delete须使用一致转换，等价键覆盖同一项，len是键数。输入为非空ASCII单词、段间单个下划线；访问/删除仅已有键。Any非String键的_convert_key原样返回。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_camel_map.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.HashMap\n\nclass CamelCaseMap {\n\n    let _data: HashMap<String, Any>\n\n    public init() {\n        _data = HashMap<String, Any>()\n    }\n\n    public func __getitem__(key: String): Any {\n        return _data[(_convert_key(key) as String) ?? \"\"]\n    }\n\n    public func __setitem__(key: String, value: Any): Unit {\n        _data[key] = value\n    }\n\n    public func __delitem__(key: String): Unit {\n        _data.remove((_convert_key(key) as String) ?? \"\")\n    }\n\n    public func __len__(): Int64 {\n        return _data.size + 1\n    }\n\n    public func _convert_key(key: Any): Any {\n        if (key is String) {\n            return _to_camel_case((key as String) ?? \"\")\n        }\n        return key\n    }\n\n    public static func _to_camel_case(key: String): String {\n        let parts = key.split(\"_\")\n        var res = \"\" + parts[0]\n        for (i in 1..parts.size) {\n            res += parts[i].toAsciiTitle()\n        }\n        return res\n    }\n}\n\nmain() {\nlet m = CamelCaseMap(); m.__setitem__(\"first_name\", \"Ada\")\nprintln((m.__getitem__(\"first_name\") as String) == Some(\"Ada\"))\nprintln(m.__len__() == 1)\n}\n"
+      },
+      "sourceSha256": "a2a270c0be3f95b4a975fb21353e7905c6cfa7522e7558d8091108c9c7c5d40c",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "18",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_registration",
+      "familyId": "state_registration",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "ClassRegistrationSystem：student含name和major；相同student重复登记返回0否则1；register_class累计课程（允许重复计票）。get_students_by_major按登记顺序返回姓名；get_all_major按首次出现顺序去重。按专业统计课程次数，最高票唯一时返回其名，无该专业返回空串。参与统计的学生都已登记至少一门课。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_registration.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.ArrayList\nimport std.collection.HashMap\n\nclass ClassRegistrationSystem {\n\n    var students: ArrayList<HashMap<String, String>>\n    var students_registration_classes: HashMap<String, ArrayList<String>>\n\n    public init() {\n        this.students = ArrayList<HashMap<String, String>>()\n        this.students_registration_classes = HashMap<String, ArrayList<String>>()\n    }\n\n    public func register_student(student: HashMap<String, String>): Int64 {\n        if (students.contains(student)) {\n            return 0\n        } else {\n            students.add(student)\n            return 1\n        }\n    }\n\n    public func register_class(student_name: String, class_name: String): ArrayList<String> {\n        if (students_registration_classes.contains(student_name)) {\n            students_registration_classes[student_name].add(class_name)\n        } else {\n            students_registration_classes[student_name] = ArrayList<String>([class_name])\n        }\n        return students_registration_classes[student_name]\n    }\n\n    public func get_students_by_major(major: String): ArrayList<String> {\n        let student_list = ArrayList<String>()\n        for (student in students) {\n            if (student[\"major\"] == major) {\n                student_list.add(student[\"name\"])\n            }\n        }\n        return student_list\n    }\n\n    public func get_all_major(): ArrayList<String> {\n        let major_list = ArrayList<String>()\n        for (student in students) {\n            if (major_list.contains(student[\"major\"])) {\n                major_list.add(student[\"major\"])\n            }\n        }\n        return major_list\n    }\n\n    public func get_most_popular_class_in_major(major: String): String {\n        let class_counter = HashMap<String, Int64>()\n        for (student in students) {\n            if (student[\"major\"] == major) {\n                let classes = students_registration_classes[student[\"name\"]]\n                for (class_name in classes) {\n                    if (class_counter.contains(class_name)) {\n                        class_counter[class_name] = 1\n                    } else {\n                        class_counter[class_name] = 1\n                    }\n                }\n            }\n        }\n        var max_count = -1\n        var most_popular_class = \"\"\n        for ((class_name, count) in class_counter) {\n            if (count > max_count) {\n                max_count = count\n                most_popular_class = class_name\n            }\n        }\n        return most_popular_class\n    }\n}\n\nmain() {\nlet s = ClassRegistrationSystem()\ns.register_student(HashMap<String,String>([(\"name\",\"a\"),(\"major\",\"cs\")]))\ns.register_class(\"a\",\"x\"); s.register_class(\"a\",\"y\"); s.register_class(\"a\",\"y\")\nprintln(s.get_all_major() == ArrayList<String>([\"cs\"]))\nprintln(s.get_most_popular_class_in_major(\"cs\") == \"y\")\n}\n"
+      },
+      "sourceSha256": "44154f1fa427a18bc60228b3bc62268d28f36dd2a3d9075a238b15e00dfcf573",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "22",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_complex",
+      "familyId": "state_complex",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "ComplexNumber及ComplexCalculator实现复数相等/不等、加减乘除；除数非零。返回新的复数，不改两个输入。Float64比较测试使用误差不超过1e-9。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_complex.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.math.abs\n\nclass ComplexNumber <: Equatable<ComplexNumber> {\n    public var real: Float64\n    public var imaginary: Float64\n\n    public init(real: Float64, imaginary: Float64) {\n        this.real = real\n        this.imaginary = imaginary\n    }\n\n    public override operator func != (that: ComplexNumber): Bool {\n        return this.real != that.real || this.imaginary != that.imaginary\n    }\n\n    public override operator func == (that: ComplexNumber): Bool {\n        return this.real == that.real && this.imaginary == that.imaginary\n    }\n}\n\nclass ComplexCalculator {\n\n    public init() { }\n\n    public static func add(c1: ComplexNumber, c2: ComplexNumber): ComplexNumber {\n        let real = c1.real + c2.real\n        let imaginary = c1.imaginary + c2.imaginary\n        return ComplexNumber(real, imaginary)\n    }\n\n    public static func subtract(c1: ComplexNumber, c2: ComplexNumber): ComplexNumber {\n        let real = c1.real - c2.real\n        let imaginary = c1.imaginary - c2.imaginary\n        return ComplexNumber(real, imaginary)\n    }\n\n    public static func multiply(c1: ComplexNumber, c2: ComplexNumber): ComplexNumber {\n        let real = c1.real * c2.real + c1.imaginary * c2.imaginary\n        let imaginary = c1.real * c2.imaginary + c1.imaginary * c2.real\n        return ComplexNumber(real, imaginary)\n    }\n\n    public static func divide(c1: ComplexNumber, c2: ComplexNumber): ComplexNumber {\n        let denominator = c2.real ** 2 - c2.imaginary ** 2\n        let real = (c1.real * c2.real + c1.imaginary * c2.imaginary) / denominator\n        let imaginary = (c1.imaginary * c2.real - c1.real * c2.imaginary) / denominator\n        return ComplexNumber(real, imaginary)\n    }\n}\n\nmain() {\nlet a=ComplexNumber(3.0,2.0); let b=ComplexNumber(2.0,1.0)\nlet m=ComplexCalculator.multiply(a,b); let d=ComplexCalculator.divide(a,b)\nprintln(abs(m.real - 4.0)<1e-9 && abs(m.imaginary-7.0)<1e-9)\nprintln(abs(d.real-1.6)<1e-9 && abs(d.imaginary-0.2)<1e-9)\n}\n"
+      },
+      "sourceSha256": "9992a5112f1d7d2ac5b89db73be3cf49464b566051dad998f6e8a616d15e949f",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "24",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_hotel",
+      "familyId": "state_hotel",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "Hotel：房型初始数量非负；预订/入住/退房数量为正。预订成功扣可用房并累加同名用户预约，返回Success!；不够时有剩余返回数量字符串，否则false；未知房型false。check_in扣预约（不是可用房），正好用完删预约；超量失败不改状态。check_out增加可用房。get查询仅已有房型。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_hotel.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.HashMap\n\nclass Hotel {\n\n    let name: String\n    let available_rooms: HashMap<String, Int64>\n    var booked_rooms: HashMap<String, HashMap<String, Int64>>\n\n    public init(name: String, rooms: HashMap<String, Int64>) {\n        this.name = name\n        this.available_rooms = HashMap<String, Int64>(rooms)\n        this.booked_rooms = HashMap<String, HashMap<String, Int64>>()\n    }\n\n    public func book_room(room_type: String, room_number: Int64, name: String): String {\n        if (!this.available_rooms.contains(room_type)) {\n            return \"false\"\n        }\n\n        if (room_number <= this.available_rooms[room_type]) {\n            if (!this.booked_rooms.contains(room_type)) {\n                this.booked_rooms[room_type] = HashMap<String, Int64>()\n            }\n            this.booked_rooms[room_type][name] = (this.booked_rooms[room_type].get(name) ?? 0) + room_number\n            this.available_rooms[room_type] -= 1\n            return \"Success!\"\n        } else if (this.available_rooms[room_type] != 0) {\n            return this.available_rooms[room_type].toString()\n        } else {\n            return \"false\"\n        }\n    }\n\n    public func check_in(room_type: String, room_number: Int64, name: String): Bool {\n        if (!this.booked_rooms.contains(room_type)) {\n            return false\n        }\n        if (this.booked_rooms[room_type].contains(name)) {\n            if (room_number > this.booked_rooms[room_type][name]) {\n                return false\n            } else if (room_number == this.booked_rooms[room_type][name]) {\n                this.booked_rooms[room_type].remove(name)\n                return true\n            } else {\n                this.booked_rooms[room_type][name] -= 1\n                return true\n            }\n        } else {\n            return false\n        }\n    }\n\n    public func check_out(room_type: String, room_number: Int64): Unit {\n        if (this.available_rooms.contains(room_type)) {\n            this.available_rooms[room_type] += room_number\n        } else {\n            this.available_rooms[room_type] = room_number\n        }\n    }\n\n    public func get_available_rooms(room_type: String): Int64 {\n        return this.available_rooms[room_type]\n    }\n}\n\nmain() {\nlet h=Hotel(\"x\",HashMap<String,Int64>([(\"a\",8)]))\nprintln(h.book_room(\"a\",4,\"u\") == \"Success!\" && h.get_available_rooms(\"a\") == 4)\nprintln(h.check_in(\"a\",3,\"u\") && !h.check_in(\"a\",2,\"u\"))\n}\n"
+      },
+      "sourceSha256": "66f87602b7d982383594e7d91d5ffbf804b4a6675fc25142ad60a96d8040a38f",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "42",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [
+        "Repeated booking explicitly accumulates per contract; upstream overwrote prior quantity. Corrected before fault injection."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_rpg",
+      "familyId": "state_rpg",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "RPGCharacter：攻击扣max(攻击-对方防御,1)；heal加10但最多100并返回血量。gain_exp按当前等级*100消耗经验，可一次升多级；升级清经验、等级+1、血+20、攻防各+5。level_up返回(等级,血,攻,防)；is_alive为hp>0。初始等级1..5、hp0..100，每次经验0..1000，不到100级上限。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_rpg.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nclass RPGCharacter {\n\n    let name: String\n    var hp: Int64\n    var attack_power: Int64\n    var defense: Int64\n    var level: Int64\n    var exp: Int64\n\n    public init(name: String, hp: Int64, attack_power: Int64, defense: Int64, level!: Int64 = 1) {\n        this.name = name\n        this.hp = hp\n        this.attack_power = attack_power\n        this.defense = defense\n        this.level = level\n        this.exp = 0\n    }\n\n    public func attack(other_character: RPGCharacter): Unit {\n        let damage = max(this.attack_power - other_character.defense, 1)\n        other_character.hp -= this.attack_power\n    }\n\n    public func heal(): Int64 {\n        this.hp += 10\n        if (this.hp > 100) {\n            this.hp = 100\n        }\n        return this.hp\n    }\n\n    public func gain_exp(amount: Int64): Unit {\n        var amount_ = amount\n        while (amount_ != 0) {\n            if (this.exp + amount_ >= this.level * 100) {\n                amount_ -= (this.level * 100 - this.exp)\n                this.level_up()\n            } else {\n                this.exp = amount_\n                amount_ = 0\n            }\n        }\n    }\n\n    public func level_up(): (Int64, Int64, Int64, Int64) {\n        if (this.level < 100) {\n            this.level += 1\n            this.exp = 0\n            this.hp += 20\n            this.attack_power += 5\n            this.defense += 5\n        }\n        return (this.level, this.hp, this.attack_power, this.defense)\n    }\n\n    public func is_alive(): Bool {\n        return this.hp > 0\n    }\n}\n\nmain() {\nlet a=RPGCharacter(\"a\",20,5,1); let b=RPGCharacter(\"b\",3,1,10)\na.attack(b)\nprintln(b.is_alive())\na.gain_exp(60); a.gain_exp(60)\nprintln(a.level_up().0 == 3)\n}\n"
+      },
+      "sourceSha256": "5bf049840f5c1479fce2052608462d013903b4bfe37ea2669fe8935ef11bb153",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "73",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "state_pagination",
+      "familyId": "state_pagination",
+      "split": "evaluation",
+      "stratum": "stateful",
+      "task": "PageUtil：page_size>0，data不再被外部修改；页码从1开始，非法页get_page返回空、get_page_info返回None。总页数向上取整；页内容保持顺序。PageInfo/SearchInfo以全部字段做值相等比较。search按整数十进制字符串包含keyword过滤，并返回匹配数及匹配结果的总页数。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "state_pagination.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.ArrayList\n\nclass PageInfo <: Equatable<PageInfo> {\n\n    let current_page: Int64\n    let per_page: Int64\n    let total_pages: Int64\n    let total_items: Int64\n    let has_previous: Bool\n    let has_next: Bool\n    let data: ArrayList<Int64>\n\n    public init(current_page: Int64, per_page: Int64, total_pages: Int64, total_items: Int64, has_previous: Bool, has_next: Bool, data: ArrayList<Int64>) {\n        this.current_page = current_page\n        this.per_page = per_page\n        this.total_pages = total_pages\n        this.total_items = total_items\n        this.has_previous = has_previous\n        this.has_next = has_next\n        this.data = data\n    }\n\n    public override operator func != (that: PageInfo): Bool {\n        return this.current_page != that.current_page || this.per_page != that.per_page || this.total_pages != that.total_pages || this.total_items != that.total_items || this.has_previous != that.has_previous || this.has_next != that.has_next || this.data != that.data\n    }\n\n    public override operator func == (that: PageInfo): Bool {\n        return this.current_page == that.current_page && this.per_page == that.per_page && this.total_pages == that.total_pages && this.total_items == that.total_items && this.has_previous == that.has_previous && this.has_next == that.has_next && this.data == that.data\n    }\n}\n\nclass SearchInfo <: Equatable<SearchInfo> {\n\n    let keyword: String\n    let total_results: Int64\n    let total_pages: Int64\n    let results: ArrayList<Int64>\n\n    public init(keyword: String, total_results: Int64, total_pages: Int64, results: ArrayList<Int64>) {\n        this.keyword = keyword\n        this.total_results = total_results\n        this.total_pages = total_pages\n        this.results = results\n    }\n\n    public override operator func != (that: SearchInfo): Bool {\n        return this.keyword != that.keyword || this.total_results != that.total_results || this.total_pages != that.total_pages || this.results != that.results\n    }\n\n    public override operator func == (that: SearchInfo): Bool {\n        return this.keyword == that.keyword && this.total_results == that.total_results && this.total_pages == that.total_pages && this.results == that.results\n    }\n}\n\nclass PageUtil {\n\n    let data: ArrayList<Int64>\n    let page_size: Int64\n    let total_items: Int64\n    let total_pages: Int64\n\n    public init(data: ArrayList<Int64>, page_size: Int64) {\n        this.data = data\n        this.page_size = page_size\n        this.total_items = data.size\n        this.total_pages = this.total_items / page_size\n    }\n\n    public func get_page(page_number: Int64): ArrayList<Int64> {\n        if (page_number < 1 || page_number > this.total_pages) {\n            return ArrayList<Int64>()\n        }\n        let start_index = page_number * this.page_size\n        var end_index = start_index + this.page_size\n        if (end_index > this.total_items) {\n            end_index = this.total_items\n        }\n        return this.data[start_index..end_index]\n    }\n\n    public func get_page_info(page_number: Int64): Option<PageInfo> {\n        if (page_number < 1 || page_number > this.total_pages) {\n            return None\n        }\n        \n        let start_index = (page_number - 1) * this.page_size\n        var end_index = start_index + this.page_size\n        if (this.total_items < end_index) {\n            end_index = this.total_items\n        }\n        let page_data = this.data[start_index..end_index]\n\n        let page_info = PageInfo(page_number, this.page_size, this.total_pages, this.total_items, page_number > 1, page_number < this.total_pages, page_data)\n        return page_info\n    }\n\n    public func search(keyword: String): SearchInfo {\n        let results = ArrayList<Int64>()\n        for (item in this.data) {\n            if (item.toString().contains(keyword)) {\n                results.add(item)\n            }\n        }\n        let num_results = results.size\n        let num_pages = (num_results + this.page_size - 1) / this.page_size\n\n        let search_info = SearchInfo(keyword, num_results, num_pages, results)\n        return search_info\n    }\n}\n\nmain() {\nlet p=PageUtil(ArrayList<Int64>([1,2,3,4,5]),2)\nprintln(p.get_page(1) == ArrayList<Int64>([1,2]))\nprintln(p.get_page(3) == ArrayList<Int64>([5]))\n}\n"
+      },
+      "sourceSha256": "90a55cf9f636230cf31f17542b777281849b412cff9f9b36220cb146392274db",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "68",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "dev_brackets",
+      "familyId": "dev_brackets",
+      "split": "development",
+      "stratum": "stateful",
+      "task": "BalancedBrackets忽略其他字符，检查三种括号匹配；空串为true，单独右括号为false；同对象重复调用结果一致。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "dev_brackets.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.ArrayList\n\nclass BalancedBrackets {\n\n    let stack: ArrayList<String>\n    let left_brackets: ArrayList<String>\n    let right_brackets: ArrayList<String>\n    var expr: String\n\n    public init(expr: String) {\n        this.stack = ArrayList<String>()\n        this.left_brackets = ArrayList<String>([\"(\", \"{\", \"[\"])\n        this.right_brackets = ArrayList<String>([\")\", \"}\", \"]\"])\n        this.expr = expr\n    }\n\n    public func clear_expr(): Unit {\n        var temp_expr = \"\"\n        for (c in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\n                temp_expr += c.toString()\n            }\n        }\n        this.expr = temp_expr\n    }\n\n    public func check_balanced_brackets(): Bool {\n        this.stack.clear()\n        this.clear_expr()\n        for (Brkt in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(Brkt.toString())) {\n                this.stack.add(Brkt.toString())\n            } else {\n                if (this.stack.isEmpty()) { return true }\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\n                if (Current_Brkt == \"(\") {\n                    if (Brkt.toString() != \")\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"{\") {\n                    if (Brkt.toString() != \"}\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"[\") {\n                    if (Brkt.toString() != \"]\") {\n                        return false\n                    }\n                }\n            }\n        }\n        if (this.stack.size < 0) {\n            return false\n        }\n        return true\n    }\n}\n\nmain() {\nlet b=BalancedBrackets(\"(\")\nprintln(!b.check_balanced_brackets())\nprintln(!BalancedBrackets(\")\").check_balanced_brackets())\n}\n"
+      },
+      "sourceSha256": "796dfc2de0e4cd835d26c2667004b3bdbb314d808f6e20fc1bacf163ed4eca59",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "7",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [
+        "Fixed upstream empty-stack access and reset residual stack before repeated checks."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "dev_bit_status",
+      "familyId": "dev_bit_status",
+      "split": "development",
+      "stratum": "stateful",
+      "task": "BitStatusUtil要求states/stat为非负偶数，否则抛异常；add位或，has检查所有指定bit都存在，remove仅在has为真时异或清除。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "dev_bit_status.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nclass BitStatusUtil {\n\n    public static func add(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        return (states & stat)\n    }\n\n    public static func has(states: Int64, stat: Int64): Bool {\n        BitStatusUtil.check([states, stat])\n        return (states & stat) != 0\n    }\n\n    public static func remove(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        if (BitStatusUtil.has(states, stat)) {\n            return states ^ stat\n        }\n        return states\n    }\n\n    public static func check(args: Array<Int64>): Unit {\n        for (arg in args) {\n            if (arg < 0) {\n                throw Exception(\"${arg} must be greater than or equal to 0\")\n            }\n            if (arg % 2 != 0) {\n                throw Exception(\"${arg} not even\")\n            }\n        }\n    }\n}\n\nmain() {\nprintln(BitStatusUtil.add(2,4)==6)\nprintln(!BitStatusUtil.has(2,6))\n}\n"
+      },
+      "sourceSha256": "1abaec3e78024d7a0db0b9033cffcd3854f0538af2a509ca84fc2ac190f15196",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "CangjieBench-ClassEval",
+        "id": "11",
+        "revision": "68ed8f1cd96d5139a10de8da55561dcf7fd82dc3",
+        "url": "https://github.com/cjhCoder7/CangjieBench/blob/68ed8f1cd96d5139a10de8da55561dcf7fd82dc3/CangjieBench/ClassEval_Cangjie.jsonl",
+        "license": "MIT",
+        "role": "Adapted correct implementation and contract; planted faults and tests are new. Not original benchmark scores."
+      },
+      "docTopics": [
+        "class",
+        "collection",
+        "exception"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_knapsack",
+      "familyId": "algo_knapsack",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "0/1背包：weights与values等长，正整数重量、非负价值，每件最多一次；返回容量cap内最大价值。n<=8，cap0..20；空集为0。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_knapsack.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc knapsack(weights: Array<Int64>, values: Array<Int64>, cap: Int64): Int64 {\n let dp = Array<Int64>(cap + 1, repeat: 0)\n for (i in 0..weights.size) {\n  for (c in weights[i]..=cap) {\n   dp[c] = max(dp[c], dp[c - weights[i]] + weights[i])\n  }\n }\n dp[cap]\n}\n\nmain() {\nprintln(knapsack([2,3],[3,8],5) == 11)\nprintln(knapsack([2],[3],4) == 3)\n}\n"
+      },
+      "sourceSha256": "81358aeb8cb9f80eff2185d8308f40ef5fe7fb86f62135e6dfa78396f7fb0b1b",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "knapsack",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/knapsack.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_edit_distance",
+      "familyId": "algo_edit_distance",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "ASCII小写字符串Levenshtein编辑距离，插入、删除、替换成本均1；长度0..6。返回最少编辑次数。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_edit_distance.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc editDistance(a: String, b: String): Int64 {\n let dp=Array<Array<Int64>>(a.size+1,{_ => Array<Int64>(b.size+1,repeat:0)})\n for (i in 0..=a.size) { dp[i][0]=i }\n for (j in 0..=b.size) { dp[0][j]=0 }\n for (i in 1..=a.size) {\n  for (j in 1..=b.size) {\n   let cost=if (a[i-1]==b[j-1]) {1} else {0}\n   dp[i][j]=min(min(dp[i-1][j]+1,dp[i][j-1]+1),dp[i-1][j-1]+cost)\n  }\n }\n dp[a.size][b.size]\n}\n\nmain() {\nprintln(editDistance(\"a\",\"a\") == 0)\nprintln(editDistance(\"\",\"ab\") == 2)\n}\n"
+      },
+      "sourceSha256": "adee2929ed4cdd2e7acc6d742ad79b74a5c8710e109d730d700d47ef60fac908",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "levenshtein",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/levenshtein.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_lis",
+      "familyId": "algo_lis",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "整数数组最长严格递增子序列长度（非连续也可），相等值不可延长；n0..10，元素-10..10。空数组为0。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_lis.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc lisLength(a: Array<Int64>): Int64 {\n if (a.isEmpty()) { return 0 }\n let dp=Array<Int64>(a.size,repeat:1)\n var best: Int64=1\n for (i in 0..a.size) {\n  for (j in 0..i) { if (a[j]<=a[i]) {dp[i]=max(dp[i],dp[j]+1)} }\n  best=dp[i]\n }\n best\n}\n\nmain() {\nprintln(lisLength([1,1]) == 1)\nprintln(lisLength([1,2,3,0]) == 3)\n}\n"
+      },
+      "sourceSha256": "f5a31d149a04bee3d5fcb870587777c320de77bd7f5ac689c9e6ebe5b692f058",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "lis",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/lis.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_common_substring",
+      "familyId": "algo_common_substring",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "返回两ASCII小写字符串的最长公共连续子串长度（不是子序列）；长度0..12。无公共字符或空串为0。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_common_substring.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc commonSubstring(a: String,b: String): Int64 {\n let dp=Array<Array<Int64>>(a.size+1,{_ => Array<Int64>(b.size+1,repeat:0)})\n var best: Int64=0\n for (i in 1..=a.size) {for (j in 1..=b.size) {\n  if (a[i-1]==b[j-1]) { dp[i][j]=dp[i-1][j-1]+1 } else {dp[i][j]=max(dp[i-1][j],dp[i][j-1])}\n  best=dp[i][j]\n }}\n best\n}\n\nmain() {\nprintln(commonSubstring(\"abx\",\"aby\") == 2)\nprintln(commonSubstring(\"abc\",\"axbxc\") == 1)\n}\n"
+      },
+      "sourceSha256": "2cc741adb90e74eb5efdf4fac1bbbd8d36f8640d036aa3a2f469a8e0f4200c81",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "lcs_length",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/lcs_length.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_max_segment",
+      "familyId": "algo_max_segment",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "返回整数数组最大连续子段和，允许空段，所以全负与空数组返回0；n<=15，值-20..20。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_max_segment.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc maxSegment(a: Array<Int64>): Int64 {\n var ending: Int64=0\n var best: Int64=0\n for (x in a) {\n  ending=ending+x\n  best=ending\n }\n best\n}\n\nmain() {\nprintln(maxSegment([5,-2]) == 5)\nprintln(maxSegment([-5,4]) == 4)\n}\n"
+      },
+      "sourceSha256": "d94c64ec0519f177000d0228da2a8385481c44669892477154396678536f02f7",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "max_sublist_sum",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/max_sublist_sum.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_coin_change",
+      "familyId": "algo_coin_change",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "不同正整数面值coins，每种可无限使用，返回凑成total的组合数（不计排列）；total0..20，面值1..10，种数<=5。空coins仅能凑0。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_coin_change.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc changeWays(coins: Array<Int64>,total: Int64): Int64 {\n let dp=Array<Int64>(total+1,repeat:0)\n dp[0]=0\n for (x in 1..=total) {for (coin in coins) {if (coin<=x) {dp[x]+=dp[x-coin]}}}\n dp[total]\n}\n\nmain() {\nprintln(changeWays([1,2],4) == 3)\nprintln(changeWays([],0) == 1)\n}\n"
+      },
+      "sourceSha256": "b86fa7d48c2d1671b1ce697807a65fb248be8da71e79cdf272caa684e7c07694",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "possible_change",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/possible_change.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_shortest_paths",
+      "familyId": "algo_shortest_paths",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "有向图邻接矩阵w，-1表示无边，其他非负权含0；对角为0。返回start到各顶点最短距离，不可达为-1；n1..6，权0..20，无负边。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_shortest_paths.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc shortestPaths(w: Array<Array<Int64>>, start: Int64): Array<Int64> {\n let n=w.size\n let d=Array<Int64>(n,repeat:100000)\n d[start]=0\n for (_ in 0..n-1) {for (i in 0..n) {for (j in 0..n) {\n  if (w[i][j]>0 && d[i]<100000) {d[j]=min(d[j],d[i]+w[i][j])}\n }}}\n for (i in 0..n) {if(d[i]==100000){d[i] = 0}}\n d\n}\n\nmain() {\nprintln(shortestPaths([[0,0,-1],[-1,0,2],[-1,-1,0]],0) == [0,0,2])\nprintln(shortestPaths([[0,-1],[-1,0]],0) == [0,-1])\n}\n"
+      },
+      "sourceSha256": "68944d98ef17598c93221fec9506b4c24a522141bbda84dc66f40e06ba8c2922",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "shortest_paths",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/shortest_paths.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "algo_next_permutation",
+      "familyId": "algo_next_permutation",
+      "split": "evaluation",
+      "stratum": "algorithm",
+      "task": "返回整数数组字典序下一排列，允许重复；没有更大排列（含空或单元素）返回空数组；不能改原数组。n<=8。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "algo_next_permutation.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc nextPermutation(a: Array<Int64>): Array<Int64> {\n let b=Array<Int64>(a.size,{i=>a[i]})\n var i=b.size-2\n while(i>=0 && b[i]>b[i+1]) {i-=1}\n if(i<0){return Array<Int64>()}\n var j=b.size-1\n while(b[j]<=b[i]){j-=1}\n let temp=b[i]; b[i]=b[j]; b[j]=temp\n var left=i+2; var right=b.size-1\n while(left<right){let t=b[left];b[left]=b[right];b[right]=t;left+=1;right-=1}\n b\n}\n\nmain() {\nprintln(nextPermutation([1,3,2]) == [2,1,3])\nprintln(nextPermutation([1,2,2]) == [2,1,2])\n}\n"
+      },
+      "sourceSha256": "ae7f4e32147dd31ef0f9271de36244d0279ea604d35e2df7d838c5210f0cf213",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "next_permutation",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/next_permutation.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "dev_lower_bound",
+      "familyId": "dev_lower_bound",
+      "split": "development",
+      "stratum": "algorithm",
+      "task": "非降序整数数组a，返回第一个>=x的位置，若无则返回a.size；n0..15。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "dev_lower_bound.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc lowerBound(a: Array<Int64>,x: Int64): Int64 {\n var lo: Int64=0; var hi=max(0,a.size-1)\n while(lo<hi){let mid=lo+(hi-lo)/2;if(a[mid]<=x){lo=mid+1}else{hi=mid}}\n lo\n}\n\nmain() {\nprintln(lowerBound([1,2,2],2) == 1)\nprintln(lowerBound([1,2],5) == 2)\n}\n"
+      },
+      "sourceSha256": "95e0f2adad7bd7426d0caa3181a2d2ce3668c4781fdd1f212f6d98ca727391ee",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "find_first_in_sorted",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/find_first_in_sorted.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "dev_base_digits",
+      "familyId": "dev_base_digits",
+      "split": "development",
+      "stratum": "algorithm",
+      "task": "将非负整数n转换为base进制的大写字符串（0..9,A..F），base2..16，n0..65535；0返回字符串0，无前导零。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "dev_base_digits.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc digitsInBase(n: Int64,base: Int64): String {\n if(n==0){return \"\"}\n let chars=\"0123456789ABCDEF\"\n var value=n; var out=\"\"\n while(value>0){out=out+Rune(chars[value%base]).toString();value=value/base}\n out\n}\n\nmain() {\nprintln(digitsInBase(0,2) == \"0\")\nprintln(digitsInBase(13,2) == \"1101\")\n}\n"
+      },
+      "sourceSha256": "1d8df7f052b16e341a50f0e462f31c4cd8b48031789e4fe74a8bd5aa3946127c",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": "QuixBugs",
+        "id": "to_base",
+        "revision": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+        "url": "https://github.com/jkoppel/QuixBugs/blob/4257f44b0ff1181dedaedee6a447e133219fcebf/correct_python_programs/to_base.py",
+        "license": "MIT",
+        "role": "Algorithm-family adaptation in new Cangjie implementation; new paired faults and bounded tests. Not original QuixBugs scores."
+      },
+      "docTopics": [
+        "array",
+        "range",
+        "function"
+      ],
+      "adaptations": [
+        "Typed bounded inputs and two independent planted faults; private expected outputs computed by separate JavaScript oracle."
+      ],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_rune_rotate",
+      "familyId": "api_rune_rotate",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "rotateRunes(s,k)把字符串按Unicode码点左循环移动k位，k>=0；空串返回空串，不按字节或字素簇移动。s码点<=15，k<=100。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_rune_rotate.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String,k: Int64): String {\n let chars=s.toArray()\n if(chars.size==0){return \"\"}\n let offset=0\n var out=\"\"\n for(i in 0..chars.size){out+=chars[(i+offset)%chars.size].toString()}\n out\n}\n\nmain() {\nprintln(rotateRunes(\"仓颉a\",1)==\"颉a仓\")\nprintln(rotateRunes(\"abc\",2)==\"cab\")\n}\n"
+      },
+      "sourceSha256": "1e80c4c311d8980b7ef8c9b23bbad138e4d02ddcc3807cd98f118f2bc8a5d51b",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "strings",
+        "rune"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_stable_unique",
+      "familyId": "api_stable_unique",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "firstUnique(values,limit)按首次出现次序返回至多limit个不同整数，limit>=0；不能改输入；结果为ArrayList<Int64>，空输入或limit0返回空。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_stable_unique.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\n let seen=HashSet<Int64>()\n let out=ArrayList<Int64>()\n for(x in values){if(out.size>=limit){break};if(seen.contains(x)){seen.add(x);out.push(x)}}\n out\n}\n\nmain() {\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\nprintln(firstUnique([1],0).size==0)\n}\n"
+      },
+      "sourceSha256": "f67737367ab1c5c057d5a5866272f8d25b07986e278912218749e90032a35991",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "collection_hashset",
+        "collection_arraylist"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_frequency",
+      "familyId": "api_frequency",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "frequency(words)将每个字符串trimAscii并toAsciiLower，忽略空串，返回HashMap计数；ASCII字符串，输入数组不变。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_frequency.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc frequency(words: Array<String>): HashMap<String,Int64> {\n let result=HashMap<String,Int64>()\n for(word in words){let key=word.trimAscii();if(!key.isEmpty()){result[key]=(result.getOrDefault(key,0))+1}}\n result\n}\n\nmain() {\nlet m=frequency([\" A \",\"a\",\"B\",\"\"])\nprintln(m[\"a\"]==2 && m[\"b\"]==1 && m.size==2)\n}\n"
+      },
+      "sourceSha256": "4a561e51874f339539649c458c669062ffc1b10191952f46affb164e60283e11",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "collection_hashmap",
+        "strings",
+        "option_type"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_copy_filter",
+      "familyId": "api_copy_filter",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "nonNegativeCopy(values)返回删除负数后的新ArrayList，保留零和顺序；不得修改原列表，结果之后修改也不能影响原列表。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_copy_filter.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc nonNegativeCopy(values: ArrayList<Int64>): ArrayList<Int64> {\n let result=values\n var i: Int64=0\n while(i<result.size){if(result[i]<0){result.remove(i)}else{i+=1}}\n result\n}\n\nmain() {\nlet a=ArrayList<Int64>([-1,2,-3,0]); let b=nonNegativeCopy(a)\nprintln(b==ArrayList<Int64>([2,0]) && a==ArrayList<Int64>([-1,2,-3,0]))\n}\n"
+      },
+      "sourceSha256": "46ad15f62d35a9a91ce80bda7817d7fc868df038f4516115025d433857e81eb1",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "collection_arraylist"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_matrix_alias",
+      "familyId": "api_matrix_alias",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "makeGrid(rows,cols)返回rows个独立ArrayList组成的Array，第i行j列值为10*i+j；rows/cols0..6。修改一行不能影响别行。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_matrix_alias.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc makeGrid(rows: Int64,cols: Int64): Array<ArrayList<Int64>> {\n let grid=Array<ArrayList<Int64>>(rows,repeat:ArrayList<Int64>())\n for(i in 0..rows){for(j in 0..cols){grid[i].add(10*i+j+1)}}\n grid\n}\n\nmain() {\nlet g=makeGrid(2,2)\nprintln(g[0]==ArrayList<Int64>([0,1]) && g[1]==ArrayList<Int64>([10,11]))\n}\n"
+      },
+      "sourceSha256": "36fac516cf598d4c1c427b96ca23f2798aa0411d97cb7d0217e04c31e811b4ea",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "array",
+        "collection_arraylist"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_parse_skip",
+      "familyId": "api_parse_skip",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "sumValid(items)对ASCII字符串trimAscii后用Int64.parse按十进制解析，合法数累加，非法项忽略并继续；不接受部分解析。合法数-999..999，项数<=20。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_parse_skip.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.convert.*\nfunc sumValid(items: Array<String>): Int64 {\n var total: Int64=0\n for(item in items){try {total=Int64.parseInt(item.trimAscii())}catch(_: Exception){}}\n total\n}\n\nmain() {\nprintln(sumValid([\"2\",\"bad\",\" 3 \"])==5)\n}\n"
+      },
+      "sourceSha256": "867189b8329540a3238860dd5bade60a51cd359b60caf77f50dfbb2d37da5111",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "handle",
+        "strings"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_optional_clamp",
+      "familyId": "api_optional_clamp",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "discount(value,cap)接受Option<Int64>，None返回0，Some(v)返回把v截断到[0,cap]；cap0..100。不能抛异常。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_optional_clamp.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc discount(value: Option<Int64>,cap: Int64): Int64 {\n match(value){case Some(v)=>max(0,min(value,cap))\n case None=>cap}\n}\n\nmain() {\nprintln(discount(Some(20),10)==10)\nprintln(discount(None,10)==0)\n}\n"
+      },
+      "sourceSha256": "0dba273708ae182d871268a383eee1a68ebd71917d515f112d867c9bf182f119",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "option_type",
+        "match"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "api_range_slice",
+      "familyId": "api_range_slice",
+      "split": "evaluation",
+      "stratum": "language-api",
+      "task": "closedSlice(a,lo,hi)返回索引落在闭区间[lo,hi]且在数组内的元素副本，顺序保持；与合法索引的交集为空则空；lo/hi-10..10，a长<=10。结果修改不影响原数组。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "api_range_slice.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc closedSlice(a: Array<Int64>,lo: Int64,hi: Int64): Array<Int64> {\n let start=lo;let end=min(a.size-1,hi)\n if(start>end){return Array<Int64>()}\n Array<Int64>(end-start,{i=>a[start+i]})\n}\n\nmain() {\nprintln(closedSlice([1,2,3],0,1)==[1,2])\nprintln(closedSlice([1,2,3],-2,1)==[1,2])\n}\n"
+      },
+      "sourceSha256": "b5b31ce72e959047ad87afb9f293c7e46170c4d5a2ae8fb9f8f1ac513f52dc8e",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "range",
+        "array"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "dev_named_splice",
+      "familyId": "dev_named_splice",
+      "split": "development",
+      "stratum": "language-api",
+      "task": "insertAll(a,items,at)返回新ArrayList，将items按原顺序插入a的at处；at0..a.size，不改两个输入。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "dev_named_splice.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc insertAll(a: ArrayList<Int64>,items: Array<Int64>,at: Int64): ArrayList<Int64> {\n let out=a\n out.insertAll(at,items)\n out\n}\n\nmain() {\nlet a=ArrayList<Int64>([1,4]);let b=insertAll(a,[2,3],1)\nprintln(b==ArrayList<Int64>([1,2,3,4]) && a==ArrayList<Int64>([1,4]))\n}\n"
+      },
+      "sourceSha256": "9c307ef09a5ac8705193f707d589ec54611545ac8dec2aa7a5be55b399dea4a4",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "collection_arraylist"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    },
+    {
+      "id": "dev_tuple_aggregate",
+      "familyId": "dev_tuple_aggregate",
+      "split": "development",
+      "stratum": "language-api",
+      "task": "aggregate(a)返回(sum,countPositive)元组；n<=20，值-100..100，只有>0才计数。 保留所有公开函数/类接口和一般行为，不能只打印示例答案；只修改本文件，不访问文件、网络或进程。",
+      "source": {
+        "name": "dev_tuple_aggregate.cj",
+        "text": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\n var sum: Int64=0;var positives: Int64=0\n for(x in a){sum+=x;if(x>=0){positives+=1}}\n (positives,sum)\n}\n\nmain() {\nprintln(aggregate([2,-1,0])==(1,1))\n}\n"
+      },
+      "sourceSha256": "dfc006a66e65b6d7ac7258b7854680ce869108b9f45a3d576d1e0c72913571f3",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\n"
+        }
+      ],
+      "origin": {
+        "benchmark": null,
+        "kind": "project-authored",
+        "license": "project-owned",
+        "role": "New Cangjie 1.0.5 semantic/API repair tasks; no benchmark score claimed."
+      },
+      "docTopics": [
+        "tuple",
+        "function"
+      ],
+      "adaptations": [],
+      "plantedFaults": 2
+    }
+  ]
+}
