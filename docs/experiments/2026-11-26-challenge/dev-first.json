@@ -1,0 +1,475 @@
+{
+  "designSha256": "df4fa3ca51f197fcb298321e900fede9eafe2a612d70f48d88b21319712658f9",
+  "phase": "development-first-attempt",
+  "startedAt": "2026-11-26T11:18:29.957Z",
+  "ceilingCNY": 0.8995280000000001,
+  "results": [
+    {
+      "caseId": "dev_named_splice",
+      "group": "A",
+      "requestSha256": "e7f85cf9df4cd122136cbed620f0ee3c3cc5c16ee9a0b5f5a45faaf2e5c30225",
+      "startedAt": "2026-11-26T11:18:29.959Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002466,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1c04be2f-868f-4b54-abae-ad2ff00dccbe",
+      "usage": {
+        "prompt_tokens": 485,
+        "completion_tokens": 187,
+        "total_tokens": 672,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 485
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\\n    let out = ArrayList<Int64>(a)\\n    var i = 0\\n    while (i < items.size) {\\n        out.insert(at + i, items[i])\\n        i++\\n    }\\n    out\\n}\\n\\nmain() {\\n    let a = ArrayList<Int64>([1, 4])\\n    let b = insertAll(a, [2, 3], 1)\\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\n    let out = ArrayList<Int64>(a)\n    var i = 0\n    while (i < items.size) {\n        out.insert(at + i, items[i])\n        i++\n    }\n    out\n}\n\nmain() {\n    let a = ArrayList<Int64>([1, 4])\n    let b = insertAll(a, [2, 3], 1)\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\n}\n",
+      "codeSha256": "e005920256f7ea73eb3ccba6aabeec2b004e56d8fa882e51ea07d353b1a03114",
+      "finishedAt": "2026-11-26T11:18:31.664Z"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "B",
+      "requestSha256": "d5d72dd753a4999ac036bb6e7402966ebac76a0b884e7939eeae64f35416cd69",
+      "startedAt": "2026-11-26T11:18:31.667Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.00619,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "97000579-934f-4dfb-8e65-5b26d3d3638e",
+      "usage": {
+        "prompt_tokens": 2439,
+        "completion_tokens": 164,
+        "total_tokens": 2603,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2055
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\n\\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\\n    let out = ArrayList<Int64>(a)\\n    out.add(all: items, at: at)\\n    return out\\n}\\n\\nmain() {\\n    let a = ArrayList<Int64>([1, 4])\\n    let b = insertAll(a, [2, 3], 1)\\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\n\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\n    let out = ArrayList<Int64>(a)\n    out.add(all: items, at: at)\n    return out\n}\n\nmain() {\n    let a = ArrayList<Int64>([1, 4])\n    let b = insertAll(a, [2, 3], 1)\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\n}\n",
+      "codeSha256": "41f7a5659ac0d097fd0836238e9cdb68a20f66f690d517e2c8dc8fb4842b8a17",
+      "finishedAt": "2026-11-26T11:18:32.741Z"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "C",
+      "requestSha256": "ee40f47a7ec85f029f82bc83a18ce36f239cbeb80bf623ece69ae606fb9557df",
+      "startedAt": "2026-11-26T11:18:32.745Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.006988,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0d879632-1084-400f-8fda-4372db3fb596",
+      "usage": {
+        "prompt_tokens": 2774,
+        "completion_tokens": 180,
+        "total_tokens": 2954,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2390
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\n\\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\\n    let out = ArrayList<Int64>(a)\\n    for (i in 0..items.size) {\\n        out.insert(at + i, items[i])\\n    }\\n    return out\\n}\\n\\nmain() {\\n    let a = ArrayList<Int64>([1, 4])\\n    let b = insertAll(a, [2, 3], 1)\\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\n\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\n    let out = ArrayList<Int64>(a)\n    for (i in 0..items.size) {\n        out.insert(at + i, items[i])\n    }\n    return out\n}\n\nmain() {\n    let a = ArrayList<Int64>([1, 4])\n    let b = insertAll(a, [2, 3], 1)\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\n}\n",
+      "codeSha256": "22e512ee1068329d288cebf7d07b7cd6d8dc6d7ee3779557e108c201649502c8",
+      "finishedAt": "2026-11-26T11:18:34.068Z"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "B",
+      "requestSha256": "510e0bead4754aa497d4884b759befa9b10da492762038e228194abeb5a79229",
+      "startedAt": "2026-11-26T11:18:34.071Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.007032,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4b707a1c-f146-4195-a067-39e5d4a0d900",
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 170,
+        "total_tokens": 3006,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2836
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc digitsInBase(n: Int64, base: Int64): String {\\n    if (n == 0) { return \\\"0\\\" }\\n    let chars = \\\"0123456789ABCDEF\\\"\\n    var value = n\\n    var out = \\\"\\\"\\n    while (value > 0) {\\n        let digit = value % base\\n        out = Rune(chars[digit]).toString() + out\\n        value = value / base\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(digitsInBase(0, 2) == \\\"0\\\")\\n    println(digitsInBase(13, 2) == \\\"1101\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc digitsInBase(n: Int64, base: Int64): String {\n    if (n == 0) { return \"0\" }\n    let chars = \"0123456789ABCDEF\"\n    var value = n\n    var out = \"\"\n    while (value > 0) {\n        let digit = value % base\n        out = Rune(chars[digit]).toString() + out\n        value = value / base\n    }\n    out\n}\n\nmain() {\n    println(digitsInBase(0, 2) == \"0\")\n    println(digitsInBase(13, 2) == \"1101\")\n}\n",
+      "codeSha256": "cfee240bc11f08e1c530c1eeabf821262543318eed38f083a004b6b7267fe793",
+      "finishedAt": "2026-11-26T11:18:35.589Z"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "C",
+      "requestSha256": "dd67a9f5ee505d1f057d0a5e1a5f8457d9b34cf1f29e03504cded60c0d721f49",
+      "startedAt": "2026-11-26T11:18:35.592Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.006846,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8665f45c-c057-4e0b-8231-8a1645df8bf1",
+      "usage": {
+        "prompt_tokens": 2731,
+        "completion_tokens": 173,
+        "total_tokens": 2904,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 2475
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc digitsInBase(n: Int64, base: Int64): String {\\n    if (n == 0) {\\n        return \\\"0\\\"\\n    }\\n    let chars = \\\"0123456789ABCDEF\\\"\\n    var value = n\\n    var out = \\\"\\\"\\n    while (value > 0) {\\n        let digit = value % base\\n        out = chars[digit].toString() + out\\n        value = value / base\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(digitsInBase(0, 2) == \\\"0\\\")\\n    println(digitsInBase(13, 2) == \\\"1101\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc digitsInBase(n: Int64, base: Int64): String {\n    if (n == 0) {\n        return \"0\"\n    }\n    let chars = \"0123456789ABCDEF\"\n    var value = n\n    var out = \"\"\n    while (value > 0) {\n        let digit = value % base\n        out = chars[digit].toString() + out\n        value = value / base\n    }\n    return out\n}\n\nmain() {\n    println(digitsInBase(0, 2) == \"0\")\n    println(digitsInBase(13, 2) == \"1101\")\n}\n",
+      "codeSha256": "a379582e7b5f9cb9f2aab97f752e195f462e0842695b85a1db010c20670c09e8",
+      "finishedAt": "2026-11-26T11:18:36.932Z"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "A",
+      "requestSha256": "e0b69cf7eb8b4fb46ccc1f1081030a43e9c2c3189cb3c931dd6d3a05b1d64f1a",
+      "startedAt": "2026-11-26T11:18:36.936Z",
+      "status": "invalid",
+      "costUpperEstimateCNY": 0.002364,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2d6ae8a6-f9b6-447c-ba6b-86e74f7e1b00",
+      "usage": {
+        "prompt_tokens": 442,
+        "completion_tokens": 185,
+        "total_tokens": 627,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc digitsInBase(n: Int64, base: Int64): String {\\n    if (n == 0) {\\n        return \\\"0\\\"\\n    }\\n    let chars = \\\"0123456789ABCDEF\\\"\\n    var value = n\\n    var out = \\\"\\\"\\n    while (value > 0) {\\n        let digit = Int64(chars[value % base])\\n        out = Rune(digit).toString() + out\\n        value = value / base\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(digitsInBase(0, 2) == \\\"0\\\")\\n    println(digitsInBase(13, 2) == \\\"1101\\\")\\n}\\n\"}</json_object>",
+      "finishedAt": "2026-11-26T11:18:38.545Z"
+    },
+    {
+      "caseId": "dev_bit_status",
+      "group": "C",
+      "requestSha256": "ed575a55f281eeebdfc02199c1ba371344e68a1aba6f307e8982707d181dfc27",
+      "startedAt": "2026-11-26T11:18:38.548Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.00823,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "80c93b2b-5b1c-420f-ae26-647f03cf3378",
+      "usage": {
+        "prompt_tokens": 2895,
+        "completion_tokens": 305,
+        "total_tokens": 3200,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2895
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nclass BitStatusUtil {\\n\\n    public static func add(states: Int64, stat: Int64): Int64 {\\n        BitStatusUtil.check([states, stat])\\n        return (states | stat)\\n    }\\n\\n    public static func has(states: Int64, stat: Int64): Bool {\\n        BitStatusUtil.check([states, stat])\\n        return (states & stat) == stat\\n    }\\n\\n    public static func remove(states: Int64, stat: Int64): Int64 {\\n        BitStatusUtil.check([states, stat])\\n        if (BitStatusUtil.has(states, stat)) {\\n            return states ^ stat\\n        }\\n        return states\\n    }\\n\\n    public static func check(args: Array<Int64>): Unit {\\n        for (arg in args) {\\n            if (arg < 0) {\\n                throw Exception(\\\"${arg} must be greater than or equal to 0\\\")\\n            }\\n            if (arg % 2 != 0) {\\n                throw Exception(\\\"${arg} not even\\\")\\n            }\\n        }\\n    }\\n}\\n\\nmain() {\\nprintln(BitStatusUtil.add(2,4)==6)\\nprintln(!BitStatusUtil.has(2,6))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nclass BitStatusUtil {\n\n    public static func add(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        return (states | stat)\n    }\n\n    public static func has(states: Int64, stat: Int64): Bool {\n        BitStatusUtil.check([states, stat])\n        return (states & stat) == stat\n    }\n\n    public static func remove(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        if (BitStatusUtil.has(states, stat)) {\n            return states ^ stat\n        }\n        return states\n    }\n\n    public static func check(args: Array<Int64>): Unit {\n        for (arg in args) {\n            if (arg < 0) {\n                throw Exception(\"${arg} must be greater than or equal to 0\")\n            }\n            if (arg % 2 != 0) {\n                throw Exception(\"${arg} not even\")\n            }\n        }\n    }\n}\n\nmain() {\nprintln(BitStatusUtil.add(2,4)==6)\nprintln(!BitStatusUtil.has(2,6))\n}\n",
+      "codeSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "finishedAt": "2026-11-26T11:18:39.506Z"
+    },
+    {
+      "caseId": "dev_bit_status",
+      "group": "A",
+      "requestSha256": "98090f015bfbb6adac5245c76db1df44ad4a23413fa5613d6b0928baa487eeec",
+      "startedAt": "2026-11-26T11:18:39.509Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.003652,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7a8ad525-af31-430e-976d-f891ca26a96b",
+      "usage": {
+        "prompt_tokens": 606,
+        "completion_tokens": 305,
+        "total_tokens": 911,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 222
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nclass BitStatusUtil {\\n\\n    public static func add(states: Int64, stat: Int64): Int64 {\\n        BitStatusUtil.check([states, stat])\\n        return (states | stat)\\n    }\\n\\n    public static func has(states: Int64, stat: Int64): Bool {\\n        BitStatusUtil.check([states, stat])\\n        return (states & stat) == stat\\n    }\\n\\n    public static func remove(states: Int64, stat: Int64): Int64 {\\n        BitStatusUtil.check([states, stat])\\n        if (BitStatusUtil.has(states, stat)) {\\n            return states ^ stat\\n        }\\n        return states\\n    }\\n\\n    public static func check(args: Array<Int64>): Unit {\\n        for (arg in args) {\\n            if (arg < 0) {\\n                throw Exception(\\\"${arg} must be greater than or equal to 0\\\")\\n            }\\n            if (arg % 2 != 0) {\\n                throw Exception(\\\"${arg} not even\\\")\\n            }\\n        }\\n    }\\n}\\n\\nmain() {\\nprintln(BitStatusUtil.add(2,4)==6)\\nprintln(!BitStatusUtil.has(2,6))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nclass BitStatusUtil {\n\n    public static func add(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        return (states | stat)\n    }\n\n    public static func has(states: Int64, stat: Int64): Bool {\n        BitStatusUtil.check([states, stat])\n        return (states & stat) == stat\n    }\n\n    public static func remove(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        if (BitStatusUtil.has(states, stat)) {\n            return states ^ stat\n        }\n        return states\n    }\n\n    public static func check(args: Array<Int64>): Unit {\n        for (arg in args) {\n            if (arg < 0) {\n                throw Exception(\"${arg} must be greater than or equal to 0\")\n            }\n            if (arg % 2 != 0) {\n                throw Exception(\"${arg} not even\")\n            }\n        }\n    }\n}\n\nmain() {\nprintln(BitStatusUtil.add(2,4)==6)\nprintln(!BitStatusUtil.has(2,6))\n}\n",
+      "codeSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "finishedAt": "2026-11-26T11:18:40.446Z"
+    },
+    {
+      "caseId": "dev_bit_status",
+      "group": "B",
+      "requestSha256": "c55dccc8111b783487bb6bee33861f7ccdf6a0e61f7c901ea2019a165498c014",
+      "startedAt": "2026-11-26T11:18:40.449Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.008376,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "20f22a25-2aa0-4b25-9927-e2bce003a614",
+      "usage": {
+        "prompt_tokens": 2968,
+        "completion_tokens": 305,
+        "total_tokens": 3273,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 2456
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nclass BitStatusUtil {\\n\\n    public static func add(states: Int64, stat: Int64): Int64 {\\n        BitStatusUtil.check([states, stat])\\n        return (states | stat)\\n    }\\n\\n    public static func has(states: Int64, stat: Int64): Bool {\\n        BitStatusUtil.check([states, stat])\\n        return (states & stat) == stat\\n    }\\n\\n    public static func remove(states: Int64, stat: Int64): Int64 {\\n        BitStatusUtil.check([states, stat])\\n        if (BitStatusUtil.has(states, stat)) {\\n            return states ^ stat\\n        }\\n        return states\\n    }\\n\\n    public static func check(args: Array<Int64>): Unit {\\n        for (arg in args) {\\n            if (arg < 0) {\\n                throw Exception(\\\"${arg} must be greater than or equal to 0\\\")\\n            }\\n            if (arg % 2 != 0) {\\n                throw Exception(\\\"${arg} not even\\\")\\n            }\\n        }\\n    }\\n}\\n\\nmain() {\\nprintln(BitStatusUtil.add(2,4)==6)\\nprintln(!BitStatusUtil.has(2,6))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nclass BitStatusUtil {\n\n    public static func add(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        return (states | stat)\n    }\n\n    public static func has(states: Int64, stat: Int64): Bool {\n        BitStatusUtil.check([states, stat])\n        return (states & stat) == stat\n    }\n\n    public static func remove(states: Int64, stat: Int64): Int64 {\n        BitStatusUtil.check([states, stat])\n        if (BitStatusUtil.has(states, stat)) {\n            return states ^ stat\n        }\n        return states\n    }\n\n    public static func check(args: Array<Int64>): Unit {\n        for (arg in args) {\n            if (arg < 0) {\n                throw Exception(\"${arg} must be greater than or equal to 0\")\n            }\n            if (arg % 2 != 0) {\n                throw Exception(\"${arg} not even\")\n            }\n        }\n    }\n}\n\nmain() {\nprintln(BitStatusUtil.add(2,4)==6)\nprintln(!BitStatusUtil.has(2,6))\n}\n",
+      "codeSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "finishedAt": "2026-11-26T11:18:41.677Z"
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "group": "A",
+      "requestSha256": "cf10589a8215e1c9fa8887578842798d62fe4afa8a2f886c706da7aa78cb7515",
+      "startedAt": "2026-11-26T11:18:41.680Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.001654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "add26e2b-fd85-4ca2-bf31-924e2199469a",
+      "usage": {
+        "prompt_tokens": 399,
+        "completion_tokens": 107,
+        "total_tokens": 506,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 399
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\\n var sum: Int64=0;var positives: Int64=0\\n for(x in a){sum+=x;if(x>0){positives+=1}}\\n (sum,positives)\\n}\\n\\nmain() {\\nprintln(aggregate([2,-1,0])==(1,1))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\n var sum: Int64=0;var positives: Int64=0\n for(x in a){sum+=x;if(x>0){positives+=1}}\n (sum,positives)\n}\n\nmain() {\nprintln(aggregate([2,-1,0])==(1,1))\n}\n",
+      "codeSha256": "d8686a6b1cccf7b8d10058381ba2bd68cee160c73080674f73d32a64f43b107a",
+      "finishedAt": "2026-11-26T11:18:42.505Z"
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "group": "C",
+      "requestSha256": "d40622883c4b03b2dead86c7a427d4b1ef9c0b2059a547931809cc81507e80d8",
+      "startedAt": "2026-11-26T11:18:42.508Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.006232,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "197bbd0b-24f4-4af9-b800-024e1f212b18",
+      "usage": {
+        "prompt_tokens": 2688,
+        "completion_tokens": 107,
+        "total_tokens": 2795,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2304
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\\n var sum: Int64=0;var positives: Int64=0\\n for(x in a){sum+=x;if(x>0){positives+=1}}\\n (sum,positives)\\n}\\n\\nmain() {\\nprintln(aggregate([2,-1,0])==(1,1))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\n var sum: Int64=0;var positives: Int64=0\n for(x in a){sum+=x;if(x>0){positives+=1}}\n (sum,positives)\n}\n\nmain() {\nprintln(aggregate([2,-1,0])==(1,1))\n}\n",
+      "codeSha256": "d8686a6b1cccf7b8d10058381ba2bd68cee160c73080674f73d32a64f43b107a",
+      "finishedAt": "2026-11-26T11:18:43.787Z"
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "group": "B",
+      "requestSha256": "8cacfad86d85a073dd3479be9799be8b57057add14f256bda982e0c92a0eda08",
+      "startedAt": "2026-11-26T11:18:43.789Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.006692,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f502fe8c-74ab-47c0-af5e-e0112b2a9025",
+      "usage": {
+        "prompt_tokens": 2822,
+        "completion_tokens": 131,
+        "total_tokens": 2953,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2438
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\\n    var sum: Int64 = 0\\n    var positives: Int64 = 0\\n    for (x in a) {\\n        sum += x\\n        if (x > 0) {\\n            positives += 1\\n        }\\n    }\\n    (sum, positives)\\n}\\n\\nmain() {\\n    println(aggregate([2, -1, 0]) == (1, 1))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc aggregate(a: Array<Int64>): (Int64,Int64) {\n    var sum: Int64 = 0\n    var positives: Int64 = 0\n    for (x in a) {\n        sum += x\n        if (x > 0) {\n            positives += 1\n        }\n    }\n    (sum, positives)\n}\n\nmain() {\n    println(aggregate([2, -1, 0]) == (1, 1))\n}\n",
+      "codeSha256": "b1200a4b0251419e8c86de075a737e9febf01dc6e8f1b1c4fbcf356afddfb245",
+      "finishedAt": "2026-11-26T11:18:44.985Z"
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "group": "C",
+      "requestSha256": "59755fc694b1372279e31b686a99bf4b5010292078aacc0dff377463aff64524",
+      "startedAt": "2026-11-26T11:18:44.988Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.00679,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d9addaf1-3a69-4bbd-aa54-d467ea23fe7f",
+      "usage": {
+        "prompt_tokens": 2715,
+        "completion_tokens": 170,
+        "total_tokens": 2885,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2715
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc lowerBound(a: Array<Int64>, x: Int64): Int64 {\\n    var lo: Int64 = 0\\n    var hi: Int64 = a.size\\n    while (lo < hi) {\\n        let mid = lo + (hi - lo) / 2\\n        if (a[mid] < x) {\\n            lo = mid + 1\\n        } else {\\n            hi = mid\\n        }\\n    }\\n    return lo\\n}\\n\\nmain() {\\n    println(lowerBound([1, 2, 2], 2) == 1)\\n    println(lowerBound([1, 2], 5) == 2)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc lowerBound(a: Array<Int64>, x: Int64): Int64 {\n    var lo: Int64 = 0\n    var hi: Int64 = a.size\n    while (lo < hi) {\n        let mid = lo + (hi - lo) / 2\n        if (a[mid] < x) {\n            lo = mid + 1\n        } else {\n            hi = mid\n        }\n    }\n    return lo\n}\n\nmain() {\n    println(lowerBound([1, 2, 2], 2) == 1)\n    println(lowerBound([1, 2], 5) == 2)\n}\n",
+      "codeSha256": "b49b315e446b6a7ad6412918c6fdef8e187627d420fb0502e4b63f41b8aa9af6",
+      "finishedAt": "2026-11-26T11:18:45.652Z"
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "group": "B",
+      "requestSha256": "4743b68dfe3ca83758d1aa556a3bf8f9b02752bd2df07d2576441bb9a8e964a4",
+      "startedAt": "2026-11-26T11:18:45.655Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.00694,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bb7abf66-99a4-4f9b-8aa1-473b2330672d",
+      "usage": {
+        "prompt_tokens": 2794,
+        "completion_tokens": 169,
+        "total_tokens": 2963,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 2538
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc lowerBound(a: Array<Int64>, x: Int64): Int64 {\\n    var lo: Int64 = 0\\n    var hi: Int64 = a.size\\n    while (lo < hi) {\\n        let mid = lo + (hi - lo) / 2\\n        if (a[mid] < x) {\\n            lo = mid + 1\\n        } else {\\n            hi = mid\\n        }\\n    }\\n    lo\\n}\\n\\nmain() {\\n    println(lowerBound([1, 2, 2], 2) == 1)\\n    println(lowerBound([1, 2], 5) == 2)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc lowerBound(a: Array<Int64>, x: Int64): Int64 {\n    var lo: Int64 = 0\n    var hi: Int64 = a.size\n    while (lo < hi) {\n        let mid = lo + (hi - lo) / 2\n        if (a[mid] < x) {\n            lo = mid + 1\n        } else {\n            hi = mid\n        }\n    }\n    lo\n}\n\nmain() {\n    println(lowerBound([1, 2, 2], 2) == 1)\n    println(lowerBound([1, 2], 5) == 2)\n}\n",
+      "codeSha256": "d3aeafdb74597f5dbfec8711250d08497eff8674acd0bfebf9406184cfbf6aa9",
+      "finishedAt": "2026-11-26T11:18:47.064Z"
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "group": "A",
+      "requestSha256": "65067b737a87f0d711ea5f278e6ba0a16b1487534b8adf042dfb78f495147b59",
+      "startedAt": "2026-11-26T11:18:47.067Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002204,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "19ac135b-d399-45c5-bdc8-2e5b7732e3e6",
+      "usage": {
+        "prompt_tokens": 426,
+        "completion_tokens": 169,
+        "total_tokens": 595,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 170
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc lowerBound(a: Array<Int64>, x: Int64): Int64 {\\n    var lo: Int64 = 0\\n    var hi: Int64 = a.size\\n    while (lo < hi) {\\n        let mid = lo + (hi - lo) / 2\\n        if (a[mid] < x) {\\n            lo = mid + 1\\n        } else {\\n            hi = mid\\n        }\\n    }\\n    lo\\n}\\n\\nmain() {\\n    println(lowerBound([1, 2, 2], 2) == 1)\\n    println(lowerBound([1, 2], 5) == 2)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc lowerBound(a: Array<Int64>, x: Int64): Int64 {\n    var lo: Int64 = 0\n    var hi: Int64 = a.size\n    while (lo < hi) {\n        let mid = lo + (hi - lo) / 2\n        if (a[mid] < x) {\n            lo = mid + 1\n        } else {\n            hi = mid\n        }\n    }\n    lo\n}\n\nmain() {\n    println(lowerBound([1, 2, 2], 2) == 1)\n    println(lowerBound([1, 2], 5) == 2)\n}\n",
+      "codeSha256": "d3aeafdb74597f5dbfec8711250d08497eff8674acd0bfebf9406184cfbf6aa9",
+      "finishedAt": "2026-11-26T11:18:48.393Z"
+    },
+    {
+      "caseId": "dev_brackets",
+      "group": "B",
+      "requestSha256": "75330fc8209747420db2ce508c76689fd11c1dd64e0e649f386fc1ceb66a169c",
+      "startedAt": "2026-11-26T11:18:48.395Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.010454,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "81d646ba-53fa-4fb8-bc23-b8ceb014e61b",
+      "usage": {
+        "prompt_tokens": 3079,
+        "completion_tokens": 537,
+        "total_tokens": 3616,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3079
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.ArrayList\\n\\nclass BalancedBrackets {\\n\\n    let stack: ArrayList<String>\\n    let left_brackets: ArrayList<String>\\n    let right_brackets: ArrayList<String>\\n    var expr: String\\n\\n    public init(expr: String) {\\n        this.stack = ArrayList<String>()\\n        this.left_brackets = ArrayList<String>([\\\"(\\\", \\\"{\\\", \\\"[\\\"])\\n        this.right_brackets = ArrayList<String>([\\\")\\\", \\\"}\\\", \\\"]\\\"])\\n        this.expr = expr\\n    }\\n\\n    public func clear_expr(): Unit {\\n        var temp_expr = \\\"\\\"\\n        for (c in this.expr.toRuneArray()) {\\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\\n                temp_expr += c.toString()\\n            }\\n        }\\n        this.expr = temp_expr\\n    }\\n\\n    public func check_balanced_brackets(): Bool {\\n        this.stack.clear()\\n        this.clear_expr()\\n        for (Brkt in this.expr.toRuneArray()) {\\n            if (this.left_brackets.contains(Brkt.toString())) {\\n                this.stack.add(Brkt.toString())\\n            } else {\\n                if (this.stack.isEmpty()) { return false }\\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\\n                if (Current_Brkt == \\\"(\\\") {\\n                    if (Brkt.toString() != \\\")\\\") {\\n                        return false\\n                    }\\n                }\\n                if (Current_Brkt == \\\"{\\\") {\\n                    if (Brkt.toString() != \\\"}\\\") {\\n                        return false\\n                    }\\n                }\\n                if (Current_Brkt == \\\"[\\\") {\\n                    if (Brkt.toString() != \\\"]\\\") {\\n                        return false\\n                    }\\n                }\\n            }\\n        }\\n        if (this.stack.size > 0) {\\n            return false\\n        }\\n        return true\\n    }\\n}\\n\\nmain() {\\nlet b=BalancedBrackets(\\\"(\\\")\\nprintln(!b.check_balanced_brackets())\\nprintln(!BalancedBrackets(\\\")\\\").check_balanced_brackets())\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.ArrayList\n\nclass BalancedBrackets {\n\n    let stack: ArrayList<String>\n    let left_brackets: ArrayList<String>\n    let right_brackets: ArrayList<String>\n    var expr: String\n\n    public init(expr: String) {\n        this.stack = ArrayList<String>()\n        this.left_brackets = ArrayList<String>([\"(\", \"{\", \"[\"])\n        this.right_brackets = ArrayList<String>([\")\", \"}\", \"]\"])\n        this.expr = expr\n    }\n\n    public func clear_expr(): Unit {\n        var temp_expr = \"\"\n        for (c in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\n                temp_expr += c.toString()\n            }\n        }\n        this.expr = temp_expr\n    }\n\n    public func check_balanced_brackets(): Bool {\n        this.stack.clear()\n        this.clear_expr()\n        for (Brkt in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(Brkt.toString())) {\n                this.stack.add(Brkt.toString())\n            } else {\n                if (this.stack.isEmpty()) { return false }\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\n                if (Current_Brkt == \"(\") {\n                    if (Brkt.toString() != \")\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"{\") {\n                    if (Brkt.toString() != \"}\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"[\") {\n                    if (Brkt.toString() != \"]\") {\n                        return false\n                    }\n                }\n            }\n        }\n        if (this.stack.size > 0) {\n            return false\n        }\n        return true\n    }\n}\n\nmain() {\nlet b=BalancedBrackets(\"(\")\nprintln(!b.check_balanced_brackets())\nprintln(!BalancedBrackets(\")\").check_balanced_brackets())\n}\n",
+      "codeSha256": "91b98aa92dfed06390dbb038838b39b9f8bb4b26597afc1b6dc47cee74ba660f",
+      "finishedAt": "2026-11-26T11:18:49.907Z"
+    },
+    {
+      "caseId": "dev_brackets",
+      "group": "A",
+      "requestSha256": "c3b28065320aee6f7f45e071ba1480b724676cdb4a20c3035cd6ee0447cc4e53",
+      "startedAt": "2026-11-26T11:18:49.910Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.005966,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "653ddfd1-df69-43e9-a2d1-5aeeb97607c1",
+      "usage": {
+        "prompt_tokens": 835,
+        "completion_tokens": 537,
+        "total_tokens": 1372,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 195
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.ArrayList\\n\\nclass BalancedBrackets {\\n\\n    let stack: ArrayList<String>\\n    let left_brackets: ArrayList<String>\\n    let right_brackets: ArrayList<String>\\n    var expr: String\\n\\n    public init(expr: String) {\\n        this.stack = ArrayList<String>()\\n        this.left_brackets = ArrayList<String>([\\\"(\\\", \\\"{\\\", \\\"[\\\"])\\n        this.right_brackets = ArrayList<String>([\\\")\\\", \\\"}\\\", \\\"]\\\"])\\n        this.expr = expr\\n    }\\n\\n    public func clear_expr(): Unit {\\n        var temp_expr = \\\"\\\"\\n        for (c in this.expr.toRuneArray()) {\\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\\n                temp_expr += c.toString()\\n            }\\n        }\\n        this.expr = temp_expr\\n    }\\n\\n    public func check_balanced_brackets(): Bool {\\n        this.stack.clear()\\n        this.clear_expr()\\n        for (Brkt in this.expr.toRuneArray()) {\\n            if (this.left_brackets.contains(Brkt.toString())) {\\n                this.stack.add(Brkt.toString())\\n            } else {\\n                if (this.stack.isEmpty()) { return false }\\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\\n                if (Current_Brkt == \\\"(\\\") {\\n                    if (Brkt.toString() != \\\")\\\") {\\n                        return false\\n                    }\\n                }\\n                if (Current_Brkt == \\\"{\\\") {\\n                    if (Brkt.toString() != \\\"}\\\") {\\n                        return false\\n                    }\\n                }\\n                if (Current_Brkt == \\\"[\\\") {\\n                    if (Brkt.toString() != \\\"]\\\") {\\n                        return false\\n                    }\\n                }\\n            }\\n        }\\n        if (this.stack.size > 0) {\\n            return false\\n        }\\n        return true\\n    }\\n}\\n\\nmain() {\\nlet b=BalancedBrackets(\\\"(\\\")\\nprintln(!b.check_balanced_brackets())\\nprintln(!BalancedBrackets(\\\")\\\").check_balanced_brackets())\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.ArrayList\n\nclass BalancedBrackets {\n\n    let stack: ArrayList<String>\n    let left_brackets: ArrayList<String>\n    let right_brackets: ArrayList<String>\n    var expr: String\n\n    public init(expr: String) {\n        this.stack = ArrayList<String>()\n        this.left_brackets = ArrayList<String>([\"(\", \"{\", \"[\"])\n        this.right_brackets = ArrayList<String>([\")\", \"}\", \"]\"])\n        this.expr = expr\n    }\n\n    public func clear_expr(): Unit {\n        var temp_expr = \"\"\n        for (c in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\n                temp_expr += c.toString()\n            }\n        }\n        this.expr = temp_expr\n    }\n\n    public func check_balanced_brackets(): Bool {\n        this.stack.clear()\n        this.clear_expr()\n        for (Brkt in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(Brkt.toString())) {\n                this.stack.add(Brkt.toString())\n            } else {\n                if (this.stack.isEmpty()) { return false }\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\n                if (Current_Brkt == \"(\") {\n                    if (Brkt.toString() != \")\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"{\") {\n                    if (Brkt.toString() != \"}\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"[\") {\n                    if (Brkt.toString() != \"]\") {\n                        return false\n                    }\n                }\n            }\n        }\n        if (this.stack.size > 0) {\n            return false\n        }\n        return true\n    }\n}\n\nmain() {\nlet b=BalancedBrackets(\"(\")\nprintln(!b.check_balanced_brackets())\nprintln(!BalancedBrackets(\")\").check_balanced_brackets())\n}\n",
+      "codeSha256": "91b98aa92dfed06390dbb038838b39b9f8bb4b26597afc1b6dc47cee74ba660f",
+      "finishedAt": "2026-11-26T11:18:51.262Z"
+    },
+    {
+      "caseId": "dev_brackets",
+      "group": "C",
+      "requestSha256": "be54dfb24f3710952a9a94aae92648013a364385222cc4e8e7961787f494fba3",
+      "startedAt": "2026-11-26T11:18:51.267Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.010544,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "36cc2878-8d1a-46a6-a7c5-b46bf6eeb693",
+      "usage": {
+        "prompt_tokens": 3124,
+        "completion_tokens": 537,
+        "total_tokens": 3661,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 2484
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.ArrayList\\n\\nclass BalancedBrackets {\\n\\n    let stack: ArrayList<String>\\n    let left_brackets: ArrayList<String>\\n    let right_brackets: ArrayList<String>\\n    var expr: String\\n\\n    public init(expr: String) {\\n        this.stack = ArrayList<String>()\\n        this.left_brackets = ArrayList<String>([\\\"(\\\", \\\"{\\\", \\\"[\\\"])\\n        this.right_brackets = ArrayList<String>([\\\")\\\", \\\"}\\\", \\\"]\\\"])\\n        this.expr = expr\\n    }\\n\\n    public func clear_expr(): Unit {\\n        var temp_expr = \\\"\\\"\\n        for (c in this.expr.toRuneArray()) {\\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\\n                temp_expr += c.toString()\\n            }\\n        }\\n        this.expr = temp_expr\\n    }\\n\\n    public func check_balanced_brackets(): Bool {\\n        this.stack.clear()\\n        this.clear_expr()\\n        for (Brkt in this.expr.toRuneArray()) {\\n            if (this.left_brackets.contains(Brkt.toString())) {\\n                this.stack.add(Brkt.toString())\\n            } else {\\n                if (this.stack.isEmpty()) { return false }\\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\\n                if (Current_Brkt == \\\"(\\\") {\\n                    if (Brkt.toString() != \\\")\\\") {\\n                        return false\\n                    }\\n                }\\n                if (Current_Brkt == \\\"{\\\") {\\n                    if (Brkt.toString() != \\\"}\\\") {\\n                        return false\\n                    }\\n                }\\n                if (Current_Brkt == \\\"[\\\") {\\n                    if (Brkt.toString() != \\\"]\\\") {\\n                        return false\\n                    }\\n                }\\n            }\\n        }\\n        if (this.stack.size > 0) {\\n            return false\\n        }\\n        return true\\n    }\\n}\\n\\nmain() {\\nlet b=BalancedBrackets(\\\"(\\\")\\nprintln(!b.check_balanced_brackets())\\nprintln(!BalancedBrackets(\\\")\\\").check_balanced_brackets())\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.ArrayList\n\nclass BalancedBrackets {\n\n    let stack: ArrayList<String>\n    let left_brackets: ArrayList<String>\n    let right_brackets: ArrayList<String>\n    var expr: String\n\n    public init(expr: String) {\n        this.stack = ArrayList<String>()\n        this.left_brackets = ArrayList<String>([\"(\", \"{\", \"[\"])\n        this.right_brackets = ArrayList<String>([\")\", \"}\", \"]\"])\n        this.expr = expr\n    }\n\n    public func clear_expr(): Unit {\n        var temp_expr = \"\"\n        for (c in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(c.toString()) || this.right_brackets.contains(c.toString())) {\n                temp_expr += c.toString()\n            }\n        }\n        this.expr = temp_expr\n    }\n\n    public func check_balanced_brackets(): Bool {\n        this.stack.clear()\n        this.clear_expr()\n        for (Brkt in this.expr.toRuneArray()) {\n            if (this.left_brackets.contains(Brkt.toString())) {\n                this.stack.add(Brkt.toString())\n            } else {\n                if (this.stack.isEmpty()) { return false }\n                let Current_Brkt = this.stack.remove(at: this.stack.size - 1)\n                if (Current_Brkt == \"(\") {\n                    if (Brkt.toString() != \")\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"{\") {\n                    if (Brkt.toString() != \"}\") {\n                        return false\n                    }\n                }\n                if (Current_Brkt == \"[\") {\n                    if (Brkt.toString() != \"]\") {\n                        return false\n                    }\n                }\n            }\n        }\n        if (this.stack.size > 0) {\n            return false\n        }\n        return true\n    }\n}\n\nmain() {\nlet b=BalancedBrackets(\"(\")\nprintln(!b.check_balanced_brackets())\nprintln(!BalancedBrackets(\")\").check_balanced_brackets())\n}\n",
+      "codeSha256": "91b98aa92dfed06390dbb038838b39b9f8bb4b26597afc1b6dc47cee74ba660f",
+      "finishedAt": "2026-11-26T11:18:53.359Z"
+    }
+  ],
+  "finishedAt": "2026-11-26T11:18:53.362Z"
+}
