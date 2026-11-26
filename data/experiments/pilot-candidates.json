@@ -1,0 +1,888 @@
+{
+  "kind": "doctor-pilot-candidates",
+  "scope": "single-round-frozen-holdout-pilot",
+  "freezeSha256": "891012b96d8dee4f254cf954538faeecc8d1c54e981f9de6dab26bb6f853dd5c",
+  "startedAt": "2026-11-26T08:10:54.076Z",
+  "settings": {
+    "model": "deepseek-flash",
+    "thinking": {
+      "type": "disabled"
+    },
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048,
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": false
+  },
+  "maxCostCNY": 20,
+  "results": [
+    {
+      "caseId": "eval_parameter_colon",
+      "group": "A",
+      "requestSha256": "a4b1ac3928656a0387839b671718d9c668fdd9f4061cf93bab7a31f77e9fef0f",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:54.078Z",
+      "reservationCNY": 0.022108,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "096eb2b8-9139-4105-8bdf-18ca1a14e162",
+      "usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 55,
+        "total_tokens": 486,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 431
+      },
+      "estimatedPeakCNY": 0.001302,
+      "answer": "{\"code\":\"func doubleValue(x: Int64): Int64 {\\n    x * 2\\n}\\n\\nmain() {\\n    println(doubleValue(-2))\\n    println(doubleValue(0))\\n    println(doubleValue(7))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func doubleValue(x: Int64): Int64 {\n    x * 2\n}\n\nmain() {\n    println(doubleValue(-2))\n    println(doubleValue(0))\n    println(doubleValue(7))\n}\n",
+      "codeSha256": "240bc3fed6eddb5d07af7a0eda4eb25d280cb6af01e61df428c34baecc6568bc",
+      "finishedAt": "2026-11-26T08:10:54.782Z"
+    },
+    {
+      "caseId": "eval_parameter_colon",
+      "group": "B",
+      "requestSha256": "7e7c6716758b1caf659cc00f4b3c9cc3bcc19213ee65232232af12822a670b03",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:54.783Z",
+      "reservationCNY": 0.03651,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "5da765c8-720e-474e-873d-f7ecb8a7c10a",
+      "usage": {
+        "prompt_tokens": 2631,
+        "completion_tokens": 55,
+        "total_tokens": 2686,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2247
+      },
+      "estimatedPeakCNY": 0.005702,
+      "answer": "{\"code\":\"func doubleValue(x: Int64): Int64 {\\n    x * 2\\n}\\n\\nmain() {\\n    println(doubleValue(-2))\\n    println(doubleValue(0))\\n    println(doubleValue(7))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func doubleValue(x: Int64): Int64 {\n    x * 2\n}\n\nmain() {\n    println(doubleValue(-2))\n    println(doubleValue(0))\n    println(doubleValue(7))\n}\n",
+      "codeSha256": "240bc3fed6eddb5d07af7a0eda4eb25d280cb6af01e61df428c34baecc6568bc",
+      "finishedAt": "2026-11-26T08:10:55.673Z"
+    },
+    {
+      "caseId": "eval_argument_separator",
+      "group": "B",
+      "requestSha256": "c77507db7451b31a52fa2813851e92c38937b43e9458d5c90e53b36ce3cd21bf",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:55.674Z",
+      "reservationCNY": 0.028124,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "647a246a-9d6a-440e-a334-546c25e0e011",
+      "usage": {
+        "prompt_tokens": 1246,
+        "completion_tokens": 56,
+        "total_tokens": 1302,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1246
+      },
+      "estimatedPeakCNY": 0.00294,
+      "answer": "{\"code\":\"func distance(a: Int64, b: Int64): Int64 {\\n    b - a\\n}\\n\\nmain() {\\n    println(distance(2, 9))\\n    println(distance(-4, 1))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func distance(a: Int64, b: Int64): Int64 {\n    b - a\n}\n\nmain() {\n    println(distance(2, 9))\n    println(distance(-4, 1))\n}\n",
+      "codeSha256": "92b2d6004bc92606848ed090a7c37d200bc308b02fef577c01dc9ef6472a6f82",
+      "finishedAt": "2026-11-26T08:10:56.243Z"
+    },
+    {
+      "caseId": "eval_argument_separator",
+      "group": "A",
+      "requestSha256": "6d2424f208b5f1609c37c2949531db3962160b756c20c0973e960099c3469c5f",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:56.244Z",
+      "reservationCNY": 0.022095999999999998,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "ebe8db93-4f4b-4d17-8388-8926eaab07c9",
+      "usage": {
+        "prompt_tokens": 445,
+        "completion_tokens": 52,
+        "total_tokens": 497,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 189
+      },
+      "estimatedPeakCNY": 0.001306,
+      "answer": "{\"code\":\"func distance(a: Int64, b: Int64): Int64 { b - a }\\nmain() {\\n    println(distance(2, 9))\\n    println(distance(-4, 1))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func distance(a: Int64, b: Int64): Int64 { b - a }\nmain() {\n    println(distance(2, 9))\n    println(distance(-4, 1))\n}\n",
+      "codeSha256": "d0f5d7a12b8168ac4f07cd5e7b5b7d0ec1eed01dcac65b38e8a5b9b8f0c04deb",
+      "finishedAt": "2026-11-26T08:10:57.393Z"
+    },
+    {
+      "caseId": "eval_array_delimiter",
+      "group": "A",
+      "requestSha256": "c43919d1fd8a1535b45f906d4287e70d61266cfdbc8baefe02daab59a3b48b07",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:57.394Z",
+      "reservationCNY": 0.022674,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "2f02925f-e17a-4964-813c-e271e23d28c3",
+      "usage": {
+        "prompt_tokens": 513,
+        "completion_tokens": 77,
+        "total_tokens": 590,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 513
+      },
+      "estimatedPeakCNY": 0.001642,
+      "answer": "{\"code\":\"func endpoints(a: Int64, b: Int64, c: Int64): Array<Int64> {\\n    [a, b, c]\\n}\\n\\nmain() {\\n    let values = endpoints(2, 4, 6)\\n    println(values[0])\\n    println(values[2])\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func endpoints(a: Int64, b: Int64, c: Int64): Array<Int64> {\n    [a, b, c]\n}\n\nmain() {\n    let values = endpoints(2, 4, 6)\n    println(values[0])\n    println(values[2])\n}\n",
+      "codeSha256": "fd56b1873751e7cba71f7c111ab9212e300c0d395eefa2e7c679fc4e9e2f47b6",
+      "finishedAt": "2026-11-26T08:10:58.078Z"
+    },
+    {
+      "caseId": "eval_array_delimiter",
+      "group": "B",
+      "requestSha256": "12a03b3c35f965b49a3efd1b19adb98d7392b84ccc57a7ee63e97306eb441fdb",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:58.079Z",
+      "reservationCNY": 0.03312,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "87096134-7592-4ecd-9d85-65c2421110ac",
+      "usage": {
+        "prompt_tokens": 2039,
+        "completion_tokens": 78,
+        "total_tokens": 2117,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 1783
+      },
+      "estimatedPeakCNY": 0.004702,
+      "answer": "{\"code\":\"func endpoints(a: Int64, b: Int64, c: Int64): Array<Int64> {\\n    return [a, b, c]\\n}\\n\\nmain() {\\n    let values = endpoints(2, 4, 6)\\n    println(values[0])\\n    println(values[2])\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func endpoints(a: Int64, b: Int64, c: Int64): Array<Int64> {\n    return [a, b, c]\n}\n\nmain() {\n    let values = endpoints(2, 4, 6)\n    println(values[0])\n    println(values[2])\n}\n",
+      "codeSha256": "c4fabd13e9b0912259ac16ef689e71a66f8659d551444368dad9e12b72ed78e2",
+      "finishedAt": "2026-11-26T08:10:58.792Z"
+    },
+    {
+      "caseId": "eval_block_end",
+      "group": "B",
+      "requestSha256": "b3409878829f9c692e628302a6173c297bdcaa0c1790ad3dcef5ed14d4a4c2e6",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:58.794Z",
+      "reservationCNY": 0.032596,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "a9acfe91-05a8-482c-b480-a508c66b8a5b",
+      "usage": {
+        "prompt_tokens": 1967,
+        "completion_tokens": 63,
+        "total_tokens": 2030,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1967
+      },
+      "estimatedPeakCNY": 0.004438,
+      "answer": "{\"code\":\"func countdown(n: Int64): Unit {\\n    var value = n\\n    while (value > 0) {\\n        println(value)\\n        value = value - 1\\n    }\\n}\\n\\nmain() {\\n    countdown(3)\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func countdown(n: Int64): Unit {\n    var value = n\n    while (value > 0) {\n        println(value)\n        value = value - 1\n    }\n}\n\nmain() {\n    countdown(3)\n}\n",
+      "codeSha256": "b265f9244a55660fa8931ca6f29e717b991168d889824a8ebe9e274535e08ebe",
+      "finishedAt": "2026-11-26T08:10:59.721Z"
+    },
+    {
+      "caseId": "eval_block_end",
+      "group": "A",
+      "requestSha256": "5248fa81ec0f87dd202b9d8535ec58f5d1123a59d972077543372fbe944edfe5",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:10:59.723Z",
+      "reservationCNY": 0.02215,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "2fec67bd-317a-4d6d-8780-132cdb0e15c1",
+      "usage": {
+        "prompt_tokens": 441,
+        "completion_tokens": 63,
+        "total_tokens": 504,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 185
+      },
+      "estimatedPeakCNY": 0.001386,
+      "answer": "{\"code\":\"func countdown(n: Int64): Unit {\\n    var value = n\\n    while (value > 0) {\\n        println(value)\\n        value = value - 1\\n    }\\n}\\n\\nmain() {\\n    countdown(3)\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func countdown(n: Int64): Unit {\n    var value = n\n    while (value > 0) {\n        println(value)\n        value = value - 1\n    }\n}\n\nmain() {\n    countdown(3)\n}\n",
+      "codeSha256": "b265f9244a55660fa8931ca6f29e717b991168d889824a8ebe9e274535e08ebe",
+      "finishedAt": "2026-11-26T08:11:00.681Z"
+    },
+    {
+      "caseId": "eval_return_type",
+      "group": "A",
+      "requestSha256": "b687b40581d6c95370c43b7e8be2cb20d0376768ae23f26355ef53b8ae1dc9dd",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:00.683Z",
+      "reservationCNY": 0.021603999999999998,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "79ea06d8-acd2-4303-b531-6c5b913aa53c",
+      "usage": {
+        "prompt_tokens": 355,
+        "completion_tokens": 33,
+        "total_tokens": 388,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 355
+      },
+      "estimatedPeakCNY": 0.000974,
+      "answer": "{\"code\":\"func label(text: String): String {\\n    text\\n}\\nmain() {\\n    println(label(\\\"ready\\\"))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func label(text: String): String {\n    text\n}\nmain() {\n    println(label(\"ready\"))\n}\n",
+      "codeSha256": "5f9fe2919cc5fc57857a5036e885e8c1c59a8812929bfb9d3af0f85e54756cc6",
+      "finishedAt": "2026-11-26T08:11:01.240Z"
+    },
+    {
+      "caseId": "eval_return_type",
+      "group": "B",
+      "requestSha256": "e6acaeb09b466676588079bb9c45ede66b022dfe7dd54fd8bad238b41e5a63c3",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:01.242Z",
+      "reservationCNY": 0.03332,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "06e5bf8d-df1c-4a8d-aea3-aacea1b20290",
+      "usage": {
+        "prompt_tokens": 2026,
+        "completion_tokens": 35,
+        "total_tokens": 2061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 1770
+      },
+      "estimatedPeakCNY": 0.004332,
+      "answer": "{\"code\":\"func label(text: String): String {\\n    return text\\n}\\n\\nmain() {\\n    println(label(\\\"ready\\\"))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func label(text: String): String {\n    return text\n}\n\nmain() {\n    println(label(\"ready\"))\n}\n",
+      "codeSha256": "1160e6f2ea776d219f8103df170875ef39aecd616fa6e10d2ae021359e2f2dd9",
+      "finishedAt": "2026-11-26T08:11:02.013Z"
+    },
+    {
+      "caseId": "eval_bool_arithmetic",
+      "group": "B",
+      "requestSha256": "fbc9178114cc06b8e6bc04b5aacb136f4242273378555d5794b4924a3e0078d0",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:02.015Z",
+      "reservationCNY": 0.037302,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "f7315569-ef2a-4628-bfc4-dc54433cce97",
+      "usage": {
+        "prompt_tokens": 2552,
+        "completion_tokens": 62,
+        "total_tokens": 2614,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2552
+      },
+      "estimatedPeakCNY": 0.0056,
+      "answer": "{\"code\":\"func bonus(enabled: Bool): Int64 {\\n    if (enabled) {\\n        11\\n    } else {\\n        10\\n    }\\n}\\n\\nmain() {\\n    println(bonus(true))\\n    println(bonus(false))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func bonus(enabled: Bool): Int64 {\n    if (enabled) {\n        11\n    } else {\n        10\n    }\n}\n\nmain() {\n    println(bonus(true))\n    println(bonus(false))\n}\n",
+      "codeSha256": "9706afcea2b20318e6f16deda71b494fba9928f3d4d4f51e105d8448d70f9da4",
+      "finishedAt": "2026-11-26T08:11:02.543Z"
+    },
+    {
+      "caseId": "eval_bool_arithmetic",
+      "group": "A",
+      "requestSha256": "d7ade32ac869dda82d05ae4cb07165ca14d17bf859fd0c2854d442f4d1240ac1",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:02.545Z",
+      "reservationCNY": 0.021658,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "6a500c44-0c5e-474e-9466-6ce107cb718c",
+      "usage": {
+        "prompt_tokens": 373,
+        "completion_tokens": 62,
+        "total_tokens": 435,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 245
+      },
+      "estimatedPeakCNY": 0.001242,
+      "answer": "{\"code\":\"func bonus(enabled: Bool): Int64 {\\n    if (enabled) {\\n        11\\n    } else {\\n        10\\n    }\\n}\\n\\nmain() {\\n    println(bonus(true))\\n    println(bonus(false))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func bonus(enabled: Bool): Int64 {\n    if (enabled) {\n        11\n    } else {\n        10\n    }\n}\n\nmain() {\n    println(bonus(true))\n    println(bonus(false))\n}\n",
+      "codeSha256": "9706afcea2b20318e6f16deda71b494fba9928f3d4d4f51e105d8448d70f9da4",
+      "finishedAt": "2026-11-26T08:11:03.485Z"
+    },
+    {
+      "caseId": "eval_condition_type",
+      "group": "A",
+      "requestSha256": "692d5481d75e3a7bdad4e9c88b591cba583e5b932a2f1499cf88ec7eebf50030",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:03.487Z",
+      "reservationCNY": 0.021856,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "0f25db63-0676-48d4-9a55-ef628a1c82c3",
+      "usage": {
+        "prompt_tokens": 398,
+        "completion_tokens": 81,
+        "total_tokens": 479,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 398
+      },
+      "estimatedPeakCNY": 0.001444,
+      "answer": "{\"code\":\"func signLabel(n: Int64): String {\\n    if (n > 0) {\\n        \\\"positive\\\"\\n    } else {\\n        \\\"other\\\"\\n    }\\n}\\n\\nmain() {\\n    println(signLabel(2))\\n    println(signLabel(0))\\n    println(signLabel(-1))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func signLabel(n: Int64): String {\n    if (n > 0) {\n        \"positive\"\n    } else {\n        \"other\"\n    }\n}\n\nmain() {\n    println(signLabel(2))\n    println(signLabel(0))\n    println(signLabel(-1))\n}\n",
+      "codeSha256": "b1b3c898e3d0881b88769e40e90709be4b0f1a3dbda1dce660b6c9f55dc9b05d",
+      "finishedAt": "2026-11-26T08:11:04.477Z"
+    },
+    {
+      "caseId": "eval_condition_type",
+      "group": "B",
+      "requestSha256": "c7a733a0109b4ec818b3e6a872ccffc766d998f120c154ea933c7bbd7590baff",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:04.479Z",
+      "reservationCNY": 0.0375,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "18b001b9-7b04-46a5-b58e-3fcd8f4830ef",
+      "usage": {
+        "prompt_tokens": 2577,
+        "completion_tokens": 81,
+        "total_tokens": 2658,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2193
+      },
+      "estimatedPeakCNY": 0.005802,
+      "answer": "{\"code\":\"func signLabel(n: Int64): String {\\n    if (n > 0) {\\n        \\\"positive\\\"\\n    } else {\\n        \\\"other\\\"\\n    }\\n}\\n\\nmain() {\\n    println(signLabel(2))\\n    println(signLabel(0))\\n    println(signLabel(-1))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func signLabel(n: Int64): String {\n    if (n > 0) {\n        \"positive\"\n    } else {\n        \"other\"\n    }\n}\n\nmain() {\n    println(signLabel(2))\n    println(signLabel(0))\n    println(signLabel(-1))\n}\n",
+      "codeSha256": "b1b3c898e3d0881b88769e40e90709be4b0f1a3dbda1dce660b6c9f55dc9b05d",
+      "finishedAt": "2026-11-26T08:11:05.377Z"
+    },
+    {
+      "caseId": "eval_array_element",
+      "group": "B",
+      "requestSha256": "a32aa589265dd73b9a95de38a8afd3cf4e96cb9d9e76d2b9e09ee27757329550",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:05.379Z",
+      "reservationCNY": 0.033568,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "2425c522-188a-4d28-ae40-740ecfc8f685",
+      "usage": {
+        "prompt_tokens": 2092,
+        "completion_tokens": 83,
+        "total_tokens": 2175,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2092
+      },
+      "estimatedPeakCNY": 0.004848,
+      "answer": "{\"code\":\"func sumThree(a: Int64, b: Int64, c: Int64): Int64 {\\n    let numbers: Array<Int64> = [a, b, c]\\n    numbers[0] + numbers[1] + numbers[2]\\n}\\n\\nmain() {\\n    println(sumThree(1, 2, 3))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func sumThree(a: Int64, b: Int64, c: Int64): Int64 {\n    let numbers: Array<Int64> = [a, b, c]\n    numbers[0] + numbers[1] + numbers[2]\n}\n\nmain() {\n    println(sumThree(1, 2, 3))\n}\n",
+      "codeSha256": "bfd5bc95f72f3ef365dd49c1f9a827da0c406141fcd3516542816410127ae8ed",
+      "finishedAt": "2026-11-26T08:11:05.987Z"
+    },
+    {
+      "caseId": "eval_array_element",
+      "group": "A",
+      "requestSha256": "9f979646f32ff40091f4b9ad755da86acc5c21d67cb191bd99fe92d93e79abd9",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:05.988Z",
+      "reservationCNY": 0.021852,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "23ad95bf-3a5c-480f-bb61-e8fcc54c3bba",
+      "usage": {
+        "prompt_tokens": 421,
+        "completion_tokens": 83,
+        "total_tokens": 504,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 165
+      },
+      "estimatedPeakCNY": 0.001506,
+      "answer": "{\"code\":\"func sumThree(a: Int64, b: Int64, c: Int64): Int64 {\\n    let numbers: Array<Int64> = [a, b, c]\\n    numbers[0] + numbers[1] + numbers[2]\\n}\\n\\nmain() {\\n    println(sumThree(1, 2, 3))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func sumThree(a: Int64, b: Int64, c: Int64): Int64 {\n    let numbers: Array<Int64> = [a, b, c]\n    numbers[0] + numbers[1] + numbers[2]\n}\n\nmain() {\n    println(sumThree(1, 2, 3))\n}\n",
+      "codeSha256": "bfd5bc95f72f3ef365dd49c1f9a827da0c406141fcd3516542816410127ae8ed",
+      "finishedAt": "2026-11-26T08:11:07.163Z"
+    },
+    {
+      "caseId": "eval_unknown_function",
+      "group": "A",
+      "requestSha256": "312620827793c0ae167c93748074cdaa91278e0fd3aaa3acda52902445f3c8d3",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:07.164Z",
+      "reservationCNY": 0.021547999999999998,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "a54a5d58-428a-4070-a250-d1899d61306c",
+      "usage": {
+        "prompt_tokens": 368,
+        "completion_tokens": 47,
+        "total_tokens": 415,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 368
+      },
+      "estimatedPeakCNY": 0.001112,
+      "answer": "{\"code\":\"func cube(x: Int64): Int64 {\\n    x * x * x\\n}\\n\\nmain() {\\n    println(cube(2))\\n    println(cube(-1))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func cube(x: Int64): Int64 {\n    x * x * x\n}\n\nmain() {\n    println(cube(2))\n    println(cube(-1))\n}\n",
+      "codeSha256": "bbf73d2c2d000744198c5d851b43b9c1ccfb5918684827fd657e9f86b75b6ece",
+      "finishedAt": "2026-11-26T08:11:08.090Z"
+    },
+    {
+      "caseId": "eval_unknown_function",
+      "group": "B",
+      "requestSha256": "a2806eca60f0f60a5f622d8a14ad775b68daa840159d37676f15f5287965f3cd",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:08.091Z",
+      "reservationCNY": 0.034556,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "db5f04a7-6d7f-44ef-a81f-85e7acd4e9a3",
+      "usage": {
+        "prompt_tokens": 1950,
+        "completion_tokens": 47,
+        "total_tokens": 1997,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 1694
+      },
+      "estimatedPeakCNY": 0.004276,
+      "answer": "{\"code\":\"func cube(x: Int64): Int64 {\\n    x * x * x\\n}\\n\\nmain() {\\n    println(cube(2))\\n    println(cube(-1))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func cube(x: Int64): Int64 {\n    x * x * x\n}\n\nmain() {\n    println(cube(2))\n    println(cube(-1))\n}\n",
+      "codeSha256": "bbf73d2c2d000744198c5d851b43b9c1ccfb5918684827fd657e9f86b75b6ece",
+      "finishedAt": "2026-11-26T08:11:09.000Z"
+    },
+    {
+      "caseId": "eval_block_scope",
+      "group": "B",
+      "requestSha256": "0d4fc6e6ba3cd926c739642e63fc559abc2f58de034be93125ec0c8d52db82b7",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:09.001Z",
+      "reservationCNY": 0.034844,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "c7f52d82-9bde-477f-82b9-f2189f113170",
+      "usage": {
+        "prompt_tokens": 1976,
+        "completion_tokens": 71,
+        "total_tokens": 2047,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1976
+      },
+      "estimatedPeakCNY": 0.00452,
+      "answer": "{\"code\":\"func selectValue(enabled: Bool, value: Int64): Int64 {\\n    var result: Int64 = 0\\n    if (enabled) {\\n        result = value\\n    }\\n    return result\\n}\\n\\nmain() {\\n    println(selectValue(true, 9))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func selectValue(enabled: Bool, value: Int64): Int64 {\n    var result: Int64 = 0\n    if (enabled) {\n        result = value\n    }\n    return result\n}\n\nmain() {\n    println(selectValue(true, 9))\n}\n",
+      "codeSha256": "552a8af4bda702011ff2727a2c4d777af07ca3072dd92df618c0c6ff799353ed",
+      "finishedAt": "2026-11-26T08:11:10.046Z"
+    },
+    {
+      "caseId": "eval_block_scope",
+      "group": "A",
+      "requestSha256": "e0dd2b7e2cacdbd526f314bf26084b9f6a31db94b016676f15c5e9092b5dddb9",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:10.048Z",
+      "reservationCNY": 0.021836,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "12fa88b9-742f-420f-92a1-25023abca2a2",
+      "usage": {
+        "prompt_tokens": 394,
+        "completion_tokens": 71,
+        "total_tokens": 465,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 138
+      },
+      "estimatedPeakCNY": 0.001356,
+      "answer": "{\"code\":\"func selectValue(enabled: Bool, value: Int64): Int64 {\\n    var result: Int64 = 0\\n    if (enabled) {\\n        result = value\\n    }\\n    return result\\n}\\n\\nmain() {\\n    println(selectValue(true, 9))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func selectValue(enabled: Bool, value: Int64): Int64 {\n    var result: Int64 = 0\n    if (enabled) {\n        result = value\n    }\n    return result\n}\n\nmain() {\n    println(selectValue(true, 9))\n}\n",
+      "codeSha256": "552a8af4bda702011ff2727a2c4d777af07ca3072dd92df618c0c6ff799353ed",
+      "finishedAt": "2026-11-26T08:11:11.120Z"
+    },
+    {
+      "caseId": "eval_unknown_member",
+      "group": "A",
+      "requestSha256": "4b8935477177fd51e9efa2c1be04fbc1f57ffab5c478685946e3ea4b2553d116",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:11.122Z",
+      "reservationCNY": 0.021672,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "6ffc5fa0-3c45-4686-8540-4d00af6451d6",
+      "usage": {
+        "prompt_tokens": 379,
+        "completion_tokens": 47,
+        "total_tokens": 426,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 379
+      },
+      "estimatedPeakCNY": 0.001134,
+      "answer": "{\"code\":\"func countValues(values: Array<Int64>): Int64 {\\n    values.size\\n}\\n\\nmain() {\\n    println(countValues([8, 5, 2]))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func countValues(values: Array<Int64>): Int64 {\n    values.size\n}\n\nmain() {\n    println(countValues([8, 5, 2]))\n}\n",
+      "codeSha256": "ae3fe4b1d7e0f65e55065e53476620dfbb7ae4f3e1f00659f3de32af98450cef",
+      "finishedAt": "2026-11-26T08:11:12.070Z"
+    },
+    {
+      "caseId": "eval_unknown_member",
+      "group": "B",
+      "requestSha256": "bfc142acf34e0d0ebf42150f19dff18757734ad87a509c88a15c8e36ba77a156",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:12.072Z",
+      "reservationCNY": 0.036073999999999995,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "f79dc4a3-f876-496b-bb33-deeab576a293",
+      "usage": {
+        "prompt_tokens": 2579,
+        "completion_tokens": 51,
+        "total_tokens": 2630,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 2323
+      },
+      "estimatedPeakCNY": 0.005566,
+      "answer": "{\"code\":\"func countValues(values: Array<Int64>): Int64 {\\n    return Int64(values.size)\\n}\\n\\nmain() {\\n    println(countValues([8, 5, 2]))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func countValues(values: Array<Int64>): Int64 {\n    return Int64(values.size)\n}\n\nmain() {\n    println(countValues([8, 5, 2]))\n}\n",
+      "codeSha256": "2f6c8dbf8d4b922c7c41eb0e16f161459bcfeec38ab8cfbde5fa9fba5a28f4f2",
+      "finishedAt": "2026-11-26T08:11:13.231Z"
+    },
+    {
+      "caseId": "eval_loop_scope",
+      "group": "B",
+      "requestSha256": "86201eef572b39461895e6e38bacd367570f09f9266ae4d5cc5b3e0b13b1c5c5",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:13.233Z",
+      "reservationCNY": 0.033755999999999994,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "db2f2ac2-b89c-426c-9c20-9c03f0e050ab",
+      "usage": {
+        "prompt_tokens": 2026,
+        "completion_tokens": 35,
+        "total_tokens": 2061,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2026
+      },
+      "estimatedPeakCNY": 0.004332,
+      "answer": "{\"code\":\"func announce(text: String): Unit {\\n    println(text)\\n}\\n\\nmain() {\\n    announce(\\\"finished\\\")\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func announce(text: String): Unit {\n    println(text)\n}\n\nmain() {\n    announce(\"finished\")\n}\n",
+      "codeSha256": "1c03c80d01345ca730ca2376af261eb11c55f599c3d60496a24d3172f5be9bb0",
+      "finishedAt": "2026-11-26T08:11:14.159Z"
+    },
+    {
+      "caseId": "eval_loop_scope",
+      "group": "A",
+      "requestSha256": "c34ff36d36a4dfd5500c4fc266db98689ed1c3693cb12bb7396861edfcdd0ba4",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:14.161Z",
+      "reservationCNY": 0.021766,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "fa23fb50-e11e-427a-add0-4a04af52977f",
+      "usage": {
+        "prompt_tokens": 370,
+        "completion_tokens": 35,
+        "total_tokens": 405,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 242
+      },
+      "estimatedPeakCNY": 0.00102,
+      "answer": "{\"code\":\"func announce(text: String): Unit {\\n    println(text)\\n}\\n\\nmain() {\\n    announce(\\\"finished\\\")\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func announce(text: String): Unit {\n    println(text)\n}\n\nmain() {\n    announce(\"finished\")\n}\n",
+      "codeSha256": "1c03c80d01345ca730ca2376af261eb11c55f599c3d60496a24d3172f5be9bb0",
+      "finishedAt": "2026-11-26T08:11:15.103Z"
+    },
+    {
+      "caseId": "eval_maximum",
+      "group": "A",
+      "requestSha256": "291cc4d96194fb7557e6f5d39b7ee12e55657532314e17a9d4dd201c68a4ed40",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:15.105Z",
+      "reservationCNY": 0.02141,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "5eda2ba6-c611-4fc1-9c65-f7134e574c3a",
+      "usage": {
+        "prompt_tokens": 370,
+        "completion_tokens": 85,
+        "total_tokens": 455,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 370
+      },
+      "estimatedPeakCNY": 0.00142,
+      "answer": "{\"code\":\"func maximum(a: Int64, b: Int64): Int64 {\\n    if (a > b) {\\n        a\\n    } else {\\n        b\\n    }\\n}\\n\\nmain() {\\n    println(maximum(2, 5))\\n    println(maximum(7, 3))\\n    println(maximum(-4, -4))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func maximum(a: Int64, b: Int64): Int64 {\n    if (a > b) {\n        a\n    } else {\n        b\n    }\n}\n\nmain() {\n    println(maximum(2, 5))\n    println(maximum(7, 3))\n    println(maximum(-4, -4))\n}\n",
+      "codeSha256": "537e7a11230d91e32dc3629968572d9325c82eec4713a4670d7a27c460cec3e8",
+      "finishedAt": "2026-11-26T08:11:16.214Z"
+    },
+    {
+      "caseId": "eval_maximum",
+      "group": "B",
+      "requestSha256": "1bfea64b6c7de3fc92475af1ba289a508f8637e6882ed2d8f9d53af49225e448",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:16.216Z",
+      "reservationCNY": 0.033754,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "1b47c29e-5ddc-494b-97cc-0bec8d71edc6",
+      "usage": {
+        "prompt_tokens": 1985,
+        "completion_tokens": 87,
+        "total_tokens": 2072,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 1729
+      },
+      "estimatedPeakCNY": 0.004666,
+      "answer": "{\"code\":\"func maximum(a: Int64, b: Int64): Int64 {\\n    if (a > b) {\\n        return a\\n    } else {\\n        return b\\n    }\\n}\\n\\nmain() {\\n    println(maximum(2, 5))\\n    println(maximum(7, 3))\\n    println(maximum(-4, -4))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func maximum(a: Int64, b: Int64): Int64 {\n    if (a > b) {\n        return a\n    } else {\n        return b\n    }\n}\n\nmain() {\n    println(maximum(2, 5))\n    println(maximum(7, 3))\n    println(maximum(-4, -4))\n}\n",
+      "codeSha256": "411cc48a59736733daa2daa7264bd977e5f4077f8f1fe0a4adff97316c07c4e1",
+      "finishedAt": "2026-11-26T08:11:17.201Z"
+    },
+    {
+      "caseId": "eval_absolute",
+      "group": "B",
+      "requestSha256": "ca0b2a870836b69b273a9ab15a5387571df103b5ddeb39c3675e65e5ef1fe63b",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:17.203Z",
+      "reservationCNY": 0.033736,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "7c685d2b-13b1-403b-b1a0-2860982eda70",
+      "usage": {
+        "prompt_tokens": 1967,
+        "completion_tokens": 75,
+        "total_tokens": 2042,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1967
+      },
+      "estimatedPeakCNY": 0.004534,
+      "answer": "{\"code\":\"func absolute(n: Int64): Int64 {\\n    if (n < 0) {\\n        return -n\\n    } else {\\n        return n\\n    }\\n}\\n\\nmain() {\\n    println(absolute(-5))\\n    println(absolute(0))\\n    println(absolute(3))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func absolute(n: Int64): Int64 {\n    if (n < 0) {\n        return -n\n    } else {\n        return n\n    }\n}\n\nmain() {\n    println(absolute(-5))\n    println(absolute(0))\n    println(absolute(3))\n}\n",
+      "codeSha256": "ff02d85ef4deb2341e9c1fa118dd832b30b9190a8ebfc5e89272ad2b3546d84f",
+      "finishedAt": "2026-11-26T08:11:18.210Z"
+    },
+    {
+      "caseId": "eval_absolute",
+      "group": "A",
+      "requestSha256": "8f5dd851a9610b36944099a72deebc20f5afaa724f1b3ccc097aeb0f47527b62",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:18.211Z",
+      "reservationCNY": 0.021392,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "0720df19-f275-44a1-943d-92ef9cb05d2c",
+      "usage": {
+        "prompt_tokens": 352,
+        "completion_tokens": 73,
+        "total_tokens": 425,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 224
+      },
+      "estimatedPeakCNY": 0.001288,
+      "answer": "{\"code\":\"func absolute(n: Int64): Int64 {\\n    if (n < 0) {\\n        -n\\n    } else {\\n        n\\n    }\\n}\\n\\nmain() {\\n    println(absolute(-5))\\n    println(absolute(0))\\n    println(absolute(3))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func absolute(n: Int64): Int64 {\n    if (n < 0) {\n        -n\n    } else {\n        n\n    }\n}\n\nmain() {\n    println(absolute(-5))\n    println(absolute(0))\n    println(absolute(3))\n}\n",
+      "codeSha256": "c094926fcd0f7239df4f900286481ad6aa96e934ad41bc23d3b15b2949e35c05",
+      "finishedAt": "2026-11-26T08:11:18.747Z"
+    },
+    {
+      "caseId": "eval_accumulation",
+      "group": "A",
+      "requestSha256": "79e28ac0dbc5a7b4b9fdb4991217f8e404f1a517a6dd0eb67a0bbe2b7e394e35",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:18.749Z",
+      "reservationCNY": 0.021502,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "71fc2a35-98c7-4b5e-8f25-0b8733db94d1",
+      "usage": {
+        "prompt_tokens": 382,
+        "completion_tokens": 99,
+        "total_tokens": 481,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 382
+      },
+      "estimatedPeakCNY": 0.001556,
+      "answer": "{\"code\":\"func sumTo(n: Int64): Int64 {\\n    var total: Int64 = 0\\n    var i: Int64 = 1\\n    while (i <= n) {\\n        total = total + i\\n        i = i + 1\\n    }\\n    total\\n}\\n\\nmain() {\\n    println(sumTo(0))\\n    println(sumTo(1))\\n    println(sumTo(4))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func sumTo(n: Int64): Int64 {\n    var total: Int64 = 0\n    var i: Int64 = 1\n    while (i <= n) {\n        total = total + i\n        i = i + 1\n    }\n    total\n}\n\nmain() {\n    println(sumTo(0))\n    println(sumTo(1))\n    println(sumTo(4))\n}\n",
+      "codeSha256": "8d7c42e319f1506ee167623fe5dae220f1a6ec0269d3fcaed05c29150081dca5",
+      "finishedAt": "2026-11-26T08:11:19.522Z"
+    },
+    {
+      "caseId": "eval_accumulation",
+      "group": "B",
+      "requestSha256": "a76bd357c5447b9d71fe5d3076ebca6f631f7b2a90c8e3cbf4c4d83e28ede816",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:19.524Z",
+      "reservationCNY": 0.033846,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "715ddd20-03e3-46f9-9394-6fbc12dc894a",
+      "usage": {
+        "prompt_tokens": 1997,
+        "completion_tokens": 100,
+        "total_tokens": 2097,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 1741
+      },
+      "estimatedPeakCNY": 0.004794,
+      "answer": "{\"code\":\"func sumTo(n: Int64): Int64 {\\n    var total: Int64 = 0\\n    var i: Int64 = 1\\n    while (i <= n) {\\n        total = total + i\\n        i = i + 1\\n    }\\n    return total\\n}\\n\\nmain() {\\n    println(sumTo(0))\\n    println(sumTo(1))\\n    println(sumTo(4))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func sumTo(n: Int64): Int64 {\n    var total: Int64 = 0\n    var i: Int64 = 1\n    while (i <= n) {\n        total = total + i\n        i = i + 1\n    }\n    return total\n}\n\nmain() {\n    println(sumTo(0))\n    println(sumTo(1))\n    println(sumTo(4))\n}\n",
+      "codeSha256": "1aec1bf60c1d9b28900015835e21744dd35b5afa75f5c23cc1eac2ca7f7efcbd",
+      "finishedAt": "2026-11-26T08:11:20.588Z"
+    },
+    {
+      "caseId": "eval_leap_year",
+      "group": "B",
+      "requestSha256": "752adbbc5878575771197ddb72a4dcdfb0b660958ea4d4c0b3c28de25828919d",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:20.590Z",
+      "reservationCNY": 0.037188,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "35c8feba-e261-4ead-92a8-8e3db1af9138",
+      "usage": {
+        "prompt_tokens": 2558,
+        "completion_tokens": 94,
+        "total_tokens": 2652,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2558
+      },
+      "estimatedPeakCNY": 0.005868,
+      "answer": "{\"code\":\"func isLeap(y: Int64): Bool {\\n    (y % 400 == 0) || (y % 4 == 0 && y % 100 != 0)\\n}\\n\\nmain() {\\n    println(isLeap(2000))\\n    println(isLeap(1900))\\n    println(isLeap(2024))\\n    println(isLeap(2023))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func isLeap(y: Int64): Bool {\n    (y % 400 == 0) || (y % 4 == 0 && y % 100 != 0)\n}\n\nmain() {\n    println(isLeap(2000))\n    println(isLeap(1900))\n    println(isLeap(2024))\n    println(isLeap(2023))\n}\n",
+      "codeSha256": "a4eff90df04c6a18d941318badc2e13e5c8f0a2e84491c3e624b3df0ff815e60",
+      "finishedAt": "2026-11-26T08:11:21.355Z"
+    },
+    {
+      "caseId": "eval_leap_year",
+      "group": "A",
+      "requestSha256": "384e2198922b532d7f12d5230ca81fb90d3fd5fe07a0c99260b68bf9e2b75721",
+      "status": "generated",
+      "startedAt": "2026-11-26T08:11:21.357Z",
+      "reservationCNY": 0.021544,
+      "httpStatus": 200,
+      "responseModel": "deepseek-flash",
+      "responseId": "96f4c58a-a93c-40f2-acf1-1a9fd5f65f67",
+      "usage": {
+        "prompt_tokens": 379,
+        "completion_tokens": 96,
+        "total_tokens": 475,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 251
+      },
+      "estimatedPeakCNY": 0.001526,
+      "answer": "{\"code\":\"func isLeap(y: Int64): Bool {\\n    (y % 400 == 0) || ((y % 4 == 0) && (y % 100 != 0))\\n}\\n\\nmain() {\\n    println(isLeap(2000))\\n    println(isLeap(1900))\\n    println(isLeap(2024))\\n    println(isLeap(2023))\\n}\\n\"}",
+      "finishReason": "stop",
+      "code": "func isLeap(y: Int64): Bool {\n    (y % 400 == 0) || ((y % 4 == 0) && (y % 100 != 0))\n}\n\nmain() {\n    println(isLeap(2000))\n    println(isLeap(1900))\n    println(isLeap(2024))\n    println(isLeap(2023))\n}\n",
+      "codeSha256": "a80c1227cf6d6ab90989a1f4e12c8e8c6694fbd77bd318e1ea4247559e1ea5e2",
+      "finishedAt": "2026-11-26T08:11:22.352Z"
+    }
+  ],
+  "reservedOrEstimatedCNY": 0.098134,
+  "finishedAt": "2026-11-26T08:11:22.353Z"
+}
