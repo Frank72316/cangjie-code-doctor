@@ -2,6 +2,14 @@
 
 更新日期：2026-11-26。按可验证交付记录，不以代码行数或估算百分比代替完成情况。
 
+## 第五十轮：用户卸载更新后的本机恢复复测（2026-11-26）
+
+- 用户告知已卸载更新，要求确认仓颉核心。只做检查和启动工作台，未改动 Windows、SDK 或实现代码。系统报告本次启动时间 15:29:11（北京时间）；未核实具体卸载 KB，不把恢复时序当作补丁因果证明。
+- 15:38–15:39 实际检查：SDK 1.0.5 `cjc --version`、Doctor 0.3.0 `--version` 和 `--self-test` 均退出 0；重新编译人工审核的 `examples/hello.cj` 并执行，输出 `Hello, Cangjie Code Doctor!`，编译/运行均退出 0。首次自检误写为 `self-test`，返回用法及退出码 2；改用正确参数后通过，这不是运行时崩溃。检查原始记录保存在忽略目录 `tmp/native-recovery-probe.json` 与 `tmp/native-recovery-run.json`。
+- `scripts/check-local-windows.mjs` 真实验证三种既定人工修改：整数 3 为 passed、整数 4 为 output_mismatch、字符串 four 为 compile_failed 且不运行；结果在 `tmp/local-native-results.json`，完整本机报告在 `runs/`。未执行 AI 候选，未开展正式实验。
+- 正式 8765 服务重新启动，健康检查 nativeAvailable / localRunAvailable 均为 true。通过正式 HTTP 入口进行一次新的类型不匹配诊断检索，15:39:15 得到 3 条文档，编号 `678f7d74b9388d3fb90538e6b03cb09c`；摘要在 `tmp/native-recovery-http.json`，完整检索归档在 `runs/retrieval/`。本轮不调用 AI。
+- 结论：这次实测中，本机核心、人工编译运行与新文档检索已恢复；不承诺后续系统更新不会再次影响运行。原 Linux 隔离执行与 AI 候选边界不变。下一步仍为 AI 候选隔离验证、正式案例与保留测试复核、A/B 和学生试用。
+
 ## 第四十九轮：历史文档恢复与 AI 依据复核（2026-11-26）
 
 - 补齐核心故障期间无法使用旧检索结果的缺口：文档页可查找当前原诊断的本机历史，并手动恢复。沿用现有完整归档校验，核对原诊断、查询、请求、官方快照摘要与逐字摘录；不在 JavaScript 重写 BM25，不重新运行核心，不改写历史时间。列表显示查询类型、原时间和命中数，保留零命中记录；损坏、未完成或矛盾记录不作为可用依据，超过 500 个归档则明确拒绝截断列表。
