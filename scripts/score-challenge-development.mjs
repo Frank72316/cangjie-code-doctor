@@ -5,6 +5,7 @@ import { challengeCatalog, privateChallenge } from './challenge-data.mjs';
 import { sha, candidate } from './pilot-common.mjs';
 import { harnessSource } from './pilot-holdout.mjs';
 import { verifyPublic } from './sandbox-verify.mjs';
+import { followupRequest } from './development-feedback.mjs';
 
 const [phase, image] = process.argv.slice(2);
 if (process.platform !== 'linux' || !/^sha256:[a-f0-9]{64}$/.test(image) || !['public','score'].includes(phase)) throw Error('Expected Linux SDK image and phase');
@@ -33,13 +34,20 @@ function publicFeedback(report) {
 const key = phase === 'score' ? process.env.CHALLENGE_TEST_KEY : undefined;
 const hidden = key ? privateChallenge(snapshot,key) : null;
 const second = phase === 'score' ? await load('dev-second') : null;
+const publicReceipt = second ? await load('dev-public') : null;
 if (phase === 'score' && (!hidden || second.firstSha256 !== sha(pack) || !second.finishedAt)) throw Error('Second round is not locked');
+if (second && (second.publicReceiptSha256 !== sha(publicReceipt) || publicReceipt.firstSha256 !== sha(pack) ||
+    second.results.length !== publicReceipt.results.filter(r => r.status !== 'passed').length)) throw Error('Public check or retry count changed');
 for (const [index, first] of pack.results.entries()) {
   const {caseId,group} = design.development[index];
   const item = design.cases.find(c => c.caseId === caseId && c.split === 'development');
   const problem = snapshot.catalog.cases.find(c => c.id === caseId);
   if (first.caseId !== caseId || first.group !== group || first.requestSha256 !== item.requestHashes[group]) throw Error('Pair order or request changed');
   const retry = second?.results.find(r => r.caseId === caseId && r.group === group);
+  if (second) {
+    const expected = followupRequest(item.requests[group],first,publicReceipt.results[index]);
+    if (expected ? retry?.requestSha256 !== sha(expected) : retry !== undefined) throw Error('Follow-up request changed');
+  }
   for (const [round, row] of [[1,first], ...(retry ? [[2,retry]] : [])]) {
     const result = {caseId,group,round,status:row.status,codeSha256:row.codeSha256};
     results.push(result);

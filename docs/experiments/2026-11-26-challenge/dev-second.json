@@ -1,0 +1,113 @@
+{
+  "designSha256": "df4fa3ca51f197fcb298321e900fede9eafe2a612d70f48d88b21319712658f9",
+  "phase": "development-second-attempt",
+  "startedAt": "2026-11-26T11:27:02.615Z",
+  "ceilingCNY": 0.193866,
+  "results": [
+    {
+      "caseId": "dev_named_splice",
+      "group": "A",
+      "requestSha256": "334ccb7100c841bb0c785ee7a9aa1875bfe618d1e1a85d4905bbc24659399a9e",
+      "startedAt": "2026-11-26T11:27:02.616Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.003544,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "09cc518d-dec1-40a3-bd97-9207cd0e6c69",
+      "usage": {
+        "prompt_tokens": 788,
+        "completion_tokens": 246,
+        "total_tokens": 1034,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 148
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\\n    let out = ArrayList<Int64>()\\n    var i = 0\\n    while (i < at) {\\n        out.append(a[i])\\n        i++\\n    }\\n    var j = 0\\n    while (j < items.size) {\\n        out.append(items[j])\\n        j++\\n    }\\n    var k = at\\n    while (k < a.size) {\\n        out.append(a[k])\\n        k++\\n    }\\n    out\\n}\\n\\nmain() {\\n    let a = ArrayList<Int64>([1, 4])\\n    let b = insertAll(a, [2, 3], 1)\\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\n    let out = ArrayList<Int64>()\n    var i = 0\n    while (i < at) {\n        out.append(a[i])\n        i++\n    }\n    var j = 0\n    while (j < items.size) {\n        out.append(items[j])\n        j++\n    }\n    var k = at\n    while (k < a.size) {\n        out.append(a[k])\n        k++\n    }\n    out\n}\n\nmain() {\n    let a = ArrayList<Int64>([1, 4])\n    let b = insertAll(a, [2, 3], 1)\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\n}\n",
+      "codeSha256": "ad5e3ec74d10c5e9c96ce81065549a9e0519c0ec9b184556d9b9a2d2f067a27c",
+      "finishedAt": "2026-11-26T11:27:04.187Z"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "C",
+      "requestSha256": "e0749e12230a47ab59f7e8d9fec6fea5a85357e4e415ec4a460066498fa58e4b",
+      "startedAt": "2026-11-26T11:27:04.190Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.008124,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c4c4c2f0-07aa-49dc-a544-08f425402531",
+      "usage": {
+        "prompt_tokens": 3070,
+        "completion_tokens": 248,
+        "total_tokens": 3318,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        },
+        "prompt_cache_hit_tokens": 2816,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\n\\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\\n    let out = ArrayList<Int64>()\\n    for (i in 0..a.size) {\\n        if (i == at) {\\n            for (j in 0..items.size) {\\n                out.append(items[j])\\n            }\\n        }\\n        out.append(a[i])\\n    }\\n    if (at == a.size) {\\n        for (j in 0..items.size) {\\n            out.append(items[j])\\n        }\\n    }\\n    return out\\n}\\n\\nmain() {\\n    let a = ArrayList<Int64>([1, 4])\\n    let b = insertAll(a, [2, 3], 1)\\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\n\nfunc insertAll(a: ArrayList<Int64>, items: Array<Int64>, at: Int64): ArrayList<Int64> {\n    let out = ArrayList<Int64>()\n    for (i in 0..a.size) {\n        if (i == at) {\n            for (j in 0..items.size) {\n                out.append(items[j])\n            }\n        }\n        out.append(a[i])\n    }\n    if (at == a.size) {\n        for (j in 0..items.size) {\n            out.append(items[j])\n        }\n    }\n    return out\n}\n\nmain() {\n    let a = ArrayList<Int64>([1, 4])\n    let b = insertAll(a, [2, 3], 1)\n    println(b == ArrayList<Int64>([1, 2, 3, 4]) && a == ArrayList<Int64>([1, 4]))\n}\n",
+      "codeSha256": "743fd647030ffb03c88358a15b3fc578bcc447e2ea31ae4f77b469a985366303",
+      "finishedAt": "2026-11-26T11:27:05.332Z"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "C",
+      "requestSha256": "9c3a4d667190ae9786ea4aafad7ffe622c86686e2339d7c3a44a29e15557f08d",
+      "startedAt": "2026-11-26T11:27:05.336Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.007324,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ab4fe990-711b-4e6d-b1f8-35d1c4b81d68",
+      "usage": {
+        "prompt_tokens": 2970,
+        "completion_tokens": 173,
+        "total_tokens": 3143,
+        "prompt_tokens_details": {
+          "cached_tokens": 2688
+        },
+        "prompt_cache_hit_tokens": 2688,
+        "prompt_cache_miss_tokens": 282
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc digitsInBase(n: Int64, base: Int64): String {\\n    if (n == 0) {\\n        return \\\"0\\\"\\n    }\\n    let chars = \\\"0123456789ABCDEF\\\"\\n    var value = n\\n    var out = \\\"\\\"\\n    while (value > 0) {\\n        let digit = value % base\\n        out = chars[digit].toString() + out\\n        value = value / base\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(digitsInBase(0, 2) == \\\"0\\\")\\n    println(digitsInBase(13, 2) == \\\"1101\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc digitsInBase(n: Int64, base: Int64): String {\n    if (n == 0) {\n        return \"0\"\n    }\n    let chars = \"0123456789ABCDEF\"\n    var value = n\n    var out = \"\"\n    while (value > 0) {\n        let digit = value % base\n        out = chars[digit].toString() + out\n        value = value / base\n    }\n    return out\n}\n\nmain() {\n    println(digitsInBase(0, 2) == \"0\")\n    println(digitsInBase(13, 2) == \"1101\")\n}\n",
+      "codeSha256": "a379582e7b5f9cb9f2aab97f752e195f462e0842695b85a1db010c20670c09e8",
+      "finishedAt": "2026-11-26T11:27:06.156Z"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "A",
+      "requestSha256": "d20cd497d0df5c57ff88ebc4e43254df8c6d8bc63e519e1baa629ea84d8b02ab",
+      "startedAt": "2026-11-26T11:27:06.160Z",
+      "status": "invalid",
+      "costUpperEstimateCNY": 0.002836,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "459dc0f4-7978-4d5a-9c11-445071db9360",
+      "usage": {
+        "prompt_tokens": 678,
+        "completion_tokens": 185,
+        "total_tokens": 863,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 166
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc digitsInBase(n: Int64, base: Int64): String {\\n    if (n == 0) {\\n        return \\\"0\\\"\\n    }\\n    let chars = \\\"0123456789ABCDEF\\\"\\n    var value = n\\n    var out = \\\"\\\"\\n    while (value > 0) {\\n        let digit = Int64(chars[value % base])\\n        out = Rune(digit).toString() + out\\n        value = value / base\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(digitsInBase(0, 2) == \\\"0\\\")\\n    println(digitsInBase(13, 2) == \\\"1101\\\")\\n}\\n\"}</json_object>",
+      "finishedAt": "2026-11-26T11:27:06.985Z"
+    }
+  ],
+  "firstSha256": "9a12c30864700860976610be50022a8c0469437f6ca20d473a1942ed4cd2ad99",
+  "publicReceiptSha256": "bde9a222fe975699f7bcf883b04888968c1a3cfed6300f0b2ca48cdb5b61a16e",
+  "finishedAt": "2026-11-26T11:27:06.991Z"
+}
