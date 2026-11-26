@@ -460,3 +460,7 @@
 ## 第六十四轮　第二轮候选
 
 首轮锁定提交 668b803f2b278adc73e8b3f01cc690363d37c44c 已同步双仓，[push CI 45813399324](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45813399324) 成功。正式作业 45813407248 的公开阶段生成反馈，本次提交固定 16 个第二轮候选供同一作业继续评分。
+
+## 第六十五轮　真实结果与归档
+
+前一提交 c14fb79d390c7c2cbd88b4b7c6cf92b6558f6448 北京时间19:51:36提交。GitHub Git 传输中断后经 Git Data API 核对原 SHA 快进，GitCode 正常推送，两端均已核对。[常规 CI 45814583945](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45814583945) 成功。包含本节的提交归档同镜像正式评分证据、重算摘要、逐题图和结论。

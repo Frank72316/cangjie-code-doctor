@@ -1,5 +1,7 @@
 # Cangjie Code Doctor
 
+2026-11-26 正式实验完成。24 题、三组、每题重复三次，最多两轮。无文档 A 最终 67/72，检索 B 与固定速查表 C 均为 69/72。B 相对 A 的两次额外成功集中在一道背包题。232 次调用估算 1.646860 元。[正式报告与逐题图](docs/experiments/2026-11-26-challenge/formal/report.md)
+
 2026-11-26 开发集难度校准已完成。6 题首轮及最多两轮的完整通过数均为 A 4、B 6、C 4，22 次调用估算 0.131448 元。A 达到预设的 2–4 题范围。24 题正式评估待运行。[校准结果与失败案例](docs/experiments/2026-11-26-challenge/calibration.md)
 
 2026-11-26新增Challenge-v1实验设计：参考CangjieBench与QuixBugs等来源，准备24个评估题和6个独立开发题，覆盖双故障、算法边界、引用与连续状态。196条保留断言、60个单故障版本已完成Linux材料验收，150份报告已核对；A无文档/B检索文档/C固定速查表的离线输入与顺序已生成。**本轮没有新模型调用，难度尚未校准，三组正式成绩尚不存在。**见[新实验协议](docs/challenge-protocol.md)与[材料准备报告](docs/experiments/2026-11-26-challenge/report.md)。

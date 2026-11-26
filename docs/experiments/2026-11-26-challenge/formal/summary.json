@@ -1,0 +1,1820 @@
+{
+  "questions": 24,
+  "groups": {
+    "A": {
+      "first": {
+        "passed": 63,
+        "invalid": 1,
+        "test_failed": 5,
+        "compile_failed": 3
+      },
+      "final": {
+        "passed": 67,
+        "test_failed": 5
+      },
+      "calls": 81,
+      "inputTokens": 54356,
+      "outputTokens": 26481,
+      "costEstimateCNY": 0.3205600000000001,
+      "medianLatencySeconds": 1.197,
+      "strata": {
+        "language-api": 21,
+        "algorithm": 22,
+        "stateful": 24
+      }
+    },
+    "B": {
+      "first": {
+        "passed": 68,
+        "test_failed": 3,
+        "compile_failed": 1
+      },
+      "final": {
+        "passed": 69,
+        "test_failed": 3
+      },
+      "calls": 76,
+      "inputTokens": 231557,
+      "outputTokens": 26467,
+      "costEstimateCNY": 0.6748500000000001,
+      "medianLatencySeconds": 1.3405,
+      "strata": {
+        "language-api": 21,
+        "algorithm": 24,
+        "stateful": 24
+      }
+    },
+    "C": {
+      "first": {
+        "passed": 69,
+        "test_failed": 3
+      },
+      "final": {
+        "passed": 69,
+        "test_failed": 3
+      },
+      "calls": 75,
+      "inputTokens": 221517,
+      "outputTokens": 26052,
+      "costEstimateCNY": 0.6514499999999999,
+      "medianLatencySeconds": 1.307,
+      "strata": {
+        "language-api": 21,
+        "algorithm": 24,
+        "stateful": 24
+      }
+    }
+  },
+  "comparisons": {
+    "BminusA": {
+      "differencePoints": 2.777777777777778,
+      "percentile95": [
+        0,
+        8.333333333333334
+      ],
+      "betterCases": 1,
+      "tiedCases": 23,
+      "worseCases": 0
+    },
+    "BminusC": {
+      "differencePoints": 0,
+      "percentile95": [
+        0,
+        0
+      ],
+      "betterCases": 0,
+      "tiedCases": 24,
+      "worseCases": 0
+    }
+  },
+  "cases": [
+    {
+      "caseId": "api_copy_filter",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "invalid",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "compile_failed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "B",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "A",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "C",
+      "repeat": 1,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "language-api",
+      "first": "compile_failed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "A",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "C",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "B",
+      "repeat": 2,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_books",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "compile_failed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "test_failed",
+      "final": "test_failed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "compile_failed",
+      "final": "passed"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "language-api",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "algorithm",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "C",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "B",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "A",
+      "repeat": 3,
+      "stratum": "stateful",
+      "first": "passed",
+      "final": "passed"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "createdAt": "2026-11-26T11:53:06.916Z",
+  "distinctCandidateSources": 86,
+  "formatValidResponses": 231,
+  "candidateSetSha256": "3afa308c64e09d3afa415dd084b4fd44c8ef3733ff3b062bc420cd5a60ba233c",
+  "excluded": [],
+  "method": "Codex-assisted review before holdout scoring: grouped token-level body edits by task, checked missing declarations, external accesses and changes to constants for example-only behavior. Public harness enforces the original example statements for all candidates.",
+  "scope": "Review for contract evasion and example hardcoding, not an independent human review or a proof of correctness."
+}
