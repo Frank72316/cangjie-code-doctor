@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "sdkVersion": "1.0.5",
+  "sourceRevision": "f8f8cd75a336e23785a4c57bd6091b2adf1e0302",
+  "repository": "https://github.com/cangjielanguage/cangjie_docs",
+  "selection": "19 fixed complete general-purpose language chapters; no case/test input to builder; contiguous <=1600-character verbatim chunks",
+  "corpusSha256": "80030bdac3447e64bd4a1aa462b5e0bca8d96d150650528b03b5374d0e0cb25b",
+  "bytes": 150700,
+  "license": {
+    "spdx": "CC-BY-4.0",
+    "local": "../../docs/LICENSE-CC-BY-4.0.txt",
+    "copyright": "Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved."
+  },
+  "sources": [
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/array.md",
+      "sha256": "c7f048cb44535d44b1ea6fed17343b4455ae604edbc722cf3a2d1e1628f0ac27",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/array.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/strings.md",
+      "sha256": "021a5f84bebb14773cfa32d17724d5364d5f148c9bbca97052939400255cbf53",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/strings.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/characters.md",
+      "sha256": "f53dd7c5f2e1f71fcbb36e559a38db129b667ef06e4c9020392c5c7a0bf14cdd",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/characters.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/range.md",
+      "sha256": "ef4b75b437ef5eb5b8b7292e74ceaff8954a9ec70cff5ec1dd2a677285e21932",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/range.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/basic_data_type/tuple.md",
+      "sha256": "6df33d0dc4325e2d39c271c62989837f2550db6285c671a6ebfb15514b9dcbec",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/basic_data_type/tuple.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/collections/collection_arraylist.md",
+      "sha256": "ca3db68428d6a89d1d03388a16b83d877031319994ad6bffe85029e941f79fc9",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/collections/collection_arraylist.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/collections/collection_hashmap.md",
+      "sha256": "581ab1c14eb0057926ec3e1ea0a44359d7c02d98f3f1a5a6b9011bf073f341c0",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/collections/collection_hashmap.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/collections/collection_hashset.md",
+      "sha256": "241d3b46e0f6d5680200eecd65cf8941f5b9294641d3555d5a101b7524f57f9a",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/collections/collection_hashset.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/collections/collection_overview.md",
+      "sha256": "b0c239fbbacd0d98060dade083ae8db3a66d8db7749d189e4a8f05e1b207ca53",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/collections/collection_overview.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/enum_and_pattern_match/option_type.md",
+      "sha256": "e74db42331020743681d0d88442b418b31a9095c8a70cd0922253dd7932d0ccc",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/enum_and_pattern_match/option_type.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/enum_and_pattern_match/match.md",
+      "sha256": "bdb827ec2a7b3dd8efd3390d39b23ce6d6e58abfcf037435cd46dc7608e4e0b6",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/enum_and_pattern_match/match.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/error_handle/use_option.md",
+      "sha256": "a126f146ae4c0b06dc3e7b447ed71d25d93594a9aa1293caadb7c6a8c946ff2a",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/error_handle/use_option.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "sha256": "0bd747e7971d975971672c3f807c9c5215f79ffec2db8a73362be67faad990ea",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/error_handle/handle.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "sha256": "41d0489e6cef21a32781f16ab6572c2206e01e8af31cfb6f83b12fe6f8ce11d7",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/define_functions.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "sha256": "0ff39fdb8ae6908920ec60f9b0ded7f5c777e338145ad58372dac2ae0ccd3bdc",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/call_functions.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/function/lambda.md",
+      "sha256": "32b158a83fcd45847ec2718777bf6975b813ce5f4a65109a61d3d435ec3d2c6a",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/function/lambda.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "sha256": "8aa1db04a076f74227ecf77608123f7dc18a58bf958c7e973e7bbe5ceeae5513",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/class_and_interface/class.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "sha256": "a55dffdda513f8e21c65479755e0d52b1bccc8f0b2f607ba4c96b2bfc8268e89",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/class_and_interface/interface.md"
+    },
+    {
+      "path": "docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "sha256": "1b7be3357e56a84f313fec936435d5e60ac2968ac5d2fb9eddb3e787d8498fec",
+      "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/class_and_interface/typecast.md"
+    }
+  ],
+  "excerpts": [
+    {
+      "id": "ch-array-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/array.md",
+      "startLine": 1,
+      "endLine": 57,
+      "sha256": "500f72ff19d6bd38e4a873e94afafc4a970807be0454b8dcd368ad0f7f6f6828"
+    },
+    {
+      "id": "ch-array-58",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/array.md",
+      "startLine": 58,
+      "endLine": 137,
+      "sha256": "ffd0b2fac1bfcdd2e5b7aab3e21d9422ec84f2d91b5cccf73627b9d689d8b90d"
+    },
+    {
+      "id": "ch-array-138",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/array.md",
+      "startLine": 138,
+      "endLine": 206,
+      "sha256": "3dd7b75c5e4a6bf227863bba3f0db36f69e4718fa7e9388a83d533626bfb6335"
+    },
+    {
+      "id": "ch-array-207",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/array.md",
+      "startLine": 207,
+      "endLine": 228,
+      "sha256": "b57bbe6677cbac06517dcee3d761dca6ee8d3a149197d3b06b796790c58ce170"
+    },
+    {
+      "id": "ch-strings-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/strings.md",
+      "startLine": 1,
+      "endLine": 68,
+      "sha256": "7330209ccfd04e37e0471592754892d03d860ba14bfd03cfad93042386ff5c8d"
+    },
+    {
+      "id": "ch-strings-69",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/strings.md",
+      "startLine": 69,
+      "endLine": 141,
+      "sha256": "803bf9b07f9699b4bb490087ee1991b197be53357e82a353ed9dc60c25ad9b4f"
+    },
+    {
+      "id": "ch-characters-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/characters.md",
+      "startLine": 1,
+      "endLine": 52,
+      "sha256": "ed715b67abda866c8ff8aadede7b51f4608d64c2bccde9ba0133d2bf5bd29345"
+    },
+    {
+      "id": "ch-range-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/range.md",
+      "startLine": 1,
+      "endLine": 38,
+      "sha256": "817103d9b2e2dc504bec1fe92b5a8035e121fdd5b34e2fe892985f3380f98fdc"
+    },
+    {
+      "id": "ch-range-39",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/range.md",
+      "startLine": 39,
+      "endLine": 54,
+      "sha256": "afc71b20c90e8b696aeed79ce8966838921bd1bc64052a623dc36479530932f0"
+    },
+    {
+      "id": "ch-tuple-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/tuple.md",
+      "startLine": 1,
+      "endLine": 63,
+      "sha256": "8477aee0d98233d87068ca61ddb97e03b473f872706e29a858a1637b7de20855"
+    },
+    {
+      "id": "ch-tuple-64",
+      "sourcePath": "docs/dev-guide/source_zh_cn/basic_data_type/tuple.md",
+      "startLine": 64,
+      "endLine": 89,
+      "sha256": "dc521eef1d586ba5744f40b0675996264ebcc8f9e310febdad1567426c9fc12a"
+    },
+    {
+      "id": "ch-collection_arraylist-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_arraylist.md",
+      "startLine": 1,
+      "endLine": 67,
+      "sha256": "a5e72222f2d20a2a1c19d1384c686aeeae0dcafe4ee8ab610ac79ce360842ed4"
+    },
+    {
+      "id": "ch-collection_arraylist-68",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_arraylist.md",
+      "startLine": 68,
+      "endLine": 141,
+      "sha256": "6f7e533d7014814f9087d4283028127f84359dcaa4aad1bbdc705e39d8b1c082"
+    },
+    {
+      "id": "ch-collection_arraylist-142",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_arraylist.md",
+      "startLine": 142,
+      "endLine": 183,
+      "sha256": "7b2e7dc8820dacd6a366fa0d38bcf4b3e4e8ae9958f7bb24e9733af6d2e50cdd"
+    },
+    {
+      "id": "ch-collection_hashmap-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_hashmap.md",
+      "startLine": 1,
+      "endLine": 51,
+      "sha256": "7ebea0c81bcdc3f059aef7650feca5427fa1e1bd1435f0819828ece307a96664"
+    },
+    {
+      "id": "ch-collection_hashmap-52",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_hashmap.md",
+      "startLine": 52,
+      "endLine": 130,
+      "sha256": "30bbda6ca8e2486311af3a11a96d62ed5790da2ee03bfbd5d5a6b993cc28bcf2"
+    },
+    {
+      "id": "ch-collection_hashmap-131",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_hashmap.md",
+      "startLine": 131,
+      "endLine": 169,
+      "sha256": "a6cda48f031cc149355f7791b393a06ce2e123aaf57188746c65f7597c38ff1e"
+    },
+    {
+      "id": "ch-collection_hashset-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_hashset.md",
+      "startLine": 1,
+      "endLine": 72,
+      "sha256": "b197f06a7d6a54ab48581f9e3e38edeb33183a8b08ec7e1770c719c4061b5c74"
+    },
+    {
+      "id": "ch-collection_hashset-73",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_hashset.md",
+      "startLine": 73,
+      "endLine": 141,
+      "sha256": "05bce20df5d631bc2d77f4aa9106e2eff5413abe964463c85d02d323af3870f4"
+    },
+    {
+      "id": "ch-collection_overview-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/collections/collection_overview.md",
+      "startLine": 1,
+      "endLine": 20,
+      "sha256": "640fce0ffad8a59940820c678b744bc072a4d4959ec71dfca04ec1003319834c"
+    },
+    {
+      "id": "ch-option_type-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/enum_and_pattern_match/option_type.md",
+      "startLine": 1,
+      "endLine": 51,
+      "sha256": "dd851a54452206718e115094bcb4f731051fc11c7cfcd882fbdfea1486d3ea12"
+    },
+    {
+      "id": "ch-match-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/enum_and_pattern_match/match.md",
+      "startLine": 1,
+      "endLine": 53,
+      "sha256": "7e19a2dc8ae2d96691f1d70119b57a780b87fe6fdea31ba57ec96f3b0854cdff"
+    },
+    {
+      "id": "ch-match-54",
+      "sourcePath": "docs/dev-guide/source_zh_cn/enum_and_pattern_match/match.md",
+      "startLine": 54,
+      "endLine": 117,
+      "sha256": "f131b3b3f0ef36cf672e34ccaaaff27c3dc92012129f0713bb979cb1a96c4b58"
+    },
+    {
+      "id": "ch-match-118",
+      "sourcePath": "docs/dev-guide/source_zh_cn/enum_and_pattern_match/match.md",
+      "startLine": 118,
+      "endLine": 183,
+      "sha256": "27a20810154fb6fbce53698b39d48b3a2408936dbd7a70642871cef5f2a1993b"
+    },
+    {
+      "id": "ch-use_option-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/use_option.md",
+      "startLine": 1,
+      "endLine": 68,
+      "sha256": "9e05fba02c989f42b89cf3a76ab444a315e42b4517acfc8128f2430f8785c451"
+    },
+    {
+      "id": "ch-use_option-69",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/use_option.md",
+      "startLine": 69,
+      "endLine": 112,
+      "sha256": "5de4be6e7b6b50955c79e4b946729b77d83961537f05c0eab86c0ed5e49831ac"
+    },
+    {
+      "id": "ch-use_option-113",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/use_option.md",
+      "startLine": 113,
+      "endLine": 151,
+      "sha256": "28d6bcd27283cb7ea543761661c081e00dbfea35b125ab0a0bbb1bf714bf30ec"
+    },
+    {
+      "id": "ch-handle-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "startLine": 1,
+      "endLine": 42,
+      "sha256": "f5eb84b1aa09af6c947e6e2095881574d15b7052e77f1bff87566e9a53d53447"
+    },
+    {
+      "id": "ch-handle-43",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "startLine": 43,
+      "endLine": 113,
+      "sha256": "df6c8fee328cf241bac9fbdc8911e4ebb9e60830a03ff3aa59fa563c6c854969"
+    },
+    {
+      "id": "ch-handle-114",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "startLine": 114,
+      "endLine": 170,
+      "sha256": "f8e62655bd50a6538203539da45a99becd621c1863191ddd022916849531963b"
+    },
+    {
+      "id": "ch-handle-171",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "startLine": 171,
+      "endLine": 233,
+      "sha256": "8527e0ea532524119d356739c68e5af8bb8216131b1f30d6abb58bf4f6061235"
+    },
+    {
+      "id": "ch-handle-234",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "startLine": 234,
+      "endLine": 266,
+      "sha256": "7c0d1332eecdc2bbc8fa94808089357e075e23fac7f94fa503bbe508fd6cbd15"
+    },
+    {
+      "id": "ch-handle-267",
+      "sourcePath": "docs/dev-guide/source_zh_cn/error_handle/handle.md",
+      "startLine": 267,
+      "endLine": 337,
+      "sha256": "128cea82a6db4b2d11cd9f8208b836576b3dd633d4cf587d00cf6b2ed898f9a8"
+    },
+    {
+      "id": "ch-define_functions-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 1,
+      "endLine": 74,
+      "sha256": "53bf53096ba7eda2eb950b63065bc0e23c38bb554c7db8a683165737a541a8a8"
+    },
+    {
+      "id": "ch-define_functions-75",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 75,
+      "endLine": 133,
+      "sha256": "a3fccefdcdb811d7da3d50793febf9243bcd2be7957b65b809d68f6cd17ac1c6"
+    },
+    {
+      "id": "ch-define_functions-134",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/define_functions.md",
+      "startLine": 134,
+      "endLine": 200,
+      "sha256": "c67e22e96ed499f4f93e536f8998eadb13e363b05a6e38a562c1212bf581e486"
+    },
+    {
+      "id": "ch-call_functions-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "startLine": 1,
+      "endLine": 100,
+      "sha256": "cf88f1e9df0d3ebbbf05bb1af75d5f8d0396f12fced563493fe2954b58a1bbc6"
+    },
+    {
+      "id": "ch-call_functions-101",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/call_functions.md",
+      "startLine": 101,
+      "endLine": 119,
+      "sha256": "fffaf785e35b9b1abcfef5728d7f15a0f0d71a237628767f705efdc3452ec568"
+    },
+    {
+      "id": "ch-lambda-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/lambda.md",
+      "startLine": 1,
+      "endLine": 60,
+      "sha256": "944933ca5d1cfa5d22287c5fc668dde223ac202b23ddfcd384e2886000d9e449"
+    },
+    {
+      "id": "ch-lambda-61",
+      "sourcePath": "docs/dev-guide/source_zh_cn/function/lambda.md",
+      "startLine": 61,
+      "endLine": 131,
+      "sha256": "e14835209516de6a1c0dfc71154084e4757275cde0d37058b2d0d7b660e7748a"
+    },
+    {
+      "id": "ch-class-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 1,
+      "endLine": 68,
+      "sha256": "e68a4b30447e98e244c76143abccad65e1b82e8d6190de2a9fd7a0f7d3f7d648"
+    },
+    {
+      "id": "ch-class-69",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 69,
+      "endLine": 151,
+      "sha256": "b5da1eb4a3d42c0f140944b6359fd765d08e966226e40b15f888a0af0c33f6ff"
+    },
+    {
+      "id": "ch-class-152",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 152,
+      "endLine": 232,
+      "sha256": "c42cfee3f2569b7a1a895efa74d618832bea92950e701ce13dcf5993c76eca86"
+    },
+    {
+      "id": "ch-class-233",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 233,
+      "endLine": 306,
+      "sha256": "d977a3c6ea04ec77320528a60c96c8716e7bd1c36f1e33ad861211269fd63221"
+    },
+    {
+      "id": "ch-class-307",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 307,
+      "endLine": 368,
+      "sha256": "cc5df896e9897c1a34f16e7b928e4c4c532dac90ef6e600fdc1ffb49a9648f74"
+    },
+    {
+      "id": "ch-class-369",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 369,
+      "endLine": 419,
+      "sha256": "25891ea005924fca26f36cc5095176cbaaf00bcb54fe42c4131ca62797e8fbea"
+    },
+    {
+      "id": "ch-class-420",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 420,
+      "endLine": 477,
+      "sha256": "18697c3058df1781c042ac281559bb3a4e23a453f7bf51ceb372bb7dd4541efe"
+    },
+    {
+      "id": "ch-class-478",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 478,
+      "endLine": 530,
+      "sha256": "797ac67d5892ca23da05a45c30ade55b4acf7d88be1398838ab6e913c4f5be82"
+    },
+    {
+      "id": "ch-class-531",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 531,
+      "endLine": 590,
+      "sha256": "cc993f138b01d2fad83343416c600f16e3ec4a37ca9261a1062f65f5de1521f6"
+    },
+    {
+      "id": "ch-class-591",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 591,
+      "endLine": 653,
+      "sha256": "eb74d2f0f15bfe666a820054cec8702f8504773053bad0ac7d9fd289948438fe"
+    },
+    {
+      "id": "ch-class-654",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 654,
+      "endLine": 739,
+      "sha256": "b17f78f704ce14c4bd59d45e417f74bc338dd81b84d3f584ac2c5ed0a70549da"
+    },
+    {
+      "id": "ch-class-740",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 740,
+      "endLine": 821,
+      "sha256": "6d879cd93c28bbb02acdd4815d28abb214267b19df0d2676fa8cc2c6610b94b0"
+    },
+    {
+      "id": "ch-class-822",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/class.md",
+      "startLine": 822,
+      "endLine": 844,
+      "sha256": "2766287b74f57f0846896408123b11a080aa2b2ffb8cc7369116051058c47b81"
+    },
+    {
+      "id": "ch-interface-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 1,
+      "endLine": 65,
+      "sha256": "47484d746a81bc37b0612365996ea0289c0da0fb6a4b07982c8403d8e56e1a8e"
+    },
+    {
+      "id": "ch-interface-66",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 66,
+      "endLine": 154,
+      "sha256": "f6a0dca3ef7e8a24298c0863617ab11579e8540bbcc477e5ae1c6774d2d19b3f"
+    },
+    {
+      "id": "ch-interface-155",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 155,
+      "endLine": 238,
+      "sha256": "2cb8aa07fed4010611b873d6efc58fb7fb6368e9672befec2540b617e836788c"
+    },
+    {
+      "id": "ch-interface-239",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 239,
+      "endLine": 316,
+      "sha256": "22378ea158907564f94d1c2b72c958ec0a724a30067379b3a242094541ac66c8"
+    },
+    {
+      "id": "ch-interface-317",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 317,
+      "endLine": 387,
+      "sha256": "72d3eb508d8289a5ada4e6ae731a6c10ffcad04719e9ee2af873fab3230f91d0"
+    },
+    {
+      "id": "ch-interface-388",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 388,
+      "endLine": 470,
+      "sha256": "8dbfaf5554ece45a164424b0889a6e468bde7d2a8b77ea21baf44d3ef3cfb4cd"
+    },
+    {
+      "id": "ch-interface-471",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/interface.md",
+      "startLine": 471,
+      "endLine": 544,
+      "sha256": "cd8c68eb8f4d7b2f0cfefeb7315fd03fa047c3c8f4f5a076059adb859068b3a8"
+    },
+    {
+      "id": "ch-typecast-1",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "startLine": 1,
+      "endLine": 53,
+      "sha256": "d947fbe73ceedeb844546205e57e70fc98a35bfbb3e45024a6ad3112ef167fa1"
+    },
+    {
+      "id": "ch-typecast-54",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "startLine": 54,
+      "endLine": 116,
+      "sha256": "e29ea4ed4b3290f4ddaec8226f02de0f41e7db9bc49cd3a3609f103436adf606"
+    },
+    {
+      "id": "ch-typecast-117",
+      "sourcePath": "docs/dev-guide/source_zh_cn/class_and_interface/typecast.md",
+      "startLine": 117,
+      "endLine": 154,
+      "sha256": "a6e740151abedadd39341f7334c0b7cf3204501ff0a06ac7a0db5256be16b13e"
+    }
+  ]
+}
