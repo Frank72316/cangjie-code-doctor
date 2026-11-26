@@ -1,0 +1,39 @@
+name: API documentation mechanism experiment
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        type: choice
+        required: true
+        options: [materials, score]
+permissions:
+  contents: read
+concurrency:
+  group: doctor-api-evidence
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: bash scripts/install-ci-sdk.sh "$RUNNER_TEMP/sdk"
+      - name: Build trusted core and run isolated checks
+        env:
+          PHASE: ${{ inputs.phase }}
+          CHALLENGE_TEST_KEY: ${{ secrets.DOCTOR_CHALLENGE_HOLDOUT_V1 }}
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          mkdir -p target/debug
+          cjc -p src -o target/debug/doctor --diagnostic-format=noColor
+          bash scripts/build-sandbox-image.sh "$RUNNER_TEMP/sdk/cangjie" "$RUNNER_TEMP/api-image.json"
+          image=$(node -p "require(process.env.RUNNER_TEMP+'/api-image.json').image")
+          node scripts/score-api-evidence.mjs "$PHASE" "$image"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-evidence-${{ inputs.phase }}
+          path: runs/api-evidence-${{ inputs.phase }}/
+          retention-days: 30

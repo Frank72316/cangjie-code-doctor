@@ -1,0 +1,62 @@
+[
+  {
+    "id": "new_odd_runes",
+    "task": "返回字符串中从 1 开始的第 1、3、5…个 Unicode 码点，保持次序。空串返回空串。结合符号也独立计数。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "new_odd_runes.cj",
+      "text": "func oddPositions(s: String): String {\n    var out = \"\"\n    let data = s.toArray()\n    for (i in 0..data.size) { if (i % 2 == 0) { out += data[i].toString() } }\n    out\n}\n\nmain() {\nprintln(oddPositions(\"中文A\") == \"中A\")\nprintln(oddPositions(\"abcd\") == \"ac\")\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "new_suffix_once",
+    "task": "只在末尾匹配整个 tag 时删除它一次。不得删去中间出现的 tag；空 tag 原样返回。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "new_suffix_once.cj",
+      "text": "func stripTag(s: String, tag: String): String {\n    s.replace(tag, \"\")\n}\n\nmain() {\nprintln(stripTag(\"file.bak.bak\", \".bak\") == \"file.bak\")\nprintln(stripTag(\"a-x-b\", \"-x\") == \"a-x-b\")\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "new_limited_fields",
+    "task": "按竖线 | 从左分隔，保留空字段，最多得到 limit 段，多余的分隔符原样留在最后一段。返回最后一段；limit=0 返回空串。limit 在 0 到 8 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "new_limited_fields.cj",
+      "text": "func lastField(s: String, limit: Int64): String {\n    let parts = s.split(\"|\")\n    if (parts.size == 0 || limit == 0) { return \"\" }\n    parts[parts.size - 1]\n}\n\nmain() {\nprintln(lastField(\"a|b|c\", 2) == \"b|c\")\nprintln(lastField(\"a||\", 2) == \"|\")\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "new_trim_set",
+    "task": "从右端逐个删除属于 marks 字符集合的 Unicode 码点，直到第一个不属于集合的字符。marks 为空时原样返回。这里只修剪尾部。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "new_trim_set.cj",
+      "text": "func stripEndSet(s: String, marks: String): String {\n    s.removeSuffix(marks)\n}\n\nmain() {\nprintln(stripEndSet(\"abc!!!?\", \"!?\") == \"abc\")\nprintln(stripEndSet(\"水甲乙甲\", \"甲乙\") == \"水\")\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]
