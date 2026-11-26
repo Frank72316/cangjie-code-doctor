@@ -1,0 +1,59 @@
+name: Paired frozen-holdout pilot
+on:
+  workflow_dispatch:
+    inputs:
+      holdout_key:
+        description: Private test decryption key (never a model API key)
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: doctor-public-pilot
+  cancel-in-progress: false
+jobs:
+  paired:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Mask private test key
+        env:
+          TEST_KEY: ${{ inputs.holdout_key }}
+        run: echo "::add-mask::$TEST_KEY"
+      - run: bash scripts/install-ci-sdk.sh "$RUNNER_TEMP/sdk"
+      - name: Build trusted core and isolated SDK
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          mkdir -p target/debug
+          cjc -p src -o target/debug/doctor --diagnostic-format=noColor
+          bash scripts/build-sandbox-image.sh "$RUNNER_TEMP/sdk/cangjie" "$RUNNER_TEMP/image.json"
+          echo "DOCTOR_SANDBOX_IMAGE=$(node -p "JSON.parse(require('fs').readFileSync(process.env.RUNNER_TEMP+'/image.json')).image")" >> "$GITHUB_ENV"
+      - name: Prepare and freeze public inputs
+        env:
+          PILOT_HOLDOUT_KEY: ${{ inputs.holdout_key }}
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          node scripts/pilot-ci.mjs prepare "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pilot-inputs
+          path: runs/pilot/
+          retention-days: 30
+      - name: Wait for locally generated candidates and evaluate in the same image
+        env:
+          PILOT_HOLDOUT_KEY: ${{ inputs.holdout_key }}
+        shell: bash
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          node scripts/pilot-ci.mjs evaluate "$DOCTOR_SANDBOX_IMAGE" target/debug/doctor
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot-results
+          path: runs/pilot/
+          retention-days: 30

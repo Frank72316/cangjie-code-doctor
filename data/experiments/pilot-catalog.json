@@ -1,0 +1,408 @@
+{
+  "kind": "doctor-pilot-catalog-v2",
+  "sdkVersion": "1.0.5",
+  "baseCatalogSha256": "c9acfc9a7db092687ddc730f9df19b4fb258fd5037b6ca6abc6753d207c00c75",
+  "note": "Seven fixed-output cases gain explicit parameter contracts before any experimental model call; old catalog unchanged.",
+  "cases": [
+    {
+      "id": "eval_parameter_colon",
+      "category": "syntax",
+      "task": "定义 doubleValue(x:Int64):Int64 返回两倍值，依次输出 -2、0、7 的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_parameter_colon.cj",
+        "text": "func doubleValue(x Int64): Int64 { x * 2 }\nmain() {\n    println(doubleValue(-2))\n    println(doubleValue(0))\n    println(doubleValue(7))\n}\n"
+      },
+      "sourceSha256": "fa40b85fe53d7c7201b5fb3de26bc8de097fe1391606f2ec48c80b7012afff66",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "-4\n0\n14\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "fa40b85fe53d7c7201b5fb3de26bc8de097fe1391606f2ec48c80b7012afff66",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_argument_separator",
+      "category": "syntax",
+      "task": "定义 distance(a:Int64,b:Int64):Int64 返回 b-a，依次输出 (2,9)、(-4,1) 的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_argument_separator.cj",
+        "text": "func distance(a: Int64, b: Int64): Int64 { b - a }\nmain() {\n    println(distance(2 9))\n    println(distance(-4, 1))\n}\n"
+      },
+      "sourceSha256": "e66ee06dbdd2583b444d5b3740418d30c1c44e8a038e45af36773f7939a91789",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "7\n5\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "e66ee06dbdd2583b444d5b3740418d30c1c44e8a038e45af36773f7939a91789",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_array_delimiter",
+      "category": "syntax",
+      "task": "定义 endpoints(a:Int64,b:Int64,c:Int64):Array<Int64>，返回包含这三个参数的数组；主程序以2、4、6调用，输出第一项和第三项。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_array_delimiter.cj",
+        "text": "func endpoints(a: Int64, b: Int64, c: Int64): Array<Int64> { [a, b, c }\nmain() {\nlet values = endpoints(2,4,6)\n println(values[0])\n println(values[2])\n}\n"
+      },
+      "sourceSha256": "f7c34ba3f8d649ca32c38501b9f7bc273e8d3eff50c06189840daaa6870b324e",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "2\n6\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "59574e8ef5973c928e9c1fd56274910991deb347923c0b9f4763365138e5d49b",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_block_end",
+      "category": "syntax",
+      "task": "定义 countdown(n:Int64):Unit，逐行输出n至1；0<=n<=10，n为0时无输出。主程序调用countdown(3)。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_block_end.cj",
+        "text": "func countdown(n: Int64): Unit {\n var value = n\n while (value > 0) { println(value); value = value - 1 }\nmain() {\ncountdown(3)\n}\n"
+      },
+      "sourceSha256": "8e3c9395cdd6f9887765a0cd7ae7a410c0c5087aad6b092156003333b30d6a8c",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "3\n2\n1\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "3548f96a6b365c7e73dfbf81875541744d99571f17e29d15237a7fc8512b82e2",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_return_type",
+      "category": "type",
+      "task": "定义 label(text:String):String，返回传入字符串原值；主程序调用label(\"ready\")并输出。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_return_type.cj",
+        "text": "func label(text: String): Int64 { text }\nmain() {\nprintln(label(\"ready\"))\n}\n"
+      },
+      "sourceSha256": "2ccd081834bfe1cc005b524d29687c5498dd2a7eba89bb6331f72a7766d615c8",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "ready\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "0fc4d0595c1e930f0506914302947e08778e00a06518598bff6efd289b7062dc",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_bool_arithmetic",
+      "category": "type",
+      "task": "定义 bonus(enabled:Bool):Int64；true 返回11，false返回10，依次输出两者。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_bool_arithmetic.cj",
+        "text": "func bonus(enabled: Bool): Int64 { 10 + enabled }\nmain() {\n    println(bonus(true))\n    println(bonus(false))\n}\n"
+      },
+      "sourceSha256": "17d1d5b75eb94620ad2eab678f401d569c24aea9ea22ba783e1bbd25f50f0508",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "11\n10\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "17d1d5b75eb94620ad2eab678f401d569c24aea9ea22ba783e1bbd25f50f0508",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_condition_type",
+      "category": "type",
+      "task": "定义 signLabel(n:Int64):String；正数返回 positive，其他返回 other；依次输出2、0、-1的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_condition_type.cj",
+        "text": "func signLabel(n: Int64): String { if (n) { \"positive\" } else { \"other\" } }\nmain() {\n    println(signLabel(2))\n    println(signLabel(0))\n    println(signLabel(-1))\n}\n"
+      },
+      "sourceSha256": "d176a7520aabe26ce9d479c6a9ecde8d0f0061e3575e42f255f385d83b072f78",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "positive\nother\nother\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "d176a7520aabe26ce9d479c6a9ecde8d0f0061e3575e42f255f385d83b072f78",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_array_element",
+      "category": "type",
+      "task": "定义 sumThree(a:Int64,b:Int64,c:Int64):Int64，将三个整数放入数组并求和；主程序输出sumThree(1,2,3)。参数范围-100..100。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_array_element.cj",
+        "text": "func sumThree(a: Int64, b: Int64, c: Int64): Int64 { let numbers: Array<Int64> = [a, \"2\", c]; numbers[0] + numbers[1] + numbers[2] }\nmain() {\nprintln(sumThree(1,2,3))\n}\n"
+      },
+      "sourceSha256": "3738366753b89a68742296712f2a77e87b0a1c86c6bc74d642f3e86557275029",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "6\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "942630eae4b866ff523ae10b20c8b8a383231ae6474f1da2394920cf2d83b0db",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_unknown_function",
+      "category": "scope-or-api",
+      "task": "定义 cube(x:Int64):Int64 计算立方，依次输出2、-1的立方。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_unknown_function.cj",
+        "text": "func cube(x: Int64): Int64 { x * x * x }\nmain() {\n    println(cubed(2))\n    println(cube(-1))\n}\n"
+      },
+      "sourceSha256": "1a960ed0613453881c6b2ec7f8ac508ff28b5a9885c5e89cfc76795f2ca43f0e",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "8\n-1\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "1a960ed0613453881c6b2ec7f8ac508ff28b5a9885c5e89cfc76795f2ca43f0e",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_block_scope",
+      "category": "scope-or-api",
+      "task": "定义 selectValue(enabled:Bool,value:Int64):Int64；enabled为true返回value，否则返回0；保留条件分支，将结果在分支外返回。主程序输出selectValue(true,9)。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_block_scope.cj",
+        "text": "func selectValue(enabled: Bool, value: Int64): Int64 { if (enabled) { let result: Int64 = value }; result }\nmain() {\nprintln(selectValue(true,9))\n}\n"
+      },
+      "sourceSha256": "5fe465d003dddcecb685f2fbda023d053d4ae8ba818a32dfeee2b68f5e8e0d4d",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "9\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "b79e9cafc3a22e7369aca1680fead0090c8d9500566ea9859fdb37f9458fa47d",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_unknown_member",
+      "category": "scope-or-api",
+      "task": "定义 countValues(values:Array<Int64>):Int64，返回数组元素个数，支持空数组；主程序输出countValues([8,5,2])。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_unknown_member.cj",
+        "text": "func countValues(values: Array<Int64>): Int64 { values.length() }\nmain() {\nprintln(countValues([8,5,2]))\n}\n"
+      },
+      "sourceSha256": "78ffa13b685885a2983d1a387c484feabfb2c08c1ab47773a56591b6ba14b87f",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "3\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "69252bdbd5655970f77de949a8d337904ccce830261497ecb87c49896afc9a23",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_loop_scope",
+      "category": "scope-or-api",
+      "task": "定义 announce(text:String):Unit，输出传入字符串并正常结束，不需要循环，应移除无意义的循环控制语句。主程序调用announce(\"finished\")。 无标准输入，每项输出以LF换行；保留所指定函数及一般行为，不能硬编码公开输出。",
+      "source": {
+        "name": "eval_loop_scope.cj",
+        "text": "func announce(text: String): Unit { println(text); break }\nmain() {\nannounce(\"finished\")\n}\n"
+      },
+      "sourceSha256": "1e72590c0d5cc9f13fff4ac69f7694f07250917d3d8bd96151cde5e8cca8b750",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "finished\n"
+        }
+      ],
+      "initialExpectation": "compile-error",
+      "baseSourceSha256": "b48a570f05270ad51696e251d086b1de93628fba7e42e4a5bdfe1c38da794122",
+      "adaptedForParameterTests": true
+    },
+    {
+      "id": "eval_maximum",
+      "category": "logic",
+      "task": "定义 maximum(a:Int64,b:Int64):Int64 返回较大值，依次输出 (2,5)、(7,3)、(-4,-4) 的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_maximum.cj",
+        "text": "func maximum(a: Int64, b: Int64): Int64 { if (a > b) { b } else { a } }\nmain() {\n    println(maximum(2, 5))\n    println(maximum(7, 3))\n    println(maximum(-4, -4))\n}\n"
+      },
+      "sourceSha256": "54c5b0c5929f5f9aa66871aebb0dc3f6ade14ee594041e948b2247ed7883fadf",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "5\n7\n-4\n"
+        }
+      ],
+      "initialExpectation": "fails-public-tests",
+      "baseSourceSha256": "54c5b0c5929f5f9aa66871aebb0dc3f6ade14ee594041e948b2247ed7883fadf",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_absolute",
+      "category": "logic",
+      "task": "定义 absolute(n:Int64):Int64 返回绝对值，输入范围 -1000..1000；依次输出 -5、0、3 的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_absolute.cj",
+        "text": "func absolute(n: Int64): Int64 { if (n < 0) { n } else { n } }\nmain() {\n    println(absolute(-5))\n    println(absolute(0))\n    println(absolute(3))\n}\n"
+      },
+      "sourceSha256": "515977e2da2f51d6ef488745a85bfcd3f279642327c310bbfd39cf7873e92199",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "5\n0\n3\n"
+        }
+      ],
+      "initialExpectation": "fails-public-tests",
+      "baseSourceSha256": "515977e2da2f51d6ef488745a85bfcd3f279642327c310bbfd39cf7873e92199",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_accumulation",
+      "category": "logic",
+      "task": "定义 sumTo(n:Int64):Int64 返回1至n的整数和，0<=n<=100；依次输出0、1、4的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_accumulation.cj",
+        "text": "func sumTo(n: Int64): Int64 {\n var total: Int64 = 0\n var i: Int64 = 1\n while (i < n) { total = total + i; i = i + 1 }\n total\n}\nmain() {\n    println(sumTo(0))\n    println(sumTo(1))\n    println(sumTo(4))\n}\n"
+      },
+      "sourceSha256": "e44f0f8393c509f92ed2281374df7d9d6b7e1b79e13b9feee891144edad75c06",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "0\n1\n10\n"
+        }
+      ],
+      "initialExpectation": "fails-public-tests",
+      "baseSourceSha256": "e44f0f8393c509f92ed2281374df7d9d6b7e1b79e13b9feee891144edad75c06",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_leap_year",
+      "category": "logic",
+      "task": "定义 isLeap(y:Int64):Bool；可被400整除或可被4整除且不能被100整除为闰年；依次输出2000、1900、2024、2023的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_leap_year.cj",
+        "text": "func isLeap(y: Int64): Bool { y % 4 == 0 }\nmain() {\n    println(isLeap(2000))\n    println(isLeap(1900))\n    println(isLeap(2024))\n    println(isLeap(2023))\n}\n"
+      },
+      "sourceSha256": "ce671fb767522fc7991c546f83e3faea184c9ec8cb658f441cc6ebb078a565cd",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\nfalse\ntrue\nfalse\n"
+        }
+      ],
+      "initialExpectation": "fails-public-tests",
+      "baseSourceSha256": "ce671fb767522fc7991c546f83e3faea184c9ec8cb658f441cc6ebb078a565cd",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_clamp",
+      "category": "correct",
+      "task": "定义 clamp(n:Int64):Int64，将整数截断到0至100；依次输出-1、50、101的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_clamp.cj",
+        "text": "func clamp(n: Int64): Int64 { if (n < 0) { 0 } else if (n > 100) { 100 } else { n } }\nmain() {\n    println(clamp(-1))\n    println(clamp(50))\n    println(clamp(101))\n}\n"
+      },
+      "sourceSha256": "a59ddf7251d8a65396b28216effedb97d16284d4f85c83fffa0c8e42ab3509a4",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "0\n50\n100\n"
+        }
+      ],
+      "initialExpectation": "passes-public-tests",
+      "baseSourceSha256": "a59ddf7251d8a65396b28216effedb97d16284d4f85c83fffa0c8e42ab3509a4",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_gcd",
+      "category": "correct",
+      "task": "定义 gcd(a:Int64,b:Int64):Int64，参数非负且不同时为0；求最大公约数。依次输出(12,18)、(7,0)的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_gcd.cj",
+        "text": "func gcd(a: Int64, b: Int64): Int64 {\n var x = a\n var y = b\n while (y != 0) { let r = x % y; x = y; y = r }\n x\n}\nmain() {\n    println(gcd(12, 18))\n    println(gcd(7, 0))\n}\n"
+      },
+      "sourceSha256": "6a9a76b3170093aadbc60e43dfd0a64d523d979a19f8118c08401636b6f781d6",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "6\n7\n"
+        }
+      ],
+      "initialExpectation": "passes-public-tests",
+      "baseSourceSha256": "6a9a76b3170093aadbc60e43dfd0a64d523d979a19f8118c08401636b6f781d6",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_even",
+      "category": "correct",
+      "task": "定义 isEven(n:Int64):Bool，判断能否被2整除；依次输出-2、0、3的结果。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_even.cj",
+        "text": "func isEven(n: Int64): Bool { n % 2 == 0 }\nmain() {\n    println(isEven(-2))\n    println(isEven(0))\n    println(isEven(3))\n}\n"
+      },
+      "sourceSha256": "bf1fc4dc2af87ae27f3f7428f22943ee0673f870bf77d98e8be0fd2ebaeb41c9",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "true\ntrue\nfalse\n"
+        }
+      ],
+      "initialExpectation": "passes-public-tests",
+      "baseSourceSha256": "bf1fc4dc2af87ae27f3f7428f22943ee0673f870bf77d98e8be0fd2ebaeb41c9",
+      "adaptedForParameterTests": false
+    },
+    {
+      "id": "eval_array_sum",
+      "category": "correct",
+      "task": "定义 sumValues(values:Array<Int64>):Int64，累加所有元素；依次输出[1,-2,4]及[0]的和。 无标准输入，每项输出以 LF 换行；保留题意指定函数及其一般行为，不得仅硬编码公开输出。",
+      "source": {
+        "name": "eval_array_sum.cj",
+        "text": "func sumValues(values: Array<Int64>): Int64 {\n var total: Int64 = 0\n for (value in values) { total = total + value }\n total\n}\nmain() {\n    println(sumValues([1, -2, 4]))\n    println(sumValues([0]))\n}\n"
+      },
+      "sourceSha256": "9533e2d50fcbeb8e3ed42f01ba8137a5a105c088279fd8b667ba85f4d997d681",
+      "publicTests": [
+        {
+          "id": "public",
+          "stdin": "",
+          "expectedStdout": "3\n0\n"
+        }
+      ],
+      "initialExpectation": "passes-public-tests",
+      "baseSourceSha256": "9533e2d50fcbeb8e3ed42f01ba8137a5a105c088279fd8b667ba85f4d997d681",
+      "adaptedForParameterTests": false
+    }
+  ]
+}
