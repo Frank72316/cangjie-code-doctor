@@ -1,0 +1,27 @@
+{
+  "version": "challenge-v1-evaluation",
+  "designSha256": "df4fa3ca51f197fcb298321e900fede9eafe2a612d70f48d88b21319712658f9",
+  "baselineCommit": "25764d2ff3db29c33566dc109eb1bb7bf7ae632a",
+  "split": "evaluation",
+  "cases": 24,
+  "repeats": 3,
+  "conditions": 216,
+  "groups": [
+    "A",
+    "B",
+    "C"
+  ],
+  "roundLimit": 2,
+  "priorExperimentalCNY": 0.229582,
+  "otherDevelopmentReserveCNY": 1,
+  "totalCapCNY": 20,
+  "formalCapCNY": 18.770418,
+  "inputPeakCNYPerMillion": 2,
+  "outputPeakCNYPerMillion": 8,
+  "priceSource": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "primary": "B minus A; mean within case across three repeats, then equal weight across 24 cases; report first and final",
+  "secondary": "B minus C; paired differences and strata; case-cluster percentile bootstrap with 10000 draws seed 20261126",
+  "selection": "Latest format-valid candidate, maximum two rounds, stop on public success; report invalid output and missing attempts; no paid service retries",
+  "acceptance": "compile, original public behavior, frozen holdout behavior, no bypass of task contract",
+  "inference": "Exploratory convenience sample, no significance or general superiority claim"
+}
