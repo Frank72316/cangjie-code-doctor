@@ -1,0 +1,444 @@
+{
+  "designSha256": "df4fa3ca51f197fcb298321e900fede9eafe2a612d70f48d88b21319712658f9",
+  "phase": "evaluation-second",
+  "startedAt": "2026-11-26T11:51:01.834Z",
+  "ceilingCNY": 0.7653520000000001,
+  "results": [
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "requestSha256": "93854f2e7c26f6c6338a133f4f7cb2d8153574d4b04242b2f7f65f98f7523986",
+      "startedAt": "2026-11-26T11:51:01.839Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002588,
+      "repeat": 1,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cbc08173-d991-4149-bc8e-9cd6401dcd20",
+      "usage": {
+        "prompt_tokens": 666,
+        "completion_tokens": 157,
+        "total_tokens": 823,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc changeWays(coins: Array<Int64>, total: Int64): Int64 {\\n    let dp = Array<Int64>(total + 1, repeat: 0)\\n    dp[0] = 1\\n    for (coin in coins) {\\n        for (x in coin..=total) {\\n            dp[x] += dp[x - coin]\\n        }\\n    }\\n    dp[total]\\n}\\n\\nmain() {\\n    println(changeWays([1, 2], 4) == 3)\\n    println(changeWays([], 0) == 1)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc changeWays(coins: Array<Int64>, total: Int64): Int64 {\n    let dp = Array<Int64>(total + 1, repeat: 0)\n    dp[0] = 1\n    for (coin in coins) {\n        for (x in coin..=total) {\n            dp[x] += dp[x - coin]\n        }\n    }\n    dp[total]\n}\n\nmain() {\n    println(changeWays([1, 2], 4) == 3)\n    println(changeWays([], 0) == 1)\n}\n",
+      "codeSha256": "bc321b7f6335a02856497b4562020934c7aa3ded0bed097a59482276f2870830",
+      "finishedAt": "2026-11-26T11:51:02.723Z"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "requestSha256": "43a86a439d98cbe77ea6c284d1f318dc2b1e7b17267f1b6f67fa8e3c875cd2e2",
+      "startedAt": "2026-11-26T11:51:02.725Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002876,
+      "repeat": 1,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f5e2674d-f39b-4d9a-9018-a2b0beeac3b9",
+      "usage": {
+        "prompt_tokens": 766,
+        "completion_tokens": 168,
+        "total_tokens": 934,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc knapsack(weights: Array<Int64>, values: Array<Int64>, cap: Int64): Int64 {\\n let dp = Array<Int64>(cap + 1, repeat: 0)\\n for (i in 0..weights.size) {\\n  for (c in cap..=weights[i]) {\\n   dp[c] = max(dp[c], dp[c - weights[i]] + values[i])\\n  }\\n }\\n dp[cap]\\n}\\n\\nmain() {\\nprintln(knapsack([2,3],[3,8],5) == 11)\\nprintln(knapsack([2],[3],4) == 3)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc knapsack(weights: Array<Int64>, values: Array<Int64>, cap: Int64): Int64 {\n let dp = Array<Int64>(cap + 1, repeat: 0)\n for (i in 0..weights.size) {\n  for (c in cap..=weights[i]) {\n   dp[c] = max(dp[c], dp[c - weights[i]] + values[i])\n  }\n }\n dp[cap]\n}\n\nmain() {\nprintln(knapsack([2,3],[3,8],5) == 11)\nprintln(knapsack([2],[3],4) == 3)\n}\n",
+      "codeSha256": "c05fcb167d883f290b93dad321f7198f2fc342258c9110e8af371fd97197fef1",
+      "finishedAt": "2026-11-26T11:51:03.739Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "requestSha256": "2959044be646dd134f61f7231821ade1499fb138bcbbc1314bb667b11c56173a",
+      "startedAt": "2026-11-26T11:51:03.743Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002866,
+      "repeat": 1,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "99f54413-a9cb-45db-b5e3-9e643cfe961e",
+      "usage": {
+        "prompt_tokens": 741,
+        "completion_tokens": 173,
+        "total_tokens": 914,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "finishedAt": "2026-11-26T11:51:04.417Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "requestSha256": "a0ada6bb0dfef951e1122743c2cca51cdb31379864a226097ccf60fd8aa30aad",
+      "startedAt": "2026-11-26T11:51:04.419Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.00759,
+      "repeat": 1,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5b8a15e0-c4ed-4fb0-bcd4-1034c34d42bf",
+      "usage": {
+        "prompt_tokens": 3103,
+        "completion_tokens": 173,
+        "total_tokens": 3276,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        },
+        "prompt_cache_hit_tokens": 2816,
+        "prompt_cache_miss_tokens": 287
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "finishedAt": "2026-11-26T11:51:05.714Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "requestSha256": "03787ce70ae47b1207b1be212471ec91faa9044d87b0adb04a7dab57dd70048f",
+      "startedAt": "2026-11-26T11:51:05.719Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.007454,
+      "repeat": 1,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7edba863-d180-49ba-8287-624e97714b6d",
+      "usage": {
+        "prompt_tokens": 3031,
+        "completion_tokens": 174,
+        "total_tokens": 3205,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        },
+        "prompt_cache_hit_tokens": 2816,
+        "prompt_cache_miss_tokens": 215
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    return out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "finishedAt": "2026-11-26T11:51:06.609Z"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "requestSha256": "2bcfc2acc6000927c8896dbb5cfa59a15de1cc7f3c7f9a09122e5971ae524166",
+      "startedAt": "2026-11-26T11:51:06.615Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002746,
+      "repeat": 1,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7ad956d8-c674-4240-ad97-d085b64a9b9d",
+      "usage": {
+        "prompt_tokens": 773,
+        "completion_tokens": 150,
+        "total_tokens": 923,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 261
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\\n let seen=HashSet<Int64>()\\n let out=ArrayList<Int64>()\\n for(x in values){if(out.size>=limit){break};if(!seen.contains(x)){seen.add(x);out.add(x)}}\\n out\\n}\\n\\nmain() {\\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\\nprintln(firstUnique([1],0).size==0)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\n let seen=HashSet<Int64>()\n let out=ArrayList<Int64>()\n for(x in values){if(out.size>=limit){break};if(!seen.contains(x)){seen.add(x);out.add(x)}}\n out\n}\n\nmain() {\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\nprintln(firstUnique([1],0).size==0)\n}\n",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "finishedAt": "2026-11-26T11:51:07.339Z"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "requestSha256": "43a86a439d98cbe77ea6c284d1f318dc2b1e7b17267f1b6f67fa8e3c875cd2e2",
+      "startedAt": "2026-11-26T11:51:07.344Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002876,
+      "repeat": 2,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "198d09fe-e0d5-4401-8c81-8f03bfbf033a",
+      "usage": {
+        "prompt_tokens": 766,
+        "completion_tokens": 168,
+        "total_tokens": 934,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc knapsack(weights: Array<Int64>, values: Array<Int64>, cap: Int64): Int64 {\\n let dp = Array<Int64>(cap + 1, repeat: 0)\\n for (i in 0..weights.size) {\\n  for (c in cap..=weights[i]) {\\n   dp[c] = max(dp[c], dp[c - weights[i]] + values[i])\\n  }\\n }\\n dp[cap]\\n}\\n\\nmain() {\\nprintln(knapsack([2,3],[3,8],5) == 11)\\nprintln(knapsack([2],[3],4) == 3)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc knapsack(weights: Array<Int64>, values: Array<Int64>, cap: Int64): Int64 {\n let dp = Array<Int64>(cap + 1, repeat: 0)\n for (i in 0..weights.size) {\n  for (c in cap..=weights[i]) {\n   dp[c] = max(dp[c], dp[c - weights[i]] + values[i])\n  }\n }\n dp[cap]\n}\n\nmain() {\nprintln(knapsack([2,3],[3,8],5) == 11)\nprintln(knapsack([2],[3],4) == 3)\n}\n",
+      "codeSha256": "c05fcb167d883f290b93dad321f7198f2fc342258c9110e8af371fd97197fef1",
+      "finishedAt": "2026-11-26T11:51:08.661Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "requestSha256": "a0ada6bb0dfef951e1122743c2cca51cdb31379864a226097ccf60fd8aa30aad",
+      "startedAt": "2026-11-26T11:51:08.667Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.00759,
+      "repeat": 2,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bd30eb74-8ebc-47b7-a755-068315b0715b",
+      "usage": {
+        "prompt_tokens": 3103,
+        "completion_tokens": 173,
+        "total_tokens": 3276,
+        "prompt_tokens_details": {
+          "cached_tokens": 2944
+        },
+        "prompt_cache_hit_tokens": 2944,
+        "prompt_cache_miss_tokens": 159
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "finishedAt": "2026-11-26T11:51:09.388Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "requestSha256": "03787ce70ae47b1207b1be212471ec91faa9044d87b0adb04a7dab57dd70048f",
+      "startedAt": "2026-11-26T11:51:09.392Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.007454,
+      "repeat": 2,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5a6e2e1f-78b7-4221-92ca-37f96c84e0d8",
+      "usage": {
+        "prompt_tokens": 3031,
+        "completion_tokens": 174,
+        "total_tokens": 3205,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        },
+        "prompt_cache_hit_tokens": 2816,
+        "prompt_cache_miss_tokens": 215
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    return out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "finishedAt": "2026-11-26T11:51:10.301Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "requestSha256": "2959044be646dd134f61f7231821ade1499fb138bcbbc1314bb667b11c56173a",
+      "startedAt": "2026-11-26T11:51:10.305Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002866,
+      "repeat": 2,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ccbcf90f-4bb6-4f1f-8304-50dc62b247be",
+      "usage": {
+        "prompt_tokens": 741,
+        "completion_tokens": 173,
+        "total_tokens": 914,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "finishedAt": "2026-11-26T11:51:11.001Z"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "requestSha256": "2bcfc2acc6000927c8896dbb5cfa59a15de1cc7f3c7f9a09122e5971ae524166",
+      "startedAt": "2026-11-26T11:51:11.005Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002746,
+      "repeat": 2,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "3eca180f-be4d-439c-af26-bc47b2192156",
+      "usage": {
+        "prompt_tokens": 773,
+        "completion_tokens": 150,
+        "total_tokens": 923,
+        "prompt_tokens_details": {
+          "cached_tokens": 639
+        },
+        "prompt_cache_hit_tokens": 639,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\\n let seen=HashSet<Int64>()\\n let out=ArrayList<Int64>()\\n for(x in values){if(out.size>=limit){break};if(!seen.contains(x)){seen.add(x);out.add(x)}}\\n out\\n}\\n\\nmain() {\\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\\nprintln(firstUnique([1],0).size==0)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\n let seen=HashSet<Int64>()\n let out=ArrayList<Int64>()\n for(x in values){if(out.size>=limit){break};if(!seen.contains(x)){seen.add(x);out.add(x)}}\n out\n}\n\nmain() {\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\nprintln(firstUnique([1],0).size==0)\n}\n",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "finishedAt": "2026-11-26T11:51:11.703Z"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "requestSha256": "9e664bf5d256eb4a88b5d09e0dc4961f102580f3737363e5ede5d319bb5696fd",
+      "startedAt": "2026-11-26T11:51:11.717Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.008648,
+      "repeat": 3,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7a751b61-1b7a-4176-b3d8-46c4cd57692b",
+      "usage": {
+        "prompt_tokens": 3364,
+        "completion_tokens": 240,
+        "total_tokens": 3604,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200
+        },
+        "prompt_cache_hit_tokens": 3200,
+        "prompt_cache_miss_tokens": 164
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc closedSlice(a: Array<Int64>,lo: Int64,hi: Int64): Array<Int64> {\\n    let size = a.size\\n    if (size == 0) {\\n        return Array<Int64>()\\n    }\\n    var start = lo\\n    if (start < 0) {\\n        start = 0\\n    }\\n    var end = hi\\n    if (end > size - 1) {\\n        end = size - 1\\n    }\\n    if (start > end) {\\n        return Array<Int64>()\\n    }\\n    let count = end - start + 1\\n    let s = start\\n    Array<Int64>(count, {i => a[s + i]})\\n}\\n\\nmain() {\\n    println(closedSlice([1,2,3],0,1)==[1,2])\\n    println(closedSlice([1,2,3],-2,1)==[1,2])\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc closedSlice(a: Array<Int64>,lo: Int64,hi: Int64): Array<Int64> {\n    let size = a.size\n    if (size == 0) {\n        return Array<Int64>()\n    }\n    var start = lo\n    if (start < 0) {\n        start = 0\n    }\n    var end = hi\n    if (end > size - 1) {\n        end = size - 1\n    }\n    if (start > end) {\n        return Array<Int64>()\n    }\n    let count = end - start + 1\n    let s = start\n    Array<Int64>(count, {i => a[s + i]})\n}\n\nmain() {\n    println(closedSlice([1,2,3],0,1)==[1,2])\n    println(closedSlice([1,2,3],-2,1)==[1,2])\n}\n",
+      "codeSha256": "ec55d132e815f7d13977ec6fe4a184f0c75244d2c7fb524cf18165ebeb8800cb",
+      "finishedAt": "2026-11-26T11:51:13.163Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "requestSha256": "03787ce70ae47b1207b1be212471ec91faa9044d87b0adb04a7dab57dd70048f",
+      "startedAt": "2026-11-26T11:51:13.168Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.007454,
+      "repeat": 3,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cb03a338-de82-43b7-85e7-1602e31b2bf1",
+      "usage": {
+        "prompt_tokens": 3031,
+        "completion_tokens": 174,
+        "total_tokens": 3205,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        },
+        "prompt_cache_hit_tokens": 2816,
+        "prompt_cache_miss_tokens": 215
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    return out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "finishedAt": "2026-11-26T11:51:14.463Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "requestSha256": "2959044be646dd134f61f7231821ade1499fb138bcbbc1314bb667b11c56173a",
+      "startedAt": "2026-11-26T11:51:14.467Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002866,
+      "repeat": 3,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "97533e01-9768-4923-8eaf-eae9b7d2cb90",
+      "usage": {
+        "prompt_tokens": 741,
+        "completion_tokens": 173,
+        "total_tokens": 914,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "finishedAt": "2026-11-26T11:51:16.030Z"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "requestSha256": "a1b2b96e7a86476e924f08987f33789f65dac54a8b65b5e4ff813332e75e3291",
+      "startedAt": "2026-11-26T11:51:16.034Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.0076,
+      "repeat": 3,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d7007a7c-e5e5-46f6-8944-65ff9c062897",
+      "usage": {
+        "prompt_tokens": 3104,
+        "completion_tokens": 174,
+        "total_tokens": 3278,
+        "prompt_tokens_details": {
+          "cached_tokens": 2944
+        },
+        "prompt_cache_hit_tokens": 2944,
+        "prompt_cache_miss_tokens": 160
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nfunc rotateRunes(s: String, k: Int64): String {\\n    let chars = s.toArray()\\n    let n = chars.size\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    let offset = k % n\\n    var out = \\\"\\\"\\n    for (i in 0..n) {\\n        out += chars[(i + offset) % n].toString()\\n    }\\n    return out\\n}\\n\\nmain() {\\n    println(rotateRunes(\\\"仓颉a\\\", 1) == \\\"颉a仓\\\")\\n    println(rotateRunes(\\\"abc\\\", 2) == \\\"cab\\\")\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nfunc rotateRunes(s: String, k: Int64): String {\n    let chars = s.toArray()\n    let n = chars.size\n    if (n == 0) {\n        return \"\"\n    }\n    let offset = k % n\n    var out = \"\"\n    for (i in 0..n) {\n        out += chars[(i + offset) % n].toString()\n    }\n    return out\n}\n\nmain() {\n    println(rotateRunes(\"仓颉a\", 1) == \"颉a仓\")\n    println(rotateRunes(\"abc\", 2) == \"cab\")\n}\n",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "finishedAt": "2026-11-26T11:51:17.054Z"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "requestSha256": "2bcfc2acc6000927c8896dbb5cfa59a15de1cc7f3c7f9a09122e5971ae524166",
+      "startedAt": "2026-11-26T11:51:17.058Z",
+      "status": "generated",
+      "costUpperEstimateCNY": 0.002746,
+      "repeat": 3,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f1b87c68-bfdb-4a53-a3aa-db17c95f2203",
+      "usage": {
+        "prompt_tokens": 773,
+        "completion_tokens": 150,
+        "total_tokens": 923,
+        "prompt_tokens_details": {
+          "cached_tokens": 639
+        },
+        "prompt_cache_hit_tokens": 639,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"// Challenge-v1; see benchmark-sources.md for provenance.\\nimport std.collection.*\\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\\n let seen=HashSet<Int64>()\\n let out=ArrayList<Int64>()\\n for(x in values){if(out.size>=limit){break};if(!seen.contains(x)){seen.add(x);out.add(x)}}\\n out\\n}\\n\\nmain() {\\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\\nprintln(firstUnique([1],0).size==0)\\n}\\n\"}",
+      "code": "// Challenge-v1; see benchmark-sources.md for provenance.\nimport std.collection.*\nfunc firstUnique(values: Array<Int64>,limit: Int64): ArrayList<Int64> {\n let seen=HashSet<Int64>()\n let out=ArrayList<Int64>()\n for(x in values){if(out.size>=limit){break};if(!seen.contains(x)){seen.add(x);out.add(x)}}\n out\n}\n\nmain() {\nprintln(firstUnique([3,1,3,2],3)==ArrayList<Int64>([3,1,2]))\nprintln(firstUnique([1],0).size==0)\n}\n",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "finishedAt": "2026-11-26T11:51:17.730Z"
+    }
+  ],
+  "freezeSha256": "4a3ec6e6c09e3e37b6cdad35b9703304b12e8a270acf87269487ad33b5d415e3",
+  "firstSha256": "e8aafb142d9335ecec9a044f5d996f40d12c9d5bdce1ca4ac335d46fc4ff50c4",
+  "publicReceiptSha256": "de9dbc8aa74013eed75ef2bd8f7327b93e3841d2b460f783506500a740de8cfe",
+  "finishedAt": "2026-11-26T11:51:17.734Z"
+}

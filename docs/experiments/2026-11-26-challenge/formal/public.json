@@ -1,0 +1,4572 @@
+{
+  "phase": "public",
+  "commit": "668b803f2b278adc73e8b3f01cc690363d37c44c",
+  "image": "sha256:93cf3e82cfd454493d0af17b52f43a4e129ee0a277494a40b16af55fe449a64b",
+  "firstSha256": "e8aafb142d9335ecec9a044f5d996f40d12c9d5bdce1ca4ac335d46fc4ff50c4",
+  "secondSha256": null,
+  "reports": 215,
+  "results": [
+    {
+      "caseId": "api_copy_filter",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a9dfe000bcd88748cb641ff0bf50a0a6"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "3dce56a934ac78add2e0b52e2b9f13328dce8f683e3d10a007716dcf8b8778de",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "fd68c418c3917df12e802237b78a9fd7"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c8d7f55c59930b56f491b3b7ec67389d"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b5cd5c3e96f704e9250f6b05e98403dbfc5d6a053673ce3c39d98e4869c00c29",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8a06739aa4e7eab05687149f38b671db"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "643dd20f49c6de3c15a5a2a07e15400266f877d344e9faf3b1195019a44add96",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8333b565f7ff11aabc853f11ec7d506a"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "round": 1,
+      "status": "invalid",
+      "repeat": 1
+    },
+    {
+      "caseId": "state_bank",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "19c47c67965262458fcaaf4ef108ada5"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4ba2c4d0043893bd10212c36dc546809"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "7da601e8c2a8ef335f025e8a9f18c2703d0400ab41b6579563627108acff2313",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f51bdc7c844402449129393a27d91f84"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "80269b41a8a7ebe3cb209326062614f8b706ccf621169af414923aa9e59b7fa8",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "773c2c6f56cad4491511166f886e8bfe"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fecf048d271ee5b1783195fbbfe961d8d0d6b4a8a24b54fb111e792fbd32afa8",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "cdd959e9ac65d1d283bb761cd8a0d190"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "ec07a16931ad88b8888c551969a3f4a098ad7a92205d707e8e6c8467eca9e8d2",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "79300ffac1b34bc1d9e354076436a3ee"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "58e3f414d4bc51fec3d5f69ea40dc5ab"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "713db93128edd537de72dc1f8f95998f"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "0eb51b252be1de020710ad0c50cb4dab"
+    },
+    {
+      "caseId": "state_books",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "08d80d299a4a297e324b5e984e1f1ed47211665305a276f02f009ae9fcc0c0b3",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "245e9bcda764d832318f1822768c54c6"
+    },
+    {
+      "caseId": "state_books",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5158e79ddb2de3aecbda3ef407b27a764ce7be050097c96ea6c29701c65e398d",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "ffb73546f24d415b97581d58c1082ebd"
+    },
+    {
+      "caseId": "state_books",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "08d80d299a4a297e324b5e984e1f1ed47211665305a276f02f009ae9fcc0c0b3",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c36965094f601854dd958eaacf855c05"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "3b0ba7daa0dcfa06bce43cf39e48ba8322ceb80a53ebbffa73b7e2b60f58688f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4312369e882e8fb515b0ed5d020416d0"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "09b089122378fca44cf9fc9439ba0a7885b9526c392e08fe0f5db8569502750e",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "123d6ad5e2214e91a49be9bc61fa22b0"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b26fc38ee3c88b69138d967aca45f262f548a350823a5ffdfae371bf181a7c27",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "ed8fc2f56a5f9c183811254bccbf2b50"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d3af79db211d952441d6bde843b68517"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c340c2a10c38539f003ef6e03380e3f3"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7ae484d7f2e184da35a12fbcbcdee62c"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "1ad2daf2fdbbda9445c5a090b7a182b4"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "38d5d175b4e940fe8b4060345f3cc54b"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a2b39e17189b72a47d6249b0983b9e95"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "36d53431a7b9747d776e85a7c3fd0656f8722a691ac6075d603b427004ad1fe8",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "415ea024c45720c241a36fd2a906a0ca"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d168aca5a44b6079a495a28a75c000e60c963507617816f7af06e220feb775c5",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "42352894cff4fedc031a3e967f3cbde9"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d168aca5a44b6079a495a28a75c000e60c963507617816f7af06e220feb775c5",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b623445c89db40b1f50c12fab750dac0"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a268c50cc9949fa5143a49fae39aadc71cf530a44d01d85e8eb5694fdda6806f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "66e08fbaf50bb7195a4a70ea6260c64d"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d5c49754c5081bcbd03eaebc79772ea14d4e0e96aff794f4852aafff16e55bc0",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "81415d4c7f13fe37d3e0ab2c2350f83a"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "c05fcb167d883f290b93dad321f7198f2fc342258c9110e8af371fd97197fef1",
+      "repeat": 1,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8223e89ed1a9df38fa465940389f23d2"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8fb5cd2a73b61f00b239b2a9845fe41933ba5e3f7350766d8f5cc7590285016b",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a62d36cbf7605ea4f4a5dfb509041e42"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8fb5cd2a73b61f00b239b2a9845fe41933ba5e3f7350766d8f5cc7590285016b",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "08f1c36de5201c07c75089e59d3c53f0"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8fb5cd2a73b61f00b239b2a9845fe41933ba5e3f7350766d8f5cc7590285016b",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7c1a873b50eb6cb87280ceb935e42964"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "760b6e42909286ce0f23b1dfbeed514ed2eb4b82104f5f09d6bda147f2ca36d7",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "2f7457f99180db88bd69851792fafec3"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8dd0761f142475647bc22766420b7be819bf11e32deef666cf1818b0ca051471",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "1bd5432293e057cb5c896833aa75c4e2"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "ed713ae6fd99cf476d267dfb1c4414d6ea0b74f51b127eb02567cbd5c387e3ee",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "9b85c9e90c3dd46d54e9a5f668625154"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "20f9a3c2e6dfd0d54a6a9e6074fd2a263132e23f5827c7ad982269fa31470a20",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5668786d5a9e05a1084049a53a197989"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "db9ed27f7556b400121fc9d7961ea6efc4c2ff3927d3ae840bdc87b8049174eb",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d1f876d9e1375d0033a76fcfd11c02ea"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "39272594cc1183b498d43e142bde7e7447f29008f79065805c6246bb6d09dd4f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "da292481ade02899f848a8011ffbc245"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6958d2cf946c4b65df095b5fb7f3fbf514040c2d79e09b28a80f288ee701da68",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "765b60d8054a9186e5e8ccd29b2029de"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "795e100e3da99deb34326aece26c3b8b1bb703a1bae77985053c528aab466031",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c8363c5f70a2e53eb5be898c0c7146cc"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6958d2cf946c4b65df095b5fb7f3fbf514040c2d79e09b28a80f288ee701da68",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "fef200eb7258a4a8362fe4228e540f3a"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4d58edb002164d06c0dcfd8d7f925f9f6d5c542511e89f4a4e7b301f756f2c5b",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "47da33788511b3818f05272c02f6876a"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4d58edb002164d06c0dcfd8d7f925f9f6d5c542511e89f4a4e7b301f756f2c5b",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f2ed109ce8a336d03e11fecc5836ecd3"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "7923230428e29ea64b1857ac814a2cfe39dc06d4b495775fd02a56aa3c6e8695",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6d459838e329bb84475dd2d1dc39fd24"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "78e77e4b9ae8116ffa07cd1e4741a19a3caa4058ca8e77bd50d4325f6e32933f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "3d6a50a98504f4e8adc559014d91be6a"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "78e77e4b9ae8116ffa07cd1e4741a19a3caa4058ca8e77bd50d4325f6e32933f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "07519b731a48895795879c8559575451"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b16f0d853800f16f7e8f44a34f843f68cdba3edaf0dfeca0a37e8e2aa568ba4d",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f33ce74e1131b46db1a7ef7fb6b4da95"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4391a5246d1e3934062d1f7c334ba56ca365a412d732b51508f98ae9df04c32d",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7a5253afe2b77246c932891aced4c55a"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "2d935455da484b36ddf3e8527b3fdcf1b01c6a2f130a8dafaac4f12e9ba9c42f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "811c760d36a846400d00947726d62077"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "67e1a962c3197e9f6bb2d1245b07824a35bb726a44ebaec7ad9f9c7c5df47d4a",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "ecd86cefbf8d7f2892e1293bdb062673"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "repeat": 1,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f65b4ddd13a020e499fb4cd7a94a7eeb"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "repeat": 1,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "867e262ddbbd7368d18ae6aab64961c3"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "repeat": 1,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f82c61394a68829500b34db5dbf6ec9a"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4178bfb0c793ee49d739eb70548172b2d8b80353acb454c31a9ba14b7065de82",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "79361941caae83145433c8cc587a62d9"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4178bfb0c793ee49d739eb70548172b2d8b80353acb454c31a9ba14b7065de82",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7a6eab72ea527003650dc295ce56ac3b"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4d0c761e89aab4dfc17f78b37c81cec0f614484f87323a660922e4af433e2bcd",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "e1b2a81cfd9d148defd5adedaa258980"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82245ec8bc7cdc37baa58a27b3ec84fd65126e31893da14f57a9fbbb159a16a8",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "0ac76b7ee1933e9505bdfbbd10270c93"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "de2f1bcbe515c0801d2d58dd786613622b584d928a752f2bd744e1a68b447ea3",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a4a2aa60c70feb473b320e504a9134a0"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82245ec8bc7cdc37baa58a27b3ec84fd65126e31893da14f57a9fbbb159a16a8",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7c6cc9c096eceb3fe629d5c3898296f0"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "round": 1,
+      "status": "compile_failed",
+      "codeSha256": "2f427ae74b279767ccb5f7adc185f948441f5b273fd76d4b9df0c6245d11206b",
+      "repeat": 1,
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 6,
+            "column": 84
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4ac156cafc2125a725e115dd11426995"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4613463f7fb5f2f23bb274efe90f603651ac2bd2a8d8d5109010432ae623204f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "244842aa4f2bf7ae5316a02b5b7d2ba3"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6688a6e98c9266281c256fb3623df3a9"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "55e45e2edf1d1ce20cd0597c1bda3f4b336ece595655a8bfd3bdeb1287e3123f",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "886fcd937c0b1c9906fde7f6bcf9c293"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5cf92f411c9bff58db4cd3f5541139dbe84ac6fbfe590c878f9dc964d1754130",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b47fa5e702016a645a05cb553175b9fe"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6aebea268c6942ad1ce885800d3862584434ee849b33726ba4c4d26b89857af4",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6501da165bdea26e0434fda302ecf621"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a90f105ecbdefe8adcb53e88b01debf5"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "32e3dbc62448c17bba408335427ae197"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 1,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b594ccd99bd3973bb33aabbb14e1bdaa"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "2299ee101f3b2a7295898024791c0ff1"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "9ae31ae6ebb10e171381b5ecb3060d94"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d9fea2e45693549fa0068ae266f96ee9"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b5cd5c3e96f704e9250f6b05e98403dbfc5d6a053673ce3c39d98e4869c00c29",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "2ac23dd878d160bb61b29f18ebb07d13"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "bc321b7f6335a02856497b4562020934c7aa3ded0bed097a59482276f2870830",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "739ee832bba8e4cbf9847e26aefa8061"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b5cd5c3e96f704e9250f6b05e98403dbfc5d6a053673ce3c39d98e4869c00c29",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5f5ed7ea08a15591662bdfdd018495e8"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8d7da427bb47afe0b4696776edec50ba"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f2a67de9200dfcab40b6ed437507fcd0"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "064f967701cde6989699180d3cbb3c6d"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fecf048d271ee5b1783195fbbfe961d8d0d6b4a8a24b54fb111e792fbd32afa8",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "093573756bdc3010f07175d579fc4421"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "bc298662782a995052e14fc63763737e67eab3c3adb7e1ec8538292f50828cbe",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "461273ff490290c15173b3722eb08a0e"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "80269b41a8a7ebe3cb209326062614f8b706ccf621169af414923aa9e59b7fa8",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "60822a9d05d1a7edab6963a61b662f0f"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "755dd2c3991b0d2c9b027fc8e8205e47"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "9e2d8836f476eb711272b87c99f1b711"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f331236056ec5f4a15cea53dc29e83286e423415a6acf53ae8f705be8992d438",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "29ad6beed531b60e831bd7ded99cf2df"
+    },
+    {
+      "caseId": "state_books",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5158e79ddb2de3aecbda3ef407b27a764ce7be050097c96ea6c29701c65e398d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "67f9fc3a42458374e4e30c28bbe490f9"
+    },
+    {
+      "caseId": "state_books",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "08d80d299a4a297e324b5e984e1f1ed47211665305a276f02f009ae9fcc0c0b3",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "199b921506ce99da987e7a8085343706"
+    },
+    {
+      "caseId": "state_books",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "08d80d299a4a297e324b5e984e1f1ed47211665305a276f02f009ae9fcc0c0b3",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a531489075c558e7625bf8c6f326c8e7"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "09b089122378fca44cf9fc9439ba0a7885b9526c392e08fe0f5db8569502750e",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "26b62742bef04b4c0ffe5ebba9ea38ba"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b26fc38ee3c88b69138d967aca45f262f548a350823a5ffdfae371bf181a7c27",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "319af6e38077fb4a1f4ff57d9b01dd2b"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "3b0ba7daa0dcfa06bce43cf39e48ba8322ceb80a53ebbffa73b7e2b60f58688f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "655e8cd4209e5b6cd2c8e5d45a7ad9dc"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d814fd7a2ea37cfd5a641ec0494e57e7a7330cd180d5733740be7aebb069b4b4",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "2ae9bcee568402ae479efc8f4ccc5ecc"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "bbec07c4309fb769554e46807b51a9e9"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8d27c3f2eb691d58dbdaf6b834538920"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "2f21b45c99107569faf3eb2046fd3b02"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "12f115960a2f5f033c13f638d8f2f1e6"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "dc5dd8d89e52bb9e28aaa61cff3a914f"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d168aca5a44b6079a495a28a75c000e60c963507617816f7af06e220feb775c5",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c1fb57cdb2d702d0cc57ae7ad447ae5a"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5595d10b918362ff45771e8038f834cfbb34526aa97ccbce30531d67ddd86f28",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b3a810b4cda4a0bb3c7eee6f0c80f573"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "36d53431a7b9747d776e85a7c3fd0656f8722a691ac6075d603b427004ad1fe8",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4b1456bdc0a9f242c225a8af5f6a4a60"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d5c49754c5081bcbd03eaebc79772ea14d4e0e96aff794f4852aafff16e55bc0",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "964756f3ee2650f6065f6bacbf45ef11"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "c05fcb167d883f290b93dad321f7198f2fc342258c9110e8af371fd97197fef1",
+      "repeat": 2,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c9490bd7e632dbb5408cce6fc7848213"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a268c50cc9949fa5143a49fae39aadc71cf530a44d01d85e8eb5694fdda6806f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "81ea81d07ef25c45508e938aa3ca7fff"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a38203a4c791ec8aa6cc864f9a2a09e4c72057ae991645da0cf61f8653b0c830",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5b4956cfe8538f047439152cbb7b18a0"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9f832b039545efd5fd9b13649d61be1527fc42319e4f6a138cda04be4b954be0",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "616a109e4f7d24fcb1cc69dc7250784d"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8fb5cd2a73b61f00b239b2a9845fe41933ba5e3f7350766d8f5cc7590285016b",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c17056d9032143004ea2c3fee8f4d031"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5558e6736203366b05c96290ee74a5b6517f2779682689567c258141f00ae141",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "26aa7d93238c5b9cf1690362263ee72f"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f4a32df437db9064e1543d573946d4e705440fa0bb19c8ce9e8f2f0b333198ab",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "33f524b065abcfdc9e9ceb0d14dbb10c"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "2576dccb53130851cb4e0078d76b8f31855ab56c896acff56d9861f4a59a1b59",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "850ab06e62fced6cd1ac32a1137be7f8"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "db9ed27f7556b400121fc9d7961ea6efc4c2ff3927d3ae840bdc87b8049174eb",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f500c968be077da7b2b493c51556a92c"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "39272594cc1183b498d43e142bde7e7447f29008f79065805c6246bb6d09dd4f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "04b9e163983efdaaae088e87b36f2890"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "20f9a3c2e6dfd0d54a6a9e6074fd2a263132e23f5827c7ad982269fa31470a20",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "31547758bf4128dcbac9ba9b37793535"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b70ccc3d4d4375e723b3c85ab38b2552cf5edc2dd1253d9c78ee694d2ba8369b",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "71a3950b5680cf758369bcca33fb1908"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "32dba867083777307b6b9bf1394e47a4ca1457146a6819abec17453cea5c29a3",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a70861d25aa1573e190b8443cd5adcea"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "978bb9e7ffc9d13ad05f6f93e3870d82b50de3f080f567f7bd6267b668d3c675",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "cec31a79a6546937a861eedd5d0527f1"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4d58edb002164d06c0dcfd8d7f925f9f6d5c542511e89f4a4e7b301f756f2c5b",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "ee3e62c029dce12a61709ff19e122523"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5185272d08260785f2834d659dbc5f6f2b5656f125cb21c164320d7820b7d3e9",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4a183312215bccf5198d3ec458561a1b"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4d58edb002164d06c0dcfd8d7f925f9f6d5c542511e89f4a4e7b301f756f2c5b",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "03622483f8e0aacd17ea3ded87fd5898"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "78e77e4b9ae8116ffa07cd1e4741a19a3caa4058ca8e77bd50d4325f6e32933f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "dfa2c1fc231a063dc8ed057094af6fc7"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d2da12091916d0c989a0f1baa18fe2bb4e3e169f4ef392721b45ef7c2e995eab",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "e3dae9b3ec0dccfd7e3dcbf34c2918be"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "78e77e4b9ae8116ffa07cd1e4741a19a3caa4058ca8e77bd50d4325f6e32933f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "09feaf023ffb56a06d34cf8d88d5e4aa"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "2d935455da484b36ddf3e8527b3fdcf1b01c6a2f130a8dafaac4f12e9ba9c42f",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "3dc641204b3bbe451962e199299ac688"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "7dc83aa2ba93ebf26312fc4c2c774de3924ce10e1e4beed8a82839325961d4cb",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "2c5ea63af0c6808d83daf4ee01fe127f"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4391a5246d1e3934062d1f7c334ba56ca365a412d732b51508f98ae9df04c32d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7b75d864ae469e775a5eda1524850d21"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "repeat": 2,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "49275e800acb9d550d56f031b2dba140"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "repeat": 2,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d9b2051921361baa85e81376473c82fc"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "repeat": 2,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4c832effe4ee63a584b07894f3031df3"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4178bfb0c793ee49d739eb70548172b2d8b80353acb454c31a9ba14b7065de82",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "22da235aeb40bc022237c8d5333f4da8"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fc103110be15333a8d15d350dcebc8eaf5415ad58e863521527595fa7aef1a46",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "a84500d58d133ff4b955b96569f9052d"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4178bfb0c793ee49d739eb70548172b2d8b80353acb454c31a9ba14b7065de82",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "57f40855bae176af1d6789d68eea816a"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d0fa27e5828cfbd955e3d542ce910d91cfffa13020b3b11a8341db6c5472e2d4",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7f924c17d1144cebea0cea886fc30e0e"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c6131f47be136f0a3063b9996192cf224b3d8b83067a4dc44048ec04fd4f9c56",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6c829c623afc557347db4a44e766ea25"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82245ec8bc7cdc37baa58a27b3ec84fd65126e31893da14f57a9fbbb159a16a8",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "874432c033500dd76a71e9443170314c"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "61ad8cf544eaced83566b3f5f0c057df"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "067a832afed171b41cb9b51718a4765e"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "round": 1,
+      "status": "compile_failed",
+      "codeSha256": "2f427ae74b279767ccb5f7adc185f948441f5b273fd76d4b9df0c6245d11206b",
+      "repeat": 2,
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 6,
+            "column": 84
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "1b3ded958ca63387b43be77a44b6fac6"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "2b1f3f2bd85c827e74826b8c5d6ad62b7e53dd62043905b1a28fda794da26615",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f03e8f8717d4594dda1d68d394ade42d"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6aebea268c6942ad1ce885800d3862584434ee849b33726ba4c4d26b89857af4",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "94dc24dba36b0ff5526535d88af77f9b"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5cf92f411c9bff58db4cd3f5541139dbe84ac6fbfe590c878f9dc964d1754130",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d7bdec55d083be210b716a7767ad5b57"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "96d6ef36c9081529525e8b6e788a2421"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "071e7263dcfd4f6b0af5aad1166ad593"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 2,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "ff9e6f74bbc616d4fcb6fb372aa0ee43"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "e8e7abf0bb0d7cb823a260a781d57be6"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f6232d5e97529470349d8421f867321fa59a4c30e1f6b922dab02888d79b0707",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "92c45108c16c080395f3280856b85abd"
+    },
+    {
+      "caseId": "api_copy_filter",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "3dce56a934ac78add2e0b52e2b9f13328dce8f683e3d10a007716dcf8b8778de",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "716e5a1ea31d108ce6112ddfb4eeec9d"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "bc321b7f6335a02856497b4562020934c7aa3ded0bed097a59482276f2870830",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "97a66eb1f4236f7bfe96a9470418ff0a"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b5cd5c3e96f704e9250f6b05e98403dbfc5d6a053673ce3c39d98e4869c00c29",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "dbf8bbeb99735f203398709c8c03ad15"
+    },
+    {
+      "caseId": "algo_coin_change",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b5cd5c3e96f704e9250f6b05e98403dbfc5d6a053673ce3c39d98e4869c00c29",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f218107054fd70b4ee76abcde7010087"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "16277de9f6a6566df3ae84834cfd8f8e"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "766a4ed289b03bc621eb8569804d5f27"
+    },
+    {
+      "caseId": "state_bank",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "18186f378a82793f8413112d79ae7f17b652b6ef726fecedfbb66ccd0c3dde0d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "76955feaeaef5dda00b4cfd049da49b9"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6872c6b201ac07fdf642fcee5784a7879079fc494af199e26b257f70adb9550a",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6856c8cec085865ff9617c934df6acd9"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "80269b41a8a7ebe3cb209326062614f8b706ccf621169af414923aa9e59b7fa8",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "898877dac9e91d7aebb1c23c4b42a325"
+    },
+    {
+      "caseId": "api_frequency",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "140fe0ec4d9dd6b3746c539edb8495ed696939ab20ab5f0bea441d9dcc733ed4",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f15de11f7a923180dd426c3b4d0ecfef"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6d795670ec167574cacca1369f761dae"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fe3feeee1d042493cd78c2bc3b24d7c438df819c7d5039572e3b9ce296ab868f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6c3532696d87c76aacddb567a39f7236"
+    },
+    {
+      "caseId": "algo_common_substring",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d44fb929d92603ab24bd309d411b9baef9b39ef7af39be4e1c14de5f8e8b21c5",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "33584f7fcb27cee0f3f993b799fb092d"
+    },
+    {
+      "caseId": "state_books",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "08d80d299a4a297e324b5e984e1f1ed47211665305a276f02f009ae9fcc0c0b3",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "89ba0c66c89b952d4156c60f62bbf1da"
+    },
+    {
+      "caseId": "state_books",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5158e79ddb2de3aecbda3ef407b27a764ce7be050097c96ea6c29701c65e398d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "760c1467b6415c6929a89a5e8bd76f87"
+    },
+    {
+      "caseId": "state_books",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5158e79ddb2de3aecbda3ef407b27a764ce7be050097c96ea6c29701c65e398d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "687daeb291769cb5f61eee313fe8897f"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b26fc38ee3c88b69138d967aca45f262f548a350823a5ffdfae371bf181a7c27",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5dd1e7b554e6181508174691712f0c8f"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5320a61848e24b000d84960427f08b29405dd03ac0403b02424e5867e47ae2af",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4513ea4e4188a247e3eed2b02acd3d36"
+    },
+    {
+      "caseId": "api_matrix_alias",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "09b089122378fca44cf9fc9439ba0a7885b9526c392e08fe0f5db8569502750e",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5010ef2117bfca5fba32054fde8ca624"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "363e351fd4a7bc25edb65bccb82386bf"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "14ab9b33563578d2227a247e4308792a2e5ecd99576064d4bd5bb760f281bf16",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8a0ff29beaa8c896c7008e9badb0b5eb"
+    },
+    {
+      "caseId": "algo_edit_distance",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "305b8ff4562be1e96cedc6931bc2748d50965761ec7b88708c182a497dcb51e2",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "1f3387d950da1e9c220eed8dfebf4275"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "57f7066b037061177430cc8b4a714ece"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "25a9fc6f52864f5eca5ad90737ab99f3"
+    },
+    {
+      "caseId": "state_camel_map",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "c25784b6fca4955f06630bd0f90dd8418cf61e3039b62f6d6e34b046a57a3773",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "daf9a6a7c46b44bccb5d6196b816fbf1"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "886789cc0452f2f154758629f80d5282b45a088a5aeee8c1d55b80ce9a71d0f0",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8243e469d08b5ea25e7e7dd0f494aaca"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "72f59e20bae353fc1e717acf2225a566140a6aa98fdd4907c50e9dbca93066ec",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "500111e98bf69b4f6fc999d2448a385c"
+    },
+    {
+      "caseId": "api_optional_clamp",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d168aca5a44b6079a495a28a75c000e60c963507617816f7af06e220feb775c5",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "be1b2eaeb0a8b64762e875cf438e53e8"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4a691dc5bdc5bbb89eefd602e25e456cefac077bcbbc201429f963a80d1f7710",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "1cb4a9256fdc78368cf7b1aabebb4296"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a268c50cc9949fa5143a49fae39aadc71cf530a44d01d85e8eb5694fdda6806f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "60969ffec9e62bf9127db58063ac9d8e"
+    },
+    {
+      "caseId": "algo_knapsack",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d5c49754c5081bcbd03eaebc79772ea14d4e0e96aff794f4852aafff16e55bc0",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "539ecec272ba84c740b99e217b903d01"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9f832b039545efd5fd9b13649d61be1527fc42319e4f6a138cda04be4b954be0",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f81f7f0dd6f9763824cb52fb7df621ba"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8fb5cd2a73b61f00b239b2a9845fe41933ba5e3f7350766d8f5cc7590285016b",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "ee9840384845525853cea085359efbd0"
+    },
+    {
+      "caseId": "state_complex",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a38203a4c791ec8aa6cc864f9a2a09e4c72057ae991645da0cf61f8653b0c830",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "cfb784a92ec058cba1c2469cd074dcae"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "ed713ae6fd99cf476d267dfb1c4414d6ea0b74f51b127eb02567cbd5c387e3ee",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "37fde011e5acd1b9f7b351e633de2ad3"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "2576dccb53130851cb4e0078d76b8f31855ab56c896acff56d9861f4a59a1b59",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6ac028fe1a54f165fb96f7635614ac90"
+    },
+    {
+      "caseId": "api_parse_skip",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "8dd0761f142475647bc22766420b7be819bf11e32deef666cf1818b0ca051471",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b4c64de166d02ea2bab6d88f8f8f22f5"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "39272594cc1183b498d43e142bde7e7447f29008f79065805c6246bb6d09dd4f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "83d49a0492bb7f1b80368f5ca95bbf4b"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "20f9a3c2e6dfd0d54a6a9e6074fd2a263132e23f5827c7ad982269fa31470a20",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8c105b75bb07481beeb77729f31ab781"
+    },
+    {
+      "caseId": "algo_lis",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "20f9a3c2e6dfd0d54a6a9e6074fd2a263132e23f5827c7ad982269fa31470a20",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d13d47193ce6f00128573b51b331fd93"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "616ad5c222a033d639540719c8ad0bd317cd4b6acaf0b33e1c8b49f2d7b5fb0b",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5febdbc0d04069494d9a22f567adfe0b"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "f5cd2ad51429d7503619aaa25f663bf43ea9b4d22e204fc548d39dc1252e70fb",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "06c2a296b2f1a1e625ac55e0418cdb10"
+    },
+    {
+      "caseId": "state_hotel",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6958d2cf946c4b65df095b5fb7f3fbf514040c2d79e09b28a80f288ee701da68",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "0acb9cea6f3f25fc15b1ad6f0bb000b7"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "B",
+      "round": 1,
+      "status": "compile_failed",
+      "codeSha256": "afa26ffe43ed631cde3265a887f45030bcebeb32359b4c8897c0569b000747cd",
+      "repeat": 3,
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_use_func_capture_var_alone",
+            "severity": "error",
+            "message": "lambda capturing mutable variables needs to be called directly",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 19,
+            "column": 25
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "91ec810df422ac850940a06396792ffe"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4d58edb002164d06c0dcfd8d7f925f9f6d5c542511e89f4a4e7b301f756f2c5b",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5749ce666a84cca416c9dfbfb2415328"
+    },
+    {
+      "caseId": "api_range_slice",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5185272d08260785f2834d659dbc5f6f2b5656f125cb21c164320d7820b7d3e9",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "06be2a199fe9bb3439464a7addd4869c"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d2da12091916d0c989a0f1baa18fe2bb4e3e169f4ef392721b45ef7c2e995eab",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "e72ca1191e3cfee5afa5463b72858d82"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "78e77e4b9ae8116ffa07cd1e4741a19a3caa4058ca8e77bd50d4325f6e32933f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "0a6787c8d545bcbeec90215bb5543599"
+    },
+    {
+      "caseId": "algo_max_segment",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "78e77e4b9ae8116ffa07cd1e4741a19a3caa4058ca8e77bd50d4325f6e32933f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "7c0167f317cd915467addb2788ba0f21"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "749ec25357d3f822f79ee69a90748da2dd0d874dd72272d474c16d52bb2a66a2",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "47ad20f0b62bc778e0116c3991a387ae"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82d3076976ca3e27d8baeda32579072922aa1638eb592add8e551f88edd70c49",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "01d489f7fa40eb5c96ca894342fde61e"
+    },
+    {
+      "caseId": "state_pagination",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "2d935455da484b36ddf3e8527b3fdcf1b01c6a2f130a8dafaac4f12e9ba9c42f",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c4036e017abeb0cdbd7ab2442381e8fa"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "C",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "repeat": 3,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "bd6a902936e28fc1a358c633b67bcf9d"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "A",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "530e0e49a56b2f8aa993f09a3e7c326742438fcb25617094d1bb4695f14f19df",
+      "repeat": 3,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "55c601986faa6b7cc1bf0eb6b9a463d9"
+    },
+    {
+      "caseId": "api_rune_rotate",
+      "group": "B",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "604d31c56bd8e6b71e67921c7ddc13c628959a46c8e724734e864464eb4c92ec",
+      "repeat": 3,
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f9c5900695d625e3ae105ac579b181e6"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "fc103110be15333a8d15d350dcebc8eaf5415ad58e863521527595fa7aef1a46",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "dffae6798ecdcbcbd8e56c40cc511ed7"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4178bfb0c793ee49d739eb70548172b2d8b80353acb454c31a9ba14b7065de82",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "dc801cd49c998996140ac9fb7f531b35"
+    },
+    {
+      "caseId": "algo_next_permutation",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "4178bfb0c793ee49d739eb70548172b2d8b80353acb454c31a9ba14b7065de82",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6f1b5ceb1ec89bef2af755cf8cf4e87c"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82245ec8bc7cdc37baa58a27b3ec84fd65126e31893da14f57a9fbbb159a16a8",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "d9f5ce9b2090f1ec95e92ab3caab708e"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82245ec8bc7cdc37baa58a27b3ec84fd65126e31893da14f57a9fbbb159a16a8",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5187c44d77ea246fe0b0b5e03581f69b"
+    },
+    {
+      "caseId": "state_registration",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "82245ec8bc7cdc37baa58a27b3ec84fd65126e31893da14f57a9fbbb159a16a8",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "312bea284499ea874fa3d471b7fd4b8b"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "21256ae3f29285ce69168168bed82bdb"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "A",
+      "round": 1,
+      "status": "compile_failed",
+      "codeSha256": "2f427ae74b279767ccb5f7adc185f948441f5b273fd76d4b9df0c6245d11206b",
+      "repeat": 3,
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 6,
+            "column": 84
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "de2a42a854718d40753f4c185927b078"
+    },
+    {
+      "caseId": "api_stable_unique",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "94f889a742b66bcb6bd6fd57cecc0b860f66e3373637f6e7b0ba7d5252c8a48d",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "94200a912df8c02c177cfa352a97f35a"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "6aebea268c6942ad1ce885800d3862584434ee849b33726ba4c4d26b89857af4",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "94e74397eaf5791852f5f6cf3d468324"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5cf92f411c9bff58db4cd3f5541139dbe84ac6fbfe590c878f9dc964d1754130",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f40ee95782c598ce99e87f033f1e444c"
+    },
+    {
+      "caseId": "algo_shortest_paths",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "5cf92f411c9bff58db4cd3f5541139dbe84ac6fbfe590c878f9dc964d1754130",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "07b5d356d2c84f5ece43f75624f19a43"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4b655a2115cc69622c32aa2abb2714cb"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "9aaffe4c93f536d426d174886e7c74078d43108232dfc34cf86bb63b5892a918",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4a462a48f29c55e7ac8fa610423e99ba"
+    },
+    {
+      "caseId": "state_rpg",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "41263f41dc442bf276ba0a4463ebd94ceaee67fb16903c6393d5d3cd1a472c77",
+      "repeat": 3,
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "4868b87dc50ee19a3eb0f3b5c764c3b4"
+    }
+  ]
+}
