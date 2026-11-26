@@ -64,7 +64,7 @@ export function appendDocumentText(parent, text, doc = document) {
   };
   let code = null;
   for (const line of text.split('\n')) {
-    if (/^```/.test(line)) {
+    if (/^\s*```/.test(line)) {
       if (code) code = null;
       else { const pre = doc.createElement('pre'); code = doc.createElement('code'); pre.append(code); parent.append(pre); }
     } else if (code) code.textContent += line + '\n';

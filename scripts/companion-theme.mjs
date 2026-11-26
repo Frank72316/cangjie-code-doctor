@@ -15,10 +15,10 @@ export function applyCompanion(html, root) {
     <button type="button" class="bunny-greet" aria-label="让小兔挥手" title="点一下，打个招呼">
       <img src="/assets/local-companion/bunny-still.png" width="280" height="350" alt="白粉垂耳兔女生" decoding="async"><span class="bunny-hint">打个招呼</span>
     </button>
-    <div class="bunny-copy"><span class="bunny-label">TIPS · 小兔提醒</span><strong>${context === 'tutorial' ? '陪你从第一条报错开始' : '接入前，先记住这两点'}</strong>
+    <div class="bunny-copy"><span class="bunny-label">TIPS · 小兔提醒</span><strong>${context === 'tutorial' ? '陪你从第一条报错开始' : '提问前，先核对这两点'}</strong>
       <ul class="bunny-tips">${context === 'tutorial'
         ? '<li>先选一个样例，再点击报错，回到对应的代码行。</li><li>查文档时核对 SDK 版本；编译通过后，还要用测试检查结果。</li>'
-        : '<li>当前只检查填写格式，可以先用演示文本体验，不必填真实密钥。</li><li>填写通过不代表连接成功；真正调用模型的功能还在准备中。</li>'}</ul>
+        : '<li>确认当前代码和报错，再选择是否附带官方文档。</li><li>AI 建议没有自动执行，不能把回答当成验证通过。</li>'}</ul>
       ${context === 'ai' ? '<a href="/tutorial" data-route>先跟我看看使用教程 →</a>' : ''}</div>
   </aside>`;
   return html.replace('</head>', '<link rel="stylesheet" href="/companion.css"></head>')

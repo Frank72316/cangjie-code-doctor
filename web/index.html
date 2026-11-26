@@ -20,7 +20,7 @@
       <a class="nav-item" href="/records" data-route aria-label="记录与报告"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-record"/></svg><span>记录与报告</span><span class="nav-dot" aria-hidden="true"></span></a>
       <a class="nav-item" href="/history" data-route aria-label="任务历史"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-history"/></svg><span>任务历史</span><span class="nav-dot" aria-hidden="true"></span></a>
       <span class="nav-divider">可选功能</span>
-      <a class="nav-item" href="/ai" data-route aria-label="AI 助手"><span class="ai-nav-mark" aria-hidden="true">AI</span><span>AI 助手</span><small class="nav-state">待接入</small><span class="nav-dot" aria-hidden="true"></span></a>
+      <a class="nav-item" href="/ai" data-route aria-label="AI 助手"><span class="ai-nav-mark" aria-hidden="true">AI</span><span>AI 助手</span><small class="nav-state">已接入</small><span class="nav-dot" aria-hidden="true"></span></a>
     </nav>
     <div class="sidebar-bottom">
       <div class="local-space"><span class="local-symbol"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-monitor"/></svg></span><div><strong>本地工作区</strong><span>开发预览 <b>v0.3</b></span></div></div>
@@ -171,31 +171,26 @@
         </details>
       </section>
       <section id="ai-assistant" class="app-page" data-page-view aria-labelledby="ai-title">
-        <div class="intro"><div><p class="eyebrow">AI ASSISTANT</p><h1 id="ai-title">给诊断，多一个思路</h1><p class="lead">用自己的模型，理解报错、核对依据，再决定怎么改。</p></div><span class="offline-label">界面预览 · 模型待接入</span></div>
+        <div class="intro"><div><p class="eyebrow">AI ASSISTANT</p><h1 id="ai-title">一起看懂这条报错</h1><p class="lead">用当前诊断询问 DeepSeek，阅读建议后再决定怎么改。</p></div><span class="offline-label">DeepSeek · 按次手动调用</span></div>
         <div class="ai-layout">
           <section class="panel ai-connection" aria-labelledby="ai-connection-title">
-            <div class="ai-card-heading"><span class="ai-step" aria-hidden="true">01</span><div><h2 id="ai-connection-title">连接你的模型</h2><p>准备好服务地址、模型名称和 API Key。</p></div><span id="ai-config-state" class="ai-state">待填写</span></div>
-            <form id="ai-settings-form" class="ai-form" autocomplete="off" novalidate>
-              <p class="ai-preview-note"><strong>先体验配置页面</strong><span>本页仅在浏览器内检查填写，不发送密钥、不调用模型。无需填入真实密钥即可预览。</span></p>
-              <div class="ai-field"><label for="ai-base-url">服务地址 <span>Base URL</span></label><input id="ai-base-url" type="url" placeholder="https://api.example.com/v1" maxlength="2048" autocomplete="off" spellcheck="false" aria-describedby="ai-url-help ai-url-error"><small id="ai-url-help">复制服务商提供的接口基础地址。这里不是聊天网页的网址。</small><p id="ai-url-error" class="ai-field-error" hidden></p></div>
-              <div class="ai-field"><label for="ai-model">模型名称 <span>Model ID</span></label><input id="ai-model" type="text" placeholder="填写服务商提供的模型 ID" maxlength="160" autocomplete="off" spellcheck="false" aria-describedby="ai-model-help ai-model-error"><small id="ai-model-help">与服务商控制台中的名称一致；不同服务的名称可能不同。</small><p id="ai-model-error" class="ai-field-error" hidden></p></div>
-              <div class="ai-field"><label for="ai-key">你的 API Key <span>访问密钥</span></label><div class="ai-key-input"><input id="ai-key" type="password" placeholder="粘贴 API Key（预览时可填演示文本）" maxlength="4096" autocomplete="new-password" spellcheck="false" autocapitalize="none" aria-describedby="ai-key-help ai-key-error"><button id="ai-key-toggle" type="button" aria-controls="ai-key" aria-pressed="false">显示</button></div><small id="ai-key-help">密钥只临时留在当前标签页，不写入本地记录；刷新或关闭后需重新填写。</small><p id="ai-key-error" class="ai-field-error" hidden></p></div>
-              <div class="ai-form-actions"><button id="ai-check-fields" class="primary" type="submit">检查填写 <svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-arrow-right"/></svg></button><button id="ai-clear" type="button">清空配置</button></div>
-              <p id="ai-config-result" class="ai-config-result" role="status" aria-live="polite" hidden></p>
-            </form>
-            <div class="ai-connection-footer"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-shield"/></svg><p>连接测试待接入。检查填写通过，不代表密钥有效或模型可用。</p></div>
+            <div class="ai-card-heading"><span class="ai-step">01</span><div><h2 id="ai-connection-title">准备这次提问</h2><p>使用本机配置的密钥，无需再粘贴。</p></div></div>
+            <div class="ai-form">
+              <p id="ai-local-status" role="status">正在读取本地配置…</p><button id="ai-refresh" type="button">刷新配置状态（不调用模型）</button>
+              <div class="ai-field"><strong>将发送的程序</strong><p id="ai-source-name"></p><a href="/diagnostics" data-route>查看或切换代码 →</a></div>
+              <label class="ai-option"><input id="ai-use-docs" type="checkbox">附带本次检索的官方文档</label><p id="ai-document-count" class="small-label"></p>
+              <p class="ai-preview-note">每次只问一次，关闭思考模式，最多输出 1500 tokens。每次启动最多 10 次请求，失败也计入次数；没有自动重试。</p>
+              <label class="ai-option"><input id="ai-consent" type="checkbox">同意将当前原代码、编译报错和勾选的文档发送至 DeepSeek，产生 API 费用。</label>
+              <div class="ai-form-actions"><button id="ai-send" class="primary" disabled>解释报错并给修改建议</button><button id="ai-stop" hidden>停止等待</button></div>
+              <p id="ai-request-status" role="status" aria-live="polite"></p>
+              <p class="small-label">读取本地配置不代表密钥有效；修改 .env.local 后须重启工作台。密钥不会发送到浏览器。</p>
+            </div>
           </section>
           <aside class="ai-companion" aria-labelledby="ai-capabilities-title">
-            <section class="ai-capabilities"><div class="ai-companion-heading"><span class="ai-spark" aria-hidden="true">✦</span><span class="ai-kicker">接入后，你可以</span></div><h2 id="ai-capabilities-title">从看懂报错开始</h2><p class="ai-companion-lead">围绕当前程序提供帮助。建议由你核对，修改由你决定。</p>
-              <div class="ai-capability"><span class="ai-feature-symbol" aria-hidden="true">?</span><div><h3>解释当前报错 <span>待接入</span></h3><p>结合代码和官方文档，说明错误原因与对应位置。</p></div></div>
-              <div class="ai-capability"><span class="ai-feature-symbol" aria-hidden="true">↗</span><div><h3>给出修改建议 <span>待接入</span></h3><p>查看修改前后差异，确认后再应用到副本。</p></div></div>
-              <div class="ai-planned-flow"><span>查看诊断</span><i aria-hidden="true">→</i><span>核对建议</span><i aria-hidden="true">→</i><span>测试验证</span></div>
-              <p class="ai-control-note">AI 建议需要验证。编译通过与测试通过会分别展示。</p>
-            </section>
-            <section class="ai-local-card"><span class="section-icon"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-book"/></svg></span><div><h3>没有密钥，也能继续</h3><p>现在就可以体验样例诊断、查阅离线文档和手工修改。</p><a href="/diagnostics" data-route class="context-link">回到编译诊断 →</a></div></section>
+            <section class="ai-capabilities"><h2 id="ai-capabilities-title">建议由你核对</h2><p>AI 会解释错误原因、指出修改方向，并提醒需要检查的行为。</p><p>当前不会自动覆盖源码，也不会执行 AI 生成的代码。自动候选验证与两轮修复仍待完成。</p><p>这次调用是日常辅助，不是正式 A/B 实验。</p><a href="/documents" data-route>先查官方文档 →</a></section>
           </aside>
         </div>
-        <details class="ai-help"><summary>第一次用 API Key？看看填写说明</summary><div class="ai-help-grid"><div><h3>从哪里获取？</h3><p>在你选择的模型服务商开发者控制台创建密钥，并复制其基础地址和模型 ID。聊天网站的登录密码不能当作 API Key。</p></div><div><h3>接入后会发送什么？</h3><p>计划在请求前展示当前代码、报错和所选文档范围，由用户确认后发送给所填服务。费用由该服务商按你的账户计费。</p></div><div><h3>可以给别人用吗？</h3><p>使用者填写自己的密钥即可配置各自服务。不要共享密钥；演示或截图前可点击“清空配置”。当前页面还不会发送请求。</p></div></div></details>
+        <section id="ai-answer-panel" class="panel ai-answer-panel" hidden><h2>AI 的解释与建议</h2><p id="ai-answer-meta" class="small-label"></p><p id="ai-stale" class="ai-preview-note" hidden>当前源码已变化，下面是先前原诊断的建议，请勿当成新诊断。</p><div id="ai-answer" class="document-excerpt"></div><button id="ai-download">下载本次 AI 建议记录</button><p>AI 建议未经编译或测试；引用与语法仍需核对。</p></section>
       </section>
       <section id="task-history" class="app-page" data-page-view aria-labelledby="history-title">
         <div class="intro"><div><p class="eyebrow">TASK HISTORY</p><h1 id="history-title">本机编译历史</h1><p class="lead">回看每一次编译的结果、日志与失败原因。</p></div><button id="refresh-history"><svg class="icon" aria-hidden="true"><use href="/assets/doctor-icons.svg#i-refresh"/></svg>刷新历史</button></div>

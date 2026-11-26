@@ -768,3 +768,9 @@ body[data-page="verify"] #verification-page{display:block}
 .document-results { scroll-margin-top:82px; }
 .document-key-rules { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:12px; }
 .document-key-rules .document-key-rule { margin:3px 0; }
+.ai-option { display:flex; align-items:flex-start; gap:10px; margin:18px 0 8px; font-size:14px; line-height:1.8; }
+.ai-option input { width:18px; height:18px; flex-shrink:0; margin-top:4px; }
+.ai-answer-panel { margin-top:24px; padding:24px; }
+#ai-answer { white-space:pre-wrap; overflow-wrap:anywhere; font:15px/1.9 var(--sans); margin:18px 0; }
+.ai-capabilities p { margin:16px 0; line-height:1.8; }
+#ai-answer { max-height:none; max-width:none; border:0; padding-top:0; }

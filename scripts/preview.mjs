@@ -9,6 +9,7 @@ import { RevisionStore } from './revision-store.mjs';
 import { MAX_REVISION_BYTES } from '../web/revision.mjs';
 import { VerificationService } from './verification-service.mjs';
 import { LocalCheckService } from './local-check-service.mjs';
+import { AIService, loadAIConfig } from './ai-service.mjs';
 import { StorageService } from './storage-service.mjs';
 import { applyVoxelTheme, voxelRoutes } from './voxel-theme.mjs';
 import { applyCompanion, companionRoutes } from './companion-theme.mjs';
@@ -49,12 +50,12 @@ const routes = new Map([
   ...['type_mismatch', 'undefined_name', 'argument_count', 'hello'].map(name =>
     [`/fixtures/${name}.json`, [`tests/fixtures/${name}.json`, 'application/json; charset=utf-8']])
 ]);
-export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, localCheckService = null, previewTheme = null, workbenchTheme = null,
+export function makeServer({bridge = null, revisionStore = bridge?.root ? new RevisionStore(bridge.root) : null, verificationService = null, localCheckService = null, aiService = null, previewTheme = null, workbenchTheme = null,
   storageService = bridge?.root ? new StorageService({root:bridge.root,revisionStore,verificationService}) : null} = {}) {
   if (previewTheme !== null && previewTheme !== 'voxel') throw new Error('Unknown preview theme');
   if (workbenchTheme !== null && workbenchTheme !== 'voxel') throw new Error('Unknown workbench theme');
   if (previewTheme && workbenchTheme) throw new Error('Choose preview or workbench theme');
-  if (previewTheme && (bridge || revisionStore || verificationService || localCheckService || storageService)) throw new Error('Design previews cannot connect to workbench services');
+  if (previewTheme && (bridge || revisionStore || verificationService || localCheckService || storageService || aiService)) throw new Error('Design previews cannot connect to workbench services');
   const voxel = previewTheme === 'voxel' || workbenchTheme === 'voxel';
   const activeRoutes = voxel ? new Map([...routes, ...voxelRoutes]) : routes;
   let storageExporting = false, storageScanning = false, activeWrites = 0;
@@ -80,10 +81,22 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
             (req.headers.origin && req.headers.origin !== `http://${expectedHost}`)) {
           send(403, {error:'请从本地 Doctor 页面操作。'}); return;
         }
-        const writes = ['/api/probe','/api/compile-example','/api/retrieve','/api/revisions','/api/verifications','/api/local-checks'];
+        const writes = ['/api/probe','/api/compile-example','/api/retrieve','/api/revisions','/api/verifications','/api/local-checks','/api/ai/explain'];
         if (req.method === 'POST' && writes.includes(req.url)) {
           if (storageExporting) { send(409,{error:'正在整理材料，请待导出结束后重试。'}); return; }
           activeWrites++; writeHeld = true;
+        }
+        if(req.method==='GET' && req.url==='/api/ai/status'){
+          send(200,aiService?.health??{configured:false,detail:'本地 AI 服务未配置。'});return;
+        }
+        if(req.method==='POST' && req.url==='/api/ai/explain'){
+          if(!aiService){send(503,{error:'本地 AI 服务未配置。'});return;}
+          if(req.headers['content-type']!=='application/json'){send(415,{error:'Expected JSON'});return;}
+          const chunks=[];let bytes=0;
+          for await(const chunk of req){bytes+=chunk.length;if(bytes>2*1024*1024+16384){send(413,{error:'请求超过大小限制。'});return;}chunks.push(chunk);}
+          let input;try{input=JSON.parse(Buffer.concat(chunks).toString('utf8'));}catch{send(400,{error:'Invalid JSON'});return;}
+          const controller=new AbortController(),cancel=()=>{if(!res.writableEnded)controller.abort();};res.on('close',cancel);
+          try{send(200,await aiService.explain(input,controller.signal));}finally{res.removeListener('close',cancel);}return;
         }
         if (req.method === 'GET' && req.url === '/api/storage') {
           if (!storageService) { send(503,{error:'当前服务未配置存储概况。'}); return; }
@@ -249,7 +262,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const localCheckService = new LocalCheckService({root,bridge,revisionStore,enabled:process.env.DOCTOR_LOCAL_CHECK !== '0'});
   await localCheckService.loadExamples();
   const workbenchTheme = process.env.DOCTOR_WORKBENCH_THEME || 'voxel';
-  const server = makeServer({bridge,revisionStore,verificationService,localCheckService,workbenchTheme});
+  const aiService = new AIService({root,config:await loadAIConfig(root)});
+  const server = makeServer({bridge,revisionStore,verificationService,localCheckService,workbenchTheme,aiService});
   server.on('error', e => { console.error(e.message); process.exitCode = 1; });
   server.listen(port, '127.0.0.1', () => {
     console.log(`Doctor workbench: http://127.0.0.1:${port}/tutorial (Ctrl+C to stop)`);

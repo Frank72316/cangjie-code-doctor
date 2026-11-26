@@ -35,6 +35,7 @@ let savingRevision = false;
 let revisionListRequest = 0;
 let verificationUI = null;
 let localCheckUI = null;
+let aiUI = null;
 function feedback(message = '') { $('feedback').textContent = message; $('feedback').hidden = !message; }
 function element(tag, text, className) { const e = document.createElement(tag); e.textContent = text; if (className) e.className = className; return e; }
 function displayTime(value) {
@@ -331,6 +332,7 @@ function refreshBeginnerGuide() {
   $('beginner-detail').textContent = detail;
 }
 function refreshSource() {
+  aiUI?.refresh();
   const text = $('source').value;
   const lines = text.split('\n').length;
   $('line-numbers').textContent = Array.from({length: lines}, (_, i) => i + 1).join('\n');
@@ -542,6 +544,7 @@ $('document-form').addEventListener('submit', async event => {
     revisionReference = {baseRecord:originalRecord,evidence:structuredClone(data)};
     $('attach-document-evidence').checked = true;
     renderDocumentEvidence(data);
+    aiUI?.refresh();
     if (!$('document-evidence').hidden) $('document-results').scrollIntoView({block:'start'});
   } catch (error) {
     if (ticket === documentRequest && record === originalRecord && current())
@@ -646,7 +649,7 @@ async function refreshHistory() {
     }
   }
 }
-$('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh()]); });
+$('refresh-health').addEventListener('click', async () => { await refreshHealth(true); await Promise.all([aiUI.loadStatus(),refreshHistory(), refreshRevisions(), verificationUI.refresh()]); });
 $('refresh-history').addEventListener('click', refreshHistory);
 $('cancel-compile').addEventListener('click', () => compileController?.abort());
 $('compile-example').addEventListener('click', async () => {
@@ -669,10 +672,10 @@ $('compile-example').addEventListener('click', async () => {
 });
 localCheckUI = initLocalCheckUI({context:() => ({health,record,source:{name:currentName,text:$('source').value},changed:record && !current(),saved:savedCurrent(),loading:loadingSample || savingRevision}),saveRevision:saveCurrentRevision,refreshHealth:() => refreshHealth(),download});
 const navigation = initNavigation();
-initAISettings();
+aiUI = initAISettings({context:() => ({health,record,current:current(),loading:loadingSample,evidence:documentEvidence}),download});
 verificationUI = initVerificationUI({getHealth:() => health, refreshHealth:() => refreshHealth(), download,
   onActivityChange:active => { if (active) health.busy = true; refreshSource(); }});
 initStorageUI({getHealth:() => health, download});
 initEvidenceReviewUI({download});
 loadCase('type_mismatch');
-refreshHealth().then(() => Promise.all([refreshHistory(), refreshRevisions(), verificationUI.refresh(), localCheckUI.history()]));
+refreshHealth().then(() => Promise.all([aiUI.loadStatus(),refreshHistory(), refreshRevisions(), verificationUI.refresh(), localCheckUI.history()]));

@@ -35,7 +35,7 @@ test('AI page serves module in both themes without opening cross-origin connecti
     const base=`http://127.0.0.1:${server.address().port}`;
     const page=await fetch(base+'/ai'); assert.equal(page.status,200);
     assert.match(page.headers.get('content-security-policy'),/connect-src 'self'/);
-    assert.match(await page.text(),/模型待接入/);
+    assert.match(await page.text(),/按次手动调用/);
     const module=await fetch(base+'/ai-settings.mjs'); assert.equal(module.status,200);
     assert.match(module.headers.get('content-type'),/javascript/);
     assert.equal((await fetch(base+'/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})).status,403);
