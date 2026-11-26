@@ -89,6 +89,10 @@ export function makeServer({bridge = null, revisionStore = bridge?.root ? new Re
         if(req.method==='GET' && req.url==='/api/ai/status'){
           send(200,aiService?.health??{configured:false,detail:'本地 AI 服务未配置。'});return;
         }
+        if(req.method==='GET' && (req.url==='/api/ai/history' || req.url.startsWith('/api/ai/history/'))){
+          if(!aiService){send(503,{error:'AI 记录服务未启动。'});return;}
+          send(200,req.url==='/api/ai/history'?await aiService.history():await aiService.advice(req.url.slice('/api/ai/history/'.length)));return;
+        }
         if(req.method==='POST' && req.url==='/api/ai/explain'){
           if(!aiService){send(503,{error:'本地 AI 服务未配置。'});return;}
           if(req.headers['content-type']!=='application/json'){send(415,{error:'Expected JSON'});return;}

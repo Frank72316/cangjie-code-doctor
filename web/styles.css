@@ -774,3 +774,18 @@ body[data-page="verify"] #verification-page{display:block}
 #ai-answer { white-space:pre-wrap; overflow-wrap:anywhere; font:15px/1.9 var(--sans); margin:18px 0; }
 .ai-capabilities p { margin:16px 0; line-height:1.8; }
 #ai-answer { max-height:none; max-width:none; border:0; padding-top:0; }
+.ai-history-panel { margin-top:24px; padding:24px; }
+.ai-history-heading { display:flex; gap:18px; justify-content:space-between; align-items:center; }
+.ai-history-heading p { margin-top:8px; color:var(--muted); }
+.ai-history-list { display:grid; gap:10px; margin-top:16px; max-height:360px; overflow:auto; }
+.ai-history-row { display:flex; gap:16px; justify-content:space-between; align-items:center; border:1px solid var(--line); padding:14px; }
+.ai-history-row p { margin:5px 0; font-size:13px; color:var(--muted); }
+.ai-history-row>div { min-width:0; overflow-wrap:anywhere; }
+.ai-history-row button { flex-shrink:0; }
+#ai-context-panel { margin:20px 0; padding:18px; border:1px solid var(--line); }
+#ai-context-panel summary { cursor:pointer; font-weight:700; }
+#ai-context-panel h3 { margin-top:20px; }
+#ai-context-panel pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:320px; overflow:auto; padding:14px; background:var(--surface); }
+#ai-context-documents details { margin:12px 0; padding:12px; border:1px dashed var(--line); }
+#ai-context-documents .document-excerpt { max-height:320px; white-space:pre-wrap; }
+@media(max-width:600px) { .ai-history-heading,.ai-history-row { align-items:stretch; flex-direction:column; } }

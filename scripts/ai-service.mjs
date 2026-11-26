@@ -3,6 +3,7 @@ import {join} from 'node:path';
 import {randomBytes, createHash} from 'node:crypto';
 import {readRecord, compileView} from '../web/report.mjs';
 import {validateDocumentEvidence} from '../web/document-evidence.mjs';
+import {AIHistory} from './ai-history.mjs';
 const fail=(message,status=400)=>Object.assign(new Error(message),{status});
 const hash=value=>createHash('sha256').update(value).digest('hex');
 
@@ -29,6 +30,8 @@ export class AIService {
   constructor({root,config,fetcher=fetch}){this.root=root;this.#config=config;this.#fetch=fetcher;}
   get health(){return {configured:this.#config.ready,detail:this.#config.ready?'本地配置已读取，尚不代表密钥验证通过。':this.#config.detail,
     model:'deepseek-flash',used:this.#used,limit:10,busy:this.#busy,maxOutputTokens:1500};}
+  history(){return new AIHistory(this.root).list();}
+  advice(id){return new AIHistory(this.root).read(id);}
   async explain(input,signal) {
     if(!input || input.confirmed!==true || !input.record || Object.keys(input).some(k=>!['record','retrievalId','confirmed'].includes(k)))throw fail('请确认发送当前原诊断；不接受自定义命令或模型地址。');
     if(!this.#config.ready)throw fail(this.#config.detail,503);
