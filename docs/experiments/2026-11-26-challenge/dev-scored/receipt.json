@@ -1,0 +1,526 @@
+{
+  "phase": "score",
+  "commit": "98a54a2b25c3c4c73519fed7442b699007b436a4",
+  "image": "sha256:191c73c64bcdfe3bb0521e6f65f7992e07d5b0f85cf94e9f5edc4f31fb1f9ad8",
+  "firstSha256": "9a12c30864700860976610be50022a8c0469437f6ca20d473a1942ed4cd2ad99",
+  "secondSha256": "e23e938e34bb266372e8087fc1943c76e14c39f3c3ce03bcb257f948468ba8f5",
+  "reports": 34,
+  "results": [
+    {
+      "caseId": "dev_named_splice",
+      "group": "A",
+      "round": 1,
+      "status": "compile_failed",
+      "codeSha256": "e005920256f7ea73eb3ccba6aabeec2b004e56d8fa882e51ea07d353b1a03114",
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'insert' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 7,
+            "column": 13
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8c93e18af9bcdf82ef5934800d4660e2"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "A",
+      "round": 2,
+      "status": "compile_failed",
+      "codeSha256": "ad5e3ec74d10c5e9c96ce81065549a9e0519c0ec9b184556d9b9a2d2f067a27c",
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 7,
+            "column": 13
+          },
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 12,
+            "column": 13
+          },
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 17,
+            "column": 13
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "fbf5e00ebe2d630aeefe3fa0efd3f8e3"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "41f7a5659ac0d097fd0836238e9cdb68a20f66f690d517e2c8dc8fb4842b8a17",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "3ad79a4825b2ddb5659aedafb1bdca65",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "fda935000b1be8d8e7114ab6167181fe"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "C",
+      "round": 1,
+      "status": "compile_failed",
+      "codeSha256": "22e512ee1068329d288cebf7d07b7cd6d8dc6d7ee3779557e108c201649502c8",
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'insert' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 7,
+            "column": 13
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8bb35700a348d6fe321e5099a88f6497"
+    },
+    {
+      "caseId": "dev_named_splice",
+      "group": "C",
+      "round": 2,
+      "status": "compile_failed",
+      "codeSha256": "743fd647030ffb03c88358a15b3fc578bcc447e2ea31ae4f77b469a985366303",
+      "public": {
+        "status": "compile_failed",
+        "diagnostics": [
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 9,
+            "column": 21
+          },
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 12,
+            "column": 13
+          },
+          {
+            "code": "sema_not_member_of",
+            "severity": "error",
+            "message": "'append' is not a member of class 'ArrayList<Int64>'",
+            "hint": "",
+            "file": "/input/input.cj",
+            "line": 16,
+            "column": 17
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "not_run",
+            "stdout": "",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "cbc39f530b4ac41dcc6a007b2feae289"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "cfee240bc11f08e1c530c1eeabf821262543318eed38f083a004b6b7267fe793",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b96ec033877a10578cc49ef70ac9e558",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "0846bccfb4682cb755a07677ca1b214f"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "C",
+      "round": 1,
+      "status": "test_failed",
+      "codeSha256": "a379582e7b5f9cb9f2aab97f752e195f462e0842695b85a1db010c20670c09e8",
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "true\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "f041b3774c4fd610b7beba3428fc2efb"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "C",
+      "round": 2,
+      "status": "test_failed",
+      "codeSha256": "a379582e7b5f9cb9f2aab97f752e195f462e0842695b85a1db010c20670c09e8",
+      "public": {
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "true\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "6dd3fc62494df0ce6b7d0ecbeb85aa2e"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "A",
+      "round": 1,
+      "status": "invalid"
+    },
+    {
+      "caseId": "dev_base_digits",
+      "group": "A",
+      "round": 2,
+      "status": "invalid"
+    },
+    {
+      "caseId": "dev_bit_status",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "24fd735bdce05da811752eb3da48a0e5",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "4789f1dfb6abe107016389128dc71fa7"
+    },
+    {
+      "caseId": "dev_bit_status",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "eec8e203bb01d908438f559c6821cabe",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "675e22a6632ce9936ed74bf054a1d8e3"
+    },
+    {
+      "caseId": "dev_bit_status",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "a53f1f39c0d617934f7b9c0d3246c06d45414598b84cea59851ca0519d616edc",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "5034d7fd87a9dc0170e4cd0f7b7392d4",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "cbe8293d78cd49dd182954007413f3d7"
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d8686a6b1cccf7b8d10058381ba2bd68cee160c73080674f73d32a64f43b107a",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "8d82e3f654375a53d5e0c1268f86be32",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "de0f0a57a8f671bd9ba4327b217d0b37"
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d8686a6b1cccf7b8d10058381ba2bd68cee160c73080674f73d32a64f43b107a",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "0a8e93e36bf2d147a388e579da38cada",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "9d7d530cc44c673c7171db024d81d57f"
+    },
+    {
+      "caseId": "dev_tuple_aggregate",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b1200a4b0251419e8c86de075a737e9febf01dc6e8f1b1c4fbcf356afddfb245",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "996a10f8b3b63cf8926c6a8d4976d2cf",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "b6bec97413713b448ec463e2c0c07134"
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "b49b315e446b6a7ad6412918c6fdef8e187627d420fb0502e4b63f41b8aa9af6",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "b45d8381d3ef05b36510343e1a9bc75f",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "d77fc132c971c5204c6853c93cc3795e"
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d3aeafdb74597f5dbfec8711250d08497eff8674acd0bfebf9406184cfbf6aa9",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "943c692d1dc9a2f3566f2313b2723b0a",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "9c12c735a08d3acaf1395cc473d7fa18"
+    },
+    {
+      "caseId": "dev_lower_bound",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "d3aeafdb74597f5dbfec8711250d08497eff8674acd0bfebf9406184cfbf6aa9",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "bf9d1b4ad67b52068187c343c5dead84",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "9187abe29317132072839deff98e87d7"
+    },
+    {
+      "caseId": "dev_brackets",
+      "group": "B",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "91b98aa92dfed06390dbb038838b39b9f8bb4b26597afc1b6dc47cee74ba660f",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "c0cb4649ee0da1eef1f4ee22996fc000",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "47f1a4c4cbf3daf9da9b5e2812ad9a64"
+    },
+    {
+      "caseId": "dev_brackets",
+      "group": "A",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "91b98aa92dfed06390dbb038838b39b9f8bb4b26597afc1b6dc47cee74ba660f",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "55a5bc67ddbfb2f1fbafb14d482940f6",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "326f52adf4fb547ab1111467d26818c0"
+    },
+    {
+      "caseId": "dev_brackets",
+      "group": "C",
+      "round": 1,
+      "status": "passed",
+      "codeSha256": "91b98aa92dfed06390dbb038838b39b9f8bb4b26597afc1b6dc47cee74ba660f",
+      "public": {
+        "status": "passed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "passed",
+            "stdout": "true\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "publicReportId": "9f82759055a3cb7b02f93547817e4899",
+      "holdoutStatus": "passed",
+      "holdoutReportId": "439cd93108a2727ae08bbda2a9edc50c"
+    }
+  ]
+}

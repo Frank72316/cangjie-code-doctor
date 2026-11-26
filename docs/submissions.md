@@ -444,3 +444,7 @@
 ## 第六十轮　第二轮候选与反馈锁定（2026-11-26）
 
 前一提交 9522eb07ba28e5d9dd16a419b465588ca30f8330 已核对双仓，GitHub Git 传输连接重置后通过 Git Data API 正常快进到相同 SHA。[常规检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45810128879) 和 [公开检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45810137504) 均成功。本次提交锁定实际公开反馈与 4 次第二轮请求结果。
+
+## 第六十一轮　校准结论与加密评分归档（2026-11-26）
+
+前一提交 98a54a2b25c3c4c73519fed7442b699007b436a4 于北京时间19:28:17提交。GitCode main 和 GitHub ref 均已核对。GitHub Git 传输重置后按原 SHA 快进同步。[常规 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45811035470) 与 [校准评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45811043080) 分别登记。评分于19:31:06更新为成功。本提交归档实际结果、加密证据和本机重算入口。
