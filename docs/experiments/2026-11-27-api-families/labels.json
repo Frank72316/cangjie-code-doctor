@@ -1,0 +1,121 @@
+[
+  {
+    "id": "front_run",
+    "panel": "ArrayDeque",
+    "gold": "collections-138",
+    "acceptable": [
+      "collections-138",
+      "collections-28"
+    ],
+    "reason": "移除队首；或先检查队首是否命中再移除。"
+  },
+  {
+    "id": "priority_insert",
+    "panel": "ArrayDeque",
+    "gold": "collections-82",
+    "acceptable": [
+      "collections-82"
+    ],
+    "reason": "要求只在头部插入。"
+  },
+  {
+    "id": "previous_tail",
+    "panel": "ArrayDeque",
+    "gold": "collections-38",
+    "acceptable": [
+      "collections-38",
+      "collections-176"
+    ],
+    "reason": "可直接查看队尾，也可从按队列顺序的数组读取末项。"
+  },
+  {
+    "id": "inspect_top",
+    "panel": "ArrayStack",
+    "gold": "collections-1189",
+    "acceptable": [
+      "collections-1189",
+      "collections-1225"
+    ],
+    "reason": "栈顶查看或以弹出顺序访问快照的第一项。"
+  },
+  {
+    "id": "pop_budget",
+    "panel": "ArrayStack",
+    "gold": "collections-1201",
+    "acceptable": [
+      "collections-1201"
+    ],
+    "reason": "按栈顶顺序弹出并取值。"
+  },
+  {
+    "id": "read_depth",
+    "panel": "ArrayStack",
+    "gold": "collections-1225",
+    "acceptable": [
+      "collections-1225"
+    ],
+    "reason": "出栈顺序快照可按深度读取，且原栈不变。"
+  },
+  {
+    "id": "later_value",
+    "panel": "TreeMap",
+    "gold": "collections-2989",
+    "acceptable": [
+      "collections-2989",
+      "collections-3034"
+    ],
+    "reason": "定位严格后继，或按键遍历筛出最小合格键。"
+  },
+  {
+    "id": "take_earliest",
+    "panel": "TreeMap",
+    "gold": "collections-3058",
+    "acceptable": [
+      "collections-3058",
+      "collections-2788"
+    ],
+    "reason": "删除最小键条目，或先取最小键值对再删除该键。"
+  },
+  {
+    "id": "floor_key",
+    "panel": "TreeMap",
+    "gold": "collections-2904",
+    "acceptable": [
+      "collections-2904",
+      "collections-3034"
+    ],
+    "reason": "倒序定位含边界的前驱，或按键遍历记录最后一个合格键。"
+  },
+  {
+    "id": "strict_lower",
+    "panel": "TreeSet",
+    "gold": "collections-3382",
+    "acceptable": [
+      "collections-3382",
+      "collections-3480",
+      "collections-3588"
+    ],
+    "reason": "按界限倒序，或遍历/扫描有序快照取得合格最大值。"
+  },
+  {
+    "id": "cut_below",
+    "panel": "TreeSet",
+    "gold": "collections-3544",
+    "acceptable": [
+      "collections-3544",
+      "collections-3492"
+    ],
+    "reason": "条件删除，或逐次移除最小值直到达到阈值。"
+  },
+  {
+    "id": "upper_distance",
+    "panel": "TreeSet",
+    "gold": "collections-3451",
+    "acceptable": [
+      "collections-3451",
+      "collections-3480",
+      "collections-3588"
+    ],
+    "reason": "定位上界，或遍历/扫描有序快照选出第一个大于等于阈值的值。"
+  }
+]

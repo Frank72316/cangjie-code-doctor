@@ -494,3 +494,6 @@
 
 ## 第七十五轮　新家族对照预登记
 上一轮结果提交 043c795123b361d1d86376b3969dce47a3df1a58 已在两平台核对，[GitHub CI 第二次运行](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45937457114/attempts/2) 成功。本节提交在新题排名前锁定干预、资源上限和结论口径。
+
+## 第七十六轮　提交材料
+069030902794495f9bef7149ca77f1dc404a1d00 已核对 GitCode、GitHub 分支，[规则提交 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45939588242)。本次提交冻结题意、标签、参考和保留材料的密文。

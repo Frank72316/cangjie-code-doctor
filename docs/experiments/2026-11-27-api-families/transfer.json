@@ -1,0 +1,182 @@
+[
+  {
+    "id": "front_run",
+    "task": "从双端队列头部连续取走所有不大于 t 的值，遇到第一个较大值就停。返回取走个数，其余元素顺序不变。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "front_run.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\nvar n:Int64=0\nwhile (!q.isEmpty()) { if ((q.last ?? 0) > t) {break}; q.removeLast(); n+=1 }\nn\n}\n\nmain() {\nlet item0 = ArrayDeque<Int64>()\nitem0.addLast(2)\nitem0.addLast(5)\nitem0.addLast(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 1 && item0.toArray() == [5, 1])\nlet item1 = ArrayDeque<Int64>()\nitem1.addLast(-3)\nitem1.addLast(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 1 && item1.toArray() == [4])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "priority_insert",
+    "task": "把新号码 t 放在双端队列最前面，使它排在所有旧号码之前。返回插入之前的长度，保留全部旧号码。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "priority_insert.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\nlet n=q.size\nq.addLast(t)\nn\n}\n\nmain() {\nlet item0 = ArrayDeque<Int64>()\nitem0.addLast(2)\nitem0.addLast(5)\nitem0.addLast(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\nlet item1 = ArrayDeque<Int64>()\nitem1.addLast(-3)\nitem1.addLast(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 2 && item1.toArray() == [3, -3, 4])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "previous_tail",
+    "task": "查看最后一个等待号码并返回；队列为空时返回 t。查看不能消耗任何号码。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "previous_tail.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\nq.removeLast() ?? t\n}\n\nmain() {\nlet item0 = ArrayDeque<Int64>()\nitem0.addLast(2)\nitem0.addLast(5)\nitem0.addLast(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 1 && item0.toArray() == [2, 5, 1])\nlet item1 = ArrayDeque<Int64>()\nitem1.addLast(-3)\nitem1.addLast(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 4 && item1.toArray() == [-3, 4])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "inspect_top",
+    "task": "读取栈顶记录，空栈返回 t。调用后栈内每条记录及顺序都应保留。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "inspect_top.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\nq.remove() ?? t\n}\n\nmain() {\nlet item0 = ArrayStack<Int64>()\nitem0.add(2)\nitem0.add(5)\nitem0.add(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 1 && item0.toArray() == [1, 5, 2])\nlet item1 = ArrayStack<Int64>()\nitem1.add(-3)\nitem1.add(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 4 && item1.toArray() == [4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "pop_budget",
+    "task": "最多取走栈顶的 t 项，返回取走各项之和。栈不足时取完即停，t 为零或负数时保持原样并返回零。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "pop_budget.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\nif (t <= 0) { return 0 }\nq.remove() ?? 0\n}\n\nmain() {\nlet item0 = ArrayStack<Int64>()\nitem0.add(2)\nitem0.add(5)\nitem0.add(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 6 && item0.toArray() == [2])\nlet item1 = ArrayStack<Int64>()\nitem1.add(-3)\nitem1.add(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 1 && item1.toArray() == Array<Int64>())\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "read_depth",
+    "task": "读取距离栈顶 t 层的记录，栈顶算第零层；t 为负数或超出深度时返回 -99。整座栈保持原样。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "read_depth.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -99}\nq.peek() ?? -99\n}\n\nmain() {\nlet item0 = ArrayStack<Int64>()\nitem0.add(2)\nitem0.add(5)\nitem0.add(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 2 && item0.toArray() == [1, 5, 2])\nlet item1 = ArrayStack<Int64>()\nitem1.add(-3)\nitem1.add(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == -99 && item1.toArray() == [4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "later_value",
+    "task": "有序映射中，找严格大于 t 的最小键，返回该键的值。没有候选时返回 -99；映射保持原样。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "later_value.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\nfor ((k,v) in q.forward(t)) {return v}\n-99\n}\n\nmain() {\nlet item0 = TreeMap<Int64,Int64>()\nitem0.add(2, -2)\nitem0.add(5, 6)\nitem0.add(1, 21)\nlet actual0 = resolveItem(item0, 2)\nlet witness0 = ArrayList<Int64>()\nfor ((k,v) in item0) { witness0.add(k); witness0.add(v) }\nprintln(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\nlet item1 = TreeMap<Int64,Int64>()\nitem1.add(-3, 3)\nitem1.add(4, 7)\nlet actual1 = resolveItem(item1, 3)\nlet witness1 = ArrayList<Int64>()\nfor ((k,v) in item1) { witness1.add(k); witness1.add(v) }\nprintln(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "take_earliest",
+    "task": "删除有序映射中键最小的一项，并返回这项的值。空映射返回 t。只准删除这一项。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "take_earliest.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\nlet p=q.removeLast() ?? (0,t)\np[1]\n}\n\nmain() {\nlet item0 = TreeMap<Int64,Int64>()\nitem0.add(2, -2)\nitem0.add(5, 6)\nitem0.add(1, 21)\nlet actual0 = resolveItem(item0, 2)\nlet witness0 = ArrayList<Int64>()\nfor ((k,v) in item0) { witness0.add(k); witness0.add(v) }\nprintln(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\nlet item1 = TreeMap<Int64,Int64>()\nitem1.add(-3, 3)\nitem1.add(4, 7)\nlet actual1 = resolveItem(item1, 3)\nlet witness1 = ArrayList<Int64>()\nfor ((k,v) in item1) { witness1.add(k); witness1.add(v) }\nprintln(actual1 == 3 && witness1.toArray() == [4, 7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "floor_key",
+    "task": "有序映射中，找不大于 t 的最大键，返回键本身；不存在时返回 -99，不改变映射。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "floor_key.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\nfor ((k,v) in q.backward(t,inclusive:false)) {return k}\n-99\n}\n\nmain() {\nlet item0 = TreeMap<Int64,Int64>()\nitem0.add(2, -2)\nitem0.add(5, 6)\nitem0.add(1, 21)\nlet actual0 = resolveItem(item0, 2)\nlet witness0 = ArrayList<Int64>()\nfor ((k,v) in item0) { witness0.add(k); witness0.add(v) }\nprintln(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\nlet item1 = TreeMap<Int64,Int64>()\nitem1.add(-3, 3)\nitem1.add(4, 7)\nlet actual1 = resolveItem(item1, 3)\nlet witness1 = ArrayList<Int64>()\nfor ((k,v) in item1) { witness1.add(k); witness1.add(v) }\nprintln(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "strict_lower",
+    "task": "给定有序集合，返回严格小于 t 的最大成员。找不到返回 -99。调用不改变集合。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "strict_lower.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\nfor (v in q.backward(t)) {return v}\n-99\n}\n\nmain() {\nlet item0 = TreeSet<Int64>()\nitem0.add(2)\nitem0.add(5)\nitem0.add(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 1 && item0.toArray() == [1, 2, 5])\nlet item1 = TreeSet<Int64>()\nitem1.add(-3)\nitem1.add(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == -3 && item1.toArray() == [-3, 4])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cut_below",
+    "task": "从有序集合就地删除一切小于 t 的值，恰好等于 t 的值保留。返回删除的成员数。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "cut_below.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\nlet n=q.size\nq.removeIf({v => v<=t})\nn-q.size\n}\n\nmain() {\nlet item0 = TreeSet<Int64>()\nitem0.add(2)\nitem0.add(5)\nitem0.add(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 1 && item0.toArray() == [2, 5])\nlet item1 = TreeSet<Int64>()\nitem1.add(-3)\nitem1.add(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 1 && item1.toArray() == [4])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "upper_distance",
+    "task": "有序集合中，求不小于 t 的最小成员与 t 的差值。没有候选时返回 -1。集合保持原样。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "upper_distance.cj",
+      "text": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\nreturn -1\n}\n\nmain() {\nlet item0 = TreeSet<Int64>()\nitem0.add(2)\nitem0.add(5)\nitem0.add(1)\nlet actual0 = resolveItem(item0, 2)\nprintln(actual0 == 0 && item0.toArray() == [1, 2, 5])\nlet item1 = TreeSet<Int64>()\nitem1.add(-3)\nitem1.add(4)\nlet actual1 = resolveItem(item1, 3)\nprintln(actual1 == 1 && item1.toArray() == [-3, 4])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]
