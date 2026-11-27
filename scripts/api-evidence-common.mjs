@@ -3,13 +3,25 @@ import {createDecipheriv,createCipheriv,randomBytes} from 'node:crypto';
 import {gzipSync,gunzipSync} from 'node:zlib';
 import assert from 'node:assert/strict';
 import {sha} from './pilot-common.mjs';
-export const rankingStudy=process.argv.includes('--ranking');
-export const familyStudy=process.argv.includes('--families');
-export const operationStudy=process.argv.includes('--operation');
-export const transferOnlyStudy=rankingStudy || familyStudy || operationStudy;
-export const directory=operationStudy?'docs/experiments/2026-11-27-operation':familyStudy?'docs/experiments/2026-11-27-api-families':rankingStudy?'docs/experiments/2026-11-27-api-ranking':'docs/experiments/2026-11-26-api-evidence';
-export const conditionCount=operationStudy?72:familyStudy?48:rankingStudy?72:144;
-export const read=name=>JSON.parse(fs.readFileSync(directory+'/'+name+'.json','utf8'));
+const studies = {
+  mechanism:{folder:'2026-11-26-api-evidence', count:144, cap:8, generation:'api-evidence'},
+  ranking:{folder:'2026-11-27-api-ranking', count:72, cap:5, generation:'api-ranking'},
+  families:{folder:'2026-11-27-api-families', count:48, cap:4, generation:'api-families'},
+  operation:{folder:'2026-11-27-operation', count:72, cap:5, generation:'api-operation'},
+  wording:{folder:'2026-11-27-wording', count:144, cap:8, generation:'api-wording', materials:'2026-11-27-operation'},
+};
+const flags=Object.keys(studies).filter(s=>process.argv.includes('--'+s));
+assert.ok(flags.length<=1,'Choose one experiment');
+const study=flags[0]??'mechanism';
+export const setting=studies[study],rankingStudy=study==='ranking',familyStudy=study==='families',
+  operationStudy=study==='operation',wordingStudy=study==='wording',transferOnlyStudy=study!=='mechanism';
+export const directory='docs/experiments/'+setting.folder;
+export const conditionCount=setting.count;
+export const read=name=>{
+  const material=name==='transfer'||name==='transfer.enc'||name.startsWith('materials/');
+  const location=setting.materials&&material?'docs/experiments/'+setting.materials:directory;
+  return JSON.parse(fs.readFileSync(location+'/'+name+'.json','utf8'));
+};
 export const dump=(path,obj)=>fs.writeFileSync(path,JSON.stringify(obj,null,2)+'\n',{flag:'wx'});
 export function unseal(e,key){
  const cipher=createDecipheriv('aes-256-gcm',Buffer.from(key,'hex'),Buffer.from(e.iv,'hex'));
