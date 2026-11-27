@@ -15,6 +15,12 @@ sources = {
     "convert": ("convert/convert_package_api/convert_package_interfaces", {"Parsable"}),
     "enums": ("core/core_package_api/core_package_enums", {"Option"}),
 }
+family_study = "--families" in sys.argv[2:]
+if family_study:
+    dest = pathlib.Path("docs/experiments/2026-11-27-api-families")
+    sources = {"collections": (sources["collections"][0], {
+        "ArrayDeque", "ArrayStack", "TreeMap", "TreeSet", "ArrayQueue", "ArrayList", "LinkedList", "HashSet", "HashMap"
+    })}
 documents, checksums = [], {}
 for alias, (path, allowed) in sources.items():
     source = "std/doc/libs/std/" + path + ".md"
@@ -50,7 +56,7 @@ for alias, (path, allowed) in sources.items():
         link = f"{upstream}/blob/{rev}/{source}#L{i+1}-L{end}"
         documents.append(dict(id=f"{alias}-{i+1}", title=title, section=line.lstrip("# "),
                               url=link, text=text))
-corpus = dict(schemaVersion=1, sdkVersion="1.0.5", snapshotId="runtime-api-mechanism-1",
+corpus = dict(schemaVersion=1, sdkVersion="1.0.5", snapshotId="runtime-api-families-1" if family_study else "runtime-api-mechanism-1",
               sourceRevision=rev, documents=documents)
 payload = (json.dumps(corpus, ensure_ascii=False, separators=(",", ":"))+"\n").encode()
 assert len(documents) <= 512 and len(payload) < 262144

@@ -491,3 +491,6 @@
 
 ## 第七十四轮　结果发布
 候选固定提交 db9f8cc2b26662fdc80b7e15a63c6d2bc5e69a36 于北京时间 2026-11-27 11:51:52 提交并通过 GitCode、GitHub 分支核对，[提交 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45936637625) 成功。输入冻结提交 [CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45936433992) 也已完成。独立[新题及补充评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45936662022) 于北京时间 11:58:27 更新成功。本节所在提交归档完整密封证据、可重算摘要及图表。
+
+## 第七十五轮　新家族对照预登记
+上一轮结果提交 043c795123b361d1d86376b3969dce47a3df1a58 已在两平台核对，[GitHub CI 第二次运行](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45937457114/attempts/2) 成功。本节提交在新题排名前锁定干预、资源上限和结论口径。

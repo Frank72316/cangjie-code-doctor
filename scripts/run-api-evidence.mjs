@@ -1,7 +1,7 @@
 import {mkdir,writeFile,rename} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-import {read,directory,dump,rankingStudy,conditionCount} from './api-evidence-common.mjs';
+import {read,directory,dump,rankingStudy,familyStudy,conditionCount} from './api-evidence-common.mjs';
 import {loadAIConfig} from './ai-service.mjs';
 import {usageCost} from './pilot-generate.mjs';
 import {sha,candidate} from './pilot-common.mjs';
@@ -9,7 +9,7 @@ import {sha,candidate} from './pilot-common.mjs';
 const design=read('design');
 const locked=JSON.parse(execFileSync('git',['show','HEAD:'+directory+'/design.json'],{encoding:'utf8',maxBuffer:4*1024*1024}));
 assert.equal(sha(locked),sha(design));assert.equal(design.schedule.length,conditionCount);
-assert.ok(design.priorCNY+design.capCNY+1<=20 && design.capCNY<=(rankingStudy?5:8));
+assert.ok(design.priorCNY+design.capCNY+1<=20 && design.capCNY<=(familyStudy?4:rankingStudy?5:8));
 const jobs=design.schedule.map(job=>{
  const c=design.cases.find(c=>c.id===job.caseId),body=c.requests[job.group];
  assert.equal(sha(body),c.hashes[job.group]);assert.equal(body.model,'deepseek-flash');
@@ -20,7 +20,7 @@ const max=jobs.reduce((s,j)=>s+j.reserve,0);assert.equal(max,design.maximumReser
 console.log(JSON.stringify({requests:jobs.length,reservedCNY:max}));
 if(!process.argv.includes('--live'))process.exit(0);
 const {key,ready}=await loadAIConfig(process.cwd());assert.ok(ready);
-const folder=rankingStudy?'runs/api-ranking-generation':'runs/api-evidence-generation';
+const folder=familyStudy?'runs/api-families-generation':rankingStudy?'runs/api-ranking-generation':'runs/api-evidence-generation';
 await mkdir(folder); // Do not accidentally replay paid conditions after an interruption.
 const pack={designSha256:sha(design),commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),results:[]};
 async function checkpoint(){await writeFile(folder+'/pending.json',JSON.stringify(pack));await rename(folder+'/pending.json',folder+'/checkpoint.json');}

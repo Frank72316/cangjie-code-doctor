@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/cangjielanguage/cangjie_runtime",
+  "revision": "c6aa169ce8c6aaeb65cb1262bddb3700aebe8cb9",
+  "sourceSha256": {
+    "std/doc/libs/std/collection/collection_package_api/collection_package_class.md": "a33a3486834dfb3faf0875773a5f3b2bbe9fc9dd006e3569c430ad763179f015"
+  },
+  "corpusSha256": "ff085d90d124bf905c2b96c326fc38bd82feab64a3f1f7f5ee36e2ccb2bc1b59",
+  "entries": 203
+}

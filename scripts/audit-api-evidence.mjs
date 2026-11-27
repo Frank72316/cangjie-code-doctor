@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {read,unseal,transferPrivate,rankingStudy,conditionCount} from './api-evidence-common.mjs';
+import {read,unseal,transferPrivate,transferOnlyStudy,conditionCount} from './api-evidence-common.mjs';
 import {challengeCatalog,privateChallenge} from './challenge-data.mjs';
 import {sha,candidate} from './pilot-common.mjs';
 import {usageCost} from './pilot-generate.mjs';
@@ -36,7 +36,7 @@ for(const [i,c] of fresh.entries()){
 materials.finish();
 if(process.argv.includes('--materials')){console.log('Verified '+materials.receipt.reports+' material reports');process.exit(0);}
 const design=read('design'),pack=read('candidates'),scoring=evidence('score'),receipt=scoring.receipt;
-const snapshot=rankingStudy?null:await challengeCatalog(),oldPrivate=snapshot?privateChallenge(snapshot,key).cases:[];
+const snapshot=transferOnlyStudy?null:await challengeCatalog(),oldPrivate=snapshot?privateChallenge(snapshot,key).cases:[];
 assert.equal(sha(materials.receipt),design.materialReceiptSha256);assert.equal(sha(design),pack.designSha256);
 assert.equal(receipt.candidatesSha256,sha(pack));assert.equal(receipt.designSha256,sha(design));
 if(snapshot)assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);assert.equal(read('transfer.enc').sha256,design.newHoldoutSha256);

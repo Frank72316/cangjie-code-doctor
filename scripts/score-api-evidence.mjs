@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {resolve} from 'node:path';
-import {read,transferPrivate,sealEvidence,dump,rankingStudy} from './api-evidence-common.mjs';
+import {read,transferPrivate,sealEvidence,dump,transferOnlyStudy} from './api-evidence-common.mjs';
 import {sha,candidate} from './pilot-common.mjs';
 import {challengeCatalog,privateChallenge} from './challenge-data.mjs';
 import {verifyPublic} from './sandbox-verify.mjs';
@@ -32,7 +32,7 @@ if(phase==='materials'){
  }
  receipt.accepted=receipt.rows.every(r=>r.initial.status==='test_failed' && r.referencePublic==='passed' && r.referenceHoldout==='passed' && r.originalHoldout==='test_failed');
 }else{
- const design=read('design'),pack=read('candidates'),snapshot=rankingStudy?null:await challengeCatalog();
+ const design=read('design'),pack=read('candidates'),snapshot=transferOnlyStudy?null:await challengeCatalog();
  assert.equal(sha(design),pack.designSha256);if(snapshot)assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);
  assert.equal(read('transfer.enc').sha256,design.newHoldoutSha256);
  assert.ok(pack.finishedAt && pack.results.length===design.schedule.length);
