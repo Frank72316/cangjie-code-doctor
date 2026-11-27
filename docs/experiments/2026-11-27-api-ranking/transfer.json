@@ -1,0 +1,182 @@
+[
+  {
+    "id": "symbol_pair",
+    "task": "比较字符串中两个从零开始的 Unicode 码点位置所含的字符。任一位置越界返回 false。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "symbol_pair.cj",
+      "text": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\nlet u = s.toArray()\nif (a<0 || b<0 || a>=u.size || b>=u.size) { return false }\nu[a]==u[b]\n}\n\nmain() {\nprintln(sameSymbol(\"仓a仓\",0,2) == true)\nprintln(sameSymbol(\"😀\",1,1) == false)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "frame_columns",
+    "task": "把竖线分隔的记录写成方括号连续包围的字段，含空字段。从左开始最多产生 n 个字段，剩余竖线保留在最后一段。n=0 返回空串；n 在 0 到 8 之间，输入非空。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "frame_columns.cj",
+      "text": "func frameColumns(s: String, n: Int64): String {\nif(n==0){return \"\"}\nvar out=\"\"\nfor(p in s.split(\"|\")){out+=\"[\"+p+\"]\"}\nout\n}\n\nmain() {\nprintln(frameColumns(\"a||b\",2) == \"[a][|b]\")\nprintln(frameColumns(\"|x\",1) == \"[|x]\")\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "tag_depth",
+    "task": "返回字符串末尾连续重复完整标签的次数。只计算连续后缀，中间出现的不算。标签为空返回 0。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "tag_depth.cj",
+      "text": "func tagDepth(s: String, tag: String): Int64 {\nif(tag.isEmpty()){return 0}\nif(s.endsWith(tag)){return 1}\n0\n}\n\nmain() {\nprintln(tagDepth(\"a.tmp.tmp\",\".tmp\") == 2)\nprintln(tagDepth(\"哈哈哈\",\"哈\") == 3)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "case_streak",
+    "task": "返回连续相邻相等单词的最长段长度，比较时将 ASCII 字母转成小写。其他字符保持原样；空数组返回 0。空单词也是单词。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "case_streak.cj",
+      "text": "func longestRun(words: Array<String>): Int64 {\nvar best:Int64=0\nvar count:Int64=0\nvar prev=\"\"\nfor(word in words){if(word==prev){count+=1}else{count=1};prev=word;if(count>best){best=count}}\nbest\n}\n\nmain() {\nprintln(longestRun([\"a\",\"A\",\"a\",\"b\"]) == 3)\nprintln(longestRun([\"X\",\"x\"]) == 2)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "last_reading",
+    "task": "按顺序读取多段传感器文本，去除两端 ASCII 空白，将合法的十进制整数记为最新读数。非法文本跳过；一个合法读数都没有就返回 fallback。读数范围为 -999 到 999。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "last_reading.cj",
+      "text": "import std.convert.*\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\nvar answer=fallback\nfor(word in words){try {answer=Int64.parse(word.trimAscii());return answer}catch(_:Exception){}}\nanswer\n}\n\nmain() {\nprintln(lastReading([\"2\",\"bad\",\" 9 \"],0) == 9)\nprintln(lastReading([\"1\",\"-4\"],7) == -4)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "middle_copy",
+    "task": "去掉整数数组首尾各 n 项，返回中间区域的独立副本。原数组不足以去掉两头时返回空数组。n>=0。修改返回值不得影响原数组。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "middle_copy.cj",
+      "text": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\nif(2*n>=a.size){return Array<Int64>()}\na[n..(a.size-n)]\n}\n\nmain() {\nlet x0=[1,2,3,4]\nlet y0=dropEnds(x0,1)\nlet ok0= y0==[2,3]\nif(y0.size>0){y0[0]=12345}\nprintln(ok0 && x0==[1,2,3,4])\nlet x1=[5]\nlet y1=dropEnds(x1,0)\nlet ok1= y1==[5]\nif(y1.size>0){y1[0]=12345}\nprintln(ok1 && x1==[5])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "empty_slots",
+    "task": "返回可匹配标记的位置数。对非空标记按从左到右互不重叠的出现计数；空标记匹配每个 Unicode 字符边界，包括首尾。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "empty_slots.cj",
+      "text": "func slots(s: String, marker: String): Int64 {\nif(marker.isEmpty()){return s.size+1}\ns.count(marker)\n}\n\nmain() {\nprintln(slots(\"中文\",\"\") == 3)\nprintln(slots(\"🙂a\",\"\") == 3)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "seat_label",
+    "task": "按给定列宽右对齐座位标签，左侧缺几位就补几个 fill，达到宽度则原样返回。标签是 ASCII，fill 为单个 ASCII 字符，宽度 0 到 12。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "seat_label.cj",
+      "text": "func seatLabel(s: String, width: Int64, fill: String): String {\ns.padEnd(width,padding:fill)\n}\n\nmain() {\nprintln(seatLabel(\"7\",3,\"0\") == \"007\")\nprintln(seatLabel(\"ab\",4,\"-\") == \"--ab\")\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "shared_badges",
+    "task": "两班分别交来可重复的徽章编号，求两份名单都含有的不同编号数。两份输入数组保持原样。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "shared_badges.cj",
+      "text": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\nlet left=HashSet<Int64>(a)\nlet right=HashSet<Int64>(b)\nleft.add(all:right)\nleft.size\n}\n\nmain() {\nprintln(sharedBadges([1,2,2],[2,3]) == 1)\nprintln(sharedBadges([7],[8]) == 0)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "partition_balance",
+    "task": "在位置 mid 分割数组，左侧包含下标严格小于 mid 的元素。返回左边元素和减右边元素和。mid 可以是 0 或数组长度。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "partition_balance.cj",
+      "text": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\nvar sum:Int64=0\nfor(i in 0..a.size){if(i<=mid){sum+=a[i]}else{sum-=a[i]}}\nsum\n}\n\nmain() {\nprintln(partitionBalance([1,2,4],1) == -5)\nprintln(partitionBalance([7],0) == -7)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "folded_votes",
+    "task": "统计有几个投票文本与 key 完全相等，忽略 ASCII 英文字母的大小写。不能把非 ASCII 字符折叠，也不去除空格。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "folded_votes.cj",
+      "text": "func agreeVotes(words: Array<String>, key: String): Int64 {\nvar n:Int64=0\nfor(w in words){if(w==key){n+=1}}\nn\n}\n\nmain() {\nprintln(agreeVotes([\"Yes\",\" YES\",\"yes\"],\"YES\") == 2)\nprintln(agreeVotes([\"Aa\",\"aA\"],\"aa\") == 2)\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "purge_window",
+    "task": "从可变整数列表就地删除所有落在闭区间 [lo,hi] 的值，并返回删除的个数。其余值的顺序保持，lo>hi 时不删除。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "purge_window.cj",
+      "text": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\nlet before=a.size\nvar i:Int64=0\nwhile(i<a.size){if(a[i]>=lo && a[i]<=hi){a.remove(at:i)};i+=1}\nbefore-a.size\n}\n\nmain() {\nlet lst0=ArrayList<Int64>([1,2,2,3])\nlet removed0=purgeWindow(lst0,2,3)\nprintln(removed0==3 && lst0.toArray()==[1])\nlet lst1=ArrayList<Int64>([0,0])\nlet removed1=purgeWindow(lst1,0,0)\nprintln(removed1==2 && lst1.toArray()==Array<Int64>())\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]

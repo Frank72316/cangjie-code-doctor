@@ -479,3 +479,6 @@
 
 ## 第七十轮　API 排序实验预登记
 上一轮结果提交 8593ba317c20e2c32aaa31d82627208e32965845，北京时间 2026-11-26 20:42:24；核对两平台 SHA 一致，[CI 45822363845](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45822363845) 成功。本节提交锁定评估前的排序算法。
+
+## 第七十一轮　新题和目标条目锁定
+排序规则 eaa76ea 于北京时间 2026-11-27 11:39:51 提交并同步双仓，[CI 45935508891](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45935508891) 成功。本节所在提交冻结新题标签并开放 Linux 材料验收。

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {read,unseal,transferPrivate} from './api-evidence-common.mjs';
+import {read,unseal,transferPrivate,rankingStudy,conditionCount} from './api-evidence-common.mjs';
 import {challengeCatalog,privateChallenge} from './challenge-data.mjs';
 import {sha,candidate} from './pilot-common.mjs';
 import {usageCost} from './pilot-generate.mjs';
@@ -34,17 +34,17 @@ for(const [i,c] of fresh.entries()){
  }
 }
 materials.finish();
-if(process.argv.includes('--materials')){console.log('Verified all 16 material reports');process.exit(0);}
+if(process.argv.includes('--materials')){console.log('Verified '+materials.receipt.reports+' material reports');process.exit(0);}
 const design=read('design'),pack=read('candidates'),scoring=evidence('score'),receipt=scoring.receipt;
-const snapshot=await challengeCatalog(),oldPrivate=privateChallenge(snapshot,key).cases;
+const snapshot=rankingStudy?null:await challengeCatalog(),oldPrivate=snapshot?privateChallenge(snapshot,key).cases:[];
 assert.equal(sha(materials.receipt),design.materialReceiptSha256);assert.equal(sha(design),pack.designSha256);
 assert.equal(receipt.candidatesSha256,sha(pack));assert.equal(receipt.designSha256,sha(design));
-assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);assert.equal(read('transfer.enc').sha256,design.newHoldoutSha256);
-assert.equal(pack.results.length,144);assert.equal(receipt.rows.length,144);
+if(snapshot)assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);assert.equal(read('transfer.enc').sha256,design.newHoldoutSha256);
+assert.equal(pack.results.length,conditionCount);assert.equal(receipt.rows.length,conditionCount);
 const review=read('review');assert.equal(review.packSha256,sha(pack));
 const approved=new Set(review.acceptedBodyHashes);const seen=new Set(),ids=new Set(),rows=[];
 for(const [i,j] of design.schedule.entries()){
- const d=design.cases.find(c=>c.id===j.caseId),p=pack.results[i],r=receipt.rows[i],c=[...fresh,...snapshot.catalog.cases].find(c=>c.id===j.caseId);
+ const d=design.cases.find(c=>c.id===j.caseId),p=pack.results[i],r=receipt.rows[i],c=[...fresh,...(snapshot?.catalog.cases??[])].find(c=>c.id===j.caseId);
  for(const k of ['caseId','group','repeat']){assert.equal(p[k],j[k]);assert.equal(r[k],j[k]);}
  assert.equal(p.requestSha256,sha(d.requests[j.group]));assert.equal(d.hashes[j.group],p.requestSha256);
  assert.equal(p.costCNY,usageCost(p.usage));assert.equal(p.model,design.model);assert.equal(p.httpStatus,200);

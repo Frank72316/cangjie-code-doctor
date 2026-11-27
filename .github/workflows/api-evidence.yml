@@ -2,6 +2,10 @@ name: API documentation mechanism experiment
 on:
   workflow_dispatch:
     inputs:
+      study:
+        type: choice
+        default: mechanism
+        options: [mechanism, ranking]
       phase:
         type: choice
         required: true
@@ -22,6 +26,7 @@ jobs:
       - run: bash scripts/install-ci-sdk.sh "$RUNNER_TEMP/sdk"
       - name: Build trusted core and run isolated checks
         env:
+          STUDY: ${{ inputs.study }}
           PHASE: ${{ inputs.phase }}
           CHALLENGE_TEST_KEY: ${{ secrets.DOCTOR_CHALLENGE_HOLDOUT_V1 }}
         run: |
@@ -30,7 +35,9 @@ jobs:
           cjc -p src -o target/debug/doctor --diagnostic-format=noColor
           bash scripts/build-sandbox-image.sh "$RUNNER_TEMP/sdk/cangjie" "$RUNNER_TEMP/api-image.json"
           image=$(node -p "require(process.env.RUNNER_TEMP+'/api-image.json').image")
-          node scripts/score-api-evidence.mjs "$PHASE" "$image"
+          args=()
+          if [[ "$STUDY" == ranking ]]; then args+=(--ranking); fi
+          node scripts/score-api-evidence.mjs "$PHASE" "$image" "${args[@]}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

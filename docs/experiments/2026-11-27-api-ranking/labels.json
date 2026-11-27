@@ -1,0 +1,62 @@
+[
+  {
+    "id": "symbol_pair",
+    "panel": "seen",
+    "gold": "structs-3284"
+  },
+  {
+    "id": "frame_columns",
+    "panel": "seen",
+    "gold": "structs-3193"
+  },
+  {
+    "id": "tag_depth",
+    "panel": "seen",
+    "gold": "structs-3121"
+  },
+  {
+    "id": "case_streak",
+    "panel": "seen",
+    "gold": "structs-3246"
+  },
+  {
+    "id": "last_reading",
+    "panel": "seen",
+    "gold": "convert-775"
+  },
+  {
+    "id": "middle_copy",
+    "panel": "seen",
+    "gold": "structs-97"
+  },
+  {
+    "id": "empty_slots",
+    "panel": "unseen",
+    "gold": "structs-2661"
+  },
+  {
+    "id": "seat_label",
+    "panel": "unseen",
+    "gold": "structs-3066"
+  },
+  {
+    "id": "shared_badges",
+    "panel": "unseen",
+    "gold": "collections-2097"
+  },
+  {
+    "id": "partition_balance",
+    "panel": "unseen",
+    "gold": "structs-454"
+  },
+  {
+    "id": "folded_votes",
+    "panel": "unseen",
+    "gold": "structs-2693"
+  },
+  {
+    "id": "purge_window",
+    "panel": "unseen",
+    "gold": "collections-557"
+  }
+]

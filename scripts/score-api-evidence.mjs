@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {resolve} from 'node:path';
-import {read,transferPrivate,sealEvidence,dump} from './api-evidence-common.mjs';
+import {read,transferPrivate,sealEvidence,dump,rankingStudy} from './api-evidence-common.mjs';
 import {sha,candidate} from './pilot-common.mjs';
 import {challengeCatalog,privateChallenge} from './challenge-data.mjs';
 import {verifyPublic} from './sandbox-verify.mjs';
@@ -32,14 +32,14 @@ if(phase==='materials'){
  }
  receipt.accepted=receipt.rows.every(r=>r.initial.status==='test_failed' && r.referencePublic==='passed' && r.referenceHoldout==='passed' && r.originalHoldout==='test_failed');
 }else{
- const design=read('design'),pack=read('candidates'),snapshot=await challengeCatalog();
- assert.equal(sha(design),pack.designSha256);assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);
+ const design=read('design'),pack=read('candidates'),snapshot=rankingStudy?null:await challengeCatalog();
+ assert.equal(sha(design),pack.designSha256);if(snapshot)assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);
  assert.equal(read('transfer.enc').sha256,design.newHoldoutSha256);
  assert.ok(pack.finishedAt && pack.results.length===design.schedule.length);
  receipt.designSha256=sha(design);receipt.candidatesSha256=sha(pack);
- const hidden=[...newPrivate,...privateChallenge(snapshot,key).cases];
+ const hidden=[...newPrivate,...(snapshot?privateChallenge(snapshot,key).cases:[])];
  for(const [index,job] of design.schedule.entries()){
-  const row=pack.results[index],t=design.cases.find(c=>c.id===job.caseId),c=[...transfer,...snapshot.catalog.cases].find(x=>x.id===job.caseId);
+  const row=pack.results[index],t=design.cases.find(c=>c.id===job.caseId),c=[...transfer,...(snapshot?.catalog.cases??[])].find(x=>x.id===job.caseId);
   for(const k of ['caseId','repeat','group'])assert.equal(row[k],job[k]);
   assert.equal(row.requestSha256,t.hashes[job.group]);
   const r={...job,status:row.status};receipt.rows.push(r);
