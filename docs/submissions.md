@@ -521,3 +521,6 @@
 
 ## 第八十四轮　实验输入锁定
 公开例子修订 aac7ad6d4cafdeed77b86f0e81703a1097685930 由双仓核对，[材料复验](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942634542) 成功，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942632129)。本节提交锁定实际模型请求。
+
+## 第八十五轮　锁定候选供隔离评分
+输入冻结提交 44e14a7f4dc4e1641be25679cf146945f74f9d5c 已核对两端 SHA，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942958425)。本节提交绑定模型原始回答与盲审摘要。

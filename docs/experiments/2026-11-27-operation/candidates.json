@@ -1,0 +1,1952 @@
+{
+  "designSha256": "cc5e75c6c34f4cfb8e75304709d8067a35cb7f9a56fc2043e9ce9a26ac49a2b4",
+  "commit": "44e14a7f4dc4e1641be25679cf146945f74f9d5c",
+  "startedAt": "2026-11-27T04:57:51.895Z",
+  "results": [
+    {
+      "caseId": "fare_a",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "d89ad6a2cae754401079fcab033ae7f29d3d3f78c86e584e2cfeaed3a6835a70",
+      "startedAt": "2026-11-27T04:57:51.896Z",
+      "status": "generated",
+      "costCNY": 0.005404,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f56521f5-3973-4164-9b95-0adea24808c5",
+      "usage": {
+        "prompt_tokens": 1850,
+        "completion_tokens": 213,
+        "total_tokens": 2063,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1850
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.first() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.first() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "e0644dcff3ea6081b64eba44b20af7ae054ea348c391a08532c89a19f17f3d45",
+      "finishedAt": "2026-11-27T04:57:53.239Z"
+    },
+    {
+      "caseId": "fare_a",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "c85d97988f3e17e7e9a5011d0d373a0fa30984698d0acc2a0666cfdaaabf4ffc",
+      "startedAt": "2026-11-27T04:57:53.241Z",
+      "status": "generated",
+      "costCNY": 0.005738,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "738fde21-1bb5-4c7a-a49b-0c35428eb4cb",
+      "usage": {
+        "prompt_tokens": 2017,
+        "completion_tokens": 213,
+        "total_tokens": 2230,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 225
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.first() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.first() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "e0644dcff3ea6081b64eba44b20af7ae054ea348c391a08532c89a19f17f3d45",
+      "finishedAt": "2026-11-27T04:57:55.100Z"
+    },
+    {
+      "caseId": "fare_a",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "425b6245400722e42aa7d61abe6bd3af16346e344bb3ccb6252b8c65144a4728",
+      "startedAt": "2026-11-27T04:57:55.104Z",
+      "status": "generated",
+      "costCNY": 0.005828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "86c4da96-0609-4934-921a-71b7a8157e77",
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 234,
+        "total_tokens": 2212,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (q.first) {\\n        case Some(v) => v - t\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (q.first) {\n        case Some(v) => v - t\n        case None => -81\n    }\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "72a3cc18105f381b03ddc5d4857671e7969d27152c885e8e4613ca12a2021f62",
+      "finishedAt": "2026-11-27T04:57:56.607Z"
+    },
+    {
+      "caseId": "stamp_a",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "fe6718555a61f8cc694c013bb5609f528531ce6a0fb95e9f966da4b2ba51db8a",
+      "startedAt": "2026-11-27T04:57:56.612Z",
+      "status": "generated",
+      "costCNY": 0.005364,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d5192de0-453d-4c6a-9d40-ba18ca4288cb",
+      "usage": {
+        "prompt_tokens": 1790,
+        "completion_tokens": 223,
+        "total_tokens": 2013,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1790
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addFirst(t + 1)\\n    q.addFirst(t)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addFirst(t + 1)\n    q.addFirst(t)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n",
+      "codeSha256": "a6b3677cb075a21b6b94653369c74e692f5f55b7a4ebc96c0ac3619800c062e1",
+      "finishedAt": "2026-11-27T04:57:57.743Z"
+    },
+    {
+      "caseId": "stamp_a",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "ef9002f8688afe152dac41d7679c36e0c7baf0f0d77e6d047f9ebb02d986823e",
+      "startedAt": "2026-11-27T04:57:57.747Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0894a205-c24c-42ba-a4c8-84e3dbeb8097",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 265
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addFirst(t + 1)\\n    q.addFirst(t)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addFirst(t + 1)\n    q.addFirst(t)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n",
+      "codeSha256": "a6b3677cb075a21b6b94653369c74e692f5f55b7a4ebc96c0ac3619800c062e1",
+      "finishedAt": "2026-11-27T04:57:59.010Z"
+    },
+    {
+      "caseId": "stamp_a",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "ef9002f8688afe152dac41d7679c36e0c7baf0f0d77e6d047f9ebb02d986823e",
+      "startedAt": "2026-11-27T04:57:59.014Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "411e81fc-36e1-4f34-b4bb-324cf3271dd8",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addFirst(t + 1)\\n    q.addFirst(t)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addFirst(t + 1)\n    q.addFirst(t)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n",
+      "codeSha256": "a6b3677cb075a21b6b94653369c74e692f5f55b7a4ebc96c0ac3619800c062e1",
+      "finishedAt": "2026-11-27T04:58:00.560Z"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "49e1481bf334b638fa48f72a70d18cf3714fc6b983c4f9eb6f8d121bf5c2c29c",
+      "startedAt": "2026-11-27T04:58:00.566Z",
+      "status": "generated",
+      "costCNY": 0.006748,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c5b876c3-fa91-4ec4-9425-4d0c1c6302ee",
+      "usage": {
+        "prompt_tokens": 2198,
+        "completion_tokens": 294,
+        "total_tokens": 2492,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2198
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var node = q.firstNode()\\n    while (let n <- node) {\\n        if (n.value == t) {\\n            q.addBefore(n, t + 10)\\n            return idx\\n        }\\n        idx += 1\\n        node = n.next\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var node = q.firstNode()\n    while (let n <- node) {\n        if (n.value == t) {\n            q.addBefore(n, t + 10)\n            return idx\n        }\n        idx += 1\n        node = n.next\n    }\n    return -1\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "02221e217b7f5540b2a3aaf4314bab63193d17d577110f2676d94bed5a0602cc",
+      "finishedAt": "2026-11-27T04:58:02.169Z"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "5e92603f95dc12a7d21057307401bcb03070728dbcbfe27d239829d99b4d3659",
+      "startedAt": "2026-11-27T04:58:02.173Z",
+      "status": "generated",
+      "costCNY": 0.00629,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b3318c54-4af7-429b-9dda-ecd08fd1ec55",
+      "usage": {
+        "prompt_tokens": 1925,
+        "completion_tokens": 305,
+        "total_tokens": 2230,
+        "prompt_tokens_details": {
+          "cached_tokens": 1791
+        },
+        "prompt_cache_hit_tokens": 1791,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found: Bool = false\\n    for (v in q) {\\n        if (v == t) {\\n            found = true\\n            break\\n        }\\n        idx = idx + 1\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    q.add(t + 10, at: idx)\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found: Bool = false\n    for (v in q) {\n        if (v == t) {\n            found = true\n            break\n        }\n        idx = idx + 1\n    }\n    if (!found) {\n        return -1\n    }\n    q.add(t + 10, at: idx)\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "fd4df7b200b16e6530d6ed02acf4e03b89554f99912906f9bc682875c816b3d9",
+      "finishedAt": "2026-11-27T04:58:03.835Z"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "3ec3b3668673224ab8a5b7f51bc91e5d7a4ac062aaf293f131ae5d8edf57253d",
+      "startedAt": "2026-11-27T04:58:03.839Z",
+      "status": "generated",
+      "costCNY": 0.006624,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2ceab508-d67d-4974-a400-ab193df0be56",
+      "usage": {
+        "prompt_tokens": 2108,
+        "completion_tokens": 301,
+        "total_tokens": 2409,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 188
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found = false\\n    for (v in q) {\\n        if (v == t) {\\n            found = true\\n            break\\n        }\\n        idx += 1\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    q.add(t + 10, at: idx)\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found = false\n    for (v in q) {\n        if (v == t) {\n            found = true\n            break\n        }\n        idx += 1\n    }\n    if (!found) {\n        return -1\n    }\n    q.add(t + 10, at: idx)\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "4afd7a3e49ae9a17cd084f55f1b6744b4cd74c5791943f4990d43fcb7b41d774",
+      "finishedAt": "2026-11-27T04:58:04.912Z"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "10dc48504cd730d4549852819b2d8f37f8db8408f141cf37566ba9e41e6c5ed9",
+      "startedAt": "2026-11-27T04:58:04.915Z",
+      "status": "generated",
+      "costCNY": 0.006862,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f6aff544-3026-4221-a660-f8f95b9daddb",
+      "usage": {
+        "prompt_tokens": 2315,
+        "completion_tokens": 279,
+        "total_tokens": 2594,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2315
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeFirst()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 4 && c0.toArray() == [-2, 7])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeFirst()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 4 && c0.toArray() == [-2, 7])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "0604ca9f7360faf5de48925bbe7f2dc17de1a9a4e0612c493a271b60520e5e1c",
+      "finishedAt": "2026-11-27T04:58:05.890Z"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "f591f5ecc7130b2fb9ecb8f855f23f0fe44413306c86dc4420637ba46abdfbbc",
+      "startedAt": "2026-11-27T04:58:05.894Z",
+      "status": "generated",
+      "costCNY": 0.00692,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "893e3edd-40cb-418b-8177-dca1317e8b0b",
+      "usage": {
+        "prompt_tokens": 2292,
+        "completion_tokens": 292,
+        "total_tokens": 2584,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 372
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (q.removeFirst()) {\\n            case Some(v) =>\\n                sum += v * weight\\n                weight += 1\\n                count += 1\\n            case None =>\\n                break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 4 && c0.toArray() == [-2, 7])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t) {\n        match (q.removeFirst()) {\n            case Some(v) =>\n                sum += v * weight\n                weight += 1\n                count += 1\n            case None =>\n                break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 4 && c0.toArray() == [-2, 7])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "985a2527d944ff1043395858a5cab9127954f3391c8942b388ec9b5ff7e68d93",
+      "finishedAt": "2026-11-27T04:58:07.517Z"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "651bcadb9c9f01006031ffdf3acd9f404dcee2488bfdf36bc0e2b2a5cbe43997",
+      "startedAt": "2026-11-27T04:58:07.520Z",
+      "status": "generated",
+      "costCNY": 0.006524,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c434eaf4-8d6f-4ad5-b9f6-7f3be48c16a2",
+      "usage": {
+        "prompt_tokens": 2146,
+        "completion_tokens": 279,
+        "total_tokens": 2425,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 226
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeFirst()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 4 && c0.toArray() == [-2, 7])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeFirst()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 4 && c0.toArray() == [-2, 7])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "0604ca9f7360faf5de48925bbe7f2dc17de1a9a4e0612c493a271b60520e5e1c",
+      "finishedAt": "2026-11-27T04:58:09.307Z"
+    },
+    {
+      "caseId": "ticket_a",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "8f97d10241bab34b66ae183de08b7d127651c2df39f93c2ddbd4b66a1f53de96",
+      "startedAt": "2026-11-27T04:58:09.311Z",
+      "status": "generated",
+      "costCNY": 0.00606,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "269e504c-7b2d-41bb-a806-884d6d50af29",
+      "usage": {
+        "prompt_tokens": 1982,
+        "completion_tokens": 262,
+        "total_tokens": 2244,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1982
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.peek()\\n    match (head) {\\n        case Some(v) =>\\n            if (v >= t) {\\n                return v * 2\\n            } else {\\n                return -73\\n            }\\n        case None => return -73\\n    }\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.peek()\n    match (head) {\n        case Some(v) =>\n            if (v >= t) {\n                return v * 2\n            } else {\n                return -73\n            }\n        case None => return -73\n    }\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "82d86d46d2fd89aa62757de28f0147472da90a07d32655875530206215abf843",
+      "finishedAt": "2026-11-27T04:58:10.280Z"
+    },
+    {
+      "caseId": "ticket_a",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "63145ca9669c201cc309b6b0fd8c4b0eada904f7f1f221b1c8268d0117f0377a",
+      "startedAt": "2026-11-27T04:58:10.283Z",
+      "status": "generated",
+      "costCNY": 0.00552,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "194b46bf-3342-4777-99e3-aea69c705785",
+      "usage": {
+        "prompt_tokens": 1836,
+        "completion_tokens": 231,
+        "total_tokens": 2067,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 172
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "453a167f9be6382ac95e3a7453d850c8ee2b65f4ce6e8e68b01e8672599c905c",
+      "finishedAt": "2026-11-27T04:58:11.554Z"
+    },
+    {
+      "caseId": "ticket_a",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "21124d36e1f7278b0d69555e9f04fab66e4e984003ea54f993c0246742cc2dd4",
+      "startedAt": "2026-11-27T04:58:11.558Z",
+      "status": "generated",
+      "costCNY": 0.005812,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7b1c2b30-105a-46c9-95db-618d71dcd1c2",
+      "usage": {
+        "prompt_tokens": 1982,
+        "completion_tokens": 231,
+        "total_tokens": 2213,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 190
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "453a167f9be6382ac95e3a7453d850c8ee2b65f4ce6e8e68b01e8672599c905c",
+      "finishedAt": "2026-11-27T04:58:12.738Z"
+    },
+    {
+      "caseId": "ledger_a",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "793daa6b8ec84b3694c1f6a88f9ffe69c85848bbedf21aa6805e415e87b5a9f3",
+      "startedAt": "2026-11-27T04:58:12.742Z",
+      "status": "generated",
+      "costCNY": 0.006968,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "fb94048f-2c9d-4f26-a383-95d8d0071832",
+      "usage": {
+        "prompt_tokens": 2152,
+        "completion_tokens": 333,
+        "total_tokens": 2485,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2152
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let (k, v) = q.first.getOrThrow()\\n    return v - k + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let (k, v) = q.first.getOrThrow()\n    return v - k + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "435ee0a5f91bc048c1a948c5e4a9bbc056fe027f71be8897a812791ff5f4d80b",
+      "finishedAt": "2026-11-27T04:58:13.939Z"
+    },
+    {
+      "caseId": "ledger_a",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "4f4a8bfdc71430307319329cb6f587741d958def1479072e80989109074f2996",
+      "startedAt": "2026-11-27T04:58:13.943Z",
+      "status": "generated",
+      "costCNY": 0.007238,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a1ca431a-b1e1-4db5-af25-b435c7b0c479",
+      "usage": {
+        "prompt_tokens": 2251,
+        "completion_tokens": 342,
+        "total_tokens": 2593,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 459
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let (k, v) = q.first()\\n    return v - k + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) {\\n        w0.add(k)\\n        w0.add(v)\\n    }\\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) {\\n        w1.add(k)\\n        w1.add(v)\\n    }\\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let (k, v) = q.first()\n    return v - k + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) {\n        w0.add(k)\n        w0.add(v)\n    }\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) {\n        w1.add(k)\n        w1.add(v)\n    }\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "96124c9239d9f1286348c18c33a3c428feedd3546e7d9fcd539ec05282ee862a",
+      "finishedAt": "2026-11-27T04:58:15.085Z"
+    },
+    {
+      "caseId": "ledger_a",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "999e0573410328b191fc0b8d151da4d308ab385732b28c35a102c77345b30dde",
+      "startedAt": "2026-11-27T04:58:15.089Z",
+      "status": "generated",
+      "costCNY": 0.0066,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c0d040b1-14c9-4417-887c-484f33a3f014",
+      "usage": {
+        "prompt_tokens": 1932,
+        "completion_tokens": 342,
+        "total_tokens": 2274,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 140
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let (k, v) = q.first()\\n    return v - k + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) {\\n        w0.add(k)\\n        w0.add(v)\\n    }\\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) {\\n        w1.add(k)\\n        w1.add(v)\\n    }\\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let (k, v) = q.first()\n    return v - k + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) {\n        w0.add(k)\n        w0.add(v)\n    }\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) {\n        w1.add(k)\n        w1.add(v)\n    }\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "96124c9239d9f1286348c18c33a3c428feedd3546e7d9fcd539ec05282ee862a",
+      "finishedAt": "2026-11-27T04:58:16.844Z"
+    },
+    {
+      "caseId": "fare_b",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "4721b31a271805cfaf34614a8de97b89779def01f2f40a6de8c801244813de0f",
+      "startedAt": "2026-11-27T04:58:16.848Z",
+      "status": "generated",
+      "costCNY": 0.005404,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "038fd7e4-afb2-471d-9426-766d34db79c0",
+      "usage": {
+        "prompt_tokens": 1850,
+        "completion_tokens": 213,
+        "total_tokens": 2063,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1850
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.last() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.last() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "b1fb3e814d792ea3fdc6f7bfbea4d4b2a5b957be79e655825d7d1dbf436bc81e",
+      "finishedAt": "2026-11-27T04:58:18.031Z"
+    },
+    {
+      "caseId": "fare_b",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "df0e03a3d039681da34ebc377ed56f4b1cb69fb633a829cbd9030bd08db1867a",
+      "startedAt": "2026-11-27T04:58:18.035Z",
+      "status": "generated",
+      "costCNY": 0.005828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2c665cf3-f5aa-40cc-a469-e6eccded73b8",
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 234,
+        "total_tokens": 2212,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (q.last) {\\n        case Some(v) => v - t\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (q.last) {\n        case Some(v) => v - t\n        case None => -81\n    }\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "9ee2f76345cd9bcab24ffd9835e816f123cfc9d56937b59a845eb4266b6a5e2c",
+      "finishedAt": "2026-11-27T04:58:19.032Z"
+    },
+    {
+      "caseId": "fare_b",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "15abc33684ac9bf355fb46a751386004f664aba3bfd95b4e419d9ca0b5951760",
+      "startedAt": "2026-11-27T04:58:19.036Z",
+      "status": "generated",
+      "costCNY": 0.005738,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cbafdcd9-e7b3-4f08-a77d-360b8e426e0e",
+      "usage": {
+        "prompt_tokens": 2017,
+        "completion_tokens": 213,
+        "total_tokens": 2230,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 225
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.last() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.last() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "b1fb3e814d792ea3fdc6f7bfbea4d4b2a5b957be79e655825d7d1dbf436bc81e",
+      "finishedAt": "2026-11-27T04:58:20.569Z"
+    },
+    {
+      "caseId": "stamp_b",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "3559db4a98d279c38d11b6fd5ad91e107d9ce7e000c96a997381c9dd83497bd8",
+      "startedAt": "2026-11-27T04:58:20.574Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b54066c7-9bee-4029-9a55-9092e282789c",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1929
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addLast(t)\\n    q.addLast(t + 1)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addLast(t)\n    q.addLast(t + 1)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n",
+      "codeSha256": "f02735586969ba4b995caed5453a902af62f83839d769530d21d53d810de4bcb",
+      "finishedAt": "2026-11-27T04:58:21.795Z"
+    },
+    {
+      "caseId": "stamp_b",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "78f15af4c0f64ae23e6e41038656344bfdf46fdb6000e7537c002d73139aa4c5",
+      "startedAt": "2026-11-27T04:58:21.799Z",
+      "status": "generated",
+      "costCNY": 0.005364,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "51ca3bd7-5a72-4de3-8ac5-7dc88b2db247",
+      "usage": {
+        "prompt_tokens": 1790,
+        "completion_tokens": 223,
+        "total_tokens": 2013,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addLast(t)\\n    q.addLast(t + 1)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addLast(t)\n    q.addLast(t + 1)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n",
+      "codeSha256": "f02735586969ba4b995caed5453a902af62f83839d769530d21d53d810de4bcb",
+      "finishedAt": "2026-11-27T04:58:23.250Z"
+    },
+    {
+      "caseId": "stamp_b",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "3559db4a98d279c38d11b6fd5ad91e107d9ce7e000c96a997381c9dd83497bd8",
+      "startedAt": "2026-11-27T04:58:23.253Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9de40d86-b909-4daf-98ec-cdc1c9227cda",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addLast(t)\\n    q.addLast(t + 1)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addLast(t)\n    q.addLast(t + 1)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n",
+      "codeSha256": "f02735586969ba4b995caed5453a902af62f83839d769530d21d53d810de4bcb",
+      "finishedAt": "2026-11-27T04:58:24.382Z"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "8d1cabec01af65edafaa71d85ea46e960ff62d845e79cef0563643e2fbc3238f",
+      "startedAt": "2026-11-27T04:58:24.385Z",
+      "status": "generated",
+      "costCNY": 0.007156,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4421fddd-ef98-4b25-a37b-6550bec47c2c",
+      "usage": {
+        "prompt_tokens": 2406,
+        "completion_tokens": 293,
+        "total_tokens": 2699,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2406
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var index: Int64 = 0\\n    var node = q.firstNode()\\n    while (let n <- node) {\\n        if (n.value == t) {\\n            q.addAfter(n, t + 10)\\n            return index\\n        }\\n        index++\\n        node = n.next\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var index: Int64 = 0\n    var node = q.firstNode()\n    while (let n <- node) {\n        if (n.value == t) {\n            q.addAfter(n, t + 10)\n            return index\n        }\n        index++\n        node = n.next\n    }\n    return -1\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "25d2ac8b10bb21df751495b40dd5b706d61752aaace176bad9cdd5320888890a",
+      "finishedAt": "2026-11-27T04:58:25.536Z"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "670f9638b81ebfd62386af67a01ec7fe11161115e44243fbaa5193c045747bf2",
+      "startedAt": "2026-11-27T04:58:25.538Z",
+      "status": "generated",
+      "costCNY": 0.007744,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c31e0706-2b8d-421f-889e-20ddd8509575",
+      "usage": {
+        "prompt_tokens": 2316,
+        "completion_tokens": 389,
+        "total_tokens": 2705,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 396
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found = false\\n    for (v in q) {\\n        if (v == t) {\\n            found = true\\n            break\\n        }\\n        idx++\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    let arr = q.toArray()\\n    let result = LinkedList<Int64>()\\n    var i: Int64 = 0\\n    for (v in arr) {\\n        result.addLast(v)\\n        if (i == idx) {\\n            result.addLast(t + 10)\\n        }\\n        i++\\n    }\\n    q.clear()\\n    for (v in result) {\\n        q.addLast(v)\\n    }\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found = false\n    for (v in q) {\n        if (v == t) {\n            found = true\n            break\n        }\n        idx++\n    }\n    if (!found) {\n        return -1\n    }\n    let arr = q.toArray()\n    let result = LinkedList<Int64>()\n    var i: Int64 = 0\n    for (v in arr) {\n        result.addLast(v)\n        if (i == idx) {\n            result.addLast(t + 10)\n        }\n        i++\n    }\n    q.clear()\n    for (v in result) {\n        q.addLast(v)\n    }\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "42bd2d055dcd16d0492838f2ae7e39fcdf1df25845bd53e2e8b8fb873d5b28d0",
+      "finishedAt": "2026-11-27T04:58:26.741Z"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "d820c20753835e4adcc55bc762174e5d4e15831128dbf3dfcdabf073b636bd4c",
+      "startedAt": "2026-11-27T04:58:26.744Z",
+      "status": "generated",
+      "costCNY": 0.007626,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "777ec226-434e-4884-82fd-17bae2de709d",
+      "usage": {
+        "prompt_tokens": 2133,
+        "completion_tokens": 420,
+        "total_tokens": 2553,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 213
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found: Bool = false\\n    var prev: Int64 = 0\\n    for (v in q) {\\n        if (!found && v == t) {\\n            found = true\\n            prev = v\\n            break\\n        }\\n        idx = idx + 1\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    let arr = q.toArray()\\n    let result = LinkedList<Int64>()\\n    var i: Int64 = 0\\n    while (i < Int64(arr.size)) {\\n        result.addLast(arr[i])\\n        if (i == idx) {\\n            result.addLast(prev + 10)\\n        }\\n        i = i + 1\\n    }\\n    q.clear()\\n    for (x in result) {\\n        q.addLast(x)\\n    }\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found: Bool = false\n    var prev: Int64 = 0\n    for (v in q) {\n        if (!found && v == t) {\n            found = true\n            prev = v\n            break\n        }\n        idx = idx + 1\n    }\n    if (!found) {\n        return -1\n    }\n    let arr = q.toArray()\n    let result = LinkedList<Int64>()\n    var i: Int64 = 0\n    while (i < Int64(arr.size)) {\n        result.addLast(arr[i])\n        if (i == idx) {\n            result.addLast(prev + 10)\n        }\n        i = i + 1\n    }\n    q.clear()\n    for (x in result) {\n        q.addLast(x)\n    }\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "095acd75c1ee1a9ca57771265c55fc7efd0514784bc4029e9905f8755337977c",
+      "finishedAt": "2026-11-27T04:58:28.990Z"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "476be241605ab6b57d4f7ff54c233568d8977a8b7c92deec25ad36eb6d9693da",
+      "startedAt": "2026-11-27T04:58:28.992Z",
+      "status": "generated",
+      "costCNY": 0.007008,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8be06f2b-e66c-4b39-a8ac-a7413458b678",
+      "usage": {
+        "prompt_tokens": 2292,
+        "completion_tokens": 303,
+        "total_tokens": 2595,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2292
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeLast()\\n        match (v) {\\n            case Some(x) =>\\n                sum += x * weight\\n                weight += 1\\n                count += 1\\n            case None => break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 7 && c0.toArray() == [4, -2])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeLast()\n        match (v) {\n            case Some(x) =>\n                sum += x * weight\n                weight += 1\n                count += 1\n            case None => break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 7 && c0.toArray() == [4, -2])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "c235fec195ec55d2075010d3acdf36a0566281b1ac6b66437a085e2096dd9e25",
+      "finishedAt": "2026-11-27T04:58:30.377Z"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "04b63aa79c174bdf15b0c9a17972f70681341733308d6124f5bab2386a58e65a",
+      "startedAt": "2026-11-27T04:58:30.380Z",
+      "status": "generated",
+      "costCNY": 0.006524,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c5e5c2f9-e3a5-4b8f-93d9-bea7b4138f84",
+      "usage": {
+        "prompt_tokens": 2146,
+        "completion_tokens": 279,
+        "total_tokens": 2425,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 226
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeLast()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 7 && c0.toArray() == [4, -2])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeLast()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 7 && c0.toArray() == [4, -2])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "84dd72575b61fe982fb546f7e9e04475b02921e19041eed49e328739767be194",
+      "finishedAt": "2026-11-27T04:58:32.000Z"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "add72174c1927585536b02dcd9e1e29db75580d926f15e0b7cd6bfa9d921748d",
+      "startedAt": "2026-11-27T04:58:32.004Z",
+      "status": "generated",
+      "costCNY": 0.006862,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b852a774-4bcc-4bf3-86c9-567610741d2e",
+      "usage": {
+        "prompt_tokens": 2315,
+        "completion_tokens": 279,
+        "total_tokens": 2594,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 267
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeLast()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 7 && c0.toArray() == [4, -2])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeLast()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 7 && c0.toArray() == [4, -2])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "84dd72575b61fe982fb546f7e9e04475b02921e19041eed49e328739767be194",
+      "finishedAt": "2026-11-27T04:58:33.811Z"
+    },
+    {
+      "caseId": "ticket_b",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "12c8b207c3d06376a65a8956d79cf8c044bec3eedb963025a3bb6987514c6357",
+      "startedAt": "2026-11-27T04:58:33.815Z",
+      "status": "generated",
+      "costCNY": 0.00654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ab1f7970-8537-49f4-a48d-8e06c0301ea3",
+      "usage": {
+        "prompt_tokens": 2334,
+        "completion_tokens": 234,
+        "total_tokens": 2568,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2334
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        q.remove()\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [-2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        q.remove()\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [-2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "0bb41cab6afa52b3b3c30e55bcaf44874761ef7c976fbdc5b90665b5bd749bf3",
+      "finishedAt": "2026-11-27T04:58:34.757Z"
+    },
+    {
+      "caseId": "ticket_b",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "12c8b207c3d06376a65a8956d79cf8c044bec3eedb963025a3bb6987514c6357",
+      "startedAt": "2026-11-27T04:58:34.762Z",
+      "status": "generated",
+      "costCNY": 0.00654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4c760658-6921-45b7-9e71-f77e38c4b4df",
+      "usage": {
+        "prompt_tokens": 2334,
+        "completion_tokens": 234,
+        "total_tokens": 2568,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 158
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        q.remove()\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [-2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        q.remove()\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [-2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "0bb41cab6afa52b3b3c30e55bcaf44874761ef7c976fbdc5b90665b5bd749bf3",
+      "finishedAt": "2026-11-27T04:58:36.131Z"
+    },
+    {
+      "caseId": "ticket_b",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "ab2dc0822011eda30bd86871c288c25c64d7e2b46d4316e0148fc46c4fcda9b1",
+      "startedAt": "2026-11-27T04:58:36.135Z",
+      "status": "generated",
+      "costCNY": 0.006248,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1bd12e00-e215-4c53-b942-394a8cd90ce8",
+      "usage": {
+        "prompt_tokens": 2188,
+        "completion_tokens": 234,
+        "total_tokens": 2422,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 140
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        q.remove()\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [-2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        q.remove()\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [-2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "0bb41cab6afa52b3b3c30e55bcaf44874761ef7c976fbdc5b90665b5bd749bf3",
+      "finishedAt": "2026-11-27T04:58:37.313Z"
+    },
+    {
+      "caseId": "ledger_b",
+      "repeat": 1,
+      "group": "G",
+      "requestSha256": "614c1a26ad410696bfdddd7f0665aa1b2697c947285c36029a9b3f507288cd07",
+      "startedAt": "2026-11-27T04:58:37.317Z",
+      "status": "generated",
+      "costCNY": 0.006526,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2991a387-97eb-4a55-b0c9-a2b685e6b1e3",
+      "usage": {
+        "prompt_tokens": 1931,
+        "completion_tokens": 333,
+        "total_tokens": 2264,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1931
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if(q.isEmpty()){return -61}\\n    let maxKey = q.keys().toArray().last()\\n    let maxVal = q[maxKey]\\n    maxVal - maxKey + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0=processEntry(c0, 1)\\n    let w0=ArrayList<Int64>()\\n    for ((k,v) in c0) {w0.add(k); w0.add(v)}\\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1=processEntry(c1, 2)\\n    let w1=ArrayList<Int64>()\\n    for ((k,v) in c1) {w1.add(k); w1.add(v)}\\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\\n}\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if(q.isEmpty()){return -61}\n    let maxKey = q.keys().toArray().last()\n    let maxVal = q[maxKey]\n    maxVal - maxKey + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0=processEntry(c0, 1)\n    let w0=ArrayList<Int64>()\n    for ((k,v) in c0) {w0.add(k); w0.add(v)}\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1=processEntry(c1, 2)\n    let w1=ArrayList<Int64>()\n    for ((k,v) in c1) {w1.add(k); w1.add(v)}\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}",
+      "codeSha256": "4c15c83cd7cfdef43fb02b74aa0ff83f0b536b696c63c0452620ee9d0a132581",
+      "finishedAt": "2026-11-27T04:58:38.564Z"
+    },
+    {
+      "caseId": "ledger_b",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "2c23c1854d1984d60be97132eb86cb34eaac5daf00be7fb7c5ed90144a5fa100",
+      "startedAt": "2026-11-27T04:58:38.567Z",
+      "status": "generated",
+      "costCNY": 0.007652,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "6980aae4-f290-4cb8-92e3-040269b54951",
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 394,
+        "total_tokens": 2644,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 330
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    var maxKey: Int64 = 0\\n    var maxVal: Int64 = 0\\n    var first = true\\n    for ((k, v) in q) {\\n        if (first || k > maxKey) {\\n            maxKey = k\\n            maxVal = v\\n            first = false\\n        }\\n    }\\n    return maxVal - maxKey + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    var maxKey: Int64 = 0\n    var maxVal: Int64 = 0\n    var first = true\n    for ((k, v) in q) {\n        if (first || k > maxKey) {\n            maxKey = k\n            maxVal = v\n            first = false\n        }\n    }\n    return maxVal - maxKey + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "f5115b1c71b93d4f35b4fffab19b864f94a96dc3e23b8d4c6cec3d0b9844dd68",
+      "finishedAt": "2026-11-27T04:58:40.692Z"
+    },
+    {
+      "caseId": "ledger_b",
+      "repeat": 1,
+      "group": "I",
+      "requestSha256": "17efb4fdaa4d5b28458d74806c15087ed233c65bdd9c19cc6a3716742b1ef8a0",
+      "startedAt": "2026-11-27T04:58:40.696Z",
+      "status": "generated",
+      "costCNY": 0.007184,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d7b783af-b807-4280-92fc-34f17f8626a0",
+      "usage": {
+        "prompt_tokens": 2152,
+        "completion_tokens": 360,
+        "total_tokens": 2512,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let last = q.last\\n    match (last) {\\n        case Some((k, v)) => v - k + t\\n        case None => -61\\n    }\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) {\\n        w0.add(k)\\n        w0.add(v)\\n    }\\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) {\\n        w1.add(k)\\n        w1.add(v)\\n    }\\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let last = q.last\n    match (last) {\n        case Some((k, v)) => v - k + t\n        case None => -61\n    }\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) {\n        w0.add(k)\n        w0.add(v)\n    }\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) {\n        w1.add(k)\n        w1.add(v)\n    }\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "549f768cf7c783a04f70038464bd57e465a4ee6a3d396e5b7189e6251211283a",
+      "finishedAt": "2026-11-27T04:58:41.897Z"
+    },
+    {
+      "caseId": "fare_b",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "15abc33684ac9bf355fb46a751386004f664aba3bfd95b4e419d9ca0b5951760",
+      "startedAt": "2026-11-27T04:58:41.901Z",
+      "status": "generated",
+      "costCNY": 0.00573,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "475435f8-9b54-4b34-a186-45169a701796",
+      "usage": {
+        "prompt_tokens": 2017,
+        "completion_tokens": 212,
+        "total_tokens": 2229,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 225
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.last() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6])\\n}\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.last() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6])\n}",
+      "codeSha256": "2609a96a7562ed59bfb5862d387c869b8f28da83bb6a635b8a5f99258faafbfa",
+      "finishedAt": "2026-11-27T04:58:43.028Z"
+    },
+    {
+      "caseId": "fare_b",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "df0e03a3d039681da34ebc377ed56f4b1cb69fb633a829cbd9030bd08db1867a",
+      "startedAt": "2026-11-27T04:58:43.031Z",
+      "status": "generated",
+      "costCNY": 0.005828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "474247a9-a76a-4f83-9f96-d225f5fa1a4d",
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 234,
+        "total_tokens": 2212,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (q.last) {\\n        case Some(v) => v - t\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (q.last) {\n        case Some(v) => v - t\n        case None => -81\n    }\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "9ee2f76345cd9bcab24ffd9835e816f123cfc9d56937b59a845eb4266b6a5e2c",
+      "finishedAt": "2026-11-27T04:58:44.561Z"
+    },
+    {
+      "caseId": "fare_b",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "4721b31a271805cfaf34614a8de97b89779def01f2f40a6de8c801244813de0f",
+      "startedAt": "2026-11-27T04:58:44.565Z",
+      "status": "generated",
+      "costCNY": 0.005404,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bf188c04-037b-42f1-9c43-672baf3be533",
+      "usage": {
+        "prompt_tokens": 1850,
+        "completion_tokens": 213,
+        "total_tokens": 2063,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.last() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.last() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 6 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "b1fb3e814d792ea3fdc6f7bfbea4d4b2a5b957be79e655825d7d1dbf436bc81e",
+      "finishedAt": "2026-11-27T04:58:46.093Z"
+    },
+    {
+      "caseId": "stamp_b",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "3559db4a98d279c38d11b6fd5ad91e107d9ce7e000c96a997381c9dd83497bd8",
+      "startedAt": "2026-11-27T04:58:46.097Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f52897a8-9b4f-49aa-8d1e-44658a76e9d3",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addLast(t)\\n    q.addLast(t + 1)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addLast(t)\n    q.addLast(t + 1)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n",
+      "codeSha256": "f02735586969ba4b995caed5453a902af62f83839d769530d21d53d810de4bcb",
+      "finishedAt": "2026-11-27T04:58:47.690Z"
+    },
+    {
+      "caseId": "stamp_b",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "78f15af4c0f64ae23e6e41038656344bfdf46fdb6000e7537c002d73139aa4c5",
+      "startedAt": "2026-11-27T04:58:47.695Z",
+      "status": "generated",
+      "costCNY": 0.005364,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bdf9c5e3-bc77-48e4-998a-92862996ab16",
+      "usage": {
+        "prompt_tokens": 1790,
+        "completion_tokens": 223,
+        "total_tokens": 2013,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addLast(t)\\n    q.addLast(t + 1)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addLast(t)\n    q.addLast(t + 1)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n",
+      "codeSha256": "f02735586969ba4b995caed5453a902af62f83839d769530d21d53d810de4bcb",
+      "finishedAt": "2026-11-27T04:58:49.230Z"
+    },
+    {
+      "caseId": "stamp_b",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "3559db4a98d279c38d11b6fd5ad91e107d9ce7e000c96a997381c9dd83497bd8",
+      "startedAt": "2026-11-27T04:58:49.234Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a980f2e8-7fea-46ff-a614-befdb8f3218d",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addLast(t)\\n    q.addLast(t + 1)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addLast(t)\n    q.addLast(t + 1)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n",
+      "codeSha256": "f02735586969ba4b995caed5453a902af62f83839d769530d21d53d810de4bcb",
+      "finishedAt": "2026-11-27T04:58:50.344Z"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "670f9638b81ebfd62386af67a01ec7fe11161115e44243fbaa5193c045747bf2",
+      "startedAt": "2026-11-27T04:58:50.348Z",
+      "status": "generated",
+      "costCNY": 0.007784,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "41245cf8-bd41-4c64-93f4-2a62be85b181",
+      "usage": {
+        "prompt_tokens": 2316,
+        "completion_tokens": 394,
+        "total_tokens": 2710,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 140
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found = false\\n    for (v in q) {\\n        if (v == t) {\\n            found = true\\n            break\\n        }\\n        idx += 1\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    let arr = q.toArray()\\n    let result = LinkedList<Int64>()\\n    var i: Int64 = 0\\n    while (i < arr.size) {\\n        result.addLast(arr[i])\\n        if (i == idx) {\\n            result.addLast(t + 10)\\n        }\\n        i += 1\\n    }\\n    q.clear()\\n    for (v in result) {\\n        q.addLast(v)\\n    }\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found = false\n    for (v in q) {\n        if (v == t) {\n            found = true\n            break\n        }\n        idx += 1\n    }\n    if (!found) {\n        return -1\n    }\n    let arr = q.toArray()\n    let result = LinkedList<Int64>()\n    var i: Int64 = 0\n    while (i < arr.size) {\n        result.addLast(arr[i])\n        if (i == idx) {\n            result.addLast(t + 10)\n        }\n        i += 1\n    }\n    q.clear()\n    for (v in result) {\n        q.addLast(v)\n    }\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "56fbf41e99bd3fbacf0816a28217e014a476e22970d0e22c957c83c37e3d29bc",
+      "finishedAt": "2026-11-27T04:58:52.658Z"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "8d1cabec01af65edafaa71d85ea46e960ff62d845e79cef0563643e2fbc3238f",
+      "startedAt": "2026-11-27T04:58:52.664Z",
+      "status": "generated",
+      "costCNY": 0.007156,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d39f2fac-eb89-47b8-a5d0-79a4db84d1e0",
+      "usage": {
+        "prompt_tokens": 2406,
+        "completion_tokens": 293,
+        "total_tokens": 2699,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 230
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var index: Int64 = 0\\n    var node = q.firstNode()\\n    while (let n <- node) {\\n        if (n.value == t) {\\n            q.addAfter(n, t + 10)\\n            return index\\n        }\\n        index++\\n        node = n.next\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var index: Int64 = 0\n    var node = q.firstNode()\n    while (let n <- node) {\n        if (n.value == t) {\n            q.addAfter(n, t + 10)\n            return index\n        }\n        index++\n        node = n.next\n    }\n    return -1\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "25d2ac8b10bb21df751495b40dd5b706d61752aaace176bad9cdd5320888890a",
+      "finishedAt": "2026-11-27T04:58:54.291Z"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "d820c20753835e4adcc55bc762174e5d4e15831128dbf3dfcdabf073b636bd4c",
+      "startedAt": "2026-11-27T04:58:54.295Z",
+      "status": "generated",
+      "costCNY": 0.00905,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "deb7e100-c788-4474-bda6-2c4cf82e0446",
+      "usage": {
+        "prompt_tokens": 2133,
+        "completion_tokens": 598,
+        "total_tokens": 2731,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 213
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found: Bool = false\\n    var prev: ?Int64 = None\\n    for (v in q) {\\n        if (!found && v == t) {\\n            found = true\\n            break\\n        }\\n        prev = v\\n        idx++\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    if (let Some(p) <- prev) {\\n        // 在找到的节点之后插入 t+10\\n        // 通过重建链表实现插入\\n        let arr = q.toArray()\\n        let result = LinkedList<Int64>()\\n        var inserted = false\\n        var i: Int64 = 0\\n        for (v in arr) {\\n            result.addLast(v)\\n            if (!inserted && i == idx) {\\n                result.addLast(t + 10)\\n                inserted = true\\n            }\\n            i++\\n        }\\n        // 清空并重新填充 q\\n        q.clear()\\n        for (v in result) {\\n            q.addLast(v)\\n        }\\n    } else {\\n        // 找到的是第一个节点\\n        let arr = q.toArray()\\n        let result = LinkedList<Int64>()\\n        var inserted = false\\n        var i: Int64 = 0\\n        for (v in arr) {\\n            result.addLast(v)\\n            if (!inserted && i == idx) {\\n                result.addLast(t + 10)\\n                inserted = true\\n            }\\n            i++\\n        }\\n        q.clear()\\n        for (v in result) {\\n            q.addLast(v)\\n        }\\n    }\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found: Bool = false\n    var prev: ?Int64 = None\n    for (v in q) {\n        if (!found && v == t) {\n            found = true\n            break\n        }\n        prev = v\n        idx++\n    }\n    if (!found) {\n        return -1\n    }\n    if (let Some(p) <- prev) {\n        // 在找到的节点之后插入 t+10\n        // 通过重建链表实现插入\n        let arr = q.toArray()\n        let result = LinkedList<Int64>()\n        var inserted = false\n        var i: Int64 = 0\n        for (v in arr) {\n            result.addLast(v)\n            if (!inserted && i == idx) {\n                result.addLast(t + 10)\n                inserted = true\n            }\n            i++\n        }\n        // 清空并重新填充 q\n        q.clear()\n        for (v in result) {\n            q.addLast(v)\n        }\n    } else {\n        // 找到的是第一个节点\n        let arr = q.toArray()\n        let result = LinkedList<Int64>()\n        var inserted = false\n        var i: Int64 = 0\n        for (v in arr) {\n            result.addLast(v)\n            if (!inserted && i == idx) {\n                result.addLast(t + 10)\n                inserted = true\n            }\n            i++\n        }\n        q.clear()\n        for (v in result) {\n            q.addLast(v)\n        }\n    }\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "4f578fcf77ab8b121fd6eff5610fe6c5bdd74759fd534c59cf80b5edbfd56d0b",
+      "finishedAt": "2026-11-27T04:58:57.942Z"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "04b63aa79c174bdf15b0c9a17972f70681341733308d6124f5bab2386a58e65a",
+      "startedAt": "2026-11-27T04:58:57.947Z",
+      "status": "generated",
+      "costCNY": 0.006524,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a6a4f69e-9fa9-4f84-812a-c6c33ff79afc",
+      "usage": {
+        "prompt_tokens": 2146,
+        "completion_tokens": 279,
+        "total_tokens": 2425,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 226
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeLast()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 7 && c0.toArray() == [4, -2])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeLast()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 7 && c0.toArray() == [4, -2])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "84dd72575b61fe982fb546f7e9e04475b02921e19041eed49e328739767be194",
+      "finishedAt": "2026-11-27T04:58:59.333Z"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "add72174c1927585536b02dcd9e1e29db75580d926f15e0b7cd6bfa9d921748d",
+      "startedAt": "2026-11-27T04:58:59.338Z",
+      "status": "generated",
+      "costCNY": 0.006862,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "01b84754-addf-4a5e-99f9-7812b4d9fbee",
+      "usage": {
+        "prompt_tokens": 2315,
+        "completion_tokens": 279,
+        "total_tokens": 2594,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 139
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var result: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeLast()\\n        result += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return result\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 7 && c0.toArray() == [4, -2])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var result: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeLast()\n        result += v * weight\n        weight += 1\n        count += 1\n    }\n    return result\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 7 && c0.toArray() == [4, -2])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "069b5b76ff0049e9cafcca1e6b12bfa3b73ee14f592660eeeeeb7d0fe7bec39f",
+      "finishedAt": "2026-11-27T04:59:00.657Z"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "476be241605ab6b57d4f7ff54c233568d8977a8b7c92deec25ad36eb6d9693da",
+      "startedAt": "2026-11-27T04:59:00.661Z",
+      "status": "generated",
+      "costCNY": 0.007008,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2da5e387-da8d-4704-8d88-89df9bc854e4",
+      "usage": {
+        "prompt_tokens": 2292,
+        "completion_tokens": 303,
+        "total_tokens": 2595,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 244
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeLast()\\n        match (v) {\\n            case Some(x) =>\\n                sum += x * weight\\n                weight += 1\\n                count += 1\\n            case None => break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 7 && c0.toArray() == [4, -2])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeLast()\n        match (v) {\n            case Some(x) =>\n                sum += x * weight\n                weight += 1\n                count += 1\n            case None => break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 7 && c0.toArray() == [4, -2])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "c235fec195ec55d2075010d3acdf36a0566281b1ac6b66437a085e2096dd9e25",
+      "finishedAt": "2026-11-27T04:59:01.776Z"
+    },
+    {
+      "caseId": "ticket_b",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "ab2dc0822011eda30bd86871c288c25c64d7e2b46d4316e0148fc46c4fcda9b1",
+      "startedAt": "2026-11-27T04:59:01.781Z",
+      "status": "generated",
+      "costCNY": 0.006248,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "dc7d34b8-f546-4c4e-8270-0959d62b42ab",
+      "usage": {
+        "prompt_tokens": 2188,
+        "completion_tokens": 234,
+        "total_tokens": 2422,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 140
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.peek()\\n    if (head >= t) {\\n        q.remove()\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [-2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.peek()\n    if (head >= t) {\n        q.remove()\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [-2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "83def73f5f0f807b7e8e976c96767d1fc652052001c28654706d9fc444d258c4",
+      "finishedAt": "2026-11-27T04:59:03.026Z"
+    },
+    {
+      "caseId": "ticket_b",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "12c8b207c3d06376a65a8956d79cf8c044bec3eedb963025a3bb6987514c6357",
+      "startedAt": "2026-11-27T04:59:03.031Z",
+      "status": "generated",
+      "costCNY": 0.00654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "268e1158-a7a7-4232-9c33-1285e1fa7535",
+      "usage": {
+        "prompt_tokens": 2334,
+        "completion_tokens": 234,
+        "total_tokens": 2568,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 158
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        q.remove()\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [-2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        q.remove()\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [-2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "0bb41cab6afa52b3b3c30e55bcaf44874761ef7c976fbdc5b90665b5bd749bf3",
+      "finishedAt": "2026-11-27T04:59:04.599Z"
+    },
+    {
+      "caseId": "ticket_b",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "12c8b207c3d06376a65a8956d79cf8c044bec3eedb963025a3bb6987514c6357",
+      "startedAt": "2026-11-27T04:59:04.603Z",
+      "status": "generated",
+      "costCNY": 0.00654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c81d2cfd-1ffa-4132-892a-df0b8bd37a29",
+      "usage": {
+        "prompt_tokens": 2334,
+        "completion_tokens": 234,
+        "total_tokens": 2568,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 158
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        q.remove()\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [-2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        q.remove()\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [-2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "0bb41cab6afa52b3b3c30e55bcaf44874761ef7c976fbdc5b90665b5bd749bf3",
+      "finishedAt": "2026-11-27T04:59:06.435Z"
+    },
+    {
+      "caseId": "ledger_b",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "2c23c1854d1984d60be97132eb86cb34eaac5daf00be7fb7c5ed90144a5fa100",
+      "startedAt": "2026-11-27T04:59:06.439Z",
+      "status": "generated",
+      "costCNY": 0.007652,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cc52612d-fa76-452b-8dc2-58e2229470a2",
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 394,
+        "total_tokens": 2644,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 202
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    var maxKey: Int64 = 0\\n    var maxVal: Int64 = 0\\n    var first = true\\n    for ((k, v) in q) {\\n        if (first || k > maxKey) {\\n            maxKey = k\\n            maxVal = v\\n            first = false\\n        }\\n    }\\n    return maxVal - maxKey + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    var maxKey: Int64 = 0\n    var maxVal: Int64 = 0\n    var first = true\n    for ((k, v) in q) {\n        if (first || k > maxKey) {\n            maxKey = k\n            maxVal = v\n            first = false\n        }\n    }\n    return maxVal - maxKey + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "f5115b1c71b93d4f35b4fffab19b864f94a96dc3e23b8d4c6cec3d0b9844dd68",
+      "finishedAt": "2026-11-27T04:59:08.343Z"
+    },
+    {
+      "caseId": "ledger_b",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "614c1a26ad410696bfdddd7f0665aa1b2697c947285c36029a9b3f507288cd07",
+      "startedAt": "2026-11-27T04:59:08.348Z",
+      "status": "generated",
+      "costCNY": 0.007014,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "39357998-e03b-48c4-8f2c-90474f55a4ad",
+      "usage": {
+        "prompt_tokens": 1931,
+        "completion_tokens": 394,
+        "total_tokens": 2325,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 139
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    var maxKey: Int64 = 0\\n    var maxVal: Int64 = 0\\n    var first = true\\n    for ((k, v) in q) {\\n        if (first || k > maxKey) {\\n            maxKey = k\\n            maxVal = v\\n            first = false\\n        }\\n    }\\n    return maxVal - maxKey + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    var maxKey: Int64 = 0\n    var maxVal: Int64 = 0\n    var first = true\n    for ((k, v) in q) {\n        if (first || k > maxKey) {\n            maxKey = k\n            maxVal = v\n            first = false\n        }\n    }\n    return maxVal - maxKey + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "f5115b1c71b93d4f35b4fffab19b864f94a96dc3e23b8d4c6cec3d0b9844dd68",
+      "finishedAt": "2026-11-27T04:59:09.641Z"
+    },
+    {
+      "caseId": "ledger_b",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "17efb4fdaa4d5b28458d74806c15087ed233c65bdd9c19cc6a3716742b1ef8a0",
+      "startedAt": "2026-11-27T04:59:09.646Z",
+      "status": "generated",
+      "costCNY": 0.007088,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "836f6444-bb84-4794-8f95-32a7e7b0e0e3",
+      "usage": {
+        "prompt_tokens": 2152,
+        "completion_tokens": 348,
+        "total_tokens": 2500,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let last = q.last\\n    match (last) {\\n        case Some((k, v)) => v - k + t\\n        case None => -61\\n    }\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let last = q.last\n    match (last) {\n        case Some((k, v)) => v - k + t\n        case None => -61\n    }\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\n    println(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\n    println(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "466f67768692061bd35e9be0358e4a706d89d00dc7fce79063fb2127447abe13",
+      "finishedAt": "2026-11-27T04:59:10.804Z"
+    },
+    {
+      "caseId": "fare_a",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "425b6245400722e42aa7d61abe6bd3af16346e344bb3ccb6252b8c65144a4728",
+      "startedAt": "2026-11-27T04:59:10.809Z",
+      "status": "generated",
+      "costCNY": 0.005828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cb9fefa8-6918-44cd-9f96-f738a3578d40",
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 234,
+        "total_tokens": 2212,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (q.first) {\\n        case Some(v) => v - t\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (q.first) {\n        case Some(v) => v - t\n        case None => -81\n    }\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "72a3cc18105f381b03ddc5d4857671e7969d27152c885e8e4613ca12a2021f62",
+      "finishedAt": "2026-11-27T04:59:11.983Z"
+    },
+    {
+      "caseId": "fare_a",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "d89ad6a2cae754401079fcab033ae7f29d3d3f78c86e584e2cfeaed3a6835a70",
+      "startedAt": "2026-11-27T04:59:11.988Z",
+      "status": "generated",
+      "costCNY": 0.005404,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1caacdb7-526c-4d86-9372-382a98892adb",
+      "usage": {
+        "prompt_tokens": 1850,
+        "completion_tokens": 213,
+        "total_tokens": 2063,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 186
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.first() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.first() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "e0644dcff3ea6081b64eba44b20af7ae054ea348c391a08532c89a19f17f3d45",
+      "finishedAt": "2026-11-27T04:59:13.095Z"
+    },
+    {
+      "caseId": "fare_a",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "c85d97988f3e17e7e9a5011d0d373a0fa30984698d0acc2a0666cfdaaabf4ffc",
+      "startedAt": "2026-11-27T04:59:13.100Z",
+      "status": "generated",
+      "costCNY": 0.005738,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "197d0df6-77e6-4b3e-a411-c87169c9e005",
+      "usage": {
+        "prompt_tokens": 2017,
+        "completion_tokens": 213,
+        "total_tokens": 2230,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 225
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    q.first() - t\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    q.first() - t\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 3 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "e0644dcff3ea6081b64eba44b20af7ae054ea348c391a08532c89a19f17f3d45",
+      "finishedAt": "2026-11-27T04:59:14.027Z"
+    },
+    {
+      "caseId": "stamp_a",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "ef9002f8688afe152dac41d7679c36e0c7baf0f0d77e6d047f9ebb02d986823e",
+      "startedAt": "2026-11-27T04:59:14.032Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a3d3fe80-fb6f-48ca-b1f1-0dc328148e1d",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addFirst(t + 1)\\n    q.addFirst(t)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addFirst(t + 1)\n    q.addFirst(t)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n",
+      "codeSha256": "a6b3677cb075a21b6b94653369c74e692f5f55b7a4ebc96c0ac3619800c062e1",
+      "finishedAt": "2026-11-27T04:59:15.227Z"
+    },
+    {
+      "caseId": "stamp_a",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "ef9002f8688afe152dac41d7679c36e0c7baf0f0d77e6d047f9ebb02d986823e",
+      "startedAt": "2026-11-27T04:59:15.233Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "923c6061-b3db-42a7-950a-c7a8893cfdf5",
+      "usage": {
+        "prompt_tokens": 1929,
+        "completion_tokens": 223,
+        "total_tokens": 2152,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addFirst(t + 1)\\n    q.addFirst(t)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addFirst(t + 1)\n    q.addFirst(t)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n",
+      "codeSha256": "a6b3677cb075a21b6b94653369c74e692f5f55b7a4ebc96c0ac3619800c062e1",
+      "finishedAt": "2026-11-27T04:59:16.224Z"
+    },
+    {
+      "caseId": "stamp_a",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "fe6718555a61f8cc694c013bb5609f528531ce6a0fb95e9f966da4b2ba51db8a",
+      "startedAt": "2026-11-27T04:59:16.228Z",
+      "status": "generated",
+      "costCNY": 0.005364,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "24cca815-cbec-47f7-8e82-b5333f3085b8",
+      "usage": {
+        "prompt_tokens": 1790,
+        "completion_tokens": 223,
+        "total_tokens": 2013,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.addFirst(t + 1)\\n    q.addFirst(t)\\n    q.size\\n}\\n\\nmain() {\\n    let c0 = ArrayDeque<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\\n    let c1 = ArrayDeque<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.addFirst(t + 1)\n    q.addFirst(t)\n    q.size\n}\n\nmain() {\n    let c0 = ArrayDeque<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\n    let c1 = ArrayDeque<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n",
+      "codeSha256": "a6b3677cb075a21b6b94653369c74e692f5f55b7a4ebc96c0ac3619800c062e1",
+      "finishedAt": "2026-11-27T04:59:17.859Z"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "5e92603f95dc12a7d21057307401bcb03070728dbcbfe27d239829d99b4d3659",
+      "startedAt": "2026-11-27T04:59:17.865Z",
+      "status": "generated",
+      "costCNY": 0.00629,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "853775a1-4d00-43a5-b412-28e336724764",
+      "usage": {
+        "prompt_tokens": 1925,
+        "completion_tokens": 305,
+        "total_tokens": 2230,
+        "prompt_tokens_details": {
+          "cached_tokens": 1791
+        },
+        "prompt_cache_hit_tokens": 1791,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found: Bool = false\\n    for (v in q) {\\n        if (v == t) {\\n            found = true\\n            break\\n        }\\n        idx = idx + 1\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    q.add(t + 10, at: idx)\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found: Bool = false\n    for (v in q) {\n        if (v == t) {\n            found = true\n            break\n        }\n        idx = idx + 1\n    }\n    if (!found) {\n        return -1\n    }\n    q.add(t + 10, at: idx)\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "fd4df7b200b16e6530d6ed02acf4e03b89554f99912906f9bc682875c816b3d9",
+      "finishedAt": "2026-11-27T04:59:19.061Z"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "49e1481bf334b638fa48f72a70d18cf3714fc6b983c4f9eb6f8d121bf5c2c29c",
+      "startedAt": "2026-11-27T04:59:19.065Z",
+      "status": "generated",
+      "costCNY": 0.006764,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "6799b46a-c7b7-4064-b58c-72e971be3196",
+      "usage": {
+        "prompt_tokens": 2198,
+        "completion_tokens": 296,
+        "total_tokens": 2494,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var node = q.firstNode()\\n    while (let Some(n) <- node) {\\n        if (n.value == t) {\\n            q.addBefore(n, t + 10)\\n            return idx\\n        }\\n        idx += 1\\n        node = n.next\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var node = q.firstNode()\n    while (let Some(n) <- node) {\n        if (n.value == t) {\n            q.addBefore(n, t + 10)\n            return idx\n        }\n        idx += 1\n        node = n.next\n    }\n    return -1\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "011443595f484d767d813a9e375548508a2dac22bfa0f3f19dec795aba10bfd0",
+      "finishedAt": "2026-11-27T04:59:20.317Z"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "3ec3b3668673224ab8a5b7f51bc91e5d7a4ac062aaf293f131ae5d8edf57253d",
+      "startedAt": "2026-11-27T04:59:20.322Z",
+      "status": "generated",
+      "costCNY": 0.006624,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "05cd27b1-e634-4dee-a4bc-38a9cdf1f05f",
+      "usage": {
+        "prompt_tokens": 2108,
+        "completion_tokens": 301,
+        "total_tokens": 2409,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 188
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -1\\n    }\\n    var idx: Int64 = 0\\n    var found = false\\n    for (v in q) {\\n        if (v == t) {\\n            found = true\\n            break\\n        }\\n        idx += 1\\n    }\\n    if (!found) {\\n        return -1\\n    }\\n    q.add(t + 10, at: idx)\\n    return idx\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(1)\\n    c0.addLast(-2)\\n    c0.addLast(1)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -1 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    var idx: Int64 = 0\n    var found = false\n    for (v in q) {\n        if (v == t) {\n            found = true\n            break\n        }\n        idx += 1\n    }\n    if (!found) {\n        return -1\n    }\n    q.add(t + 10, at: idx)\n    return idx\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(1)\n    c0.addLast(-2)\n    c0.addLast(1)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -1 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "4afd7a3e49ae9a17cd084f55f1b6744b4cd74c5791943f4990d43fcb7b41d774",
+      "finishedAt": "2026-11-27T04:59:22.054Z"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "651bcadb9c9f01006031ffdf3acd9f404dcee2488bfdf36bc0e2b2a5cbe43997",
+      "startedAt": "2026-11-27T04:59:22.058Z",
+      "status": "generated",
+      "costCNY": 0.006524,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ba6d7ad3-8dc2-4f22-b6da-5c13f2ca0faf",
+      "usage": {
+        "prompt_tokens": 2146,
+        "completion_tokens": 279,
+        "total_tokens": 2425,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 226
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeFirst()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 4 && c0.toArray() == [-2, 7])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeFirst()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 4 && c0.toArray() == [-2, 7])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "0604ca9f7360faf5de48925bbe7f2dc17de1a9a4e0612c493a271b60520e5e1c",
+      "finishedAt": "2026-11-27T04:59:23.251Z"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "f591f5ecc7130b2fb9ecb8f855f23f0fe44413306c86dc4420637ba46abdfbbc",
+      "startedAt": "2026-11-27T04:59:23.256Z",
+      "status": "generated",
+      "costCNY": 0.00692,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "de9e31c3-b31a-46e0-8a8f-79581491b52f",
+      "usage": {
+        "prompt_tokens": 2292,
+        "completion_tokens": 292,
+        "total_tokens": 2584,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 244
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (q.removeFirst()) {\\n            case Some(v) =>\\n                sum += v * weight\\n                weight += 1\\n                count += 1\\n            case None =>\\n                break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 4 && c0.toArray() == [-2, 7])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t) {\n        match (q.removeFirst()) {\n            case Some(v) =>\n                sum += v * weight\n                weight += 1\n                count += 1\n            case None =>\n                break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 4 && c0.toArray() == [-2, 7])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "985a2527d944ff1043395858a5cab9127954f3391c8942b388ec9b5ff7e68d93",
+      "finishedAt": "2026-11-27T04:59:24.340Z"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "10dc48504cd730d4549852819b2d8f37f8db8408f141cf37566ba9e41e6c5ed9",
+      "startedAt": "2026-11-27T04:59:24.345Z",
+      "status": "generated",
+      "costCNY": 0.006862,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "6d1c195d-c693-40da-a5bc-ecdf7bf2f05c",
+      "usage": {
+        "prompt_tokens": 2315,
+        "completion_tokens": 279,
+        "total_tokens": 2594,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 139
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t && q.size > 0) {\\n        let v = q.removeFirst()\\n        sum += v * weight\\n        weight += 1\\n        count += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let c0 = LinkedList<Int64>()\\n    c0.addLast(4)\\n    c0.addLast(-2)\\n    c0.addLast(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 4 && c0.toArray() == [-2, 7])\\n    let c1 = LinkedList<Int64>()\\n    c1.addLast(1)\\n    c1.addLast(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    while (count < t && q.size > 0) {\n        let v = q.removeFirst()\n        sum += v * weight\n        weight += 1\n        count += 1\n    }\n    return sum\n}\n\nmain() {\n    let c0 = LinkedList<Int64>()\n    c0.addLast(4)\n    c0.addLast(-2)\n    c0.addLast(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 4 && c0.toArray() == [-2, 7])\n    let c1 = LinkedList<Int64>()\n    c1.addLast(1)\n    c1.addLast(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "0604ca9f7360faf5de48925bbe7f2dc17de1a9a4e0612c493a271b60520e5e1c",
+      "finishedAt": "2026-11-27T04:59:25.576Z"
+    },
+    {
+      "caseId": "ticket_a",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "21124d36e1f7278b0d69555e9f04fab66e4e984003ea54f993c0246742cc2dd4",
+      "startedAt": "2026-11-27T04:59:25.581Z",
+      "status": "generated",
+      "costCNY": 0.005812,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b417a193-1e8d-497b-a44d-28cdecb3effd",
+      "usage": {
+        "prompt_tokens": 1982,
+        "completion_tokens": 231,
+        "total_tokens": 2213,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 190
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "453a167f9be6382ac95e3a7453d850c8ee2b65f4ce6e8e68b01e8672599c905c",
+      "finishedAt": "2026-11-27T04:59:26.956Z"
+    },
+    {
+      "caseId": "ticket_a",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "63145ca9669c201cc309b6b0fd8c4b0eada904f7f1f221b1c8268d0117f0377a",
+      "startedAt": "2026-11-27T04:59:26.961Z",
+      "status": "generated",
+      "costCNY": 0.00552,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d630b339-4a81-42ee-b209-4c3977e0cfde",
+      "usage": {
+        "prompt_tokens": 1836,
+        "completion_tokens": 231,
+        "total_tokens": 2067,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 172
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.first()\\n    if (head >= t) {\\n        return head * 2\\n    }\\n    return -73\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.first()\n    if (head >= t) {\n        return head * 2\n    }\n    return -73\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "453a167f9be6382ac95e3a7453d850c8ee2b65f4ce6e8e68b01e8672599c905c",
+      "finishedAt": "2026-11-27T04:59:28.639Z"
+    },
+    {
+      "caseId": "ticket_a",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "8f97d10241bab34b66ae183de08b7d127651c2df39f93c2ddbd4b66a1f53de96",
+      "startedAt": "2026-11-27T04:59:28.645Z",
+      "status": "generated",
+      "costCNY": 0.00606,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f04d6c3e-0cdb-41b6-affd-5422cef0b0ad",
+      "usage": {
+        "prompt_tokens": 1982,
+        "completion_tokens": 262,
+        "total_tokens": 2244,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 190
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -73\\n    }\\n    let head = q.peek()\\n    match (head) {\\n        case Some(v) =>\\n            if (v >= t) {\\n                return v * 2\\n            } else {\\n                return -73\\n            }\\n        case None => return -73\\n    }\\n}\\n\\nmain() {\\n    let c0 = ArrayQueue<Int64>()\\n    c0.add(4)\\n    c0.add(-2)\\n    c0.add(7)\\n    let r0 = processEntry(c0, 1)\\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\\n    let c1 = ArrayQueue<Int64>()\\n    c1.add(1)\\n    c1.add(6)\\n    let r1 = processEntry(c1, 2)\\n    println(r1 == -73 && c1.toArray() == [1, 6])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -73\n    }\n    let head = q.peek()\n    match (head) {\n        case Some(v) =>\n            if (v >= t) {\n                return v * 2\n            } else {\n                return -73\n            }\n        case None => return -73\n    }\n}\n\nmain() {\n    let c0 = ArrayQueue<Int64>()\n    c0.add(4)\n    c0.add(-2)\n    c0.add(7)\n    let r0 = processEntry(c0, 1)\n    println(r0 == 8 && c0.toArray() == [4, -2, 7])\n    let c1 = ArrayQueue<Int64>()\n    c1.add(1)\n    c1.add(6)\n    let r1 = processEntry(c1, 2)\n    println(r1 == -73 && c1.toArray() == [1, 6])\n}\n",
+      "codeSha256": "82d86d46d2fd89aa62757de28f0147472da90a07d32655875530206215abf843",
+      "finishedAt": "2026-11-27T04:59:30.210Z"
+    },
+    {
+      "caseId": "ledger_a",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "4f4a8bfdc71430307319329cb6f587741d958def1479072e80989109074f2996",
+      "startedAt": "2026-11-27T04:59:30.215Z",
+      "status": "generated",
+      "costCNY": 0.007238,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e2724ddb-3dac-4a9e-a9cd-165567a8b46e",
+      "usage": {
+        "prompt_tokens": 2251,
+        "completion_tokens": 342,
+        "total_tokens": 2593,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 203
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let (k, v) = q.first()\\n    return v - k + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) {\\n        w0.add(k)\\n        w0.add(v)\\n    }\\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) {\\n        w1.add(k)\\n        w1.add(v)\\n    }\\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let (k, v) = q.first()\n    return v - k + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) {\n        w0.add(k)\n        w0.add(v)\n    }\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) {\n        w1.add(k)\n        w1.add(v)\n    }\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "96124c9239d9f1286348c18c33a3c428feedd3546e7d9fcd539ec05282ee862a",
+      "finishedAt": "2026-11-27T04:59:31.756Z"
+    },
+    {
+      "caseId": "ledger_a",
+      "repeat": 2,
+      "group": "I",
+      "requestSha256": "793daa6b8ec84b3694c1f6a88f9ffe69c85848bbedf21aa6805e415e87b5a9f3",
+      "startedAt": "2026-11-27T04:59:31.762Z",
+      "status": "generated",
+      "costCNY": 0.007088,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "05992d58-ea58-4824-a7aa-e7d491147149",
+      "usage": {
+        "prompt_tokens": 2152,
+        "completion_tokens": 348,
+        "total_tokens": 2500,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let first = q.first\\n    match (first) {\\n        case Some((k, v)) => v - k + t\\n        case None => -61\\n    }\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let first = q.first\n    match (first) {\n        case Some((k, v)) => v - k + t\n        case None => -61\n    }\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) { w0.add(k); w0.add(v) }\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) { w1.add(k); w1.add(v) }\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "c2bcc3e07bd6f066ea220833bd89d1bdd00c028e57b81dbdae674ea966fa1da4",
+      "finishedAt": "2026-11-27T04:59:33.364Z"
+    },
+    {
+      "caseId": "ledger_a",
+      "repeat": 2,
+      "group": "G",
+      "requestSha256": "999e0573410328b191fc0b8d151da4d308ab385732b28c35a102c77345b30dde",
+      "startedAt": "2026-11-27T04:59:33.370Z",
+      "status": "generated",
+      "costCNY": 0.0066,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "78ec429a-0074-4adf-920c-dde7f665fe62",
+      "usage": {
+        "prompt_tokens": 1932,
+        "completion_tokens": 342,
+        "total_tokens": 2274,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 140
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -61\\n    }\\n    let (k, v) = q.first()\\n    return v - k + t\\n}\\n\\nmain() {\\n    let c0 = TreeMap<Int64,Int64>()\\n    c0.add(4, 0)\\n    c0.add(-2, 19)\\n    c0.add(7, 23)\\n    let r0 = processEntry(c0, 1)\\n    let w0 = ArrayList<Int64>()\\n    for ((k, v) in c0) {\\n        w0.add(k)\\n        w0.add(v)\\n    }\\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\\n    let c1 = TreeMap<Int64,Int64>()\\n    c1.add(1, 3)\\n    c1.add(6, 11)\\n    let r1 = processEntry(c1, 2)\\n    let w1 = ArrayList<Int64>()\\n    for ((k, v) in c1) {\\n        w1.add(k)\\n        w1.add(v)\\n    }\\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -61\n    }\n    let (k, v) = q.first()\n    return v - k + t\n}\n\nmain() {\n    let c0 = TreeMap<Int64,Int64>()\n    c0.add(4, 0)\n    c0.add(-2, 19)\n    c0.add(7, 23)\n    let r0 = processEntry(c0, 1)\n    let w0 = ArrayList<Int64>()\n    for ((k, v) in c0) {\n        w0.add(k)\n        w0.add(v)\n    }\n    println(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\n    let c1 = TreeMap<Int64,Int64>()\n    c1.add(1, 3)\n    c1.add(6, 11)\n    let r1 = processEntry(c1, 2)\n    let w1 = ArrayList<Int64>()\n    for ((k, v) in c1) {\n        w1.add(k)\n        w1.add(v)\n    }\n    println(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n",
+      "codeSha256": "96124c9239d9f1286348c18c33a3c428feedd3546e7d9fcd539ec05282ee862a",
+      "finishedAt": "2026-11-27T04:59:34.710Z"
+    }
+  ],
+  "finishedAt": "2026-11-27T04:59:34.716Z"
+}
