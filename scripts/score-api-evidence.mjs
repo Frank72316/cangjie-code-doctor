@@ -16,7 +16,11 @@ fs.mkdirSync(out,{recursive:true});
 const reports=[],receipt={phase,image,commit:process.env.GITHUB_SHA,startedAt:new Date().toISOString(),rows:[]};
 async function check(problem,text,tests){
  const r=await verifyPublic({source:{name:problem.source.name,text},tests},{root:process.cwd(),image,core:resolve('target/debug/doctor')});
- assert.notEqual(r.status,'tool_error');assert.ok(r.containers.length&&r.containers.every(c=>c.cleanup?.removed));
+ if(r.status==='tool_error' || !r.containers.length || !r.containers.every(c=>c.cleanup?.removed)){
+  // Preserve the interrupted check for local diagnosis. It cannot enter the scored receipt.
+  dump(out+'/interrupted.enc.json',sealEvidence({commit:receipt.commit,phase,caseId:problem.id,finishedChecks:reports.length,report:r},key));
+  throw Error('Verification interrupted for '+problem.id+'; diagnostic report sealed');
+ }
  reports.push(r);return r;
 }
 const hiddenTests=h=>[{id:'holdout',stdin:'',expectedStdout:h.expectedStdout}];

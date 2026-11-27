@@ -524,3 +524,6 @@
 
 ## 第八十五轮　锁定候选供隔离评分
 输入冻结提交 44e14a7f4dc4e1641be25679cf146945f74f9d5c 已核对两端 SHA，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942958425)。本节提交绑定模型原始回答与盲审摘要。
+
+## 第八十六轮　隔离评分中断
+候选锁定提交 8643c3d6713041e836d10a9f66cdcaff749754f2 已核对双仓，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45943154441) 通过。[首次独立评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45943172736) 在公开检查中断，未将其计为候选失败。此次提交增加加密诊断，不改模型请求或候选。
