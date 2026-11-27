@@ -1,10 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import {resolve} from 'node:path';
 import {rankApiSections} from './rank-api-sections.mjs';
 import {challengeQuery,CHALLENGE_SETTINGS} from './challenge-design.mjs';
-import {runNative} from './native-bridge.mjs';
-import {validatedResult} from './retrieval.mjs';
+import {nativeRanking} from './native-api-ranking.mjs';
 import {sha,SYSTEM} from './pilot-common.mjs';
 import {directory,read,dump,rankingStudy} from './api-evidence-common.mjs';
 
@@ -18,21 +16,13 @@ const apiRaw=await fs.readFile(apiFile,'utf8'),guideRaw=await fs.readFile(guideF
 assert.equal(sha(apiRaw),dev.apiCorpusSha256);
 const api=JSON.parse(apiRaw),guide=JSON.parse(guideRaw);
 const folder='tmp/api-ranking-queries';await fs.mkdir(folder,{recursive:true});
-async function bm25(task,query,file,corpus){
-  const path=folder+'/'+task.id+'.json';
-  await fs.writeFile(path,JSON.stringify({sdkVersion:'1.0.5',query,topK:3}));
-  const binary=resolve('target/debug/doctor'+(process.platform==='win32'?'.exe':''));
-  const p=await runNative(binary,['retrieve',file,path],{cwd:process.cwd(),timeout:20000});
-  assert.ok(p.code===0 && !p.stderr.trim() && !p.reason,'Native retrieval failed for '+task.id);
-  return validatedResult(JSON.parse(p.stdout),corpus,query).results;
-}
 const show=({id,title,text,url})=>({id,title,url,text});
 const cases=[];
 for(const task of tasks){
   const initial=gate.rows.find(r=>r.caseId===task.id).initial;
   const query=challengeQuery(task,initial);
-  const guides=await bm25(task,query,guideFile,guide);
-  const original=await bm25(task,query,apiFile,api),field=rankApiSections(api,task.task,task.source.text);
+  const guides=await nativeRanking(folder,task,query,guideFile,guide);
+  const original=await nativeRanking(folder,task,query,apiFile,api),field=rankApiSections(api,task.task,task.source.text);
   const ranks={B:original.map(d=>d.id),F:field.slice(0,3).map(d=>d.id)};
   assert.equal(guides.length,3);
   const requests={},hashes={};

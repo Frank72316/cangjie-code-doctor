@@ -500,3 +500,6 @@
 
 ## 第七十七轮　归档材料失败并重验
 题目冻结 f3acc405daf7e9a064e2fb540a785d51256c8b9a 两端 SHA 一致。[材料首次验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45939796783) 判定未通过；[独立推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45939774621)。本节提交保留原始材料和失败记录。
+
+## 第七十八轮　验收与冻结请求
+材料修正提交 c7e186bf632dc797f6a6b9661d800d65393c6e28 已核对双仓；[材料复验](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940171419) 成功，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940158041)。本节提交绑定两组请求、语料、标签、模型配置和预算。
