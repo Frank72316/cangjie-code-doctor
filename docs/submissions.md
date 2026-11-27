@@ -476,3 +476,6 @@
 
 ## 第六十九轮　对照结果与可复核证据
 候选锁定提交 2232dd378ee51cef2e91d560f38c483236541074 于北京时间 2026-11-26 20:28:07 提交。GitCode 已正常同步，GitHub Git 传输中断后通过 Git Data API 按相同 SHA 快进，两端分支已核对。[push CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45820091964) 成功。[独立评分作业](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45820100788) 北京时间 20:39:00 完成。此前的输入冻结提交 [CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45819579185) 也成功。本节所在提交归档重算结果、统计图和正式记录。
+
+## 第七十轮　API 排序实验预登记
+上一轮结果提交 8593ba317c20e2c32aaa31d82627208e32965845，北京时间 2026-11-26 20:42:24；核对两平台 SHA 一致，[CI 45822363845](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45822363845) 成功。本节提交锁定评估前的排序算法。
