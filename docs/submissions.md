@@ -503,3 +503,6 @@
 
 ## 第七十八轮　验收与冻结请求
 材料修正提交 c7e186bf632dc797f6a6b9661d800d65393c6e28 已核对双仓；[材料复验](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940171419) 成功，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940158041)。本节提交绑定两组请求、语料、标签、模型配置和预算。
+
+## 第七十九轮　候选锁定
+请求冻结提交 a9b3ba72dbfb05a8790d44fb4fdfb75acc6fb8a1，经 GitCode 正常推送、GitHub Git Data API 同 SHA 快进并核对。[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940535935)。本节提交锁定真实候选、盲审结果与补充检查。

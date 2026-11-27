@@ -1,0 +1,1304 @@
+{
+  "designSha256": "4d4ae774b1d41cf438759c4a9eb06d004be4ba9d4fc9b86fec3f4ba2ca9a7ae6",
+  "commit": "a9b3ba72dbfb05a8790d44fb4fdfb75acc6fb8a1",
+  "startedAt": "2026-11-27T04:31:50.592Z",
+  "results": [
+    {
+      "caseId": "front_run",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "1f0465f436c449cd4bbd16bbb826cb13dc8071a78c2cc3f0a040508648b78168",
+      "startedAt": "2026-11-27T04:31:50.594Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "543caf83-cc5d-4eef-ab76-bd598e9cc19e",
+      "usage": {
+        "prompt_tokens": 2110,
+        "completion_tokens": 243,
+        "total_tokens": 2353,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2110
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    var n: Int64 = 0\\n    while (!q.isEmpty()) {\\n        if ((q.first ?? 0) > t) {\\n            break\\n        }\\n        q.removeFirst()\\n        n += 1\\n    }\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    var n: Int64 = 0\n    while (!q.isEmpty()) {\n        if ((q.first ?? 0) > t) {\n            break\n        }\n        q.removeFirst()\n        n += 1\n    }\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "4c3e541841e7f1241c49dfe373859c24977d3ee0a2b278d412edca6c4a1055a6",
+      "finishedAt": "2026-11-27T04:31:52.086Z"
+    },
+    {
+      "caseId": "front_run",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "1f0465f436c449cd4bbd16bbb826cb13dc8071a78c2cc3f0a040508648b78168",
+      "startedAt": "2026-11-27T04:31:52.087Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ec9264fa-c68d-4ead-88bc-33d48a1f9e06",
+      "usage": {
+        "prompt_tokens": 2110,
+        "completion_tokens": 243,
+        "total_tokens": 2353,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 190
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    var n: Int64 = 0\\n    while (!q.isEmpty()) {\\n        if ((q.first ?? 0) > t) {\\n            break\\n        }\\n        q.removeFirst()\\n        n += 1\\n    }\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    var n: Int64 = 0\n    while (!q.isEmpty()) {\n        if ((q.first ?? 0) > t) {\n            break\n        }\n        q.removeFirst()\n        n += 1\n    }\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "4c3e541841e7f1241c49dfe373859c24977d3ee0a2b278d412edca6c4a1055a6",
+      "finishedAt": "2026-11-27T04:31:53.929Z"
+    },
+    {
+      "caseId": "inspect_top",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "868469cb2333414eb7e421afe07998653485c12d81fa96845b6528166d68e29f",
+      "startedAt": "2026-11-27T04:31:53.933Z",
+      "status": "generated",
+      "costCNY": 0.005316,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5d2c9d3e-f55d-4f20-b687-89d2e2a9e393",
+      "usage": {
+        "prompt_tokens": 1894,
+        "completion_tokens": 191,
+        "total_tokens": 2085,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1894
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    q.peek() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    q.peek() ?? t\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "5b6f5634ae24f4649b668243fffdfbef7427722cfd77c0d2a8ce81017f4a08b2",
+      "finishedAt": "2026-11-27T04:31:55.236Z"
+    },
+    {
+      "caseId": "inspect_top",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "868469cb2333414eb7e421afe07998653485c12d81fa96845b6528166d68e29f",
+      "startedAt": "2026-11-27T04:31:55.240Z",
+      "status": "generated",
+      "costCNY": 0.005316,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0624ea8e-665b-463e-93ad-b519d5ad033a",
+      "usage": {
+        "prompt_tokens": 1894,
+        "completion_tokens": 191,
+        "total_tokens": 2085,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 230
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    q.peek() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    q.peek() ?? t\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "5b6f5634ae24f4649b668243fffdfbef7427722cfd77c0d2a8ce81017f4a08b2",
+      "finishedAt": "2026-11-27T04:31:56.921Z"
+    },
+    {
+      "caseId": "later_value",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "433788e8fcbbb284bac8c68cc9b6ae1552503c39399006489bf208f72057eaa0",
+      "startedAt": "2026-11-27T04:31:56.924Z",
+      "status": "generated",
+      "costCNY": 0.006038,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0c48d48f-fdfd-4c34-8526-d3ca6bcc48be",
+      "usage": {
+        "prompt_tokens": 1703,
+        "completion_tokens": 329,
+        "total_tokens": 2032,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1703
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q) {\\n        if (k > t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q) {\n        if (k > t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "8f5083a6af607ce3decffe0ee210f8e55f9a14f20c038d3505782cdc988cd115",
+      "finishedAt": "2026-11-27T04:31:58.044Z"
+    },
+    {
+      "caseId": "later_value",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "433788e8fcbbb284bac8c68cc9b6ae1552503c39399006489bf208f72057eaa0",
+      "startedAt": "2026-11-27T04:31:58.048Z",
+      "status": "generated",
+      "costCNY": 0.006038,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f47e1997-10e5-49c1-aa9a-95192b52896f",
+      "usage": {
+        "prompt_tokens": 1703,
+        "completion_tokens": 329,
+        "total_tokens": 2032,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q) {\\n        if (k > t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q) {\n        if (k > t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "8f5083a6af607ce3decffe0ee210f8e55f9a14f20c038d3505782cdc988cd115",
+      "finishedAt": "2026-11-27T04:31:59.387Z"
+    },
+    {
+      "caseId": "strict_lower",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "be069daf5cfe92d3a520d7107121e6804c6967fd24bfb1eacf88d9ca179e445f",
+      "startedAt": "2026-11-27T04:31:59.390Z",
+      "status": "generated",
+      "costCNY": 0.006016,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "aef1f482-5ffb-4766-9d08-6c8727af14ce",
+      "usage": {
+        "prompt_tokens": 2128,
+        "completion_tokens": 220,
+        "total_tokens": 2348,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2128
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q.backward(t)) {\\n        if (v < t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q.backward(t)) {\n        if (v < t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "3af2c19b7e2c8caf9a71f4e5ff8a75c681f877a096a927a9340cf48548b00fdb",
+      "finishedAt": "2026-11-27T04:32:00.260Z"
+    },
+    {
+      "caseId": "strict_lower",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "b9afb8470927d0efd33ebde5f13b91200673a3c0505090b2a24ce5f4e7085830",
+      "startedAt": "2026-11-27T04:32:00.265Z",
+      "status": "generated",
+      "costCNY": 0.006282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "afe7be25-4b33-498f-a2c0-51f01c214c95",
+      "usage": {
+        "prompt_tokens": 2209,
+        "completion_tokens": 233,
+        "total_tokens": 2442,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 545
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    var result: Int64 = -99\\n    for (v in q.backward(t)) {\\n        if (v < t) {\\n            result = v\\n            break\\n        }\\n    }\\n    return result\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    var result: Int64 = -99\n    for (v in q.backward(t)) {\n        if (v < t) {\n            result = v\n            break\n        }\n    }\n    return result\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "36badd25120f6377094d4e602d6fecdadc1e3b98792b1ac75a996b1f667fc529",
+      "finishedAt": "2026-11-27T04:32:01.388Z"
+    },
+    {
+      "caseId": "priority_insert",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "8131889bcca7ed176179eff36d96ad86f7c98082266c2d7eaa1662a41d7477ac",
+      "startedAt": "2026-11-27T04:32:01.393Z",
+      "status": "generated",
+      "costCNY": 0.00585,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "64059c36-0136-4859-acd7-bef3eced908a",
+      "usage": {
+        "prompt_tokens": 2065,
+        "completion_tokens": 215,
+        "total_tokens": 2280,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2065
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.addFirst(t)\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.addFirst(t)\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\n}\n",
+      "codeSha256": "a9b4972064c521b6424c38dc82bed43b32ffec403bf30d302c62d2afdf5db12f",
+      "finishedAt": "2026-11-27T04:32:02.638Z"
+    },
+    {
+      "caseId": "priority_insert",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "8131889bcca7ed176179eff36d96ad86f7c98082266c2d7eaa1662a41d7477ac",
+      "startedAt": "2026-11-27T04:32:02.642Z",
+      "status": "generated",
+      "costCNY": 0.00585,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a80558f4-b90a-4885-8e3f-3a053c994e3a",
+      "usage": {
+        "prompt_tokens": 2065,
+        "completion_tokens": 215,
+        "total_tokens": 2280,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 145
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.addFirst(t)\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.addFirst(t)\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\n}\n",
+      "codeSha256": "a9b4972064c521b6424c38dc82bed43b32ffec403bf30d302c62d2afdf5db12f",
+      "finishedAt": "2026-11-27T04:32:03.622Z"
+    },
+    {
+      "caseId": "pop_budget",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "7099bb97619346e3f94149aa7279e4d60aea645aae6962429ba3c49970a0fd82",
+      "startedAt": "2026-11-27T04:32:03.627Z",
+      "status": "generated",
+      "costCNY": 0.005962,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8183d710-0078-4612-aaa3-a7322164224a",
+      "usage": {
+        "prompt_tokens": 1917,
+        "completion_tokens": 266,
+        "total_tokens": 2183,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1917
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t <= 0) { return 0 }\\n    var sum: Int64 = 0\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (q.remove()) {\\n            case Some(v) =>\\n                sum += v\\n                count += 1\\n            case None =>\\n                break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 6 && item0.toArray() == [2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t <= 0) { return 0 }\n    var sum: Int64 = 0\n    var count: Int64 = 0\n    while (count < t) {\n        match (q.remove()) {\n            case Some(v) =>\n                sum += v\n                count += 1\n            case None =>\n                break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 6 && item0.toArray() == [2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "24180128e5c265045a75022a55ed488b2eff47ea769aade3603d28b3d7639c5f",
+      "finishedAt": "2026-11-27T04:32:04.965Z"
+    },
+    {
+      "caseId": "pop_budget",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "7099bb97619346e3f94149aa7279e4d60aea645aae6962429ba3c49970a0fd82",
+      "startedAt": "2026-11-27T04:32:04.970Z",
+      "status": "generated",
+      "costCNY": 0.005962,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cb19f956-af5b-4603-b995-e60b3a4297c2",
+      "usage": {
+        "prompt_tokens": 1917,
+        "completion_tokens": 266,
+        "total_tokens": 2183,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t <= 0) { return 0 }\\n    var sum: Int64 = 0\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (q.remove()) {\\n            case Some(v) =>\\n                sum += v\\n                count += 1\\n            case None =>\\n                break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 6 && item0.toArray() == [2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t <= 0) { return 0 }\n    var sum: Int64 = 0\n    var count: Int64 = 0\n    while (count < t) {\n        match (q.remove()) {\n            case Some(v) =>\n                sum += v\n                count += 1\n            case None =>\n                break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 6 && item0.toArray() == [2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "24180128e5c265045a75022a55ed488b2eff47ea769aade3603d28b3d7639c5f",
+      "finishedAt": "2026-11-27T04:32:06.646Z"
+    },
+    {
+      "caseId": "take_earliest",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "26a191da772e0dece3ff9a363a82a6b82a9c1b2ae9478189df1bb31622e9fce8",
+      "startedAt": "2026-11-27T04:32:06.649Z",
+      "status": "generated",
+      "costCNY": 0.005826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1f78edda-d101-4722-b241-673e3b2d5092",
+      "usage": {
+        "prompt_tokens": 1645,
+        "completion_tokens": 317,
+        "total_tokens": 1962,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1645
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return t\\n    }\\n    let p = q.removeFirst() ?? (0, t)\\n    p[1]\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return t\n    }\n    let p = q.removeFirst() ?? (0, t)\n    p[1]\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\n}\n",
+      "codeSha256": "39ba6d276c354486b7d3431f87245888f7bcf42adecf2f15ecfe540de1481071",
+      "finishedAt": "2026-11-27T04:32:08.562Z"
+    },
+    {
+      "caseId": "take_earliest",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "850f61e4659d4294f7ae1792803533e8bc8a977b1a994134a5ab0270e3ab41ec",
+      "startedAt": "2026-11-27T04:32:08.565Z",
+      "status": "generated",
+      "costCNY": 0.005964,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5884d49e-2351-4e88-9758-a62f89669c3c",
+      "usage": {
+        "prompt_tokens": 1686,
+        "completion_tokens": 324,
+        "total_tokens": 2010,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 406
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return t\\n    }\\n    let firstKey = q.keys().first()\\n    let value = q.remove(firstKey) ?? t\\n    return value\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return t\n    }\n    let firstKey = q.keys().first()\n    let value = q.remove(firstKey) ?? t\n    return value\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\n}\n",
+      "codeSha256": "ecadb1a913f7273f4c61cdc4c6048672cad1ee8223f972702854e42c74e1662f",
+      "finishedAt": "2026-11-27T04:32:10.507Z"
+    },
+    {
+      "caseId": "cut_below",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "87b9d03df12174266b7046e0b834cd6fc1eb5819f7f3d1c6d4045c20036b4000",
+      "startedAt": "2026-11-27T04:32:10.511Z",
+      "status": "generated",
+      "costCNY": 0.00563,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2f7c3f95-2489-4bb7-88a2-a13a1dbf34ac",
+      "usage": {
+        "prompt_tokens": 2003,
+        "completion_tokens": 203,
+        "total_tokens": 2206,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2003
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.removeIf({v => v < t})\\n    n - q.size\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.removeIf({v => v < t})\n    n - q.size\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "9379f710a41d9c1b5a664d1d0fd0121f161ff426c6f378ea4261c745b7e1c811",
+      "finishedAt": "2026-11-27T04:32:11.636Z"
+    },
+    {
+      "caseId": "cut_below",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "beb62c160fd7b15f01588df7c968ac4feb3a3ce3af6c923c1782db94d830fbe3",
+      "startedAt": "2026-11-27T04:32:11.639Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "23eb12c1-7916-4907-bceb-9c027e1f13ec",
+      "usage": {
+        "prompt_tokens": 2009,
+        "completion_tokens": 203,
+        "total_tokens": 2212,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 473
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.removeIf({v => v < t})\\n    n - q.size\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.removeIf({v => v < t})\n    n - q.size\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "9379f710a41d9c1b5a664d1d0fd0121f161ff426c6f378ea4261c745b7e1c811",
+      "finishedAt": "2026-11-27T04:32:12.663Z"
+    },
+    {
+      "caseId": "previous_tail",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "d1ecbc5475dced265c15dac0c5dd38817416b659d296bc2ecdf26a014aa75d93",
+      "startedAt": "2026-11-27T04:32:12.669Z",
+      "status": "generated",
+      "costCNY": 0.005684,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "72c73fd1-5204-4b52-a46b-761485fb5967",
+      "usage": {
+        "prompt_tokens": 2046,
+        "completion_tokens": 199,
+        "total_tokens": 2245,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2046
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    q.last() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    q.last() ?? t\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "c46bf15a6f68493bcc237c721e4f6f9be55dea22702eca5d5f527d05a4713053",
+      "finishedAt": "2026-11-27T04:32:14.296Z"
+    },
+    {
+      "caseId": "previous_tail",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "6b363c9402803e63d1a7fbe7799345f447551809fd5c64a836d252e91204cb0f",
+      "startedAt": "2026-11-27T04:32:14.298Z",
+      "status": "generated",
+      "costCNY": 0.005808,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7f72ecc8-4ad9-4fee-b056-b067dda0217d",
+      "usage": {
+        "prompt_tokens": 2044,
+        "completion_tokens": 215,
+        "total_tokens": 2259,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 380
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return t\\n    }\\n    return q.last() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return t\n    }\n    return q.last() ?? t\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "1cab62a645ace39f96f69649eeec6e39f919033bcb15ba180d324ed0745260df",
+      "finishedAt": "2026-11-27T04:32:15.512Z"
+    },
+    {
+      "caseId": "read_depth",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "a879c7b87fa320e140409074ce9a809aca14533effb2278e048f5ab232a1e5f2",
+      "startedAt": "2026-11-27T04:32:15.517Z",
+      "status": "generated",
+      "costCNY": 0.005888,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "933fe965-7305-4ed8-b0dc-7cc8d5cb6379",
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 243,
+        "total_tokens": 2215,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1972
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t < 0) {\\n        return -99\\n    }\\n    let arr = q.toArray()\\n    if (t >= arr.size) {\\n        return -99\\n    }\\n    return arr[arr.size - 1 - t]\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -99 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t < 0) {\n        return -99\n    }\n    let arr = q.toArray()\n    if (t >= arr.size) {\n        return -99\n    }\n    return arr[arr.size - 1 - t]\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -99 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "283022a249ca863bc3246563d83d75f150699db906944b2e57f4f86f4efb644d",
+      "finishedAt": "2026-11-27T04:32:17.162Z"
+    },
+    {
+      "caseId": "read_depth",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "a879c7b87fa320e140409074ce9a809aca14533effb2278e048f5ab232a1e5f2",
+      "startedAt": "2026-11-27T04:32:17.166Z",
+      "status": "generated",
+      "costCNY": 0.00592,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b91b0832-c6e7-4dea-ad0d-686c1d8ffa1c",
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 247,
+        "total_tokens": 2219,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 180
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t < 0) {\\n        return -99\\n    }\\n    let arr = q.toArray()\\n    let n = arr.size\\n    if (t >= n) {\\n        return -99\\n    }\\n    return arr[n - 1 - t]\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -99 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t < 0) {\n        return -99\n    }\n    let arr = q.toArray()\n    let n = arr.size\n    if (t >= n) {\n        return -99\n    }\n    return arr[n - 1 - t]\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -99 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "c6bb381be34260745ac606fd17a88723da30db7ebada5f4fbd08f3381d86abfe",
+      "finishedAt": "2026-11-27T04:32:18.513Z"
+    },
+    {
+      "caseId": "floor_key",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "5680de893b5e8d6bae82a07bec1d38a9e4e4ce9b35abf5293a932d8ac0c9aa2a",
+      "startedAt": "2026-11-27T04:32:18.517Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "dedb5bb5-cd00-4bac-92ec-b6aaa2e8303d",
+      "usage": {
+        "prompt_tokens": 1778,
+        "completion_tokens": 326,
+        "total_tokens": 2104,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1778
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q.backward(t, inclusive: true)) {\\n        return k\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q.backward(t, inclusive: true)) {\n        return k\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "d5e0af2d64f2ca9be1cd6ac0ec2049f2edf984f1cb38103ea908e5b29e05002e",
+      "finishedAt": "2026-11-27T04:32:20.414Z"
+    },
+    {
+      "caseId": "floor_key",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "5680de893b5e8d6bae82a07bec1d38a9e4e4ce9b35abf5293a932d8ac0c9aa2a",
+      "startedAt": "2026-11-27T04:32:20.419Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bd28f6cc-be9b-4f45-aca6-f09ccb517ed8",
+      "usage": {
+        "prompt_tokens": 1778,
+        "completion_tokens": 326,
+        "total_tokens": 2104,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 242
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q.backward(t, inclusive: true)) {\\n        return k\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q.backward(t, inclusive: true)) {\n        return k\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "d5e0af2d64f2ca9be1cd6ac0ec2049f2edf984f1cb38103ea908e5b29e05002e",
+      "finishedAt": "2026-11-27T04:32:22.362Z"
+    },
+    {
+      "caseId": "upper_distance",
+      "repeat": 1,
+      "group": "T",
+      "requestSha256": "92d7fb96660642e476e55dba2500c7594ed45e8ff0ffe2755141b7c9dbc1f322",
+      "startedAt": "2026-11-27T04:32:22.366Z",
+      "status": "generated",
+      "costCNY": 0.005804,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a935edc3-0434-4fca-9d29-77b189582d7f",
+      "usage": {
+        "prompt_tokens": 2026,
+        "completion_tokens": 219,
+        "total_tokens": 2245,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2026
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q) {\\n        if (v >= t) {\\n            return v - t\\n        }\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q) {\n        if (v >= t) {\n            return v - t\n        }\n    }\n    return -1\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "d8d0faa81ef2dcc8777050f4b49ac8a4373096b42133cfab61422b6c747af4b6",
+      "finishedAt": "2026-11-27T04:32:23.836Z"
+    },
+    {
+      "caseId": "upper_distance",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "92d7fb96660642e476e55dba2500c7594ed45e8ff0ffe2755141b7c9dbc1f322",
+      "startedAt": "2026-11-27T04:32:23.839Z",
+      "status": "generated",
+      "costCNY": 0.005804,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "47d585ce-d27f-4885-8f95-eaeb9033a5aa",
+      "usage": {
+        "prompt_tokens": 2026,
+        "completion_tokens": 219,
+        "total_tokens": 2245,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 234
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q) {\\n        if (v >= t) {\\n            return v - t\\n        }\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q) {\n        if (v >= t) {\n            return v - t\n        }\n    }\n    return -1\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "d8d0faa81ef2dcc8777050f4b49ac8a4373096b42133cfab61422b6c747af4b6",
+      "finishedAt": "2026-11-27T04:32:24.932Z"
+    },
+    {
+      "caseId": "front_run",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "1f0465f436c449cd4bbd16bbb826cb13dc8071a78c2cc3f0a040508648b78168",
+      "startedAt": "2026-11-27T04:32:24.937Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "138db2f3-b697-4c8a-bdc4-adc14f1c562f",
+      "usage": {
+        "prompt_tokens": 2110,
+        "completion_tokens": 243,
+        "total_tokens": 2353,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 190
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    var n: Int64 = 0\\n    while (!q.isEmpty()) {\\n        if ((q.first ?? 0) > t) {\\n            break\\n        }\\n        q.removeFirst()\\n        n += 1\\n    }\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    var n: Int64 = 0\n    while (!q.isEmpty()) {\n        if ((q.first ?? 0) > t) {\n            break\n        }\n        q.removeFirst()\n        n += 1\n    }\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "4c3e541841e7f1241c49dfe373859c24977d3ee0a2b278d412edca6c4a1055a6",
+      "finishedAt": "2026-11-27T04:32:26.323Z"
+    },
+    {
+      "caseId": "front_run",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "1f0465f436c449cd4bbd16bbb826cb13dc8071a78c2cc3f0a040508648b78168",
+      "startedAt": "2026-11-27T04:32:26.328Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "496b435c-01f5-467c-a4bc-f4a924a4512a",
+      "usage": {
+        "prompt_tokens": 2110,
+        "completion_tokens": 243,
+        "total_tokens": 2353,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 190
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    var n: Int64 = 0\\n    while (!q.isEmpty()) {\\n        if ((q.first ?? 0) > t) {\\n            break\\n        }\\n        q.removeFirst()\\n        n += 1\\n    }\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    var n: Int64 = 0\n    while (!q.isEmpty()) {\n        if ((q.first ?? 0) > t) {\n            break\n        }\n        q.removeFirst()\n        n += 1\n    }\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "4c3e541841e7f1241c49dfe373859c24977d3ee0a2b278d412edca6c4a1055a6",
+      "finishedAt": "2026-11-27T04:32:28.050Z"
+    },
+    {
+      "caseId": "inspect_top",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "868469cb2333414eb7e421afe07998653485c12d81fa96845b6528166d68e29f",
+      "startedAt": "2026-11-27T04:32:28.054Z",
+      "status": "generated",
+      "costCNY": 0.005316,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "741c621c-f362-45fc-87ea-68b471df37d4",
+      "usage": {
+        "prompt_tokens": 1894,
+        "completion_tokens": 191,
+        "total_tokens": 2085,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 230
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    q.peek() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    q.peek() ?? t\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "5b6f5634ae24f4649b668243fffdfbef7427722cfd77c0d2a8ce81017f4a08b2",
+      "finishedAt": "2026-11-27T04:32:29.244Z"
+    },
+    {
+      "caseId": "inspect_top",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "868469cb2333414eb7e421afe07998653485c12d81fa96845b6528166d68e29f",
+      "startedAt": "2026-11-27T04:32:29.248Z",
+      "status": "generated",
+      "costCNY": 0.005316,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5a670d32-e9b8-4cfe-b712-560980edc80d",
+      "usage": {
+        "prompt_tokens": 1894,
+        "completion_tokens": 191,
+        "total_tokens": 2085,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 230
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    q.peek() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    q.peek() ?? t\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "5b6f5634ae24f4649b668243fffdfbef7427722cfd77c0d2a8ce81017f4a08b2",
+      "finishedAt": "2026-11-27T04:32:30.600Z"
+    },
+    {
+      "caseId": "later_value",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "433788e8fcbbb284bac8c68cc9b6ae1552503c39399006489bf208f72057eaa0",
+      "startedAt": "2026-11-27T04:32:30.605Z",
+      "status": "generated",
+      "costCNY": 0.006054,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5ed01acc-6f45-4048-9e5a-c041e9e41162",
+      "usage": {
+        "prompt_tokens": 1703,
+        "completion_tokens": 331,
+        "total_tokens": 2034,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q) {\\n        if (k > t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q) {\n        if (k > t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "28ac6461f6e13517182f9a04d951c1789b250d5ce509219c98fb4b62bdcd3c34",
+      "finishedAt": "2026-11-27T04:32:32.045Z"
+    },
+    {
+      "caseId": "later_value",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "433788e8fcbbb284bac8c68cc9b6ae1552503c39399006489bf208f72057eaa0",
+      "startedAt": "2026-11-27T04:32:32.050Z",
+      "status": "generated",
+      "costCNY": 0.006054,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7c50ba2f-bcec-4a8a-828d-a55cd89c378c",
+      "usage": {
+        "prompt_tokens": 1703,
+        "completion_tokens": 331,
+        "total_tokens": 2034,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q) {\\n        if (k > t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q) {\n        if (k > t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 6 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 7 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "28ac6461f6e13517182f9a04d951c1789b250d5ce509219c98fb4b62bdcd3c34",
+      "finishedAt": "2026-11-27T04:32:33.227Z"
+    },
+    {
+      "caseId": "strict_lower",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "b9afb8470927d0efd33ebde5f13b91200673a3c0505090b2a24ce5f4e7085830",
+      "startedAt": "2026-11-27T04:32:33.230Z",
+      "status": "generated",
+      "costCNY": 0.006178,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "29c14556-12da-4c2d-90c7-2df88a7e9443",
+      "usage": {
+        "prompt_tokens": 2209,
+        "completion_tokens": 220,
+        "total_tokens": 2429,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 161
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q.backward(t)) {\\n        if (v < t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q.backward(t)) {\n        if (v < t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "3af2c19b7e2c8caf9a71f4e5ff8a75c681f877a096a927a9340cf48548b00fdb",
+      "finishedAt": "2026-11-27T04:32:34.332Z"
+    },
+    {
+      "caseId": "strict_lower",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "be069daf5cfe92d3a520d7107121e6804c6967fd24bfb1eacf88d9ca179e445f",
+      "startedAt": "2026-11-27T04:32:34.336Z",
+      "status": "generated",
+      "costCNY": 0.006016,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "eef893c9-65dc-4e13-b16a-c0e4c076d341",
+      "usage": {
+        "prompt_tokens": 2128,
+        "completion_tokens": 220,
+        "total_tokens": 2348,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q.backward(t)) {\\n        if (v < t) {\\n            return v\\n        }\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q.backward(t)) {\n        if (v < t) {\n            return v\n        }\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -3 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "3af2c19b7e2c8caf9a71f4e5ff8a75c681f877a096a927a9340cf48548b00fdb",
+      "finishedAt": "2026-11-27T04:32:35.465Z"
+    },
+    {
+      "caseId": "priority_insert",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "8131889bcca7ed176179eff36d96ad86f7c98082266c2d7eaa1662a41d7477ac",
+      "startedAt": "2026-11-27T04:32:35.470Z",
+      "status": "generated",
+      "costCNY": 0.00585,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "67008204-3638-4b65-ad6d-4514617fd2c5",
+      "usage": {
+        "prompt_tokens": 2065,
+        "completion_tokens": 215,
+        "total_tokens": 2280,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 145
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.addFirst(t)\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.addFirst(t)\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\n}\n",
+      "codeSha256": "a9b4972064c521b6424c38dc82bed43b32ffec403bf30d302c62d2afdf5db12f",
+      "finishedAt": "2026-11-27T04:32:36.198Z"
+    },
+    {
+      "caseId": "priority_insert",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "8131889bcca7ed176179eff36d96ad86f7c98082266c2d7eaa1662a41d7477ac",
+      "startedAt": "2026-11-27T04:32:36.202Z",
+      "status": "generated",
+      "costCNY": 0.00585,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1e7b8284-8248-4380-81cd-3047c914c49b",
+      "usage": {
+        "prompt_tokens": 2065,
+        "completion_tokens": 215,
+        "total_tokens": 2280,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 145
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.addFirst(t)\\n    n\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.addFirst(t)\n    n\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 3 && item0.toArray() == [2, 2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 2 && item1.toArray() == [3, -3, 4])\n}\n",
+      "codeSha256": "a9b4972064c521b6424c38dc82bed43b32ffec403bf30d302c62d2afdf5db12f",
+      "finishedAt": "2026-11-27T04:32:37.852Z"
+    },
+    {
+      "caseId": "pop_budget",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "7099bb97619346e3f94149aa7279e4d60aea645aae6962429ba3c49970a0fd82",
+      "startedAt": "2026-11-27T04:32:37.856Z",
+      "status": "generated",
+      "costCNY": 0.005962,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "77b98fe8-c7fe-48fb-96cf-ba6e78aab4ae",
+      "usage": {
+        "prompt_tokens": 1917,
+        "completion_tokens": 266,
+        "total_tokens": 2183,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t <= 0) { return 0 }\\n    var sum: Int64 = 0\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (q.remove()) {\\n            case Some(v) =>\\n                sum += v\\n                count += 1\\n            case None =>\\n                break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 6 && item0.toArray() == [2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t <= 0) { return 0 }\n    var sum: Int64 = 0\n    var count: Int64 = 0\n    while (count < t) {\n        match (q.remove()) {\n            case Some(v) =>\n                sum += v\n                count += 1\n            case None =>\n                break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 6 && item0.toArray() == [2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "24180128e5c265045a75022a55ed488b2eff47ea769aade3603d28b3d7639c5f",
+      "finishedAt": "2026-11-27T04:32:39.496Z"
+    },
+    {
+      "caseId": "pop_budget",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "7099bb97619346e3f94149aa7279e4d60aea645aae6962429ba3c49970a0fd82",
+      "startedAt": "2026-11-27T04:32:39.500Z",
+      "status": "generated",
+      "costCNY": 0.006026,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f50f0bce-9d37-4c2a-9223-13e6214d8cd5",
+      "usage": {
+        "prompt_tokens": 1917,
+        "completion_tokens": 274,
+        "total_tokens": 2191,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t <= 0) { return 0 }\\n    var sum: Int64 = 0\\n    var count: Int64 = 0\\n    while (count < t) {\\n        let v = q.remove()\\n        match (v) {\\n            case Some(x) =>\\n                sum += x\\n                count += 1\\n            case None =>\\n                break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 6 && item0.toArray() == [2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t <= 0) { return 0 }\n    var sum: Int64 = 0\n    var count: Int64 = 0\n    while (count < t) {\n        let v = q.remove()\n        match (v) {\n            case Some(x) =>\n                sum += x\n                count += 1\n            case None =>\n                break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 6 && item0.toArray() == [2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "eef7a6d7e5f96615bb8e37efb4c209772a8dc90ea8304261ba7a09ad57990759",
+      "finishedAt": "2026-11-27T04:32:40.945Z"
+    },
+    {
+      "caseId": "take_earliest",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "850f61e4659d4294f7ae1792803533e8bc8a977b1a994134a5ab0270e3ab41ec",
+      "startedAt": "2026-11-27T04:32:40.950Z",
+      "status": "generated",
+      "costCNY": 0.00594,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b2f6a6d8-9024-4680-a4b3-475af9d477e0",
+      "usage": {
+        "prompt_tokens": 1686,
+        "completion_tokens": 321,
+        "total_tokens": 2007,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return t\\n    }\\n    let key = q.keys().first()\\n    let value = q.remove(key) ?? t\\n    value\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return t\n    }\n    let key = q.keys().first()\n    let value = q.remove(key) ?? t\n    value\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\n}\n",
+      "codeSha256": "273957d7b16d78d46438a53f78dcf4173e6116293a167f0345522015b12c0884",
+      "finishedAt": "2026-11-27T04:32:42.498Z"
+    },
+    {
+      "caseId": "take_earliest",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "26a191da772e0dece3ff9a363a82a6b82a9c1b2ae9478189df1bb31622e9fce8",
+      "startedAt": "2026-11-27T04:32:42.503Z",
+      "status": "generated",
+      "costCNY": 0.005706,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0df6b883-008a-43d0-88b1-e4cdf6553b78",
+      "usage": {
+        "prompt_tokens": 1645,
+        "completion_tokens": 302,
+        "total_tokens": 1947,
+        "prompt_tokens_details": {
+          "cached_tokens": 1408
+        },
+        "prompt_cache_hit_tokens": 1408,
+        "prompt_cache_miss_tokens": 237
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    let p = q.removeFirst() ?? (0, t)\\n    p[1]\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    let p = q.removeFirst() ?? (0, t)\n    p[1]\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k,v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 21 && witness0.toArray() == [2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k,v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == 3 && witness1.toArray() == [4, 7])\n}\n",
+      "codeSha256": "393e8d03f7e9684a25003b77afdc5f7e689102497623adb480323340863bb750",
+      "finishedAt": "2026-11-27T04:32:44.224Z"
+    },
+    {
+      "caseId": "cut_below",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "beb62c160fd7b15f01588df7c968ac4feb3a3ce3af6c923c1782db94d830fbe3",
+      "startedAt": "2026-11-27T04:32:44.228Z",
+      "status": "generated",
+      "costCNY": 0.005642,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "559899ca-c4f4-4f63-bc96-9ad6f6d11acb",
+      "usage": {
+        "prompt_tokens": 2009,
+        "completion_tokens": 203,
+        "total_tokens": 2212,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 217
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.removeIf({v => v < t})\\n    n - q.size\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.removeIf({v => v < t})\n    n - q.size\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "9379f710a41d9c1b5a664d1d0fd0121f161ff426c6f378ea4261c745b7e1c811",
+      "finishedAt": "2026-11-27T04:32:45.403Z"
+    },
+    {
+      "caseId": "cut_below",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "87b9d03df12174266b7046e0b834cd6fc1eb5819f7f3d1c6d4045c20036b4000",
+      "startedAt": "2026-11-27T04:32:45.407Z",
+      "status": "generated",
+      "costCNY": 0.00563,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b4fa4da7-5c7b-4784-a81e-bb87840971f5",
+      "usage": {
+        "prompt_tokens": 2003,
+        "completion_tokens": 203,
+        "total_tokens": 2206,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 211
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    let n = q.size\\n    q.removeIf({v => v < t})\\n    n - q.size\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    let n = q.size\n    q.removeIf({v => v < t})\n    n - q.size\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [4])\n}\n",
+      "codeSha256": "9379f710a41d9c1b5a664d1d0fd0121f161ff426c6f378ea4261c745b7e1c811",
+      "finishedAt": "2026-11-27T04:32:46.417Z"
+    },
+    {
+      "caseId": "previous_tail",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "6b363c9402803e63d1a7fbe7799345f447551809fd5c64a836d252e91204cb0f",
+      "startedAt": "2026-11-27T04:32:46.421Z",
+      "status": "generated",
+      "costCNY": 0.005808,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e8aa5d41-9ba4-44e3-bb26-8253ba3ae3ae",
+      "usage": {
+        "prompt_tokens": 2044,
+        "completion_tokens": 215,
+        "total_tokens": 2259,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return t\\n    }\\n    return q.last() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return t\n    }\n    return q.last() ?? t\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "1cab62a645ace39f96f69649eeec6e39f919033bcb15ba180d324ed0745260df",
+      "finishedAt": "2026-11-27T04:32:48.061Z"
+    },
+    {
+      "caseId": "previous_tail",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "d1ecbc5475dced265c15dac0c5dd38817416b659d296bc2ecdf26a014aa75d93",
+      "startedAt": "2026-11-27T04:32:48.067Z",
+      "status": "generated",
+      "costCNY": 0.005804,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f30f3b5d-57f7-4894-973a-bdbfdf48d909",
+      "usage": {
+        "prompt_tokens": 2046,
+        "completion_tokens": 214,
+        "total_tokens": 2260,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return t\\n    }\\n    q.last() ?? t\\n}\\n\\nmain() {\\n    let item0 = ArrayDeque<Int64>()\\n    item0.addLast(2)\\n    item0.addLast(5)\\n    item0.addLast(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\\n    let item1 = ArrayDeque<Int64>()\\n    item1.addLast(-3)\\n    item1.addLast(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayDeque<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return t\n    }\n    q.last() ?? t\n}\n\nmain() {\n    let item0 = ArrayDeque<Int64>()\n    item0.addLast(2)\n    item0.addLast(5)\n    item0.addLast(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 1 && item0.toArray() == [2, 5, 1])\n    let item1 = ArrayDeque<Int64>()\n    item1.addLast(-3)\n    item1.addLast(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 4 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "d6325377c20d42586ac07f3c150cb6459738275babc95823912cb63e3b986e27",
+      "finishedAt": "2026-11-27T04:32:49.116Z"
+    },
+    {
+      "caseId": "read_depth",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "a879c7b87fa320e140409074ce9a809aca14533effb2278e048f5ab232a1e5f2",
+      "startedAt": "2026-11-27T04:32:49.119Z",
+      "status": "generated",
+      "costCNY": 0.00592,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e0bed847-7b23-4ce1-8a50-2731f5ef259c",
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 247,
+        "total_tokens": 2219,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 180
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t < 0) {\\n        return -99\\n    }\\n    let arr = q.toArray()\\n    let n = arr.size\\n    if (t >= n) {\\n        return -99\\n    }\\n    return arr[n - 1 - t]\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -99 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t < 0) {\n        return -99\n    }\n    let arr = q.toArray()\n    let n = arr.size\n    if (t >= n) {\n        return -99\n    }\n    return arr[n - 1 - t]\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -99 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "c6bb381be34260745ac606fd17a88723da30db7ebada5f4fbd08f3381d86abfe",
+      "finishedAt": "2026-11-27T04:32:50.766Z"
+    },
+    {
+      "caseId": "read_depth",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "a879c7b87fa320e140409074ce9a809aca14533effb2278e048f5ab232a1e5f2",
+      "startedAt": "2026-11-27T04:32:50.770Z",
+      "status": "generated",
+      "costCNY": 0.00592,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "43ed4f34-48b1-46b8-b4c5-3fe6aef3c64b",
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 247,
+        "total_tokens": 2219,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 180
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\\n    if (t < 0) {\\n        return -99\\n    }\\n    let arr = q.toArray()\\n    let n = arr.size\\n    if (t >= n) {\\n        return -99\\n    }\\n    return arr[n - 1 - t]\\n}\\n\\nmain() {\\n    let item0 = ArrayStack<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\\n    let item1 = ArrayStack<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == -99 && item1.toArray() == [4, -3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: ArrayStack<Int64>, t: Int64): Int64 {\n    if (t < 0) {\n        return -99\n    }\n    let arr = q.toArray()\n    let n = arr.size\n    if (t >= n) {\n        return -99\n    }\n    return arr[n - 1 - t]\n}\n\nmain() {\n    let item0 = ArrayStack<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 2 && item0.toArray() == [1, 5, 2])\n    let item1 = ArrayStack<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == -99 && item1.toArray() == [4, -3])\n}\n",
+      "codeSha256": "c6bb381be34260745ac606fd17a88723da30db7ebada5f4fbd08f3381d86abfe",
+      "finishedAt": "2026-11-27T04:32:52.258Z"
+    },
+    {
+      "caseId": "floor_key",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "5680de893b5e8d6bae82a07bec1d38a9e4e4ce9b35abf5293a932d8ac0c9aa2a",
+      "startedAt": "2026-11-27T04:32:52.263Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "959faadf-b142-47c0-b5b8-679e91b0390d",
+      "usage": {
+        "prompt_tokens": 1778,
+        "completion_tokens": 326,
+        "total_tokens": 2104,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 242
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q.backward(t, inclusive: true)) {\\n        return k\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q.backward(t, inclusive: true)) {\n        return k\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "d5e0af2d64f2ca9be1cd6ac0ec2049f2edf984f1cb38103ea908e5b29e05002e",
+      "finishedAt": "2026-11-27T04:32:54.182Z"
+    },
+    {
+      "caseId": "floor_key",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "5680de893b5e8d6bae82a07bec1d38a9e4e4ce9b35abf5293a932d8ac0c9aa2a",
+      "startedAt": "2026-11-27T04:32:54.186Z",
+      "status": "generated",
+      "costCNY": 0.006164,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a8172c42-3d3d-4b45-bdfd-0d6c6eb0ff92",
+      "usage": {
+        "prompt_tokens": 1778,
+        "completion_tokens": 326,
+        "total_tokens": 2104,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 242
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\\n    for ((k, v) in q.backward(t, inclusive: true)) {\\n        return k\\n    }\\n    return -99\\n}\\n\\nmain() {\\n    let item0 = TreeMap<Int64,Int64>()\\n    item0.add(2, -2)\\n    item0.add(5, 6)\\n    item0.add(1, 21)\\n    let actual0 = resolveItem(item0, 2)\\n    let witness0 = ArrayList<Int64>()\\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\\n    let item1 = TreeMap<Int64,Int64>()\\n    item1.add(-3, 3)\\n    item1.add(4, 7)\\n    let actual1 = resolveItem(item1, 3)\\n    let witness1 = ArrayList<Int64>()\\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\n    for ((k, v) in q.backward(t, inclusive: true)) {\n        return k\n    }\n    return -99\n}\n\nmain() {\n    let item0 = TreeMap<Int64,Int64>()\n    item0.add(2, -2)\n    item0.add(5, 6)\n    item0.add(1, 21)\n    let actual0 = resolveItem(item0, 2)\n    let witness0 = ArrayList<Int64>()\n    for ((k, v) in item0) { witness0.add(k); witness0.add(v) }\n    println(actual0 == 2 && witness0.toArray() == [1, 21, 2, -2, 5, 6])\n    let item1 = TreeMap<Int64,Int64>()\n    item1.add(-3, 3)\n    item1.add(4, 7)\n    let actual1 = resolveItem(item1, 3)\n    let witness1 = ArrayList<Int64>()\n    for ((k, v) in item1) { witness1.add(k); witness1.add(v) }\n    println(actual1 == -3 && witness1.toArray() == [-3, 3, 4, 7])\n}\n",
+      "codeSha256": "d5e0af2d64f2ca9be1cd6ac0ec2049f2edf984f1cb38103ea908e5b29e05002e",
+      "finishedAt": "2026-11-27T04:32:55.817Z"
+    },
+    {
+      "caseId": "upper_distance",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "92d7fb96660642e476e55dba2500c7594ed45e8ff0ffe2755141b7c9dbc1f322",
+      "startedAt": "2026-11-27T04:32:55.822Z",
+      "status": "generated",
+      "costCNY": 0.005804,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "eb5d9a4a-65ec-401f-a321-fb3af8aaa169",
+      "usage": {
+        "prompt_tokens": 2026,
+        "completion_tokens": 219,
+        "total_tokens": 2245,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 234
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q) {\\n        if (v >= t) {\\n            return v - t\\n        }\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q) {\n        if (v >= t) {\n            return v - t\n        }\n    }\n    return -1\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "d8d0faa81ef2dcc8777050f4b49ac8a4373096b42133cfab61422b6c747af4b6",
+      "finishedAt": "2026-11-27T04:32:57.167Z"
+    },
+    {
+      "caseId": "upper_distance",
+      "repeat": 2,
+      "group": "T",
+      "requestSha256": "92d7fb96660642e476e55dba2500c7594ed45e8ff0ffe2755141b7c9dbc1f322",
+      "startedAt": "2026-11-27T04:32:57.171Z",
+      "status": "generated",
+      "costCNY": 0.005804,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "46ffc840-9798-4f62-bd79-325dd32f0ed3",
+      "usage": {
+        "prompt_tokens": 2026,
+        "completion_tokens": 219,
+        "total_tokens": 2245,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 234
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\\n    for (v in q) {\\n        if (v >= t) {\\n            return v - t\\n        }\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let item0 = TreeSet<Int64>()\\n    item0.add(2)\\n    item0.add(5)\\n    item0.add(1)\\n    let actual0 = resolveItem(item0, 2)\\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\\n    let item1 = TreeSet<Int64>()\\n    item1.add(-3)\\n    item1.add(4)\\n    let actual1 = resolveItem(item1, 3)\\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc resolveItem(q: TreeSet<Int64>, t: Int64): Int64 {\n    for (v in q) {\n        if (v >= t) {\n            return v - t\n        }\n    }\n    return -1\n}\n\nmain() {\n    let item0 = TreeSet<Int64>()\n    item0.add(2)\n    item0.add(5)\n    item0.add(1)\n    let actual0 = resolveItem(item0, 2)\n    println(actual0 == 0 && item0.toArray() == [1, 2, 5])\n    let item1 = TreeSet<Int64>()\n    item1.add(-3)\n    item1.add(4)\n    let actual1 = resolveItem(item1, 3)\n    println(actual1 == 1 && item1.toArray() == [-3, 4])\n}\n",
+      "codeSha256": "d8d0faa81ef2dcc8777050f4b49ac8a4373096b42133cfab61422b6c747af4b6",
+      "finishedAt": "2026-11-27T04:32:58.266Z"
+    }
+  ],
+  "finishedAt": "2026-11-27T04:32:58.270Z"
+}

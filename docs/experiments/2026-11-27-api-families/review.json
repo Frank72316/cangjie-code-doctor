@@ -1,0 +1,34 @@
+{
+  "packSha256": "627fe1037a9b7b6fdd12c70baf69dc85ade7f4c88ceaef834d0678115d32b798",
+  "stage": "before isolated scoring",
+  "reviewer": "Codex, single reviewer, treatment masked",
+  "checks": [
+    "Implementation inspected without group or test outcomes",
+    "General behavior and state preservation attempted; no example-specific output or out-of-scope actions",
+    "Original public and hidden main are injected by scorer"
+  ],
+  "acceptedBodyHashes": [
+    "9379f710a41d9c1b5a664d1d0fd0121f161ff426c6f378ea4261c745b7e1c811",
+    "d5e0af2d64f2ca9be1cd6ac0ec2049f2edf984f1cb38103ea908e5b29e05002e",
+    "4c3e541841e7f1241c49dfe373859c24977d3ee0a2b278d412edca6c4a1055a6",
+    "5b6f5634ae24f4649b668243fffdfbef7427722cfd77c0d2a8ce81017f4a08b2",
+    "28ac6461f6e13517182f9a04d951c1789b250d5ce509219c98fb4b62bdcd3c34",
+    "8f5083a6af607ce3decffe0ee210f8e55f9a14f20c038d3505782cdc988cd115",
+    "24180128e5c265045a75022a55ed488b2eff47ea769aade3603d28b3d7639c5f",
+    "eef7a6d7e5f96615bb8e37efb4c209772a8dc90ea8304261ba7a09ad57990759",
+    "1cab62a645ace39f96f69649eeec6e39f919033bcb15ba180d324ed0745260df",
+    "c46bf15a6f68493bcc237c721e4f6f9be55dea22702eca5d5f527d05a4713053",
+    "d6325377c20d42586ac07f3c150cb6459738275babc95823912cb63e3b986e27",
+    "a9b4972064c521b6424c38dc82bed43b32ffec403bf30d302c62d2afdf5db12f",
+    "283022a249ca863bc3246563d83d75f150699db906944b2e57f4f86f4efb644d",
+    "c6bb381be34260745ac606fd17a88723da30db7ebada5f4fbd08f3381d86abfe",
+    "36badd25120f6377094d4e602d6fecdadc1e3b98792b1ac75a996b1f667fc529",
+    "3af2c19b7e2c8caf9a71f4e5ff8a75c681f877a096a927a9340cf48548b00fdb",
+    "273957d7b16d78d46438a53f78dcf4173e6116293a167f0345522015b12c0884",
+    "393e8d03f7e9684a25003b77afdc5f7e689102497623adb480323340863bb750",
+    "39ba6d276c354486b7d3431f87245888f7bcf42adecf2f15ecfe540de1481071",
+    "ecadb1a913f7273f4c61cdc4c6048672cad1ee8223f972702854e42c74e1662f",
+    "d8d0faa81ef2dcc8777050f4b49ac8a4373096b42133cfab61422b6c747af4b6"
+  ],
+  "rejectedBodyHashes": []
+}
