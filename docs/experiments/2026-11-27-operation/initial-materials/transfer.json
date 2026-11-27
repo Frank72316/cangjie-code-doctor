@@ -1,0 +1,182 @@
+[
+  {
+    "id": "fare_a",
+    "task": "查看队首的一张车票，把它的票面数减去 t 后返回。空队列返回 -81。所有车票的位置和数量都不变。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "fare_a.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -81}\nq.size-t\n}\n\nmain() {\nlet c0 = ArrayDeque<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 3 && c0.toArray() == [4, -2, 7])\nlet c1 = ArrayDeque<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "stamp_a",
+    "task": "在队列头部插入两个标记。最终从左到右，两个标记的顺序必须是 t、t+1，旧数据保持原顺序。返回新队列长度。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "stamp_a.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\nq.addLast(t)\nq.size\n}\n\nmain() {\nlet c0 = ArrayDeque<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 5 && c0.toArray() == [1, 2, 4, -2, 7])\nlet c1 = ArrayDeque<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == 4 && c1.toArray() == [2, 3, 1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "bookmark_a",
+    "task": "在链表中找到第一个值等于 t 的节点，紧挨该节点之前插入 t+10，只插入一次。返回插入前找到的节点下标；没有就返回 -1。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "bookmark_a.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -1}\nq.addLast(t+10)\n0\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == -1 && c0.toArray() == [4, -2, 7])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "weighted_a",
+    "task": "从链表头部逐项取走最多 t 项。第一个取走的值乘 1，第二个乘 2，以此类推，返回加权和。t 不为正时返回零并保持链表不变。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "weighted_a.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (t<=0) {return 0}\nq.size\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 4 && c0.toArray() == [-2, 7])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == 13 && c1.toArray() == Array<Int64>())\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "ticket_a",
+    "task": "队首值不小于 t 时返回该值的两倍，否则返回 -73；空队列也返回 -73。这里只查看符合条件的队首，不删除号码。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "ticket_a.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -73}\nq.size\n}\n\nmain() {\nlet c0 = ArrayQueue<Int64>()\nc0.add(4)\nc0.add(-2)\nc0.add(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 8 && c0.toArray() == [4, -2, 7])\nlet c1 = ArrayQueue<Int64>()\nc1.add(1)\nc1.add(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -73 && c1.toArray() == [1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "ledger_a",
+    "task": "在有序账本中读取最小键的账目。以该条目的值减去键，再加上 t 作为校验码；空表返回 -61。账本保持不变。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "ledger_a.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -61}\nq.size+t\n}\n\nmain() {\nlet c0 = TreeMap<Int64,Int64>()\nc0.add(4, 0)\nc0.add(-2, 19)\nc0.add(7, 23)\nlet r0=processEntry(c0, 1)\nlet w0=ArrayList<Int64>()\nfor ((k,v) in c0) {w0.add(k); w0.add(v)}\nprintln(r0 == 22 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\nlet c1 = TreeMap<Int64,Int64>()\nc1.add(1, 3)\nc1.add(6, 11)\nlet r1=processEntry(c1, 2)\nlet w1=ArrayList<Int64>()\nfor ((k,v) in c1) {w1.add(k); w1.add(v)}\nprintln(r1 == 4 && w1.toArray() == [1, 3, 6, 11])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "fare_b",
+    "task": "查看队尾的一张车票，把它的票面数减去 t 后返回。空队列返回 -81。所有车票的位置和数量都不变。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "fare_b.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -81}\nq.size-t\n}\n\nmain() {\nlet c0 = ArrayDeque<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 6 && c0.toArray() == [4, -2, 7])\nlet c1 = ArrayDeque<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == 4 && c1.toArray() == [1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "stamp_b",
+    "task": "在队列尾部插入两个标记。最终从左到右，两个标记的顺序必须是 t、t+1，旧数据保持原顺序。返回新队列长度。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "stamp_b.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: ArrayDeque<Int64>, t: Int64): Int64 {\nq.addLast(t)\nq.size\n}\n\nmain() {\nlet c0 = ArrayDeque<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 5 && c0.toArray() == [4, -2, 7, 1, 2])\nlet c1 = ArrayDeque<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == 4 && c1.toArray() == [1, 6, 2, 3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "bookmark_b",
+    "task": "在链表中找到第一个值等于 t 的节点，紧挨该节点之后插入 t+10，只插入一次。返回插入前找到的节点下标；没有就返回 -1。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "bookmark_b.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -1}\nq.addLast(t+10)\n0\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == -1 && c0.toArray() == [4, -2, 7])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "weighted_b",
+    "task": "从链表尾部逐项取走最多 t 项。第一个取走的值乘 1，第二个乘 2，以此类推，返回加权和。t 不为正时返回零并保持链表不变。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "weighted_b.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (t<=0) {return 0}\nq.size\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 7 && c0.toArray() == [4, -2])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == 8 && c1.toArray() == Array<Int64>())\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "ticket_b",
+    "task": "队首值不小于 t 时返回该值的两倍，否则返回 -73；空队列也返回 -73。只有满足条件时才取走队首，其余号码不动。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "ticket_b.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: ArrayQueue<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -73}\nq.size\n}\n\nmain() {\nlet c0 = ArrayQueue<Int64>()\nc0.add(4)\nc0.add(-2)\nc0.add(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 8 && c0.toArray() == [-2, 7])\nlet c1 = ArrayQueue<Int64>()\nc1.add(1)\nc1.add(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -73 && c1.toArray() == [1, 6])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "ledger_b",
+    "task": "在有序账本中读取最大键的账目。以该条目的值减去键，再加上 t 作为校验码；空表返回 -61。账本保持不变。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "source": {
+      "name": "ledger_b.cj",
+      "text": "import std.collection.*\n\nfunc processEntry(q: TreeMap<Int64,Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -61}\nq.size+t\n}\n\nmain() {\nlet c0 = TreeMap<Int64,Int64>()\nc0.add(4, 0)\nc0.add(-2, 19)\nc0.add(7, 23)\nlet r0=processEntry(c0, 1)\nlet w0=ArrayList<Int64>()\nfor ((k,v) in c0) {w0.add(k); w0.add(v)}\nprintln(r0 == 17 && w0.toArray() == [-2, 19, 4, 0, 7, 23])\nlet c1 = TreeMap<Int64,Int64>()\nc1.add(1, 3)\nc1.add(6, 11)\nlet r1=processEntry(c1, 2)\nlet w1=ArrayList<Int64>()\nfor ((k,v) in c1) {w1.add(k); w1.add(v)}\nprintln(r1 == 7 && w1.toArray() == [1, 3, 6, 11])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]

@@ -34,7 +34,7 @@
     "task": "在链表中找到第一个值等于 t 的节点，紧挨该节点之前插入 t+10，只插入一次。返回插入前找到的节点下标；没有就返回 -1。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
     "source": {
       "name": "bookmark_a.cj",
-      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -1}\nq.addLast(t+10)\n0\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == -1 && c0.toArray() == [4, -2, 7])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
+      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -1}\nq.addLast(t+10)\n0\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(1)\nc0.addLast(-2)\nc0.addLast(1)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 1 && c0.toArray() == [4, 11, 1, -2, 1])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
     },
     "publicTests": [
       {
@@ -124,7 +124,7 @@
     "task": "在链表中找到第一个值等于 t 的节点，紧挨该节点之后插入 t+10，只插入一次。返回插入前找到的节点下标；没有就返回 -1。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
     "source": {
       "name": "bookmark_b.cj",
-      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -1}\nq.addLast(t+10)\n0\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(-2)\nc0.addLast(7)\nlet r0=processEntry(c0, 1)\nprintln(r0 == -1 && c0.toArray() == [4, -2, 7])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
+      "text": "import std.collection.*\n\nfunc processEntry(q: LinkedList<Int64>, t: Int64): Int64 {\nif (q.isEmpty()) {return -1}\nq.addLast(t+10)\n0\n}\n\nmain() {\nlet c0 = LinkedList<Int64>()\nc0.addLast(4)\nc0.addLast(1)\nc0.addLast(-2)\nc0.addLast(1)\nlet r0=processEntry(c0, 1)\nprintln(r0 == 1 && c0.toArray() == [4, 1, 11, -2, 1])\nlet c1 = LinkedList<Int64>()\nc1.addLast(1)\nc1.addLast(6)\nlet r1=processEntry(c1, 2)\nprintln(r1 == -1 && c1.toArray() == [1, 6])\n}\n"
     },
     "publicTests": [
       {

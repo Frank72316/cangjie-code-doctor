@@ -515,3 +515,6 @@
 
 ## 第八十二轮　冻结案例与标签
 操作规则提交 9d54c56 已核对双仓，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45941994759)。本节提交固定目标、两种题面和行为材料，供 Linux 独立验收。
+
+## 第八十三轮　补充可区分的公开例子
+首版材料 19d9c08f86acc71bc24fa8c1edce40c5c0042c8e 已核对双仓；[首次材料验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942225766) 通过，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942214938)。本节归档该版本并记录书签公开样例修订。

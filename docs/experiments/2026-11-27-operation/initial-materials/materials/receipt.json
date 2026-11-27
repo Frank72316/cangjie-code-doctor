@@ -1,0 +1,357 @@
+{
+  "phase": "materials",
+  "image": "sha256:dfeed068253cb9859c49f2ab7c564adcb1fb8ff460e11d8bb3ccc0caf36f0701",
+  "commit": "19d9c08f86acc71bc24fa8c1edce40c5c0042c8e",
+  "startedAt": "2026-11-27T04:51:33.583Z",
+  "rows": [
+    {
+      "caseId": "fare_a",
+      "initial": {
+        "caseId": "fare_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "2006b4ab130bab796c2e60b1213fa840",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "2006b4ab130bab796c2e60b1213fa840",
+        "ee44681a2bcc184a2ded22d53c1a856d",
+        "0b073c5e6194f6186c376a5edea1f1e6",
+        "cda71caa997efb343466543bfbd2be10"
+      ]
+    },
+    {
+      "caseId": "stamp_a",
+      "initial": {
+        "caseId": "stamp_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "b9c7c19813dfd894001a85f86c4a5b75",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "b9c7c19813dfd894001a85f86c4a5b75",
+        "467004352d9bf20e998145a3edf19c76",
+        "d840461ac775532d7dd2682104e4969e",
+        "6584d967490d7322f5590239d2dfbb39"
+      ]
+    },
+    {
+      "caseId": "bookmark_a",
+      "initial": {
+        "caseId": "bookmark_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "3a14c9c083ca8fe578a29b7c18026e02",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "3a14c9c083ca8fe578a29b7c18026e02",
+        "70f5355dee77b28f341c227a355a60b7",
+        "21714e794231feb9f807120cde6e4fd1",
+        "a907ea3dc530e93d91b4c427766e5b0e"
+      ]
+    },
+    {
+      "caseId": "weighted_a",
+      "initial": {
+        "caseId": "weighted_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "d7f2910e875c4048da6ccf813837d270",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "d7f2910e875c4048da6ccf813837d270",
+        "04a780ef473e0c54836b803fe90155a4",
+        "5395606355546e1811046e0f3cb4edcc",
+        "9881069e582a9afeb07c46c94d343dac"
+      ]
+    },
+    {
+      "caseId": "ticket_a",
+      "initial": {
+        "caseId": "ticket_a",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 41
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "e0df1cd34af8c2c7e552e791a56d98ba",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "e0df1cd34af8c2c7e552e791a56d98ba",
+        "bc2de2f08d98c27680871f740a9796ed",
+        "6a82ce7f8de5bd0983e40044b52e9b05",
+        "bee43c824e09fa3d1b394b01627c80fb"
+      ]
+    },
+    {
+      "caseId": "ledger_a",
+      "initial": {
+        "caseId": "ledger_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "246b6a5ca883352dac2dd871726e7539",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "246b6a5ca883352dac2dd871726e7539",
+        "0c9d5d7d25ac63c70f7e2fc8bdcbe7c9",
+        "2dd11b095d4ae5f0a66f20893c5952e0",
+        "6a9d6835519a916b3a1994b9944c2117"
+      ]
+    },
+    {
+      "caseId": "fare_b",
+      "initial": {
+        "caseId": "fare_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "d818da2574558a7e2ee0e9de98d695de",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "d818da2574558a7e2ee0e9de98d695de",
+        "3ba2c6dd126331d909381ef537af4c96",
+        "78d0048d851972541c39dc2de4b7d334",
+        "0d2ee5a19716b89c8e6d632dbbae0f78"
+      ]
+    },
+    {
+      "caseId": "stamp_b",
+      "initial": {
+        "caseId": "stamp_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "9369daa78c77799ac89cc9cefea68d80",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "9369daa78c77799ac89cc9cefea68d80",
+        "93cf399f7b0437d0b31498795abd819c",
+        "06edd6524a82227f9c3f26506f2d1c19",
+        "b36195b20dad4e07cc1e7c503d4a7963"
+      ]
+    },
+    {
+      "caseId": "bookmark_b",
+      "initial": {
+        "caseId": "bookmark_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "8eb47870b76c27426faeda00f7edfaf9",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "8eb47870b76c27426faeda00f7edfaf9",
+        "2a36dc9fbd5f024125530fb6de419fd7",
+        "f4074eca9c50b7e4dd1103898db73769",
+        "00dee83c33e0537e453f4e6224f9b436"
+      ]
+    },
+    {
+      "caseId": "weighted_b",
+      "initial": {
+        "caseId": "weighted_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "75b1be4d586fbbdaf60438baeb68a57f",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "75b1be4d586fbbdaf60438baeb68a57f",
+        "8d69075369e9fe8a73046bfbe13cacbd",
+        "1083998eb867a963fe22a806b28a1a95",
+        "ea5010e2eb70cc067841ecff3ce1e95a"
+      ]
+    },
+    {
+      "caseId": "ticket_b",
+      "initial": {
+        "caseId": "ticket_b",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 41
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "11efae9e88865df743d1d861ae210ab0",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "11efae9e88865df743d1d861ae210ab0",
+        "bfcc53b347bc21dab069443aaefafe93",
+        "abc730c696970682d467db24c2c6710a",
+        "d3d6c3c40fe15b068313193a01672058"
+      ]
+    },
+    {
+      "caseId": "ledger_b",
+      "initial": {
+        "caseId": "ledger_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "72523fee692665461e4030ac4a90d50a",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "72523fee692665461e4030ac4a90d50a",
+        "decb791a66a582da269033fade12fd3e",
+        "3ccb05fac09d8073b86937d218050e16",
+        "300f21f7be83c4fe1dfc18f3e1db0766"
+      ]
+    }
+  ],
+  "transferSha256": "e34764bacdcf009a88436e8b06e20d4980ac0f223e8deba24522a1f903681ba4",
+  "holdoutSha256": "0560eebf1ee763f1aa55a2b83899541985e097678454b4fe53f752ed7ea709f2",
+  "accepted": true,
+  "finishedAt": "2026-11-27T04:53:03.698Z",
+  "reports": 48
+}
