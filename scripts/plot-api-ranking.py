@@ -39,5 +39,6 @@ for ax, (panel, title) in zip(axes, [("seen","开发集出现过的目标 API"),
         spine.set_visible(False)
 fig.subplots_adjust(left=.135,right=.98,top=.68,bottom=.14,wspace=.57)
 fig.suptitle("API 条目排在第一位时，程序修好了吗？",x=.03,y=.97,ha="left",fontsize=19)
-fig.text(.035,.04,"12 道全新修复题。命中按预先指定的条目计；每题每组三次独立调用，程序通过公开和保留测试才计入。",fontsize=10)
+fig.text(.035,.073,"12 道全新修复题。命中按预先指定的条目计；每题每组三次独立调用，程序通过公开和保留测试才计入。",fontsize=10)
+fig.text(.035,.026,"补充检查：空标记题的两组六份原通过候选，在新增的七组混合 Unicode 输入中均仅通过一组。",fontsize=10)
 fig.savefig(folder/"outcomes.png", dpi=165, bbox_inches="tight", facecolor="white")

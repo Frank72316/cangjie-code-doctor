@@ -60,7 +60,9 @@ const maximumReservedCNY=schedule.reduce((s,j)=>{
   return s+((Buffer.byteLength(JSON.stringify(b))+1024)*2+b.max_tokens*8)/1e6;
 },0);
 assert.ok(schedule.length===72 && maximumReservedCNY<=5);
-dump(directory+'/design.json',{model:CHALLENGE_SETTINGS.model,rankerSha256:dev.rankerSha256,developmentSha256:sha(dev),
+const frozen={model:CHALLENGE_SETTINGS.model,rankerSha256:dev.rankerSha256,developmentSha256:sha(dev),
   labelsSha256:sha(labels),apiCorpusSha256:sha(apiRaw),guideCorpusSha256:sha(guideRaw),materialReceiptSha256:sha(gate),
-  newHoldoutSha256:gate.holdoutSha256,priorCNY:2.767942,capCNY:5,maximumReservedCNY,cases,schedule});
+  newHoldoutSha256:gate.holdoutSha256,priorCNY:2.767942,capCNY:5,maximumReservedCNY,cases,schedule};
+if(process.argv.includes('--verify'))assert.deepEqual(frozen,read('design'));
+else dump(directory+'/design.json',frozen);
 console.log(JSON.stringify({cases:cases.length,requests:schedule.length,maximumReservedCNY}));

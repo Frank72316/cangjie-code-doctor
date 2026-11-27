@@ -1,0 +1,63 @@
+{
+  "image": "sha256:825a7314d65530bef5a9fe2987142b482a2f1d75e72079b2f1f80d3b5131a5f3",
+  "candidatesSha256": "0c67352d2ac98eb49e2ee055f33df9e6afa776b98de6c9cb18dfdfe1b95bf928",
+  "probeSha256": "db0ec0a2da50c89da88d2135f17864698eaa5cfcc3b2b9eff5a4032736505e74",
+  "rows": [
+    {
+      "id": "reference",
+      "sourceSha256": "1c2497479184750442ac77f30842fef8058899a55efbeb65a094ad4d7b4f44ca",
+      "reportId": "66ec5ecd40abf3f45d89718ae07a415c",
+      "status": "passed",
+      "passedAssertions": 7,
+      "total": 7
+    },
+    {
+      "id": "F1",
+      "sourceSha256": "1cd8c88db83db26dcf3067effd426adaefc82e5bdaa467dafa8ca39614d5ba41",
+      "reportId": "06e3d6dd8f310bdf93d03bfcfb923c4c",
+      "status": "test_failed",
+      "passedAssertions": 1,
+      "total": 7
+    },
+    {
+      "id": "B1",
+      "sourceSha256": "b3a1514c392fcd37b974c6eccf0db1a25f7f8d9b5666a3704aeaa9529caf4e0d",
+      "reportId": "fa86a1b1373ae1cea4a8a38f4dc085e7",
+      "status": "test_failed",
+      "passedAssertions": 1,
+      "total": 7
+    },
+    {
+      "id": "B2",
+      "sourceSha256": "c9e12c6ae76f8aa8814954aa16e61827058cd8c866d6612f5f98028612cf04b4",
+      "reportId": "c571abf1f7634cf7004b510046779e44",
+      "status": "test_failed",
+      "passedAssertions": 1,
+      "total": 7
+    },
+    {
+      "id": "F2",
+      "sourceSha256": "76418d4d29267271e96e9974ce852e13fbfe867821dfac63167c0ae38bdff96f",
+      "reportId": "7d9e3302891c7a23333e6229b4b56dde",
+      "status": "test_failed",
+      "passedAssertions": 1,
+      "total": 7
+    },
+    {
+      "id": "F3",
+      "sourceSha256": "76418d4d29267271e96e9974ce852e13fbfe867821dfac63167c0ae38bdff96f",
+      "reportId": "e80a2fe51d0506c6917c0ca6b9ac8b10",
+      "status": "test_failed",
+      "passedAssertions": 1,
+      "total": 7
+    },
+    {
+      "id": "B3",
+      "sourceSha256": "c9e12c6ae76f8aa8814954aa16e61827058cd8c866d6612f5f98028612cf04b4",
+      "reportId": "631ec09c371388ffd6909369c67a0b87",
+      "status": "test_failed",
+      "passedAssertions": 1,
+      "total": 7
+    }
+  ]
+}

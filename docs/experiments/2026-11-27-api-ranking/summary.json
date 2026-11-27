@@ -1,0 +1,453 @@
+{
+  "cases": [
+    {
+      "id": "symbol_pair",
+      "panel": "seen",
+      "gold": "structs-3284",
+      "ranks": {
+        "B": [
+          "structs-2625",
+          "structs-3566",
+          "structs-3614"
+        ],
+        "F": [
+          "structs-3284",
+          "structs-3359",
+          "structs-3392"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": true
+      },
+      "hit3": {
+        "B": false,
+        "F": true
+      },
+      "pass": {
+        "B": 0,
+        "F": 3
+      },
+      "sameRequest": false
+    },
+    {
+      "id": "frame_columns",
+      "panel": "seen",
+      "gold": "structs-3193",
+      "ranks": {
+        "B": [
+          "structs-3193",
+          "structs-2982",
+          "structs-2889"
+        ],
+        "F": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ]
+      },
+      "hit1": {
+        "B": true,
+        "F": true
+      },
+      "hit3": {
+        "B": true,
+        "F": true
+      },
+      "pass": {
+        "B": 0,
+        "F": 0
+      },
+      "sameRequest": true
+    },
+    {
+      "id": "tag_depth",
+      "panel": "seen",
+      "gold": "structs-3121",
+      "ranks": {
+        "B": [
+          "structs-2661",
+          "structs-3526",
+          "structs-2677"
+        ],
+        "F": [
+          "structs-3121",
+          "structs-3043",
+          "structs-3331"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": true
+      },
+      "hit3": {
+        "B": false,
+        "F": true
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": false
+    },
+    {
+      "id": "case_streak",
+      "panel": "seen",
+      "gold": "structs-3246",
+      "ranks": {
+        "B": [
+          "structs-3246",
+          "structs-3272",
+          "structs-3258"
+        ],
+        "F": [
+          "structs-3246",
+          "structs-3272",
+          "structs-3258"
+        ]
+      },
+      "hit1": {
+        "B": true,
+        "F": true
+      },
+      "hit3": {
+        "B": true,
+        "F": true
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": true
+    },
+    {
+      "id": "last_reading",
+      "panel": "seen",
+      "gold": "convert-775",
+      "ranks": {
+        "B": [
+          "structs-3308",
+          "structs-3331",
+          "structs-3345"
+        ],
+        "F": [
+          "convert-775",
+          "convert-795",
+          "structs-3308"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": true
+      },
+      "hit3": {
+        "B": false,
+        "F": true
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": false
+    },
+    {
+      "id": "middle_copy",
+      "panel": "seen",
+      "gold": "structs-97",
+      "ranks": {
+        "B": [
+          "structs-97",
+          "structs-554",
+          "collections-599"
+        ],
+        "F": [
+          "structs-97",
+          "structs-174",
+          "structs-192"
+        ]
+      },
+      "hit1": {
+        "B": true,
+        "F": true
+      },
+      "hit3": {
+        "B": true,
+        "F": true
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": true
+    },
+    {
+      "id": "empty_slots",
+      "panel": "unseen",
+      "gold": "structs-2661",
+      "ranks": {
+        "B": [
+          "structs-2982",
+          "collections-1373",
+          "structs-2661"
+        ],
+        "F": [
+          "structs-3284",
+          "structs-3158",
+          "structs-3359"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": false
+      },
+      "hit3": {
+        "B": true,
+        "F": false
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": false
+    },
+    {
+      "id": "seat_label",
+      "panel": "unseen",
+      "gold": "structs-3066",
+      "ranks": {
+        "B": [
+          "structs-3066",
+          "structs-3043",
+          "structs-3666"
+        ],
+        "F": [
+          "structs-230",
+          "structs-2803",
+          "structs-2815"
+        ]
+      },
+      "hit1": {
+        "B": true,
+        "F": false
+      },
+      "hit3": {
+        "B": true,
+        "F": false
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": false
+    },
+    {
+      "id": "shared_badges",
+      "panel": "unseen",
+      "gold": "collections-2097",
+      "ranks": {
+        "B": [
+          "collections-1373",
+          "collections-2097",
+          "collections-1387"
+        ],
+        "F": [
+          "collections-1373",
+          "structs-45",
+          "collections-1387"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": false
+      },
+      "hit3": {
+        "B": true,
+        "F": false
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": true
+    },
+    {
+      "id": "partition_balance",
+      "panel": "unseen",
+      "gold": "structs-454",
+      "ranks": {
+        "B": [
+          "structs-454",
+          "structs-513",
+          "structs-45"
+        ],
+        "F": [
+          "structs-454",
+          "structs-3193",
+          "structs-2982"
+        ]
+      },
+      "hit1": {
+        "B": true,
+        "F": true
+      },
+      "hit3": {
+        "B": true,
+        "F": true
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": true
+    },
+    {
+      "id": "folded_votes",
+      "panel": "unseen",
+      "gold": "structs-2693",
+      "ranks": {
+        "B": [
+          "structs-3258",
+          "structs-2693",
+          "structs-3246"
+        ],
+        "F": [
+          "structs-3246",
+          "structs-3258",
+          "structs-2693"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": false
+      },
+      "hit3": {
+        "B": true,
+        "F": true
+      },
+      "pass": {
+        "B": 0,
+        "F": 3
+      },
+      "sameRequest": false
+    },
+    {
+      "id": "purge_window",
+      "panel": "unseen",
+      "gold": "collections-557",
+      "ranks": {
+        "B": [
+          "collections-667",
+          "structs-97",
+          "collections-287"
+        ],
+        "F": [
+          "collections-536",
+          "collections-557",
+          "collections-512"
+        ]
+      },
+      "hit1": {
+        "B": false,
+        "F": false
+      },
+      "hit3": {
+        "B": false,
+        "F": true
+      },
+      "pass": {
+        "B": 3,
+        "F": 3
+      },
+      "sameRequest": false
+    }
+  ],
+  "development": {
+    "B": {
+      "top1": 4,
+      "top3": 4,
+      "n": 12
+    },
+    "F": {
+      "top1": 5,
+      "top3": 7,
+      "n": 12
+    }
+  },
+  "overall": {
+    "B": {
+      "passed": 27,
+      "attempts": 36,
+      "top1": 5,
+      "top3": 8,
+      "input": 80976,
+      "output": 6636,
+      "estimatedCNY": 0.21504
+    },
+    "F": {
+      "passed": 33,
+      "attempts": 36,
+      "top1": 7,
+      "top3": 9,
+      "input": 79335,
+      "output": 6063,
+      "estimatedCNY": 0.207174
+    }
+  },
+  "panels": {
+    "seen": {
+      "B": {
+        "passed": 12,
+        "attempts": 18,
+        "top1": 3,
+        "top3": 3,
+        "input": 41235,
+        "output": 3262,
+        "estimatedCNY": 0.108566
+      },
+      "F": {
+        "passed": 15,
+        "attempts": 18,
+        "top1": 6,
+        "top3": 6,
+        "input": 40512,
+        "output": 3075,
+        "estimatedCNY": 0.105624
+      }
+    },
+    "unseen": {
+      "B": {
+        "passed": 15,
+        "attempts": 18,
+        "top1": 2,
+        "top3": 5,
+        "input": 39741,
+        "output": 3374,
+        "estimatedCNY": 0.106474
+      },
+      "F": {
+        "passed": 18,
+        "attempts": 18,
+        "top1": 1,
+        "top3": 3,
+        "input": 38823,
+        "output": 2988,
+        "estimatedCNY": 0.10155
+      }
+    }
+  },
+  "differencePoints": 16.6667,
+  "percentile95": [
+    0,
+    41.6667
+  ],
+  "better": 2,
+  "tied": 10,
+  "worse": 0,
+  "sameRequests": 5,
+  "statusCounts": {
+    "test_failed": 5,
+    "passed": 60,
+    "compile_failed": 7
+  },
+  "estimatedCNY": 0.422214
+}
