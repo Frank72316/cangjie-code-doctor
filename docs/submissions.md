@@ -536,3 +536,6 @@
 
 ## 第八十九轮　输入锁定
 预登记 e9f74eb89f0d597d0cfb54b6d733ca2a8b418978 已在 GitCode、GitHub 核对，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45957137662)。本节提交冻结六种条件的请求和运行顺序。
+
+## 第九十轮　候选与盲审锁定
+输入冻结提交 7482f4f0168d3523a63dec5967434156edba65e0 已在两端核对，GitHub 通过 Git Data API 同 SHA 快进，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45957396366) 通过。本节提交保留模型原始输出和盲审判定。
