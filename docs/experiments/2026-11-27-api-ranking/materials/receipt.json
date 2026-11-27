@@ -1,0 +1,337 @@
+{
+  "phase": "materials",
+  "image": "sha256:fe6b73f25ae9a7b32049eb7594095d5b6d730809479c9966e03a5f77cc1a53a0",
+  "commit": "18efff9b7e1d8a2395222d30f6c1c86289d2ded5",
+  "startedAt": "2026-11-27T03:45:55.260Z",
+  "rows": [
+    {
+      "caseId": "symbol_pair",
+      "initial": {
+        "caseId": "symbol_pair",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "b6c88a52343f38790d590a9e148ded86",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 7,
+      "reportIds": [
+        "b6c88a52343f38790d590a9e148ded86",
+        "22fc3612a7cf0d9240328d0696183f5c",
+        "8a9c7307405f758194478c0c9726b17c",
+        "a89bcae49f76ef1bac09132dfd675b86"
+      ]
+    },
+    {
+      "caseId": "frame_columns",
+      "initial": {
+        "caseId": "frame_columns",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "b30236781da5b4744f5c70f1e84eb59d",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 7,
+      "reportIds": [
+        "b30236781da5b4744f5c70f1e84eb59d",
+        "2273f0bb1d0828e0ed40c162c273c5c3",
+        "fd2e1dc18579ecdf8afe6f9db92304cb",
+        "2445a7c4df33ef1c5e317b2184901b2c"
+      ]
+    },
+    {
+      "caseId": "tag_depth",
+      "initial": {
+        "caseId": "tag_depth",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "c4242e59c7efafe0f9c3d3c81cc3f26a",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 7,
+      "reportIds": [
+        "c4242e59c7efafe0f9c3d3c81cc3f26a",
+        "02f7d621f83b14cd91012e106b832386",
+        "284e3c92b6101a4690a1e1ee3270fc37",
+        "72244f41280a3dc0e80635d9c0afccdc"
+      ]
+    },
+    {
+      "caseId": "case_streak",
+      "initial": {
+        "caseId": "case_streak",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "d31de7580488e6dd8b2ad5f8222a6d6b",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 7,
+      "reportIds": [
+        "d31de7580488e6dd8b2ad5f8222a6d6b",
+        "fb1e9c9b78a142061b12396bffca2dbe",
+        "35fde2132d895fc1bd2b91f522e4ca80",
+        "27e759767cb758bfc214a0725002a580"
+      ]
+    },
+    {
+      "caseId": "last_reading",
+      "initial": {
+        "caseId": "last_reading",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "d0b3b5d3b4d8850a09370aa78614f018",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 7,
+      "reportIds": [
+        "d0b3b5d3b4d8850a09370aa78614f018",
+        "a3b6282668ca2f27e8e0d299f606579e",
+        "3e80b4f7f762bbcd59860b910a16ed66",
+        "90dbe0ee539d2491894afc139e4a1d7d"
+      ]
+    },
+    {
+      "caseId": "middle_copy",
+      "initial": {
+        "caseId": "middle_copy",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "1f10d7d757f178700c38341a6e50d79e",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 6,
+      "reportIds": [
+        "1f10d7d757f178700c38341a6e50d79e",
+        "79292c8f311bd73359c43e793f0a19c8",
+        "292b2baf55cb1a235317b8536ad3c3f5",
+        "411fb3f79ec1b559c634c8576d75dcb4"
+      ]
+    },
+    {
+      "caseId": "empty_slots",
+      "initial": {
+        "caseId": "empty_slots",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "2eb4ac6277f7e4b391e58eefc231beb6",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 7,
+      "reportIds": [
+        "2eb4ac6277f7e4b391e58eefc231beb6",
+        "75f3bd45016643d5cbe60ff6f0d6e449",
+        "d6b6577f19ba81c5a269c23a20b7fef8",
+        "cc1c830eebf71d772b7bd807a7062512"
+      ]
+    },
+    {
+      "caseId": "seat_label",
+      "initial": {
+        "caseId": "seat_label",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "2155f8c13a3cf14953e5a16bf8a4f9d5",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 6,
+      "reportIds": [
+        "2155f8c13a3cf14953e5a16bf8a4f9d5",
+        "6ee0d6f9c94f0bdb62c3417202bae400",
+        "79e1d41f8495184f82bbc4613750e91d",
+        "3b1080c156aaf805205c23ddb0668325"
+      ]
+    },
+    {
+      "caseId": "shared_badges",
+      "initial": {
+        "caseId": "shared_badges",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "33182a4500ac4383633134bf555a0909",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 6,
+      "reportIds": [
+        "33182a4500ac4383633134bf555a0909",
+        "130b3e715583b985e2e8fa87f9ec7fb0",
+        "53c1937aa2a8d38c0ebcfa8f0c48a9c5",
+        "a56bc2a5c09c6c0ee17e5b03ab8e77bc"
+      ]
+    },
+    {
+      "caseId": "partition_balance",
+      "initial": {
+        "caseId": "partition_balance",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "ba3c305a2b7beb672072b20492558ec9",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 6,
+      "reportIds": [
+        "ba3c305a2b7beb672072b20492558ec9",
+        "621b4fdf402084023cc424c2772e657f",
+        "fbe174182ef4282d9655588cc8486473",
+        "83f35445c0c964ebcd75beca4da9c41a"
+      ]
+    },
+    {
+      "caseId": "folded_votes",
+      "initial": {
+        "caseId": "folded_votes",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "01ddbc8a147f2810deb08a6e3073b5e3",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 6,
+      "reportIds": [
+        "01ddbc8a147f2810deb08a6e3073b5e3",
+        "5161776e539e592f2443d059184b155d",
+        "0577823e1a3beaa63f30dc5261b44ba8",
+        "eee9c2ad4922e213a1d0cc431f162bca"
+      ]
+    },
+    {
+      "caseId": "purge_window",
+      "initial": {
+        "caseId": "purge_window",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "93f5035a99b7f516c22b7b208149996d",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 6,
+      "reportIds": [
+        "93f5035a99b7f516c22b7b208149996d",
+        "ab10d985ceb6d24b0c6d985c89ac2717",
+        "a08acf0487e255ac7943f06bfaf80ab3",
+        "6f3fac23dfd26ee483f7f7779b2f5e25"
+      ]
+    }
+  ],
+  "transferSha256": "6fa8486c6666a501acf6d68cb93fa59d2a101d6538686c3900707f7e62f7511b",
+  "holdoutSha256": "1add4324e7ba6254bd1e8c56c11cd2e4e07001cffc71d9e435aca39c34ff650f",
+  "accepted": true,
+  "finishedAt": "2026-11-27T03:47:16.894Z",
+  "reports": 48
+}
