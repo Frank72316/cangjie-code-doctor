@@ -497,3 +497,6 @@
 
 ## 第七十六轮　提交材料
 069030902794495f9bef7149ca77f1dc404a1d00 已核对 GitCode、GitHub 分支，[规则提交 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45939588242)。本次提交冻结题意、标签、参考和保留材料的密文。
+
+## 第七十七轮　归档材料失败并重验
+题目冻结 f3acc405daf7e9a064e2fb540a785d51256c8b9a 两端 SHA 一致。[材料首次验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45939796783) 判定未通过；[独立推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45939774621)。本节提交保留原始材料和失败记录。

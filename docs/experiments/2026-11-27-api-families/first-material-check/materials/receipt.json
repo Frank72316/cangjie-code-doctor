@@ -1,0 +1,366 @@
+{
+  "phase": "materials",
+  "image": "sha256:36e75e4f6de605c307d4e3415ebd8f6abd0469749c0a875ccd9c1c721c0b7570",
+  "commit": "f3acc405daf7e9a064e2fb540a785d51256c8b9a",
+  "startedAt": "2026-11-27T04:26:05.485Z",
+  "rows": [
+    {
+      "caseId": "front_run",
+      "initial": {
+        "caseId": "front_run",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "00794e68429a92649f28ad794d77a854",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "00794e68429a92649f28ad794d77a854",
+        "0d28a01cc1bf1ec8e32635e53a28eb1f",
+        "ced569f0b038d51a06b63843a42c5332",
+        "8420d0bbf6a2193315320b5bf8eee793"
+      ]
+    },
+    {
+      "caseId": "priority_insert",
+      "initial": {
+        "caseId": "priority_insert",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "9fd8a88c5622e16b53dce36685812af2",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "9fd8a88c5622e16b53dce36685812af2",
+        "5ecb17c6f574d0c0a616f4160e9a1942",
+        "bf07e1cc1a79aef25d6fd762c65fab94",
+        "567d32ab98f0eb3c0feb3227af07b14d"
+      ]
+    },
+    {
+      "caseId": "previous_tail",
+      "initial": {
+        "caseId": "previous_tail",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "cd20caf09847daeb7c20381a395a0c9b",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "cd20caf09847daeb7c20381a395a0c9b",
+        "4d72751a5eeb29f0012266a6d7bd56d4",
+        "590f1512c6afbeb01d33092d9b07b1de",
+        "f87b7a9acf2dd2d93a565eef0f685ea6"
+      ]
+    },
+    {
+      "caseId": "inspect_top",
+      "initial": {
+        "caseId": "inspect_top",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "23c56622d728fae3a0e7d6662eb97ef3",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "23c56622d728fae3a0e7d6662eb97ef3",
+        "8981c9d9cb7bb319455cfb83c02aef53",
+        "56396851f9567af978bd0486fe2e17f2",
+        "0dc690819221d7389cefd6edaf10ab55"
+      ]
+    },
+    {
+      "caseId": "pop_budget",
+      "initial": {
+        "caseId": "pop_budget",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "ce3adf48b01fade57b49994ab66ac4f0",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "ce3adf48b01fade57b49994ab66ac4f0",
+        "1eb4263255589a4fbe1eb1c4cf7692c7",
+        "b1371168617f1bdf617e16fccce8afd1",
+        "5d4b207df6dc2297bc7cf323d1a1d5d6"
+      ]
+    },
+    {
+      "caseId": "read_depth",
+      "initial": {
+        "caseId": "read_depth",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 40
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "73e0411f61ec610c516c50c6b5ce68b0",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "73e0411f61ec610c516c50c6b5ce68b0",
+        "dfc15a55c9a387e94c96c1347bfdfdcd",
+        "b5058b10d7694aff4937dc1b44df7dfa",
+        "505908d1e5f382b6c00beef47c40e0f1"
+      ]
+    },
+    {
+      "caseId": "later_value",
+      "initial": {
+        "caseId": "later_value",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "8171568ce907e85da5075e3063161a85",
+      "referencePublic": "passed",
+      "referenceHoldout": "test_failed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "8171568ce907e85da5075e3063161a85",
+        "ded2b572011d2a316885d8dc8c32ba77",
+        "2ee49011b693f16139d62a918e785baf",
+        "9cf47d64a6914e1b2b984e5a45f8a0c8"
+      ]
+    },
+    {
+      "caseId": "take_earliest",
+      "initial": {
+        "caseId": "take_earliest",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "4421794d4883a74d2ba65f0e14e7dbc0",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "4421794d4883a74d2ba65f0e14e7dbc0",
+        "a310d3ed544d02359bee68033acc1a04",
+        "688a406d988869af2e156aaafc446ffd",
+        "e29e3089f35b87689de39ba5b48d000c"
+      ]
+    },
+    {
+      "caseId": "floor_key",
+      "initial": {
+        "caseId": "floor_key",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "5f7b58c340a52de975da0a60157267d4",
+      "referencePublic": "passed",
+      "referenceHoldout": "test_failed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "5f7b58c340a52de975da0a60157267d4",
+        "f5221e129bc61d858fc07f67bfbb435b",
+        "3b006e32283128ac81a93fb444c89be2",
+        "c77076a4960403e2462b33e5ef92be76"
+      ]
+    },
+    {
+      "caseId": "strict_lower",
+      "initial": {
+        "caseId": "strict_lower",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "e2469d4d36bcdd8346fe8c2e0a11acc2",
+      "referencePublic": "passed",
+      "referenceHoldout": "test_failed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "e2469d4d36bcdd8346fe8c2e0a11acc2",
+        "0921a88353d67def2f9b338d2d027d61",
+        "dbf2a57538b56272cd7cb04935ec3636",
+        "2e7aefd4616e2b7b9f0505d71b5fd711"
+      ]
+    },
+    {
+      "caseId": "cut_below",
+      "initial": {
+        "caseId": "cut_below",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\ntrue\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "ecf84694f756a7f18b39f2cb0a57c54e",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "ecf84694f756a7f18b39f2cb0a57c54e",
+        "51c5c1053f55c64f832d0ca886882d63",
+        "4121a8a09e1ed93ba1128271cb2352af",
+        "91a4da5aefe3a2842967eb39676b9f16"
+      ]
+    },
+    {
+      "caseId": "upper_distance",
+      "initial": {
+        "caseId": "upper_distance",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'q'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 18
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 37
+          }
+        ],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "3d0496e5e456124b966037f00fe31195",
+      "referencePublic": "passed",
+      "referenceHoldout": "test_failed",
+      "originalHoldout": "test_failed",
+      "assertions": 8,
+      "reportIds": [
+        "3d0496e5e456124b966037f00fe31195",
+        "8f13ccd73c1b0d46a188d8ac0d9376b5",
+        "ba9f9895077cfb0af819dcf20400c469",
+        "8b4b85e8d89c8e0a078b37d22fd682b8"
+      ]
+    }
+  ],
+  "transferSha256": "f43b1b29b028da09f4e7b54da5ee1c7bcf6a8aaef79ed64cfe1e25205da92298",
+  "holdoutSha256": "6b57173448178b87caeb64f7587f6dbe065e2b80e53edac01ee7624c5f217a45",
+  "accepted": false,
+  "finishedAt": "2026-11-27T04:27:29.249Z",
+  "reports": 48
+}
