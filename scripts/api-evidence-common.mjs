@@ -5,9 +5,10 @@ import assert from 'node:assert/strict';
 import {sha} from './pilot-common.mjs';
 export const rankingStudy=process.argv.includes('--ranking');
 export const familyStudy=process.argv.includes('--families');
-export const transferOnlyStudy=rankingStudy || familyStudy;
-export const directory=familyStudy?'docs/experiments/2026-11-27-api-families':rankingStudy?'docs/experiments/2026-11-27-api-ranking':'docs/experiments/2026-11-26-api-evidence';
-export const conditionCount=familyStudy?48:rankingStudy?72:144;
+export const operationStudy=process.argv.includes('--operation');
+export const transferOnlyStudy=rankingStudy || familyStudy || operationStudy;
+export const directory=operationStudy?'docs/experiments/2026-11-27-operation':familyStudy?'docs/experiments/2026-11-27-api-families':rankingStudy?'docs/experiments/2026-11-27-api-ranking':'docs/experiments/2026-11-26-api-evidence';
+export const conditionCount=operationStudy?72:familyStudy?48:rankingStudy?72:144;
 export const read=name=>JSON.parse(fs.readFileSync(directory+'/'+name+'.json','utf8'));
 export const dump=(path,obj)=>fs.writeFileSync(path,JSON.stringify(obj,null,2)+'\n',{flag:'wx'});
 export function unseal(e,key){

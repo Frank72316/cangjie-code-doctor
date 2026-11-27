@@ -1,0 +1,140 @@
+[
+  {
+    "id": "fare_a",
+    "pair": "fare",
+    "panel": "ArrayDeque",
+    "alternate": "乘客依次进入队列，请报出最先入列者的票面数与 t 的差（票面数减 t）。无人排队时报 -81，报完仍按原样排队。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-28",
+    "acceptable": [
+      "collections-28",
+      "collections-176"
+    ],
+    "reason": "直接读指定端属性或按顺序读取数组快照。"
+  },
+  {
+    "id": "stamp_a",
+    "pair": "stamp",
+    "panel": "ArrayDeque",
+    "alternate": "把编号 t 和 t+1 作为一小段接在原有序列之前；读完整个序列时，这一小段中 t 在先。返回合并后的元素个数。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-82",
+    "acceptable": [
+      "collections-82"
+    ],
+    "reason": "在指定端插入两次，头部插入需要反转调用顺序。"
+  },
+  {
+    "id": "bookmark_a",
+    "pair": "bookmark",
+    "panel": "LinkedList",
+    "alternate": "从左到右寻找最早出现的 t。若找到，就把 t+10 放在它的左手边并报告它原先的位置（从零起算）；否则原样保留，报告 -1。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-2516",
+    "acceptable": [
+      "collections-2516"
+    ],
+    "reason": "相对于匹配节点进行前插或后插。"
+  },
+  {
+    "id": "weighted_a",
+    "pair": "weighted",
+    "panel": "LinkedList",
+    "alternate": "把链表当作一排牌，从左端收牌，最多收 t 张。每张的数乘上本次收牌的先后号（从 1 起），把乘积加起来。若 t≤0，收零张。剩余牌不动。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-2579",
+    "acceptable": [
+      "collections-2579"
+    ],
+    "reason": "指定端的移除操作同时给出下一项及新的链表状态。"
+  },
+  {
+    "id": "ticket_a",
+    "pair": "ticket",
+    "panel": "ArrayQueue",
+    "alternate": "叫号机处理最先到达的人。若有人且号码达到门槛 t，报出号码的两倍，这位申请人继续在原位等候。其他情况只报 -73。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-1008",
+    "acceptable": [
+      "collections-1008",
+      "collections-1046"
+    ],
+    "reason": "队首无副作用读取或快照首项。"
+  },
+  {
+    "id": "ledger_a",
+    "pair": "ledger",
+    "panel": "TreeMap",
+    "alternate": "把账本按键从低到高展开，取开篇那条，计算其值与键的差再加 t。一本空账报 -61，账目只供核对。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-2788",
+    "acceptable": [
+      "collections-2788",
+      "collections-3034"
+    ],
+    "reason": "可读有序映射端点的键值对，或按序遍历选出相应端点。"
+  },
+  {
+    "id": "fare_b",
+    "pair": "fare",
+    "panel": "ArrayDeque",
+    "alternate": "乘客依次进入队列，请报出最近入列者的票面数与 t 的差（票面数减 t）。无人排队时报 -81，报完仍按原样排队。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-38",
+    "acceptable": [
+      "collections-38",
+      "collections-176"
+    ],
+    "reason": "直接读指定端属性或按顺序读取数组快照。"
+  },
+  {
+    "id": "stamp_b",
+    "pair": "stamp",
+    "panel": "ArrayDeque",
+    "alternate": "把编号 t 和 t+1 作为一小段接在原有序列之后；读完整个序列时，这一小段中 t 在先。返回合并后的元素个数。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-94",
+    "acceptable": [
+      "collections-94"
+    ],
+    "reason": "在指定端插入两次，头部插入需要反转调用顺序。"
+  },
+  {
+    "id": "bookmark_b",
+    "pair": "bookmark",
+    "panel": "LinkedList",
+    "alternate": "从左到右寻找最早出现的 t。若找到，就把 t+10 放在它的右手边并报告它原先的位置（从零起算）；否则原样保留，报告 -1。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-2495",
+    "acceptable": [
+      "collections-2495"
+    ],
+    "reason": "相对于匹配节点进行前插或后插。"
+  },
+  {
+    "id": "weighted_b",
+    "pair": "weighted",
+    "panel": "LinkedList",
+    "alternate": "把链表当作一排牌，从右端收牌，最多收 t 张。每张的数乘上本次收牌的先后号（从 1 起），把乘积加起来。若 t≤0，收零张。剩余牌不动。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-2591",
+    "acceptable": [
+      "collections-2591"
+    ],
+    "reason": "指定端的移除操作同时给出下一项及新的链表状态。"
+  },
+  {
+    "id": "ticket_b",
+    "pair": "ticket",
+    "panel": "ArrayQueue",
+    "alternate": "叫号机处理最先到达的人。若有人且号码达到门槛 t，报出号码的两倍，这位申请人随即离开队伍。其他情况只报 -73。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-1020",
+    "acceptable": [
+      "collections-1020",
+      "collections-1008"
+    ],
+    "reason": "先查看是否合格再出队，或以出队作为条件分支中的核心操作。"
+  },
+  {
+    "id": "ledger_b",
+    "pair": "ledger",
+    "panel": "TreeMap",
+    "alternate": "把账本按键从低到高展开，取压轴那条，计算其值与键的差再加 t。一本空账报 -61，账目只供核对。 输入数值与 t 均在 -1000 到 1000 之间。 保留函数签名，修复一般行为。",
+    "gold": "collections-2800",
+    "acceptable": [
+      "collections-2800",
+      "collections-3034"
+    ],
+    "reason": "可读有序映射端点的键值对，或按序遍历选出相应端点。"
+  }
+]

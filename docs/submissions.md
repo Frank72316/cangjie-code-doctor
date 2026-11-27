@@ -512,3 +512,6 @@
 
 ## 第八十一轮　操作排序预登记
 上轮结果 84ab9b8cd44e71caf3f587a6be59c6b091079686 于北京时间 12:40:54 提交，已核对 GitCode 与 GitHub 同 SHA，[最终 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45941368093) 通过。本节提交先行冻结排序和判定口径。
+
+## 第八十二轮　冻结案例与标签
+操作规则提交 9d54c56 已核对双仓，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45941994759)。本节提交固定目标、两种题面和行为材料，供 Linux 独立验收。
