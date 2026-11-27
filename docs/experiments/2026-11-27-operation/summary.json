@@ -1,0 +1,598 @@
+{
+  "designSha256": "cc5e75c6c34f4cfb8e75304709d8067a35cb7f9a56fc2043e9ce9a26ac49a2b4",
+  "verifiedSha256": "eb5c75f5bd82b6aed47fd065a43fd1209f867013fc1d4d15316c65f548bab4c3",
+  "rows": [
+    {
+      "id": "fare_a",
+      "pair": "fare",
+      "family": "ArrayDeque",
+      "primary": {
+        "T": {
+          "first": "collections-176",
+          "preferred": false,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-28",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-28",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-82",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "stamp_a",
+      "pair": "stamp",
+      "family": "ArrayDeque",
+      "primary": {
+        "T": {
+          "first": "collections-82",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-82",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-48",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-48",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": false,
+      "pass": {
+        "G": 2,
+        "T": 2,
+        "I": 2
+      }
+    },
+    {
+      "id": "bookmark_a",
+      "pair": "bookmark",
+      "family": "LinkedList",
+      "primary": {
+        "T": {
+          "first": "collections-2495",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-2603",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-2431",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2431",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 0
+      }
+    },
+    {
+      "id": "weighted_a",
+      "pair": "weighted",
+      "family": "LinkedList",
+      "primary": {
+        "T": {
+          "first": "collections-2549",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-2579",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-2332",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2332",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "ticket_a",
+      "pair": "ticket",
+      "family": "ArrayQueue",
+      "primary": {
+        "T": {
+          "first": "collections-1020",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-1008",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-1008",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-1008",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "ledger_a",
+      "pair": "ledger",
+      "family": "TreeMap",
+      "primary": {
+        "T": {
+          "first": "collections-2875",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2788",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-2875",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2875",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "fare_b",
+      "pair": "fare",
+      "family": "ArrayDeque",
+      "primary": {
+        "T": {
+          "first": "collections-176",
+          "preferred": false,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-38",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-28",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-82",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "stamp_b",
+      "pair": "stamp",
+      "family": "ArrayDeque",
+      "primary": {
+        "T": {
+          "first": "collections-94",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-94",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-48",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-48",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": false,
+      "pass": {
+        "G": 2,
+        "T": 2,
+        "I": 2
+      }
+    },
+    {
+      "id": "bookmark_b",
+      "pair": "bookmark",
+      "family": "LinkedList",
+      "primary": {
+        "T": {
+          "first": "collections-2495",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-2603",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-2431",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2431",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 2,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "weighted_b",
+      "pair": "weighted",
+      "family": "LinkedList",
+      "primary": {
+        "T": {
+          "first": "collections-2549",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2579",
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-2332",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2332",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 2
+      }
+    },
+    {
+      "id": "ticket_b",
+      "pair": "ticket",
+      "family": "ArrayQueue",
+      "primary": {
+        "T": {
+          "first": "collections-1020",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-1020",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-1008",
+          "preferred": false,
+          "hit1": true,
+          "hit3": true
+        },
+        "I": {
+          "first": "collections-1008",
+          "preferred": false,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "inputChanged": false,
+      "pass": {
+        "G": 0,
+        "T": 0,
+        "I": 0
+      }
+    },
+    {
+      "id": "ledger_b",
+      "pair": "ledger",
+      "family": "TreeMap",
+      "primary": {
+        "T": {
+          "first": "collections-2875",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2800",
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "alternate": {
+        "T": {
+          "first": "collections-2875",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "I": {
+          "first": "collections-2875",
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "inputChanged": true,
+      "pass": {
+        "G": 1,
+        "T": 2,
+        "I": 2
+      }
+    }
+  ],
+  "retrievalTotals": {
+    "T": {
+      "primary": {
+        "hit1": 6,
+        "hit3": 9,
+        "preferred": 4,
+        "pairsBothHit1": 2
+      },
+      "alternate": {
+        "hit1": 3,
+        "hit3": 4,
+        "preferred": 2,
+        "pairsBothHit1": 1
+      },
+      "bothWordingsHit1": 2
+    },
+    "I": {
+      "primary": {
+        "hit1": 9,
+        "hit3": 12,
+        "preferred": 9,
+        "pairsBothHit1": 4
+      },
+      "alternate": {
+        "hit1": 2,
+        "hit3": 2,
+        "preferred": 1,
+        "pairsBothHit1": 1
+      },
+      "bothWordingsHit1": 2
+    }
+  },
+  "overall": {
+    "G": 7,
+    "T": 6,
+    "I": 20
+  },
+  "byPair": {
+    "fare": {
+      "G": 0,
+      "T": 0,
+      "I": 4
+    },
+    "stamp": {
+      "G": 4,
+      "T": 4,
+      "I": 4
+    },
+    "bookmark": {
+      "G": 2,
+      "T": 0,
+      "I": 2
+    },
+    "weighted": {
+      "G": 0,
+      "T": 0,
+      "I": 4
+    },
+    "ticket": {
+      "G": 0,
+      "T": 0,
+      "I": 2
+    },
+    "ledger": {
+      "G": 1,
+      "T": 2,
+      "I": 4
+    }
+  },
+  "statuses": {
+    "G": {
+      "compile_failed": 17,
+      "passed": 7
+    },
+    "T": {
+      "compile_failed": 18,
+      "passed": 6
+    },
+    "I": {
+      "passed": 20,
+      "compile_failed": 4
+    }
+  },
+  "comparisons": {
+    "IminusT": {
+      "differencePoints": 58.333333333333336,
+      "percentile95": [
+        33.333333333333336,
+        83.33333333333333
+      ],
+      "improvedPairs": 5,
+      "tiedPairs": 1,
+      "worsePairs": 0
+    },
+    "IminusG": {
+      "differencePoints": 54.166666666666664,
+      "percentile95": [
+        20.833333333333332,
+        87.5
+      ],
+      "improvedPairs": 4,
+      "tiedPairs": 2,
+      "worsePairs": 0
+    }
+  },
+  "changed": 9,
+  "changedTotals": {
+    "G": 3,
+    "T": 2,
+    "I": 16
+  },
+  "sameTotals": {
+    "G": 4,
+    "T": 4,
+    "I": 4
+  },
+  "materialReports": 48,
+  "scoreReports": 105,
+  "costCNY": 0.460008,
+  "cumulativeEstimatedCNY": 3.932676,
+  "tokens": {
+    "input": 149804,
+    "output": 20050
+  }
+}

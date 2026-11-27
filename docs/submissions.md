@@ -527,3 +527,6 @@
 
 ## 第八十六轮　隔离评分中断
 候选锁定提交 8643c3d6713041e836d10a9f66cdcaff749754f2 已核对双仓，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45943154441) 通过。[首次独立评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45943172736) 在公开检查中断，未将其计为候选失败。此次提交增加加密诊断，不改模型请求或候选。
+
+## 第八十七轮　评分与研究归档
+加密中断诊断提交 d41830781c52109bb10656525bee372472b72a88 已核对两端分支，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45943572494) 成功。原候选 8643c3d 于北京时间 13:00:02 提交。[重新评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45943590354) 于北京时间 13:08:32 更新成功，评分后移除远端临时保留密钥。9d54c56、19d9c08、aac7ad6、8643c3d 的推送 CI 成功，44e14a7 的推送 CI 因后续提交取消。此前中断的作业单独保留。本节归档真实成绩、费用、图片和复算入口。

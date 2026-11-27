@@ -1,0 +1,217 @@
+{
+  "scope": "secondary reading of locked candidate code, four tasks with a first/last property as preferred document",
+  "counts": {
+    "G": {
+      "property": 0,
+      "call": 6,
+      "other": 2,
+      "mixed": 0
+    },
+    "T": {
+      "property": 0,
+      "call": 6,
+      "other": 2,
+      "mixed": 0
+    },
+    "I": {
+      "property": 8,
+      "call": 0,
+      "other": 0,
+      "mixed": 0
+    }
+  },
+  "rows": [
+    {
+      "caseId": "fare_a",
+      "group": "G",
+      "repeat": 1,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "fare_a",
+      "group": "T",
+      "repeat": 1,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "fare_a",
+      "group": "I",
+      "repeat": 1,
+      "member": "first",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "ledger_a",
+      "group": "I",
+      "repeat": 1,
+      "member": "first",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "ledger_a",
+      "group": "T",
+      "repeat": 1,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "ledger_a",
+      "group": "G",
+      "repeat": 1,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "fare_b",
+      "group": "G",
+      "repeat": 1,
+      "member": "last",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "fare_b",
+      "group": "I",
+      "repeat": 1,
+      "member": "last",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "fare_b",
+      "group": "T",
+      "repeat": 1,
+      "member": "last",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "ledger_b",
+      "group": "G",
+      "repeat": 1,
+      "member": "last",
+      "form": "other",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "ledger_b",
+      "group": "T",
+      "repeat": 1,
+      "member": "last",
+      "form": "other",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "ledger_b",
+      "group": "I",
+      "repeat": 1,
+      "member": "last",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "fare_b",
+      "group": "T",
+      "repeat": 2,
+      "member": "last",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "fare_b",
+      "group": "I",
+      "repeat": 2,
+      "member": "last",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "fare_b",
+      "group": "G",
+      "repeat": 2,
+      "member": "last",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "ledger_b",
+      "group": "T",
+      "repeat": 2,
+      "member": "last",
+      "form": "other",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "ledger_b",
+      "group": "G",
+      "repeat": 2,
+      "member": "last",
+      "form": "other",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "ledger_b",
+      "group": "I",
+      "repeat": 2,
+      "member": "last",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "fare_a",
+      "group": "I",
+      "repeat": 2,
+      "member": "first",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "fare_a",
+      "group": "G",
+      "repeat": 2,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "fare_a",
+      "group": "T",
+      "repeat": 2,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "ledger_a",
+      "group": "T",
+      "repeat": 2,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    },
+    {
+      "caseId": "ledger_a",
+      "group": "I",
+      "repeat": 2,
+      "member": "first",
+      "form": "property",
+      "outcome": "passed"
+    },
+    {
+      "caseId": "ledger_a",
+      "group": "G",
+      "repeat": 2,
+      "member": "first",
+      "form": "call",
+      "outcome": "compile_failed"
+    }
+  ]
+}
