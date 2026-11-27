@@ -1,0 +1,444 @@
+{
+  "designSha256": "095ed33bd5e2c2d4d56d00040c6a8798c591d3ce3cf54865b4205768f0bceaa4",
+  "verifiedSha256": "ded30b07aa06389777d697ce4fb157ec4d7d07c1c0a488e53da180b932b64df0",
+  "groups": {
+    "FF": {
+      "runs": 24,
+      "passed": 22,
+      "statuses": {
+        "passed": 22,
+        "compile_failed": 2
+      },
+      "input": 44754,
+      "output": 6920,
+      "cached": 30464,
+      "uncached": 14290,
+      "conservativeCNY": 0.144868,
+      "peakCacheAwareCNY": 0.08515856
+    },
+    "FN": {
+      "runs": 24,
+      "passed": 14,
+      "statuses": {
+        "compile_failed": 10,
+        "passed": 14
+      },
+      "input": 45096,
+      "output": 7005,
+      "cached": 30848,
+      "uncached": 14248,
+      "conservativeCNY": 0.146232,
+      "peakCacheAwareCNY": 0.08576992
+    },
+    "NF": {
+      "runs": 24,
+      "passed": 20,
+      "statuses": {
+        "passed": 20,
+        "test_failed": 1,
+        "compile_failed": 3
+      },
+      "input": 44822,
+      "output": 6810,
+      "cached": 32512,
+      "uncached": 12310,
+      "conservativeCNY": 0.144124,
+      "peakCacheAwareCNY": 0.08040048
+    },
+    "NN": {
+      "runs": 24,
+      "passed": 14,
+      "statuses": {
+        "compile_failed": 8,
+        "passed": 14,
+        "test_failed": 2
+      },
+      "input": 45164,
+      "output": 6729,
+      "cached": 35712,
+      "uncached": 9452,
+      "conservativeCNY": 0.14416,
+      "peakCacheAwareCNY": 0.07416447999999999
+    },
+    "NS": {
+      "runs": 24,
+      "passed": 22,
+      "statuses": {
+        "passed": 22,
+        "compile_failed": 2
+      },
+      "input": 47836,
+      "output": 6673,
+      "cached": 37117,
+      "uncached": 10719,
+      "conservativeCNY": 0.149056,
+      "peakCacheAwareCNY": 0.07630667999999999
+    },
+    "NG": {
+      "runs": 24,
+      "passed": 8,
+      "statuses": {
+        "compile_failed": 14,
+        "passed": 8,
+        "test_failed": 2
+      },
+      "input": 40972,
+      "output": 6550,
+      "cached": 29824,
+      "uncached": 11148,
+      "conservativeCNY": 0.134344,
+      "peakCacheAwareCNY": 0.07588895999999999
+    }
+  },
+  "byPair": {
+    "fare": {
+      "FF": 4,
+      "FN": 0,
+      "NF": 4,
+      "NN": 0,
+      "NS": 4,
+      "NG": 0
+    },
+    "stamp": {
+      "FF": 4,
+      "FN": 4,
+      "NF": 4,
+      "NN": 4,
+      "NS": 4,
+      "NG": 4
+    },
+    "bookmark": {
+      "FF": 4,
+      "FN": 3,
+      "NF": 2,
+      "NN": 1,
+      "NS": 2,
+      "NG": 2
+    },
+    "weighted": {
+      "FF": 4,
+      "FN": 2,
+      "NF": 4,
+      "NN": 1,
+      "NS": 4,
+      "NG": 0
+    },
+    "ticket": {
+      "FF": 2,
+      "FN": 4,
+      "NF": 2,
+      "NN": 4,
+      "NS": 4,
+      "NG": 0
+    },
+    "ledger": {
+      "FF": 4,
+      "FN": 1,
+      "NF": 4,
+      "NN": 4,
+      "NS": 4,
+      "NG": 2
+    }
+  },
+  "comparisons": {
+    "docAtNatural": {
+      "weights": {
+        "NF": 1,
+        "NN": -1
+      },
+      "differencePoints": 25,
+      "percentile95": [
+        -12.5,
+        66.66666666666667
+      ],
+      "positivePairs": 3,
+      "tiedPairs": 2,
+      "negativePairs": 1
+    },
+    "promptAtFormalDoc": {
+      "weights": {
+        "FF": 1,
+        "NF": -1
+      },
+      "differencePoints": 8.333333333333334,
+      "percentile95": [
+        0,
+        25
+      ],
+      "positivePairs": 1,
+      "tiedPairs": 5,
+      "negativePairs": 0
+    },
+    "catalogAtNatural": {
+      "weights": {
+        "NS": 1,
+        "NN": -1
+      },
+      "differencePoints": 33.333333333333336,
+      "percentile95": [
+        4.166666666666667,
+        66.66666666666667
+      ],
+      "positivePairs": 3,
+      "tiedPairs": 3,
+      "negativePairs": 0
+    },
+    "naturalDocVsGuides": {
+      "weights": {
+        "NN": 1,
+        "NG": -1
+      },
+      "differencePoints": 25,
+      "percentile95": [
+        -4.166666666666667,
+        58.333333333333336
+      ],
+      "positivePairs": 3,
+      "tiedPairs": 2,
+      "negativePairs": 1
+    },
+    "docAtFormal": {
+      "weights": {
+        "FF": 1,
+        "FN": -1
+      },
+      "differencePoints": 33.333333333333336,
+      "percentile95": [
+        -8.333333333333334,
+        70.83333333333333
+      ],
+      "positivePairs": 4,
+      "tiedPairs": 1,
+      "negativePairs": 1
+    },
+    "promptAtNaturalDoc": {
+      "weights": {
+        "FN": 1,
+        "NN": -1
+      },
+      "differencePoints": 0,
+      "percentile95": [
+        -33.333333333333336,
+        29.166666666666668
+      ],
+      "positivePairs": 2,
+      "tiedPairs": 3,
+      "negativePairs": 1
+    },
+    "interaction": {
+      "weights": {
+        "FF": 1,
+        "FN": -1,
+        "NF": -1,
+        "NN": 1
+      },
+      "differencePoints": 8.333333333333334,
+      "percentile95": [
+        -12.5,
+        37.5
+      ],
+      "positivePairs": 1,
+      "tiedPairs": 4,
+      "negativePairs": 1
+    }
+  },
+  "strata": {
+    "changed": {
+      "cases": 11,
+      "passes": {
+        "FF": 20,
+        "FN": 12,
+        "NF": 18,
+        "NN": 12,
+        "NS": 20,
+        "NG": 8
+      }
+    },
+    "identical": {
+      "cases": 1,
+      "passes": {
+        "FF": 2,
+        "FN": 2,
+        "NF": 2,
+        "NN": 2,
+        "NS": 2,
+        "NG": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "fare_a",
+      "pair": "fare",
+      "family": "ArrayDeque",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 0,
+        "NF": 2,
+        "NN": 0,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "stamp_a",
+      "pair": "stamp",
+      "family": "ArrayDeque",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 2,
+        "NF": 2,
+        "NN": 2,
+        "NS": 2,
+        "NG": 2
+      }
+    },
+    {
+      "id": "bookmark_a",
+      "pair": "bookmark",
+      "family": "LinkedList",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 1,
+        "NF": 0,
+        "NN": 1,
+        "NS": 0,
+        "NG": 2
+      }
+    },
+    {
+      "id": "weighted_a",
+      "pair": "weighted",
+      "family": "LinkedList",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 2,
+        "NF": 2,
+        "NN": 1,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "ticket_a",
+      "pair": "ticket",
+      "family": "ArrayQueue",
+      "changed": false,
+      "passes": {
+        "FF": 2,
+        "FN": 2,
+        "NF": 2,
+        "NN": 2,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "ledger_a",
+      "pair": "ledger",
+      "family": "TreeMap",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 0,
+        "NF": 2,
+        "NN": 2,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "fare_b",
+      "pair": "fare",
+      "family": "ArrayDeque",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 0,
+        "NF": 2,
+        "NN": 0,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "stamp_b",
+      "pair": "stamp",
+      "family": "ArrayDeque",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 2,
+        "NF": 2,
+        "NN": 2,
+        "NS": 2,
+        "NG": 2
+      }
+    },
+    {
+      "id": "bookmark_b",
+      "pair": "bookmark",
+      "family": "LinkedList",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 2,
+        "NF": 2,
+        "NN": 0,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "weighted_b",
+      "pair": "weighted",
+      "family": "LinkedList",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 0,
+        "NF": 2,
+        "NN": 0,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "ticket_b",
+      "pair": "ticket",
+      "family": "ArrayQueue",
+      "changed": true,
+      "passes": {
+        "FF": 0,
+        "FN": 2,
+        "NF": 0,
+        "NN": 2,
+        "NS": 2,
+        "NG": 0
+      }
+    },
+    {
+      "id": "ledger_b",
+      "pair": "ledger",
+      "family": "TreeMap",
+      "changed": true,
+      "passes": {
+        "FF": 2,
+        "FN": 1,
+        "NF": 2,
+        "NN": 2,
+        "NS": 2,
+        "NG": 2
+      }
+    }
+  ],
+  "materialReports": 48,
+  "scoreReports": 244,
+  "costCNY": 0.862784,
+  "peakCacheAwareCNY": 0.47768908,
+  "cumulativeEstimatedCNY": 4.79546
+}
