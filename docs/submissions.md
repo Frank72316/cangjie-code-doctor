@@ -509,3 +509,6 @@
 
 ## 第八十轮　实测结果归档
 候选提交 3726e92cce0868d1278c99621695e4bc2ba2f2ca，北京时间 2026-11-27 12:33:30，GitCode 正常推送，GitHub 经 Git Data API 同 SHA 快进，两边分支核对一致。[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940784953) 成功。该提交的[推送 CI 初次运行](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940766877/attempts/1) 在容器内存限制探针失败，同 SHA [第二次通过](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45940766877/attempts/2)。更早的 0690309 推送 CI 因被后续推送取消，f3acc40、c7e186b、a9b3ba7 的推送 CI 均成功。评分后已移除临时远端保留验证密钥。本节所在提交归档统计与逐题结果。
+
+## 第八十一轮　操作排序预登记
+上轮结果 84ab9b8cd44e71caf3f587a6be59c6b091079686 于北京时间 12:40:54 提交，已核对 GitCode 与 GitHub 同 SHA，[最终 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45941368093) 通过。本节提交先行冻结排序和判定口径。
