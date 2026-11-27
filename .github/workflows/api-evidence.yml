@@ -38,6 +38,14 @@ jobs:
           args=()
           if [[ "$STUDY" == ranking ]]; then args+=(--ranking); fi
           node scripts/score-api-evidence.mjs "$PHASE" "$image" "${args[@]}"
+      - name: Check supplemental Unicode boundaries on locked ranking candidates
+        if: inputs.study == 'ranking' && inputs.phase == 'score'
+        env:
+          CHALLENGE_TEST_KEY: ${{ secrets.DOCTOR_CHALLENGE_HOLDOUT_V1 }}
+        run: |
+          source "$RUNNER_TEMP/sdk/cangjie/envsetup.sh"
+          image=$(node -p "require(process.env.RUNNER_TEMP+'/api-image.json').image")
+          node scripts/check-ranking-unicode-probe.mjs "$image" --ranking
       - uses: actions/upload-artifact@v4
         if: always()
         with:

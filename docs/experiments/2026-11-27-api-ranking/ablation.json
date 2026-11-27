@@ -1,0 +1,622 @@
+{
+  "development": {
+    "rows": [
+      {
+        "id": "api_rune_rotate",
+        "gold": "structs-3284",
+        "original": [
+          "structs-2580",
+          "structs-2839",
+          "collections-470"
+        ],
+        "taskOnlyBM25": [
+          "structs-2839",
+          "structs-3174",
+          "structs-3193"
+        ],
+        "noType": [
+          "structs-3158",
+          "structs-2500",
+          "structs-3284"
+        ],
+        "field": [
+          "structs-3158",
+          "structs-2500",
+          "structs-3284"
+        ]
+      },
+      {
+        "id": "new_odd_runes",
+        "gold": "structs-3284",
+        "original": [
+          "structs-3474",
+          "structs-3425",
+          "structs-3392"
+        ],
+        "taskOnlyBM25": [
+          "structs-2786",
+          "structs-3474",
+          "structs-3425"
+        ],
+        "noType": [
+          "structs-3284",
+          "structs-3359",
+          "structs-3392"
+        ],
+        "field": [
+          "structs-3284",
+          "structs-3359",
+          "structs-3392"
+        ]
+      },
+      {
+        "id": "api_matrix_alias",
+        "gold": "structs-45",
+        "original": [
+          "collections-470",
+          "structs-600",
+          "structs-97"
+        ],
+        "taskOnlyBM25": [
+          "collections-599",
+          "collections-716",
+          "structs-97"
+        ],
+        "noType": [
+          "collections-599",
+          "collections-438",
+          "collections-470"
+        ],
+        "field": [
+          "collections-599",
+          "collections-438",
+          "collections-470"
+        ]
+      },
+      {
+        "id": "api_stable_unique",
+        "gold": "collections-352",
+        "original": [
+          "collections-470",
+          "collections-403",
+          "structs-2982"
+        ],
+        "taskOnlyBM25": [
+          "structs-3193",
+          "structs-2786",
+          "structs-2889"
+        ],
+        "noType": [
+          "structs-1608",
+          "collections-1689",
+          "collections-259"
+        ],
+        "field": [
+          "structs-1608",
+          "collections-1689",
+          "collections-259"
+        ]
+      },
+      {
+        "id": "new_suffix_once",
+        "gold": "structs-3121",
+        "original": [
+          "structs-2873",
+          "structs-2737",
+          "structs-2661"
+        ],
+        "taskOnlyBM25": [
+          "structs-2873",
+          "structs-2661",
+          "structs-2906"
+        ],
+        "noType": [
+          "structs-3121",
+          "collections-1641",
+          "collections-536"
+        ],
+        "field": [
+          "structs-3121",
+          "collections-1641",
+          "collections-536"
+        ]
+      },
+      {
+        "id": "api_parse_skip",
+        "gold": "convert-775",
+        "original": [
+          "structs-2580",
+          "structs-2520",
+          "structs-2982"
+        ],
+        "taskOnlyBM25": [
+          "structs-2982",
+          "structs-3308",
+          "structs-2520"
+        ],
+        "noType": [
+          "structs-3308",
+          "structs-3331",
+          "structs-3345"
+        ],
+        "field": [
+          "structs-3308",
+          "structs-3331",
+          "structs-3345"
+        ]
+      },
+      {
+        "id": "api_frequency",
+        "gold": "structs-3246",
+        "original": [
+          "collections-332",
+          "structs-2580",
+          "structs-3193"
+        ],
+        "taskOnlyBM25": [
+          "structs-3193",
+          "structs-3331",
+          "structs-3345"
+        ],
+        "noType": [
+          "structs-3246",
+          "structs-3308",
+          "structs-3331"
+        ],
+        "field": [
+          "structs-3246",
+          "structs-3308",
+          "structs-3331"
+        ]
+      },
+      {
+        "id": "new_limited_fields",
+        "gold": "structs-3193",
+        "original": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ],
+        "taskOnlyBM25": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ],
+        "noType": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ],
+        "field": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ]
+      },
+      {
+        "id": "api_optional_clamp",
+        "gold": "enums-226",
+        "original": [
+          "enums-226",
+          "structs-537",
+          "structs-600"
+        ],
+        "taskOnlyBM25": [
+          "enums-282",
+          "enums-262",
+          "enums-194"
+        ],
+        "noType": [
+          "enums-310",
+          "enums-186",
+          "enums-298"
+        ],
+        "field": [
+          "enums-310",
+          "enums-186",
+          "enums-298"
+        ]
+      },
+      {
+        "id": "api_copy_filter",
+        "gold": "collections-287",
+        "original": [
+          "collections-470",
+          "collections-536",
+          "structs-600"
+        ],
+        "taskOnlyBM25": [
+          "collections-667",
+          "collections-557",
+          "structs-3425"
+        ],
+        "noType": [
+          "collections-1689",
+          "collections-536",
+          "collections-512"
+        ],
+        "field": [
+          "collections-536",
+          "collections-1689",
+          "collections-512"
+        ]
+      },
+      {
+        "id": "new_trim_set",
+        "gold": "structs-3425",
+        "original": [
+          "structs-3425",
+          "structs-3392",
+          "structs-3492"
+        ],
+        "taskOnlyBM25": [
+          "structs-3425",
+          "structs-3392",
+          "structs-3492"
+        ],
+        "noType": [
+          "structs-3392",
+          "structs-3425",
+          "structs-3359"
+        ],
+        "field": [
+          "structs-3392",
+          "structs-3425",
+          "structs-3359"
+        ]
+      },
+      {
+        "id": "api_range_slice",
+        "gold": "structs-97",
+        "original": [
+          "structs-97",
+          "collections-599",
+          "structs-554"
+        ],
+        "taskOnlyBM25": [
+          "collections-599",
+          "structs-97",
+          "structs-554"
+        ],
+        "noType": [
+          "collections-599",
+          "structs-97",
+          "structs-174"
+        ],
+        "field": [
+          "structs-97",
+          "collections-599",
+          "structs-174"
+        ]
+      }
+    ],
+    "scores": {
+      "original": {
+        "top1": 4,
+        "top3": 4
+      },
+      "taskOnlyBM25": {
+        "top1": 2,
+        "top3": 3
+      },
+      "noType": {
+        "top1": 4,
+        "top3": 7
+      },
+      "field": {
+        "top1": 5,
+        "top3": 7
+      }
+    }
+  },
+  "evaluation": {
+    "rows": [
+      {
+        "id": "symbol_pair",
+        "gold": "structs-3284",
+        "original": [
+          "structs-2625",
+          "structs-3566",
+          "structs-3614"
+        ],
+        "taskOnlyBM25": [
+          "structs-2625",
+          "structs-3566",
+          "structs-3614"
+        ],
+        "noType": [
+          "structs-3284",
+          "structs-3359",
+          "structs-3392"
+        ],
+        "field": [
+          "structs-3284",
+          "structs-3359",
+          "structs-3392"
+        ]
+      },
+      {
+        "id": "frame_columns",
+        "gold": "structs-3193",
+        "original": [
+          "structs-3193",
+          "structs-2982",
+          "structs-2889"
+        ],
+        "taskOnlyBM25": [
+          "structs-3193",
+          "structs-2982",
+          "structs-2922"
+        ],
+        "noType": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ],
+        "field": [
+          "structs-3193",
+          "structs-2982",
+          "structs-3174"
+        ]
+      },
+      {
+        "id": "tag_depth",
+        "gold": "structs-3121",
+        "original": [
+          "structs-2661",
+          "structs-3526",
+          "structs-2677"
+        ],
+        "taskOnlyBM25": [
+          "structs-2661",
+          "structs-3526",
+          "structs-3193"
+        ],
+        "noType": [
+          "structs-3121",
+          "structs-3043",
+          "structs-3331"
+        ],
+        "field": [
+          "structs-3121",
+          "structs-3043",
+          "structs-3331"
+        ]
+      },
+      {
+        "id": "case_streak",
+        "gold": "structs-3246",
+        "original": [
+          "structs-3246",
+          "structs-3272",
+          "structs-3258"
+        ],
+        "taskOnlyBM25": [
+          "structs-3246",
+          "structs-3272",
+          "structs-2693"
+        ],
+        "noType": [
+          "structs-3246",
+          "structs-3272",
+          "structs-3258"
+        ],
+        "field": [
+          "structs-3246",
+          "structs-3272",
+          "structs-3258"
+        ]
+      },
+      {
+        "id": "last_reading",
+        "gold": "convert-775",
+        "original": [
+          "structs-3308",
+          "structs-3331",
+          "structs-3345"
+        ],
+        "taskOnlyBM25": [
+          "structs-3308",
+          "structs-3331",
+          "structs-3345"
+        ],
+        "noType": [
+          "convert-775",
+          "convert-795",
+          "structs-3308"
+        ],
+        "field": [
+          "convert-775",
+          "convert-795",
+          "structs-3308"
+        ]
+      },
+      {
+        "id": "middle_copy",
+        "gold": "structs-97",
+        "original": [
+          "structs-97",
+          "structs-554",
+          "collections-599"
+        ],
+        "taskOnlyBM25": [
+          "structs-97",
+          "structs-554",
+          "collections-599"
+        ],
+        "noType": [
+          "structs-97",
+          "structs-174",
+          "structs-192"
+        ],
+        "field": [
+          "structs-97",
+          "structs-174",
+          "structs-192"
+        ]
+      },
+      {
+        "id": "empty_slots",
+        "gold": "structs-2661",
+        "original": [
+          "structs-2982",
+          "collections-1373",
+          "structs-2661"
+        ],
+        "taskOnlyBM25": [
+          "structs-3007",
+          "structs-3193",
+          "structs-2922"
+        ],
+        "noType": [
+          "structs-3284",
+          "structs-3158",
+          "structs-3359"
+        ],
+        "field": [
+          "structs-3284",
+          "structs-3158",
+          "structs-3359"
+        ]
+      },
+      {
+        "id": "seat_label",
+        "gold": "structs-3066",
+        "original": [
+          "structs-3066",
+          "structs-3043",
+          "structs-3666"
+        ],
+        "taskOnlyBM25": [
+          "structs-3066",
+          "structs-3043",
+          "structs-3666"
+        ],
+        "noType": [
+          "structs-230",
+          "structs-2803",
+          "structs-2815"
+        ],
+        "field": [
+          "structs-230",
+          "structs-2803",
+          "structs-2815"
+        ]
+      },
+      {
+        "id": "shared_badges",
+        "gold": "collections-2097",
+        "original": [
+          "collections-1373",
+          "collections-2097",
+          "collections-1387"
+        ],
+        "taskOnlyBM25": [
+          "collections-1373",
+          "structs-330",
+          "structs-3526"
+        ],
+        "noType": [
+          "collections-1373",
+          "collections-1387",
+          "collections-470"
+        ],
+        "field": [
+          "collections-1373",
+          "structs-45",
+          "collections-1387"
+        ]
+      },
+      {
+        "id": "partition_balance",
+        "gold": "structs-454",
+        "original": [
+          "structs-454",
+          "structs-513",
+          "structs-45"
+        ],
+        "taskOnlyBM25": [
+          "structs-454",
+          "structs-513",
+          "structs-3066"
+        ],
+        "noType": [
+          "structs-454",
+          "structs-3193",
+          "structs-2982"
+        ],
+        "field": [
+          "structs-454",
+          "structs-3193",
+          "structs-2982"
+        ]
+      },
+      {
+        "id": "folded_votes",
+        "gold": "structs-2693",
+        "original": [
+          "structs-3258",
+          "structs-2693",
+          "structs-3246"
+        ],
+        "taskOnlyBM25": [
+          "structs-3258",
+          "structs-2693",
+          "structs-3246"
+        ],
+        "noType": [
+          "structs-3246",
+          "structs-3258",
+          "structs-2693"
+        ],
+        "field": [
+          "structs-3246",
+          "structs-3258",
+          "structs-2693"
+        ]
+      },
+      {
+        "id": "purge_window",
+        "gold": "collections-557",
+        "original": [
+          "collections-667",
+          "structs-97",
+          "collections-287"
+        ],
+        "taskOnlyBM25": [
+          "collections-667",
+          "collections-426",
+          "collections-287"
+        ],
+        "noType": [
+          "collections-536",
+          "collections-557",
+          "collections-1609"
+        ],
+        "field": [
+          "collections-536",
+          "collections-557",
+          "collections-512"
+        ]
+      }
+    ],
+    "scores": {
+      "original": {
+        "top1": 5,
+        "top3": 8
+      },
+      "taskOnlyBM25": {
+        "top1": 5,
+        "top3": 6
+      },
+      "noType": {
+        "top1": 7,
+        "top3": 9
+      },
+      "field": {
+        "top1": 7,
+        "top3": 9
+      }
+    }
+  }
+}

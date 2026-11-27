@@ -485,3 +485,6 @@
 
 ## 第七十二轮　冻结两组请求
 新题提交 18efff9b7e1d8a2395222d30f6c1c86289d2ded5 双仓 SHA 已核对；GitHub Git 传输中断后经 Git Data API 同 SHA 同步。[提交 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45935897319) 和[材料验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45935928542) 成功。
+
+## 第七十三轮　锁定候选供真实运行
+输入冻结提交 5796dbd4a7f833ac93fd259b1fd78ed0fb7e49b6 于北京时间 2026-11-27 11:48:56 提交，GitCode 正常推送，GitHub 经 Git Data API 核验同一 SHA。[push CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45936433992)。本节提交固定全部模型回答和追加探针。

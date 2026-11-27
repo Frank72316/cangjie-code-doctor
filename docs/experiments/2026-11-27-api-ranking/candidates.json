@@ -1,0 +1,1952 @@
+{
+  "designSha256": "d44542a1680f30d56e0e0fea77027b9ee050767c41057bf28127e383e680cf06",
+  "commit": "5796dbd4a7f833ac93fd259b1fd78ed0fb7e49b6",
+  "startedAt": "2026-11-27T03:49:06.182Z",
+  "results": [
+    {
+      "caseId": "symbol_pair",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "4fc57155961b4b9c4defdc6c514735409b23cd9c6d170dcfa2d4f6c75bbdbea3",
+      "startedAt": "2026-11-27T03:49:06.183Z",
+      "status": "generated",
+      "costCNY": 0.005772,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "86bfc362-df56-4957-8bbf-86556e6f9855",
+      "usage": {
+        "prompt_tokens": 2402,
+        "completion_tokens": 121,
+        "total_tokens": 2523,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2402
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func sameSymbol(s: String, a: Int64, b: Int64): Bool {\\n    let u = s.toArray()\\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\\n    u[a] == u[b]\\n}\\n\\nmain() {\\n    println(sameSymbol(\\\"仓a仓\\\", 0, 2) == true)\\n    println(sameSymbol(\\\"😀\\\", 1, 1) == false)\\n}\\n\"}",
+      "code": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\n    let u = s.toArray()\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\n    u[a] == u[b]\n}\n\nmain() {\n    println(sameSymbol(\"仓a仓\", 0, 2) == true)\n    println(sameSymbol(\"😀\", 1, 1) == false)\n}\n",
+      "codeSha256": "f68465499d31c535feb40503a40170ce8c2ff911042232a1e644fed51bffd8ba",
+      "finishedAt": "2026-11-27T03:49:07.028Z"
+    },
+    {
+      "caseId": "symbol_pair",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "7c379d534efa2a018c58682dd4aad08d7aebdcd6ae1b162754e9c3b472c8186f",
+      "startedAt": "2026-11-27T03:49:07.031Z",
+      "status": "generated",
+      "costCNY": 0.005478,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4a148b24-1a54-447b-811e-5231884361e4",
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 123,
+        "total_tokens": 2370,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 327
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func sameSymbol(s: String, a: Int64, b: Int64): Bool {\\n    let u = s.toRuneArray()\\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\\n    u[a] == u[b]\\n}\\n\\nmain() {\\n    println(sameSymbol(\\\"仓a仓\\\", 0, 2) == true)\\n    println(sameSymbol(\\\"😀\\\", 1, 1) == false)\\n}\\n\"}",
+      "code": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\n    let u = s.toRuneArray()\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\n    u[a] == u[b]\n}\n\nmain() {\n    println(sameSymbol(\"仓a仓\", 0, 2) == true)\n    println(sameSymbol(\"😀\", 1, 1) == false)\n}\n",
+      "codeSha256": "7d9120993e9bd77af992696422a3c243c85aa9b7cf28a0ab1b688aee5bdb365f",
+      "finishedAt": "2026-11-27T03:49:08.353Z"
+    },
+    {
+      "caseId": "empty_slots",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "992cf01875cdf96aa7d299eb3c29c36b6a9d60b3189d3f3681117a8fc2c88a51",
+      "startedAt": "2026-11-27T03:49:08.355Z",
+      "status": "generated",
+      "costCNY": 0.005492,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ad11b769-6c55-4a63-a2d5-75c8709def72",
+      "usage": {
+        "prompt_tokens": 2030,
+        "completion_tokens": 179,
+        "total_tokens": 2209,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2030
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func slots(s: String, marker: String): Int64 {\\n    if (marker.isEmpty()) {\\n        return Int64(s.toRuneArray().size) + 1\\n    }\\n    var count: Int64 = 0\\n    var start: Int64 = 0\\n    let n = s.size\\n    let m = marker.size\\n    while (start + m <= n) {\\n        if (s[start..start + m] == marker) {\\n            count++\\n            start += m\\n        } else {\\n            start++\\n        }\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(slots(\\\"中文\\\", \\\"\\\") == 3)\\n    println(slots(\\\"🙂a\\\", \\\"\\\") == 3)\\n}\\n\"}",
+      "code": "func slots(s: String, marker: String): Int64 {\n    if (marker.isEmpty()) {\n        return Int64(s.toRuneArray().size) + 1\n    }\n    var count: Int64 = 0\n    var start: Int64 = 0\n    let n = s.size\n    let m = marker.size\n    while (start + m <= n) {\n        if (s[start..start + m] == marker) {\n            count++\n            start += m\n        } else {\n            start++\n        }\n    }\n    return count\n}\n\nmain() {\n    println(slots(\"中文\", \"\") == 3)\n    println(slots(\"🙂a\", \"\") == 3)\n}\n",
+      "codeSha256": "1cd8c88db83db26dcf3067effd426adaefc82e5bdaa467dafa8ca39614d5ba41",
+      "finishedAt": "2026-11-27T03:49:09.494Z"
+    },
+    {
+      "caseId": "empty_slots",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "084b2d793d399182de0c41b6b451cf6def634a669f6361ce6183862690a484cb",
+      "startedAt": "2026-11-27T03:49:09.498Z",
+      "status": "generated",
+      "costCNY": 0.00606,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "22b9ee22-d4e3-47b1-85d1-d0831da213db",
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 195,
+        "total_tokens": 2445,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 586
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func slots(s: String, marker: String): Int64 {\\n    if (marker.isEmpty()) {\\n        var count: Int64 = 1\\n        for (_ in s.runes()) {\\n            count++\\n        }\\n        return count\\n    }\\n    var count: Int64 = 0\\n    var i: Int64 = 0\\n    let n = s.size\\n    let m = marker.size\\n    while (i + m <= n) {\\n        if (s[i..i + m] == marker) {\\n            count++\\n            i += m\\n        } else {\\n            i++\\n        }\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(slots(\\\"中文\\\", \\\"\\\") == 3)\\n    println(slots(\\\"🙂a\\\", \\\"\\\") == 3)\\n}\\n\"}",
+      "code": "func slots(s: String, marker: String): Int64 {\n    if (marker.isEmpty()) {\n        var count: Int64 = 1\n        for (_ in s.runes()) {\n            count++\n        }\n        return count\n    }\n    var count: Int64 = 0\n    var i: Int64 = 0\n    let n = s.size\n    let m = marker.size\n    while (i + m <= n) {\n        if (s[i..i + m] == marker) {\n            count++\n            i += m\n        } else {\n            i++\n        }\n    }\n    return count\n}\n\nmain() {\n    println(slots(\"中文\", \"\") == 3)\n    println(slots(\"🙂a\", \"\") == 3)\n}\n",
+      "codeSha256": "b3a1514c392fcd37b974c6eccf0db1a25f7f8d9b5666a3704aeaa9529caf4e0d",
+      "finishedAt": "2026-11-27T03:49:10.842Z"
+    },
+    {
+      "caseId": "frame_columns",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "ce4f15b06eeee6fed873da9ad70d4e3ca0f31cb61c4a65d7ecfdff4b29c92c15",
+      "startedAt": "2026-11-27T03:49:10.845Z",
+      "status": "generated",
+      "costCNY": 0.005846,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f00294f4-f2c1-496f-ae29-d07ca4965ceb",
+      "usage": {
+        "prompt_tokens": 2343,
+        "completion_tokens": 145,
+        "total_tokens": 2488,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2343
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func frameColumns(s: String, n: Int64): String {\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    var out = \\\"\\\"\\n    let parts = s.split(\\\"|\\\", n - 1)\\n    for (p in parts) {\\n        out += \\\"[\\\" + p + \\\"]\\\"\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(frameColumns(\\\"a||b\\\", 2) == \\\"[a][|b]\\\")\\n    println(frameColumns(\\\"|x\\\", 1) == \\\"[|x]\\\")\\n}\\n\"}",
+      "code": "func frameColumns(s: String, n: Int64): String {\n    if (n == 0) {\n        return \"\"\n    }\n    var out = \"\"\n    let parts = s.split(\"|\", n - 1)\n    for (p in parts) {\n        out += \"[\" + p + \"]\"\n    }\n    out\n}\n\nmain() {\n    println(frameColumns(\"a||b\", 2) == \"[a][|b]\")\n    println(frameColumns(\"|x\", 1) == \"[|x]\")\n}\n",
+      "codeSha256": "44fcb0a52a1b92c7e00b5d1311cf138047eadea9ece7c70bf71642ecffa1347b",
+      "finishedAt": "2026-11-27T03:49:11.754Z"
+    },
+    {
+      "caseId": "frame_columns",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "ce4f15b06eeee6fed873da9ad70d4e3ca0f31cb61c4a65d7ecfdff4b29c92c15",
+      "startedAt": "2026-11-27T03:49:11.758Z",
+      "status": "generated",
+      "costCNY": 0.006534,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "77e41031-f621-4bcf-bf42-75af1ccfed6b",
+      "usage": {
+        "prompt_tokens": 2343,
+        "completion_tokens": 231,
+        "total_tokens": 2574,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func frameColumns(s: String, n: Int64): String {\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    var out = \\\"\\\"\\n    var count: Int64 = 0\\n    var start: Int64 = 0\\n    let size = s.size\\n    var i: Int64 = 0\\n    while (i < size && count < n - 1) {\\n        if (s[i] == r'|') {\\n            out += \\\"[\\\" + s[start..i] + \\\"]\\\"\\n            count += 1\\n            start = i + 1\\n        }\\n        i += 1\\n    }\\n    out += \\\"[\\\" + s[start..] + \\\"]\\\"\\n    return out\\n}\\n\\nmain() {\\n    println(frameColumns(\\\"a||b\\\", 2) == \\\"[a][|b]\\\")\\n    println(frameColumns(\\\"|x\\\", 1) == \\\"[|x]\\\")\\n}\\n\"}",
+      "code": "func frameColumns(s: String, n: Int64): String {\n    if (n == 0) {\n        return \"\"\n    }\n    var out = \"\"\n    var count: Int64 = 0\n    var start: Int64 = 0\n    let size = s.size\n    var i: Int64 = 0\n    while (i < size && count < n - 1) {\n        if (s[i] == r'|') {\n            out += \"[\" + s[start..i] + \"]\"\n            count += 1\n            start = i + 1\n        }\n        i += 1\n    }\n    out += \"[\" + s[start..] + \"]\"\n    return out\n}\n\nmain() {\n    println(frameColumns(\"a||b\", 2) == \"[a][|b]\")\n    println(frameColumns(\"|x\", 1) == \"[|x]\")\n}\n",
+      "codeSha256": "b24f54394bcaf42dcf2a99b5bafd6e0c8c476c321b61077b1a15e503d54b3475",
+      "finishedAt": "2026-11-27T03:49:13.274Z"
+    },
+    {
+      "caseId": "seat_label",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "aa46061c0c1115e8aecae103ac9abe50651cd2ab344a75bd918b89cd929c5d2d",
+      "startedAt": "2026-11-27T03:49:13.278Z",
+      "status": "generated",
+      "costCNY": 0.005472,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "fad8fbff-a7fd-4681-a599-1cb92736d638",
+      "usage": {
+        "prompt_tokens": 2384,
+        "completion_tokens": 88,
+        "total_tokens": 2472,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2384
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func seatLabel(s: String, width: Int64, fill: String): String {\\n    s.padStart(width, padding: fill)\\n}\\n\\nmain() {\\n    println(seatLabel(\\\"7\\\", 3, \\\"0\\\") == \\\"007\\\")\\n    println(seatLabel(\\\"ab\\\", 4, \\\"-\\\") == \\\"--ab\\\")\\n}\\n\"}",
+      "code": "func seatLabel(s: String, width: Int64, fill: String): String {\n    s.padStart(width, padding: fill)\n}\n\nmain() {\n    println(seatLabel(\"7\", 3, \"0\") == \"007\")\n    println(seatLabel(\"ab\", 4, \"-\") == \"--ab\")\n}\n",
+      "codeSha256": "2e2274c802b0586818dbc02d2b5f923f1465b037508a2ad9f6762fb2cf71cb23",
+      "finishedAt": "2026-11-27T03:49:13.982Z"
+    },
+    {
+      "caseId": "seat_label",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "770ff9ee76f04c42fbb02e36e89671f51a50ea13303c13aa0295a159ef58ccdd",
+      "startedAt": "2026-11-27T03:49:13.985Z",
+      "status": "generated",
+      "costCNY": 0.005508,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a5b66989-b56a-416f-847f-8d87a38231b5",
+      "usage": {
+        "prompt_tokens": 2178,
+        "completion_tokens": 144,
+        "total_tokens": 2322,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 386
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func seatLabel(s: String, width: Int64, fill: String): String {\\n    let len = s.size\\n    if (len >= width) {\\n        return s\\n    }\\n    var result = \\\"\\\"\\n    var i = len\\n    while (i < width) {\\n        result += fill\\n        i++\\n    }\\n    result += s\\n    return result\\n}\\n\\nmain() {\\n    println(seatLabel(\\\"7\\\", 3, \\\"0\\\") == \\\"007\\\")\\n    println(seatLabel(\\\"ab\\\", 4, \\\"-\\\") == \\\"--ab\\\")\\n}\\n\"}",
+      "code": "func seatLabel(s: String, width: Int64, fill: String): String {\n    let len = s.size\n    if (len >= width) {\n        return s\n    }\n    var result = \"\"\n    var i = len\n    while (i < width) {\n        result += fill\n        i++\n    }\n    result += s\n    return result\n}\n\nmain() {\n    println(seatLabel(\"7\", 3, \"0\") == \"007\")\n    println(seatLabel(\"ab\", 4, \"-\") == \"--ab\")\n}\n",
+      "codeSha256": "702dbf6712bd2e8310ad320cc5c87e276bb2797a31f7ab39e4fd260c6635d021",
+      "finishedAt": "2026-11-27T03:49:15.006Z"
+    },
+    {
+      "caseId": "tag_depth",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "6aa0890787c05b477f9e4434ac368570586d922cd7e7d6741604aeb390b3bbe0",
+      "startedAt": "2026-11-27T03:49:15.009Z",
+      "status": "generated",
+      "costCNY": 0.005654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1f90a449-9ff9-49ea-ae7a-96345f5d3508",
+      "usage": {
+        "prompt_tokens": 2263,
+        "completion_tokens": 141,
+        "total_tokens": 2404,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2263
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func tagDepth(s: String, tag: String): Int64 {\\n    if (tag.isEmpty()) {\\n        return 0\\n    }\\n    var count: Int64 = 0\\n    var cur = s\\n    while (cur.endsWith(tag)) {\\n        count++\\n        cur = cur[0..(cur.size - tag.size)]\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(tagDepth(\\\"a.tmp.tmp\\\", \\\".tmp\\\") == 2)\\n    println(tagDepth(\\\"哈哈哈\\\", \\\"哈\\\") == 3)\\n}\\n\"}",
+      "code": "func tagDepth(s: String, tag: String): Int64 {\n    if (tag.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var cur = s\n    while (cur.endsWith(tag)) {\n        count++\n        cur = cur[0..(cur.size - tag.size)]\n    }\n    return count\n}\n\nmain() {\n    println(tagDepth(\"a.tmp.tmp\", \".tmp\") == 2)\n    println(tagDepth(\"哈哈哈\", \"哈\") == 3)\n}\n",
+      "codeSha256": "470e2959c110f7ed82b15b60531329f35fc4b9c8e20d044fcf2a04d36218cdfa",
+      "finishedAt": "2026-11-27T03:49:15.954Z"
+    },
+    {
+      "caseId": "tag_depth",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "0169dd4703d073873465bdd0587c40e1c52dff2ce14916a189d22fc4d4d5c596",
+      "startedAt": "2026-11-27T03:49:15.957Z",
+      "status": "generated",
+      "costCNY": 0.005582,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4bfba508-7f67-4991-b46e-bfc282c469a3",
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 136,
+        "total_tokens": 2383,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 327
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func tagDepth(s: String, tag: String): Int64 {\\n    if (tag.isEmpty()) {\\n        return 0\\n    }\\n    var count: Int64 = 0\\n    var cur = s\\n    while (cur.endsWith(tag)) {\\n        count++\\n        cur = cur.removeSuffix(tag)\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(tagDepth(\\\"a.tmp.tmp\\\", \\\".tmp\\\") == 2)\\n    println(tagDepth(\\\"哈哈哈\\\", \\\"哈\\\") == 3)\\n}\\n\"}",
+      "code": "func tagDepth(s: String, tag: String): Int64 {\n    if (tag.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var cur = s\n    while (cur.endsWith(tag)) {\n        count++\n        cur = cur.removeSuffix(tag)\n    }\n    return count\n}\n\nmain() {\n    println(tagDepth(\"a.tmp.tmp\", \".tmp\") == 2)\n    println(tagDepth(\"哈哈哈\", \"哈\") == 3)\n}\n",
+      "codeSha256": "c8f6ca682e931010df8640b6e1941e0fd265efeae0b01b4f8dc803e0163abf4d",
+      "finishedAt": "2026-11-27T03:49:16.889Z"
+    },
+    {
+      "caseId": "shared_badges",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "a27b89583aaa43622ca71440a096c3afd87e90c8d5d0c6e5aafc4c3ba3b4f212",
+      "startedAt": "2026-11-27T03:49:16.892Z",
+      "status": "generated",
+      "costCNY": 0.005676,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "30f29775-8ab5-4dc9-a357-f8dd0e937fec",
+      "usage": {
+        "prompt_tokens": 2262,
+        "completion_tokens": 144,
+        "total_tokens": 2406,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2262
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\\n    let left = HashSet<Int64>(a)\\n    let right = HashSet<Int64>(b)\\n    var count = 0\\n    for (x in left) {\\n        if (right.contains(x)) {\\n            count++\\n        }\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(sharedBadges([1,2,2],[2,3]) == 1)\\n    println(sharedBadges([7],[8]) == 0)\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\n    let left = HashSet<Int64>(a)\n    let right = HashSet<Int64>(b)\n    var count = 0\n    for (x in left) {\n        if (right.contains(x)) {\n            count++\n        }\n    }\n    count\n}\n\nmain() {\n    println(sharedBadges([1,2,2],[2,3]) == 1)\n    println(sharedBadges([7],[8]) == 0)\n}\n",
+      "codeSha256": "e446495b2af20306e2a090ebf6fc3d826a6454c6d693d6f2e8f2704f78036ddc",
+      "finishedAt": "2026-11-27T03:49:17.640Z"
+    },
+    {
+      "caseId": "shared_badges",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "a27b89583aaa43622ca71440a096c3afd87e90c8d5d0c6e5aafc4c3ba3b4f212",
+      "startedAt": "2026-11-27T03:49:17.644Z",
+      "status": "generated",
+      "costCNY": 0.00574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "404ccf6d-1e0e-42f8-9b73-baea99c72b81",
+      "usage": {
+        "prompt_tokens": 2262,
+        "completion_tokens": 152,
+        "total_tokens": 2414,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 214
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\\n    let left = HashSet<Int64>(a)\\n    let right = HashSet<Int64>(b)\\n    var count: Int64 = 0\\n    for (x in left) {\\n        if (right.contains(x)) {\\n            count++\\n        }\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(sharedBadges([1, 2, 2], [2, 3]) == 1)\\n    println(sharedBadges([7], [8]) == 0)\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\n    let left = HashSet<Int64>(a)\n    let right = HashSet<Int64>(b)\n    var count: Int64 = 0\n    for (x in left) {\n        if (right.contains(x)) {\n            count++\n        }\n    }\n    count\n}\n\nmain() {\n    println(sharedBadges([1, 2, 2], [2, 3]) == 1)\n    println(sharedBadges([7], [8]) == 0)\n}\n",
+      "codeSha256": "af161c6553283ae4d110d84d3129373aab42b45334bd39518cd417028a3e26a2",
+      "finishedAt": "2026-11-27T03:49:18.874Z"
+    },
+    {
+      "caseId": "case_streak",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "a679bfb0075484f16025650ed74ee3a0513b6a0dc3c3723ebf996d9350c014a8",
+      "startedAt": "2026-11-27T03:49:18.879Z",
+      "status": "generated",
+      "costCNY": 0.006062,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a575f14d-98b8-4915-9c7a-045348646e12",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 191,
+        "total_tokens": 2458,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2267
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func longestRun(words: Array<String>): Int64 {\\n    var best: Int64 = 0\\n    var count: Int64 = 0\\n    var prev: String = \\\"\\\"\\n    var first: Bool = true\\n    for (word in words) {\\n        let cur = word.toAsciiLower()\\n        if (!first && cur == prev) {\\n            count += 1\\n        } else {\\n            count = 1\\n        }\\n        prev = cur\\n        first = false\\n        if (count > best) {\\n            best = count\\n        }\\n    }\\n    best\\n}\\n\\nmain() {\\n    println(longestRun([\\\"a\\\", \\\"A\\\", \\\"a\\\", \\\"b\\\"]) == 3)\\n    println(longestRun([\\\"X\\\", \\\"x\\\"]) == 2)\\n}\\n\"}",
+      "code": "func longestRun(words: Array<String>): Int64 {\n    var best: Int64 = 0\n    var count: Int64 = 0\n    var prev: String = \"\"\n    var first: Bool = true\n    for (word in words) {\n        let cur = word.toAsciiLower()\n        if (!first && cur == prev) {\n            count += 1\n        } else {\n            count = 1\n        }\n        prev = cur\n        first = false\n        if (count > best) {\n            best = count\n        }\n    }\n    best\n}\n\nmain() {\n    println(longestRun([\"a\", \"A\", \"a\", \"b\"]) == 3)\n    println(longestRun([\"X\", \"x\"]) == 2)\n}\n",
+      "codeSha256": "89e532bfee5fb219f4cd5378fe117c31c5d3ddea6e6f01af13ef0e4e6dcdeae2",
+      "finishedAt": "2026-11-27T03:49:20.129Z"
+    },
+    {
+      "caseId": "case_streak",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "a679bfb0075484f16025650ed74ee3a0513b6a0dc3c3723ebf996d9350c014a8",
+      "startedAt": "2026-11-27T03:49:20.132Z",
+      "status": "generated",
+      "costCNY": 0.006062,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2766f216-349f-4328-870c-39ad7d1bb4a4",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 191,
+        "total_tokens": 2458,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 219
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func longestRun(words: Array<String>): Int64 {\\n    var best: Int64 = 0\\n    var count: Int64 = 0\\n    var prev: String = \\\"\\\"\\n    var first: Bool = true\\n    for (word in words) {\\n        let cur = word.toAsciiLower()\\n        if (!first && cur == prev) {\\n            count += 1\\n        } else {\\n            count = 1\\n        }\\n        prev = cur\\n        first = false\\n        if (count > best) {\\n            best = count\\n        }\\n    }\\n    best\\n}\\n\\nmain() {\\n    println(longestRun([\\\"a\\\", \\\"A\\\", \\\"a\\\", \\\"b\\\"]) == 3)\\n    println(longestRun([\\\"X\\\", \\\"x\\\"]) == 2)\\n}\\n\"}",
+      "code": "func longestRun(words: Array<String>): Int64 {\n    var best: Int64 = 0\n    var count: Int64 = 0\n    var prev: String = \"\"\n    var first: Bool = true\n    for (word in words) {\n        let cur = word.toAsciiLower()\n        if (!first && cur == prev) {\n            count += 1\n        } else {\n            count = 1\n        }\n        prev = cur\n        first = false\n        if (count > best) {\n            best = count\n        }\n    }\n    best\n}\n\nmain() {\n    println(longestRun([\"a\", \"A\", \"a\", \"b\"]) == 3)\n    println(longestRun([\"X\", \"x\"]) == 2)\n}\n",
+      "codeSha256": "89e532bfee5fb219f4cd5378fe117c31c5d3ddea6e6f01af13ef0e4e6dcdeae2",
+      "finishedAt": "2026-11-27T03:49:20.887Z"
+    },
+    {
+      "caseId": "partition_balance",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "cf8346fd754bbcaa2e88a4255829ae120c2e8dfc17aa7c96a95b8ac686ed8e77",
+      "startedAt": "2026-11-27T03:49:20.891Z",
+      "status": "generated",
+      "costCNY": 0.005702,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2e3b6abf-89f3-40d1-9902-45e1641fad68",
+      "usage": {
+        "prompt_tokens": 2331,
+        "completion_tokens": 130,
+        "total_tokens": 2461,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2331
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\\n    var sum: Int64 = 0\\n    for (i in 0..a.size) {\\n        if (i < mid) {\\n            sum += a[i]\\n        } else {\\n            sum -= a[i]\\n        }\\n    }\\n    sum\\n}\\n\\nmain() {\\n    println(partitionBalance([1, 2, 4], 1) == -5)\\n    println(partitionBalance([7], 0) == -7)\\n}\\n\"}",
+      "code": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\n    var sum: Int64 = 0\n    for (i in 0..a.size) {\n        if (i < mid) {\n            sum += a[i]\n        } else {\n            sum -= a[i]\n        }\n    }\n    sum\n}\n\nmain() {\n    println(partitionBalance([1, 2, 4], 1) == -5)\n    println(partitionBalance([7], 0) == -7)\n}\n",
+      "codeSha256": "03c5a13af129b21c9725ccc5df5085cdf2e8c14a077ea4df0461f1c908a9e03e",
+      "finishedAt": "2026-11-27T03:49:21.840Z"
+    },
+    {
+      "caseId": "partition_balance",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "cf8346fd754bbcaa2e88a4255829ae120c2e8dfc17aa7c96a95b8ac686ed8e77",
+      "startedAt": "2026-11-27T03:49:21.844Z",
+      "status": "generated",
+      "costCNY": 0.00571,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "3c8724c6-652b-4020-b6f7-6268dbc1a437",
+      "usage": {
+        "prompt_tokens": 2331,
+        "completion_tokens": 131,
+        "total_tokens": 2462,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\\n    var sum: Int64 = 0\\n    for (i in 0..a.size) {\\n        if (i < mid) {\\n            sum += a[i]\\n        } else {\\n            sum -= a[i]\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    println(partitionBalance([1, 2, 4], 1) == -5)\\n    println(partitionBalance([7], 0) == -7)\\n}\\n\"}",
+      "code": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\n    var sum: Int64 = 0\n    for (i in 0..a.size) {\n        if (i < mid) {\n            sum += a[i]\n        } else {\n            sum -= a[i]\n        }\n    }\n    return sum\n}\n\nmain() {\n    println(partitionBalance([1, 2, 4], 1) == -5)\n    println(partitionBalance([7], 0) == -7)\n}\n",
+      "codeSha256": "e22e0bf397197c8f07e721f33cfad9ba7aa920200128ef8e7685a271fdf330ca",
+      "finishedAt": "2026-11-27T03:49:22.496Z"
+    },
+    {
+      "caseId": "last_reading",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "d508645964991439f78ebd675057f45b5e0f171a6d1395c8c733084eef65a5bb",
+      "startedAt": "2026-11-27T03:49:22.500Z",
+      "status": "generated",
+      "costCNY": 0.005808,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "375e9251-3984-4ce2-96b8-6de17ab1ce2a",
+      "usage": {
+        "prompt_tokens": 2268,
+        "completion_tokens": 159,
+        "total_tokens": 2427,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2268
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.convert.*\\n\\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\\n    var answer = fallback\\n    for (word in words) {\\n        try {\\n            let value = Int64.parse(word.trimAscii())\\n            if (value >= -999 && value <= 999) {\\n                answer = value\\n            }\\n        } catch (_: Exception) {\\n        }\\n    }\\n    answer\\n}\\n\\nmain() {\\n    println(lastReading([\\\"2\\\", \\\"bad\\\", \\\" 9 \\\"], 0) == 9)\\n    println(lastReading([\\\"1\\\", \\\"-4\\\"], 7) == -4)\\n}\\n\"}",
+      "code": "import std.convert.*\n\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\n    var answer = fallback\n    for (word in words) {\n        try {\n            let value = Int64.parse(word.trimAscii())\n            if (value >= -999 && value <= 999) {\n                answer = value\n            }\n        } catch (_: Exception) {\n        }\n    }\n    answer\n}\n\nmain() {\n    println(lastReading([\"2\", \"bad\", \" 9 \"], 0) == 9)\n    println(lastReading([\"1\", \"-4\"], 7) == -4)\n}\n",
+      "codeSha256": "44fe6149e21b9656328851413c178bd6a8f8e3598758b80489346e03cf1bac15",
+      "finishedAt": "2026-11-27T03:49:23.395Z"
+    },
+    {
+      "caseId": "last_reading",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "7a8d62917b6d34242ae9ca7d675199c8d443f7a08fab3fc4fe3843e682634327",
+      "startedAt": "2026-11-27T03:49:23.399Z",
+      "status": "generated",
+      "costCNY": 0.005668,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bc69fa95-1c57-4639-8b68-a9a0cefced4d",
+      "usage": {
+        "prompt_tokens": 2198,
+        "completion_tokens": 159,
+        "total_tokens": 2357,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 406
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.convert.*\\n\\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\\n    var answer = fallback\\n    for (word in words) {\\n        try {\\n            let value = Int64.parse(word.trimAscii())\\n            if (value >= -999 && value <= 999) {\\n                answer = value\\n            }\\n        } catch (_: Exception) {\\n        }\\n    }\\n    answer\\n}\\n\\nmain() {\\n    println(lastReading([\\\"2\\\", \\\"bad\\\", \\\" 9 \\\"], 0) == 9)\\n    println(lastReading([\\\"1\\\", \\\"-4\\\"], 7) == -4)\\n}\\n\"}",
+      "code": "import std.convert.*\n\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\n    var answer = fallback\n    for (word in words) {\n        try {\n            let value = Int64.parse(word.trimAscii())\n            if (value >= -999 && value <= 999) {\n                answer = value\n            }\n        } catch (_: Exception) {\n        }\n    }\n    answer\n}\n\nmain() {\n    println(lastReading([\"2\", \"bad\", \" 9 \"], 0) == 9)\n    println(lastReading([\"1\", \"-4\"], 7) == -4)\n}\n",
+      "codeSha256": "44fe6149e21b9656328851413c178bd6a8f8e3598758b80489346e03cf1bac15",
+      "finishedAt": "2026-11-27T03:49:24.489Z"
+    },
+    {
+      "caseId": "folded_votes",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "8e55ecc5381f16f4a876fa6f19201081a1e9baeab97316df828e5440cf47d913",
+      "startedAt": "2026-11-27T03:49:24.493Z",
+      "status": "generated",
+      "costCNY": 0.005202,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b495f7a7-0bb5-4624-9c93-d623de7bb943",
+      "usage": {
+        "prompt_tokens": 2041,
+        "completion_tokens": 140,
+        "total_tokens": 2181,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2041
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func agreeVotes(words: Array<String>, key: String): Int64 {\\n    let k = key.toAsciiLower()\\n    var n: Int64 = 0\\n    for (w in words) {\\n        if (w.toAsciiLower() == k) {\\n            n += 1\\n        }\\n    }\\n    n\\n}\\n\\nmain() {\\n    println(agreeVotes([\\\"Yes\\\", \\\" YES\\\", \\\"yes\\\"], \\\"YES\\\") == 2)\\n    println(agreeVotes([\\\"Aa\\\", \\\"aA\\\"], \\\"aa\\\") == 2)\\n}\\n\"}",
+      "code": "func agreeVotes(words: Array<String>, key: String): Int64 {\n    let k = key.toAsciiLower()\n    var n: Int64 = 0\n    for (w in words) {\n        if (w.toAsciiLower() == k) {\n            n += 1\n        }\n    }\n    n\n}\n\nmain() {\n    println(agreeVotes([\"Yes\", \" YES\", \"yes\"], \"YES\") == 2)\n    println(agreeVotes([\"Aa\", \"aA\"], \"aa\") == 2)\n}\n",
+      "codeSha256": "dbfb41a7be5b5760775d045ed50404d62ab76a0bbdda13c2193ba681b2063018",
+      "finishedAt": "2026-11-27T03:49:25.323Z"
+    },
+    {
+      "caseId": "folded_votes",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "5b7807dc39e143b566abbe28461e9f166e3d402ebc1b4bda44cec6fabee89731",
+      "startedAt": "2026-11-27T03:49:25.326Z",
+      "status": "generated",
+      "costCNY": 0.006542,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "3054ff13-2c69-442f-bbeb-6b9ee4a3790e",
+      "usage": {
+        "prompt_tokens": 2075,
+        "completion_tokens": 299,
+        "total_tokens": 2374,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 411
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func agreeVotes(words: Array<String>, key: String): Int64 {\\n    var n: Int64 = 0\\n    for (w in words) {\\n        if (asciiEqualsIgnoreCase(w, key)) {\\n            n += 1\\n        }\\n    }\\n    n\\n}\\n\\nfunc asciiEqualsIgnoreCase(a: String, b: String): Bool {\\n    let ra = a.toRuneArray()\\n    let rb = b.toRuneArray()\\n    if (ra.size != rb.size) {\\n        return false\\n    }\\n    var i = 0\\n    while (i < ra.size) {\\n        if (asciiLower(ra[i]) != asciiLower(rb[i])) {\\n            return false\\n        }\\n        i += 1\\n    }\\n    true\\n}\\n\\nfunc asciiLower(r: Rune): Rune {\\n    if (r >= r'A' && r <= r'Z') {\\n        return Rune(Int64(r) + 32)\\n    }\\n    r\\n}\\n\\nmain() {\\n    println(agreeVotes([\\\"Yes\\\", \\\" YES\\\", \\\"yes\\\"], \\\"YES\\\") == 2)\\n    println(agreeVotes([\\\"Aa\\\", \\\"aA\\\"], \\\"aa\\\") == 2)\\n}\\n\"}",
+      "code": "func agreeVotes(words: Array<String>, key: String): Int64 {\n    var n: Int64 = 0\n    for (w in words) {\n        if (asciiEqualsIgnoreCase(w, key)) {\n            n += 1\n        }\n    }\n    n\n}\n\nfunc asciiEqualsIgnoreCase(a: String, b: String): Bool {\n    let ra = a.toRuneArray()\n    let rb = b.toRuneArray()\n    if (ra.size != rb.size) {\n        return false\n    }\n    var i = 0\n    while (i < ra.size) {\n        if (asciiLower(ra[i]) != asciiLower(rb[i])) {\n            return false\n        }\n        i += 1\n    }\n    true\n}\n\nfunc asciiLower(r: Rune): Rune {\n    if (r >= r'A' && r <= r'Z') {\n        return Rune(Int64(r) + 32)\n    }\n    r\n}\n\nmain() {\n    println(agreeVotes([\"Yes\", \" YES\", \"yes\"], \"YES\") == 2)\n    println(agreeVotes([\"Aa\", \"aA\"], \"aa\") == 2)\n}\n",
+      "codeSha256": "5e74f0babba6087b39bf71901a73c488e202d679371ba2a364e36ba36127d860",
+      "finishedAt": "2026-11-27T03:49:26.976Z"
+    },
+    {
+      "caseId": "middle_copy",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "561e0bcb54ea0dce76eb794ef6c687e031cc7bfd1a69dd81bfdcbc35f827bb44",
+      "startedAt": "2026-11-27T03:49:26.980Z",
+      "status": "generated",
+      "costCNY": 0.006372,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9df1d2d6-8b89-471b-a147-34cc524a40dc",
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 246,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2202
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\\n    if (2 * n >= a.size) {\\n        return Array<Int64>()\\n    }\\n    return a.clone(n..(a.size - n))\\n}\\n\\nmain() {\\n    let x0 = [1, 2, 3, 4]\\n    let y0 = dropEnds(x0, 1)\\n    let ok0 = y0 == [2, 3]\\n    if (y0.size > 0) {\\n        y0[0] = 12345\\n    }\\n    println(ok0 && x0 == [1, 2, 3, 4])\\n    let x1 = [5]\\n    let y1 = dropEnds(x1, 0)\\n    let ok1 = y1 == [5]\\n    if (y1.size > 0) {\\n        y1[0] = 12345\\n    }\\n    println(ok1 && x1 == [5])\\n}\\n\"}",
+      "code": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\n    if (2 * n >= a.size) {\n        return Array<Int64>()\n    }\n    return a.clone(n..(a.size - n))\n}\n\nmain() {\n    let x0 = [1, 2, 3, 4]\n    let y0 = dropEnds(x0, 1)\n    let ok0 = y0 == [2, 3]\n    if (y0.size > 0) {\n        y0[0] = 12345\n    }\n    println(ok0 && x0 == [1, 2, 3, 4])\n    let x1 = [5]\n    let y1 = dropEnds(x1, 0)\n    let ok1 = y1 == [5]\n    if (y1.size > 0) {\n        y1[0] = 12345\n    }\n    println(ok1 && x1 == [5])\n}\n",
+      "codeSha256": "4ecd431a3bc5005ead9905a146a4922760e30546eb769b62240d5896edfac897",
+      "finishedAt": "2026-11-27T03:49:28.021Z"
+    },
+    {
+      "caseId": "middle_copy",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "561e0bcb54ea0dce76eb794ef6c687e031cc7bfd1a69dd81bfdcbc35f827bb44",
+      "startedAt": "2026-11-27T03:49:28.025Z",
+      "status": "generated",
+      "costCNY": 0.006372,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "33db6199-d0e3-4b09-ba6d-89045190bb76",
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 246,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\\n    if (2 * n >= a.size) {\\n        return Array<Int64>()\\n    }\\n    return a.clone(n..(a.size - n))\\n}\\n\\nmain() {\\n    let x0 = [1, 2, 3, 4]\\n    let y0 = dropEnds(x0, 1)\\n    let ok0 = y0 == [2, 3]\\n    if (y0.size > 0) {\\n        y0[0] = 12345\\n    }\\n    println(ok0 && x0 == [1, 2, 3, 4])\\n    let x1 = [5]\\n    let y1 = dropEnds(x1, 0)\\n    let ok1 = y1 == [5]\\n    if (y1.size > 0) {\\n        y1[0] = 12345\\n    }\\n    println(ok1 && x1 == [5])\\n}\\n\"}",
+      "code": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\n    if (2 * n >= a.size) {\n        return Array<Int64>()\n    }\n    return a.clone(n..(a.size - n))\n}\n\nmain() {\n    let x0 = [1, 2, 3, 4]\n    let y0 = dropEnds(x0, 1)\n    let ok0 = y0 == [2, 3]\n    if (y0.size > 0) {\n        y0[0] = 12345\n    }\n    println(ok0 && x0 == [1, 2, 3, 4])\n    let x1 = [5]\n    let y1 = dropEnds(x1, 0)\n    let ok1 = y1 == [5]\n    if (y1.size > 0) {\n        y1[0] = 12345\n    }\n    println(ok1 && x1 == [5])\n}\n",
+      "codeSha256": "4ecd431a3bc5005ead9905a146a4922760e30546eb769b62240d5896edfac897",
+      "finishedAt": "2026-11-27T03:49:29.587Z"
+    },
+    {
+      "caseId": "purge_window",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "e81a4056a781d007d7797e080f7aa75c02dd6d7f5277d57c2427b8a39182040b",
+      "startedAt": "2026-11-27T03:49:29.591Z",
+      "status": "generated",
+      "costCNY": 0.005946,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9ed7114b-ffd0-4fa3-a4b8-870259060398",
+      "usage": {
+        "prompt_tokens": 1945,
+        "completion_tokens": 257,
+        "total_tokens": 2202,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1945
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\\n    if (lo > hi) {\\n        return 0\\n    }\\n    let before = a.size\\n    var i: Int64 = 0\\n    while (i < a.size) {\\n        if (a[i] >= lo && a[i] <= hi) {\\n            a.remove(at: i)\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return before - a.size\\n}\\n\\nmain() {\\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\\n    let removed0 = purgeWindow(lst0, 2, 3)\\n    println(removed0 == 3 && lst0.toArray() == [1])\\n    let lst1 = ArrayList<Int64>([0, 0])\\n    let removed1 = purgeWindow(lst1, 0, 0)\\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\n    if (lo > hi) {\n        return 0\n    }\n    let before = a.size\n    var i: Int64 = 0\n    while (i < a.size) {\n        if (a[i] >= lo && a[i] <= hi) {\n            a.remove(at: i)\n        } else {\n            i += 1\n        }\n    }\n    return before - a.size\n}\n\nmain() {\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\n    let removed0 = purgeWindow(lst0, 2, 3)\n    println(removed0 == 3 && lst0.toArray() == [1])\n    let lst1 = ArrayList<Int64>([0, 0])\n    let removed1 = purgeWindow(lst1, 0, 0)\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "aa5c226c33852b968561345bed821b82daf928c0161b8e58b1293a71d1269c38",
+      "finishedAt": "2026-11-27T03:49:30.641Z"
+    },
+    {
+      "caseId": "purge_window",
+      "repeat": 1,
+      "group": "F",
+      "requestSha256": "b900adebab64bef15ca42da7cd0e15d918b3d835007cb743c5832c00157b2749",
+      "startedAt": "2026-11-27T03:49:30.645Z",
+      "status": "generated",
+      "costCNY": 0.006254,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b0e565e6-f6e2-4f69-8831-b92c1fa8f0a1",
+      "usage": {
+        "prompt_tokens": 2099,
+        "completion_tokens": 257,
+        "total_tokens": 2356,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 563
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\\n    let before = a.size\\n    if (lo > hi) {\\n        return 0\\n    }\\n    var i: Int64 = 0\\n    while (i < a.size) {\\n        if (a[i] >= lo && a[i] <= hi) {\\n            a.remove(at: i)\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return before - a.size\\n}\\n\\nmain() {\\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\\n    let removed0 = purgeWindow(lst0, 2, 3)\\n    println(removed0 == 3 && lst0.toArray() == [1])\\n    let lst1 = ArrayList<Int64>([0, 0])\\n    let removed1 = purgeWindow(lst1, 0, 0)\\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\n    let before = a.size\n    if (lo > hi) {\n        return 0\n    }\n    var i: Int64 = 0\n    while (i < a.size) {\n        if (a[i] >= lo && a[i] <= hi) {\n            a.remove(at: i)\n        } else {\n            i += 1\n        }\n    }\n    return before - a.size\n}\n\nmain() {\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\n    let removed0 = purgeWindow(lst0, 2, 3)\n    println(removed0 == 3 && lst0.toArray() == [1])\n    let lst1 = ArrayList<Int64>([0, 0])\n    let removed1 = purgeWindow(lst1, 0, 0)\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "ccfcb4a8d4d58f07164556bd91e73633fe81056fd0354c7364c4c065c78acbac",
+      "finishedAt": "2026-11-27T03:49:31.963Z"
+    },
+    {
+      "caseId": "symbol_pair",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "7c379d534efa2a018c58682dd4aad08d7aebdcd6ae1b162754e9c3b472c8186f",
+      "startedAt": "2026-11-27T03:49:31.967Z",
+      "status": "generated",
+      "costCNY": 0.005478,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b27e9db8-1e39-480f-b111-e64932a88166",
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 123,
+        "total_tokens": 2370,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 199
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func sameSymbol(s: String, a: Int64, b: Int64): Bool {\\n    let u = s.toRuneArray()\\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\\n    u[a] == u[b]\\n}\\n\\nmain() {\\n    println(sameSymbol(\\\"仓a仓\\\", 0, 2) == true)\\n    println(sameSymbol(\\\"😀\\\", 1, 1) == false)\\n}\\n\"}",
+      "code": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\n    let u = s.toRuneArray()\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\n    u[a] == u[b]\n}\n\nmain() {\n    println(sameSymbol(\"仓a仓\", 0, 2) == true)\n    println(sameSymbol(\"😀\", 1, 1) == false)\n}\n",
+      "codeSha256": "7d9120993e9bd77af992696422a3c243c85aa9b7cf28a0ab1b688aee5bdb365f",
+      "finishedAt": "2026-11-27T03:49:32.783Z"
+    },
+    {
+      "caseId": "symbol_pair",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "4fc57155961b4b9c4defdc6c514735409b23cd9c6d170dcfa2d4f6c75bbdbea3",
+      "startedAt": "2026-11-27T03:49:32.788Z",
+      "status": "generated",
+      "costCNY": 0.005772,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "34478736-3ae7-422b-9224-1882d67da23f",
+      "usage": {
+        "prompt_tokens": 2402,
+        "completion_tokens": 121,
+        "total_tokens": 2523,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 226
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func sameSymbol(s: String, a: Int64, b: Int64): Bool {\\n    let u = s.toArray()\\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\\n    u[a] == u[b]\\n}\\n\\nmain() {\\n    println(sameSymbol(\\\"仓a仓\\\", 0, 2) == true)\\n    println(sameSymbol(\\\"😀\\\", 1, 1) == false)\\n}\\n\"}",
+      "code": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\n    let u = s.toArray()\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\n    u[a] == u[b]\n}\n\nmain() {\n    println(sameSymbol(\"仓a仓\", 0, 2) == true)\n    println(sameSymbol(\"😀\", 1, 1) == false)\n}\n",
+      "codeSha256": "f68465499d31c535feb40503a40170ce8c2ff911042232a1e644fed51bffd8ba",
+      "finishedAt": "2026-11-27T03:49:33.601Z"
+    },
+    {
+      "caseId": "empty_slots",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "084b2d793d399182de0c41b6b451cf6def634a669f6361ce6183862690a484cb",
+      "startedAt": "2026-11-27T03:49:33.606Z",
+      "status": "generated",
+      "costCNY": 0.006084,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "27ba77ce-8260-4097-afd9-91d78d95885f",
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 198,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 202
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func slots(s: String, marker: String): Int64 {\\n    if (marker.isEmpty()) {\\n        var count: Int64 = 1\\n        for (_ in s.runes()) {\\n            count += 1\\n        }\\n        return count\\n    }\\n    var count: Int64 = 0\\n    var i: Int64 = 0\\n    let n = s.size\\n    let m = marker.size\\n    while (i + m <= n) {\\n        if (s[i..i + m] == marker) {\\n            count += 1\\n            i += m\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(slots(\\\"中文\\\", \\\"\\\") == 3)\\n    println(slots(\\\"🙂a\\\", \\\"\\\") == 3)\\n}\\n\"}",
+      "code": "func slots(s: String, marker: String): Int64 {\n    if (marker.isEmpty()) {\n        var count: Int64 = 1\n        for (_ in s.runes()) {\n            count += 1\n        }\n        return count\n    }\n    var count: Int64 = 0\n    var i: Int64 = 0\n    let n = s.size\n    let m = marker.size\n    while (i + m <= n) {\n        if (s[i..i + m] == marker) {\n            count += 1\n            i += m\n        } else {\n            i += 1\n        }\n    }\n    return count\n}\n\nmain() {\n    println(slots(\"中文\", \"\") == 3)\n    println(slots(\"🙂a\", \"\") == 3)\n}\n",
+      "codeSha256": "c9e12c6ae76f8aa8814954aa16e61827058cd8c866d6612f5f98028612cf04b4",
+      "finishedAt": "2026-11-27T03:49:34.792Z"
+    },
+    {
+      "caseId": "empty_slots",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "992cf01875cdf96aa7d299eb3c29c36b6a9d60b3189d3f3681117a8fc2c88a51",
+      "startedAt": "2026-11-27T03:49:34.795Z",
+      "status": "generated",
+      "costCNY": 0.005468,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c55bd936-a5db-49f9-9dd0-6486c4449cd8",
+      "usage": {
+        "prompt_tokens": 2030,
+        "completion_tokens": 176,
+        "total_tokens": 2206,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 238
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func slots(s: String, marker: String): Int64 {\\n    if (marker.isEmpty()) {\\n        return s.toRuneArray().size + 1\\n    }\\n    var count: Int64 = 0\\n    var start: Int64 = 0\\n    let n = s.size\\n    let m = marker.size\\n    while (start + m <= n) {\\n        if (s[start..start + m] == marker) {\\n            count++\\n            start += m\\n        } else {\\n            start++\\n        }\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(slots(\\\"中文\\\", \\\"\\\") == 3)\\n    println(slots(\\\"🙂a\\\", \\\"\\\") == 3)\\n}\\n\"}",
+      "code": "func slots(s: String, marker: String): Int64 {\n    if (marker.isEmpty()) {\n        return s.toRuneArray().size + 1\n    }\n    var count: Int64 = 0\n    var start: Int64 = 0\n    let n = s.size\n    let m = marker.size\n    while (start + m <= n) {\n        if (s[start..start + m] == marker) {\n            count++\n            start += m\n        } else {\n            start++\n        }\n    }\n    return count\n}\n\nmain() {\n    println(slots(\"中文\", \"\") == 3)\n    println(slots(\"🙂a\", \"\") == 3)\n}\n",
+      "codeSha256": "76418d4d29267271e96e9974ce852e13fbfe867821dfac63167c0ae38bdff96f",
+      "finishedAt": "2026-11-27T03:49:36.097Z"
+    },
+    {
+      "caseId": "frame_columns",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "ce4f15b06eeee6fed873da9ad70d4e3ca0f31cb61c4a65d7ecfdff4b29c92c15",
+      "startedAt": "2026-11-27T03:49:36.100Z",
+      "status": "generated",
+      "costCNY": 0.006534,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a61a6ebd-eab5-4676-9d9c-3b6100bab3de",
+      "usage": {
+        "prompt_tokens": 2343,
+        "completion_tokens": 231,
+        "total_tokens": 2574,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func frameColumns(s: String, n: Int64): String {\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    var out = \\\"\\\"\\n    var count: Int64 = 0\\n    var start: Int64 = 0\\n    let size = s.size\\n    var i: Int64 = 0\\n    while (i < size && count < n - 1) {\\n        if (s[i] == r'|') {\\n            out += \\\"[\\\" + s[start..i] + \\\"]\\\"\\n            count += 1\\n            start = i + 1\\n        }\\n        i += 1\\n    }\\n    out += \\\"[\\\" + s[start..] + \\\"]\\\"\\n    return out\\n}\\n\\nmain() {\\n    println(frameColumns(\\\"a||b\\\", 2) == \\\"[a][|b]\\\")\\n    println(frameColumns(\\\"|x\\\", 1) == \\\"[|x]\\\")\\n}\\n\"}",
+      "code": "func frameColumns(s: String, n: Int64): String {\n    if (n == 0) {\n        return \"\"\n    }\n    var out = \"\"\n    var count: Int64 = 0\n    var start: Int64 = 0\n    let size = s.size\n    var i: Int64 = 0\n    while (i < size && count < n - 1) {\n        if (s[i] == r'|') {\n            out += \"[\" + s[start..i] + \"]\"\n            count += 1\n            start = i + 1\n        }\n        i += 1\n    }\n    out += \"[\" + s[start..] + \"]\"\n    return out\n}\n\nmain() {\n    println(frameColumns(\"a||b\", 2) == \"[a][|b]\")\n    println(frameColumns(\"|x\", 1) == \"[|x]\")\n}\n",
+      "codeSha256": "b24f54394bcaf42dcf2a99b5bafd6e0c8c476c321b61077b1a15e503d54b3475",
+      "finishedAt": "2026-11-27T03:49:37.639Z"
+    },
+    {
+      "caseId": "frame_columns",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "ce4f15b06eeee6fed873da9ad70d4e3ca0f31cb61c4a65d7ecfdff4b29c92c15",
+      "startedAt": "2026-11-27T03:49:37.645Z",
+      "status": "generated",
+      "costCNY": 0.006462,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8a787b9c-145a-4719-a78a-ee0372e2cd3b",
+      "usage": {
+        "prompt_tokens": 2343,
+        "completion_tokens": 222,
+        "total_tokens": 2565,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func frameColumns(s: String, n: Int64): String {\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    var out = \\\"\\\"\\n    var count = 0\\n    var start = 0\\n    let size = s.size\\n    var i = 0\\n    while (i < size && count < n - 1) {\\n        if (s[i] == r'|') {\\n            out += \\\"[\\\" + s[start..i] + \\\"]\\\"\\n            count += 1\\n            start = i + 1\\n        }\\n        i += 1\\n    }\\n    out += \\\"[\\\" + s[start..] + \\\"]\\\"\\n    return out\\n}\\n\\nmain() {\\n    println(frameColumns(\\\"a||b\\\", 2) == \\\"[a][|b]\\\")\\n    println(frameColumns(\\\"|x\\\", 1) == \\\"[|x]\\\")\\n}\\n\"}",
+      "code": "func frameColumns(s: String, n: Int64): String {\n    if (n == 0) {\n        return \"\"\n    }\n    var out = \"\"\n    var count = 0\n    var start = 0\n    let size = s.size\n    var i = 0\n    while (i < size && count < n - 1) {\n        if (s[i] == r'|') {\n            out += \"[\" + s[start..i] + \"]\"\n            count += 1\n            start = i + 1\n        }\n        i += 1\n    }\n    out += \"[\" + s[start..] + \"]\"\n    return out\n}\n\nmain() {\n    println(frameColumns(\"a||b\", 2) == \"[a][|b]\")\n    println(frameColumns(\"|x\", 1) == \"[|x]\")\n}\n",
+      "codeSha256": "451eff25186450de597eb5bc0fe41e55e73ea5f33bce6e2b4902394dd277a845",
+      "finishedAt": "2026-11-27T03:49:38.939Z"
+    },
+    {
+      "caseId": "seat_label",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "770ff9ee76f04c42fbb02e36e89671f51a50ea13303c13aa0295a159ef58ccdd",
+      "startedAt": "2026-11-27T03:49:38.943Z",
+      "status": "generated",
+      "costCNY": 0.005508,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a57cb7d0-50b7-4d40-a329-48ff6c72b460",
+      "usage": {
+        "prompt_tokens": 2178,
+        "completion_tokens": 144,
+        "total_tokens": 2322,
+        "prompt_tokens_details": {
+          "cached_tokens": 2044
+        },
+        "prompt_cache_hit_tokens": 2044,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func seatLabel(s: String, width: Int64, fill: String): String {\\n    let len = s.size\\n    if (len >= width) {\\n        return s\\n    }\\n    var result = \\\"\\\"\\n    var i = len\\n    while (i < width) {\\n        result += fill\\n        i++\\n    }\\n    result += s\\n    return result\\n}\\n\\nmain() {\\n    println(seatLabel(\\\"7\\\", 3, \\\"0\\\") == \\\"007\\\")\\n    println(seatLabel(\\\"ab\\\", 4, \\\"-\\\") == \\\"--ab\\\")\\n}\\n\"}",
+      "code": "func seatLabel(s: String, width: Int64, fill: String): String {\n    let len = s.size\n    if (len >= width) {\n        return s\n    }\n    var result = \"\"\n    var i = len\n    while (i < width) {\n        result += fill\n        i++\n    }\n    result += s\n    return result\n}\n\nmain() {\n    println(seatLabel(\"7\", 3, \"0\") == \"007\")\n    println(seatLabel(\"ab\", 4, \"-\") == \"--ab\")\n}\n",
+      "codeSha256": "702dbf6712bd2e8310ad320cc5c87e276bb2797a31f7ab39e4fd260c6635d021",
+      "finishedAt": "2026-11-27T03:49:39.940Z"
+    },
+    {
+      "caseId": "seat_label",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "aa46061c0c1115e8aecae103ac9abe50651cd2ab344a75bd918b89cd929c5d2d",
+      "startedAt": "2026-11-27T03:49:39.945Z",
+      "status": "generated",
+      "costCNY": 0.005472,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "db9eadba-dbd2-4560-a861-a0d464a61ef2",
+      "usage": {
+        "prompt_tokens": 2384,
+        "completion_tokens": 88,
+        "total_tokens": 2472,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func seatLabel(s: String, width: Int64, fill: String): String {\\n    s.padStart(width, padding: fill)\\n}\\n\\nmain() {\\n    println(seatLabel(\\\"7\\\", 3, \\\"0\\\") == \\\"007\\\")\\n    println(seatLabel(\\\"ab\\\", 4, \\\"-\\\") == \\\"--ab\\\")\\n}\\n\"}",
+      "code": "func seatLabel(s: String, width: Int64, fill: String): String {\n    s.padStart(width, padding: fill)\n}\n\nmain() {\n    println(seatLabel(\"7\", 3, \"0\") == \"007\")\n    println(seatLabel(\"ab\", 4, \"-\") == \"--ab\")\n}\n",
+      "codeSha256": "2e2274c802b0586818dbc02d2b5f923f1465b037508a2ad9f6762fb2cf71cb23",
+      "finishedAt": "2026-11-27T03:49:40.925Z"
+    },
+    {
+      "caseId": "tag_depth",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "0169dd4703d073873465bdd0587c40e1c52dff2ce14916a189d22fc4d4d5c596",
+      "startedAt": "2026-11-27T03:49:40.929Z",
+      "status": "generated",
+      "costCNY": 0.005574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "020ecafe-3dad-4519-b7ac-676ab0da38ea",
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 135,
+        "total_tokens": 2382,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 199
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func tagDepth(s: String, tag: String): Int64 {\\n    if (tag.isEmpty()) {\\n        return 0\\n    }\\n    var count: Int64 = 0\\n    var cur = s\\n    while (cur.endsWith(tag)) {\\n        count++\\n        cur = cur.removeSuffix(tag)\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(tagDepth(\\\"a.tmp.tmp\\\", \\\".tmp\\\") == 2)\\n    println(tagDepth(\\\"哈哈哈\\\", \\\"哈\\\") == 3)\\n}\\n\"}",
+      "code": "func tagDepth(s: String, tag: String): Int64 {\n    if (tag.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var cur = s\n    while (cur.endsWith(tag)) {\n        count++\n        cur = cur.removeSuffix(tag)\n    }\n    count\n}\n\nmain() {\n    println(tagDepth(\"a.tmp.tmp\", \".tmp\") == 2)\n    println(tagDepth(\"哈哈哈\", \"哈\") == 3)\n}\n",
+      "codeSha256": "48198c3ec9deb76738601d0b6e14a3ea51e8a7db5a5d831f44fe83e6e0b54ce0",
+      "finishedAt": "2026-11-27T03:49:41.794Z"
+    },
+    {
+      "caseId": "tag_depth",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "6aa0890787c05b477f9e4434ac368570586d922cd7e7d6741604aeb390b3bbe0",
+      "startedAt": "2026-11-27T03:49:41.799Z",
+      "status": "generated",
+      "costCNY": 0.005646,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "beda2cc2-d89d-4d87-8863-8c018395226d",
+      "usage": {
+        "prompt_tokens": 2263,
+        "completion_tokens": 140,
+        "total_tokens": 2403,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 215
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func tagDepth(s: String, tag: String): Int64 {\\n    if (tag.isEmpty()) {\\n        return 0\\n    }\\n    var count: Int64 = 0\\n    var cur = s\\n    while (cur.endsWith(tag)) {\\n        count++\\n        cur = cur[0..(cur.size - tag.size)]\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(tagDepth(\\\"a.tmp.tmp\\\", \\\".tmp\\\") == 2)\\n    println(tagDepth(\\\"哈哈哈\\\", \\\"哈\\\") == 3)\\n}\\n\"}",
+      "code": "func tagDepth(s: String, tag: String): Int64 {\n    if (tag.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var cur = s\n    while (cur.endsWith(tag)) {\n        count++\n        cur = cur[0..(cur.size - tag.size)]\n    }\n    count\n}\n\nmain() {\n    println(tagDepth(\"a.tmp.tmp\", \".tmp\") == 2)\n    println(tagDepth(\"哈哈哈\", \"哈\") == 3)\n}\n",
+      "codeSha256": "750b779767f8070bca8f7f43b28b0be34b7741c2545abb63deecb7512c241c99",
+      "finishedAt": "2026-11-27T03:49:42.866Z"
+    },
+    {
+      "caseId": "shared_badges",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "a27b89583aaa43622ca71440a096c3afd87e90c8d5d0c6e5aafc4c3ba3b4f212",
+      "startedAt": "2026-11-27T03:49:42.869Z",
+      "status": "generated",
+      "costCNY": 0.00574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9d969f8e-1321-4105-b5a8-1402f351b48c",
+      "usage": {
+        "prompt_tokens": 2262,
+        "completion_tokens": 152,
+        "total_tokens": 2414,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 214
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\\n    let left = HashSet<Int64>(a)\\n    let right = HashSet<Int64>(b)\\n    var count: Int64 = 0\\n    for (x in left) {\\n        if (right.contains(x)) {\\n            count++\\n        }\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(sharedBadges([1, 2, 2], [2, 3]) == 1)\\n    println(sharedBadges([7], [8]) == 0)\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\n    let left = HashSet<Int64>(a)\n    let right = HashSet<Int64>(b)\n    var count: Int64 = 0\n    for (x in left) {\n        if (right.contains(x)) {\n            count++\n        }\n    }\n    count\n}\n\nmain() {\n    println(sharedBadges([1, 2, 2], [2, 3]) == 1)\n    println(sharedBadges([7], [8]) == 0)\n}\n",
+      "codeSha256": "af161c6553283ae4d110d84d3129373aab42b45334bd39518cd417028a3e26a2",
+      "finishedAt": "2026-11-27T03:49:43.989Z"
+    },
+    {
+      "caseId": "shared_badges",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "a27b89583aaa43622ca71440a096c3afd87e90c8d5d0c6e5aafc4c3ba3b4f212",
+      "startedAt": "2026-11-27T03:49:43.994Z",
+      "status": "generated",
+      "costCNY": 0.00574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a7e49c70-99e9-43dc-9c40-bec52094c3b7",
+      "usage": {
+        "prompt_tokens": 2262,
+        "completion_tokens": 152,
+        "total_tokens": 2414,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 214
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\\n    let left = HashSet<Int64>(a)\\n    let right = HashSet<Int64>(b)\\n    var count: Int64 = 0\\n    for (x in left) {\\n        if (right.contains(x)) {\\n            count++\\n        }\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(sharedBadges([1, 2, 2], [2, 3]) == 1)\\n    println(sharedBadges([7], [8]) == 0)\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\n    let left = HashSet<Int64>(a)\n    let right = HashSet<Int64>(b)\n    var count: Int64 = 0\n    for (x in left) {\n        if (right.contains(x)) {\n            count++\n        }\n    }\n    count\n}\n\nmain() {\n    println(sharedBadges([1, 2, 2], [2, 3]) == 1)\n    println(sharedBadges([7], [8]) == 0)\n}\n",
+      "codeSha256": "af161c6553283ae4d110d84d3129373aab42b45334bd39518cd417028a3e26a2",
+      "finishedAt": "2026-11-27T03:49:44.875Z"
+    },
+    {
+      "caseId": "case_streak",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "a679bfb0075484f16025650ed74ee3a0513b6a0dc3c3723ebf996d9350c014a8",
+      "startedAt": "2026-11-27T03:49:44.879Z",
+      "status": "generated",
+      "costCNY": 0.00603,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e825fd36-13e2-4e34-8439-74efbcfc3409",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 187,
+        "total_tokens": 2454,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 219
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func longestRun(words: Array<String>): Int64 {\\n    var best: Int64 = 0\\n    var count: Int64 = 0\\n    var prev = \\\"\\\"\\n    var first = true\\n    for (word in words) {\\n        let cur = word.toAsciiLower()\\n        if (!first && cur == prev) {\\n            count += 1\\n        } else {\\n            count = 1\\n        }\\n        prev = cur\\n        first = false\\n        if (count > best) {\\n            best = count\\n        }\\n    }\\n    best\\n}\\n\\nmain() {\\n    println(longestRun([\\\"a\\\", \\\"A\\\", \\\"a\\\", \\\"b\\\"]) == 3)\\n    println(longestRun([\\\"X\\\", \\\"x\\\"]) == 2)\\n}\\n\"}",
+      "code": "func longestRun(words: Array<String>): Int64 {\n    var best: Int64 = 0\n    var count: Int64 = 0\n    var prev = \"\"\n    var first = true\n    for (word in words) {\n        let cur = word.toAsciiLower()\n        if (!first && cur == prev) {\n            count += 1\n        } else {\n            count = 1\n        }\n        prev = cur\n        first = false\n        if (count > best) {\n            best = count\n        }\n    }\n    best\n}\n\nmain() {\n    println(longestRun([\"a\", \"A\", \"a\", \"b\"]) == 3)\n    println(longestRun([\"X\", \"x\"]) == 2)\n}\n",
+      "codeSha256": "733849f07fbf7b02f2f96ed68cad162a915accd54f15cc2459625ad774d6fc55",
+      "finishedAt": "2026-11-27T03:49:46.258Z"
+    },
+    {
+      "caseId": "case_streak",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "a679bfb0075484f16025650ed74ee3a0513b6a0dc3c3723ebf996d9350c014a8",
+      "startedAt": "2026-11-27T03:49:46.264Z",
+      "status": "generated",
+      "costCNY": 0.006062,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b63f4708-7d27-4d3e-a7a7-f1052c4093e2",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 191,
+        "total_tokens": 2458,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 219
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func longestRun(words: Array<String>): Int64 {\\n    var best: Int64 = 0\\n    var count: Int64 = 0\\n    var prev: String = \\\"\\\"\\n    var first: Bool = true\\n    for (word in words) {\\n        let cur = word.toAsciiLower()\\n        if (!first && cur == prev) {\\n            count += 1\\n        } else {\\n            count = 1\\n        }\\n        prev = cur\\n        first = false\\n        if (count > best) {\\n            best = count\\n        }\\n    }\\n    best\\n}\\n\\nmain() {\\n    println(longestRun([\\\"a\\\", \\\"A\\\", \\\"a\\\", \\\"b\\\"]) == 3)\\n    println(longestRun([\\\"X\\\", \\\"x\\\"]) == 2)\\n}\\n\"}",
+      "code": "func longestRun(words: Array<String>): Int64 {\n    var best: Int64 = 0\n    var count: Int64 = 0\n    var prev: String = \"\"\n    var first: Bool = true\n    for (word in words) {\n        let cur = word.toAsciiLower()\n        if (!first && cur == prev) {\n            count += 1\n        } else {\n            count = 1\n        }\n        prev = cur\n        first = false\n        if (count > best) {\n            best = count\n        }\n    }\n    best\n}\n\nmain() {\n    println(longestRun([\"a\", \"A\", \"a\", \"b\"]) == 3)\n    println(longestRun([\"X\", \"x\"]) == 2)\n}\n",
+      "codeSha256": "89e532bfee5fb219f4cd5378fe117c31c5d3ddea6e6f01af13ef0e4e6dcdeae2",
+      "finishedAt": "2026-11-27T03:49:47.458Z"
+    },
+    {
+      "caseId": "partition_balance",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "cf8346fd754bbcaa2e88a4255829ae120c2e8dfc17aa7c96a95b8ac686ed8e77",
+      "startedAt": "2026-11-27T03:49:47.464Z",
+      "status": "generated",
+      "costCNY": 0.005702,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "68dcf2e8-58a9-4a5e-af3c-3e4edfdffb6e",
+      "usage": {
+        "prompt_tokens": 2331,
+        "completion_tokens": 130,
+        "total_tokens": 2461,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\\n    var sum: Int64 = 0\\n    for (i in 0..a.size) {\\n        if (i < mid) {\\n            sum += a[i]\\n        } else {\\n            sum -= a[i]\\n        }\\n    }\\n    sum\\n}\\n\\nmain() {\\n    println(partitionBalance([1, 2, 4], 1) == -5)\\n    println(partitionBalance([7], 0) == -7)\\n}\\n\"}",
+      "code": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\n    var sum: Int64 = 0\n    for (i in 0..a.size) {\n        if (i < mid) {\n            sum += a[i]\n        } else {\n            sum -= a[i]\n        }\n    }\n    sum\n}\n\nmain() {\n    println(partitionBalance([1, 2, 4], 1) == -5)\n    println(partitionBalance([7], 0) == -7)\n}\n",
+      "codeSha256": "03c5a13af129b21c9725ccc5df5085cdf2e8c14a077ea4df0461f1c908a9e03e",
+      "finishedAt": "2026-11-27T03:49:48.706Z"
+    },
+    {
+      "caseId": "partition_balance",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "cf8346fd754bbcaa2e88a4255829ae120c2e8dfc17aa7c96a95b8ac686ed8e77",
+      "startedAt": "2026-11-27T03:49:48.711Z",
+      "status": "generated",
+      "costCNY": 0.005702,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "de03b8c8-83e9-49fd-b888-4d4057140aa0",
+      "usage": {
+        "prompt_tokens": 2331,
+        "completion_tokens": 130,
+        "total_tokens": 2461,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\\n    var sum: Int64 = 0\\n    for (i in 0..a.size) {\\n        if (i < mid) {\\n            sum += a[i]\\n        } else {\\n            sum -= a[i]\\n        }\\n    }\\n    sum\\n}\\n\\nmain() {\\n    println(partitionBalance([1, 2, 4], 1) == -5)\\n    println(partitionBalance([7], 0) == -7)\\n}\\n\"}",
+      "code": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\n    var sum: Int64 = 0\n    for (i in 0..a.size) {\n        if (i < mid) {\n            sum += a[i]\n        } else {\n            sum -= a[i]\n        }\n    }\n    sum\n}\n\nmain() {\n    println(partitionBalance([1, 2, 4], 1) == -5)\n    println(partitionBalance([7], 0) == -7)\n}\n",
+      "codeSha256": "03c5a13af129b21c9725ccc5df5085cdf2e8c14a077ea4df0461f1c908a9e03e",
+      "finishedAt": "2026-11-27T03:49:49.417Z"
+    },
+    {
+      "caseId": "last_reading",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "7a8d62917b6d34242ae9ca7d675199c8d443f7a08fab3fc4fe3843e682634327",
+      "startedAt": "2026-11-27T03:49:49.422Z",
+      "status": "generated",
+      "costCNY": 0.005668,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9a111bb2-ef01-45e5-912f-11a9dbeb3514",
+      "usage": {
+        "prompt_tokens": 2198,
+        "completion_tokens": 159,
+        "total_tokens": 2357,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.convert.*\\n\\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\\n    var answer = fallback\\n    for (word in words) {\\n        try {\\n            let value = Int64.parse(word.trimAscii())\\n            if (value >= -999 && value <= 999) {\\n                answer = value\\n            }\\n        } catch (_: Exception) {\\n        }\\n    }\\n    answer\\n}\\n\\nmain() {\\n    println(lastReading([\\\"2\\\", \\\"bad\\\", \\\" 9 \\\"], 0) == 9)\\n    println(lastReading([\\\"1\\\", \\\"-4\\\"], 7) == -4)\\n}\\n\"}",
+      "code": "import std.convert.*\n\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\n    var answer = fallback\n    for (word in words) {\n        try {\n            let value = Int64.parse(word.trimAscii())\n            if (value >= -999 && value <= 999) {\n                answer = value\n            }\n        } catch (_: Exception) {\n        }\n    }\n    answer\n}\n\nmain() {\n    println(lastReading([\"2\", \"bad\", \" 9 \"], 0) == 9)\n    println(lastReading([\"1\", \"-4\"], 7) == -4)\n}\n",
+      "codeSha256": "44fe6149e21b9656328851413c178bd6a8f8e3598758b80489346e03cf1bac15",
+      "finishedAt": "2026-11-27T03:49:50.423Z"
+    },
+    {
+      "caseId": "last_reading",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "d508645964991439f78ebd675057f45b5e0f171a6d1395c8c733084eef65a5bb",
+      "startedAt": "2026-11-27T03:49:50.427Z",
+      "status": "generated",
+      "costCNY": 0.005808,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c320f1bc-feba-4359-94c0-66426e50ae9c",
+      "usage": {
+        "prompt_tokens": 2268,
+        "completion_tokens": 159,
+        "total_tokens": 2427,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 220
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.convert.*\\n\\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\\n    var answer = fallback\\n    for (word in words) {\\n        try {\\n            let value = Int64.parse(word.trimAscii())\\n            if (value >= -999 && value <= 999) {\\n                answer = value\\n            }\\n        } catch (_: Exception) {\\n        }\\n    }\\n    answer\\n}\\n\\nmain() {\\n    println(lastReading([\\\"2\\\", \\\"bad\\\", \\\" 9 \\\"], 0) == 9)\\n    println(lastReading([\\\"1\\\", \\\"-4\\\"], 7) == -4)\\n}\\n\"}",
+      "code": "import std.convert.*\n\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\n    var answer = fallback\n    for (word in words) {\n        try {\n            let value = Int64.parse(word.trimAscii())\n            if (value >= -999 && value <= 999) {\n                answer = value\n            }\n        } catch (_: Exception) {\n        }\n    }\n    answer\n}\n\nmain() {\n    println(lastReading([\"2\", \"bad\", \" 9 \"], 0) == 9)\n    println(lastReading([\"1\", \"-4\"], 7) == -4)\n}\n",
+      "codeSha256": "44fe6149e21b9656328851413c178bd6a8f8e3598758b80489346e03cf1bac15",
+      "finishedAt": "2026-11-27T03:49:51.543Z"
+    },
+    {
+      "caseId": "folded_votes",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "5b7807dc39e143b566abbe28461e9f166e3d402ebc1b4bda44cec6fabee89731",
+      "startedAt": "2026-11-27T03:49:51.547Z",
+      "status": "generated",
+      "costCNY": 0.006574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f277633f-3dd4-47f5-b3be-9cbcbcf486e3",
+      "usage": {
+        "prompt_tokens": 2075,
+        "completion_tokens": 303,
+        "total_tokens": 2378,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func agreeVotes(words: Array<String>, key: String): Int64 {\\n    var n: Int64 = 0\\n    for (w in words) {\\n        if (asciiFoldEqual(w, key)) {\\n            n += 1\\n        }\\n    }\\n    return n\\n}\\n\\nfunc asciiFoldEqual(a: String, b: String): Bool {\\n    let ra = a.toRuneArray()\\n    let rb = b.toRuneArray()\\n    if (ra.size != rb.size) {\\n        return false\\n    }\\n    var i: Int64 = 0\\n    while (i < ra.size) {\\n        if (foldAscii(ra[i]) != foldAscii(rb[i])) {\\n            return false\\n        }\\n        i += 1\\n    }\\n    return true\\n}\\n\\nfunc foldAscii(r: Rune): Rune {\\n    if (r >= r'A' && r <= r'Z') {\\n        return Rune(Int64(r) + 32)\\n    }\\n    return r\\n}\\n\\nmain() {\\n    println(agreeVotes([\\\"Yes\\\", \\\" YES\\\", \\\"yes\\\"], \\\"YES\\\") == 2)\\n    println(agreeVotes([\\\"Aa\\\", \\\"aA\\\"], \\\"aa\\\") == 2)\\n}\\n\"}",
+      "code": "func agreeVotes(words: Array<String>, key: String): Int64 {\n    var n: Int64 = 0\n    for (w in words) {\n        if (asciiFoldEqual(w, key)) {\n            n += 1\n        }\n    }\n    return n\n}\n\nfunc asciiFoldEqual(a: String, b: String): Bool {\n    let ra = a.toRuneArray()\n    let rb = b.toRuneArray()\n    if (ra.size != rb.size) {\n        return false\n    }\n    var i: Int64 = 0\n    while (i < ra.size) {\n        if (foldAscii(ra[i]) != foldAscii(rb[i])) {\n            return false\n        }\n        i += 1\n    }\n    return true\n}\n\nfunc foldAscii(r: Rune): Rune {\n    if (r >= r'A' && r <= r'Z') {\n        return Rune(Int64(r) + 32)\n    }\n    return r\n}\n\nmain() {\n    println(agreeVotes([\"Yes\", \" YES\", \"yes\"], \"YES\") == 2)\n    println(agreeVotes([\"Aa\", \"aA\"], \"aa\") == 2)\n}\n",
+      "codeSha256": "ad7971b2aeb78b1740a5c977eb392656adf460d31a760cb15860ce1b4b8420e8",
+      "finishedAt": "2026-11-27T03:49:53.547Z"
+    },
+    {
+      "caseId": "folded_votes",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "8e55ecc5381f16f4a876fa6f19201081a1e9baeab97316df828e5440cf47d913",
+      "startedAt": "2026-11-27T03:49:53.551Z",
+      "status": "generated",
+      "costCNY": 0.005202,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c1fcac8b-aa6a-4b70-8e13-88a43d2dea1c",
+      "usage": {
+        "prompt_tokens": 2041,
+        "completion_tokens": 140,
+        "total_tokens": 2181,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 249
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func agreeVotes(words: Array<String>, key: String): Int64 {\\n    let k = key.toAsciiLower()\\n    var n: Int64 = 0\\n    for (w in words) {\\n        if (w.toAsciiLower() == k) {\\n            n += 1\\n        }\\n    }\\n    n\\n}\\n\\nmain() {\\n    println(agreeVotes([\\\"Yes\\\", \\\" YES\\\", \\\"yes\\\"], \\\"YES\\\") == 2)\\n    println(agreeVotes([\\\"Aa\\\", \\\"aA\\\"], \\\"aa\\\") == 2)\\n}\\n\"}",
+      "code": "func agreeVotes(words: Array<String>, key: String): Int64 {\n    let k = key.toAsciiLower()\n    var n: Int64 = 0\n    for (w in words) {\n        if (w.toAsciiLower() == k) {\n            n += 1\n        }\n    }\n    n\n}\n\nmain() {\n    println(agreeVotes([\"Yes\", \" YES\", \"yes\"], \"YES\") == 2)\n    println(agreeVotes([\"Aa\", \"aA\"], \"aa\") == 2)\n}\n",
+      "codeSha256": "dbfb41a7be5b5760775d045ed50404d62ab76a0bbdda13c2193ba681b2063018",
+      "finishedAt": "2026-11-27T03:49:54.778Z"
+    },
+    {
+      "caseId": "middle_copy",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "561e0bcb54ea0dce76eb794ef6c687e031cc7bfd1a69dd81bfdcbc35f827bb44",
+      "startedAt": "2026-11-27T03:49:54.781Z",
+      "status": "generated",
+      "costCNY": 0.006372,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d06f98f6-4e0b-4592-81a1-7285034b61a6",
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 246,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\\n    if (2 * n >= a.size) {\\n        return Array<Int64>()\\n    }\\n    return a.clone(n..(a.size - n))\\n}\\n\\nmain() {\\n    let x0 = [1, 2, 3, 4]\\n    let y0 = dropEnds(x0, 1)\\n    let ok0 = y0 == [2, 3]\\n    if (y0.size > 0) {\\n        y0[0] = 12345\\n    }\\n    println(ok0 && x0 == [1, 2, 3, 4])\\n    let x1 = [5]\\n    let y1 = dropEnds(x1, 0)\\n    let ok1 = y1 == [5]\\n    if (y1.size > 0) {\\n        y1[0] = 12345\\n    }\\n    println(ok1 && x1 == [5])\\n}\\n\"}",
+      "code": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\n    if (2 * n >= a.size) {\n        return Array<Int64>()\n    }\n    return a.clone(n..(a.size - n))\n}\n\nmain() {\n    let x0 = [1, 2, 3, 4]\n    let y0 = dropEnds(x0, 1)\n    let ok0 = y0 == [2, 3]\n    if (y0.size > 0) {\n        y0[0] = 12345\n    }\n    println(ok0 && x0 == [1, 2, 3, 4])\n    let x1 = [5]\n    let y1 = dropEnds(x1, 0)\n    let ok1 = y1 == [5]\n    if (y1.size > 0) {\n        y1[0] = 12345\n    }\n    println(ok1 && x1 == [5])\n}\n",
+      "codeSha256": "4ecd431a3bc5005ead9905a146a4922760e30546eb769b62240d5896edfac897",
+      "finishedAt": "2026-11-27T03:49:56.156Z"
+    },
+    {
+      "caseId": "middle_copy",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "561e0bcb54ea0dce76eb794ef6c687e031cc7bfd1a69dd81bfdcbc35f827bb44",
+      "startedAt": "2026-11-27T03:49:56.160Z",
+      "status": "generated",
+      "costCNY": 0.006372,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "02520474-84bb-48c4-bf96-c31c6b39fe7b",
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 246,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\\n    if (2 * n >= a.size) {\\n        return Array<Int64>()\\n    }\\n    return a.clone(n..(a.size - n))\\n}\\n\\nmain() {\\n    let x0 = [1, 2, 3, 4]\\n    let y0 = dropEnds(x0, 1)\\n    let ok0 = y0 == [2, 3]\\n    if (y0.size > 0) {\\n        y0[0] = 12345\\n    }\\n    println(ok0 && x0 == [1, 2, 3, 4])\\n    let x1 = [5]\\n    let y1 = dropEnds(x1, 0)\\n    let ok1 = y1 == [5]\\n    if (y1.size > 0) {\\n        y1[0] = 12345\\n    }\\n    println(ok1 && x1 == [5])\\n}\\n\"}",
+      "code": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\n    if (2 * n >= a.size) {\n        return Array<Int64>()\n    }\n    return a.clone(n..(a.size - n))\n}\n\nmain() {\n    let x0 = [1, 2, 3, 4]\n    let y0 = dropEnds(x0, 1)\n    let ok0 = y0 == [2, 3]\n    if (y0.size > 0) {\n        y0[0] = 12345\n    }\n    println(ok0 && x0 == [1, 2, 3, 4])\n    let x1 = [5]\n    let y1 = dropEnds(x1, 0)\n    let ok1 = y1 == [5]\n    if (y1.size > 0) {\n        y1[0] = 12345\n    }\n    println(ok1 && x1 == [5])\n}\n",
+      "codeSha256": "4ecd431a3bc5005ead9905a146a4922760e30546eb769b62240d5896edfac897",
+      "finishedAt": "2026-11-27T03:49:57.912Z"
+    },
+    {
+      "caseId": "purge_window",
+      "repeat": 2,
+      "group": "F",
+      "requestSha256": "b900adebab64bef15ca42da7cd0e15d918b3d835007cb743c5832c00157b2749",
+      "startedAt": "2026-11-27T03:49:57.915Z",
+      "status": "generated",
+      "costCNY": 0.006254,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a73647cc-19ba-41ed-84e8-4ea3e5d4e8a4",
+      "usage": {
+        "prompt_tokens": 2099,
+        "completion_tokens": 257,
+        "total_tokens": 2356,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 179
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\\n    let before = a.size\\n    if (lo > hi) {\\n        return 0\\n    }\\n    var i: Int64 = 0\\n    while (i < a.size) {\\n        if (a[i] >= lo && a[i] <= hi) {\\n            a.remove(at: i)\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return before - a.size\\n}\\n\\nmain() {\\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\\n    let removed0 = purgeWindow(lst0, 2, 3)\\n    println(removed0 == 3 && lst0.toArray() == [1])\\n    let lst1 = ArrayList<Int64>([0, 0])\\n    let removed1 = purgeWindow(lst1, 0, 0)\\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\n    let before = a.size\n    if (lo > hi) {\n        return 0\n    }\n    var i: Int64 = 0\n    while (i < a.size) {\n        if (a[i] >= lo && a[i] <= hi) {\n            a.remove(at: i)\n        } else {\n            i += 1\n        }\n    }\n    return before - a.size\n}\n\nmain() {\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\n    let removed0 = purgeWindow(lst0, 2, 3)\n    println(removed0 == 3 && lst0.toArray() == [1])\n    let lst1 = ArrayList<Int64>([0, 0])\n    let removed1 = purgeWindow(lst1, 0, 0)\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "ccfcb4a8d4d58f07164556bd91e73633fe81056fd0354c7364c4c065c78acbac",
+      "finishedAt": "2026-11-27T03:49:59.412Z"
+    },
+    {
+      "caseId": "purge_window",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "e81a4056a781d007d7797e080f7aa75c02dd6d7f5277d57c2427b8a39182040b",
+      "startedAt": "2026-11-27T03:49:59.416Z",
+      "status": "generated",
+      "costCNY": 0.005946,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "91c24354-e757-4259-8e85-4bc201eb0a25",
+      "usage": {
+        "prompt_tokens": 1945,
+        "completion_tokens": 257,
+        "total_tokens": 2202,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 153
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\\n    let before = a.size\\n    if (lo > hi) {\\n        return 0\\n    }\\n    var i: Int64 = 0\\n    while (i < a.size) {\\n        if (a[i] >= lo && a[i] <= hi) {\\n            a.remove(at: i)\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return before - a.size\\n}\\n\\nmain() {\\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\\n    let removed0 = purgeWindow(lst0, 2, 3)\\n    println(removed0 == 3 && lst0.toArray() == [1])\\n    let lst1 = ArrayList<Int64>([0, 0])\\n    let removed1 = purgeWindow(lst1, 0, 0)\\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\n    let before = a.size\n    if (lo > hi) {\n        return 0\n    }\n    var i: Int64 = 0\n    while (i < a.size) {\n        if (a[i] >= lo && a[i] <= hi) {\n            a.remove(at: i)\n        } else {\n            i += 1\n        }\n    }\n    return before - a.size\n}\n\nmain() {\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\n    let removed0 = purgeWindow(lst0, 2, 3)\n    println(removed0 == 3 && lst0.toArray() == [1])\n    let lst1 = ArrayList<Int64>([0, 0])\n    let removed1 = purgeWindow(lst1, 0, 0)\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "ccfcb4a8d4d58f07164556bd91e73633fe81056fd0354c7364c4c065c78acbac",
+      "finishedAt": "2026-11-27T03:50:00.721Z"
+    },
+    {
+      "caseId": "symbol_pair",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "4fc57155961b4b9c4defdc6c514735409b23cd9c6d170dcfa2d4f6c75bbdbea3",
+      "startedAt": "2026-11-27T03:50:00.726Z",
+      "status": "generated",
+      "costCNY": 0.005772,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0f0710fa-d933-4065-b74a-5d1c1b037d0f",
+      "usage": {
+        "prompt_tokens": 2402,
+        "completion_tokens": 121,
+        "total_tokens": 2523,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 226
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func sameSymbol(s: String, a: Int64, b: Int64): Bool {\\n    let u = s.toArray()\\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\\n    u[a] == u[b]\\n}\\n\\nmain() {\\n    println(sameSymbol(\\\"仓a仓\\\", 0, 2) == true)\\n    println(sameSymbol(\\\"😀\\\", 1, 1) == false)\\n}\\n\"}",
+      "code": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\n    let u = s.toArray()\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\n    u[a] == u[b]\n}\n\nmain() {\n    println(sameSymbol(\"仓a仓\", 0, 2) == true)\n    println(sameSymbol(\"😀\", 1, 1) == false)\n}\n",
+      "codeSha256": "f68465499d31c535feb40503a40170ce8c2ff911042232a1e644fed51bffd8ba",
+      "finishedAt": "2026-11-27T03:50:01.360Z"
+    },
+    {
+      "caseId": "symbol_pair",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "7c379d534efa2a018c58682dd4aad08d7aebdcd6ae1b162754e9c3b472c8186f",
+      "startedAt": "2026-11-27T03:50:01.364Z",
+      "status": "generated",
+      "costCNY": 0.005478,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "01ebfc15-480a-42f4-a077-80f1e256d76a",
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 123,
+        "total_tokens": 2370,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 199
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func sameSymbol(s: String, a: Int64, b: Int64): Bool {\\n    let u = s.toRuneArray()\\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\\n    u[a] == u[b]\\n}\\n\\nmain() {\\n    println(sameSymbol(\\\"仓a仓\\\", 0, 2) == true)\\n    println(sameSymbol(\\\"😀\\\", 1, 1) == false)\\n}\\n\"}",
+      "code": "func sameSymbol(s: String, a: Int64, b: Int64): Bool {\n    let u = s.toRuneArray()\n    if (a < 0 || b < 0 || a >= u.size || b >= u.size) { return false }\n    u[a] == u[b]\n}\n\nmain() {\n    println(sameSymbol(\"仓a仓\", 0, 2) == true)\n    println(sameSymbol(\"😀\", 1, 1) == false)\n}\n",
+      "codeSha256": "7d9120993e9bd77af992696422a3c243c85aa9b7cf28a0ab1b688aee5bdb365f",
+      "finishedAt": "2026-11-27T03:50:02.124Z"
+    },
+    {
+      "caseId": "empty_slots",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "992cf01875cdf96aa7d299eb3c29c36b6a9d60b3189d3f3681117a8fc2c88a51",
+      "startedAt": "2026-11-27T03:50:02.129Z",
+      "status": "generated",
+      "costCNY": 0.005468,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "91e55054-d01f-4aff-8ab0-214be7194545",
+      "usage": {
+        "prompt_tokens": 2030,
+        "completion_tokens": 176,
+        "total_tokens": 2206,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 238
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func slots(s: String, marker: String): Int64 {\\n    if (marker.isEmpty()) {\\n        return s.toRuneArray().size + 1\\n    }\\n    var count: Int64 = 0\\n    var start: Int64 = 0\\n    let n = s.size\\n    let m = marker.size\\n    while (start + m <= n) {\\n        if (s[start..start + m] == marker) {\\n            count++\\n            start += m\\n        } else {\\n            start++\\n        }\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(slots(\\\"中文\\\", \\\"\\\") == 3)\\n    println(slots(\\\"🙂a\\\", \\\"\\\") == 3)\\n}\\n\"}",
+      "code": "func slots(s: String, marker: String): Int64 {\n    if (marker.isEmpty()) {\n        return s.toRuneArray().size + 1\n    }\n    var count: Int64 = 0\n    var start: Int64 = 0\n    let n = s.size\n    let m = marker.size\n    while (start + m <= n) {\n        if (s[start..start + m] == marker) {\n            count++\n            start += m\n        } else {\n            start++\n        }\n    }\n    return count\n}\n\nmain() {\n    println(slots(\"中文\", \"\") == 3)\n    println(slots(\"🙂a\", \"\") == 3)\n}\n",
+      "codeSha256": "76418d4d29267271e96e9974ce852e13fbfe867821dfac63167c0ae38bdff96f",
+      "finishedAt": "2026-11-27T03:50:03.415Z"
+    },
+    {
+      "caseId": "empty_slots",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "084b2d793d399182de0c41b6b451cf6def634a669f6361ce6183862690a484cb",
+      "startedAt": "2026-11-27T03:50:03.420Z",
+      "status": "generated",
+      "costCNY": 0.006084,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e3f8f148-ba5f-4d21-899b-0647b0831f61",
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 198,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 202
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func slots(s: String, marker: String): Int64 {\\n    if (marker.isEmpty()) {\\n        var count: Int64 = 1\\n        for (_ in s.runes()) {\\n            count += 1\\n        }\\n        return count\\n    }\\n    var count: Int64 = 0\\n    var i: Int64 = 0\\n    let n = s.size\\n    let m = marker.size\\n    while (i + m <= n) {\\n        if (s[i..i + m] == marker) {\\n            count += 1\\n            i += m\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(slots(\\\"中文\\\", \\\"\\\") == 3)\\n    println(slots(\\\"🙂a\\\", \\\"\\\") == 3)\\n}\\n\"}",
+      "code": "func slots(s: String, marker: String): Int64 {\n    if (marker.isEmpty()) {\n        var count: Int64 = 1\n        for (_ in s.runes()) {\n            count += 1\n        }\n        return count\n    }\n    var count: Int64 = 0\n    var i: Int64 = 0\n    let n = s.size\n    let m = marker.size\n    while (i + m <= n) {\n        if (s[i..i + m] == marker) {\n            count += 1\n            i += m\n        } else {\n            i += 1\n        }\n    }\n    return count\n}\n\nmain() {\n    println(slots(\"中文\", \"\") == 3)\n    println(slots(\"🙂a\", \"\") == 3)\n}\n",
+      "codeSha256": "c9e12c6ae76f8aa8814954aa16e61827058cd8c866d6612f5f98028612cf04b4",
+      "finishedAt": "2026-11-27T03:50:05.017Z"
+    },
+    {
+      "caseId": "frame_columns",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "ce4f15b06eeee6fed873da9ad70d4e3ca0f31cb61c4a65d7ecfdff4b29c92c15",
+      "startedAt": "2026-11-27T03:50:05.022Z",
+      "status": "generated",
+      "costCNY": 0.005846,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "11830224-5d4d-4649-8764-402707e50073",
+      "usage": {
+        "prompt_tokens": 2343,
+        "completion_tokens": 145,
+        "total_tokens": 2488,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func frameColumns(s: String, n: Int64): String {\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    var out = \\\"\\\"\\n    let parts = s.split(\\\"|\\\", n - 1)\\n    for (p in parts) {\\n        out += \\\"[\\\" + p + \\\"]\\\"\\n    }\\n    out\\n}\\n\\nmain() {\\n    println(frameColumns(\\\"a||b\\\", 2) == \\\"[a][|b]\\\")\\n    println(frameColumns(\\\"|x\\\", 1) == \\\"[|x]\\\")\\n}\\n\"}",
+      "code": "func frameColumns(s: String, n: Int64): String {\n    if (n == 0) {\n        return \"\"\n    }\n    var out = \"\"\n    let parts = s.split(\"|\", n - 1)\n    for (p in parts) {\n        out += \"[\" + p + \"]\"\n    }\n    out\n}\n\nmain() {\n    println(frameColumns(\"a||b\", 2) == \"[a][|b]\")\n    println(frameColumns(\"|x\", 1) == \"[|x]\")\n}\n",
+      "codeSha256": "44fcb0a52a1b92c7e00b5d1311cf138047eadea9ece7c70bf71642ecffa1347b",
+      "finishedAt": "2026-11-27T03:50:06.013Z"
+    },
+    {
+      "caseId": "frame_columns",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "ce4f15b06eeee6fed873da9ad70d4e3ca0f31cb61c4a65d7ecfdff4b29c92c15",
+      "startedAt": "2026-11-27T03:50:06.018Z",
+      "status": "generated",
+      "costCNY": 0.006534,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "94c01af7-ff82-4547-9448-9ce5823203b0",
+      "usage": {
+        "prompt_tokens": 2343,
+        "completion_tokens": 231,
+        "total_tokens": 2574,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func frameColumns(s: String, n: Int64): String {\\n    if (n == 0) {\\n        return \\\"\\\"\\n    }\\n    var out = \\\"\\\"\\n    var count: Int64 = 0\\n    var start: Int64 = 0\\n    let size = s.size\\n    var i: Int64 = 0\\n    while (i < size && count < n - 1) {\\n        if (s[i] == r'|') {\\n            out += \\\"[\\\" + s[start..i] + \\\"]\\\"\\n            count += 1\\n            start = i + 1\\n        }\\n        i += 1\\n    }\\n    out += \\\"[\\\" + s[start..] + \\\"]\\\"\\n    return out\\n}\\n\\nmain() {\\n    println(frameColumns(\\\"a||b\\\", 2) == \\\"[a][|b]\\\")\\n    println(frameColumns(\\\"|x\\\", 1) == \\\"[|x]\\\")\\n}\\n\"}",
+      "code": "func frameColumns(s: String, n: Int64): String {\n    if (n == 0) {\n        return \"\"\n    }\n    var out = \"\"\n    var count: Int64 = 0\n    var start: Int64 = 0\n    let size = s.size\n    var i: Int64 = 0\n    while (i < size && count < n - 1) {\n        if (s[i] == r'|') {\n            out += \"[\" + s[start..i] + \"]\"\n            count += 1\n            start = i + 1\n        }\n        i += 1\n    }\n    out += \"[\" + s[start..] + \"]\"\n    return out\n}\n\nmain() {\n    println(frameColumns(\"a||b\", 2) == \"[a][|b]\")\n    println(frameColumns(\"|x\", 1) == \"[|x]\")\n}\n",
+      "codeSha256": "b24f54394bcaf42dcf2a99b5bafd6e0c8c476c321b61077b1a15e503d54b3475",
+      "finishedAt": "2026-11-27T03:50:07.288Z"
+    },
+    {
+      "caseId": "seat_label",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "aa46061c0c1115e8aecae103ac9abe50651cd2ab344a75bd918b89cd929c5d2d",
+      "startedAt": "2026-11-27T03:50:07.293Z",
+      "status": "generated",
+      "costCNY": 0.005472,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "fd52b21b-cafa-41b0-bcec-aa4492b56728",
+      "usage": {
+        "prompt_tokens": 2384,
+        "completion_tokens": 88,
+        "total_tokens": 2472,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func seatLabel(s: String, width: Int64, fill: String): String {\\n    s.padStart(width, padding: fill)\\n}\\n\\nmain() {\\n    println(seatLabel(\\\"7\\\", 3, \\\"0\\\") == \\\"007\\\")\\n    println(seatLabel(\\\"ab\\\", 4, \\\"-\\\") == \\\"--ab\\\")\\n}\\n\"}",
+      "code": "func seatLabel(s: String, width: Int64, fill: String): String {\n    s.padStart(width, padding: fill)\n}\n\nmain() {\n    println(seatLabel(\"7\", 3, \"0\") == \"007\")\n    println(seatLabel(\"ab\", 4, \"-\") == \"--ab\")\n}\n",
+      "codeSha256": "2e2274c802b0586818dbc02d2b5f923f1465b037508a2ad9f6762fb2cf71cb23",
+      "finishedAt": "2026-11-27T03:50:08.262Z"
+    },
+    {
+      "caseId": "seat_label",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "770ff9ee76f04c42fbb02e36e89671f51a50ea13303c13aa0295a159ef58ccdd",
+      "startedAt": "2026-11-27T03:50:08.266Z",
+      "status": "generated",
+      "costCNY": 0.005508,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "42280c12-6d22-45eb-ac67-c9c399390ebf",
+      "usage": {
+        "prompt_tokens": 2178,
+        "completion_tokens": 144,
+        "total_tokens": 2322,
+        "prompt_tokens_details": {
+          "cached_tokens": 2044
+        },
+        "prompt_cache_hit_tokens": 2044,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func seatLabel(s: String, width: Int64, fill: String): String {\\n    let n = s.size\\n    if (n >= width) {\\n        return s\\n    }\\n    var pad = \\\"\\\"\\n    var i = 0\\n    while (i < width - n) {\\n        pad += fill\\n        i++\\n    }\\n    return pad + s\\n}\\n\\nmain() {\\n    println(seatLabel(\\\"7\\\", 3, \\\"0\\\") == \\\"007\\\")\\n    println(seatLabel(\\\"ab\\\", 4, \\\"-\\\") == \\\"--ab\\\")\\n}\\n\"}",
+      "code": "func seatLabel(s: String, width: Int64, fill: String): String {\n    let n = s.size\n    if (n >= width) {\n        return s\n    }\n    var pad = \"\"\n    var i = 0\n    while (i < width - n) {\n        pad += fill\n        i++\n    }\n    return pad + s\n}\n\nmain() {\n    println(seatLabel(\"7\", 3, \"0\") == \"007\")\n    println(seatLabel(\"ab\", 4, \"-\") == \"--ab\")\n}\n",
+      "codeSha256": "a24c6d02bd13f776fbac4185c9bedbcaad8030962202c6613c6a4f9ff19fa6ad",
+      "finishedAt": "2026-11-27T03:50:09.388Z"
+    },
+    {
+      "caseId": "tag_depth",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "6aa0890787c05b477f9e4434ac368570586d922cd7e7d6741604aeb390b3bbe0",
+      "startedAt": "2026-11-27T03:50:09.393Z",
+      "status": "generated",
+      "costCNY": 0.005654,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0ffc62a6-b3d1-4304-83e1-c30b92ed79db",
+      "usage": {
+        "prompt_tokens": 2263,
+        "completion_tokens": 141,
+        "total_tokens": 2404,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 215
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func tagDepth(s: String, tag: String): Int64 {\\n    if (tag.isEmpty()) {\\n        return 0\\n    }\\n    var count: Int64 = 0\\n    var cur = s\\n    while (cur.endsWith(tag)) {\\n        count++\\n        cur = cur[0..(cur.size - tag.size)]\\n    }\\n    return count\\n}\\n\\nmain() {\\n    println(tagDepth(\\\"a.tmp.tmp\\\", \\\".tmp\\\") == 2)\\n    println(tagDepth(\\\"哈哈哈\\\", \\\"哈\\\") == 3)\\n}\\n\"}",
+      "code": "func tagDepth(s: String, tag: String): Int64 {\n    if (tag.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var cur = s\n    while (cur.endsWith(tag)) {\n        count++\n        cur = cur[0..(cur.size - tag.size)]\n    }\n    return count\n}\n\nmain() {\n    println(tagDepth(\"a.tmp.tmp\", \".tmp\") == 2)\n    println(tagDepth(\"哈哈哈\", \"哈\") == 3)\n}\n",
+      "codeSha256": "470e2959c110f7ed82b15b60531329f35fc4b9c8e20d044fcf2a04d36218cdfa",
+      "finishedAt": "2026-11-27T03:50:10.598Z"
+    },
+    {
+      "caseId": "tag_depth",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "0169dd4703d073873465bdd0587c40e1c52dff2ce14916a189d22fc4d4d5c596",
+      "startedAt": "2026-11-27T03:50:10.603Z",
+      "status": "generated",
+      "costCNY": 0.005574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a337ae26-f5b1-476a-ad5a-6d0ba6ed9d39",
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 135,
+        "total_tokens": 2382,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 199
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func tagDepth(s: String, tag: String): Int64 {\\n    if (tag.isEmpty()) {\\n        return 0\\n    }\\n    var count: Int64 = 0\\n    var cur = s\\n    while (cur.endsWith(tag)) {\\n        count++\\n        cur = cur.removeSuffix(tag)\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(tagDepth(\\\"a.tmp.tmp\\\", \\\".tmp\\\") == 2)\\n    println(tagDepth(\\\"哈哈哈\\\", \\\"哈\\\") == 3)\\n}\\n\"}",
+      "code": "func tagDepth(s: String, tag: String): Int64 {\n    if (tag.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var cur = s\n    while (cur.endsWith(tag)) {\n        count++\n        cur = cur.removeSuffix(tag)\n    }\n    count\n}\n\nmain() {\n    println(tagDepth(\"a.tmp.tmp\", \".tmp\") == 2)\n    println(tagDepth(\"哈哈哈\", \"哈\") == 3)\n}\n",
+      "codeSha256": "48198c3ec9deb76738601d0b6e14a3ea51e8a7db5a5d831f44fe83e6e0b54ce0",
+      "finishedAt": "2026-11-27T03:50:11.649Z"
+    },
+    {
+      "caseId": "shared_badges",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "a27b89583aaa43622ca71440a096c3afd87e90c8d5d0c6e5aafc4c3ba3b4f212",
+      "startedAt": "2026-11-27T03:50:11.654Z",
+      "status": "generated",
+      "costCNY": 0.0057,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e487794f-79f5-44af-b0ea-51e8cdf3685d",
+      "usage": {
+        "prompt_tokens": 2262,
+        "completion_tokens": 147,
+        "total_tokens": 2409,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 214
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\\n    let left = HashSet<Int64>(a)\\n    let right = HashSet<Int64>(b)\\n    var count: Int64 = 0\\n    for (x in left) {\\n        if (right.contains(x)) {\\n            count++\\n        }\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(sharedBadges([1,2,2],[2,3]) == 1)\\n    println(sharedBadges([7],[8]) == 0)\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\n    let left = HashSet<Int64>(a)\n    let right = HashSet<Int64>(b)\n    var count: Int64 = 0\n    for (x in left) {\n        if (right.contains(x)) {\n            count++\n        }\n    }\n    count\n}\n\nmain() {\n    println(sharedBadges([1,2,2],[2,3]) == 1)\n    println(sharedBadges([7],[8]) == 0)\n}\n",
+      "codeSha256": "77c5adc66cf0325de116d89532db25db8c7cc1a4a0e3b61e117b87c360b2ccde",
+      "finishedAt": "2026-11-27T03:50:12.777Z"
+    },
+    {
+      "caseId": "shared_badges",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "a27b89583aaa43622ca71440a096c3afd87e90c8d5d0c6e5aafc4c3ba3b4f212",
+      "startedAt": "2026-11-27T03:50:12.783Z",
+      "status": "generated",
+      "costCNY": 0.0057,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "02deeeb6-5722-42d8-8ca2-fb18af251a05",
+      "usage": {
+        "prompt_tokens": 2262,
+        "completion_tokens": 147,
+        "total_tokens": 2409,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 214
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\\n    let left = HashSet<Int64>(a)\\n    let right = HashSet<Int64>(b)\\n    var count: Int64 = 0\\n    for (x in left) {\\n        if (right.contains(x)) {\\n            count++\\n        }\\n    }\\n    count\\n}\\n\\nmain() {\\n    println(sharedBadges([1,2,2],[2,3]) == 1)\\n    println(sharedBadges([7],[8]) == 0)\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc sharedBadges(a: Array<Int64>, b: Array<Int64>): Int64 {\n    let left = HashSet<Int64>(a)\n    let right = HashSet<Int64>(b)\n    var count: Int64 = 0\n    for (x in left) {\n        if (right.contains(x)) {\n            count++\n        }\n    }\n    count\n}\n\nmain() {\n    println(sharedBadges([1,2,2],[2,3]) == 1)\n    println(sharedBadges([7],[8]) == 0)\n}\n",
+      "codeSha256": "77c5adc66cf0325de116d89532db25db8c7cc1a4a0e3b61e117b87c360b2ccde",
+      "finishedAt": "2026-11-27T03:50:13.633Z"
+    },
+    {
+      "caseId": "case_streak",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "a679bfb0075484f16025650ed74ee3a0513b6a0dc3c3723ebf996d9350c014a8",
+      "startedAt": "2026-11-27T03:50:13.637Z",
+      "status": "generated",
+      "costCNY": 0.006062,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a3668301-8e85-47f7-966d-ad93d324173f",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 191,
+        "total_tokens": 2458,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 219
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func longestRun(words: Array<String>): Int64 {\\n    var best: Int64 = 0\\n    var count: Int64 = 0\\n    var prev: String = \\\"\\\"\\n    var first: Bool = true\\n    for (word in words) {\\n        let cur = word.toAsciiLower()\\n        if (!first && cur == prev) {\\n            count += 1\\n        } else {\\n            count = 1\\n        }\\n        prev = cur\\n        first = false\\n        if (count > best) {\\n            best = count\\n        }\\n    }\\n    best\\n}\\n\\nmain() {\\n    println(longestRun([\\\"a\\\", \\\"A\\\", \\\"a\\\", \\\"b\\\"]) == 3)\\n    println(longestRun([\\\"X\\\", \\\"x\\\"]) == 2)\\n}\\n\"}",
+      "code": "func longestRun(words: Array<String>): Int64 {\n    var best: Int64 = 0\n    var count: Int64 = 0\n    var prev: String = \"\"\n    var first: Bool = true\n    for (word in words) {\n        let cur = word.toAsciiLower()\n        if (!first && cur == prev) {\n            count += 1\n        } else {\n            count = 1\n        }\n        prev = cur\n        first = false\n        if (count > best) {\n            best = count\n        }\n    }\n    best\n}\n\nmain() {\n    println(longestRun([\"a\", \"A\", \"a\", \"b\"]) == 3)\n    println(longestRun([\"X\", \"x\"]) == 2)\n}\n",
+      "codeSha256": "89e532bfee5fb219f4cd5378fe117c31c5d3ddea6e6f01af13ef0e4e6dcdeae2",
+      "finishedAt": "2026-11-27T03:50:14.652Z"
+    },
+    {
+      "caseId": "case_streak",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "a679bfb0075484f16025650ed74ee3a0513b6a0dc3c3723ebf996d9350c014a8",
+      "startedAt": "2026-11-27T03:50:14.657Z",
+      "status": "generated",
+      "costCNY": 0.006062,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8b343326-e46a-46bb-ba8a-5b5290cceca6",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 191,
+        "total_tokens": 2458,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 219
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func longestRun(words: Array<String>): Int64 {\\n    var best: Int64 = 0\\n    var count: Int64 = 0\\n    var prev: String = \\\"\\\"\\n    var first: Bool = true\\n    for (word in words) {\\n        let cur = word.toAsciiLower()\\n        if (!first && cur == prev) {\\n            count += 1\\n        } else {\\n            count = 1\\n        }\\n        prev = cur\\n        first = false\\n        if (count > best) {\\n            best = count\\n        }\\n    }\\n    best\\n}\\n\\nmain() {\\n    println(longestRun([\\\"a\\\", \\\"A\\\", \\\"a\\\", \\\"b\\\"]) == 3)\\n    println(longestRun([\\\"X\\\", \\\"x\\\"]) == 2)\\n}\\n\"}",
+      "code": "func longestRun(words: Array<String>): Int64 {\n    var best: Int64 = 0\n    var count: Int64 = 0\n    var prev: String = \"\"\n    var first: Bool = true\n    for (word in words) {\n        let cur = word.toAsciiLower()\n        if (!first && cur == prev) {\n            count += 1\n        } else {\n            count = 1\n        }\n        prev = cur\n        first = false\n        if (count > best) {\n            best = count\n        }\n    }\n    best\n}\n\nmain() {\n    println(longestRun([\"a\", \"A\", \"a\", \"b\"]) == 3)\n    println(longestRun([\"X\", \"x\"]) == 2)\n}\n",
+      "codeSha256": "89e532bfee5fb219f4cd5378fe117c31c5d3ddea6e6f01af13ef0e4e6dcdeae2",
+      "finishedAt": "2026-11-27T03:50:15.573Z"
+    },
+    {
+      "caseId": "partition_balance",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "cf8346fd754bbcaa2e88a4255829ae120c2e8dfc17aa7c96a95b8ac686ed8e77",
+      "startedAt": "2026-11-27T03:50:15.580Z",
+      "status": "generated",
+      "costCNY": 0.005702,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cd635d65-182c-4a24-b540-42d674939d25",
+      "usage": {
+        "prompt_tokens": 2331,
+        "completion_tokens": 130,
+        "total_tokens": 2461,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\\n    var sum: Int64 = 0\\n    for (i in 0..a.size) {\\n        if (i < mid) {\\n            sum += a[i]\\n        } else {\\n            sum -= a[i]\\n        }\\n    }\\n    sum\\n}\\n\\nmain() {\\n    println(partitionBalance([1, 2, 4], 1) == -5)\\n    println(partitionBalance([7], 0) == -7)\\n}\\n\"}",
+      "code": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\n    var sum: Int64 = 0\n    for (i in 0..a.size) {\n        if (i < mid) {\n            sum += a[i]\n        } else {\n            sum -= a[i]\n        }\n    }\n    sum\n}\n\nmain() {\n    println(partitionBalance([1, 2, 4], 1) == -5)\n    println(partitionBalance([7], 0) == -7)\n}\n",
+      "codeSha256": "03c5a13af129b21c9725ccc5df5085cdf2e8c14a077ea4df0461f1c908a9e03e",
+      "finishedAt": "2026-11-27T03:50:16.517Z"
+    },
+    {
+      "caseId": "partition_balance",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "cf8346fd754bbcaa2e88a4255829ae120c2e8dfc17aa7c96a95b8ac686ed8e77",
+      "startedAt": "2026-11-27T03:50:16.522Z",
+      "status": "generated",
+      "costCNY": 0.005702,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "37ea1963-d1ab-4df9-8d9e-014fa8cd8aca",
+      "usage": {
+        "prompt_tokens": 2331,
+        "completion_tokens": 130,
+        "total_tokens": 2461,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\\n    var sum: Int64 = 0\\n    for (i in 0..a.size) {\\n        if (i < mid) {\\n            sum += a[i]\\n        } else {\\n            sum -= a[i]\\n        }\\n    }\\n    sum\\n}\\n\\nmain() {\\n    println(partitionBalance([1, 2, 4], 1) == -5)\\n    println(partitionBalance([7], 0) == -7)\\n}\\n\"}",
+      "code": "func partitionBalance(a: Array<Int64>, mid: Int64): Int64 {\n    var sum: Int64 = 0\n    for (i in 0..a.size) {\n        if (i < mid) {\n            sum += a[i]\n        } else {\n            sum -= a[i]\n        }\n    }\n    sum\n}\n\nmain() {\n    println(partitionBalance([1, 2, 4], 1) == -5)\n    println(partitionBalance([7], 0) == -7)\n}\n",
+      "codeSha256": "03c5a13af129b21c9725ccc5df5085cdf2e8c14a077ea4df0461f1c908a9e03e",
+      "finishedAt": "2026-11-27T03:50:17.826Z"
+    },
+    {
+      "caseId": "last_reading",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "d508645964991439f78ebd675057f45b5e0f171a6d1395c8c733084eef65a5bb",
+      "startedAt": "2026-11-27T03:50:17.830Z",
+      "status": "generated",
+      "costCNY": 0.005808,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a6ca62a2-e1fa-4475-b717-d5d894ae0eff",
+      "usage": {
+        "prompt_tokens": 2268,
+        "completion_tokens": 159,
+        "total_tokens": 2427,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 220
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.convert.*\\n\\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\\n    var answer = fallback\\n    for (word in words) {\\n        try {\\n            let value = Int64.parse(word.trimAscii())\\n            if (value >= -999 && value <= 999) {\\n                answer = value\\n            }\\n        } catch (_: Exception) {\\n        }\\n    }\\n    answer\\n}\\n\\nmain() {\\n    println(lastReading([\\\"2\\\", \\\"bad\\\", \\\" 9 \\\"], 0) == 9)\\n    println(lastReading([\\\"1\\\", \\\"-4\\\"], 7) == -4)\\n}\\n\"}",
+      "code": "import std.convert.*\n\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\n    var answer = fallback\n    for (word in words) {\n        try {\n            let value = Int64.parse(word.trimAscii())\n            if (value >= -999 && value <= 999) {\n                answer = value\n            }\n        } catch (_: Exception) {\n        }\n    }\n    answer\n}\n\nmain() {\n    println(lastReading([\"2\", \"bad\", \" 9 \"], 0) == 9)\n    println(lastReading([\"1\", \"-4\"], 7) == -4)\n}\n",
+      "codeSha256": "44fe6149e21b9656328851413c178bd6a8f8e3598758b80489346e03cf1bac15",
+      "finishedAt": "2026-11-27T03:50:19.074Z"
+    },
+    {
+      "caseId": "last_reading",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "7a8d62917b6d34242ae9ca7d675199c8d443f7a08fab3fc4fe3843e682634327",
+      "startedAt": "2026-11-27T03:50:19.079Z",
+      "status": "generated",
+      "costCNY": 0.005668,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "33183139-2112-4045-9e49-6cffcfe049ac",
+      "usage": {
+        "prompt_tokens": 2198,
+        "completion_tokens": 159,
+        "total_tokens": 2357,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.convert.*\\n\\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\\n    var answer = fallback\\n    for (word in words) {\\n        try {\\n            let value = Int64.parse(word.trimAscii())\\n            if (value >= -999 && value <= 999) {\\n                answer = value\\n            }\\n        } catch (_: Exception) {\\n        }\\n    }\\n    answer\\n}\\n\\nmain() {\\n    println(lastReading([\\\"2\\\", \\\"bad\\\", \\\" 9 \\\"], 0) == 9)\\n    println(lastReading([\\\"1\\\", \\\"-4\\\"], 7) == -4)\\n}\\n\"}",
+      "code": "import std.convert.*\n\nfunc lastReading(words: Array<String>, fallback: Int64): Int64 {\n    var answer = fallback\n    for (word in words) {\n        try {\n            let value = Int64.parse(word.trimAscii())\n            if (value >= -999 && value <= 999) {\n                answer = value\n            }\n        } catch (_: Exception) {\n        }\n    }\n    answer\n}\n\nmain() {\n    println(lastReading([\"2\", \"bad\", \" 9 \"], 0) == 9)\n    println(lastReading([\"1\", \"-4\"], 7) == -4)\n}\n",
+      "codeSha256": "44fe6149e21b9656328851413c178bd6a8f8e3598758b80489346e03cf1bac15",
+      "finishedAt": "2026-11-27T03:50:20.455Z"
+    },
+    {
+      "caseId": "folded_votes",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "8e55ecc5381f16f4a876fa6f19201081a1e9baeab97316df828e5440cf47d913",
+      "startedAt": "2026-11-27T03:50:20.464Z",
+      "status": "generated",
+      "costCNY": 0.005202,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cc008c6c-444f-423c-9eab-9c8d2cca105d",
+      "usage": {
+        "prompt_tokens": 2041,
+        "completion_tokens": 140,
+        "total_tokens": 2181,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 249
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func agreeVotes(words: Array<String>, key: String): Int64 {\\n    let k = key.toAsciiLower()\\n    var n: Int64 = 0\\n    for (w in words) {\\n        if (w.toAsciiLower() == k) {\\n            n += 1\\n        }\\n    }\\n    n\\n}\\n\\nmain() {\\n    println(agreeVotes([\\\"Yes\\\", \\\" YES\\\", \\\"yes\\\"], \\\"YES\\\") == 2)\\n    println(agreeVotes([\\\"Aa\\\", \\\"aA\\\"], \\\"aa\\\") == 2)\\n}\\n\"}",
+      "code": "func agreeVotes(words: Array<String>, key: String): Int64 {\n    let k = key.toAsciiLower()\n    var n: Int64 = 0\n    for (w in words) {\n        if (w.toAsciiLower() == k) {\n            n += 1\n        }\n    }\n    n\n}\n\nmain() {\n    println(agreeVotes([\"Yes\", \" YES\", \"yes\"], \"YES\") == 2)\n    println(agreeVotes([\"Aa\", \"aA\"], \"aa\") == 2)\n}\n",
+      "codeSha256": "dbfb41a7be5b5760775d045ed50404d62ab76a0bbdda13c2193ba681b2063018",
+      "finishedAt": "2026-11-27T03:50:21.690Z"
+    },
+    {
+      "caseId": "folded_votes",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "5b7807dc39e143b566abbe28461e9f166e3d402ebc1b4bda44cec6fabee89731",
+      "startedAt": "2026-11-27T03:50:21.697Z",
+      "status": "generated",
+      "costCNY": 0.00659,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e7fdc9d8-43ca-4459-b38b-1ebed7ee0a55",
+      "usage": {
+        "prompt_tokens": 2075,
+        "completion_tokens": 305,
+        "total_tokens": 2380,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 155
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func agreeVotes(words: Array<String>, key: String): Int64 {\\n    var n: Int64 = 0\\n    for (w in words) {\\n        if (asciiEqualsIgnoreCase(w, key)) {\\n            n += 1\\n        }\\n    }\\n    return n\\n}\\n\\nfunc asciiEqualsIgnoreCase(a: String, b: String): Bool {\\n    let ra = a.toRuneArray()\\n    let rb = b.toRuneArray()\\n    if (ra.size != rb.size) {\\n        return false\\n    }\\n    var i: Int64 = 0\\n    while (i < ra.size) {\\n        if (asciiLower(ra[i]) != asciiLower(rb[i])) {\\n            return false\\n        }\\n        i += 1\\n    }\\n    return true\\n}\\n\\nfunc asciiLower(r: Rune): Rune {\\n    if (r >= r'A' && r <= r'Z') {\\n        return Rune(Int64(r) + 32)\\n    }\\n    return r\\n}\\n\\nmain() {\\n    println(agreeVotes([\\\"Yes\\\", \\\" YES\\\", \\\"yes\\\"], \\\"YES\\\") == 2)\\n    println(agreeVotes([\\\"Aa\\\", \\\"aA\\\"], \\\"aa\\\") == 2)\\n}\\n\"}",
+      "code": "func agreeVotes(words: Array<String>, key: String): Int64 {\n    var n: Int64 = 0\n    for (w in words) {\n        if (asciiEqualsIgnoreCase(w, key)) {\n            n += 1\n        }\n    }\n    return n\n}\n\nfunc asciiEqualsIgnoreCase(a: String, b: String): Bool {\n    let ra = a.toRuneArray()\n    let rb = b.toRuneArray()\n    if (ra.size != rb.size) {\n        return false\n    }\n    var i: Int64 = 0\n    while (i < ra.size) {\n        if (asciiLower(ra[i]) != asciiLower(rb[i])) {\n            return false\n        }\n        i += 1\n    }\n    return true\n}\n\nfunc asciiLower(r: Rune): Rune {\n    if (r >= r'A' && r <= r'Z') {\n        return Rune(Int64(r) + 32)\n    }\n    return r\n}\n\nmain() {\n    println(agreeVotes([\"Yes\", \" YES\", \"yes\"], \"YES\") == 2)\n    println(agreeVotes([\"Aa\", \"aA\"], \"aa\") == 2)\n}\n",
+      "codeSha256": "7fd69aad5d002ede25cb311b0a7081562bbcdbcf7be6710c146195492ea24d20",
+      "finishedAt": "2026-11-27T03:50:23.626Z"
+    },
+    {
+      "caseId": "middle_copy",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "561e0bcb54ea0dce76eb794ef6c687e031cc7bfd1a69dd81bfdcbc35f827bb44",
+      "startedAt": "2026-11-27T03:50:23.631Z",
+      "status": "generated",
+      "costCNY": 0.006372,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "85c35b75-d65f-406b-9979-2426ba6929c4",
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 246,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\\n    if (2 * n >= a.size) {\\n        return Array<Int64>()\\n    }\\n    return a.clone(n..(a.size - n))\\n}\\n\\nmain() {\\n    let x0 = [1, 2, 3, 4]\\n    let y0 = dropEnds(x0, 1)\\n    let ok0 = y0 == [2, 3]\\n    if (y0.size > 0) {\\n        y0[0] = 12345\\n    }\\n    println(ok0 && x0 == [1, 2, 3, 4])\\n    let x1 = [5]\\n    let y1 = dropEnds(x1, 0)\\n    let ok1 = y1 == [5]\\n    if (y1.size > 0) {\\n        y1[0] = 12345\\n    }\\n    println(ok1 && x1 == [5])\\n}\\n\"}",
+      "code": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\n    if (2 * n >= a.size) {\n        return Array<Int64>()\n    }\n    return a.clone(n..(a.size - n))\n}\n\nmain() {\n    let x0 = [1, 2, 3, 4]\n    let y0 = dropEnds(x0, 1)\n    let ok0 = y0 == [2, 3]\n    if (y0.size > 0) {\n        y0[0] = 12345\n    }\n    println(ok0 && x0 == [1, 2, 3, 4])\n    let x1 = [5]\n    let y1 = dropEnds(x1, 0)\n    let ok1 = y1 == [5]\n    if (y1.size > 0) {\n        y1[0] = 12345\n    }\n    println(ok1 && x1 == [5])\n}\n",
+      "codeSha256": "4ecd431a3bc5005ead9905a146a4922760e30546eb769b62240d5896edfac897",
+      "finishedAt": "2026-11-27T03:50:24.915Z"
+    },
+    {
+      "caseId": "middle_copy",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "561e0bcb54ea0dce76eb794ef6c687e031cc7bfd1a69dd81bfdcbc35f827bb44",
+      "startedAt": "2026-11-27T03:50:24.920Z",
+      "status": "generated",
+      "costCNY": 0.006372,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e51f699a-3f8c-48fb-9718-b67888a721e1",
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 246,
+        "total_tokens": 2448,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\\n    if (2 * n >= a.size) {\\n        return Array<Int64>()\\n    }\\n    return a.clone(n..(a.size - n))\\n}\\n\\nmain() {\\n    let x0 = [1, 2, 3, 4]\\n    let y0 = dropEnds(x0, 1)\\n    let ok0 = y0 == [2, 3]\\n    if (y0.size > 0) {\\n        y0[0] = 12345\\n    }\\n    println(ok0 && x0 == [1, 2, 3, 4])\\n    let x1 = [5]\\n    let y1 = dropEnds(x1, 0)\\n    let ok1 = y1 == [5]\\n    if (y1.size > 0) {\\n        y1[0] = 12345\\n    }\\n    println(ok1 && x1 == [5])\\n}\\n\"}",
+      "code": "func dropEnds(a: Array<Int64>, n: Int64): Array<Int64> {\n    if (2 * n >= a.size) {\n        return Array<Int64>()\n    }\n    return a.clone(n..(a.size - n))\n}\n\nmain() {\n    let x0 = [1, 2, 3, 4]\n    let y0 = dropEnds(x0, 1)\n    let ok0 = y0 == [2, 3]\n    if (y0.size > 0) {\n        y0[0] = 12345\n    }\n    println(ok0 && x0 == [1, 2, 3, 4])\n    let x1 = [5]\n    let y1 = dropEnds(x1, 0)\n    let ok1 = y1 == [5]\n    if (y1.size > 0) {\n        y1[0] = 12345\n    }\n    println(ok1 && x1 == [5])\n}\n",
+      "codeSha256": "4ecd431a3bc5005ead9905a146a4922760e30546eb769b62240d5896edfac897",
+      "finishedAt": "2026-11-27T03:50:26.557Z"
+    },
+    {
+      "caseId": "purge_window",
+      "repeat": 3,
+      "group": "B",
+      "requestSha256": "e81a4056a781d007d7797e080f7aa75c02dd6d7f5277d57c2427b8a39182040b",
+      "startedAt": "2026-11-27T03:50:26.563Z",
+      "status": "generated",
+      "costCNY": 0.005946,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7b5edc84-96e4-4c13-b7b1-edb95d462746",
+      "usage": {
+        "prompt_tokens": 1945,
+        "completion_tokens": 257,
+        "total_tokens": 2202,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 1792,
+        "prompt_cache_miss_tokens": 153
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\\n    if (lo > hi) {\\n        return 0\\n    }\\n    let before = a.size\\n    var i: Int64 = 0\\n    while (i < a.size) {\\n        if (a[i] >= lo && a[i] <= hi) {\\n            a.remove(at: i)\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return before - a.size\\n}\\n\\nmain() {\\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\\n    let removed0 = purgeWindow(lst0, 2, 3)\\n    println(removed0 == 3 && lst0.toArray() == [1])\\n    let lst1 = ArrayList<Int64>([0, 0])\\n    let removed1 = purgeWindow(lst1, 0, 0)\\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\n    if (lo > hi) {\n        return 0\n    }\n    let before = a.size\n    var i: Int64 = 0\n    while (i < a.size) {\n        if (a[i] >= lo && a[i] <= hi) {\n            a.remove(at: i)\n        } else {\n            i += 1\n        }\n    }\n    return before - a.size\n}\n\nmain() {\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\n    let removed0 = purgeWindow(lst0, 2, 3)\n    println(removed0 == 3 && lst0.toArray() == [1])\n    let lst1 = ArrayList<Int64>([0, 0])\n    let removed1 = purgeWindow(lst1, 0, 0)\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "aa5c226c33852b968561345bed821b82daf928c0161b8e58b1293a71d1269c38",
+      "finishedAt": "2026-11-27T03:50:28.275Z"
+    },
+    {
+      "caseId": "purge_window",
+      "repeat": 3,
+      "group": "F",
+      "requestSha256": "b900adebab64bef15ca42da7cd0e15d918b3d835007cb743c5832c00157b2749",
+      "startedAt": "2026-11-27T03:50:28.280Z",
+      "status": "generated",
+      "costCNY": 0.006254,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c27277c2-85f0-41eb-a7ef-1f87fe630db9",
+      "usage": {
+        "prompt_tokens": 2099,
+        "completion_tokens": 257,
+        "total_tokens": 2356,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 179
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\\n    let before = a.size\\n    if (lo > hi) {\\n        return 0\\n    }\\n    var i: Int64 = 0\\n    while (i < a.size) {\\n        if (a[i] >= lo && a[i] <= hi) {\\n            a.remove(at: i)\\n        } else {\\n            i += 1\\n        }\\n    }\\n    return before - a.size\\n}\\n\\nmain() {\\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\\n    let removed0 = purgeWindow(lst0, 2, 3)\\n    println(removed0 == 3 && lst0.toArray() == [1])\\n    let lst1 = ArrayList<Int64>([0, 0])\\n    let removed1 = purgeWindow(lst1, 0, 0)\\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\\n}\\n\"}",
+      "code": "import std.collection.*\nfunc purgeWindow(a: ArrayList<Int64>, lo: Int64, hi: Int64): Int64 {\n    let before = a.size\n    if (lo > hi) {\n        return 0\n    }\n    var i: Int64 = 0\n    while (i < a.size) {\n        if (a[i] >= lo && a[i] <= hi) {\n            a.remove(at: i)\n        } else {\n            i += 1\n        }\n    }\n    return before - a.size\n}\n\nmain() {\n    let lst0 = ArrayList<Int64>([1, 2, 2, 3])\n    let removed0 = purgeWindow(lst0, 2, 3)\n    println(removed0 == 3 && lst0.toArray() == [1])\n    let lst1 = ArrayList<Int64>([0, 0])\n    let removed1 = purgeWindow(lst1, 0, 0)\n    println(removed1 == 2 && lst1.toArray() == Array<Int64>())\n}\n",
+      "codeSha256": "ccfcb4a8d4d58f07164556bd91e73633fe81056fd0354c7364c4c065c78acbac",
+      "finishedAt": "2026-11-27T03:50:29.778Z"
+    }
+  ],
+  "finishedAt": "2026-11-27T03:50:29.786Z"
+}
