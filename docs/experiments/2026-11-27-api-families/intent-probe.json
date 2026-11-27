@@ -1,0 +1,297 @@
+{
+  "purpose": "exploratory contrast pairs, not repair outcomes",
+  "rows": [
+    {
+      "type": "ArrayDeque",
+      "contrast": "查看哪一端",
+      "source": "func pick(q: ArrayDeque<Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "队列中查看最早到达的那项，保持队列不变。",
+          "method": "first",
+          "gold": "collections-28",
+          "natural": [
+            "collections-106",
+            "collections-114",
+            "collections-138"
+          ],
+          "named": [
+            "collections-138",
+            "collections-28",
+            "collections-82"
+          ],
+          "naturalPosition": 10,
+          "namedPosition": 2
+        },
+        {
+          "query": "队列中查看最后到达的那项，保持队列不变。",
+          "method": "last",
+          "gold": "collections-38",
+          "natural": [
+            "collections-106",
+            "collections-114",
+            "collections-138"
+          ],
+          "named": [
+            "collections-150",
+            "collections-38",
+            "collections-94"
+          ],
+          "naturalPosition": 11,
+          "namedPosition": 2
+        }
+      ]
+    },
+    {
+      "type": "ArrayDeque",
+      "contrast": "移走哪一端",
+      "source": "func pick(q: ArrayDeque<Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "从队列头部取走一项，并返回这项。",
+          "method": "removeFirst",
+          "gold": "collections-138",
+          "natural": [
+            "collections-82",
+            "collections-138",
+            "collections-28"
+          ],
+          "named": [
+            "collections-138",
+            "collections-82",
+            "collections-28"
+          ],
+          "naturalPosition": 2,
+          "namedPosition": 1
+        },
+        {
+          "query": "从队列尾部取走一项，并返回这项。",
+          "method": "removeLast",
+          "gold": "collections-150",
+          "natural": [
+            "collections-94",
+            "collections-150",
+            "collections-38"
+          ],
+          "named": [
+            "collections-150",
+            "collections-94",
+            "collections-38"
+          ],
+          "naturalPosition": 2,
+          "namedPosition": 1
+        }
+      ]
+    },
+    {
+      "type": "ArrayStack",
+      "contrast": "查看或弹出",
+      "source": "func pick(q: ArrayStack<Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "查看最上面一项，保留这项记录。",
+          "method": "peek",
+          "gold": "collections-1189",
+          "natural": [
+            "collections-1189",
+            "collections-1101",
+            "collections-1111"
+          ],
+          "named": [
+            "collections-1189",
+            "collections-1101",
+            "collections-1111"
+          ],
+          "naturalPosition": 1,
+          "namedPosition": 1
+        },
+        {
+          "query": "取走最上面一项，返回这项记录。",
+          "method": "remove",
+          "gold": "collections-1201",
+          "natural": [
+            "collections-1201",
+            "collections-1177",
+            "collections-1189"
+          ],
+          "named": [
+            "collections-1201",
+            "collections-1177",
+            "collections-1189"
+          ],
+          "naturalPosition": 1,
+          "namedPosition": 1
+        }
+      ]
+    },
+    {
+      "type": "TreeMap",
+      "contrast": "向上或向下遍历",
+      "source": "func pick(q: TreeMap<Int64, Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "按键从门槛起往大的方向逐个读取。",
+          "method": "forward",
+          "gold": "collections-2989",
+          "natural": [
+            "collections-3034",
+            "collections-2788",
+            "collections-2800"
+          ],
+          "named": [
+            "collections-2989",
+            "collections-3034",
+            "collections-2788"
+          ],
+          "naturalPosition": 17,
+          "namedPosition": 1
+        },
+        {
+          "query": "按键从门槛起往小的方向逐个读取。",
+          "method": "backward",
+          "gold": "collections-2904",
+          "natural": [
+            "collections-2788",
+            "collections-2800",
+            "collections-2812"
+          ],
+          "named": [
+            "collections-2904",
+            "collections-2788",
+            "collections-2800"
+          ],
+          "naturalPosition": 10,
+          "namedPosition": 1
+        }
+      ]
+    },
+    {
+      "type": "TreeMap",
+      "contrast": "取掉哪一端",
+      "source": "func pick(q: TreeMap<Int64, Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "取走键最小的一项并返回键值对。",
+          "method": "removeFirst",
+          "gold": "collections-3058",
+          "natural": [
+            "collections-2812",
+            "collections-2830",
+            "collections-2844"
+          ],
+          "named": [
+            "collections-3058",
+            "collections-2788",
+            "collections-3110"
+          ],
+          "naturalPosition": 25,
+          "namedPosition": 1
+        },
+        {
+          "query": "取走键最大的一项并返回键值对。",
+          "method": "removeLast",
+          "gold": "collections-3070",
+          "natural": [
+            "collections-2812",
+            "collections-3034",
+            "collections-2830"
+          ],
+          "named": [
+            "collections-3070",
+            "collections-2800",
+            "collections-3110"
+          ],
+          "naturalPosition": 26,
+          "namedPosition": 1
+        }
+      ]
+    },
+    {
+      "type": "TreeSet",
+      "contrast": "向上或向下遍历",
+      "source": "func pick(q: TreeSet<Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "从给定分数往高分逐个枚举成员。",
+          "method": "forward",
+          "gold": "collections-3451",
+          "natural": [
+            "collections-3263",
+            "collections-3273",
+            "collections-3283"
+          ],
+          "named": [
+            "collections-3451",
+            "collections-3263",
+            "collections-3273"
+          ],
+          "naturalPosition": 15,
+          "namedPosition": 1
+        },
+        {
+          "query": "从给定分数往低分逐个枚举成员。",
+          "method": "backward",
+          "gold": "collections-3382",
+          "natural": [
+            "collections-3263",
+            "collections-3273",
+            "collections-3283"
+          ],
+          "named": [
+            "collections-3382",
+            "collections-3263",
+            "collections-3273"
+          ],
+          "naturalPosition": 10,
+          "namedPosition": 1
+        }
+      ]
+    },
+    {
+      "type": "TreeSet",
+      "contrast": "取掉哪一端",
+      "source": "func pick(q: TreeSet<Int64>): Int64 { q.size }",
+      "descriptions": [
+        {
+          "query": "取走最小的成员并返回。",
+          "method": "removeFirst",
+          "gold": "collections-3492",
+          "natural": [
+            "collections-3263",
+            "collections-3273",
+            "collections-3283"
+          ],
+          "named": [
+            "collections-3492",
+            "collections-3263",
+            "collections-3504"
+          ],
+          "naturalPosition": 22,
+          "namedPosition": 1
+        },
+        {
+          "query": "取走最大的成员并返回。",
+          "method": "removeLast",
+          "gold": "collections-3504",
+          "natural": [
+            "collections-3480",
+            "collections-3263",
+            "collections-3273"
+          ],
+          "named": [
+            "collections-3504",
+            "collections-3273",
+            "collections-3492"
+          ],
+          "naturalPosition": 23,
+          "namedPosition": 1
+        }
+      ]
+    }
+  ],
+  "naturalHit1": 2,
+  "namedHit1": 12,
+  "naturalBoth": 1,
+  "sameNaturalFirst": 3,
+  "namedBoth": 6
+}

@@ -1,0 +1,515 @@
+{
+  "designSha256": "4d4ae774b1d41cf438759c4a9eb06d004be4ba9d4fc9b86fec3f4ba2ca9a7ae6",
+  "verifiedSha256": "7fe8a0eeddb8539f9dd687777bcd3218e59f427fc13df263fa52f1715ad8b201",
+  "retrieval": {
+    "B": {
+      "hit1": 1,
+      "hit3": 4,
+      "preferred": 1,
+      "ownerHit": 10
+    },
+    "F": {
+      "hit1": 1,
+      "hit3": 3,
+      "preferred": 1,
+      "ownerHit": 7
+    },
+    "T": {
+      "hit1": 1,
+      "hit3": 5,
+      "preferred": 1,
+      "ownerHit": 11
+    }
+  },
+  "rows": [
+    {
+      "id": "front_run",
+      "family": "ArrayDeque",
+      "detected": "ArrayDeque",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "ArrayDeque.func toArray()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "F": {
+          "first": "ArrayDeque.func toArray()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "ArrayDeque.func toArray()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    },
+    {
+      "id": "priority_insert",
+      "family": "ArrayDeque",
+      "detected": "ArrayDeque",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "ArrayDeque.func addLast(T)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "F": {
+          "first": "ArrayDeque.func toArray()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "T": {
+          "first": "ArrayDeque.func toArray()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    },
+    {
+      "id": "previous_tail",
+      "family": "ArrayDeque",
+      "detected": "ArrayDeque",
+      "changed": true,
+      "retrieval": {
+        "B": {
+          "first": "ArrayQueue.func peek()",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "ArrayDeque.func removeFirst()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 0,
+        "T": 0
+      }
+    },
+    {
+      "id": "inspect_top",
+      "family": "ArrayStack",
+      "detected": "ArrayStack",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "F": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        },
+        "T": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": true,
+          "hit1": true,
+          "hit3": true
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    },
+    {
+      "id": "pop_budget",
+      "family": "ArrayStack",
+      "detected": "ArrayStack",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "F": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        },
+        "T": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    },
+    {
+      "id": "read_depth",
+      "family": "ArrayStack",
+      "detected": "ArrayStack",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "ArrayStack.func peek()",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 0,
+        "T": 0
+      }
+    },
+    {
+      "id": "later_value",
+      "family": "TreeMap",
+      "detected": "TreeMap",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    },
+    {
+      "id": "take_earliest",
+      "family": "TreeMap",
+      "detected": "TreeMap",
+      "changed": true,
+      "retrieval": {
+        "B": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "HashMap.func remove(Collection\\<K>)",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 0
+      }
+    },
+    {
+      "id": "floor_key",
+      "family": "TreeMap",
+      "detected": "TreeMap",
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "TreeMap.func remove(K)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 0,
+        "T": 0
+      }
+    },
+    {
+      "id": "strict_lower",
+      "family": "TreeSet",
+      "detected": "TreeSet",
+      "changed": true,
+      "retrieval": {
+        "B": {
+          "first": "TreeSet.init(Collection\\<T>)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "HashSet.func reserve(Int64)",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "TreeSet.func add(Collection\\<T>)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 0,
+        "T": 0
+      }
+    },
+    {
+      "id": "cut_below",
+      "family": "TreeSet",
+      "detected": "TreeSet",
+      "changed": true,
+      "retrieval": {
+        "B": {
+          "first": "LinkedList.func removeIf((T)-> Bool)",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "HashSet.func remove(Collection\\<T>)",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "TreeSet.func remove(Collection\\<T>)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": true
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    },
+    {
+      "id": "upper_distance",
+      "family": "TreeSet",
+      "detected": null,
+      "changed": false,
+      "retrieval": {
+        "B": {
+          "first": "TreeSet.init(Collection\\<T>)",
+          "ownerHit": true,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "F": {
+          "first": "ArrayList.init(Collection\\<T>)",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        },
+        "T": {
+          "first": "ArrayList.init(Collection\\<T>)",
+          "ownerHit": false,
+          "preferred": false,
+          "hit1": false,
+          "hit3": false
+        }
+      },
+      "passed": {
+        "F": 2,
+        "T": 2
+      }
+    }
+  ],
+  "families": {
+    "ArrayDeque": {
+      "cases": 3,
+      "perArm": 6,
+      "passed": {
+        "F": 4,
+        "T": 4
+      },
+      "differencePoints": 0
+    },
+    "ArrayStack": {
+      "cases": 3,
+      "perArm": 6,
+      "passed": {
+        "F": 4,
+        "T": 4
+      },
+      "differencePoints": 0
+    },
+    "TreeMap": {
+      "cases": 3,
+      "perArm": 6,
+      "passed": {
+        "F": 4,
+        "T": 2
+      },
+      "differencePoints": -33.333333333333336
+    },
+    "TreeSet": {
+      "cases": 3,
+      "perArm": 6,
+      "passed": {
+        "F": 4,
+        "T": 4
+      },
+      "differencePoints": 0
+    }
+  },
+  "overall": {
+    "cases": 12,
+    "perArm": 24,
+    "passed": {
+      "F": 16,
+      "T": 14
+    },
+    "differencePoints": -8.333333333333334
+  },
+  "slices": {
+    "same": {
+      "cases": 8,
+      "perArm": 16,
+      "passed": {
+        "F": 12,
+        "T": 12
+      },
+      "differencePoints": 0
+    },
+    "changed": {
+      "cases": 4,
+      "perArm": 8,
+      "passed": {
+        "F": 4,
+        "T": 2
+      },
+      "differencePoints": -25
+    }
+  },
+  "clusterPercentile95": [
+    -25,
+    0
+  ],
+  "statuses": {
+    "F": {
+      "passed": 16,
+      "holdout_failed": 4,
+      "compile_failed": 2,
+      "test_failed": 2
+    },
+    "T": {
+      "passed": 14,
+      "holdout_failed": 4,
+      "compile_failed": 4,
+      "test_failed": 2
+    }
+  },
+  "materialReports": 48,
+  "scoreReports": 86,
+  "tokens": {
+    "input": 93400,
+    "output": 11964
+  },
+  "costCNY": 0.282512,
+  "cumulativeEstimatedCNY": 3.472668
+}
