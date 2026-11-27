@@ -518,3 +518,6 @@
 
 ## 第八十三轮　补充可区分的公开例子
 首版材料 19d9c08f86acc71bc24fa8c1edce40c5c0042c8e 已核对双仓；[首次材料验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942225766) 通过，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942214938)。本节归档该版本并记录书签公开样例修订。
+
+## 第八十四轮　实验输入锁定
+公开例子修订 aac7ad6d4cafdeed77b86f0e81703a1097685930 由双仓核对，[材料复验](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942634542) 成功，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45942632129)。本节提交锁定实际模型请求。
