@@ -568,3 +568,6 @@
 
 ## 第九十九轮　模型候选与盲审
 请求冻结 e566d6d553620b2e5471a0813d2395f316fabeb6 于北京时间 13:21:01 提交，两端分支已核对，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46111717018)。本节锁定原始回答与盲审判定。
+
+## 第一百轮　补充压力测试
+候选 703885b317cb25d5a52c64565b7050d859034703 已核对两端后启动[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46112206477)。本节在评分结果归档前锁定改述，只改变选文档所见指令。
