@@ -562,3 +562,6 @@
 预登记 cd531fb872066d15e6b91dfc45ddcb32d9b2ab25 已同步 GitCode 和 GitHub。此后才生成新题和测试。
 
 108025535ab9a46e8eb59bf0448428d1d8fcf0a2 已推送两端。正向越界补充实际在本次更正提交生效，进入材料验收前已复核。
+
+## 第九十八轮　冻结生成输入
+材料更正 e32f5852538d5453f129c8d81e4689df7011336f 已在两平台核对，[32 题验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46111212853) 成功。预登记的选择规则原样用于冻结请求。

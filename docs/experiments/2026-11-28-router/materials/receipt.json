@@ -1,0 +1,1229 @@
+{
+  "phase": "materials",
+  "image": "sha256:9dd62d541ef42af438b9223c1520019f928e5f90bdf42da887fb84abdc6bd893",
+  "commit": "e32f5852538d5453f129c8d81e4689df7011336f",
+  "startedAt": "2026-11-28T05:15:56.123Z",
+  "rows": [
+    {
+      "caseId": "seek_left_mark",
+      "initial": {
+        "caseId": "seek_left_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "4943001b54776226eeba2f2e8a174b51",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "4943001b54776226eeba2f2e8a174b51",
+        "303fb4759b440dbaeacc5a3a29635936",
+        "4ab6c581d893ccb15631bf940c46a001",
+        "97766f8c9fc0d3cc64f7bc00345b4669"
+      ]
+    },
+    {
+      "caseId": "seek_left_all",
+      "initial": {
+        "caseId": "seek_left_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "6b8c01e01bc8255880abb0cc8606d76e",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "6b8c01e01bc8255880abb0cc8606d76e",
+        "a31420ab6142dc13e5e4c23a0bed7616",
+        "499e0f4867781356e177554a17ad27da",
+        "952005eb95b0cfb2562e7e241313a5fd"
+      ]
+    },
+    {
+      "caseId": "seek_right_mark",
+      "initial": {
+        "caseId": "seek_right_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "0e09f87cf6d9309121c5965c3340b535",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "0e09f87cf6d9309121c5965c3340b535",
+        "656eed86f60aaf6ce9c04671933201bc",
+        "c970d882ec40e1b0ac2e13e5a213d369",
+        "b67e78b38ab6a3fb9d5710adf7a90b4a"
+      ]
+    },
+    {
+      "caseId": "seek_right_all",
+      "initial": {
+        "caseId": "seek_right_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "820dd7ae8874e3993b516f97206fd519",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "820dd7ae8874e3993b516f97206fd519",
+        "65502e431a7fab1d602940dff3bfb4a2",
+        "340d67b076fd10e330a2907ebfc1b667",
+        "654f631c58ebe48e02978446fe277587"
+      ]
+    },
+    {
+      "caseId": "twin_left_mark",
+      "initial": {
+        "caseId": "twin_left_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "48d23bf22edeb9bbdbef4a4907d1b255",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "48d23bf22edeb9bbdbef4a4907d1b255",
+        "18effb9d7e5cda0bcaafc890c99b44dd",
+        "7debfb3394b4f524588327128c9b6274",
+        "aa5dab254137cf0848dad10045d6460c"
+      ]
+    },
+    {
+      "caseId": "twin_left_all",
+      "initial": {
+        "caseId": "twin_left_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "c55f07ec31256a184849a5a6418a94f6",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "c55f07ec31256a184849a5a6418a94f6",
+        "ed60a864f058bbcd34bb1bb56081235a",
+        "82df50d47df5cba7759c5c1ad638254c",
+        "c595a4fe47d356985ed1e79e877c8e3b"
+      ]
+    },
+    {
+      "caseId": "twin_right_mark",
+      "initial": {
+        "caseId": "twin_right_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "f5bccb6829c06317a481e53f88a28699",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "f5bccb6829c06317a481e53f88a28699",
+        "ff800ef57c6ab0a95ce61f8f7d3ca046",
+        "a0a4f07713379377300e9d685cb46f1a",
+        "dd76d5ac0deaa5f978c1f88b4ba733cd"
+      ]
+    },
+    {
+      "caseId": "twin_right_all",
+      "initial": {
+        "caseId": "twin_right_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "bbdfd98ce49b79395c35580a06f00d0d",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "bbdfd98ce49b79395c35580a06f00d0d",
+        "4d8104eec70e938929b5caf094e3d416",
+        "56a2dca4fff1bfca1f2c4c869b42ea9a",
+        "102e388a82830a6e699b720c2b5077c8"
+      ]
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "initial": {
+        "caseId": "alternating_left_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "f0f85edaffd3069089e86807a91d7cd8",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "f0f85edaffd3069089e86807a91d7cd8",
+        "f582913bb604eeff123a74aa396db882",
+        "e768f319632ed7d10e89ca8dbb2c9d5e",
+        "9500608574a9b8eb54def0edc07b8322"
+      ]
+    },
+    {
+      "caseId": "alternating_left_all",
+      "initial": {
+        "caseId": "alternating_left_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "4d5fb0933aab33a04714199ecbede08d",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "4d5fb0933aab33a04714199ecbede08d",
+        "4be19375fcdb971443af9600794ee150",
+        "974badca4fdcb044ce08a6ed9ed7810c",
+        "a6fa24c273d05baed41bd40c457d5c90"
+      ]
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "initial": {
+        "caseId": "alternating_right_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "3bf3766773950aac4bf57652f51bd9c1",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "3bf3766773950aac4bf57652f51bd9c1",
+        "6b536e88a161b008520108e06aed689b",
+        "31608b1fd0223d5737aaeb9d6f7883eb",
+        "f4cb34b277638287cf37f8a66219234c"
+      ]
+    },
+    {
+      "caseId": "alternating_right_all",
+      "initial": {
+        "caseId": "alternating_right_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 65
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "b39d65a556ba85e15bb442d908c68d8a",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "b39d65a556ba85e15bb442d908c68d8a",
+        "7c599a4b740d0093c5a8b8aea242727e",
+        "437b5d2e7b945fde47fc0fa474518d95",
+        "f8909edb6ff94897267da5e048aa4eaa"
+      ]
+    },
+    {
+      "caseId": "paint_left_mark",
+      "initial": {
+        "caseId": "paint_left_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "7f56a50a653e68b4f3b1bd7859dd6366",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "7f56a50a653e68b4f3b1bd7859dd6366",
+        "930d1c610135049557c9c81f191dd4c5",
+        "c5b35f53977ecf056a1f52b2400e12de",
+        "8567120518d8886a51e9ea1b5e2f7110"
+      ]
+    },
+    {
+      "caseId": "paint_left_all",
+      "initial": {
+        "caseId": "paint_left_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "bc364af2c983b00f3bdd79fa05292857",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "bc364af2c983b00f3bdd79fa05292857",
+        "7e4fb0de4ea46cb0c35281440efc32c5",
+        "d064c778198f1ec0216bc28879546aaf",
+        "3e7a5effa8d2235f494dfb9aa739136c"
+      ]
+    },
+    {
+      "caseId": "paint_right_mark",
+      "initial": {
+        "caseId": "paint_right_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "64f4aa315ec6f3ea4d1c35b8c02eee21",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "64f4aa315ec6f3ea4d1c35b8c02eee21",
+        "4562dfafcdfd537b1942f661d7f7d9b8",
+        "4d4b1dde06990e269e31cb354496cf2c",
+        "644b90aa32e40b7ca94fd06161cb2b74"
+      ]
+    },
+    {
+      "caseId": "paint_right_all",
+      "initial": {
+        "caseId": "paint_right_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "661cae0e729b708cbc27992dd077836c",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "661cae0e729b708cbc27992dd077836c",
+        "223aff725a5a3b8ca7b1f1eab101c4f9",
+        "acfd8c7e86adf2a8d47f838c663fb7cd",
+        "9cfe0ad3f91a1ad4cdb919fcdc92df82"
+      ]
+    },
+    {
+      "caseId": "invert_left_mark",
+      "initial": {
+        "caseId": "invert_left_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "3cb036199646b60c8d60a4a7b6d50598",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "3cb036199646b60c8d60a4a7b6d50598",
+        "67b814039764db7b3a81e651f208892a",
+        "7a138489b4d593ed8ddb9922bbdb5dac",
+        "6f0a0d5639861b89eeac76685c3dd510"
+      ]
+    },
+    {
+      "caseId": "invert_left_all",
+      "initial": {
+        "caseId": "invert_left_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "1bd1cc01edd41d782c914f21be6efb5b",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "1bd1cc01edd41d782c914f21be6efb5b",
+        "4c1c4bd6c3c16c0fecb1fcbc085a534c",
+        "da5075cbc5cce2d2cf06969b34df05fb",
+        "73cbed11df4bcdf5d4b06b574e1f2d64"
+      ]
+    },
+    {
+      "caseId": "invert_right_mark",
+      "initial": {
+        "caseId": "invert_right_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "43ad21a7ea86776b9128ab370141bb71",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "43ad21a7ea86776b9128ab370141bb71",
+        "c20d689c858311ffe5188aafce27a280",
+        "824c7317ff4e48d3055468ca7f46bfad",
+        "29f0155cd7ff5a2a7ea7573a05813c1e"
+      ]
+    },
+    {
+      "caseId": "invert_right_all",
+      "initial": {
+        "caseId": "invert_right_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "e7b2f80917b613bc3c0f68d893058228",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "e7b2f80917b613bc3c0f68d893058228",
+        "3058e2b3021edad351c535d1756de5a9",
+        "3f53ac5c53970ba512e0289633591c51",
+        "f9ff994f0328a72dfed8753f5115f13a"
+      ]
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "initial": {
+        "caseId": "stamp_left_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "e653f32b0155e40e752f87b2efd40211",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "e653f32b0155e40e752f87b2efd40211",
+        "cd6c242da40477ddf17d033b7a051bc5",
+        "2c9ec82e378e90f6a7078020ad0669f6",
+        "485d4260a1708167777388b62d09f38b"
+      ]
+    },
+    {
+      "caseId": "stamp_left_all",
+      "initial": {
+        "caseId": "stamp_left_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "5be83d14e0ab15bcf9fd80c58972e829",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "5be83d14e0ab15bcf9fd80c58972e829",
+        "2f891e00d7c10ad7a8966d3e939e1759",
+        "d41a58861f77d67cfb925d1359948344",
+        "a556a1b4c442bcb0d3b03d13bc33983f"
+      ]
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "initial": {
+        "caseId": "stamp_right_mark",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "183d22e903c8d2c00d66802c19fdb366",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "183d22e903c8d2c00d66802c19fdb366",
+        "49111ed79e7e03ee32e8caed77725758",
+        "0c2215035fef87a0ca7b3dab00cff01d",
+        "0ecde4f8f3de87a814fec859180e1163"
+      ]
+    },
+    {
+      "caseId": "stamp_right_all",
+      "initial": {
+        "caseId": "stamp_right_all",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'offset'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 35
+          },
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'t'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 50
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "08c1f3065348b6bc22c2fd2df35d3edc",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 11,
+      "reportIds": [
+        "08c1f3065348b6bc22c2fd2df35d3edc",
+        "6c33490365bfe9afd10b0a55b3f2ad90",
+        "c92187709ebcf22ae42557b78aaf740b",
+        "5af5b7b94d8857399680faaff31b7535"
+      ]
+    },
+    {
+      "caseId": "neighbor_left",
+      "initial": {
+        "caseId": "neighbor_left",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'cursor'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 32
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "bd32903aadd741c4f107920ab8cb64f6",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "bd32903aadd741c4f107920ab8cb64f6",
+        "26e6e30db63cc47e282dcb5110a09f73",
+        "a78a65cb2701d03594ef3a7570478089",
+        "ff589570b98c59f78ddc6e7dabd6e855"
+      ]
+    },
+    {
+      "caseId": "weighted_right",
+      "initial": {
+        "caseId": "weighted_right",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'cursor'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 32
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "efb7aef6f20cbb493911d0cbfbd12a6e",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "efb7aef6f20cbb493911d0cbfbd12a6e",
+        "d5cd060e3d623ac485d6f809f7167549",
+        "85e05271ed62d237b36e29860d8f933c",
+        "ce7267873b89b6a0615d36ce4dbc4d9e"
+      ]
+    },
+    {
+      "caseId": "update_left",
+      "initial": {
+        "caseId": "update_left",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'cursor'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 32
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "2e3d6565a795a7f138049f3883365197",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "2e3d6565a795a7f138049f3883365197",
+        "9eac9d221bbdf6aed674f8d250335df0",
+        "f5916dbe8da8d292f30a9b4c80e596c7",
+        "e043c6cc5469f76b7fbafb2ad8ae0a52"
+      ]
+    },
+    {
+      "caseId": "insert_right",
+      "initial": {
+        "caseId": "insert_right",
+        "status": "test_failed",
+        "diagnostics": [
+          {
+            "code": "chir_dce_unused_variable",
+            "severity": "warning",
+            "message": "unused variable:'cursor'",
+            "hint": "unused variable",
+            "file": "/input/input.cj",
+            "line": 3,
+            "column": 32
+          }
+        ],
+        "tests": [
+          {
+            "id": "examples",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "d86afe41b8a5ab5cb8e71eb69dfd2088",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "d86afe41b8a5ab5cb8e71eb69dfd2088",
+        "12f299c631e9dacba891f8eb436b2bf2",
+        "f2fcac6113cf052dc4da7687a5e25022",
+        "7a1f32f27e8e983832ad1cae2f41c992"
+      ]
+    },
+    {
+      "caseId": "bookmark_a",
+      "initial": {
+        "caseId": "bookmark_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "05701041e4bf2e0f0fe786826287a260",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "05701041e4bf2e0f0fe786826287a260",
+        "abdf888eae641b8dff1edbf017db3660",
+        "e4330d6bc02b85b23a7c926c40ab2085",
+        "438738aa81cc0b012c3a494252c1180c"
+      ]
+    },
+    {
+      "caseId": "bookmark_b",
+      "initial": {
+        "caseId": "bookmark_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "f128201dfe1eefe34ebfa5996e2d1743",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "f128201dfe1eefe34ebfa5996e2d1743",
+        "f99a2a251cf2f7bd0aca76b374287c97",
+        "fef38af979a26a1cd0ae65e9e49ff412",
+        "497e006d188dd17683ca3dc76b25c921"
+      ]
+    },
+    {
+      "caseId": "weighted_a",
+      "initial": {
+        "caseId": "weighted_a",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "3eed94b08a8e480b10fabdcc0f00f058",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "3eed94b08a8e480b10fabdcc0f00f058",
+        "9347614bcdb4888c607d4736dabc07fa",
+        "e98a47a5fefd87e4b48637760062d160",
+        "e769121869acd1e7f03657bb9999f10e"
+      ]
+    },
+    {
+      "caseId": "weighted_b",
+      "initial": {
+        "caseId": "weighted_b",
+        "status": "test_failed",
+        "diagnostics": [],
+        "tests": [
+          {
+            "id": "public",
+            "status": "failed",
+            "stdout": "false\nfalse\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "initialId": "3459c7c417a8aad9bd3311576edd594b",
+      "referencePublic": "passed",
+      "referenceHoldout": "passed",
+      "originalHoldout": "test_failed",
+      "assertions": 10,
+      "reportIds": [
+        "3459c7c417a8aad9bd3311576edd594b",
+        "6bb294d0466174237cc545650e637a71",
+        "485a0d51734ef3f7b86877e1e97411ef",
+        "65629f75f54ec2c4f171c734fcb22fea"
+      ]
+    }
+  ],
+  "transferSha256": "b1a3cb33ccc324c09b3fc56763aba82c8ed623d8b32dc6b18c8e45bdbe547674",
+  "holdoutSha256": "97db5cdeaf1613834111398fe689904648e3b3729b947537185d2640f26b6c6a",
+  "accepted": true,
+  "finishedAt": "2026-11-28T05:20:21.129Z",
+  "reports": 128
+}
