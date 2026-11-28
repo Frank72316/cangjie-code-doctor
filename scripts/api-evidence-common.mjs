@@ -8,6 +8,7 @@ const studies = {
   ranking:{folder:'2026-11-27-api-ranking', count:72, cap:5, generation:'api-ranking'},
   families:{folder:'2026-11-27-api-families', count:48, cap:4, generation:'api-families'},
   operation:{folder:'2026-11-27-operation', count:72, cap:5, generation:'api-operation'},
+  review:{folder:'2026-11-28-review', count:96, cap:5, generation:'api-review'},
   router:{folder:'2026-11-28-router', count:192, cap:10, generation:'api-router'},
   node:{folder:'2026-11-28-node', count:64, cap:4, generation:'api-node'},
   wording:{folder:'2026-11-27-wording', count:144, cap:8, generation:'api-wording', materials:'2026-11-27-operation'},

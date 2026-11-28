@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {read,unseal,transferPrivate,transferOnlyStudy,conditionCount} from './api-evidence-common.mjs';
+import {read,setting,unseal,transferPrivate,transferOnlyStudy,conditionCount} from './api-evidence-common.mjs';
 import {challengeCatalog,privateChallenge} from './challenge-data.mjs';
 import {sha,candidate} from './pilot-common.mjs';
 import {usageCost} from './pilot-generate.mjs';
@@ -25,10 +25,13 @@ function evidence(phase){
  return {receipt,take,finish:()=>assert.equal(reports.size,0)};
 }
 const materials=evidence('materials');
+assert.ok(materials.receipt.accepted);
+const starters=setting.generation==='api-review' ? read('starters') : null;
 assert.equal(materials.receipt.transferSha256,sha(fresh));assert.equal(materials.receipt.holdoutSha256,read('transfer.enc').sha256);
 for(const [i,c] of fresh.entries()){
  const h=newPrivate.find(x=>x.id===c.id),row=materials.receipt.rows[i];assert.equal(row.caseId,c.id);
- const checks=[[c.source.text,c.publicTests,'test_failed'],[h.reference,c.publicTests,'passed'],[harnessSource(h.reference,h.harness),hiddenTests(h),'passed'],[harnessSource(c.source.text,h.harness),hiddenTests(h),'test_failed']];
+ if(starters){assert.equal(starters[i].id,c.id);assert.ok(['compile_failed','test_failed','passed'].includes(row.originalHoldout));}
+ const checks=[[c.source.text,c.publicTests,starters?starters[i].publicStatus:'test_failed'],[h.reference,c.publicTests,'passed'],[harnessSource(h.reference,h.harness),hiddenTests(h),'passed'],[harnessSource(c.source.text,h.harness),hiddenTests(h),starters?row.originalHoldout:'test_failed']];
  for(const [j,[src,tests,status]] of checks.entries()){const r=materials.take(row.reportIds[j],c.source.name,src,tests);assert.equal(r.status,status);
   if(j===0)assert.deepEqual(row.initial,{caseId:c.id,status:r.status,diagnostics:r.compile.normalized?.diagnostics??[],tests:r.tests.map(t=>({id:t.id,status:t.status,stdout:t.process?.stdout??'',stderr:t.process?.stderr??''}))});
  }

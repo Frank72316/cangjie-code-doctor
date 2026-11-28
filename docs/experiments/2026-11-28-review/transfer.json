@@ -1,0 +1,362 @@
+[
+  {
+    "id": "seek_left_mark",
+    "task": "从光标的左手边第一项开始，继续向左查看，跳过标记本身。如果位置无效，按没有可查看的项处理。传入的位置可能为空。报告第一个大于等于 t 的数是本次查看的第几项，从 1 起算。没有则报 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "seek_left_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    match (mark) {\n        case None => return -1\n        case Some(node) =>\n            var cur = node.prev\n            var idx: Int64 = 1\n            while (true) {\n                match (cur) {\n                    case None => return -1\n                    case Some(n) =>\n                        if (n.value >= t) {\n                            return idx\n                        }\n                        idx += 1\n                        cur = n.prev\n                }\n            }\n    }\n    return -1\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 3 && q0.toArray() == [5, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, q1.nodeAt(1), 4)\n    println(r1 == -1 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "seek_left_all",
+    "task": "忽略当前位置。从最右端开始一直向左。报告第一个大于等于 t 的数是本次查看的第几项，从 1 起算。没有则报 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "seek_left_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -999}\n    if(mark.isNone()){return -999}\n    var count: Int64 = 0\n    var it = q.backward(mark.getOrThrow())\n    while(true){\n        match(it.next()){\n            case Some(v) =>\n                count++\n                if(v >= t){ return count }\n            case None => break\n        }\n    }\n    return -1\n}\n\nmain() {\nlet q0=LinkedList<Int64>([5,-2,-2,6,3])\nlet r0=repair(q0, q0.nodeAt(3), 2)\nprintln(r0 == 1 && q0.toArray() == [5,-2,-2,6,3])\nlet q1=LinkedList<Int64>([3,1,4,4,-3])\nlet r1=repair(q1, q1.nodeAt(1), 4)\nprintln(r1 == 2 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "seek_right_mark",
+    "task": "从光标的右手边第一项开始，继续向右查看，跳过标记本身。如果位置无效，按没有可查看的项处理。传入的位置可能为空。报告第一个大于等于 t 的数是本次查看的第几项，从 1 起算。没有则报 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "seek_right_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -1\n    }\n    match (mark) {\n        case None => return -1\n        case Some(node) =>\n            var cur = node.next\n            var idx: Int64 = 0\n            while (true) {\n                match (cur) {\n                    case None => return -1\n                    case Some(n) =>\n                        idx += 1\n                        if (n.value >= t) {\n                            return idx\n                        }\n                        cur = n.next\n                }\n            }\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 1 && q0.toArray() == [5, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, q1.nodeAt(1), 4)\n    println(r1 == 1 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "seek_right_all",
+    "task": "忽略当前位置。从最左端开始一直向右。报告第一个大于等于 t 的数是本次查看的第几项，从 1 起算。没有则报 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "seek_right_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -1}\n    var idx: Int64 = 0\n    for (v in q) {\n        idx = idx + 1\n        if (v >= t) {\n            return idx\n        }\n    }\n    return -1\n}\n\nmain() {\n    let q0=LinkedList<Int64>([5,-2,-2,6,3])\n    let r0=repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 1 && q0.toArray() == [5,-2,-2,6,3])\n    let q1=LinkedList<Int64>([3,1,4,4,-3])\n    let r1=repair(q1, q1.nodeAt(1), 4)\n    println(r1 == 3 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "twin_left_mark",
+    "task": "从选中项的左手边第一项开始，继续向左查看，跳过标记本身。如果位置无效，按没有可查看的项处理。传入的位置可能为空。寻找连续相等的两项，返回第一次出现时第二项在本次查看中的序号，从 1 起算。没有则返回 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "twin_left_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -1}\n    if(mark.isNone()){return -1}\n    var cur: ?LinkedListNode<Int64> = match (mark) {\n        case Some(node) => node.prev\n        case None => None\n    }\n    var index: Int64 = 0\n    var prevValue: ?Int64 = None\n    while (true) {\n        match (cur) {\n            case Some(node) =>\n                index = index + 1\n                let v = node.value\n                match (prevValue) {\n                    case Some(pv) =>\n                        if (pv == v) {\n                            return index\n                        }\n                    case None => ()\n                }\n                prevValue = Some(v)\n                cur = node.prev\n            case None => break\n        }\n    }\n    return -1\n}\n\nmain() {\nlet q0=LinkedList<Int64>([5,-2,-2,6,3])\nlet r0=repair(q0, q0.nodeAt(3), 2)\nprintln(r0 == 2 && q0.toArray() == [5,-2,-2,6,3])\nlet q1=LinkedList<Int64>([3,1,4,4,-3])\nlet r1=repair(q1, q1.nodeAt(1), 4)\nprintln(r1 == -1 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "twin_left_all",
+    "task": "整表统计。从最右端开始一直向左。寻找连续相等的两项，返回第一次出现时第二项在本次查看中的序号，从 1 起算。没有则返回 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "twin_left_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -999}\n    if(mark.isNone()){return -999}\n    let node = mark.getOrThrow()\n    var prev: ?Int64 = None\n    var idx: Int64 = 0\n    let it = q.backward(node)\n    while(true){\n        match(it.next()){\n            case Some(v) =>\n                idx = idx + 1\n                match(prev){\n                    case Some(p) =>\n                        if(p == v){\n                            return idx\n                        }\n                    case None => ()\n                }\n                prev = Some(v)\n            case None => break\n        }\n    }\n    return -1\n}\n\nmain() {\n    let q0=LinkedList<Int64>([5,-2,-2,6,3])\n    let r0=repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 4 && q0.toArray() == [5,-2,-2,6,3])\n    let q1=LinkedList<Int64>([3,1,4,4,-3])\n    let r1=repair(q1, q1.nodeAt(1), 4)\n    println(r1 == 3 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "twin_right_mark",
+    "task": "从选中项的右手边第一项开始，继续向右查看，跳过标记本身。如果位置无效，按没有可查看的项处理。传入的位置可能为空。寻找连续相等的两项，返回第一次出现时第二项在本次查看中的序号，从 1 起算。没有则返回 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "twin_right_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -999}\n    if(mark.isNone()){return -999}\n    var cur: ?LinkedListNode<Int64> = match(mark) {\n        case Some(n) => n.next\n        case None => None\n    }\n    var prevValue: ?Int64 = None\n    var idx: Int64 = 0\n    while(true) {\n        match(cur) {\n            case Some(node) =>\n                idx = idx + 1\n                let v = node.value\n                match(prevValue) {\n                    case Some(pv) =>\n                        if(pv == v) {\n                            return idx\n                        }\n                    case None => ()\n                }\n                prevValue = Some(v)\n                cur = node.next\n            case None =>\n                return -1\n        }\n    }\n    return -1\n}\n\nmain() {\nlet q0=LinkedList<Int64>([5,-2,-2,6,3])\nlet r0=repair(q0, q0.nodeAt(3), 2)\nprintln(r0 == -1 && q0.toArray() == [5,-2,-2,6,3])\nlet q1=LinkedList<Int64>([3,1,4,4,-3])\nlet r1=repair(q1, q1.nodeAt(1), 4)\nprintln(r1 == 2 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "twin_right_all",
+    "task": "整表统计。从最左端开始一直向右。寻找连续相等的两项，返回第一次出现时第二项在本次查看中的序号，从 1 起算。没有则返回 -1。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "twin_right_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -999}\n    if(mark.isNone()){return -999}\n    let arr = q.toArray()\n    var i = 1\n    while(i < arr.size){\n        if(arr[i] == arr[i-1]){\n            return i + 1\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\n    let q0=LinkedList<Int64>([5,-2,-2,6,3])\n    let r0=repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 3 && q0.toArray() == [5,-2,-2,6,3])\n    let q1=LinkedList<Int64>([3,1,4,4,-3])\n    let r1=repair(q1, q1.nodeAt(1), 4)\n    println(r1 == 4 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "alternating_left_mark",
+    "task": "从书签的左手边第一项开始，继续向左查看，跳过标记本身。如果位置无效，按没有可查看的项处理。传入的位置可能为空。在第一次遇到 t 之前，依次加上、减去、加上、减去看到的数。遇到 t 就停止且不计它。返回结果，初值为 0。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "alternating_left_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    var result: Int64 = 0\n    var node: ?LinkedListNode<Int64> = match (mark) {\n        case Some(m) => m.prev\n        case None => None\n    }\n    var add: Bool = true\n    while (true) {\n        match (node) {\n            case Some(n) =>\n                let v = n.value\n                if (v == t) {\n                    break\n                }\n                if (add) {\n                    result += v\n                } else {\n                    result -= v\n                }\n                add = !add\n                node = n.prev\n            case None =>\n                break\n        }\n    }\n    return result\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 5 && q0.toArray() == [5, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, q1.nodeAt(1), 4)\n    println(r1 == 3 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "alternating_left_all",
+    "task": "传入的定位信息只供其他功能使用。从最右端开始一直向左。在第一次遇到 t 之前，依次加上、减去、加上、减去看到的数。遇到 t 就停止且不计它。返回结果，初值为 0。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "alternating_left_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -999}\n    if(mark.isNone()){return -999}\n    var result: Int64 = 0\n    var add: Bool = true\n    var node: ?LinkedListNode<Int64> = q.lastNode\n    while(true) {\n        match(node) {\n            case Some(n) =>\n                if(n.value == t) {\n                    break\n                }\n                if(add) {\n                    result += n.value\n                } else {\n                    result -= n.value\n                }\n                add = !add\n                node = n.prev\n            case None => break\n        }\n    }\n    return result\n}\n\nmain() {\nlet q0=LinkedList<Int64>([5,-2,-2,6,3])\nlet r0=repair(q0, q0.nodeAt(3), 2)\nprintln(r0 == 2 && q0.toArray() == [5,-2,-2,6,3])\nlet q1=LinkedList<Int64>([3,1,4,4,-3])\nlet r1=repair(q1, q1.nodeAt(1), 4)\nprintln(r1 == -3 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "alternating_right_mark",
+    "task": "从书签的右手边第一项开始，继续向右查看，跳过标记本身。如果位置无效，按没有可查看的项处理。传入的位置可能为空。在第一次遇到 t 之前，依次加上、减去、加上、减去看到的数。遇到 t 就停止且不计它。返回结果，初值为 0。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "alternating_right_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    var result: Int64 = 0\n    var node: ?LinkedListNode<Int64> = None\n    match (mark) {\n        case Some(m) => node = m.next\n        case None => return result\n    }\n    var add: Bool = true\n    while (true) {\n        match (node) {\n            case Some(n) =>\n                let v = n.value\n                if (v == t) {\n                    break\n                }\n                if (add) {\n                    result += v\n                } else {\n                    result -= v\n                }\n                add = !add\n                node = n.next\n            case None => break\n        }\n    }\n    return result\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, q0.nodeAt(3), 2)\n    println(r0 == 3 && q0.toArray() == [5, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, q1.nodeAt(1), 4)\n    println(r1 == 0 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "alternating_right_all",
+    "task": "传入的定位信息只供其他功能使用。从最左端开始一直向右。在第一次遇到 t 之前，依次加上、减去、加上、减去看到的数。遇到 t 就停止且不计它。返回结果，初值为 0。所有元素的值及排列保持原样。保留函数签名。",
+    "source": {
+      "name": "alternating_right_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, mark: ?LinkedListNode<Int64>, t:Int64):Int64 {\n    if(q.isEmpty()){return -999}\n    if(mark.isNone()){return -999}\n    var result: Int64 = 0\n    var add: Bool = true\n    var it = q.iterator()\n    while (it.next()) {\n        match (it.next()) {\n            case Some(x) =>\n                if (x == t) { break }\n                if (add) { result += x } else { result -= x }\n                add = !add\n            case None => break\n        }\n    }\n    return result\n}\n\nmain() {\nlet q0=LinkedList<Int64>([5,-2,-2,6,3])\nlet r0=repair(q0, q0.nodeAt(3), 2)\nprintln(r0 == 2 && q0.toArray() == [5,-2,-2,6,3])\nlet q1=LinkedList<Int64>([3,1,4,4,-3])\nlet r1=repair(q1, q1.nodeAt(1), 4)\nprintln(r1 == 2 && q1.toArray() == [3,1,4,4,-3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "paint_left_mark",
+    "task": "从定位点的左手边第一项开始，继续向左查看，跳过标记本身。如果位置无效，按没有可查看的项处理。offset 是从 0 起算的位置，负数或超界表示没有该位置。只把最先遇到的两个奇数各增加 t。遇到不足两个就只改已有的，返回实际修改了几项。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "paint_left_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return 0\n    }\n    if (offset < 0 || offset >= q.size) {\n        return 0\n    }\n    let place = q.nodeAt(offset)\n    match (place) {\n        case Some(node) =>\n            var count: Int64 = 0\n            var cur = node.prev\n            while (count < 2) {\n                match (cur) {\n                    case Some(n) =>\n                        if (n.value % 2 != 0) {\n                            n.value = n.value + t\n                            count = count + 1\n                        }\n                        cur = n.prev\n                    case None =>\n                        break\n                }\n            }\n            return count\n        case None =>\n            return 0\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 1 && q0.toArray() == [7, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 1 && q1.toArray() == [7, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "paint_left_all",
+    "task": "不使用游标。从最右端开始一直向左。只把最先遇到的两个奇数各增加 t。遇到不足两个就只改已有的，返回实际修改了几项。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "paint_left_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return 0\n    }\n    var count: Int64 = 0\n    var node = q.lastNode\n    while (count < 2) {\n        match (node) {\n            case Some(n) =>\n                if (n.value % 2 != 0) {\n                    n.value = n.value + t\n                    count = count + 1\n                }\n                node = n.prev\n            case None => break\n        }\n    }\n    return count\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 2 && q0.toArray() == [7, -2, -2, 6, 5])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 2 && q1.toArray() == [3, 5, 4, 4, 1])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "paint_right_mark",
+    "task": "从定位点的右手边第一项开始，继续向右查看，跳过标记本身。如果位置无效，按没有可查看的项处理。offset 是从 0 起算的位置，负数或超界表示没有该位置。只把最先遇到的两个奇数各增加 t。遇到不足两个就只改已有的，返回实际修改了几项。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "paint_right_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return 0\n    }\n    if (offset < 0 || offset >= q.size) {\n        return 0\n    }\n    let place = q.nodeAt(offset)\n    var node: ?LinkedListNode<Int64> = None\n    match (place) {\n        case Some(n) => node = n.next\n        case None => return 0\n    }\n    var count: Int64 = 0\n    while (count < 2) {\n        match (node) {\n            case Some(n) =>\n                if (n.value % 2 != 0) {\n                    n.value = n.value + t\n                    count = count + 1\n                }\n                node = n.next\n            case None => break\n        }\n    }\n    return count\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 1 && q0.toArray() == [5, -2, -2, 6, 5])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 1 && q1.toArray() == [3, 1, 4, 4, 1])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "paint_right_all",
+    "task": "不使用游标。从最左端开始一直向右。只把最先遇到的两个奇数各增加 t。遇到不足两个就只改已有的，返回实际修改了几项。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "paint_right_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    var count: Int64 = 0\n    var node = q.firstNode\n    while (count < 2) {\n        match (node) {\n            case Some(n) =>\n                let v = n.value\n                if (v % 2 != 0) {\n                    n.value = v + t\n                    count++\n                }\n                node = n.next\n            case None => break\n        }\n    }\n    return count\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 2 && q0.toArray() == [7, -2, -2, 6, 5])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 2 && q1.toArray() == [7, 5, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "invert_left_mark",
+    "task": "从指定下标的左手边第一项开始，继续向左查看，跳过标记本身。如果位置无效，按没有可查看的项处理。offset 是从 0 起算的位置，负数或超界表示没有该位置。遇到第一个等于 t 的数就停止。在此之前，每个负数改为它的相反数。返回实际修改的个数。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "invert_left_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    if (offset < 0 || offset >= q.size) {\n        return 0\n    }\n    let markOpt = q.nodeAt(offset)\n    if (markOpt.isNone()) {\n        return 0\n    }\n    let mark = markOpt.getOrThrow()\n    var count: Int64 = 0\n    var it = q.backward(mark)\n    while (true) {\n        match (it.next()) {\n            case Some(v) =>\n                if (v == t) {\n                    break\n                }\n                if (v < 0) {\n                    let nodeOpt = q.nodeAt(offset - 1 - count)\n                    match (nodeOpt) {\n                        case Some(n) =>\n                            let idx = offset - 1 - count\n                            let old = q.remove(n)\n                            let newNode = q.addBefore(n, -old)\n                            count = count + 1\n                        case None => break\n                    }\n                }\n            case None => break\n        }\n    }\n    return count\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 2 && q0.toArray() == [5, 2, 2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 0 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "invert_left_all",
+    "task": "对整张表执行操作。从最右端开始一直向左。遇到第一个等于 t 的数就停止。在此之前，每个负数改为它的相反数。返回实际修改的个数。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "invert_left_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    var count: Int64 = 0\n    var node = q.lastNode\n    while (let Some(n) <- node) {\n        let v = n.value\n        if (v == t) {\n            break\n        }\n        if (v < 0) {\n            n.value = -v\n            count++\n        }\n        node = n.prev\n    }\n    return count\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 2 && q0.toArray() == [5, 2, 2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 1 && q1.toArray() == [3, 1, 4, 4, 3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "invert_right_mark",
+    "task": "从指定下标的右手边第一项开始，继续向右查看，跳过标记本身。如果位置无效，按没有可查看的项处理。offset 是从 0 起算的位置，负数或超界表示没有该位置。遇到第一个等于 t 的数就停止。在此之前，每个负数改为它的相反数。返回实际修改的个数。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "invert_right_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return 0\n    }\n    if (offset < 0 || offset >= q.size) {\n        return 0\n    }\n    let mark = q.nodeAt(offset)\n    match (mark) {\n        case Some(node) =>\n            var count: Int64 = 0\n            var it = q.forward(node)\n            // forward 从 mark 本身开始，先跳过标记本身\n            if (it.next().isSome()) {\n                while (true) {\n                    match (it.next()) {\n                        case Some(v) =>\n                            if (v == t) {\n                                break\n                            }\n                            if (v < 0) {\n                                // 需要修改节点值；通过重新定位节点实现\n                                count++\n                            }\n                        case None => break\n                    }\n                }\n            }\n            // 由于 LinkedList 节点值不可直接修改，改用重建方式\n            if (count > 0) {\n                let arr = q.toArray()\n                var i = offset + 1\n                while (i < arr.size) {\n                    if (arr[i] == t) {\n                        break\n                    }\n                    if (arr[i] < 0) {\n                        arr[i] = -arr[i]\n                    }\n                    i++\n                }\n                q.clear()\n                for (x in arr) {\n                    q.addLast(x)\n                }\n            }\n            return count\n        case None => return 0\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 0 && q0.toArray() == [5, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 0 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "invert_right_all",
+    "task": "对整张表执行操作。从最左端开始一直向右。遇到第一个等于 t 的数就停止。在此之前，每个负数改为它的相反数。返回实际修改的个数。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "invert_right_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    var count: Int64 = 0\n    var node = q.firstNode\n    while (let Some(n) <- node) {\n        let v = n.value\n        if (v == t) {\n            break\n        }\n        if (v < 0) {\n            n.value = -v\n            count++\n        }\n        node = n.next\n    }\n    return count\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 2 && q0.toArray() == [5, 2, 2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == 0 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "stamp_left_mark",
+    "task": "从标记的左手边第一项开始，继续向左查看，跳过标记本身。如果位置无效，按没有可查看的项处理。offset 是从 0 起算的位置，负数或超界表示没有该位置。找到第一个大于 t 的数，在它靠近来路的一侧插入 t-1，返回找到的原数。没有则返回 -91。即使它是端点也要插入。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "stamp_left_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    if (offset < 0 || offset >= q.size) {\n        return -91\n    }\n    var mark = q.nodeAt(offset).getOrThrow()\n    var it = q.backward(mark)\n    while (true) {\n        match (it.next()) {\n            case Some(v) =>\n                if (v > t) {\n                    q.addBefore(mark, t - 1)\n                    return v\n                }\n            case None => break\n        }\n    }\n    return -91\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 5 && q0.toArray() == [5, 1, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == -91 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "stamp_left_all",
+    "task": "忽略标记。从最右端开始一直向左。找到第一个大于 t 的数，在它靠近来路的一侧插入 t-1，返回找到的原数。没有则返回 -91。即使它是端点也要插入。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "stamp_left_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    var node = q.lastNode\n    while (let Some(n) <- node) {\n        if (n.value > t) {\n            q.addAfter(n, t - 1)\n            return n.value\n        }\n        node = n.prev\n    }\n    return -91\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 3 && q0.toArray() == [5, -2, -2, 6, 3, 1])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == -91 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "stamp_right_mark",
+    "task": "从标记的右手边第一项开始，继续向右查看，跳过标记本身。如果位置无效，按没有可查看的项处理。offset 是从 0 起算的位置，负数或超界表示没有该位置。找到第一个大于 t 的数，在它靠近来路的一侧插入 t-1，返回找到的原数。没有则返回 -91。即使它是端点也要插入。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "stamp_right_mark.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    if (offset < 0 || offset >= q.size) {\n        return -91\n    }\n    let mark = q.nodeAt(offset)\n    match (mark) {\n        case Some(node) =>\n            var cur = node.next\n            while (let Some(n) <- cur) {\n                if (n.value > t) {\n                    q.addBefore(n, t - 1)\n                    return n.value\n                }\n                cur = n.next\n            }\n            return -91\n        case None =>\n            return -91\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 3 && q0.toArray() == [5, -2, -2, 6, 1, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == -91 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "stamp_right_all",
+    "task": "忽略标记。从最左端开始一直向右。找到第一个大于 t 的数，在它靠近来路的一侧插入 t-1，返回找到的原数。没有则返回 -91。即使它是端点也要插入。其余数据保持原样。保留函数签名。",
+    "source": {
+      "name": "stamp_right_all.cj",
+      "text": "import std.collection.*\n\nfunc repair(q: LinkedList<Int64>, offset: Int64, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -999\n    }\n    var node = q.firstNode\n    while (let Some(n) <- node) {\n        if (n.value > t) {\n            q.addBefore(n, t - 1)\n            return n.value\n        }\n        node = n.next\n    }\n    return -91\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([5, -2, -2, 6, 3])\n    let r0 = repair(q0, 3, 2)\n    println(r0 == 5 && q0.toArray() == [1, 5, -2, -2, 6, 3])\n    let q1 = LinkedList<Int64>([3, 1, 4, 4, -3])\n    let r1 = repair(q1, 1, 4)\n    println(r1 == -91 && q1.toArray() == [3, 1, 4, 4, -3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]

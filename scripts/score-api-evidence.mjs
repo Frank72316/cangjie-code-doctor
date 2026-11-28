@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {resolve} from 'node:path';
-import {read,transferPrivate,sealEvidence,dump,transferOnlyStudy} from './api-evidence-common.mjs';
+import {read,transferPrivate,sealEvidence,dump,setting,transferOnlyStudy} from './api-evidence-common.mjs';
 import {sha,candidate} from './pilot-common.mjs';
 import {challengeCatalog,privateChallenge} from './challenge-data.mjs';
 import {verifyPublic} from './sandbox-verify.mjs';
@@ -34,7 +34,10 @@ if(phase==='materials'){
   const bug=await check(c,harnessSource(c.source.text,h.harness),hiddenTests(h));
   receipt.rows.push({caseId:c.id,initial:{caseId:c.id,status:initial.status,diagnostics:initial.compile.normalized?.diagnostics??[],tests:initial.tests.map(t=>({id:t.id,status:t.status,stdout:t.process?.stdout??'',stderr:t.process?.stderr??''}))},initialId:initial.id,referencePublic:ref.status,referenceHoldout:hidden.status,originalHoldout:bug.status,assertions:h.assertions,reportIds:[initial.id,ref.id,hidden.id,bug.id]});
  }
- receipt.accepted=receipt.rows.every(r=>r.initial.status==='test_failed' && r.referencePublic==='passed' && r.referenceHoldout==='passed' && r.originalHoldout==='test_failed');
+ const starters=setting.generation==='api-review' ? read('starters') : null;
+ receipt.accepted=receipt.rows.every((r,i)=>r.referencePublic==='passed' && r.referenceHoldout==='passed' &&
+   (starters ? r.caseId===starters[i].id && r.initial.status===starters[i].publicStatus && ['compile_failed','test_failed','passed'].includes(r.originalHoldout)
+    : r.initial.status==='test_failed' && r.originalHoldout==='test_failed'));
 }else{
  const design=read('design'),pack=read('candidates'),snapshot=transferOnlyStudy?null:await challengeCatalog();
  assert.equal(sha(design),pack.designSha256);if(snapshot)assert.equal(snapshot.holdoutSha256,design.oldHoldoutSha256);
