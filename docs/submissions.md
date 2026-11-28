@@ -565,3 +565,6 @@
 
 ## 第九十八轮　冻结生成输入
 材料更正 e32f5852538d5453f129c8d81e4689df7011336f 已在两平台核对，[32 题验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46111212853) 成功。预登记的选择规则原样用于冻结请求。
+
+## 第九十九轮　模型候选与盲审
+请求冻结 e566d6d553620b2e5471a0813d2395f316fabeb6 于北京时间 13:21:01 提交，两端分支已核对，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46111717018)。本节锁定原始回答与盲审判定。
