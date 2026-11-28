@@ -545,3 +545,6 @@
 
 ## 第九十二轮　链表节点实验预登记
 上轮归档 2012aa1deae35eee0c2622a752e938874e61cc37 于北京时间 11 月 27 日 15:35:50 提交，两端 SHA 已核实，[推送 CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/45959566557) 成功。本节含新题与保留材料密文。
+
+## 第九十三轮　材料验收与请求锁定
+预登记提交 03227a1142a8e8373d276113f0a7c14dede46d30 已推送两端。[材料验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46109512852) 成功。本节归档验收收据及四组请求。
