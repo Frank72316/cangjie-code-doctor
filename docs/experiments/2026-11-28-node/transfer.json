@@ -1,0 +1,122 @@
+[
+  {
+    "id": "neighbor_left",
+    "task": "方向为向左（前面）。看光标隔壁那一项，把它的值减去 t 后返回；如果没有那一项，返回 -81。整张表保持原样。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "neighbor_left.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 6 && q0.toArray() == [8,3,6,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 2 && q1.toArray() == [5,5,-3,9])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "neighbor_right",
+    "task": "方向为向右（后面）。看光标隔壁那一项，把它的值减去 t 后返回；如果没有那一项，返回 -81。整张表保持原样。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "neighbor_right.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 4 && q0.toArray() == [8,3,6,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 6 && q1.toArray() == [5,5,-3,9])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "weighted_left",
+    "task": "方向为向左（前面）。从光标紧邻的第一项开始往同一方向读，最多读 t 项。依次乘以 1、2、3……再求和。光标自身不计，没有可读项或 t 不为正时返回 0。整张表保持原样。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "weighted_left.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 8 && q0.toArray() == [8,3,6,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 15 && q1.toArray() == [5,5,-3,9])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "weighted_right",
+    "task": "方向为向右（后面）。从光标紧邻的第一项开始往同一方向读，最多读 t 项。依次乘以 1、2、3……再求和。光标自身不计，没有可读项或 t 不为正时返回 0。整张表保持原样。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "weighted_right.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 8 && q0.toArray() == [8,3,6,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 9 && q1.toArray() == [5,5,-3,9])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "update_left",
+    "task": "方向为向左（前面）。把光标紧邻的那一项增加 t，返回它原来的值；没有那一项时返回 -81。其余项保持原样。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "update_left.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 8 && q0.toArray() == [10,3,6,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 5 && q1.toArray() == [5,8,-3,9])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "update_right",
+    "task": "方向为向右（后面）。把光标紧邻的那一项增加 t，返回它原来的值；没有那一项时返回 -81。其余项保持原样。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "update_right.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 6 && q0.toArray() == [8,3,8,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 9 && q1.toArray() == [5,5,-3,12])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "insert_left",
+    "task": "方向为向左（前面）。找到光标紧邻的那一项，将 t 插在它远离光标的一侧，返回该邻项的值。如果没有邻项则原样保留并返回 -81。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "insert_left.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 8 && q0.toArray() == [2,8,3,6,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 5 && q1.toArray() == [5,3,5,-3,9])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "insert_right",
+    "task": "方向为向右（后面）。找到光标紧邻的那一项，将 t 插在它远离光标的一侧，返回该邻项的值。如果没有邻项则原样保留并返回 -81。 cursor 可能为空，也可能指向表内任意一个位置；空光标没有邻项。保留函数签名。",
+    "source": {
+      "name": "insert_right.cj",
+      "text": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\nif(q.isEmpty()){return -81}\nt\n}\n\nmain() {\nlet q0=LinkedList<Int64>([8,3,6,1])\nlet r0=fix(q0, q0.nodeAt(1), 2)\nprintln(r0 == 6 && q0.toArray() == [8,3,6,2,1])\nlet q1=LinkedList<Int64>([5,5,-3,9])\nlet r1=fix(q1, q1.nodeAt(2), 3)\nprintln(r1 == 9 && q1.toArray() == [5,5,-3,9,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "examples",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]

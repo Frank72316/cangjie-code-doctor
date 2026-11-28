@@ -1,0 +1,14 @@
+[
+  {
+    "id": "node-members",
+    "title": "LinkedListNode",
+    "text": "public prop next: Option<LinkedListNode<T>>\npublic prop prev: Option<LinkedListNode<T>>\npublic mut prop value: T",
+    "url": "https://github.com/cangjielanguage/cangjie_runtime/blob/c6aa169ce8c6aaeb65cb1262bddb3700aebe8cb9/std/doc/libs/std/collection/collection_package_api/collection_package_class.md#L2269-L2301"
+  },
+  {
+    "id": "option-match",
+    "title": "Option 模式匹配",
+    "text": "func getString(p: ?Int64): String{\n    match (p) {\n        case Some(x) => \"${x}\"\n        case None => \"none\"\n    }\n}",
+    "url": "https://github.com/cangjielanguage/cangjie_docs/blob/f8f8cd75a336e23785a4c57bd6091b2adf1e0302/docs/dev-guide/source_zh_cn/error_handle/use_option.md#L25-L30"
+  }
+]
