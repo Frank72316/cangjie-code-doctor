@@ -1,0 +1,1790 @@
+{
+  "phase": "score",
+  "image": "sha256:14ee0ff16f6adf3d6aeb8ff25eca6638728d41bd9906df5de7264ebfb5142f26",
+  "commit": "703885b317cb25d5a52c64565b7050d859034703",
+  "startedAt": "2026-11-28T05:28:59.487Z",
+  "rows": [
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "771ba5040fc031946f3e8241b3d0ddd9",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "dc851693632142cf6202fd7d75389c76",
+      "publicStatus": "passed",
+      "holdoutId": "82f001653d40a69dc2d4a568ca284270",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "504b42abadac9683b75e694c6b079485",
+      "publicStatus": "passed",
+      "holdoutId": "9547b5284f46d83e93671ceee6c8a49e",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "652c9557ef387a2be7f2f540d55eb58d",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "3909d786874699428287d09395291cff",
+      "publicStatus": "passed",
+      "holdoutId": "80f60623d8734844eb85aa816c6774c8",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "compile_failed",
+      "publicId": "27158cd5d7361592057b94d8c4cd0a48",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "8e0a44743befff0e3301fba605ab12ae",
+      "publicStatus": "passed",
+      "holdoutId": "299cd479abe3c51dbf514761315e34a8",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "402a4bb90f272132e6efb8bff9210d89",
+      "publicStatus": "passed",
+      "holdoutId": "223877bbf23313fcbc9d5819eefb8fe0",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "7b97c2410b4362051168c668ce464e92",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "be12ca8252e667f77e5889a21b46a78e",
+      "publicStatus": "passed",
+      "holdoutId": "ef96e342a4348740156e41e94322ea0e",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "6f7eb8afa02a737b57b209ddf99867f2",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "ff52047d8c66fc52ac02c5c44f4ae87b",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "cd18c48300061ef7d0a85fb346037de7",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "011a3f52ceaa6715c2aa6ed9a43213e4",
+      "publicStatus": "passed",
+      "holdoutId": "6a5b52476d62438fcef5ab6b9df235e6",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "92484aa05e65df9a010a4f8970d9d647",
+      "publicStatus": "passed",
+      "holdoutId": "02261a1b56cc075837424cdf6d017e17",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "f102f181db4429d9f1dcf1053d9cfece",
+      "publicStatus": "passed",
+      "holdoutId": "2e1ea48986e8787ccf0731b592a4b892",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "354887f20115cec97032f5a0172ac86b",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "eb383b78a9605b15276fbe012196e470",
+      "publicStatus": "passed",
+      "holdoutId": "6683ce5e3aca9ed1d4848206d262da22",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "6fd52c9012ffec21fee74cdd3cf4d849",
+      "publicStatus": "passed",
+      "holdoutId": "f1dd129b8c18450770abb14962234ef2",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "b1a5910c280752c3b16c363c957eb355",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "0de7a6fab3aa7906d243a7eca0ea6b45",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "e88de33900b03f97524116974898cf2f",
+      "publicStatus": "passed",
+      "holdoutId": "2ad8c525b9148842381977e4541bb297",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "compile_failed",
+      "publicId": "f5d776757cb7dcf4c712ec8244b9465d",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "00dcbff54797dab030428b554af4ed8f",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "a324c748123ee866fdd6e66c6c63918d",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "8c40463a8ed179ba10ce1ef9a1f9f3a9",
+      "publicStatus": "passed",
+      "holdoutId": "607a3beed6a7cbd5d2958c12b1a6edba",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "b6fc0b1e913fbfd6d9219e515c79738d",
+      "publicStatus": "passed",
+      "holdoutId": "4eff6e18b9d060d103ef3c20af85cf54",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "6f1fe8e423dcd7e8ecc02f0583afa921",
+      "publicStatus": "passed",
+      "holdoutId": "100d95c0a3fed6203c43bea5e2352866",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "invalid"
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "9c53db2e23121d1cd81a4534a17ae2d7",
+      "publicStatus": "passed",
+      "holdoutId": "b67f3c4c403516a7e3726b334cd17feb",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "cbb7c28b3b2ffa7309ea5f4b9255fcba",
+      "publicStatus": "passed",
+      "holdoutId": "b5df6aa850875a42596779fe5d80bc49",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "aeee0c4b0a9ed2720c3a0efa958e5f01",
+      "publicStatus": "passed",
+      "holdoutId": "fd9db975de954ccd2b74ff1c2649dd08",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "a78802a8a35e52505ac4dc87ed70c36b",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "ec6d24c2a89b09fff17353b7426c8058",
+      "publicStatus": "passed",
+      "holdoutId": "9fc1e68eda4bb02c76078ad3ae692e52",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "611fc332a1ae1759e60699653cad8439",
+      "publicStatus": "passed",
+      "holdoutId": "049ff9d149242a42937128cff55830e3",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "6c370e9c27a9354bde14cdbb233e4dd1",
+      "publicStatus": "passed",
+      "holdoutId": "5e6ccc7cca5f874dbaded376c27e2080",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "45f9e7e8319c657fa3a72b5142c4169a",
+      "publicStatus": "passed",
+      "holdoutId": "ac345908797e315dbcf376b4ae378799",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "d3bde3ee1c9e4cfbaf3fdfd3cff8bc3a",
+      "publicStatus": "passed",
+      "holdoutId": "7bc970ff827c0e39bd621fb364a7a6f8",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "abe2ae6de5e2386549e58e9ac47bb0c4",
+      "publicStatus": "passed",
+      "holdoutId": "e52f1ab6217aad1b0158246b02463ed5",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "7cd781c918760e50a806938ff4b781db",
+      "publicStatus": "passed",
+      "holdoutId": "fd7818d7355161b6d96dc674bad9528f",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "e9d62efb6c2cce35c02f9e2304ee403f",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "13014b50d3209af4af650c9ee1b91f14",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "010fa93c2f246d8d1c36653b705ee0ba",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "ec85c296c5926ac7163e50d78878b39f",
+      "publicStatus": "passed",
+      "holdoutId": "6bad9cb099a68b58fb8b2b2d188934ea",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "a343cddf4f9c3fb581a51247e8bffcf9",
+      "publicStatus": "passed",
+      "holdoutId": "186f5cc5d8a7cbdea7e180d89baa1b9e",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "bf394f43a0500337006b88a60a0b1e78",
+      "publicStatus": "passed",
+      "holdoutId": "32f28a468c8e9f27112a4faa391f0de3",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "51c87c0fcfa02cdffc1ce394f0812c79",
+      "publicStatus": "passed",
+      "holdoutId": "e1f60150f084ff94c2fb3c71e9535e3a",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "9ebe2d0cdefc40c06b0cedf5380e7f66",
+      "publicStatus": "passed",
+      "holdoutId": "88ad601fa7cf7783ed5b04b15aea9574",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 1,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "5f8ca474b5bddcb2c78c696d15260f20",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "783326b5f82842430c0370233c42a1de",
+      "publicStatus": "passed",
+      "holdoutId": "a46bafb84d4d7c0d549060efe3ebe90c",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "4512245ca170b1bb76c21ed18ddb0a7b",
+      "publicStatus": "passed",
+      "holdoutId": "cdf8c04a6dc991e1a0abed781cbeb6b5",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "aa4216cde4a6ad942deeb9d4e8530866",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 1,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "8a3b2e0f6b6eafb9752894795c0946ec",
+      "publicStatus": "passed",
+      "holdoutId": "bde92849557a0242ad641711584e1ca5",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "84b34516d7848de401332e5d5611d55d",
+      "publicStatus": "passed",
+      "holdoutId": "9be9d59746af44603d46555bb750ffb8",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "d6b48e621e2efa9a63b8f15a82dbdf0e",
+      "publicStatus": "passed",
+      "holdoutId": "491cc91f2c1aeddd10dccbec89ec2bbe",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 1,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "6edbee0336c549684b52ed0fac83d6d8",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "a3708929de905b8b8e651c917f0bcd6d",
+      "publicStatus": "passed",
+      "holdoutId": "68cbfc0cc5eedab5c0b2a612c15970ca",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "8b0eaee3c1c09d2e30000b7c0bb8f017",
+      "publicStatus": "passed",
+      "holdoutId": "573466dae9dc7a0629201c01eef4ea32",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "662a85794d348ee12b50ba511fd441a7",
+      "publicStatus": "passed",
+      "holdoutId": "7ce6f2118459496c53a8a04818a4b1aa",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 1,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "c860ee4adaa7550f5cb70c4f0446a56d",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "a5278a4d9a1d3267798330747c643010",
+      "publicStatus": "passed",
+      "holdoutId": "08b4fcc6d8d413292080d7363b69c862",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "0fc3a352470e76c9cbc9c475abebe6bd",
+      "publicStatus": "passed",
+      "holdoutId": "a209b6e29fd603127cbc7f9c5fc5c851",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 1,
+      "group": "A",
+      "status": "passed",
+      "publicId": "d79a5e72d14bf2f8505fbcac03e631bb",
+      "publicStatus": "passed",
+      "holdoutId": "88cc3a63851c0df1ba2ed550472da07c",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 1,
+      "group": "L",
+      "status": "passed",
+      "publicId": "84b0245a3cc3c834b4de5e34db069aea",
+      "publicStatus": "passed",
+      "holdoutId": "ae43c711802db5cdda63f13a24945677",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 2,
+      "group": "L",
+      "status": "passed",
+      "publicId": "e8efbdd6e7ad27068e2e2536a5234fc8",
+      "publicStatus": "passed",
+      "holdoutId": "8d9d00d57537d0ba01646b099b3a1307",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "d9426d7e395db6e321d85ea48183e1c0",
+      "publicStatus": "passed",
+      "holdoutId": "b5f897e2d3a68753a20d9fabf4f0feac",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "5b798b5fcb3997e170769437f690d3e3",
+      "publicStatus": "passed",
+      "holdoutId": "5d65a0e0a82d5af112b04831416b4f01",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 2,
+      "group": "L",
+      "status": "passed",
+      "publicId": "436dfa19946824c62528c989b0f6dfa7",
+      "publicStatus": "passed",
+      "holdoutId": "d3acf103b87ac5e06ee43f8d4432e5b5",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 2,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "b025d5464c5e334da5d8b647095a634b",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "3ea18d3cef780c4eb3aee49811ca6902",
+      "publicStatus": "passed",
+      "holdoutId": "8f4f1dfe6268b1a7a987fa6fc5a92181",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "df60ddff150a1afa0cf2c0bb65fa9e58",
+      "publicStatus": "passed",
+      "holdoutId": "e783de659d395df6f1823db999649628",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 2,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "d7e697c18b1f0209081bc4f42688657f",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "246a4fbd5db80458bff1708ced42673f",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "bda73dea0ccc06cb677793b72566e8fc",
+      "publicStatus": "passed",
+      "holdoutId": "e79b28918043d1d03318f8871fd25a5f",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "a2aa73d54fa6243811d57ed23b3ff48e",
+      "publicStatus": "passed",
+      "holdoutId": "9768b79434e162c6bb2b60e512d3b42d",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 2,
+      "group": "L",
+      "status": "invalid"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 2,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "163ba2af471d6a3b17f24f69883244de",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "e0ef4baea9b4ad6ae749bf072a2a4503",
+      "publicStatus": "passed",
+      "holdoutId": "56ff84c3037c1a02c067ac711f6932ee",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "3b69036f3bfc06aafabf3cd445109757",
+      "publicStatus": "passed",
+      "holdoutId": "6bb3f0b753236edfca593b8b685876a9",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 2,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "568f51edbdd71a50109339f313273aa6",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "8271ee218946f6b7f59de399af23da7b",
+      "publicStatus": "passed",
+      "holdoutId": "7d31755a14b5aad0784cb62d650f302b",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "32156f3a5138a8437443989fd5a98e82",
+      "publicStatus": "passed",
+      "holdoutId": "db109efa5b68a98dd9391c5c8a98b6dc",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "ddbd8428bbd3f5653cf2c212a95a0016",
+      "publicStatus": "passed",
+      "holdoutId": "55fecc13b2b663d18f1d965b77bd8007",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "451d8be0a7848bf7d56a38b469c39b34",
+      "publicStatus": "passed",
+      "holdoutId": "573ae304eccf164f9e2f6c0f4dc7f328",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "0f522d321d33969152c46b33cdad0519",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "b731e530cdb9140daff47b743ca54a00",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "438b731ad5de8c83403f5e64e2fc9684",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "9bba8b6086717473f516f9fc7bc77d2f",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "145ee9d52605ee422c16c000e7a97b2f",
+      "publicStatus": "passed",
+      "holdoutId": "f332e85f4db236cfc13f3ac3194b6ad3",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "90b227d8c90422edd8a7aa3d7e2aaea6",
+      "publicStatus": "passed",
+      "holdoutId": "8435ae5fd04ebf667bcfff9b71aa03c3",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "6d02f3f1cdb7cea0002a5e95fd532de6",
+      "publicStatus": "passed",
+      "holdoutId": "bf29c46de830bf939023ff471bda6a71",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "passed",
+      "publicId": "cc7becfd734efba026f71ea3b0b57413",
+      "publicStatus": "passed",
+      "holdoutId": "10af73a61b48ce314dbc2871002f4057",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "38131b1c337cbe22c3f4d1f4a47b1419",
+      "publicStatus": "passed",
+      "holdoutId": "e4925949b3859eb17fb6cce5f3a9df15",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "9113a264163fb59d855fc59ce8978789",
+      "publicStatus": "passed",
+      "holdoutId": "68d3c4d76eeedc48690c19a6ca0ac7f2",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "143ea942579f0c7397d11d5e61dd5e7a",
+      "publicStatus": "passed",
+      "holdoutId": "a69cc5573cbf6c3d7c46a96569da9cde",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "cef63b372dbd1f8d6520cf8488d41843",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "passed",
+      "publicId": "e58b674fd7ee63f955c28299afdd4c94",
+      "publicStatus": "passed",
+      "holdoutId": "4cc9539f157ff4a9ea04b7d183028749",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "58fdff34b2044115de5ab4e05b9d8b4e",
+      "publicStatus": "passed",
+      "holdoutId": "b4614d687630932806c65de889d3e7a5",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "6ee78535bf766ae3dd5ce751e4c46a2b",
+      "publicStatus": "passed",
+      "holdoutId": "ebd250cfce9bb6f7fb11ff8cf598c7f6",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "invalid"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "189d9a5f8830ef8e8e7242ec85abd86d",
+      "publicStatus": "passed",
+      "holdoutId": "4116e3b5f166d09fa7bb7230304af515",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "f11c109575aa074c59fc41dbd5afa727",
+      "publicStatus": "passed",
+      "holdoutId": "65938eae0405e3498a6d4a60f468350f",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "451c57ca48e0882c4c9380500869f1e9",
+      "publicStatus": "passed",
+      "holdoutId": "c92882cc3f784b245d3d8a3bc39b4eff",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "passed",
+      "publicId": "56efb96e9c03257e2d7e89e08faa99a8",
+      "publicStatus": "passed",
+      "holdoutId": "f3a89260258494c6b345e4f5eb08dab1",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "1cc1b94377f2be07cebada3f574706d7",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "a7e2d99444259e71cad324bb25699463",
+      "publicStatus": "passed",
+      "holdoutId": "e6bf3a0c0dba02413c64e9b6aaa11b39",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "22511c5e58390d749bbbcf288fca5e19",
+      "publicStatus": "passed",
+      "holdoutId": "6ca455e9727d664abb2db055009ce93e",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "53c148c56cd0a093937ad2b07dd8fa36",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "b797edd95c0600f392e0c4b888773774",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "51ee8970f5c2306f21a62580b8e520ee",
+      "publicStatus": "passed",
+      "holdoutId": "3e98af397a7b112a85a1398d30b23ffd",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "78d35feb76b2321b48650c23aed47e9b",
+      "publicStatus": "passed",
+      "holdoutId": "95c86d510385b9ca4cdd2d0230079e6c",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "e5c622e7581e84110800a983c247086b",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "1c88730964e47d2da0f0e737d763c299",
+      "publicStatus": "passed",
+      "holdoutId": "be345905aaa6bd11e28c51a2f437c702",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "704e9f23fef5711cf8a3cdef8ad1e3db",
+      "publicStatus": "passed",
+      "holdoutId": "f1e4b005f8fb059acb7bf034fa56e513",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "015cb558b39c2ebcab83d27feb6e8550",
+      "publicStatus": "passed",
+      "holdoutId": "47013d5a62647fd8b736d0b698d3e863",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "4988d10583d8020e79bbaeac72af4080",
+      "publicStatus": "passed",
+      "holdoutId": "42f71e488bf35ee9c1854464570bd177",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "9c55731120e35ffc5dfd1e6478bc8459",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "5d7ad87e28779b38eea46a22840d84cb",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "compile_failed",
+      "publicId": "de5f2b5ac0f3f77de0fd44810c1cc3ec",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "c842a1a8bca64d99ed4089ad27ac4162",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "passed",
+      "publicId": "001030272b79072068ac4c2c35d15270",
+      "publicStatus": "passed",
+      "holdoutId": "74e1f20127a457e8cea2a97e6e0b7c35",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "e423441a98cedf771036a8110f884c4c",
+      "publicStatus": "passed",
+      "holdoutId": "47dcd4649cb3d9884d3b77bd9e8009ca",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "03576c16e2e2953cf462b0eb9f1381a0",
+      "publicStatus": "passed",
+      "holdoutId": "e6cdf6d8ee3de0d4ca904a9eac68a91a",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "4395f77570d074d3a9e2b50f94ed97e4",
+      "publicStatus": "passed",
+      "holdoutId": "bb1bf88fe4f21b7b534f1148a07ab44d",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "07e17e8b8b29f95367458247dfb07e64",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 2,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "0278451f8e1f40a7bf143cb0e04f86d6",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "status": "passed",
+      "publicId": "e7784952e31cd083724816a8b29ed296",
+      "publicStatus": "passed",
+      "holdoutId": "4b2b3b762f4bee7e77bd35fed1df0f4b",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 2,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "84b1d4342d81f8165bbd63d527dd8515",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "4a2dd2aa79ee1dff465e2de175764ef2",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "caac3712f30d9cf9c5f3c851f79790a2",
+      "publicStatus": "passed",
+      "holdoutId": "2416775c91f9cd10f670b388f43a19b9",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "9a0266d9b5931a07a055de06653b890f",
+      "publicStatus": "passed",
+      "holdoutId": "032302d07afa444bd8c3fa661f629fb9",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "13292f0f77b3569bd5a8bb1cb9d402d1",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "6c9054171e89da737cf5b8fb64b1ef3f",
+      "publicStatus": "passed",
+      "holdoutId": "ed5b91cc80f89d0b5fbb056850e0bba9",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "e389cf684297289098682e14650cd924",
+      "publicStatus": "passed",
+      "holdoutId": "59d4dbafd51007981ba528da1ed475ad",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "a2521e591d95719946bd9709bca5cb28",
+      "publicStatus": "passed",
+      "holdoutId": "0562ccc830852a07d8e9bfb12ddaaa1a",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "passed",
+      "publicId": "0beea4b8f7b204aca0a3ed728738e9f9",
+      "publicStatus": "passed",
+      "holdoutId": "98813086c0d7afa36dacb17d5151f88d",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "5882cec98f4fd70b5dbfaa4a05764511",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "9ea0f5b51ec5abd7ea7c44689b40cdfb",
+      "publicStatus": "passed",
+      "holdoutId": "5aeb0f119d3742750708966eba302a39",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "e49ff01fb837ebeae05015aaa5aa1d8a",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "ce19247fde293616e3bb6b851ea17bac",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "713a08e93f1c73f94cd86588e54c8223",
+      "publicStatus": "passed",
+      "holdoutId": "1d757df137ec1dbcffd6c8fcf12d13c6",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "ecdaddd275c53a3f6746eef3cda1c167",
+      "publicStatus": "passed",
+      "holdoutId": "e25b4d961a2ac891350604dfa9564a0d",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "91c511bcc0927b7d57ce521a28dde995",
+      "publicStatus": "passed",
+      "holdoutId": "31491531f94768c85b38911b7b25cbd4",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "30defccd07b4a7220e302dab395c9550",
+      "publicStatus": "passed",
+      "holdoutId": "66d3b79253aa02f52321fcd602dd3db3",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "470d442480131f698698173c54911ca9",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "3b3530cec1499cb27fc9ad51840909de",
+      "publicStatus": "passed",
+      "holdoutId": "c5b5f7488be75fc43081c2d44c03290d",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "483d58d641b1ec2416032ecfed385022",
+      "publicStatus": "passed",
+      "holdoutId": "32aaf695187dcc1b7a11106e4c206d14",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "2845fe994dc579bb13487ba70822dbc9",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "80ab5a33145be7a4925d1b81a3380ce7",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "4db017c6d78bc91541a732413719b2c2",
+      "publicStatus": "passed",
+      "holdoutId": "68d84540f72a193141fc822f79fe76f3",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "269b672fccaf23e7bf2a6d8c5fa4207e",
+      "publicStatus": "passed",
+      "holdoutId": "1046cd108264395147a43a6f8d6faf6d",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "e2ec348021239cf3ee6d316c82a68efa",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "e767e7400bccceb0b554062a69acbb02",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "437b6498849c234abe20f1d650c570b1",
+      "publicStatus": "passed",
+      "holdoutId": "ec7a44a23aec5c93811af98903f704c1",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "4e56c8e6124ca7a2b74984ed5456cdc0",
+      "publicStatus": "passed",
+      "holdoutId": "3deaaa169efe65ee2450f1676cbbf016",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "passed",
+      "publicId": "bdc4ed7164d96be513694e64203cd392",
+      "publicStatus": "passed",
+      "holdoutId": "da3bc87661eb6277b4d179f96c36c5f5",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "invalid"
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "aab7da5eec1ee2073584c8ebbf4acc9e",
+      "publicStatus": "passed",
+      "holdoutId": "d70ba87cef276f15faaa4d08458b5f12",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "30e408f347e856d3958c792fbee5b6e9",
+      "publicStatus": "passed",
+      "holdoutId": "d5465f0d88fb36bcc244da5142a8d04b",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "passed",
+      "publicId": "27e2aea71271e5adfc0453955ca1091b",
+      "publicStatus": "passed",
+      "holdoutId": "a87baa912154037505de303cc817f3a9",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "523a203f94cd02062cbac8f189ad4fad",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "3afdfdb80678b7c0570a7fc6f2fd4074",
+      "publicStatus": "passed",
+      "holdoutId": "9c86f63a72fafba3da8ed3797b859311",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "2ab46975e0385229140da328bc8fbde2",
+      "publicStatus": "passed",
+      "holdoutId": "397bebdcdc426336b0261fc216715f6e",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "dc974a7ab737e0bc20df81dd69a053ec",
+      "publicStatus": "passed",
+      "holdoutId": "5b17accbbfb0e7139cc5d5b60708f8bb",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "passed",
+      "publicId": "e3ea41ff17ecc4973312a237dcad9480",
+      "publicStatus": "passed",
+      "holdoutId": "8c05d92990e1d93982782064ecca699c",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "bf5a94f8619991265aaa357fbbc67c8d",
+      "publicStatus": "passed",
+      "holdoutId": "a203c7543942c3d80c47c9399caf568b",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "8878a5b919fc79114b88cc67dcef9207",
+      "publicStatus": "passed",
+      "holdoutId": "ce89235a58b849d6d579a905d36fd53d",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "2a95fe3b900204b14007e7eb05841576",
+      "publicStatus": "passed",
+      "holdoutId": "084ed916e4f17ee469e6c4a31c1d0e8b",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "67dc2bd01b1aff027d244da1044f0b15",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "021de4fe3b7f60b86e9634adc0076ff8",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "test_failed",
+      "publicId": "e0cbccf153fc4596f0e05791efae430f",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "6abaf040de8cdb5e5849dd89595a7319",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "82ebe0241703eb483bf6f029e9653057",
+      "publicStatus": "passed",
+      "holdoutId": "2d54cd658ea7301caf18ea38908ed3d3",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "status": "compile_failed",
+      "publicId": "ee861154588f6e14c032ec0cef4d68a6",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 3,
+      "group": "A",
+      "status": "holdout_failed",
+      "publicId": "7a66a8f936bf268dd4f47777228df53e",
+      "publicStatus": "passed",
+      "holdoutId": "04fcb261bcb5cdbeb4de959ca65b9761",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "e003bcf72df8ddff3ed0d955c43ec459",
+      "publicStatus": "passed",
+      "holdoutId": "677ac34dba3a8044a778b5d4480fabf6",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "507975012c90bc77da456f4f0f2177ec",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "75d451c356f5ab7a575f1e92ce0dce79",
+      "publicStatus": "passed",
+      "holdoutId": "a1d0b6572a2b0675bab1bba853be9713",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "f88307c4fea57a14a9107c374bb1b65c",
+      "publicStatus": "passed",
+      "holdoutId": "fcc2ddf7124be79bd09d7ee5093b11c6",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 3,
+      "group": "L",
+      "status": "test_failed",
+      "publicId": "b93b4bd0f0dd002c6f038867d823730f",
+      "publicStatus": "test_failed"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 3,
+      "group": "L",
+      "status": "holdout_failed",
+      "publicId": "6014c2593b6a0480dce88f3df52c1b60",
+      "publicStatus": "passed",
+      "holdoutId": "a3320a3e63893e2ffe4c43482c64462e",
+      "holdoutStatus": "test_failed"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "773ef36cfda50e4d6114502bb8274769",
+      "publicStatus": "passed",
+      "holdoutId": "add06a815cf349bd7b61d1c76bf7806e",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "e07e8c8c23502d33b84339b91dc6feb8",
+      "publicStatus": "passed",
+      "holdoutId": "4d3c55867a17b2eacad9e78f649e8fdc",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "decf905e6a68b0e9dc656287047036c1",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "7d411d6f956e4fb292ae68349d14374c",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "bookmark_a",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "9ffbec30a23ff657a0eda7580464b9da",
+      "publicStatus": "passed",
+      "holdoutId": "56d54f364724d866626ab17d0787c5c3",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "30693aaf56a97a308cf6dee40c205293",
+      "publicStatus": "passed",
+      "holdoutId": "6964e244ccbd9433dbc544d6055691c8",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "bookmark_b",
+      "repeat": 3,
+      "group": "L",
+      "status": "compile_failed",
+      "publicId": "8ec30263c501587dd5097d34f6c663ab",
+      "publicStatus": "compile_failed"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 3,
+      "group": "L",
+      "status": "passed",
+      "publicId": "684c916b622437f47745e9eb4d4464fb",
+      "publicStatus": "passed",
+      "holdoutId": "50a21d5b97e1b22352f12047dc8d1f22",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_a",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "bb6bc5de01b2f1a7bbe57302a8128471",
+      "publicStatus": "passed",
+      "holdoutId": "52b3aec7ac8bd5556715b93986b8c7f3",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 3,
+      "group": "A",
+      "status": "passed",
+      "publicId": "5c1b06c3b3cc0a0275d67281443e247b",
+      "publicStatus": "passed",
+      "holdoutId": "6e517b92d0fe1fc16c2025818400ef73",
+      "holdoutStatus": "passed"
+    },
+    {
+      "caseId": "weighted_b",
+      "repeat": 3,
+      "group": "L",
+      "status": "passed",
+      "publicId": "e962c95809973f7f2dd1980821b34e9a",
+      "publicStatus": "passed",
+      "holdoutId": "8a4cdf05f4114606d40f633d3c225924",
+      "holdoutStatus": "passed"
+    }
+  ],
+  "designSha256": "a00ebeb1e60b4dfd1e7646d1169b5ed946799dcebfdbb8b4a51199c08e28c6f1",
+  "candidatesSha256": "ae0b7fc40523c0d46e8a92107038543d859e259ae89abdf3c49638450c77ece0",
+  "finishedAt": "2026-11-28T05:40:27.774Z",
+  "reports": 313
+}

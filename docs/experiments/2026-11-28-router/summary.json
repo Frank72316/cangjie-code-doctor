@@ -1,0 +1,913 @@
+{
+  "designSha256": "a00ebeb1e60b4dfd1e7646d1169b5ed946799dcebfdbb8b4a51199c08e28c6f1",
+  "verifiedSha256": "e1f8353526e42ba016ae6c807c5efb02b5dfd51f012829ac342f114e925aaeb4",
+  "physical": {
+    "n": 192,
+    "passed": 71,
+    "input": 200694,
+    "output": 69690,
+    "cached": 140643,
+    "statuses": {
+      "test_failed": 42,
+      "passed": 71,
+      "holdout_failed": 54,
+      "compile_failed": 21,
+      "invalid": 4
+    }
+  },
+  "panels": {
+    "new": {
+      "L": {
+        "n": 72,
+        "passed": 12,
+        "input": 67806,
+        "output": 29363,
+        "cached": 46080,
+        "statuses": {
+          "test_failed": 27,
+          "compile_failed": 8,
+          "holdout_failed": 22,
+          "passed": 12,
+          "invalid": 3
+        }
+      },
+      "S": {
+        "n": 72,
+        "passed": 28,
+        "input": 79230,
+        "output": 24429,
+        "cached": 54252,
+        "statuses": {
+          "passed": 28,
+          "holdout_failed": 29,
+          "test_failed": 11,
+          "compile_failed": 4
+        }
+      },
+      "J": {
+        "n": 72,
+        "passed": 30,
+        "input": 74946,
+        "output": 24233,
+        "cached": 56832,
+        "statuses": {
+          "passed": 30,
+          "test_failed": 13,
+          "compile_failed": 4,
+          "holdout_failed": 25
+        }
+      },
+      "A": {
+        "n": 72,
+        "passed": 28,
+        "input": 84942,
+        "output": 24078,
+        "cached": 58860,
+        "statuses": {
+          "passed": 28,
+          "holdout_failed": 30,
+          "test_failed": 10,
+          "compile_failed": 4
+        }
+      }
+    },
+    "prior": {
+      "L": {
+        "n": 24,
+        "passed": 7,
+        "input": 21117,
+        "output": 9124,
+        "cached": 15357,
+        "statuses": {
+          "compile_failed": 9,
+          "test_failed": 5,
+          "holdout_failed": 2,
+          "invalid": 1,
+          "passed": 7
+        }
+      },
+      "S": {
+        "n": 24,
+        "passed": 19,
+        "input": 23973,
+        "output": 7096,
+        "cached": 18042,
+        "statuses": {
+          "passed": 19,
+          "compile_failed": 5
+        }
+      },
+      "J": {
+        "n": 24,
+        "passed": 24,
+        "input": 25401,
+        "output": 7151,
+        "cached": 19194,
+        "statuses": {
+          "passed": 24
+        }
+      },
+      "A": {
+        "n": 24,
+        "passed": 24,
+        "input": 26829,
+        "output": 7125,
+        "cached": 20346,
+        "statuses": {
+          "passed": 24
+        }
+      }
+    }
+  },
+  "routing": {
+    "new": {
+      "L": {
+        "position": {
+          "tasks": 12,
+          "selected": 0,
+          "passed": 4
+        },
+        "whole": {
+          "tasks": 12,
+          "selected": 0,
+          "passed": 8
+        }
+      },
+      "S": {
+        "position": {
+          "tasks": 12,
+          "selected": 8,
+          "passed": 22
+        },
+        "whole": {
+          "tasks": 12,
+          "selected": 8,
+          "passed": 6
+        }
+      },
+      "J": {
+        "position": {
+          "tasks": 12,
+          "selected": 8,
+          "passed": 22
+        },
+        "whole": {
+          "tasks": 12,
+          "selected": 2,
+          "passed": 8
+        }
+      },
+      "A": {
+        "position": {
+          "tasks": 12,
+          "selected": 12,
+          "passed": 22
+        },
+        "whole": {
+          "tasks": 12,
+          "selected": 12,
+          "passed": 6
+        }
+      }
+    },
+    "prior": {
+      "L": {
+        "position": {
+          "tasks": 6,
+          "selected": 0,
+          "passed": 1
+        },
+        "whole": {
+          "tasks": 2,
+          "selected": 0,
+          "passed": 6
+        }
+      },
+      "S": {
+        "position": {
+          "tasks": 6,
+          "selected": 4,
+          "passed": 13
+        },
+        "whole": {
+          "tasks": 2,
+          "selected": 0,
+          "passed": 6
+        }
+      },
+      "J": {
+        "position": {
+          "tasks": 6,
+          "selected": 6,
+          "passed": 18
+        },
+        "whole": {
+          "tasks": 2,
+          "selected": 0,
+          "passed": 6
+        }
+      },
+      "A": {
+        "position": {
+          "tasks": 6,
+          "selected": 6,
+          "passed": 18
+        },
+        "whole": {
+          "tasks": 2,
+          "selected": 2,
+          "passed": 6
+        }
+      }
+    }
+  },
+  "pairs": {
+    "seek_left": {
+      "L": 0,
+      "S": 3,
+      "J": 3,
+      "A": 3
+    },
+    "seek_right": {
+      "L": 3,
+      "S": 3,
+      "J": 5,
+      "A": 3
+    },
+    "twin_left": {
+      "L": 0,
+      "S": 2,
+      "J": 2,
+      "A": 2
+    },
+    "twin_right": {
+      "L": 0,
+      "S": 0,
+      "J": 0,
+      "A": 0
+    },
+    "alternating_left": {
+      "L": 0,
+      "S": 3,
+      "J": 3,
+      "A": 3
+    },
+    "alternating_right": {
+      "L": 0,
+      "S": 3,
+      "J": 3,
+      "A": 3
+    },
+    "paint_left": {
+      "L": 3,
+      "S": 5,
+      "J": 5,
+      "A": 5
+    },
+    "paint_right": {
+      "L": 3,
+      "S": 6,
+      "J": 6,
+      "A": 6
+    },
+    "invert_left": {
+      "L": 0,
+      "S": 0,
+      "J": 0,
+      "A": 0
+    },
+    "invert_right": {
+      "L": 3,
+      "S": 3,
+      "J": 3,
+      "A": 3
+    },
+    "stamp_left": {
+      "L": 0,
+      "S": 0,
+      "J": 0,
+      "A": 0
+    },
+    "stamp_right": {
+      "L": 0,
+      "S": 0,
+      "J": 0,
+      "A": 0
+    }
+  },
+  "differences": {
+    "J-L": {
+      "net": 18,
+      "better": 7,
+      "same": 5,
+      "worse": 0
+    },
+    "J-A": {
+      "net": 2,
+      "better": 1,
+      "same": 11,
+      "worse": 0
+    },
+    "S-L": {
+      "net": 16,
+      "better": 6,
+      "same": 6,
+      "worse": 0
+    },
+    "S-A": {
+      "net": 0,
+      "better": 0,
+      "same": 12,
+      "worse": 0
+    },
+    "J-S": {
+      "net": 2,
+      "better": 1,
+      "same": 11,
+      "worse": 0
+    }
+  },
+  "perCase": [
+    {
+      "id": "seek_left_mark",
+      "panel": "new",
+      "pair": "seek_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "seek_left_all",
+      "panel": "new",
+      "pair": "seek_left",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "seek_right_mark",
+      "panel": "new",
+      "pair": "seek_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 2,
+        "J": 2,
+        "A": 2
+      }
+    },
+    {
+      "id": "seek_right_all",
+      "panel": "new",
+      "pair": "seek_right",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "L"
+      },
+      "passes": {
+        "L": 3,
+        "S": 1,
+        "J": 3,
+        "A": 1
+      }
+    },
+    {
+      "id": "twin_left_mark",
+      "panel": "new",
+      "pair": "twin_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 2,
+        "J": 2,
+        "A": 2
+      }
+    },
+    {
+      "id": "twin_left_all",
+      "panel": "new",
+      "pair": "twin_left",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "twin_right_mark",
+      "panel": "new",
+      "pair": "twin_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "twin_right_all",
+      "panel": "new",
+      "pair": "twin_right",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "alternating_left_mark",
+      "panel": "new",
+      "pair": "alternating_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "alternating_left_all",
+      "panel": "new",
+      "pair": "alternating_left",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "alternating_right_mark",
+      "panel": "new",
+      "pair": "alternating_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "alternating_right_all",
+      "panel": "new",
+      "pair": "alternating_right",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "paint_left_mark",
+      "panel": "new",
+      "pair": "paint_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 1,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "paint_left_all",
+      "panel": "new",
+      "pair": "paint_left",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "L"
+      },
+      "passes": {
+        "L": 2,
+        "S": 2,
+        "J": 2,
+        "A": 2
+      }
+    },
+    {
+      "id": "paint_right_mark",
+      "panel": "new",
+      "pair": "paint_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "paint_right_all",
+      "panel": "new",
+      "pair": "paint_right",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "L"
+      },
+      "passes": {
+        "L": 3,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "invert_left_mark",
+      "panel": "new",
+      "pair": "invert_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "invert_left_all",
+      "panel": "new",
+      "pair": "invert_left",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "invert_right_mark",
+      "panel": "new",
+      "pair": "invert_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 3,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "invert_right_all",
+      "panel": "new",
+      "pair": "invert_right",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "stamp_left_mark",
+      "panel": "new",
+      "pair": "stamp_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "stamp_left_all",
+      "panel": "new",
+      "pair": "stamp_left",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "stamp_right_mark",
+      "panel": "new",
+      "pair": "stamp_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "stamp_right_all",
+      "panel": "new",
+      "pair": "stamp_right",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 0,
+        "A": 0
+      }
+    },
+    {
+      "id": "neighbor_left",
+      "panel": "prior",
+      "pair": "neighbor_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "weighted_right",
+      "panel": "prior",
+      "pair": "weighted_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "update_left",
+      "panel": "prior",
+      "pair": "update_left",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "insert_right",
+      "panel": "prior",
+      "pair": "insert_right",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "A",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "bookmark_a",
+      "panel": "prior",
+      "pair": "bookmark_a",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "A"
+      },
+      "passes": {
+        "L": 1,
+        "S": 1,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "bookmark_b",
+      "panel": "prior",
+      "pair": "bookmark_b",
+      "context": "position",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "A"
+      },
+      "passes": {
+        "L": 0,
+        "S": 0,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "weighted_a",
+      "panel": "prior",
+      "pair": "weighted_a",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 3,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    },
+    {
+      "id": "weighted_b",
+      "panel": "prior",
+      "pair": "weighted_b",
+      "context": "whole",
+      "policy": {
+        "L": "L",
+        "A": "A",
+        "S": "L",
+        "J": "L"
+      },
+      "passes": {
+        "L": 3,
+        "S": 3,
+        "J": 3,
+        "A": 3
+      }
+    }
+  ],
+  "conservativeCNY": 0.958908,
+  "offPeakCacheAwareCNY": 0.34162386,
+  "cumulativeEstimatedCNY": 6.055576,
+  "materialReports": 128,
+  "scoreReports": 313
+}

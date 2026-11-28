@@ -571,3 +571,6 @@
 
 ## 第一百轮　补充压力测试
 候选 703885b317cb25d5a52c64565b7050d859034703 已核对两端后启动[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46112206477)。本节在评分结果归档前锁定改述，只改变选文档所见指令。
+
+## 第一百零一轮　自动选文档研究归档
+补充改述提交 972f4b001357d5c4c6ad91387aa51d747ca07c08 已推送两端，[CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46112286813) 通过。基于原候选提交的[独立评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46112206477) 于北京时间 13:40:37 更新为成功。已移除远端临时评分钥匙。本节提交完整成绩、费用、图表及补充复算。

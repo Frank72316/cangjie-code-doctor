@@ -1,0 +1,323 @@
+{
+  "scope": "Post hoc, new physical candidates failing hidden checks. Boundary means empty list or invalid/missing position.",
+  "counts": {
+    "boundaryOnly": 47,
+    "ordinaryOnly": 5,
+    "mixed": 0,
+    "incompleteTrace": 0
+  },
+  "rows": [
+    {
+      "caseId": "seek_left_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "category": "ordinaryOnly"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 1,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 2,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "category": "ordinaryOnly"
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 2,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 2,
+      "group": "L",
+      "category": "ordinaryOnly"
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "category": "ordinaryOnly"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "category": "ordinaryOnly"
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 3,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 3,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 3,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 3,
+      "group": "L",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 3,
+      "group": "A",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 3,
+      "group": "L",
+      "category": "boundaryOnly"
+    }
+  ]
+}
