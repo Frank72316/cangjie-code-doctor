@@ -1,0 +1,773 @@
+{
+  "receiptSha256": "e9d98c4cfce050334ad8c30914bebd59a9408fc3dbcf2441403a8ab4d34c568e",
+  "rows": [
+    {
+      "caseId": "best_left_start",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_start",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_first",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_first",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_last",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_last",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_first",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_first",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_last",
+      "group": "D",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_last",
+      "group": "U",
+      "repeat": 1,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_last",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_last",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_first",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cap_first",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_last",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_last",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_first",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "index_first",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_start",
+      "group": "D",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    },
+    {
+      "caseId": "best_left_start",
+      "group": "U",
+      "repeat": 2,
+      "chosenPassed": true,
+      "poolPassed": true,
+      "complete": true
+    }
+  ]
+}

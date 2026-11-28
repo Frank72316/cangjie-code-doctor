@@ -1,0 +1,171 @@
+{
+  "receiptSha256": "f39a1f21fdb40403db6661a81ddf07eab29f45a717a388df6fa87bb84e0c9060",
+  "panels": {
+    "new": {
+      "cases": 16,
+      "errors": 12,
+      "changedPairs": 5,
+      "original": 7,
+      "expanded": 8,
+      "gained": 1,
+      "lost": 0,
+      "falsePositives": 0
+    },
+    "legacy": {
+      "cases": 8,
+      "errors": 6,
+      "changedPairs": 3,
+      "original": 6,
+      "expanded": 6,
+      "gained": 0,
+      "lost": 0,
+      "falsePositives": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "best_left_start",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "best_left_end",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "best_right_start",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "best_right_end",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "quota_first_1",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "quota_first_2",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "quota_last_1",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "quota_last_2",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "cross_first_up",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "cross_first_down",
+      "changed": true,
+      "original": false,
+      "expanded": true
+    },
+    {
+      "id": "cross_last_up",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "cross_last_down",
+      "changed": true,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "window_inside_pos",
+      "changed": true,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "window_inside_neg",
+      "changed": true,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "window_outside_pos",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "window_outside_neg",
+      "changed": true,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "streak_strict",
+      "changed": true,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "streak_inclusive",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "prefix_equal",
+      "changed": false,
+      "original": false,
+      "expanded": false
+    },
+    {
+      "id": "prefix_above",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "index_first",
+      "changed": true,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "index_last",
+      "changed": true,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "cap_first",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    },
+    {
+      "id": "cap_last",
+      "changed": false,
+      "original": true,
+      "expanded": true
+    }
+  ]
+}

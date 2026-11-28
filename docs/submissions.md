@@ -621,3 +621,7 @@
 ## 第一百一十三轮　候选提交及补充选例冻结
 
 冻结请求提交 36c99d92ba668f701a3075b7651d5cc178129dbb 于北京时间 16:21:58 提交，GitCode 与 GitHub 同步，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46125559419) 成功。本节锁定 96 次独立回答、评分前审阅和补充实测输入。
+
+## 第一百一十四轮　归档选例实验的隔离评分与补充发现
+
+候选提交 d02fb71cecbce9bc2ffb470c44571b07ff76b308 于北京时间 16:25:38 提交，GitCode 与 GitHub 同步，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46125768536) 成功。[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46125781179) 于北京时间 16:25:54 创建，16:39:11 更新为成功。本节归档全部 96 次调用的成绩、按需调用回放、补充输入的真实观测和独立复算。

@@ -136,3 +136,65 @@ for (p,g,k),v in counts.items(): assert summary["panels"][p][g][k]==v
 for (p,g,k),v in money.items(): assert summary["panels"][p][g][k]==v/1e6
 assert len(seen)==96
 print("Independently recounted 96 model outcomes, guarded calls, regressions and costs.")
+
+# Recompute the supplementary choices and classify new observations in a second implementation.
+extended = read("supplement")
+sdk_extra = {r["id"]: r for r in read("score/supplement")["rows"]}
+assert len(sdk_extra) == sum(r["changed"] for r in extended["rows"])
+changes = Counter()
+for plan, original in zip(extended["rows"], frozen, strict=True):
+    cid = original["id"]
+    assert cid == plan["id"]
+    available = [*pool, *(extra["input"] for extra in plan["added"])]
+    outputs = [[spec(cid, q["array"], q["t"], variant) for variant in original["variants"]]
+               for q in available]
+
+    def expanded_rank(pair):
+        i, j = pair
+        distinct = [(a, b) for a, b in candidate_spec_pairs
+                    if outputs[i][a] != outputs[i][b] or outputs[j][a] != outputs[j][b]]
+        tie = hashlib.sha256(f"doctor-selection-tie-v1/{cid}/{i}/{j}".encode()).hexdigest()
+        return -sum(a == 0 for a, b in distinct), -len(distinct), tie
+
+    best = min(combinations(range(len(available)), 2), key=expanded_rank)
+    assert list(best) == plan["indices"]
+    assert [available[j] for j in best] == plan["examples"]
+    assert plan["changed"] == (list(best) != original["D"])
+    before = tasks[cid]["D"]
+    detected = before
+    if plan["changed"]:
+        row = sdk_extra[cid]
+        for group in ("reference", "starter"):
+            actual = [(val["returned"], *val["after"]) for val in row[group]["actual"]]
+            failed = [val != outputs[j][0] for val, j in zip(actual, best, strict=True)]
+            assert failed == row[group]["failed"]
+            if group == "reference":
+                assert not any(failed)
+            else:
+                detected = any(failed)
+    panel = tasks[cid]["panel"]
+    if tasks[cid]["hiddenFail"]:
+        changes[panel, "expanded"] += detected
+        changes[panel, "gained"] += detected and not before
+        changes[panel, "lost"] += before and not detected
+    else:
+        changes[panel, "falsePositives"] += detected
+if (FOLDER / "witness-summary.json").exists():
+    witness_totals = read("witness-summary")["panels"]
+    for (panel, metric), count in changes.items():
+        assert count == witness_totals[panel][metric]
+print("Independently reproduced expanded pairs and supplementary SDK comparisons.")
+
+# Repeated responses sharing exactly the same source are not independent programs.
+by_case_arm = {}
+hash_outcomes = {}
+for response, sdk_row in zip(pack["results"], receipt["rows"], strict=True):
+    key = (response["caseId"], response["group"])
+    by_case_arm.setdefault(key, []).append(response["codeSha256"])
+    same_program = (response["caseId"], response["codeSha256"])
+    if same_program in hash_outcomes:
+        assert hash_outcomes[same_program] == sdk_row["status"]
+    hash_outcomes[same_program] = sdk_row["status"]
+duplicates = sum(len(set(hashes)) == 1 for hashes in by_case_arm.values())
+assert len(by_case_arm) == 48 and all(len(hashes) == 2 for hashes in by_case_arm.values())
+print(f"{duplicates}/48 repeated case/arm pairs returned byte-identical source; identical source within a task always received the same final verdict.")
