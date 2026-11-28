@@ -1,0 +1,226 @@
+[
+  {
+    "id": "seek_left_mark",
+    "panel": "new",
+    "pair": "seek_left",
+    "kind": "seek",
+    "context": "position"
+  },
+  {
+    "id": "seek_left_all",
+    "panel": "new",
+    "pair": "seek_left",
+    "kind": "seek",
+    "context": "whole"
+  },
+  {
+    "id": "seek_right_mark",
+    "panel": "new",
+    "pair": "seek_right",
+    "kind": "seek",
+    "context": "position"
+  },
+  {
+    "id": "seek_right_all",
+    "panel": "new",
+    "pair": "seek_right",
+    "kind": "seek",
+    "context": "whole"
+  },
+  {
+    "id": "twin_left_mark",
+    "panel": "new",
+    "pair": "twin_left",
+    "kind": "twin",
+    "context": "position"
+  },
+  {
+    "id": "twin_left_all",
+    "panel": "new",
+    "pair": "twin_left",
+    "kind": "twin",
+    "context": "whole"
+  },
+  {
+    "id": "twin_right_mark",
+    "panel": "new",
+    "pair": "twin_right",
+    "kind": "twin",
+    "context": "position"
+  },
+  {
+    "id": "twin_right_all",
+    "panel": "new",
+    "pair": "twin_right",
+    "kind": "twin",
+    "context": "whole"
+  },
+  {
+    "id": "alternating_left_mark",
+    "panel": "new",
+    "pair": "alternating_left",
+    "kind": "alternating",
+    "context": "position"
+  },
+  {
+    "id": "alternating_left_all",
+    "panel": "new",
+    "pair": "alternating_left",
+    "kind": "alternating",
+    "context": "whole"
+  },
+  {
+    "id": "alternating_right_mark",
+    "panel": "new",
+    "pair": "alternating_right",
+    "kind": "alternating",
+    "context": "position"
+  },
+  {
+    "id": "alternating_right_all",
+    "panel": "new",
+    "pair": "alternating_right",
+    "kind": "alternating",
+    "context": "whole"
+  },
+  {
+    "id": "paint_left_mark",
+    "panel": "new",
+    "pair": "paint_left",
+    "kind": "paint",
+    "context": "position"
+  },
+  {
+    "id": "paint_left_all",
+    "panel": "new",
+    "pair": "paint_left",
+    "kind": "paint",
+    "context": "whole"
+  },
+  {
+    "id": "paint_right_mark",
+    "panel": "new",
+    "pair": "paint_right",
+    "kind": "paint",
+    "context": "position"
+  },
+  {
+    "id": "paint_right_all",
+    "panel": "new",
+    "pair": "paint_right",
+    "kind": "paint",
+    "context": "whole"
+  },
+  {
+    "id": "invert_left_mark",
+    "panel": "new",
+    "pair": "invert_left",
+    "kind": "invert",
+    "context": "position"
+  },
+  {
+    "id": "invert_left_all",
+    "panel": "new",
+    "pair": "invert_left",
+    "kind": "invert",
+    "context": "whole"
+  },
+  {
+    "id": "invert_right_mark",
+    "panel": "new",
+    "pair": "invert_right",
+    "kind": "invert",
+    "context": "position"
+  },
+  {
+    "id": "invert_right_all",
+    "panel": "new",
+    "pair": "invert_right",
+    "kind": "invert",
+    "context": "whole"
+  },
+  {
+    "id": "stamp_left_mark",
+    "panel": "new",
+    "pair": "stamp_left",
+    "kind": "stamp",
+    "context": "position"
+  },
+  {
+    "id": "stamp_left_all",
+    "panel": "new",
+    "pair": "stamp_left",
+    "kind": "stamp",
+    "context": "whole"
+  },
+  {
+    "id": "stamp_right_mark",
+    "panel": "new",
+    "pair": "stamp_right",
+    "kind": "stamp",
+    "context": "position"
+  },
+  {
+    "id": "stamp_right_all",
+    "panel": "new",
+    "pair": "stamp_right",
+    "kind": "stamp",
+    "context": "whole"
+  },
+  {
+    "id": "neighbor_left",
+    "panel": "prior",
+    "origin": "2026-11-28-node",
+    "pair": "neighbor_left",
+    "context": "position"
+  },
+  {
+    "id": "weighted_right",
+    "panel": "prior",
+    "origin": "2026-11-28-node",
+    "pair": "weighted_right",
+    "context": "position"
+  },
+  {
+    "id": "update_left",
+    "panel": "prior",
+    "origin": "2026-11-28-node",
+    "pair": "update_left",
+    "context": "position"
+  },
+  {
+    "id": "insert_right",
+    "panel": "prior",
+    "origin": "2026-11-28-node",
+    "pair": "insert_right",
+    "context": "position"
+  },
+  {
+    "id": "bookmark_a",
+    "panel": "prior",
+    "origin": "2026-11-27-operation",
+    "pair": "bookmark_a",
+    "context": "position"
+  },
+  {
+    "id": "bookmark_b",
+    "panel": "prior",
+    "origin": "2026-11-27-operation",
+    "pair": "bookmark_b",
+    "context": "position"
+  },
+  {
+    "id": "weighted_a",
+    "panel": "prior",
+    "origin": "2026-11-27-operation",
+    "pair": "weighted_a",
+    "context": "whole"
+  },
+  {
+    "id": "weighted_b",
+    "panel": "prior",
+    "origin": "2026-11-27-operation",
+    "pair": "weighted_b",
+    "context": "whole"
+  }
+]

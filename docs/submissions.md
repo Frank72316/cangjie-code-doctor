@@ -557,3 +557,6 @@
 
 ## 第九十六轮　自动选择实验预登记
 上轮结果 75b51b604d7b705ba92fd9c78650db4de845fc12 于北京时间 13:06:02 提交，两端 SHA 一致，[CI](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46110626136) 成功。本节先锁定研究设计和路由规则。
+
+## 第九十七轮　题集与测试冻结
+预登记 cd531fb872066d15e6b91dfc45ddcb32d9b2ab25 已同步 GitCode 和 GitHub。此后才生成新题和测试。
