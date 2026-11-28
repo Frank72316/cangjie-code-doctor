@@ -1,0 +1,183 @@
+{
+  "designSha256": "983860b3cfcf1e750c283cbf4465a0e62c79e7ec090a146d0197d35ba94fa77c",
+  "verifiedSha256": "d46a3d8405ec780eb3e9edeb7b4fe35ca24d50b198ad02dec2888d1339b74c90",
+  "byGroup": {
+    "L": {
+      "statuses": {
+        "harness_incompatible": 1,
+        "passed": 2,
+        "test_failed": 6,
+        "holdout_failed": 2,
+        "compile_failed": 5
+      },
+      "input": 14404,
+      "cached": 9980,
+      "output": 5862
+    },
+    "N": {
+      "statuses": {
+        "passed": 14,
+        "compile_failed": 2
+      },
+      "input": 16180,
+      "cached": 11260,
+      "output": 4680
+    },
+    "O": {
+      "statuses": {
+        "holdout_failed": 1,
+        "passed": 1,
+        "test_failed": 6,
+        "compile_failed": 8
+      },
+      "input": 16436,
+      "cached": 11132,
+      "output": 6157
+    },
+    "B": {
+      "statuses": {
+        "passed": 16
+      },
+      "input": 18212,
+      "cached": 12540,
+      "output": 4644
+    }
+  },
+  "byCase": {
+    "neighbor_left": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 2
+    },
+    "neighbor_right": {
+      "L": 2,
+      "N": 2,
+      "O": 1,
+      "B": 2
+    },
+    "weighted_left": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 2
+    },
+    "weighted_right": {
+      "L": 0,
+      "N": 0,
+      "O": 0,
+      "B": 2
+    },
+    "update_left": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 2
+    },
+    "update_right": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 2
+    },
+    "insert_left": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 2
+    },
+    "insert_right": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 2
+    }
+  },
+  "byPair": {
+    "neighbor": {
+      "L": 2,
+      "N": 4,
+      "O": 1,
+      "B": 4
+    },
+    "weighted": {
+      "L": 0,
+      "N": 2,
+      "O": 0,
+      "B": 4
+    },
+    "update": {
+      "L": 0,
+      "N": 4,
+      "O": 0,
+      "B": 4
+    },
+    "insert": {
+      "L": 0,
+      "N": 4,
+      "O": 0,
+      "B": 4
+    }
+  },
+  "comparisons": {
+    "bothVsList": {
+      "netPassed": 14,
+      "pairedCounts": [
+        2,
+        4,
+        4,
+        4
+      ]
+    },
+    "nodeVsList": {
+      "netPassed": 12,
+      "pairedCounts": [
+        2,
+        2,
+        4,
+        4
+      ]
+    },
+    "optionVsList": {
+      "netPassed": -1,
+      "pairedCounts": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    },
+    "bothVsNode": {
+      "netPassed": 2,
+      "pairedCounts": [
+        0,
+        2,
+        0,
+        0
+      ]
+    },
+    "bothVsOption": {
+      "netPassed": 15,
+      "pairedCounts": [
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    "interaction": {
+      "netPassed": 3,
+      "pairedCounts": [
+        1,
+        2,
+        0,
+        0
+      ]
+    }
+  },
+  "conservativeCNY": 0.301208,
+  "offPeakCacheAwareCNY": 0.10659024,
+  "cumulativeEstimatedCNY": 5.096668,
+  "materialReports": 32,
+  "scoreReports": 99
+}
