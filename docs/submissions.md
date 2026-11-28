@@ -585,3 +585,7 @@
 ## 第一百零四轮　提交复查回答，锁定盲审结果
 
 冻结请求 7edf37711c3f87b7580cde1bc644317fa1ecc75f 于北京时间 14:54:40 提交并已核对两端，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46118933551)。本节归档 96 次模型答复、用量和 32 份去重源码的盲审决定。
+
+## 第一百零五轮　复查实验归档
+
+候选和盲审提交 01cc2f0c78b59ba5d1945eeb68881bd1aee4977d 于北京时间 14:57:34 提交并同步 GitCode、GitHub，[常规检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46119003231) 成功。[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46119017052) 于北京时间 15:05:36 更新为成功，已回收临时评分钥匙。本节提交逐题成绩、加密执行证据、独立复算与[研究报告](experiments/2026-11-28-review/report.md)。

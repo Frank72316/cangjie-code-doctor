@@ -1,0 +1,362 @@
+{
+  "designSha256": "d9d007340edb052019b6ce005bb225aa1024b0acae36c9c477017471cd7df660",
+  "verifiedSha256": "dc2270be147e68676a6434f4be6f476292ae8bc652f55eea602afd1642289ff3",
+  "baseline": {
+    "passed": 10,
+    "publicFailure": 6,
+    "hiddenOnlyFailure": 8
+  },
+  "arms": {
+    "G": {
+      "runs": 48,
+      "passed": 22,
+      "fixed": 2,
+      "regressed": 0,
+      "preserved": 20,
+      "stillFailing": 26,
+      "guardPassed": 22,
+      "guardRegressed": 0,
+      "publicRejected": 12,
+      "onDemandPassed": 20,
+      "onDemandCalls": 12,
+      "onDemandCostCNY": 0.061952,
+      "unchanged": 37,
+      "sameCodeAcrossRepeats": 22,
+      "byStarter": {
+        "passed": {
+          "n": 20,
+          "passed": 20,
+          "unchanged": 17
+        },
+        "publicFailure": {
+          "n": 12,
+          "passed": 0,
+          "unchanged": 8
+        },
+        "hiddenOnlyFailure": {
+          "n": 16,
+          "passed": 2,
+          "unchanged": 12
+        }
+      },
+      "statuses": {
+        "passed": 22,
+        "test_failed": 10,
+        "compile_failed": 2,
+        "holdout_failed": 14
+      },
+      "input": 57402,
+      "output": 15865,
+      "cached": 35703
+    },
+    "E": {
+      "runs": 48,
+      "passed": 26,
+      "fixed": 6,
+      "regressed": 0,
+      "preserved": 20,
+      "stillFailing": 22,
+      "guardPassed": 26,
+      "guardRegressed": 0,
+      "publicRejected": 12,
+      "onDemandPassed": 20,
+      "onDemandCalls": 12,
+      "onDemandCostCNY": 0.062024,
+      "unchanged": 30,
+      "sameCodeAcrossRepeats": 23,
+      "byStarter": {
+        "passed": {
+          "n": 20,
+          "passed": 20,
+          "unchanged": 16
+        },
+        "publicFailure": {
+          "n": 12,
+          "passed": 0,
+          "unchanged": 6
+        },
+        "hiddenOnlyFailure": {
+          "n": 16,
+          "passed": 6,
+          "unchanged": 8
+        }
+      },
+      "statuses": {
+        "passed": 26,
+        "test_failed": 10,
+        "compile_failed": 2,
+        "holdout_failed": 10
+      },
+      "input": 57546,
+      "output": 16150,
+      "cached": 37759
+    }
+  },
+  "comparison": {
+    "net": 4,
+    "improvedPairs": 2,
+    "tiedPairs": 10,
+    "worsePairs": 0
+  },
+  "pairs": {
+    "seek_left": {
+      "Z": 2,
+      "G": 2,
+      "E": 2
+    },
+    "seek_right": {
+      "Z": 2,
+      "G": 2,
+      "E": 2
+    },
+    "twin_left": {
+      "Z": 2,
+      "G": 2,
+      "E": 2
+    },
+    "twin_right": {
+      "Z": 0,
+      "G": 2,
+      "E": 2
+    },
+    "alternating_left": {
+      "Z": 2,
+      "G": 2,
+      "E": 2
+    },
+    "alternating_right": {
+      "Z": 2,
+      "G": 2,
+      "E": 2
+    },
+    "paint_left": {
+      "Z": 4,
+      "G": 4,
+      "E": 4
+    },
+    "paint_right": {
+      "Z": 4,
+      "G": 4,
+      "E": 4
+    },
+    "invert_left": {
+      "Z": 0,
+      "G": 0,
+      "E": 2
+    },
+    "invert_right": {
+      "Z": 2,
+      "G": 2,
+      "E": 4
+    },
+    "stamp_left": {
+      "Z": 0,
+      "G": 0,
+      "E": 0
+    },
+    "stamp_right": {
+      "Z": 0,
+      "G": 0,
+      "E": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "seek_left_mark",
+      "pair": "seek_left",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "seek_left_all",
+      "pair": "seek_left",
+      "context": "whole",
+      "baseline": "publicFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "seek_right_mark",
+      "pair": "seek_right",
+      "context": "position",
+      "baseline": "publicFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "seek_right_all",
+      "pair": "seek_right",
+      "context": "whole",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "twin_left_mark",
+      "pair": "twin_left",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "twin_left_all",
+      "pair": "twin_left",
+      "context": "whole",
+      "baseline": "publicFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "twin_right_mark",
+      "pair": "twin_right",
+      "context": "position",
+      "baseline": "hiddenOnlyFailure",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "twin_right_all",
+      "pair": "twin_right",
+      "context": "whole",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "alternating_left_mark",
+      "pair": "alternating_left",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "alternating_left_all",
+      "pair": "alternating_left",
+      "context": "whole",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "alternating_right_mark",
+      "pair": "alternating_right",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "alternating_right_all",
+      "pair": "alternating_right",
+      "context": "whole",
+      "baseline": "publicFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "paint_left_mark",
+      "pair": "paint_left",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "paint_left_all",
+      "pair": "paint_left",
+      "context": "whole",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "paint_right_mark",
+      "pair": "paint_right",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "paint_right_all",
+      "pair": "paint_right",
+      "context": "whole",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "invert_left_mark",
+      "pair": "invert_left",
+      "context": "position",
+      "baseline": "publicFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "invert_left_all",
+      "pair": "invert_left",
+      "context": "whole",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 2
+    },
+    {
+      "id": "invert_right_mark",
+      "pair": "invert_right",
+      "context": "position",
+      "baseline": "passed",
+      "G": 2,
+      "E": 2
+    },
+    {
+      "id": "invert_right_all",
+      "pair": "invert_right",
+      "context": "whole",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 2
+    },
+    {
+      "id": "stamp_left_mark",
+      "pair": "stamp_left",
+      "context": "position",
+      "baseline": "publicFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "stamp_left_all",
+      "pair": "stamp_left",
+      "context": "whole",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "stamp_right_mark",
+      "pair": "stamp_right",
+      "context": "position",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 0
+    },
+    {
+      "id": "stamp_right_all",
+      "pair": "stamp_right",
+      "context": "whole",
+      "baseline": "hiddenOnlyFailure",
+      "G": 0,
+      "E": 0
+    }
+  ],
+  "conservativeCNY": 0.486016,
+  "offPeakCacheAwareCNY": 0.17101523999999999,
+  "cumulativeEstimatedCNY": 6.541592,
+  "materialReports": 96,
+  "scoreReports": 168
+}

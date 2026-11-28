@@ -1,0 +1,175 @@
+{
+  "scope": "Descriptive classification of public-passing drafts that fail hidden checks. Boundary means empty list or invalid/missing position.",
+  "counts": {
+    "boundaryOnly": 24,
+    "ordinaryOnly": 0,
+    "mixed": 0,
+    "incompleteTrace": 0
+  },
+  "rows": [
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "E",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "G",
+      "category": "boundaryOnly"
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "E",
+      "category": "boundaryOnly"
+    }
+  ],
+  "byGroup": {
+    "Z": {
+      "boundaryOnly": 8,
+      "ordinaryOnly": 0,
+      "mixed": 0,
+      "incompleteTrace": 0
+    },
+    "G": {
+      "boundaryOnly": 14,
+      "ordinaryOnly": 0,
+      "mixed": 0,
+      "incompleteTrace": 0
+    },
+    "E": {
+      "boundaryOnly": 10,
+      "ordinaryOnly": 0,
+      "mixed": 0,
+      "incompleteTrace": 0
+    }
+  }
+}
