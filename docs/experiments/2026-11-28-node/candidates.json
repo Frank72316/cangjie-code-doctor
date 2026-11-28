@@ -1,0 +1,1740 @@
+{
+  "designSha256": "983860b3cfcf1e750c283cbf4465a0e62c79e7ec090a146d0197d35ba94fa77c",
+  "commit": "4e274f6ad1c0a79e2865a91731c14363980ff3d1",
+  "startedAt": "2026-11-28T04:54:49.361Z",
+  "results": [
+    {
+      "caseId": "neighbor_left",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "fcea8ce527896a2486823f3e3183fe9edddafeb3dd496b8e7de857768ca636f3",
+      "startedAt": "2026-11-28T04:54:49.363Z",
+      "status": "generated",
+      "costCNY": 0.006578,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "62c140ff-ac4f-4f28-b5a7-fe672b263013",
+      "usage": {
+        "prompt_tokens": 893,
+        "completion_tokens": 599,
+        "total_tokens": 1492,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 893
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            var prev: ?LinkedListNode<Int64> = None\\n            var cur: ?LinkedListNode<Int64> = q.firstNode\\n            while (true) {\\n                match (cur) {\\n                    case Some(c) =>\\n                        if (c == node) {\\n                            break\\n                        }\\n                        prev = cur\\n                        cur = None\\n                        // 需要获取下一个节点，但 LinkedListNode 没有 next 属性，\\n                        // 使用 forward 迭代器来遍历\\n                        break\\n                    case None => break\\n                }\\n            }\\n            // 使用 forward 迭代器找到前一个节点\\n            var found: ?LinkedListNode<Int64> = None\\n            var it = q.forward(q.firstNode.getOrThrow())\\n            var last: ?LinkedListNode<Int64> = None\\n            while (true) {\\n                match (it.next()) {\\n                    case Some(n) =>\\n                        if (n == node) {\\n                            found = last\\n                            break\\n                        }\\n                        last = n\\n                    case None => break\\n                }\\n            }\\n            match (found) {\\n                case Some(p) =>\\n                    // 获取前一个节点的值\\n                    var val: Int64 = 0\\n                    var it2 = q.forward(q.firstNode.getOrThrow())\\n                    while (true) {\\n                        match (it2.next()) {\\n                            case Some(n) =>\\n                                if (n == p) {\\n                                    // 需要获取值，但 LinkedListNode 没有 value 属性\\n                                    // 通过遍历获取值\\n                                    break\\n                                }\\n                            case None => break\\n                        }\\n                    }\\n                    // 使用 toArray 和索引来获取值\\n                    let arr = q.toArray()\\n                    var idx = -1\\n                    var i = 0\\n                    var it3 = q.forward(q.firstNode.getOrThrow())\\n                    while (true) {\\n                        match (it3.next()) {\\n                            case Some(n) =>\\n                                if (n == p) {\\n                                    idx = i\\n                                    break\\n                                }\\n                                i++\\n                            case None => break\\n                        }\\n                    }\\n                    if (idx >= 0) {\\n                        return arr[idx] - t\\n                    }\\n                    return -81\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            var prev: ?LinkedListNode<Int64> = None\n            var cur: ?LinkedListNode<Int64> = q.firstNode\n            while (true) {\n                match (cur) {\n                    case Some(c) =>\n                        if (c == node) {\n                            break\n                        }\n                        prev = cur\n                        cur = None\n                        // 需要获取下一个节点，但 LinkedListNode 没有 next 属性，\n                        // 使用 forward 迭代器来遍历\n                        break\n                    case None => break\n                }\n            }\n            // 使用 forward 迭代器找到前一个节点\n            var found: ?LinkedListNode<Int64> = None\n            var it = q.forward(q.firstNode.getOrThrow())\n            var last: ?LinkedListNode<Int64> = None\n            while (true) {\n                match (it.next()) {\n                    case Some(n) =>\n                        if (n == node) {\n                            found = last\n                            break\n                        }\n                        last = n\n                    case None => break\n                }\n            }\n            match (found) {\n                case Some(p) =>\n                    // 获取前一个节点的值\n                    var val: Int64 = 0\n                    var it2 = q.forward(q.firstNode.getOrThrow())\n                    while (true) {\n                        match (it2.next()) {\n                            case Some(n) =>\n                                if (n == p) {\n                                    // 需要获取值，但 LinkedListNode 没有 value 属性\n                                    // 通过遍历获取值\n                                    break\n                                }\n                            case None => break\n                        }\n                    }\n                    // 使用 toArray 和索引来获取值\n                    let arr = q.toArray()\n                    var idx = -1\n                    var i = 0\n                    var it3 = q.forward(q.firstNode.getOrThrow())\n                    while (true) {\n                        match (it3.next()) {\n                            case Some(n) =>\n                                if (n == p) {\n                                    idx = i\n                                    break\n                                }\n                                i++\n                            case None => break\n                        }\n                    }\n                    if (idx >= 0) {\n                        return arr[idx] - t\n                    }\n                    return -81\n                case None => return -81\n            }\n        case None => return -81\n    }\n}",
+      "codeSha256": "2819b0f319c5d734e8cd15173c75ff747c4103ab1573f1c0d74d26698676dba8",
+      "finishedAt": "2026-11-28T04:54:51.807Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "4b68e14db0c9a5483de3618a1b8a033d05cd285c55b74354af4780199eca4035",
+      "startedAt": "2026-11-28T04:54:51.811Z",
+      "status": "generated",
+      "costCNY": 0.004128,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a5bb0e62-e2a3-46b6-ac4a-13e86df67d7e",
+      "usage": {
+        "prompt_tokens": 1004,
+        "completion_tokens": 265,
+        "total_tokens": 1269,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 236
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) => prevNode.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) => prevNode.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "0aa33ceaca444b97f9a6ecf994548de6a57ba7f7b20c2914b45f7b48361e2ea3",
+      "finishedAt": "2026-11-28T04:54:52.768Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "d6b4c329d9770207549701abc3135349dc97f94e8da2fc00027825f138a78639",
+      "startedAt": "2026-11-28T04:54:52.772Z",
+      "status": "generated",
+      "costCNY": 0.00423,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "88042d5b-6f0c-4989-942a-8a10406fcc7c",
+      "usage": {
+        "prompt_tokens": 1131,
+        "completion_tokens": 246,
+        "total_tokens": 1377,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 235
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(p) => p.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(p) => p.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "86ad62cf12674fcf70e5b246caf33344f02071013951cc6524ac7e52427d5db8",
+      "finishedAt": "2026-11-28T04:54:53.706Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "99f558183ccfb7e416e3bf0b195fe2fb03d115e17a1ef6bd7d49d2edd2785743",
+      "startedAt": "2026-11-28T04:54:53.710Z",
+      "status": "generated",
+      "costCNY": 0.004736,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4c92bfc8-1bc3-4610-b161-99cc09153fc9",
+      "usage": {
+        "prompt_tokens": 1020,
+        "completion_tokens": 337,
+        "total_tokens": 1357,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            var prev: ?LinkedListNode<Int64> = None\\n            var it = q.iterator()\\n            var found = false\\n            while (let Some(v) <- it.next()) {\\n                if (found) {\\n                    break\\n                }\\n                if (v == node.value) {\\n                    found = true\\n                } else {\\n                    prev = q.nodeAt(0)\\n                }\\n            }\\n            match (prev) {\\n                case Some(p) => p.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            var prev: ?LinkedListNode<Int64> = None\n            var it = q.iterator()\n            var found = false\n            while (let Some(v) <- it.next()) {\n                if (found) {\n                    break\n                }\n                if (v == node.value) {\n                    found = true\n                } else {\n                    prev = q.nodeAt(0)\n                }\n            }\n            match (prev) {\n                case Some(p) => p.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "219e97c41520405bbb193ad14fcb3f530dbbdf839ca1d3f95294927b7491dbdd",
+      "finishedAt": "2026-11-28T04:54:55.094Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "f81b82fe1dded21b13d3e58b26fc8c5e93b6f5ae99552271dadae41f33c35f42",
+      "startedAt": "2026-11-28T04:54:55.097Z",
+      "status": "generated",
+      "costCNY": 0.004144,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "55827629-9443-4430-a128-55a36917575e",
+      "usage": {
+        "prompt_tokens": 1004,
+        "completion_tokens": 267,
+        "total_tokens": 1271,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1004
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) => return nextNode.value - t\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) => return nextNode.value - t\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "e392a3f66890024ffa98176d8fd888eb07d27da4c7999f6c22c1d55453491c48",
+      "finishedAt": "2026-11-28T04:54:56.133Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "7ab068dd6a997c5c39152c6db4ee641849590704d30c7e3a350747e73d1d5cca",
+      "startedAt": "2026-11-28T04:54:56.137Z",
+      "status": "generated",
+      "costCNY": 0.004288,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "55e3a8b4-1575-450a-acc0-25d314047e9f",
+      "usage": {
+        "prompt_tokens": 1020,
+        "completion_tokens": 281,
+        "total_tokens": 1301,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 380
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            let it = q.forward(node)\\n            match (it.next()) {\\n                case Some(_) =>\\n                    match (it.next()) {\\n                        case Some(v) => v - t\\n                        case None => -81\\n                    }\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            let it = q.forward(node)\n            match (it.next()) {\n                case Some(_) =>\n                    match (it.next()) {\n                        case Some(v) => v - t\n                        case None => -81\n                    }\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "ac5d3f8a1345ba8e4913299483fbe7b6b993e72f122c6db630cea40ea26d9179",
+      "finishedAt": "2026-11-28T04:54:57.339Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "213ac80971dc6534c75220d4d5f015a905e5b381fec52e1e24cfdc9979a66d88",
+      "startedAt": "2026-11-28T04:54:57.343Z",
+      "status": "generated",
+      "costCNY": 0.004002,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "91e86934-aefd-4d96-a4fb-29d6ab38185c",
+      "usage": {
+        "prompt_tokens": 893,
+        "completion_tokens": 277,
+        "total_tokens": 1170,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let it = q.forward(node)\\n            it.next()\\n            match (it.next()) {\\n                case Some(value) => value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let it = q.forward(node)\n            it.next()\n            match (it.next()) {\n                case Some(value) => value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "ed00b17daa87c6d1ad1ea2ad88341a8f93455e974244e0451cf58478277173e0",
+      "finishedAt": "2026-11-28T04:54:58.740Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "1089848e8fa1af05be99cb97949336c91edf84c1f83aae79ef6d32ebb30dc3e3",
+      "startedAt": "2026-11-28T04:54:58.744Z",
+      "status": "generated",
+      "costCNY": 0.00423,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "271e0a0b-f964-4f7c-9875-d65528015eac",
+      "usage": {
+        "prompt_tokens": 1131,
+        "completion_tokens": 246,
+        "total_tokens": 1377,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 235
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(n) => n.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(n) => n.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "23a85ddd72916b4c57d36cc20e0767fce72092b64c5e423d70706f4ce9edd254",
+      "finishedAt": "2026-11-28T04:55:00.220Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "0fdd46e38176c5e63a07f93f1a60349b4a3082ec860918b62a22d4a856539c67",
+      "startedAt": "2026-11-28T04:55:00.225Z",
+      "status": "generated",
+      "costCNY": 0.004826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d0c0aa24-3b84-437e-8df0-ac726ef5c52c",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 342,
+        "total_tokens": 1387,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1045
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            var sum: Int64 = 0\\n            var weight: Int64 = 1\\n            var count: Int64 = 0\\n            var it = q.backward(node)\\n            while (count < t) {\\n                match (it.next()) {\\n                    case Some(v) =>\\n                        sum += v * weight\\n                        weight += 1\\n                        count += 1\\n                    case None =>\\n                        break\\n                }\\n            }\\n            return sum\\n        case None =>\\n            return 0\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    match (cursor) {\n        case Some(node) =>\n            var sum: Int64 = 0\n            var weight: Int64 = 1\n            var count: Int64 = 0\n            var it = q.backward(node)\n            while (count < t) {\n                match (it.next()) {\n                    case Some(v) =>\n                        sum += v * weight\n                        weight += 1\n                        count += 1\n                    case None =>\n                        break\n                }\n            }\n            return sum\n        case None =>\n            return 0\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "6ba140ad0e896c2228b436752f19ad4ff77e7882864571ed81e27794a8efeeac",
+      "finishedAt": "2026-11-28T04:55:01.483Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "06c4e60d2a20cad01ecb3f613ad2ce3ee04c2d36b4dc6c60a3a7bc993b99d3c4",
+      "startedAt": "2026-11-28T04:55:01.487Z",
+      "status": "generated",
+      "costCNY": 0.004872,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a88a017e-5115-4657-b14b-b16d9fc83eb6",
+      "usage": {
+        "prompt_tokens": 1156,
+        "completion_tokens": 320,
+        "total_tokens": 1476,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 388
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node = match (cursor) {\\n        case Some(n) => n.prev\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    while (k <= t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                node = n.prev\\n            case None => break\\n        }\\n        k += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node = match (cursor) {\n        case Some(n) => n.prev\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    while (k <= t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                node = n.prev\n            case None => break\n        }\n        k += 1\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "39a890e3bae2e90a653e85a36637f413588976b3b232768bf98c511ba19d68b7",
+      "finishedAt": "2026-11-28T04:55:02.797Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "aac1ea4387ad9cbad4db6dc206ac6f1398e9dab527bfe4489849e3a23b5eb65a",
+      "startedAt": "2026-11-28T04:55:02.801Z",
+      "status": "generated",
+      "costCNY": 0.004618,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "37dc50d4-b68f-4f49-9fdb-baf8da1208c7",
+      "usage": {
+        "prompt_tokens": 1029,
+        "completion_tokens": 320,
+        "total_tokens": 1349,
+        "prompt_tokens_details": {
+          "cached_tokens": 895
+        },
+        "prompt_cache_hit_tokens": 895,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node = match (cursor) {\\n        case Some(n) => n.prev\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    while (k <= t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                node = n.prev\\n            case None => break\\n        }\\n        k += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node = match (cursor) {\n        case Some(n) => n.prev\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    while (k <= t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                node = n.prev\n            case None => break\n        }\n        k += 1\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "39a890e3bae2e90a653e85a36637f413588976b3b232768bf98c511ba19d68b7",
+      "finishedAt": "2026-11-28T04:55:03.998Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "c55a1a8522337c72387af90230e8975b6157626013bc7581858c14afe01bc0a8",
+      "startedAt": "2026-11-28T04:55:04.002Z",
+      "status": "generated",
+      "costCNY": 0.004548,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "41a9ecda-c5b8-4451-90e3-9e8735ba5132",
+      "usage": {
+        "prompt_tokens": 918,
+        "completion_tokens": 339,
+        "total_tokens": 1257,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    let start = match (cursor) {\\n        case Some(node) => node\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    var it = q.backward(start)\\n    while (count < t) {\\n        match (it.next()) {\\n            case Some(v) =>\\n                sum += v * weight\\n                weight += 1\\n                count += 1\\n            case None => break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    let start = match (cursor) {\n        case Some(node) => node\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    var it = q.backward(start)\n    while (count < t) {\n        match (it.next()) {\n            case Some(v) =>\n                sum += v * weight\n                weight += 1\n                count += 1\n            case None => break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "f1b20bee327b09bb97cbc7bfd1bde350b15977f47ef0edde414aa60dd329ff2e",
+      "finishedAt": "2026-11-28T04:55:05.608Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "0be64d1dc2fcb425cc21f8a4c7f8c21aa0a3ab9fd5cb29dc981c35f37e0c82eb",
+      "startedAt": "2026-11-28T04:55:05.614Z",
+      "status": "generated",
+      "costCNY": 0.005088,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ffe50a0d-fb8e-4132-9bf1-b69903b3bb29",
+      "usage": {
+        "prompt_tokens": 1156,
+        "completion_tokens": 347,
+        "total_tokens": 1503,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1156
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node: ?LinkedListNode<Int64> = match (cursor) {\\n        case Some(c) => c.next\\n        case None => None\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                k += 1\\n                count += 1\\n                node = n.next\\n            case None =>\\n                count = t\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node: ?LinkedListNode<Int64> = match (cursor) {\n        case Some(c) => c.next\n        case None => None\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    var count: Int64 = 0\n    while (count < t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                k += 1\n                count += 1\n                node = n.next\n            case None =>\n                count = t\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "1a070407d2bd4b2d66bd8f09dab6af795b4a3513b4a2f06d05e9cfe066a8d465",
+      "finishedAt": "2026-11-28T04:55:06.774Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "f439b5f5b03dde236e89bb046627ccf62f006f49293b165b423b9c3e3a7281ca",
+      "startedAt": "2026-11-28T04:55:06.778Z",
+      "status": "generated",
+      "costCNY": 0.004548,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "32f85fda-9c5c-4950-bba6-c74bc3efbaa9",
+      "usage": {
+        "prompt_tokens": 918,
+        "completion_tokens": 339,
+        "total_tokens": 1257,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    let start = match (cursor) {\\n        case Some(node) => node\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    var it = q.forward(start)\\n    while (count < t) {\\n        match (it.next()) {\\n            case Some(v) =>\\n                sum += v * weight\\n                weight += 1\\n                count += 1\\n            case None => break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    let start = match (cursor) {\n        case Some(node) => node\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    var it = q.forward(start)\n    while (count < t) {\n        match (it.next()) {\n            case Some(v) =>\n                sum += v * weight\n                weight += 1\n                count += 1\n            case None => break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "bc34b722cbc2593329eeda94af9ade5af6588d3b662762e9c500d060cf168e4b",
+      "finishedAt": "2026-11-28T04:55:08.239Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "aefb085641d38eede2e0232ab71831ebaf1567c950f64724c6506be6c4aa3ab8",
+      "startedAt": "2026-11-28T04:55:08.244Z",
+      "status": "generated",
+      "costCNY": 0.00489,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5293ad2d-e6a9-473f-a0fc-54fbd9ef8964",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 350,
+        "total_tokens": 1395,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 149
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty() || t <= 0) {\\n        return 0\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            var sum: Int64 = 0\\n            var k: Int64 = 1\\n            var count: Int64 = 0\\n            let it = q.forward(node)\\n            while (count < t && it.next() != None) {\\n                match (it.next()) {\\n                    case Some(v) =>\\n                        sum += v * k\\n                        k += 1\\n                        count += 1\\n                    case None => ()\\n                }\\n            }\\n            return sum\\n        case None =>\\n            return 0\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty() || t <= 0) {\n        return 0\n    }\n    match (cursor) {\n        case Some(node) =>\n            var sum: Int64 = 0\n            var k: Int64 = 1\n            var count: Int64 = 0\n            let it = q.forward(node)\n            while (count < t && it.next() != None) {\n                match (it.next()) {\n                    case Some(v) =>\n                        sum += v * k\n                        k += 1\n                        count += 1\n                    case None => ()\n                }\n            }\n            return sum\n        case None =>\n            return 0\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "b030cc553d1bcc8a4060ef9264c607bcae1977aad128a320dd82a4ad46b2f52b",
+      "finishedAt": "2026-11-28T04:55:09.616Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "820b3d75df2445d3228d87b79b5e76335c7a527a36640d2ef1cf42a620bfc390",
+      "startedAt": "2026-11-28T04:55:09.621Z",
+      "status": "generated",
+      "costCNY": 0.004626,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8813c3c9-176d-4c30-898b-4f7b476241da",
+      "usage": {
+        "prompt_tokens": 1029,
+        "completion_tokens": 321,
+        "total_tokens": 1350,
+        "prompt_tokens_details": {
+          "cached_tokens": 895
+        },
+        "prompt_cache_hit_tokens": 895,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node = match (cursor) {\\n        case Some(n) => n.next\\n        case None => None\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    while (k <= t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                node = n.next\\n            case None =>\\n                break\\n        }\\n        k += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node = match (cursor) {\n        case Some(n) => n.next\n        case None => None\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    while (k <= t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                node = n.next\n            case None =>\n                break\n        }\n        k += 1\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "74e5dfef8f38137d521e4cd4522bec53d1474a9ad19fc3bd015446fc4bc3df1a",
+      "finishedAt": "2026-11-28T04:55:10.833Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "dfa06d41538257dee50028e6b1814f75d3fc9af67b81781b4ce57b7ebc861ec1",
+      "startedAt": "2026-11-28T04:55:10.838Z",
+      "status": "generated",
+      "costCNY": 0.004834,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b35d9726-657a-47a3-b74e-dcefcd86b66e",
+      "usage": {
+        "prompt_tokens": 889,
+        "completion_tokens": 382,
+        "total_tokens": 1271,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 889
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            var idx: Int64 = -1\\n            var i: Int64 = 0\\n            for (n in q) {\\n                if (n == node.value) {\\n                    idx = i\\n                    break\\n                }\\n                i++\\n            }\\n            if (idx <= 0) {\\n                return -81\\n            }\\n            let leftNode = q.nodeAt(idx - 1)\\n            match (leftNode) {\\n                case Some(ln) =>\\n                    let old = ln.value\\n                    ln.value = old + t\\n                    return old\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            var idx: Int64 = -1\n            var i: Int64 = 0\n            for (n in q) {\n                if (n == node.value) {\n                    idx = i\n                    break\n                }\n                i++\n            }\n            if (idx <= 0) {\n                return -81\n            }\n            let leftNode = q.nodeAt(idx - 1)\n            match (leftNode) {\n                case Some(ln) =>\n                    let old = ln.value\n                    ln.value = old + t\n                    return old\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "bf6926d6fb56d101b65696789fad4e91b344891f1d9f814b9e2d9f221bdbbbad",
+      "finishedAt": "2026-11-28T04:55:12.358Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "afa0f848543da733f2a44e6eb67fd9e00ab7bad096c980816200a75c2f7fbbba",
+      "startedAt": "2026-11-28T04:55:12.363Z",
+      "status": "generated",
+      "costCNY": 0.00432,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7b21cb7e-39e4-47a8-93c8-075a95ac2d0a",
+      "usage": {
+        "prompt_tokens": 1000,
+        "completion_tokens": 290,
+        "total_tokens": 1290,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) =>\\n                    let old = prevNode.value\\n                    prevNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) =>\n                    let old = prevNode.value\n                    prevNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "33c4bdb7f066ae60749794ea8897d12209b7aa2b18c3da860fa9bc3f89ae377c",
+      "finishedAt": "2026-11-28T04:55:13.513Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "f0c726a6939e96ff156b3de95dd9dd16f516c15df74ac747d16e6ce5876edb22",
+      "startedAt": "2026-11-28T04:55:13.518Z",
+      "status": "generated",
+      "costCNY": 0.004574,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "203c38dc-db48-4556-981e-70ca46dd6cbb",
+      "usage": {
+        "prompt_tokens": 1127,
+        "completion_tokens": 290,
+        "total_tokens": 1417,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 231
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) =>\\n                    let old = prevNode.value\\n                    prevNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) =>\n                    let old = prevNode.value\n                    prevNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "33c4bdb7f066ae60749794ea8897d12209b7aa2b18c3da860fa9bc3f89ae377c",
+      "finishedAt": "2026-11-28T04:55:14.552Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "c4414ad45ca61bc8c0c4d86103fcaa0e50e5e1127e281c6cd2efdd75913195dc",
+      "startedAt": "2026-11-28T04:55:14.557Z",
+      "status": "generated",
+      "costCNY": 0.004424,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c29210e5-91f7-4721-8269-021f5f3bc4b8",
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 299,
+        "total_tokens": 1315,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 248
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let it = q.forward(node)\\n            match (it.next()) {\\n                case Some(leftNode) =>\\n                    let old = leftNode.value\\n                    leftNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let it = q.forward(node)\n            match (it.next()) {\n                case Some(leftNode) =>\n                    let old = leftNode.value\n                    leftNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "503b8754bc72e9f8fd5d13a2d127a3aa0e5473344525655eb92e93f6fec63fa4",
+      "finishedAt": "2026-11-28T04:55:15.667Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "31a654719ee98774b97c87aec67561b4818b27896e56347d33d747798cb4e91b",
+      "startedAt": "2026-11-28T04:55:15.671Z",
+      "status": "generated",
+      "costCNY": 0.004312,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "412ab299-67d0-4daf-8b99-3bf15f7f00c7",
+      "usage": {
+        "prompt_tokens": 1000,
+        "completion_tokens": 289,
+        "total_tokens": 1289,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1000
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) =>\\n                    let old = nextNode.value\\n                    nextNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) =>\n                    let old = nextNode.value\n                    nextNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "3b14bdad4cc10fd61033a900f4cef69448d311d5c7aa8bfeb7747fbf9489333a",
+      "finishedAt": "2026-11-28T04:55:16.853Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "ddc53dc325944b556339d84c28089ddd263e42f20535d363e8db0dd1356b30ed",
+      "startedAt": "2026-11-28T04:55:16.858Z",
+      "status": "generated",
+      "costCNY": 0.00532,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "751fc7a3-87ae-485b-9055-e78f74830df8",
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 411,
+        "total_tokens": 1427,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 376
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.forward(node).iterator()\\n            match (next.next()) {\\n                case Some(value) =>\\n                    let old = value\\n                    let newValue = old + t\\n                    q.remove(nextNode(q, node))\\n                    q.addAfter(node, newValue)\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nfunc nextNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): LinkedListNode<Int64> {\\n    let it = q.forward(node).iterator()\\n    it.next()\\n    match (it.next()) {\\n        case Some(_) =>\\n            return q.nodeAt(0).getOrThrow()\\n        case None =>\\n            return node\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.forward(node).iterator()\n            match (next.next()) {\n                case Some(value) =>\n                    let old = value\n                    let newValue = old + t\n                    q.remove(nextNode(q, node))\n                    q.addAfter(node, newValue)\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nfunc nextNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): LinkedListNode<Int64> {\n    let it = q.forward(node).iterator()\n    it.next()\n    match (it.next()) {\n        case Some(_) =>\n            return q.nodeAt(0).getOrThrow()\n        case None =>\n            return node\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "94b23b5b55df1a1d093a07b2c429d124dcfa3b1648938149837ff1e35974adca",
+      "finishedAt": "2026-11-28T04:55:18.534Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "cc6fdf96c84e1307b16df6c00a020662b0cf399944d80a8333dbc9d834778488",
+      "startedAt": "2026-11-28T04:55:18.539Z",
+      "status": "generated",
+      "costCNY": 0.004506,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1cb0f03f-f4fb-4ad4-8072-4bea9c854749",
+      "usage": {
+        "prompt_tokens": 889,
+        "completion_tokens": 341,
+        "total_tokens": 1230,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 249
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.nodeAt(0)\\n            // 找到 node 的后继节点\\n            var it = q.forward(node)\\n            // forward 从 node 开始迭代，先跳过 node 本身\\n            if (it.next().isSome()) {\\n                if (let Some(nxt) <- it.next()) {\\n                    let old = nxt.value\\n                    nxt.value = old + t\\n                    return old\\n                }\\n            }\\n            return -81\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.nodeAt(0)\n            // 找到 node 的后继节点\n            var it = q.forward(node)\n            // forward 从 node 开始迭代，先跳过 node 本身\n            if (it.next().isSome()) {\n                if (let Some(nxt) <- it.next()) {\n                    let old = nxt.value\n                    nxt.value = old + t\n                    return old\n                }\n            }\n            return -81\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "a552a966e37ccb636321db16ad533f8bcbe9dd55cc029d85e6758fae5866ec79",
+      "finishedAt": "2026-11-28T04:55:20.128Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "a3fba3d58a72217887e3b3d60bfa609e7f1c54a27fe4987c2868c02644b7eebb",
+      "startedAt": "2026-11-28T04:55:20.136Z",
+      "status": "generated",
+      "costCNY": 0.004566,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "96a1cc7e-77df-4327-b13d-ae82ec99f01f",
+      "usage": {
+        "prompt_tokens": 1127,
+        "completion_tokens": 289,
+        "total_tokens": 1416,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 231
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) =>\\n                    let old = nextNode.value\\n                    nextNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) =>\n                    let old = nextNode.value\n                    nextNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "3b14bdad4cc10fd61033a900f4cef69448d311d5c7aa8bfeb7747fbf9489333a",
+      "finishedAt": "2026-11-28T04:55:21.385Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "b58d50c2000ae72de66e20910a18eb9c264a339d79e48aea79ad9d3d9ca51bfe",
+      "startedAt": "2026-11-28T04:55:21.393Z",
+      "status": "generated",
+      "costCNY": 0.007376,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "840437c6-5107-42f3-86fd-c9e0e64ea35a",
+      "usage": {
+        "prompt_tokens": 1028,
+        "completion_tokens": 665,
+        "total_tokens": 1693,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1028
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            // 找到光标节点的前一个节点\\n            var before: ?LinkedListNode<Int64> = None\\n            var it = q.iterator()\\n            var prevNode: ?LinkedListNode<Int64> = None\\n            var found = false\\n            var cur = q.firstNode\\n            while (let Some(c) <- cur) {\\n                if (c == node) {\\n                    found = true\\n                    break\\n                }\\n                prevNode = cur\\n                cur = q.nodeAt(0)\\n                break\\n            }\\n            // 使用 forward 迭代器查找前驱\\n            var pre: ?LinkedListNode<Int64> = None\\n            var iter = q.forward(q.firstNode.getOrThrow())\\n            var target: ?LinkedListNode<Int64> = None\\n            var last: ?LinkedListNode<Int64> = None\\n            var curNode = q.firstNode\\n            while (let Some(cn) <- curNode) {\\n                if (cn == node) {\\n                    target = Some(cn)\\n                    break\\n                }\\n                last = Some(cn)\\n                curNode = nextNode(q, cn)\\n            }\\n            match (target) {\\n                case Some(_) =>\\n                    match (last) {\\n                        case Some(ln) =>\\n                            let v = ln.value\\n                            q.addBefore(ln, t)\\n                            return v\\n                        case None =>\\n                            return -81\\n                    }\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nfunc nextNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): ?LinkedListNode<Int64> {\\n    var it = q.forward(node)\\n    it.next()\\n    match (it.next()) {\\n        case Some(n) => return Some(n)\\n        case None => return None\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            // 找到光标节点的前一个节点\n            var before: ?LinkedListNode<Int64> = None\n            var it = q.iterator()\n            var prevNode: ?LinkedListNode<Int64> = None\n            var found = false\n            var cur = q.firstNode\n            while (let Some(c) <- cur) {\n                if (c == node) {\n                    found = true\n                    break\n                }\n                prevNode = cur\n                cur = q.nodeAt(0)\n                break\n            }\n            // 使用 forward 迭代器查找前驱\n            var pre: ?LinkedListNode<Int64> = None\n            var iter = q.forward(q.firstNode.getOrThrow())\n            var target: ?LinkedListNode<Int64> = None\n            var last: ?LinkedListNode<Int64> = None\n            var curNode = q.firstNode\n            while (let Some(cn) <- curNode) {\n                if (cn == node) {\n                    target = Some(cn)\n                    break\n                }\n                last = Some(cn)\n                curNode = nextNode(q, cn)\n            }\n            match (target) {\n                case Some(_) =>\n                    match (last) {\n                        case Some(ln) =>\n                            let v = ln.value\n                            q.addBefore(ln, t)\n                            return v\n                        case None =>\n                            return -81\n                    }\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nfunc nextNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): ?LinkedListNode<Int64> {\n    var it = q.forward(node)\n    it.next()\n    match (it.next()) {\n        case Some(n) => return Some(n)\n        case None => return None\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "96e8ec88f957b4571b994e83bcd0b6e4fcc8b90597bc174b5b22eb3013b88cbb",
+      "finishedAt": "2026-11-28T04:55:23.798Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "7d169ede9fe6b341d68875aed09e66cf7b2e689bf3d8f8e0832804d5aed60136",
+      "startedAt": "2026-11-28T04:55:23.802Z",
+      "status": "generated",
+      "costCNY": 0.004622,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "baad091d-2743-483d-a125-c59af0735eca",
+      "usage": {
+        "prompt_tokens": 1139,
+        "completion_tokens": 293,
+        "total_tokens": 1432,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 371
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(p) =>\\n                    let v = p.value\\n                    q.addBefore(p, t)\\n                    return v\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(p) =>\n                    let v = p.value\n                    q.addBefore(p, t)\n                    return v\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "c1db04f7069ed8115d223b81f8630f4675087033c95bf82fea2b5e571e8faebe",
+      "finishedAt": "2026-11-28T04:55:24.952Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "690969fc77c5d6c5edcd0531907334d205a990fe6942977bfe8497581342f9e0",
+      "startedAt": "2026-11-28T04:55:24.958Z",
+      "status": "generated",
+      "costCNY": 0.00436,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "3b73b6e0-65df-498f-99ba-b7fa8d3cad35",
+      "usage": {
+        "prompt_tokens": 1012,
+        "completion_tokens": 292,
+        "total_tokens": 1304,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 244
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) =>\\n                    q.addBefore(prevNode, t)\\n                    return prevNode.value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) =>\n                    q.addBefore(prevNode, t)\n                    return prevNode.value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "927c4e28aa9c0bd36e096955f141e5dcb2c5aacc390e19e56950c6242634dcce",
+      "finishedAt": "2026-11-28T04:55:26.333Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "d948e794572ef09cc5f8c441fd64729e5c80df89443dab0fa079a54e8ed473d0",
+      "startedAt": "2026-11-28T04:55:26.338Z",
+      "status": "generated",
+      "costCNY": 0.006618,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "87d5a722-8fcd-4a14-93e3-51b2f2a9ac2a",
+      "usage": {
+        "prompt_tokens": 901,
+        "completion_tokens": 602,
+        "total_tokens": 1503,
+        "prompt_tokens_details": {
+          "cached_tokens": 767
+        },
+        "prompt_cache_hit_tokens": 767,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            // 找到光标节点的前一个节点\\n            var before: ?LinkedListNode<Int64> = None\\n            var it = q.iterator()\\n            var prevNode: ?LinkedListNode<Int64> = None\\n            var found = false\\n            var cur = q.firstNode\\n            while (let Some(n) <- cur) {\\n                if (n == node) {\\n                    found = true\\n                    break\\n                }\\n                prevNode = cur\\n                cur = q.nodeAt(0)\\n                break\\n            }\\n            // 使用 forward 迭代器查找前驱\\n            var mark = q.firstNode\\n            var pre: ?LinkedListNode<Int64> = None\\n            var target: ?LinkedListNode<Int64> = None\\n            while (let Some(m) <- mark) {\\n                if (m == node) {\\n                    target = Some(m)\\n                    break\\n                }\\n                pre = Some(m)\\n                // 获取下一个节点\\n                var next: ?LinkedListNode<Int64> = None\\n                var iter = q.forward(m)\\n                if (iter.next()) {\\n                    next = Some(iter.next().getOrThrow())\\n                }\\n                mark = next\\n            }\\n            match (target) {\\n                case Some(_) =>\\n                    match (pre) {\\n                        case Some(p) =>\\n                            let val = p.value\\n                            q.addBefore(p, t)\\n                            return val\\n                        case None =>\\n                            return -81\\n                    }\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            // 找到光标节点的前一个节点\n            var before: ?LinkedListNode<Int64> = None\n            var it = q.iterator()\n            var prevNode: ?LinkedListNode<Int64> = None\n            var found = false\n            var cur = q.firstNode\n            while (let Some(n) <- cur) {\n                if (n == node) {\n                    found = true\n                    break\n                }\n                prevNode = cur\n                cur = q.nodeAt(0)\n                break\n            }\n            // 使用 forward 迭代器查找前驱\n            var mark = q.firstNode\n            var pre: ?LinkedListNode<Int64> = None\n            var target: ?LinkedListNode<Int64> = None\n            while (let Some(m) <- mark) {\n                if (m == node) {\n                    target = Some(m)\n                    break\n                }\n                pre = Some(m)\n                // 获取下一个节点\n                var next: ?LinkedListNode<Int64> = None\n                var iter = q.forward(m)\n                if (iter.next()) {\n                    next = Some(iter.next().getOrThrow())\n                }\n                mark = next\n            }\n            match (target) {\n                case Some(_) =>\n                    match (pre) {\n                        case Some(p) =>\n                            let val = p.value\n                            q.addBefore(p, t)\n                            return val\n                        case None =>\n                            return -81\n                    }\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "9c8e735887a609f92070a2ab0150cfaada19414ee043cdcf7521879205863aba",
+      "finishedAt": "2026-11-28T04:55:28.947Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 1,
+      "group": "B",
+      "requestSha256": "6a2cbe9583de44b82dc2b22bc7b37c9ef4fc6bff7e90942956f92005d6cd0740",
+      "startedAt": "2026-11-28T04:55:28.952Z",
+      "status": "generated",
+      "costCNY": 0.004598,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5c5815c8-9ffc-432e-a00b-2d84b57537e0",
+      "usage": {
+        "prompt_tokens": 1139,
+        "completion_tokens": 290,
+        "total_tokens": 1429,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1139
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nxt) =>\\n                    q.addAfter(nxt, t)\\n                    return nxt.value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nxt) =>\n                    q.addAfter(nxt, t)\n                    return nxt.value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "a8ff7453ab1384ffe11db28f73dadb5a7fb887d402c419f0736f919e09630b6a",
+      "finishedAt": "2026-11-28T04:55:30.077Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 1,
+      "group": "L",
+      "requestSha256": "12dae5096fd29cbb1790c11cbd6ea0b4aa7d589c93379c484cf38cff21df1e76",
+      "startedAt": "2026-11-28T04:55:30.083Z",
+      "status": "generated",
+      "costCNY": 0.004194,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9165060f-4fd9-49bc-a4b0-22a5c2e32ebc",
+      "usage": {
+        "prompt_tokens": 901,
+        "completion_tokens": 299,
+        "total_tokens": 1200,
+        "prompt_tokens_details": {
+          "cached_tokens": 767
+        },
+        "prompt_cache_hit_tokens": 767,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.forward(node).iterator()\\n            match (next.next()) {\\n                case Some(value) =>\\n                    q.addAfter(node, t)\\n                    return value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.forward(node).iterator()\n            match (next.next()) {\n                case Some(value) =>\n                    q.addAfter(node, t)\n                    return value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "f13573435e0f6dab92302020d0c3b8f3971727e4802b7fcc1dfd5bd6e51b893e",
+      "finishedAt": "2026-11-28T04:55:31.319Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 1,
+      "group": "O",
+      "requestSha256": "646ab269372633248e116ff84800959929985d35883842c8d3d36524f0620afb",
+      "startedAt": "2026-11-28T04:55:31.325Z",
+      "status": "generated",
+      "costCNY": 0.004496,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "65d0723e-391c-4b97-84c0-744f134bf284",
+      "usage": {
+        "prompt_tokens": 1028,
+        "completion_tokens": 305,
+        "total_tokens": 1333,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 260
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.forward(node).next()\\n            match (next) {\\n                case Some(n) =>\\n                    let v = n.value\\n                    q.addAfter(n, t)\\n                    return v\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.forward(node).next()\n            match (next) {\n                case Some(n) =>\n                    let v = n.value\n                    q.addAfter(n, t)\n                    return v\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "e5257cb8b305986736c693ddea0939848b76e1d1e7cbb5c6c30410af9e9978c5",
+      "finishedAt": "2026-11-28T04:55:32.535Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 1,
+      "group": "N",
+      "requestSha256": "ad15f852b64665fbbafba64997df77a65d0a3e872cf9d173d9ea089ba3e49458",
+      "startedAt": "2026-11-28T04:55:32.539Z",
+      "status": "generated",
+      "costCNY": 0.00432,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a8cfdd10-0377-47b8-b8c2-e90b1c48e990",
+      "usage": {
+        "prompt_tokens": 1012,
+        "completion_tokens": 287,
+        "total_tokens": 1299,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 244
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(n) =>\\n                    q.addAfter(n, t)\\n                    return n.value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(n) =>\n                    q.addAfter(n, t)\n                    return n.value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "98f267a9894616b29e7896479785042f263abb0c2d11d254c51f5bd0f52e6d4d",
+      "finishedAt": "2026-11-28T04:55:33.945Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "ad15f852b64665fbbafba64997df77a65d0a3e872cf9d173d9ea089ba3e49458",
+      "startedAt": "2026-11-28T04:55:33.952Z",
+      "status": "generated",
+      "costCNY": 0.00432,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d8536614-14e9-431f-bf60-22c4279bbfb8",
+      "usage": {
+        "prompt_tokens": 1012,
+        "completion_tokens": 287,
+        "total_tokens": 1299,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 244
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(n) =>\\n                    q.addAfter(n, t)\\n                    return n.value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(n) =>\n                    q.addAfter(n, t)\n                    return n.value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "98f267a9894616b29e7896479785042f263abb0c2d11d254c51f5bd0f52e6d4d",
+      "finishedAt": "2026-11-28T04:55:35.008Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "646ab269372633248e116ff84800959929985d35883842c8d3d36524f0620afb",
+      "startedAt": "2026-11-28T04:55:35.015Z",
+      "status": "generated",
+      "costCNY": 0.00432,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e5bd4484-57b0-47d4-aa06-a9664ca0fbe1",
+      "usage": {
+        "prompt_tokens": 1028,
+        "completion_tokens": 283,
+        "total_tokens": 1311,
+        "prompt_tokens_details": {
+          "cached_tokens": 894
+        },
+        "prompt_cache_hit_tokens": 894,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.forward(node).iterator()\\n            match (next.next()) {\\n                case Some(value) =>\\n                    q.addAfter(node, t)\\n                    return value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            let next = q.forward(node).iterator()\n            match (next.next()) {\n                case Some(value) =>\n                    q.addAfter(node, t)\n                    return value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "2ddd10a75cc178375c71a8a17c8bc4f175d9c9dadaec243f42fdcb61783121ce",
+      "finishedAt": "2026-11-28T04:55:36.151Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "12dae5096fd29cbb1790c11cbd6ea0b4aa7d589c93379c484cf38cff21df1e76",
+      "startedAt": "2026-11-28T04:55:36.156Z",
+      "status": "generated",
+      "costCNY": 0.004242,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "efdb4f81-3246-4e76-b747-315cdfc297b4",
+      "usage": {
+        "prompt_tokens": 901,
+        "completion_tokens": 305,
+        "total_tokens": 1206,
+        "prompt_tokens_details": {
+          "cached_tokens": 767
+        },
+        "prompt_cache_hit_tokens": 767,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.forward(node).next()\\n            match (next) {\\n                case Some(n) =>\\n                    let value = n.value\\n                    q.addAfter(n, t)\\n                    return value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.forward(node).next()\n            match (next) {\n                case Some(n) =>\n                    let value = n.value\n                    q.addAfter(n, t)\n                    return value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "eb7d8d6d83e8b62f60ff95632155107db5df4d890f856335a1927a1f4fac35f7",
+      "finishedAt": "2026-11-28T04:55:37.455Z"
+    },
+    {
+      "caseId": "insert_right",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "6a2cbe9583de44b82dc2b22bc7b37c9ef4fc6bff7e90942956f92005d6cd0740",
+      "startedAt": "2026-11-28T04:55:37.460Z",
+      "status": "generated",
+      "costCNY": 0.004598,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a9150c9b-0b38-4375-8f86-3a95055520b4",
+      "usage": {
+        "prompt_tokens": 1139,
+        "completion_tokens": 290,
+        "total_tokens": 1429,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 243
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nxt) =>\\n                    q.addAfter(nxt, t)\\n                    return nxt.value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nxt) =>\n                    q.addAfter(nxt, t)\n                    return nxt.value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 2, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9, 3])\n}\n",
+      "codeSha256": "a8ff7453ab1384ffe11db28f73dadb5a7fb887d402c419f0736f919e09630b6a",
+      "finishedAt": "2026-11-28T04:55:38.495Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "d948e794572ef09cc5f8c441fd64729e5c80df89443dab0fa079a54e8ed473d0",
+      "startedAt": "2026-11-28T04:55:38.500Z",
+      "status": "generated",
+      "costCNY": 0.005026,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ed84038c-db47-49d1-97c3-63e4c10e8634",
+      "usage": {
+        "prompt_tokens": 901,
+        "completion_tokens": 403,
+        "total_tokens": 1304,
+        "prompt_tokens_details": {
+          "cached_tokens": 767
+        },
+        "prompt_cache_hit_tokens": 767,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            // 找到光标节点的前一个节点\\n            var before: ?LinkedListNode<Int64> = None\\n            var it = q.forward(node)\\n            // 使用 backward 迭代器找到前驱\\n            var b = q.backward(node)\\n            match (b.next()) {\\n                case Some(p) => before = Some(p)\\n                case None => before = None\\n            }\\n            match (before) {\\n                case Some(p) =>\\n                    let v = p.value\\n                    q.addBefore(p, t)\\n                    return v\\n                case None =>\\n                    // 光标是第一个节点，没有左侧邻项\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            // 找到光标节点的前一个节点\n            var before: ?LinkedListNode<Int64> = None\n            var it = q.forward(node)\n            // 使用 backward 迭代器找到前驱\n            var b = q.backward(node)\n            match (b.next()) {\n                case Some(p) => before = Some(p)\n                case None => before = None\n            }\n            match (before) {\n                case Some(p) =>\n                    let v = p.value\n                    q.addBefore(p, t)\n                    return v\n                case None =>\n                    // 光标是第一个节点，没有左侧邻项\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "33a94696ae3300b731b15faad23ee8b834c96f0456b673a693988896efa15451",
+      "finishedAt": "2026-11-28T04:55:40.449Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "690969fc77c5d6c5edcd0531907334d205a990fe6942977bfe8497581342f9e0",
+      "startedAt": "2026-11-28T04:55:40.455Z",
+      "status": "generated",
+      "costCNY": 0.00436,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a6404ae5-1bae-4d5b-bbc1-8dba976c04a8",
+      "usage": {
+        "prompt_tokens": 1012,
+        "completion_tokens": 292,
+        "total_tokens": 1304,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 244
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) =>\\n                    q.addBefore(prevNode, t)\\n                    return prevNode.value\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) =>\n                    q.addBefore(prevNode, t)\n                    return prevNode.value\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "927c4e28aa9c0bd36e096955f141e5dcb2c5aacc390e19e56950c6242634dcce",
+      "finishedAt": "2026-11-28T04:55:41.567Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "7d169ede9fe6b341d68875aed09e66cf7b2e689bf3d8f8e0832804d5aed60136",
+      "startedAt": "2026-11-28T04:55:41.573Z",
+      "status": "generated",
+      "costCNY": 0.004622,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "31dc4f6a-1b2f-4c59-8606-e0b0cfbf8f62",
+      "usage": {
+        "prompt_tokens": 1139,
+        "completion_tokens": 293,
+        "total_tokens": 1432,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 243
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(p) =>\\n                    let v = p.value\\n                    q.addBefore(p, t)\\n                    return v\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(p) =>\n                    let v = p.value\n                    q.addBefore(p, t)\n                    return v\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "c1db04f7069ed8115d223b81f8630f4675087033c95bf82fea2b5e571e8faebe",
+      "finishedAt": "2026-11-28T04:55:42.536Z"
+    },
+    {
+      "caseId": "insert_left",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "b58d50c2000ae72de66e20910a18eb9c264a339d79e48aea79ad9d3d9ca51bfe",
+      "startedAt": "2026-11-28T04:55:42.540Z",
+      "status": "generated",
+      "costCNY": 0.006056,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "299441c4-6998-4a61-a3da-dd461e6662b9",
+      "usage": {
+        "prompt_tokens": 1028,
+        "completion_tokens": 500,
+        "total_tokens": 1528,
+        "prompt_tokens_details": {
+          "cached_tokens": 894
+        },
+        "prompt_cache_hit_tokens": 894,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            var neighbor: ?LinkedListNode<Int64> = None\\n            var idx: Int64 = 0\\n            let arr = q.toArray()\\n            var pos: Int64 = -1\\n            for (i in 0..arr.size) {\\n                if (let Some(n) <- q.nodeAt(i)) {\\n                    if (n == node) {\\n                        pos = i\\n                        break\\n                    }\\n                }\\n            }\\n            if (pos < 0) {\\n                return -81\\n            }\\n            if (pos > 0) {\\n                neighbor = q.nodeAt(pos - 1)\\n            } else {\\n                neighbor = q.nodeAt(pos + 1)\\n            }\\n            match (neighbor) {\\n                case Some(nb) =>\\n                    let value = arr[pos > 0 ? pos - 1 : pos + 1]\\n                    if (pos > 0) {\\n                        q.addBefore(nb, t)\\n                    } else {\\n                        q.addAfter(nb, t)\\n                    }\\n                    return value\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            var neighbor: ?LinkedListNode<Int64> = None\n            var idx: Int64 = 0\n            let arr = q.toArray()\n            var pos: Int64 = -1\n            for (i in 0..arr.size) {\n                if (let Some(n) <- q.nodeAt(i)) {\n                    if (n == node) {\n                        pos = i\n                        break\n                    }\n                }\n            }\n            if (pos < 0) {\n                return -81\n            }\n            if (pos > 0) {\n                neighbor = q.nodeAt(pos - 1)\n            } else {\n                neighbor = q.nodeAt(pos + 1)\n            }\n            match (neighbor) {\n                case Some(nb) =>\n                    let value = arr[pos > 0 ? pos - 1 : pos + 1]\n                    if (pos > 0) {\n                        q.addBefore(nb, t)\n                    } else {\n                        q.addAfter(nb, t)\n                    }\n                    return value\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [2, 8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 3, 5, -3, 9])\n}\n",
+      "codeSha256": "312f3ec85302281b67951fb7799157114bf48049751a50c9df221a58715e2461",
+      "finishedAt": "2026-11-28T04:55:44.453Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "a3fba3d58a72217887e3b3d60bfa609e7f1c54a27fe4987c2868c02644b7eebb",
+      "startedAt": "2026-11-28T04:55:44.458Z",
+      "status": "generated",
+      "costCNY": 0.004566,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9a374a1d-6a2f-4f0c-ab77-75a13aa04467",
+      "usage": {
+        "prompt_tokens": 1127,
+        "completion_tokens": 289,
+        "total_tokens": 1416,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 231
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) =>\\n                    let old = nextNode.value\\n                    nextNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) =>\n                    let old = nextNode.value\n                    nextNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "3b14bdad4cc10fd61033a900f4cef69448d311d5c7aa8bfeb7747fbf9489333a",
+      "finishedAt": "2026-11-28T04:55:45.803Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "cc6fdf96c84e1307b16df6c00a020662b0cf399944d80a8333dbc9d834778488",
+      "startedAt": "2026-11-28T04:55:45.809Z",
+      "status": "generated",
+      "costCNY": 0.004506,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7ab0bf2e-6295-4016-88e4-e9933f4f69a0",
+      "usage": {
+        "prompt_tokens": 889,
+        "completion_tokens": 341,
+        "total_tokens": 1230,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 249
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.nodeAt(0)\\n            // 找到 node 的后继节点\\n            var it = q.forward(node)\\n            // forward 从 mark 开始迭代，先跳过 mark 本身\\n            if (it.next().isSome()) {\\n                if (let Some(nxt) <- it.next()) {\\n                    let old = nxt.value\\n                    nxt.value = old + t\\n                    return old\\n                }\\n            }\\n            return -81\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.nodeAt(0)\n            // 找到 node 的后继节点\n            var it = q.forward(node)\n            // forward 从 mark 开始迭代，先跳过 mark 本身\n            if (it.next().isSome()) {\n                if (let Some(nxt) <- it.next()) {\n                    let old = nxt.value\n                    nxt.value = old + t\n                    return old\n                }\n            }\n            return -81\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "b813ac19122544cf5665dbbc58ed3e7d3ad3ca4012cfbbe2f52cf0d711ae3385",
+      "finishedAt": "2026-11-28T04:55:47.426Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "ddc53dc325944b556339d84c28089ddd263e42f20535d363e8db0dd1356b30ed",
+      "startedAt": "2026-11-28T04:55:47.430Z",
+      "status": "generated",
+      "costCNY": 0.006688,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "250b3795-7db8-4ca0-9a0d-a17c275b38ef",
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 582,
+        "total_tokens": 1598,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "safety_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 248
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let next = q.forward(node).iterator()\\n            match (next.next()) {\\n                case Some(v) =>\\n                    let old = v\\n                    let newVal = old + t\\n                    q.remove(nextNode(q, node))\\n                    q.addAfter(node, newVal)\\n                    return old\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nfunc nextNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): LinkedListNode<Int64> {\\n    let it = q.forward(node).iterator()\\n    it.next()\\n    match (it.next()) {\\n        case Some(_) =>\\n            // 需要获取节点本身，使用 nodeAt 定位\\n            let idx = indexOfNode(q, node)\\n            match (q.nodeAt(idx + 1)) {\\n                case Some(n) => return n\\n                case None => return node\\n            }\\n        case None => return node\\n    }\\n}\\n\\nfunc indexOfNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): Int64 {\\n    var i = 0\\n    var it = q.iterator()\\n    while (true) {\\n        match (it.next()) {\\n            case Some(_) =>\\n                match (q.nodeAt(i)) {\\n                    case Some(n) =>\\n                        if (n == node) {\\n                            return i\\n                        }\\n                    case None => return -1\\n                }\\n                i++\\n            case None => return -1\\n        }\\n    }\\n    return -1\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let next = q.forward(node).iterator()\n            match (next.next()) {\n                case Some(v) =>\n                    let old = v\n                    let newVal = old + t\n                    q.remove(nextNode(q, node))\n                    q.addAfter(node, newVal)\n                    return old\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nfunc nextNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): LinkedListNode<Int64> {\n    let it = q.forward(node).iterator()\n    it.next()\n    match (it.next()) {\n        case Some(_) =>\n            // 需要获取节点本身，使用 nodeAt 定位\n            let idx = indexOfNode(q, node)\n            match (q.nodeAt(idx + 1)) {\n                case Some(n) => return n\n                case None => return node\n            }\n        case None => return node\n    }\n}\n\nfunc indexOfNode(q: LinkedList<Int64>, node: LinkedListNode<Int64>): Int64 {\n    var i = 0\n    var it = q.iterator()\n    while (true) {\n        match (it.next()) {\n            case Some(_) =>\n                match (q.nodeAt(i)) {\n                    case Some(n) =>\n                        if (n == node) {\n                            return i\n                        }\n                    case None => return -1\n                }\n                i++\n            case None => return -1\n        }\n    }\n    return -1\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "75dcd45be2f97248c043ad3d06c396dd55acf4d09faf19e8fbbbfe5753f57b04",
+      "finishedAt": "2026-11-28T04:55:49.574Z"
+    },
+    {
+      "caseId": "update_right",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "31a654719ee98774b97c87aec67561b4818b27896e56347d33d747798cb4e91b",
+      "startedAt": "2026-11-28T04:55:49.579Z",
+      "status": "generated",
+      "costCNY": 0.004312,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "527090cd-2333-459f-9532-2e180c66d68e",
+      "usage": {
+        "prompt_tokens": 1000,
+        "completion_tokens": 289,
+        "total_tokens": 1289,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) =>\\n                    let old = nextNode.value\\n                    nextNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) =>\n                    let old = nextNode.value\n                    nextNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 8, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 12])\n}\n",
+      "codeSha256": "3b14bdad4cc10fd61033a900f4cef69448d311d5c7aa8bfeb7747fbf9489333a",
+      "finishedAt": "2026-11-28T04:55:50.927Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "c4414ad45ca61bc8c0c4d86103fcaa0e50e5e1127e281c6cd2efdd75913195dc",
+      "startedAt": "2026-11-28T04:55:50.933Z",
+      "status": "generated",
+      "costCNY": 0.006072,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "6095486f-b45f-483a-a56a-87a7f54ce15f",
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 505,
+        "total_tokens": 1521,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 248
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            // 找到 node 的前一个节点\\n            var it = q.iterator()\\n            var prevNode: ?LinkedListNode<Int64> = None\\n            var found = false\\n            while (true) {\\n                match (it.next()) {\\n                    case Some(v) =>\\n                        // 无法直接比较节点，改用遍历节点方式\\n                        break\\n                    case None => break\\n                }\\n            }\\n            // 使用 forward 从 firstNode 遍历，找到 node 的前驱\\n            match (q.firstNode) {\\n                case Some(first) =>\\n                    if (first == node) {\\n                        return -81\\n                    }\\n                    var cur = first\\n                    var prevN = first\\n                    var done = false\\n                    while (!done) {\\n                        match (q.forward(cur).next()) {\\n                            case Some(nxt) =>\\n                                if (nxt == node) {\\n                                    done = true\\n                                } else {\\n                                    prevN = nxt\\n                                    cur = nxt\\n                                }\\n                            case None =>\\n                                return -81\\n                        }\\n                    }\\n                    let old = prevN.value\\n                    prevN.value = old + t\\n                    return old\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            // 找到 node 的前一个节点\n            var it = q.iterator()\n            var prevNode: ?LinkedListNode<Int64> = None\n            var found = false\n            while (true) {\n                match (it.next()) {\n                    case Some(v) =>\n                        // 无法直接比较节点，改用遍历节点方式\n                        break\n                    case None => break\n                }\n            }\n            // 使用 forward 从 firstNode 遍历，找到 node 的前驱\n            match (q.firstNode) {\n                case Some(first) =>\n                    if (first == node) {\n                        return -81\n                    }\n                    var cur = first\n                    var prevN = first\n                    var done = false\n                    while (!done) {\n                        match (q.forward(cur).next()) {\n                            case Some(nxt) =>\n                                if (nxt == node) {\n                                    done = true\n                                } else {\n                                    prevN = nxt\n                                    cur = nxt\n                                }\n                            case None =>\n                                return -81\n                        }\n                    }\n                    let old = prevN.value\n                    prevN.value = old + t\n                    return old\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "6aeabd814ff17189f768031bc3078c2126362ce4ee0e054169f757a5297b7fed",
+      "finishedAt": "2026-11-28T04:55:53.152Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "f0c726a6939e96ff156b3de95dd9dd16f516c15df74ac747d16e6ce5876edb22",
+      "startedAt": "2026-11-28T04:55:53.157Z",
+      "status": "generated",
+      "costCNY": 0.004374,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "fdbe25b8-6964-4d4c-a02f-e3caa745fc03",
+      "usage": {
+        "prompt_tokens": 1127,
+        "completion_tokens": 265,
+        "total_tokens": 1392,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 231
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) =>\\n                    let old = prevNode.value\\n                    prevNode.value = old + t\\n                    old\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) =>\n                    let old = prevNode.value\n                    prevNode.value = old + t\n                    old\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "d2b5b64189efb10cfd7d81adb3ea4e35efdf0fe45d7a45df8c318f975fdfb01d",
+      "finishedAt": "2026-11-28T04:55:54.273Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "afa0f848543da733f2a44e6eb67fd9e00ab7bad096c980816200a75c2f7fbbba",
+      "startedAt": "2026-11-28T04:55:54.277Z",
+      "status": "generated",
+      "costCNY": 0.00432,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "59f611d6-c61c-42a7-b0f7-ac7a19514bc6",
+      "usage": {
+        "prompt_tokens": 1000,
+        "completion_tokens": 290,
+        "total_tokens": 1290,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) =>\\n                    let old = prevNode.value\\n                    prevNode.value = old + t\\n                    return old\\n                case None =>\\n                    return -81\\n            }\\n        case None =>\\n            return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) =>\n                    let old = prevNode.value\n                    prevNode.value = old + t\n                    return old\n                case None =>\n                    return -81\n            }\n        case None =>\n            return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "33c4bdb7f066ae60749794ea8897d12209b7aa2b18c3da860fa9bc3f89ae377c",
+      "finishedAt": "2026-11-28T04:55:55.396Z"
+    },
+    {
+      "caseId": "update_left",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "dfa06d41538257dee50028e6b1814f75d3fc9af67b81781b4ce57b7ebc861ec1",
+      "startedAt": "2026-11-28T04:55:55.400Z",
+      "status": "generated",
+      "costCNY": 0.004834,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ce409459-d1f6-4cf1-82c4-3c6664f684e8",
+      "usage": {
+        "prompt_tokens": 889,
+        "completion_tokens": 382,
+        "total_tokens": 1271,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 249
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let prev = q.nodeAt(0)\\n            var idx: Int64 = -1\\n            var i: Int64 = 0\\n            for (n in q) {\\n                if (n == node.value) {\\n                    idx = i\\n                    break\\n                }\\n                i++\\n            }\\n            if (idx <= 0) {\\n                return -81\\n            }\\n            let leftNode = q.nodeAt(idx - 1)\\n            match (leftNode) {\\n                case Some(ln) =>\\n                    let old = ln.value\\n                    ln.value = old + t\\n                    return old\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let prev = q.nodeAt(0)\n            var idx: Int64 = -1\n            var i: Int64 = 0\n            for (n in q) {\n                if (n == node.value) {\n                    idx = i\n                    break\n                }\n                i++\n            }\n            if (idx <= 0) {\n                return -81\n            }\n            let leftNode = q.nodeAt(idx - 1)\n            match (leftNode) {\n                case Some(ln) =>\n                    let old = ln.value\n                    ln.value = old + t\n                    return old\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [10, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 5 && q1.toArray() == [5, 8, -3, 9])\n}\n",
+      "codeSha256": "bf6926d6fb56d101b65696789fad4e91b344891f1d9f814b9e2d9f221bdbbbad",
+      "finishedAt": "2026-11-28T04:55:56.869Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "820b3d75df2445d3228d87b79b5e76335c7a527a36640d2ef1cf42a620bfc390",
+      "startedAt": "2026-11-28T04:55:56.876Z",
+      "status": "generated",
+      "costCNY": 0.00477,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "12977a2f-f9fc-4779-aead-6981ca26fd45",
+      "usage": {
+        "prompt_tokens": 1029,
+        "completion_tokens": 339,
+        "total_tokens": 1368,
+        "prompt_tokens_details": {
+          "cached_tokens": 895
+        },
+        "prompt_cache_hit_tokens": 895,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node = match (cursor) {\\n        case Some(n) => n.next\\n        case None => None\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                k += 1\\n                count += 1\\n                node = n.next\\n            case None =>\\n                count = t\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node = match (cursor) {\n        case Some(n) => n.next\n        case None => None\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    var count: Int64 = 0\n    while (count < t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                k += 1\n                count += 1\n                node = n.next\n            case None =>\n                count = t\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "963fcb3830a272fba2d562a1802345ab7e07718666c13b95f8a30d0229d49372",
+      "finishedAt": "2026-11-28T04:55:58.228Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "aefb085641d38eede2e0232ab71831ebaf1567c950f64724c6506be6c4aa3ab8",
+      "startedAt": "2026-11-28T04:55:58.233Z",
+      "status": "generated",
+      "costCNY": 0.004698,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4d4d987c-ca78-4744-aa3b-06b795403c83",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 326,
+        "total_tokens": 1371,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 149
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            var sum: Int64 = 0\\n            var weight: Int64 = 1\\n            var count: Int64 = 0\\n            let it = q.forward(node)\\n            while (count < t && it.hasNext()) {\\n                let v = it.next()\\n                sum += v * weight\\n                weight += 1\\n                count += 1\\n            }\\n            return sum\\n        case None =>\\n            return 0\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    match (cursor) {\n        case Some(node) =>\n            var sum: Int64 = 0\n            var weight: Int64 = 1\n            var count: Int64 = 0\n            let it = q.forward(node)\n            while (count < t && it.hasNext()) {\n                let v = it.next()\n                sum += v * weight\n                weight += 1\n                count += 1\n            }\n            return sum\n        case None =>\n            return 0\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "cfe4924626c17007c3fb410832ff319d42702919fe60777d269069df5479d7ae",
+      "finishedAt": "2026-11-28T04:55:59.404Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "f439b5f5b03dde236e89bb046627ccf62f006f49293b165b423b9c3e3a7281ca",
+      "startedAt": "2026-11-28T04:55:59.410Z",
+      "status": "generated",
+      "costCNY": 0.004572,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c073f8e0-095e-4041-a290-1b77db4876c0",
+      "usage": {
+        "prompt_tokens": 918,
+        "completion_tokens": 342,
+        "total_tokens": 1260,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0 || q.isEmpty()) {\\n        return 0\\n    }\\n    var node = match (cursor) {\\n        case Some(n) => n\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    var count: Int64 = 0\\n    var it = q.forward(node)\\n    while (count < t) {\\n        match (it.next()) {\\n            case Some(v) =>\\n                sum += v * k\\n                k += 1\\n                count += 1\\n            case None => break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0 || q.isEmpty()) {\n        return 0\n    }\n    var node = match (cursor) {\n        case Some(n) => n\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    var count: Int64 = 0\n    var it = q.forward(node)\n    while (count < t) {\n        match (it.next()) {\n            case Some(v) =>\n                sum += v * k\n                k += 1\n                count += 1\n            case None => break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "27adbecc1aeed50fb78f6b4c1656e106f6ae560c332a39190df7425ab6d6546f",
+      "finishedAt": "2026-11-28T04:56:00.899Z"
+    },
+    {
+      "caseId": "weighted_right",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "0be64d1dc2fcb425cc21f8a4c7f8c21aa0a3ab9fd5cb29dc981c35f37e0c82eb",
+      "startedAt": "2026-11-28T04:56:00.904Z",
+      "status": "generated",
+      "costCNY": 0.005088,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "be364e2a-d679-4779-ad33-a5fed5f8bf62",
+      "usage": {
+        "prompt_tokens": 1156,
+        "completion_tokens": 347,
+        "total_tokens": 1503,
+        "prompt_tokens_details": {
+          "cached_tokens": 1022
+        },
+        "prompt_cache_hit_tokens": 1022,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node: ?LinkedListNode<Int64> = match (cursor) {\\n        case Some(c) => c.next\\n        case None => None\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    var count: Int64 = 0\\n    while (count < t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                k += 1\\n                count += 1\\n                node = n.next\\n            case None =>\\n                count = t\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node: ?LinkedListNode<Int64> = match (cursor) {\n        case Some(c) => c.next\n        case None => None\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    var count: Int64 = 0\n    while (count < t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                k += 1\n                count += 1\n                node = n.next\n            case None =>\n                count = t\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 9 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "1a070407d2bd4b2d66bd8f09dab6af795b4a3513b4a2f06d05e9cfe066a8d465",
+      "finishedAt": "2026-11-28T04:56:02.181Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "c55a1a8522337c72387af90230e8975b6157626013bc7581858c14afe01bc0a8",
+      "startedAt": "2026-11-28T04:56:02.186Z",
+      "status": "generated",
+      "costCNY": 0.004548,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "93e6efb4-7ec8-4710-89e0-b8fcdef9638e",
+      "usage": {
+        "prompt_tokens": 918,
+        "completion_tokens": 339,
+        "total_tokens": 1257,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 150
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    let start = match (cursor) {\\n        case Some(node) => node\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var weight: Int64 = 1\\n    var count: Int64 = 0\\n    var it = q.backward(start)\\n    while (count < t) {\\n        match (it.next()) {\\n            case Some(v) =>\\n                sum += v * weight\\n                weight += 1\\n                count += 1\\n            case None => break\\n        }\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    let start = match (cursor) {\n        case Some(node) => node\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var weight: Int64 = 1\n    var count: Int64 = 0\n    var it = q.backward(start)\n    while (count < t) {\n        match (it.next()) {\n            case Some(v) =>\n                sum += v * weight\n                weight += 1\n                count += 1\n            case None => break\n        }\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "f1b20bee327b09bb97cbc7bfd1bde350b15977f47ef0edde414aa60dd329ff2e",
+      "finishedAt": "2026-11-28T04:56:03.736Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "aac1ea4387ad9cbad4db6dc206ac6f1398e9dab527bfe4489849e3a23b5eb65a",
+      "startedAt": "2026-11-28T04:56:03.742Z",
+      "status": "generated",
+      "costCNY": 0.004618,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f31588ec-b5b4-4783-b86e-f58796b9c2e1",
+      "usage": {
+        "prompt_tokens": 1029,
+        "completion_tokens": 320,
+        "total_tokens": 1349,
+        "prompt_tokens_details": {
+          "cached_tokens": 895
+        },
+        "prompt_cache_hit_tokens": 895,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node = match (cursor) {\\n        case Some(n) => n.prev\\n        case None => return 0\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    while (k <= t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                node = n.prev\\n            case None => break\\n        }\\n        k += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node = match (cursor) {\n        case Some(n) => n.prev\n        case None => return 0\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    while (k <= t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                node = n.prev\n            case None => break\n        }\n        k += 1\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "39a890e3bae2e90a653e85a36637f413588976b3b232768bf98c511ba19d68b7",
+      "finishedAt": "2026-11-28T04:56:05.210Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "06c4e60d2a20cad01ecb3f613ad2ce3ee04c2d36b4dc6c60a3a7bc993b99d3c4",
+      "startedAt": "2026-11-28T04:56:05.216Z",
+      "status": "generated",
+      "costCNY": 0.004944,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "128448d6-51bf-421a-a1f8-9818d78d330c",
+      "usage": {
+        "prompt_tokens": 1156,
+        "completion_tokens": 329,
+        "total_tokens": 1485,
+        "prompt_tokens_details": {
+          "cached_tokens": 1022
+        },
+        "prompt_cache_hit_tokens": 1022,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    var node: ?LinkedListNode<Int64> = match (cursor) {\\n        case Some(n) => n.prev\\n        case None => None\\n    }\\n    var sum: Int64 = 0\\n    var k: Int64 = 1\\n    while (k <= t) {\\n        match (node) {\\n            case Some(n) =>\\n                sum += n.value * k\\n                node = n.prev\\n            case None =>\\n                break\\n        }\\n        k += 1\\n    }\\n    return sum\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    var node: ?LinkedListNode<Int64> = match (cursor) {\n        case Some(n) => n.prev\n        case None => None\n    }\n    var sum: Int64 = 0\n    var k: Int64 = 1\n    while (k <= t) {\n        match (node) {\n            case Some(n) =>\n                sum += n.value * k\n                node = n.prev\n            case None =>\n                break\n        }\n        k += 1\n    }\n    return sum\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "5ae71ca0be5d866fde6d53ead06ab8375582bd71d348c2166ffba7604431ebe8",
+      "finishedAt": "2026-11-28T04:56:06.651Z"
+    },
+    {
+      "caseId": "weighted_left",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "0fdd46e38176c5e63a07f93f1a60349b4a3082ec860918b62a22d4a856539c67",
+      "startedAt": "2026-11-28T04:56:06.656Z",
+      "status": "generated",
+      "costCNY": 0.004826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c62fbcc7-5f52-4104-a583-b165e68b0fe6",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 342,
+        "total_tokens": 1387,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 149
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (t <= 0) {\\n        return 0\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            var sum: Int64 = 0\\n            var weight: Int64 = 1\\n            var count: Int64 = 0\\n            var it = q.backward(node)\\n            while (count < t) {\\n                match (it.next()) {\\n                    case Some(v) =>\\n                        sum += v * weight\\n                        weight += 1\\n                        count += 1\\n                    case None =>\\n                        break\\n                }\\n            }\\n            return sum\\n        case None =>\\n            return 0\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (t <= 0) {\n        return 0\n    }\n    match (cursor) {\n        case Some(node) =>\n            var sum: Int64 = 0\n            var weight: Int64 = 1\n            var count: Int64 = 0\n            var it = q.backward(node)\n            while (count < t) {\n                match (it.next()) {\n                    case Some(v) =>\n                        sum += v * weight\n                        weight += 1\n                        count += 1\n                    case None =>\n                        break\n                }\n            }\n            return sum\n        case None =>\n            return 0\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 8 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 15 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "6ba140ad0e896c2228b436752f19ad4ff77e7882864571ed81e27794a8efeeac",
+      "finishedAt": "2026-11-28T04:56:08.013Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "1089848e8fa1af05be99cb97949336c91edf84c1f83aae79ef6d32ebb30dc3e3",
+      "startedAt": "2026-11-28T04:56:08.019Z",
+      "status": "generated",
+      "costCNY": 0.004374,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2c85789b-3cbc-4525-9148-c3f3fdd1dca9",
+      "usage": {
+        "prompt_tokens": 1131,
+        "completion_tokens": 264,
+        "total_tokens": 1395,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 235
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) => nextNode.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) => nextNode.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "a21a805d19ceb200060ec13102a665aee1a30055a2b3c84ddf46289a15051651",
+      "finishedAt": "2026-11-28T04:56:09.069Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "213ac80971dc6534c75220d4d5f015a905e5b381fec52e1e24cfdc9979a66d88",
+      "startedAt": "2026-11-28T04:56:09.073Z",
+      "status": "generated",
+      "costCNY": 0.00417,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "556dfe21-f46f-4c0d-87ac-98960316d108",
+      "usage": {
+        "prompt_tokens": 893,
+        "completion_tokens": 298,
+        "total_tokens": 1191,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let it = q.forward(node)\\n            if (it.next().isSome()) {\\n                match (it.next()) {\\n                    case Some(v) => return v - t\\n                    case None => return -81\\n                }\\n            } else {\\n                return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let it = q.forward(node)\n            if (it.next().isSome()) {\n                match (it.next()) {\n                    case Some(v) => return v - t\n                    case None => return -81\n                }\n            } else {\n                return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "345edeca2e6c8f73d2ccb916fea163ea483829daab04600d16cb8babaf42db3b",
+      "finishedAt": "2026-11-28T04:56:10.347Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "7ab068dd6a997c5c39152c6db4ee641849590704d30c7e3a350747e73d1d5cca",
+      "startedAt": "2026-11-28T04:56:10.353Z",
+      "status": "generated",
+      "costCNY": 0.00408,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1ad105fc-1095-4e6f-81f1-6ba45f219c01",
+      "usage": {
+        "prompt_tokens": 1020,
+        "completion_tokens": 255,
+        "total_tokens": 1275,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            let it = q.forward(node)\\n            match (it.next()) {\\n                case Some(v) => v - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            let it = q.forward(node)\n            match (it.next()) {\n                case Some(v) => v - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "a77e057bd4b32456da1e2ebf81b5ff73f7cfa29900454628cdc0fa084b9854a7",
+      "finishedAt": "2026-11-28T04:56:11.615Z"
+    },
+    {
+      "caseId": "neighbor_right",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "f81b82fe1dded21b13d3e58b26fc8c5e93b6f5ae99552271dadae41f33c35f42",
+      "startedAt": "2026-11-28T04:56:11.622Z",
+      "status": "generated",
+      "costCNY": 0.004144,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f821985d-c218-49bf-8f3f-a20c213d1b4f",
+      "usage": {
+        "prompt_tokens": 1004,
+        "completion_tokens": 267,
+        "total_tokens": 1271,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 236
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.next) {\\n                case Some(nextNode) => return nextNode.value - t\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.next) {\n                case Some(nextNode) => return nextNode.value - t\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 4 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 6 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "e392a3f66890024ffa98176d8fd888eb07d27da4c7999f6c22c1d55453491c48",
+      "finishedAt": "2026-11-28T04:56:12.640Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 2,
+      "group": "O",
+      "requestSha256": "99f558183ccfb7e416e3bf0b195fe2fb03d115e17a1ef6bd7d49d2edd2785743",
+      "startedAt": "2026-11-28T04:56:12.646Z",
+      "status": "generated",
+      "costCNY": 0.005032,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "32f6ebc5-dd76-4cb6-9611-d3ae2b90c790",
+      "usage": {
+        "prompt_tokens": 1020,
+        "completion_tokens": 374,
+        "total_tokens": 1394,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            var prev: ?LinkedListNode<Int64> = None\\n            var cur: ?LinkedListNode<Int64> = q.firstNode\\n            while (true) {\\n                match (cur) {\\n                    case Some(c) =>\\n                        if (c == node) {\\n                            break\\n                        }\\n                        prev = cur\\n                        cur = q.forward(c).next()\\n                    case None => break\\n                }\\n            }\\n            match (prev) {\\n                case Some(p) =>\\n                    match (q.forward(p).next()) {\\n                        case Some(v) => return v - t\\n                        case None => return -81\\n                    }\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            var prev: ?LinkedListNode<Int64> = None\n            var cur: ?LinkedListNode<Int64> = q.firstNode\n            while (true) {\n                match (cur) {\n                    case Some(c) =>\n                        if (c == node) {\n                            break\n                        }\n                        prev = cur\n                        cur = q.forward(c).next()\n                    case None => break\n                }\n            }\n            match (prev) {\n                case Some(p) =>\n                    match (q.forward(p).next()) {\n                        case Some(v) => return v - t\n                        case None => return -81\n                    }\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "b77088d9556d9d88ba94ad04cc8bada70375f8febc7b5b7865da03a016b6e638",
+      "finishedAt": "2026-11-28T04:56:14.243Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 2,
+      "group": "B",
+      "requestSha256": "d6b4c329d9770207549701abc3135349dc97f94e8da2fc00027825f138a78639",
+      "startedAt": "2026-11-28T04:56:14.248Z",
+      "status": "generated",
+      "costCNY": 0.00423,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1cdf89d2-29f1-44c2-ae60-0e5ef96fc5c5",
+      "usage": {
+        "prompt_tokens": 1131,
+        "completion_tokens": 246,
+        "total_tokens": 1377,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 235
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(p) => p.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(p) => p.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "86ad62cf12674fcf70e5b246caf33344f02071013951cc6524ac7e52427d5db8",
+      "finishedAt": "2026-11-28T04:56:15.557Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 2,
+      "group": "N",
+      "requestSha256": "4b68e14db0c9a5483de3618a1b8a033d05cd285c55b74354af4780199eca4035",
+      "startedAt": "2026-11-28T04:56:15.564Z",
+      "status": "generated",
+      "costCNY": 0.004128,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "861f7e93-143f-4d53-bd0a-211062e3aebf",
+      "usage": {
+        "prompt_tokens": 1004,
+        "completion_tokens": 265,
+        "total_tokens": 1269,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 236
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            match (node.prev) {\\n                case Some(prevNode) => prevNode.value - t\\n                case None => -81\\n            }\\n        case None => -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            match (node.prev) {\n                case Some(prevNode) => prevNode.value - t\n                case None => -81\n            }\n        case None => -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "0aa33ceaca444b97f9a6ecf994548de6a57ba7f7b20c2914b45f7b48361e2ea3",
+      "finishedAt": "2026-11-28T04:56:16.645Z"
+    },
+    {
+      "caseId": "neighbor_left",
+      "repeat": 2,
+      "group": "L",
+      "requestSha256": "fcea8ce527896a2486823f3e3183fe9edddafeb3dd496b8e7de857768ca636f3",
+      "startedAt": "2026-11-28T04:56:16.650Z",
+      "status": "generated",
+      "costCNY": 0.003978,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a3620b12-2647-4105-8479-099af3dafc51",
+      "usage": {
+        "prompt_tokens": 893,
+        "completion_tokens": 274,
+        "total_tokens": 1167,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"import std.collection.*\\n\\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\\n    if (q.isEmpty()) {\\n        return -81\\n    }\\n    match (cursor) {\\n        case Some(node) =>\\n            let it = q.forward(node)\\n            match (it.next()) {\\n                case Some(v) => return v - t\\n                case None => return -81\\n            }\\n        case None => return -81\\n    }\\n}\\n\\nmain() {\\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\\n    let r0 = fix(q0, q0.nodeAt(1), 2)\\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\\n    let r1 = fix(q1, q1.nodeAt(2), 3)\\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\\n}\\n\"}",
+      "code": "import std.collection.*\n\nfunc fix(q: LinkedList<Int64>, cursor: ?LinkedListNode<Int64>, t: Int64): Int64 {\n    if (q.isEmpty()) {\n        return -81\n    }\n    match (cursor) {\n        case Some(node) =>\n            let it = q.forward(node)\n            match (it.next()) {\n                case Some(v) => return v - t\n                case None => return -81\n            }\n        case None => return -81\n    }\n}\n\nmain() {\n    let q0 = LinkedList<Int64>([8, 3, 6, 1])\n    let r0 = fix(q0, q0.nodeAt(1), 2)\n    println(r0 == 6 && q0.toArray() == [8, 3, 6, 1])\n    let q1 = LinkedList<Int64>([5, 5, -3, 9])\n    let r1 = fix(q1, q1.nodeAt(2), 3)\n    println(r1 == 2 && q1.toArray() == [5, 5, -3, 9])\n}\n",
+      "codeSha256": "0aa54a556e46cf3d8214bf73b1ef8c67c08ef162223fdd4b903cfdfdfb3396ac",
+      "finishedAt": "2026-11-28T04:56:17.618Z"
+    }
+  ],
+  "finishedAt": "2026-11-28T04:56:17.624Z"
+}
