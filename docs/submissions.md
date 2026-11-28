@@ -597,3 +597,7 @@
 ## 第一百零七轮　实测反馈请求冻结
 
 预登记提交 4bd63d12724dc1d7c2ea32d9624a5f7f14e17067 于北京时间 15:20:44 提交并同步两端。[材料验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46120854726) 成功。本节提交验收收据与三组完整请求，模型尚未调用。
+
+## 第一百零八轮　提交候选用于隔离评分
+
+请求冻结提交 91d307c6637fb0011bac3f7b2bc4e8c316cf7b6a 于北京时间 15:30:15 提交，GitCode 与 GitHub 均已核对，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46121569258) 成功。本节锁定全部回答、费用记录及评分前的审阅决定。
