@@ -1,0 +1,18 @@
+{
+  "best_left_start": "ok",
+  "best_left_end": "inclusive",
+  "best_right_start": "tie",
+  "best_right_end": "omitTail",
+  "quota_first_1": "direction",
+  "quota_first_2": "ok",
+  "quota_last_1": "unbounded",
+  "quota_last_2": "omitTail",
+  "cross_first_up": "inclusive",
+  "cross_first_down": "direction",
+  "cross_last_up": "ok",
+  "cross_last_down": "skipFinalPair",
+  "window_inside_pos": "second",
+  "window_inside_neg": "sign",
+  "window_outside_pos": "oneMark",
+  "window_outside_neg": "ok"
+}

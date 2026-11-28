@@ -104,12 +104,13 @@ function uniformIndex(id,n) {
     if (v<limit) return v%n;
   }
 }
-export function selectExamples(id,inputs) {
+export function selectExamples(id,inputs,omittedIndex=-1) {
   assert.equal(inputs.length,24);
   const variants=['correct',...alternatives[id.split('_')[0]]];
   const outputs=inputs.map(({array,t})=>variants.map(v=>JSON.stringify(contractResult(id,array,t,v))));
   const pairs=[];
   for (let i=0;i<inputs.length;i++) for (let j=i+1;j<inputs.length;j++) {
+    if (i===omittedIndex || j===omittedIndex) continue;
     let separatesCorrect=0,separatesAll=0;
     for (let a=0;a<variants.length;a++) for (let b=a+1;b<variants.length;b++) {
       if (outputs[i][a]===outputs[i][b] && outputs[j][a]===outputs[j][b]) continue;
