@@ -609,3 +609,7 @@
 ## 第一百一十轮　归档真实评分与完整研究报告
 
 补充计算提交 4e8b7f4e4d5a872fd3bd42245a2a743320656e2d 于北京时间 15:37:27 提交，两平台核对一致，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46122090496) 成功。基于预先锁定候选的[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46121958249) 于北京时间 16:00:11 更新为成功。本节归档完整成绩、局部修复分析、图表及复算方法。
+
+## 第一百一十一轮　契约选例实验预登记
+
+上轮最终提交 3ee3e618283b0ec73f4b2bcee88b73706c310365 于北京时间 16:02:40 提交，两平台一致，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46123965344) 成功。本节在运行初稿之前锁定选例规则、两组输入编号和新题材料。

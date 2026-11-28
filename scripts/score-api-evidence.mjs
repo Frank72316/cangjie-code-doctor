@@ -9,7 +9,7 @@ import {formalPublicSource} from './formal-public-harness.mjs';
 import {harnessSource} from './pilot-holdout.mjs';
 
 import {observation, probeRequest} from './feedback-probe.mjs';
-const probes = setting.generation === 'api-feedback' ? new Map(read('probes').map(p => [p.id,p])) : null;
+const probes = ['api-feedback','api-selection'].includes(setting.generation) ? new Map(read('probes').map(p => [p.id,p])) : null;
 const [phase,image]=process.argv.slice(2);
 assert.ok(process.platform==='linux' && ['materials','score'].includes(phase) && /^sha256:[a-f0-9]{64}$/.test(image));
 const key=process.env.CHALLENGE_TEST_KEY; delete process.env.CHALLENGE_TEST_KEY;
@@ -50,7 +50,7 @@ if(phase==='materials'){
  }
  const starters=probes || setting.generation==='api-review' ? read('starters') : null;
  receipt.accepted=receipt.rows.every((r,i)=>r.referencePublic==='passed' && r.referenceHoldout==='passed' && (!probes || r.probe.reference.status==='passed') &&
-   (starters ? r.caseId===starters[i].id && r.initial.status===starters[i].publicStatus && ['compile_failed','test_failed','passed'].includes(r.originalHoldout)
+   (starters ? r.caseId===starters[i].id && (starters[i].publicStatus === null && setting.generation === 'api-selection' ? ['passed','test_failed'].includes(r.initial.status) : r.initial.status===starters[i].publicStatus) && ['compile_failed','test_failed','passed'].includes(r.originalHoldout)
     : r.initial.status==='test_failed' && r.originalHoldout==='test_failed'));
 }else{
  const design=read('design'),pack=read('candidates'),snapshot=transferOnlyStudy?null:await challengeCatalog();

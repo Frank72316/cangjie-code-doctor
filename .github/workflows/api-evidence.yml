@@ -5,7 +5,7 @@ on:
       study:
         type: choice
         default: mechanism
-        options: [mechanism, ranking, families, operation, wording, node, router, review, feedback]
+        options: [mechanism, ranking, families, operation, wording, node, router, review, feedback, selection]
       phase:
         type: choice
         required: true
@@ -44,6 +44,7 @@ jobs:
           if [[ "$STUDY" == router ]]; then args+=(--router); fi
           if [[ "$STUDY" == review ]]; then args+=(--review); fi
           if [[ "$STUDY" == feedback ]]; then args+=(--feedback); fi
+          if [[ "$STUDY" == selection ]]; then args+=(--selection); fi
           node scripts/score-api-evidence.mjs "$PHASE" "$image" "${args[@]}"
       - name: Check supplemental Unicode boundaries on locked ranking candidates
         if: inputs.study == 'ranking' && inputs.phase == 'score'

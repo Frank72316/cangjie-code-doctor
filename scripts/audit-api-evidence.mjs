@@ -9,7 +9,7 @@ import {formalPublicSource} from './formal-public-harness.mjs';
 import {harnessSource} from './pilot-holdout.mjs';
 
 import {probeRequest, observation} from './feedback-probe.mjs';
-const probes = setting.generation === 'api-feedback' ? new Map(read('probes').map(p=>[p.id,p])) : null;
+const probes = ['api-feedback','api-selection'].includes(setting.generation) ? new Map(read('probes').map(p=>[p.id,p])) : null;
 const key=fs.readFileSync('data/holdout/challenge-v1/key.txt','utf8').trim();
 const fresh=read('transfer'),newPrivate=transferPrivate(key);
 const hiddenTests=h=>[{id:'holdout',stdin:'',expectedStdout:h.expectedStdout}];
@@ -33,7 +33,7 @@ assert.equal(materials.receipt.transferSha256,sha(fresh));assert.equal(materials
 for(const [i,c] of fresh.entries()){
  const h=newPrivate.find(x=>x.id===c.id),row=materials.receipt.rows[i];assert.equal(row.caseId,c.id);
  if(starters){assert.equal(starters[i].id,c.id);assert.ok(['compile_failed','test_failed','passed'].includes(row.originalHoldout));}
- const checks=[[c.source.text,c.publicTests,starters?starters[i].publicStatus:'test_failed'],[h.reference,c.publicTests,'passed'],[harnessSource(h.reference,h.harness),hiddenTests(h),'passed'],[harnessSource(c.source.text,h.harness),hiddenTests(h),starters?row.originalHoldout:'test_failed']];
+ const checks=[[c.source.text,c.publicTests,starters?(starters[i].publicStatus ?? row.initial.status):'test_failed'],[h.reference,c.publicTests,'passed'],[harnessSource(h.reference,h.harness),hiddenTests(h),'passed'],[harnessSource(c.source.text,h.harness),hiddenTests(h),starters?row.originalHoldout:'test_failed']];
  for(const [j,[src,tests,status]] of checks.entries()){const r=materials.take(row.reportIds[j],c.source.name,src,tests);assert.equal(r.status,status);
   if(j===0)assert.deepEqual(row.initial,{caseId:c.id,status:r.status,diagnostics:r.compile.normalized?.diagnostics??[],tests:r.tests.map(t=>({id:t.id,status:t.status,stdout:t.process?.stdout??'',stderr:t.process?.stderr??''}))});
  }

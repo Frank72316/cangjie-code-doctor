@@ -1,0 +1,194 @@
+[
+  {
+    "id": "best_left_start",
+    "panel": "new",
+    "family": "best",
+    "sourceHash": "2736648a956689de76f25a0dac2e4571579ab25c91bf5951b9640f2da20a59f2",
+    "publicStatus": null,
+    "control": true
+  },
+  {
+    "id": "best_left_end",
+    "panel": "new",
+    "family": "best",
+    "sourceHash": "99ae9e2ce34ed1f2fa81837c693bd156fcac5a1e097d80ee309d24d47b8d8472",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "best_right_start",
+    "panel": "new",
+    "family": "best",
+    "sourceHash": "2736648a956689de76f25a0dac2e4571579ab25c91bf5951b9640f2da20a59f2",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "best_right_end",
+    "panel": "new",
+    "family": "best",
+    "sourceHash": "0032f863820ec5d3f303219516cac1e84eff85520cde595439062b6476110ce3",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "quota_first_1",
+    "panel": "new",
+    "family": "quota",
+    "sourceHash": "541cbbe24ba9af869e0527e6c6d5c36843ec21ade7158fc79b1c12caca64ee41",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "quota_first_2",
+    "panel": "new",
+    "family": "quota",
+    "sourceHash": "77805bcc7a4f5c555274e592ee072910484ffcffb77d429975d58481f79da104",
+    "publicStatus": null,
+    "control": true
+  },
+  {
+    "id": "quota_last_1",
+    "panel": "new",
+    "family": "quota",
+    "sourceHash": "2d349cec08055f24f1b926e560b4c2626d0ea1c6ffdd15f804001381c0fc1397",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "quota_last_2",
+    "panel": "new",
+    "family": "quota",
+    "sourceHash": "471f3825424e95ff1164d7de55fabed8bdb4e7ce8112344e6e22554796460813",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "cross_first_up",
+    "panel": "new",
+    "family": "cross",
+    "sourceHash": "6981cdb308b4e46551f53ec6d5d5fb67247ea20eaaa49a71a1fb2ef8652d1c00",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "cross_first_down",
+    "panel": "new",
+    "family": "cross",
+    "sourceHash": "8683a496a5b2651e9f50501d23bee5bcb89ac708556c8b861380e5054fe4a8d8",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "cross_last_up",
+    "panel": "new",
+    "family": "cross",
+    "sourceHash": "63bd5d7a8688adb204ee3e5fc4af6c06b0ff8868eac372c918585ed71bb475d3",
+    "publicStatus": null,
+    "control": true
+  },
+  {
+    "id": "cross_last_down",
+    "panel": "new",
+    "family": "cross",
+    "sourceHash": "86248a88e3580106def765a0dcb0c55c3665bd8a498d09709f85cfea4d8794b6",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "window_inside_pos",
+    "panel": "new",
+    "family": "window",
+    "sourceHash": "de3d592dae32ba35423ae58fba8be4ab65472f330bb31f254bac3eb6e215bcd5",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "window_inside_neg",
+    "panel": "new",
+    "family": "window",
+    "sourceHash": "a0cc04612cf382ee9320ded64c746c59150263f22579b330f092137e3146b2c5",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "window_outside_pos",
+    "panel": "new",
+    "family": "window",
+    "sourceHash": "bcbd3fb3a59da82cdcb1bf4cb692aa76e33ba647bc2a8822437dad89f0fe41ef",
+    "publicStatus": null,
+    "control": false
+  },
+  {
+    "id": "window_outside_neg",
+    "panel": "new",
+    "family": "window",
+    "sourceHash": "dbcdda7e713d1ccc64c44c3b20efda81f584e8dd9ce2068e95819125d242e6f0",
+    "publicStatus": null,
+    "control": true
+  },
+  {
+    "id": "streak_strict",
+    "panel": "legacy",
+    "family": "streak",
+    "sourceHash": "bf04f5fe3f64029181bde8b51e64af89cf86a808ef6aa49b5b351753e9f6e7f3",
+    "publicStatus": "passed",
+    "control": false
+  },
+  {
+    "id": "streak_inclusive",
+    "panel": "legacy",
+    "family": "streak",
+    "sourceHash": "bf04f5fe3f64029181bde8b51e64af89cf86a808ef6aa49b5b351753e9f6e7f3",
+    "publicStatus": "passed",
+    "control": true
+  },
+  {
+    "id": "prefix_equal",
+    "panel": "legacy",
+    "family": "prefix",
+    "sourceHash": "4fee84bcc989a63b71173823038f802ae67f411cab342c117e8267f93743d8d5",
+    "publicStatus": "passed",
+    "control": true
+  },
+  {
+    "id": "prefix_above",
+    "panel": "legacy",
+    "family": "prefix",
+    "sourceHash": "4fee84bcc989a63b71173823038f802ae67f411cab342c117e8267f93743d8d5",
+    "publicStatus": "passed",
+    "control": false
+  },
+  {
+    "id": "index_first",
+    "panel": "legacy",
+    "family": "index",
+    "sourceHash": "77f995d031497ab87befe893183ac64382c573087d3b886ef39fd9844792dfe5",
+    "publicStatus": "passed",
+    "control": false
+  },
+  {
+    "id": "index_last",
+    "panel": "legacy",
+    "family": "index",
+    "sourceHash": "14e88133dc25fe4c2f0113a1e88a439c00bf0119e3b104574d6adefe86847ec2",
+    "publicStatus": "passed",
+    "control": false
+  },
+  {
+    "id": "cap_first",
+    "panel": "legacy",
+    "family": "cap",
+    "sourceHash": "73d184e5c2c924db1c2db34e76e21c1780ecf1519ae41033d982279ceb444099",
+    "publicStatus": "passed",
+    "control": false
+  },
+  {
+    "id": "cap_last",
+    "panel": "legacy",
+    "family": "cap",
+    "sourceHash": "2a7ebfc0549464a2a2ebb90547042d71df8d280a655bfd85ad655fe148ffb659",
+    "publicStatus": "passed",
+    "control": false
+  }
+]

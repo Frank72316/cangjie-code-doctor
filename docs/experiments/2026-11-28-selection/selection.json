@@ -1,0 +1,482 @@
+[
+  {
+    "id": "best_left_start",
+    "U": [
+      13,
+      23
+    ],
+    "D": [
+      11,
+      14
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "tie",
+      "endpoint",
+      "short"
+    ]
+  },
+  {
+    "id": "best_left_end",
+    "U": [
+      7,
+      14
+    ],
+    "D": [
+      3,
+      9
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "tie",
+      "endpoint",
+      "short"
+    ]
+  },
+  {
+    "id": "best_right_start",
+    "U": [
+      9,
+      11
+    ],
+    "D": [
+      11,
+      14
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "tie",
+      "endpoint",
+      "short"
+    ]
+  },
+  {
+    "id": "best_right_end",
+    "U": [
+      6,
+      18
+    ],
+    "D": [
+      11,
+      16
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "tie",
+      "endpoint",
+      "short"
+    ]
+  },
+  {
+    "id": "quota_first_1",
+    "U": [
+      4,
+      10
+    ],
+    "D": [
+      15,
+      18
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "limit",
+      "count"
+    ]
+  },
+  {
+    "id": "quota_first_2",
+    "U": [
+      2,
+      18
+    ],
+    "D": [
+      3,
+      5
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "limit",
+      "count"
+    ]
+  },
+  {
+    "id": "quota_last_1",
+    "U": [
+      10,
+      16
+    ],
+    "D": [
+      5,
+      18
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "limit",
+      "count"
+    ]
+  },
+  {
+    "id": "quota_last_2",
+    "U": [
+      8,
+      9
+    ],
+    "D": [
+      2,
+      19
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "limit",
+      "count"
+    ]
+  },
+  {
+    "id": "cross_first_up",
+    "U": [
+      7,
+      19
+    ],
+    "D": [
+      3,
+      4
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "slope",
+      "rightIndex"
+    ]
+  },
+  {
+    "id": "cross_first_down",
+    "U": [
+      0,
+      22
+    ],
+    "D": [
+      5,
+      21
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "slope",
+      "rightIndex"
+    ]
+  },
+  {
+    "id": "cross_last_up",
+    "U": [
+      11,
+      22
+    ],
+    "D": [
+      3,
+      5
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "slope",
+      "rightIndex"
+    ]
+  },
+  {
+    "id": "cross_last_down",
+    "U": [
+      7,
+      16
+    ],
+    "D": [
+      8,
+      17
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "inclusive",
+      "direction",
+      "slope",
+      "rightIndex"
+    ]
+  },
+  {
+    "id": "window_inside_pos",
+    "U": [
+      15,
+      21
+    ],
+    "D": [
+      1,
+      18
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "scope",
+      "sign",
+      "zero",
+      "second"
+    ]
+  },
+  {
+    "id": "window_inside_neg",
+    "U": [
+      5,
+      21
+    ],
+    "D": [
+      1,
+      17
+    ],
+    "separatesCorrect": 2,
+    "separatesAll": 7,
+    "variants": [
+      "correct",
+      "scope",
+      "sign",
+      "zero",
+      "second"
+    ]
+  },
+  {
+    "id": "window_outside_pos",
+    "U": [
+      4,
+      11
+    ],
+    "D": [
+      1,
+      22
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "scope",
+      "sign",
+      "zero",
+      "second"
+    ]
+  },
+  {
+    "id": "window_outside_neg",
+    "U": [
+      11,
+      17
+    ],
+    "D": [
+      12,
+      22
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "scope",
+      "sign",
+      "zero",
+      "second"
+    ]
+  },
+  {
+    "id": "streak_strict",
+    "U": [
+      14,
+      22
+    ],
+    "D": [
+      3,
+      4
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "comparison",
+      "count",
+      "tail",
+      "firstRun"
+    ]
+  },
+  {
+    "id": "streak_inclusive",
+    "U": [
+      6,
+      23
+    ],
+    "D": [
+      6,
+      23
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "comparison",
+      "count",
+      "tail",
+      "firstRun"
+    ]
+  },
+  {
+    "id": "prefix_equal",
+    "U": [
+      1,
+      10
+    ],
+    "D": [
+      0,
+      13
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "comparison",
+      "includeStop",
+      "reverse",
+      "count"
+    ]
+  },
+  {
+    "id": "prefix_above",
+    "U": [
+      7,
+      19
+    ],
+    "D": [
+      1,
+      18
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "comparison",
+      "includeStop",
+      "reverse",
+      "count"
+    ]
+  },
+  {
+    "id": "index_first",
+    "U": [
+      9,
+      10
+    ],
+    "D": [
+      2,
+      10
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "comparison",
+      "direction",
+      "oneBased",
+      "absentZero"
+    ]
+  },
+  {
+    "id": "index_last",
+    "U": [
+      4,
+      23
+    ],
+    "D": [
+      1,
+      3
+    ],
+    "separatesCorrect": 3,
+    "separatesAll": 9,
+    "variants": [
+      "correct",
+      "comparison",
+      "direction",
+      "oneBased",
+      "absentZero"
+    ]
+  },
+  {
+    "id": "cap_first",
+    "U": [
+      17,
+      22
+    ],
+    "D": [
+      4,
+      18
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "comparison",
+      "direction",
+      "all",
+      "oneBased"
+    ]
+  },
+  {
+    "id": "cap_last",
+    "U": [
+      9,
+      23
+    ],
+    "D": [
+      8,
+      16
+    ],
+    "separatesCorrect": 4,
+    "separatesAll": 10,
+    "variants": [
+      "correct",
+      "comparison",
+      "direction",
+      "all",
+      "oneBased"
+    ]
+  }
+]

@@ -1,0 +1,362 @@
+[
+  {
+    "id": "best_left_start",
+    "task": "找出元素全部严格大于 t 的最长连续区间。如有并列取最左的区间，返回它的起始下标。找不到返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "best_left_start.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "best_left_end",
+    "task": "找出元素全部严格大于 t 的最长连续区间。如有并列取最左的区间，返回它的结束下标。找不到返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "best_left_end.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] >= t) {\n            let start = i\n            while (i < q.size && q[i] >= t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "best_right_start",
+    "task": "找出元素全部严格大于 t 的最长连续区间。如有并列取最右的区间，返回它的起始下标。找不到返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "best_right_start.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "best_right_end",
+    "task": "找出元素全部严格大于 t 的最长连续区间。如有并列取最右的区间，返回它的结束下标。找不到返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "best_right_end.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size - 1) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size - 1 && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "quota_first_1",
+    "task": "从左端起扫描，把最先遇到的至多 1 个严格大于 t 的元素改为 t。返回这些被修改元素原值的总和，没有则返回 0。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "quota_first_1.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0 && used < 1) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "quota_first_2",
+    "task": "从左端起扫描，把最先遇到的至多 2 个严格大于 t 的元素改为 t。返回这些被修改元素原值的总和，没有则返回 0。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "quota_first_2.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "quota_last_1",
+    "task": "从右端起扫描，把最先遇到的至多 1 个严格大于 t 的元素改为 t。返回这些被修改元素原值的总和，没有则返回 0。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "quota_last_1.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "quota_last_2",
+    "task": "从右端起扫描，把最先遇到的至多 2 个严格大于 t 的元素改为 t。返回这些被修改元素原值的总和，没有则返回 0。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "quota_last_2.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0 && i > 0 && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cross_first_up",
+    "task": "按左下标从小到大查看相邻元素对，找到第一对左元素严格小于 t、右元素严格大于 t 的元素，返回其左下标。没有则返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "cross_first_up.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i <= q.size - 2) {\n        if (q[i] <= t && q[i+1] > t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cross_first_down",
+    "task": "按左下标从小到大查看相邻元素对，找到第一对左元素严格大于 t、右元素严格小于 t 的元素，返回其左下标。没有则返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "cross_first_down.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cross_last_up",
+    "task": "按左下标从大到小查看相邻元素对，找到第一对左元素严格小于 t、右元素严格大于 t 的元素，返回其左下标。没有则返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "cross_last_up.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cross_last_down",
+    "task": "按左下标从大到小查看相邻元素对，找到第一对左元素严格大于 t、右元素严格小于 t 的元素，返回其左下标。没有则返回 -1。数组不变。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "cross_last_down.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 3\n    while (i >= 0) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "window_inside_pos",
+    "task": "把首个和末个等于 t 的元素当作两个标记。少于两个标记时返回 0，不修改数组。否则只将严格位于两个标记之间的所有正数置为 0，返回实际修改的个数。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "window_inside_pos.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i; break }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i > lo && i < hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "window_inside_neg",
+    "task": "把首个和末个等于 t 的元素当作两个标记。少于两个标记时返回 0，不修改数组。否则只将严格位于两个标记之间的所有负数置为 0，返回实际修改的个数。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "window_inside_neg.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i > lo && i < hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "window_outside_pos",
+    "task": "把首个和末个等于 t 的元素当作两个标记。少于两个标记时返回 0，不修改数组。否则只将严格位于两个标记以外（第一个之前或最后一个之后）的所有正数置为 0，返回实际修改的个数。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "window_outside_pos.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (lo < 0) { return 0 }; if (hi < 0) { hi = lo }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "window_outside_neg",
+    "task": "把首个和末个等于 t 的元素当作两个标记。少于两个标记时返回 0，不修改数组。否则只将严格位于两个标记以外（第一个之前或最后一个之后）的所有负数置为 0，返回实际修改的个数。其余元素不动。下标从 0 起算，保留函数签名。",
+    "source": {
+      "name": "window_outside_neg.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "streak_strict",
+    "task": "返回数组中连续严格大于 t 的最长一段的元素数。数组保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "streak_strict.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x >= t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "streak_inclusive",
+    "task": "返回数组中连续大于等于 t 的最长一段的元素数。数组保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "streak_inclusive.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x >= t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "prefix_equal",
+    "task": "从左起累加，在第一个大于等于 t 的元素之前停止，停止元素不计入总和。数组保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "prefix_equal.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x >= t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "prefix_above",
+    "task": "从左起累加，在第一个严格大于 t 的元素之前停止，停止元素不计入总和。数组保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "prefix_above.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x >= t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "index_first",
+    "task": "返回第一个大于等于 t 的元素的下标，没有时返回 -1。数组保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "index_first.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] > t) {\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "index_last",
+    "task": "返回最后一个大于等于 t 的元素的下标，没有时返回 -1。数组保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "index_last.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] >= t) {\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cap_first",
+    "task": "只把第一个严格大于 t 的数改成 t 并返回它的下标，没有时返回 -1。其余元素保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "cap_first.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var found: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] > t) {\n            if (found < 0) { found = i }\n            q[i] = t\n        }\n        i++\n    }\n    return found\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  },
+  {
+    "id": "cap_last",
+    "task": "只把最后一个严格大于 t 的数改成 t 并返回它的下标，没有时返回 -1。其余元素保持原样。下标从 0 起算，空数组按相同规则处理。保留函数签名。",
+    "source": {
+      "name": "cap_last.cj",
+      "text": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] >= t) {\n            q[i] = t\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n"
+    },
+    "publicTests": [
+      {
+        "id": "public",
+        "stdin": "",
+        "expectedStdout": "true\ntrue\n"
+      }
+    ]
+  }
+]
