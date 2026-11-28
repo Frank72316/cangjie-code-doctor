@@ -1,0 +1,1734 @@
+{
+  "materialReports": 192,
+  "scoreReports": 504,
+  "rows": [
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005254,
+      "input": 1295,
+      "output": 333
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.005312,
+      "input": 1324,
+      "output": 333
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005346,
+      "input": 1341,
+      "output": 333
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004252,
+      "input": 986,
+      "output": 285
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.004348,
+      "input": 1034,
+      "output": 285
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.00431,
+      "input": 1015,
+      "output": 285
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "compile_failed",
+      "costCNY": 0.00536,
+      "input": 1368,
+      "output": 328
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "compile_failed",
+      "costCNY": 0.00538,
+      "input": 1378,
+      "output": 328
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "compile_failed",
+      "costCNY": 0.005302,
+      "input": 1339,
+      "output": 328
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.00411,
+      "input": 1047,
+      "output": 252
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004076,
+      "input": 1030,
+      "output": 252
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004018,
+      "input": 1001,
+      "output": 252
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005884,
+      "input": 1438,
+      "output": 376
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.006024,
+      "input": 1392,
+      "output": 405
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.006082,
+      "input": 1421,
+      "output": 405
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.00502,
+      "input": 1130,
+      "output": 345
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004962,
+      "input": 1101,
+      "output": 345
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.005058,
+      "input": 1149,
+      "output": 345
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005822,
+      "input": 1395,
+      "output": 379
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.006128,
+      "input": 1424,
+      "output": 410
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005918,
+      "input": 1443,
+      "output": 379
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.00426,
+      "input": 1030,
+      "output": 275
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004356,
+      "input": 1078,
+      "output": 275
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004318,
+      "input": 1059,
+      "output": 275
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00568,
+      "input": 1408,
+      "output": 358
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005712,
+      "input": 1424,
+      "output": 358
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005624,
+      "input": 1380,
+      "output": 358
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.00512,
+      "input": 1332,
+      "output": 307
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "holdout_failed",
+      "costCNY": 0.005274,
+      "input": 1313,
+      "output": 331
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.005218,
+      "input": 1285,
+      "output": 331
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005742,
+      "input": 1427,
+      "output": 361
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005654,
+      "input": 1383,
+      "output": 361
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00571,
+      "input": 1411,
+      "output": 361
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "holdout_failed",
+      "costCNY": 0.005162,
+      "input": 1345,
+      "output": 309
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.005106,
+      "input": 1317,
+      "output": 309
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "holdout_failed",
+      "costCNY": 0.005182,
+      "input": 1355,
+      "output": 309
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005664,
+      "input": 1344,
+      "output": 372
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.005722,
+      "input": 1373,
+      "output": 372
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005754,
+      "input": 1389,
+      "output": 372
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004562,
+      "input": 1053,
+      "output": 307
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004652,
+      "input": 1098,
+      "output": 307
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00462,
+      "input": 1082,
+      "output": 307
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.005762,
+      "input": 1377,
+      "output": 376
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005794,
+      "input": 1393,
+      "output": 376
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005704,
+      "input": 1348,
+      "output": 376
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004512,
+      "input": 1084,
+      "output": 293
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00448,
+      "input": 1068,
+      "output": 293
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004422,
+      "input": 1039,
+      "output": 293
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.006688,
+      "input": 1540,
+      "output": 451
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.006592,
+      "input": 1492,
+      "output": 451
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.00665,
+      "input": 1521,
+      "output": 451
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004536,
+      "input": 1076,
+      "output": 298
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004478,
+      "input": 1047,
+      "output": 298
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004574,
+      "input": 1095,
+      "output": 298
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.006528,
+      "input": 1272,
+      "output": 498
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.006586,
+      "input": 1301,
+      "output": 498
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.006682,
+      "input": 1317,
+      "output": 506
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004478,
+      "input": 1047,
+      "output": 298
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004574,
+      "input": 1095,
+      "output": 298
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004536,
+      "input": 1076,
+      "output": 298
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.004858,
+      "input": 1109,
+      "output": 330
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.004896,
+      "input": 1128,
+      "output": 330
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004798,
+      "input": 1079,
+      "output": 330
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.004362,
+      "input": 1081,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.004324,
+      "input": 1062,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004264,
+      "input": 1032,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004834,
+      "input": 1133,
+      "output": 321
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.004864,
+      "input": 1084,
+      "output": 337
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004796,
+      "input": 1114,
+      "output": 321
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004324,
+      "input": 1062,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.004264,
+      "input": 1032,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004234,
+      "input": 1081,
+      "output": 259
+    },
+    {
+      "caseId": "streak_strict",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.00266,
+      "input": 518,
+      "output": 203
+    },
+    {
+      "caseId": "streak_strict",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00271,
+      "input": 543,
+      "output": 203
+    },
+    {
+      "caseId": "streak_strict",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002748,
+      "input": 562,
+      "output": 203
+    },
+    {
+      "caseId": "streak_inclusive",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.00266,
+      "input": 518,
+      "output": 203
+    },
+    {
+      "caseId": "streak_inclusive",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002744,
+      "input": 560,
+      "output": 203
+    },
+    {
+      "caseId": "streak_inclusive",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00271,
+      "input": 543,
+      "output": 203
+    },
+    {
+      "caseId": "prefix_equal",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002458,
+      "input": 521,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_equal",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002492,
+      "input": 538,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_equal",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002408,
+      "input": 496,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_above",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.0025,
+      "input": 542,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_above",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002462,
+      "input": 523,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_above",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002412,
+      "input": 498,
+      "output": 177
+    },
+    {
+      "caseId": "index_first",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002578,
+      "input": 545,
+      "output": 186
+    },
+    {
+      "caseId": "index_first",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002488,
+      "input": 500,
+      "output": 186
+    },
+    {
+      "caseId": "index_first",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002538,
+      "input": 525,
+      "output": 186
+    },
+    {
+      "caseId": "index_last",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002562,
+      "input": 525,
+      "output": 189
+    },
+    {
+      "caseId": "index_last",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002512,
+      "input": 500,
+      "output": 189
+    },
+    {
+      "caseId": "index_last",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002596,
+      "input": 542,
+      "output": 189
+    },
+    {
+      "caseId": "cap_first",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.00261,
+      "input": 533,
+      "output": 193
+    },
+    {
+      "caseId": "cap_first",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002662,
+      "input": 559,
+      "output": 193
+    },
+    {
+      "caseId": "cap_first",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002698,
+      "input": 577,
+      "output": 193
+    },
+    {
+      "caseId": "cap_last",
+      "repeat": 1,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002602,
+      "input": 517,
+      "output": 196
+    },
+    {
+      "caseId": "cap_last",
+      "repeat": 1,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002692,
+      "input": 562,
+      "output": 196
+    },
+    {
+      "caseId": "cap_last",
+      "repeat": 1,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002654,
+      "input": 543,
+      "output": 196
+    },
+    {
+      "caseId": "cap_last",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002654,
+      "input": 543,
+      "output": 196
+    },
+    {
+      "caseId": "cap_last",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002692,
+      "input": 562,
+      "output": 196
+    },
+    {
+      "caseId": "cap_last",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002602,
+      "input": 517,
+      "output": 196
+    },
+    {
+      "caseId": "cap_first",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002698,
+      "input": 577,
+      "output": 193
+    },
+    {
+      "caseId": "cap_first",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002662,
+      "input": 559,
+      "output": 193
+    },
+    {
+      "caseId": "cap_first",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.00261,
+      "input": 533,
+      "output": 193
+    },
+    {
+      "caseId": "index_last",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002596,
+      "input": 542,
+      "output": 189
+    },
+    {
+      "caseId": "index_last",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002512,
+      "input": 500,
+      "output": 189
+    },
+    {
+      "caseId": "index_last",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002562,
+      "input": 525,
+      "output": 189
+    },
+    {
+      "caseId": "index_first",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002538,
+      "input": 525,
+      "output": 186
+    },
+    {
+      "caseId": "index_first",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002488,
+      "input": 500,
+      "output": 186
+    },
+    {
+      "caseId": "index_first",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002578,
+      "input": 545,
+      "output": 186
+    },
+    {
+      "caseId": "prefix_above",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002412,
+      "input": 498,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_above",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002462,
+      "input": 523,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_above",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.0025,
+      "input": 542,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_equal",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.002408,
+      "input": 496,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_equal",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002492,
+      "input": 538,
+      "output": 177
+    },
+    {
+      "caseId": "prefix_equal",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.002458,
+      "input": 521,
+      "output": 177
+    },
+    {
+      "caseId": "streak_inclusive",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00271,
+      "input": 543,
+      "output": 203
+    },
+    {
+      "caseId": "streak_inclusive",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002744,
+      "input": 560,
+      "output": 203
+    },
+    {
+      "caseId": "streak_inclusive",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.00266,
+      "input": 518,
+      "output": 203
+    },
+    {
+      "caseId": "streak_strict",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.002748,
+      "input": 562,
+      "output": 203
+    },
+    {
+      "caseId": "streak_strict",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00271,
+      "input": 543,
+      "output": 203
+    },
+    {
+      "caseId": "streak_strict",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.00266,
+      "input": 518,
+      "output": 203
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004234,
+      "input": 1081,
+      "output": 259
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.004264,
+      "input": 1032,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_right_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004324,
+      "input": 1062,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004796,
+      "input": 1114,
+      "output": 321
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.004864,
+      "input": 1084,
+      "output": 337
+    },
+    {
+      "caseId": "stamp_right_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004834,
+      "input": 1133,
+      "output": 321
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004264,
+      "input": 1032,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.004324,
+      "input": 1062,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_left_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.004362,
+      "input": 1081,
+      "output": 275
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004798,
+      "input": 1079,
+      "output": 330
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.004896,
+      "input": 1128,
+      "output": 330
+    },
+    {
+      "caseId": "stamp_left_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.004858,
+      "input": 1109,
+      "output": 330
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004536,
+      "input": 1076,
+      "output": 298
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004574,
+      "input": 1095,
+      "output": 298
+    },
+    {
+      "caseId": "invert_right_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004478,
+      "input": 1047,
+      "output": 298
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.006682,
+      "input": 1317,
+      "output": 506
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.006586,
+      "input": 1301,
+      "output": 498
+    },
+    {
+      "caseId": "invert_right_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.006528,
+      "input": 1272,
+      "output": 498
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004574,
+      "input": 1095,
+      "output": 298
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004478,
+      "input": 1047,
+      "output": 298
+    },
+    {
+      "caseId": "invert_left_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004536,
+      "input": 1076,
+      "output": 298
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.00665,
+      "input": 1521,
+      "output": 451
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.006592,
+      "input": 1492,
+      "output": 451
+    },
+    {
+      "caseId": "invert_left_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.006688,
+      "input": 1540,
+      "output": 451
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004422,
+      "input": 1039,
+      "output": 293
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00448,
+      "input": 1068,
+      "output": 293
+    },
+    {
+      "caseId": "paint_right_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004512,
+      "input": 1084,
+      "output": 293
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005704,
+      "input": 1348,
+      "output": 376
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005794,
+      "input": 1393,
+      "output": 376
+    },
+    {
+      "caseId": "paint_right_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.005762,
+      "input": 1377,
+      "output": 376
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00462,
+      "input": 1082,
+      "output": 307
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004652,
+      "input": 1098,
+      "output": 307
+    },
+    {
+      "caseId": "paint_left_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004562,
+      "input": 1053,
+      "output": 307
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005754,
+      "input": 1389,
+      "output": 372
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.005722,
+      "input": 1373,
+      "output": 372
+    },
+    {
+      "caseId": "paint_left_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005664,
+      "input": 1344,
+      "output": 372
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "holdout_failed",
+      "costCNY": 0.005182,
+      "input": 1355,
+      "output": 309
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.005106,
+      "input": 1317,
+      "output": 309
+    },
+    {
+      "caseId": "alternating_right_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "holdout_failed",
+      "costCNY": 0.005162,
+      "input": 1345,
+      "output": 309
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00571,
+      "input": 1411,
+      "output": 361
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005654,
+      "input": 1383,
+      "output": 361
+    },
+    {
+      "caseId": "alternating_right_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005742,
+      "input": 1427,
+      "output": 361
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.005218,
+      "input": 1285,
+      "output": 331
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "holdout_failed",
+      "costCNY": 0.005274,
+      "input": 1313,
+      "output": 331
+    },
+    {
+      "caseId": "alternating_left_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.00512,
+      "input": 1332,
+      "output": 307
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005624,
+      "input": 1380,
+      "output": 358
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005712,
+      "input": 1424,
+      "output": 358
+    },
+    {
+      "caseId": "alternating_left_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.00568,
+      "input": 1408,
+      "output": 358
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004318,
+      "input": 1059,
+      "output": 275
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.004356,
+      "input": 1078,
+      "output": 275
+    },
+    {
+      "caseId": "twin_right_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "holdout_failed",
+      "costCNY": 0.00426,
+      "input": 1030,
+      "output": 275
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.00591,
+      "input": 1443,
+      "output": 378
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.006128,
+      "input": 1424,
+      "output": 410
+    },
+    {
+      "caseId": "twin_right_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005822,
+      "input": 1395,
+      "output": 379
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.005058,
+      "input": 1149,
+      "output": 345
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004962,
+      "input": 1101,
+      "output": 345
+    },
+    {
+      "caseId": "twin_left_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.00502,
+      "input": 1130,
+      "output": 345
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.006082,
+      "input": 1421,
+      "output": 405
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005792,
+      "input": 1392,
+      "output": 376
+    },
+    {
+      "caseId": "twin_left_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005884,
+      "input": 1438,
+      "output": 376
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.004018,
+      "input": 1001,
+      "output": 252
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.004076,
+      "input": 1030,
+      "output": 252
+    },
+    {
+      "caseId": "seek_right_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.00411,
+      "input": 1047,
+      "output": 252
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "compile_failed",
+      "costCNY": 0.005302,
+      "input": 1339,
+      "output": 328
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "compile_failed",
+      "costCNY": 0.00538,
+      "input": 1378,
+      "output": 328
+    },
+    {
+      "caseId": "seek_right_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "compile_failed",
+      "costCNY": 0.00536,
+      "input": 1368,
+      "output": 328
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 2,
+      "group": "S",
+      "status": "test_failed",
+      "costCNY": 0.00431,
+      "input": 1015,
+      "output": 285
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 2,
+      "group": "R",
+      "status": "test_failed",
+      "costCNY": 0.004348,
+      "input": 1034,
+      "output": 285
+    },
+    {
+      "caseId": "seek_left_all",
+      "repeat": 2,
+      "group": "H",
+      "status": "test_failed",
+      "costCNY": 0.004252,
+      "input": 986,
+      "output": 285
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 2,
+      "group": "R",
+      "status": "passed",
+      "costCNY": 0.005346,
+      "input": 1341,
+      "output": 333
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 2,
+      "group": "S",
+      "status": "passed",
+      "costCNY": 0.005312,
+      "input": 1324,
+      "output": 333
+    },
+    {
+      "caseId": "seek_left_mark",
+      "repeat": 2,
+      "group": "H",
+      "status": "passed",
+      "costCNY": 0.005254,
+      "input": 1295,
+      "output": 333
+    }
+  ]
+}

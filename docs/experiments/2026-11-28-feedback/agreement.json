@@ -1,0 +1,61 @@
+{
+  "panels": {
+    "linked": {
+      "R-H": {
+        "n": 48,
+        "sameSource": 28,
+        "bothPassed": 26,
+        "bothFailed": 14,
+        "won": 8,
+        "lost": 0
+      },
+      "S-H": {
+        "n": 48,
+        "sameSource": 31,
+        "bothPassed": 26,
+        "bothFailed": 16,
+        "won": 6,
+        "lost": 0
+      },
+      "R-S": {
+        "n": 48,
+        "sameSource": 36,
+        "bothPassed": 32,
+        "bothFailed": 14,
+        "won": 2,
+        "lost": 0
+      }
+    },
+    "array": {
+      "R-H": {
+        "n": 16,
+        "sameSource": 16,
+        "bothPassed": 16,
+        "bothFailed": 0,
+        "won": 0,
+        "lost": 0
+      },
+      "S-H": {
+        "n": 16,
+        "sameSource": 16,
+        "bothPassed": 16,
+        "bothFailed": 0,
+        "won": 0,
+        "lost": 0
+      },
+      "R-S": {
+        "n": 16,
+        "sameSource": 16,
+        "bothPassed": 16,
+        "bothFailed": 0,
+        "won": 0,
+        "lost": 0
+      }
+    }
+  },
+  "unchangedCompared": 81,
+  "unchangedDisagreements": 0,
+  "uniqueSourcesWithinCase": 46,
+  "repeatedSources": 45,
+  "inconsistentRepeatedSources": 0
+}

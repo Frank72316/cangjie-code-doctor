@@ -1,0 +1,576 @@
+{
+  "designSha256": "d4bb70df56829739ea8ee9c76126ad071832b2ca3430ee9eed238b25df2999cc",
+  "verifiedSha256": "93fa0f8b13b324d98a611a873383874f1e6e2a1c332f2769e6766d415df46ddb",
+  "panels": {
+    "linked": {
+      "n": 24,
+      "basePassed": 10,
+      "baseProbe": {
+        "passed": 10,
+        "mismatch": 12,
+        "unavailable": 2
+      },
+      "arms": {
+        "H": {
+          "runs": 48,
+          "publicPassed": 36,
+          "probePassed": 26,
+          "passed": 26,
+          "probeOnly": 0,
+          "unseenOnly": 0,
+          "otherShapePassed": 30,
+          "fixed": 6,
+          "regressed": 0,
+          "unchanged": 31
+        },
+        "S": {
+          "runs": 48,
+          "publicPassed": 36,
+          "probePassed": 36,
+          "passed": 32,
+          "probeOnly": 4,
+          "unseenOnly": 0,
+          "otherShapePassed": 32,
+          "fixed": 12,
+          "regressed": 0,
+          "unchanged": 18
+        },
+        "R": {
+          "runs": 48,
+          "publicPassed": 36,
+          "probePassed": 36,
+          "passed": 34,
+          "probeOnly": 2,
+          "unseenOnly": 0,
+          "otherShapePassed": 34,
+          "fixed": 14,
+          "regressed": 0,
+          "unchanged": 20
+        }
+      },
+      "byObservation": {
+        "passed": {
+          "H": 20,
+          "S": 20,
+          "R": 20
+        },
+        "mismatch": {
+          "H": 6,
+          "S": 12,
+          "R": 14
+        },
+        "unavailable": {
+          "H": 0,
+          "S": 0,
+          "R": 0
+        }
+      },
+      "policies": {
+        "public": {
+          "calls": 12,
+          "passed": 20,
+          "costCNY": 0.063104
+        },
+        "publicOrProbe": {
+          "calls": 28,
+          "passed": 34,
+          "costCNY": 0.13904
+        },
+        "always": {
+          "calls": 48,
+          "passed": 34,
+          "costCNY": 0.247416
+        }
+      },
+      "families": {
+        "seek": {
+          "H": 4,
+          "S": 4,
+          "R": 4
+        },
+        "twin": {
+          "H": 4,
+          "S": 6,
+          "R": 6
+        },
+        "alternating": {
+          "H": 4,
+          "S": 4,
+          "R": 6
+        },
+        "paint": {
+          "H": 8,
+          "S": 8,
+          "R": 8
+        },
+        "invert": {
+          "H": 6,
+          "S": 6,
+          "R": 6
+        },
+        "stamp": {
+          "H": 0,
+          "S": 4,
+          "R": 4
+        }
+      },
+      "comparisons": {
+        "R-H": {
+          "delta": 8,
+          "improved": 4,
+          "tied": 20,
+          "worse": 0
+        },
+        "S-H": {
+          "delta": 6,
+          "improved": 3,
+          "tied": 21,
+          "worse": 0
+        },
+        "R-S": {
+          "delta": 2,
+          "improved": 1,
+          "tied": 23,
+          "worse": 0
+        }
+      },
+      "leaveOneFamilyOut": {
+        "seek": 8,
+        "twin": 6,
+        "alternating": 6,
+        "paint": 8,
+        "invert": 8,
+        "stamp": 4
+      }
+    },
+    "array": {
+      "n": 8,
+      "basePassed": 2,
+      "baseProbe": {
+        "passed": 4,
+        "mismatch": 4,
+        "unavailable": 0
+      },
+      "arms": {
+        "H": {
+          "runs": 16,
+          "publicPassed": 16,
+          "probePassed": 16,
+          "passed": 16,
+          "probeOnly": 0,
+          "unseenOnly": 0,
+          "otherShapePassed": 16,
+          "fixed": 12,
+          "regressed": 0,
+          "unchanged": 4
+        },
+        "S": {
+          "runs": 16,
+          "publicPassed": 16,
+          "probePassed": 16,
+          "passed": 16,
+          "probeOnly": 0,
+          "unseenOnly": 0,
+          "otherShapePassed": 16,
+          "fixed": 12,
+          "regressed": 0,
+          "unchanged": 4
+        },
+        "R": {
+          "runs": 16,
+          "publicPassed": 16,
+          "probePassed": 16,
+          "passed": 16,
+          "probeOnly": 0,
+          "unseenOnly": 0,
+          "otherShapePassed": 16,
+          "fixed": 12,
+          "regressed": 0,
+          "unchanged": 4
+        }
+      },
+      "byObservation": {
+        "passed": {
+          "H": 8,
+          "S": 8,
+          "R": 8
+        },
+        "mismatch": {
+          "H": 8,
+          "S": 8,
+          "R": 8
+        },
+        "unavailable": {
+          "H": 0,
+          "S": 0,
+          "R": 0
+        }
+      },
+      "policies": {
+        "public": {
+          "calls": 0,
+          "passed": 4,
+          "costCNY": 0
+        },
+        "publicOrProbe": {
+          "calls": 8,
+          "passed": 12,
+          "costCNY": 0.021036
+        },
+        "always": {
+          "calls": 16,
+          "passed": 16,
+          "costCNY": 0.042096
+        }
+      },
+      "families": {
+        "streak": {
+          "H": 4,
+          "S": 4,
+          "R": 4
+        },
+        "prefix": {
+          "H": 4,
+          "S": 4,
+          "R": 4
+        },
+        "index": {
+          "H": 4,
+          "S": 4,
+          "R": 4
+        },
+        "cap": {
+          "H": 4,
+          "S": 4,
+          "R": 4
+        }
+      },
+      "comparisons": {
+        "R-H": {
+          "delta": 0,
+          "improved": 0,
+          "tied": 8,
+          "worse": 0
+        },
+        "S-H": {
+          "delta": 0,
+          "improved": 0,
+          "tied": 8,
+          "worse": 0
+        },
+        "R-S": {
+          "delta": 0,
+          "improved": 0,
+          "tied": 8,
+          "worse": 0
+        }
+      },
+      "leaveOneFamilyOut": {
+        "streak": 0,
+        "prefix": 0,
+        "index": 0,
+        "cap": 0
+      }
+    }
+  },
+  "cases": {
+    "seek_left_mark": {
+      "panel": "linked",
+      "family": "seek",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "seek_left_all": {
+      "panel": "linked",
+      "family": "seek",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "seek_right_mark": {
+      "panel": "linked",
+      "family": "seek",
+      "basePassed": false,
+      "baseProbe": "unavailable",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "seek_right_all": {
+      "panel": "linked",
+      "family": "seek",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "twin_left_mark": {
+      "panel": "linked",
+      "family": "twin",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "twin_left_all": {
+      "panel": "linked",
+      "family": "twin",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "twin_right_mark": {
+      "panel": "linked",
+      "family": "twin",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "twin_right_all": {
+      "panel": "linked",
+      "family": "twin",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 2,
+      "R": 2
+    },
+    "alternating_left_mark": {
+      "panel": "linked",
+      "family": "alternating",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "alternating_left_all": {
+      "panel": "linked",
+      "family": "alternating",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 0,
+      "R": 2
+    },
+    "alternating_right_mark": {
+      "panel": "linked",
+      "family": "alternating",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "alternating_right_all": {
+      "panel": "linked",
+      "family": "alternating",
+      "basePassed": false,
+      "baseProbe": "unavailable",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "paint_left_mark": {
+      "panel": "linked",
+      "family": "paint",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "paint_left_all": {
+      "panel": "linked",
+      "family": "paint",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "paint_right_mark": {
+      "panel": "linked",
+      "family": "paint",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "paint_right_all": {
+      "panel": "linked",
+      "family": "paint",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "invert_left_mark": {
+      "panel": "linked",
+      "family": "invert",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "invert_left_all": {
+      "panel": "linked",
+      "family": "invert",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "invert_right_mark": {
+      "panel": "linked",
+      "family": "invert",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "invert_right_all": {
+      "panel": "linked",
+      "family": "invert",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "stamp_left_mark": {
+      "panel": "linked",
+      "family": "stamp",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "stamp_left_all": {
+      "panel": "linked",
+      "family": "stamp",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 0,
+      "R": 0
+    },
+    "stamp_right_mark": {
+      "panel": "linked",
+      "family": "stamp",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 2,
+      "R": 2
+    },
+    "stamp_right_all": {
+      "panel": "linked",
+      "family": "stamp",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 0,
+      "S": 2,
+      "R": 2
+    },
+    "streak_strict": {
+      "panel": "array",
+      "family": "streak",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "streak_inclusive": {
+      "panel": "array",
+      "family": "streak",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "prefix_equal": {
+      "panel": "array",
+      "family": "prefix",
+      "basePassed": true,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "prefix_above": {
+      "panel": "array",
+      "family": "prefix",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "index_first": {
+      "panel": "array",
+      "family": "index",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "index_last": {
+      "panel": "array",
+      "family": "index",
+      "basePassed": false,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "cap_first": {
+      "panel": "array",
+      "family": "cap",
+      "basePassed": false,
+      "baseProbe": "passed",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    },
+    "cap_last": {
+      "panel": "array",
+      "family": "cap",
+      "basePassed": false,
+      "baseProbe": "mismatch",
+      "H": 2,
+      "S": 2,
+      "R": 2
+    }
+  },
+  "tokens": {
+    "input": 201824,
+    "cached": 163445,
+    "output": 57416
+  },
+  "conservativeCNY": 0.862976,
+  "offPeakEstimatedCNY": 0.27131190000000005,
+  "cumulativeEstimatedCNY": 7.404568,
+  "materials": 192,
+  "scoreReports": 504
+}
