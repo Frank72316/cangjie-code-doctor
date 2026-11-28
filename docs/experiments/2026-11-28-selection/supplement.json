@@ -1,0 +1,898 @@
+{
+  "domainSize": 7776,
+  "rows": [
+    {
+      "id": "best_left_start",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        11,
+        14
+      ],
+      "examples": [
+        {
+          "array": [
+            4,
+            6,
+            -3,
+            0,
+            6
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            4,
+            0,
+            6,
+            2,
+            6
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "best_left_end",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        3,
+        9
+      ],
+      "examples": [
+        {
+          "array": [
+            0,
+            6,
+            4,
+            -1,
+            4
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            -3,
+            6,
+            0,
+            4
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "best_right_start",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        11,
+        14
+      ],
+      "examples": [
+        {
+          "array": [
+            4,
+            6,
+            -3,
+            0,
+            6
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            4,
+            0,
+            6,
+            2,
+            6
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "best_right_end",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        11,
+        16
+      ],
+      "examples": [
+        {
+          "array": [
+            4,
+            6,
+            -3,
+            0,
+            6
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            6,
+            2,
+            -1,
+            4,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "quota_first_1",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        15,
+        18
+      ],
+      "examples": [
+        {
+          "array": [
+            6,
+            -1,
+            -1,
+            -1,
+            4
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            -3,
+            6,
+            4,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "quota_first_2",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        3,
+        5
+      ],
+      "examples": [
+        {
+          "array": [
+            0,
+            6,
+            4,
+            -1,
+            4
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            0,
+            2,
+            2,
+            6,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "quota_last_1",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        5,
+        18
+      ],
+      "examples": [
+        {
+          "array": [
+            0,
+            2,
+            2,
+            6,
+            2
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            -3,
+            6,
+            4,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "quota_last_2",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        2,
+        19
+      ],
+      "examples": [
+        {
+          "array": [
+            2,
+            0,
+            4,
+            6,
+            6
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            -1,
+            -3,
+            6,
+            -1,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "cross_first_up",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        3,
+        4
+      ],
+      "examples": [
+        {
+          "array": [
+            0,
+            6,
+            4,
+            -1,
+            4
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            -1,
+            2,
+            -3,
+            2,
+            6
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "cross_first_down",
+      "added": [
+        {
+          "variant": "direction",
+          "input": {
+            "array": [
+              4,
+              0,
+              6,
+              -1,
+              -3
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        21,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            -3,
+            2,
+            -1,
+            4,
+            -3
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            4,
+            0,
+            6,
+            -1,
+            -3
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "cross_last_up",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        3,
+        5
+      ],
+      "examples": [
+        {
+          "array": [
+            0,
+            6,
+            4,
+            -1,
+            4
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            0,
+            2,
+            2,
+            6,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "cross_last_down",
+      "added": [
+        {
+          "variant": "direction",
+          "input": {
+            "array": [
+              4,
+              0,
+              6,
+              -1,
+              -3
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        2,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            2,
+            0,
+            4,
+            6,
+            6
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            4,
+            0,
+            6,
+            -1,
+            -3
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "window_inside_pos",
+      "added": [
+        {
+          "variant": "zero",
+          "input": {
+            "array": [
+              6,
+              2,
+              0,
+              0,
+              2
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        1,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            2,
+            2,
+            6,
+            2,
+            -3
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            6,
+            2,
+            0,
+            0,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "window_inside_neg",
+      "added": [
+        {
+          "variant": "zero",
+          "input": {
+            "array": [
+              6,
+              2,
+              0,
+              0,
+              2
+            ],
+            "t": 2
+          }
+        },
+        {
+          "variant": "second",
+          "input": {
+            "array": [
+              2,
+              2,
+              -1,
+              -3,
+              2
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        24,
+        25
+      ],
+      "examples": [
+        {
+          "array": [
+            6,
+            2,
+            0,
+            0,
+            2
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            2,
+            -1,
+            -3,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "window_outside_pos",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        1,
+        22
+      ],
+      "examples": [
+        {
+          "array": [
+            2,
+            2,
+            6,
+            2,
+            -3
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            0,
+            0,
+            2,
+            -3,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "window_outside_neg",
+      "added": [
+        {
+          "variant": "second",
+          "input": {
+            "array": [
+              2,
+              2,
+              -1,
+              -3,
+              2
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        23,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            6,
+            2,
+            2,
+            -3,
+            0
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            2,
+            -1,
+            -3,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "streak_strict",
+      "added": [
+        {
+          "variant": "firstRun",
+          "input": {
+            "array": [
+              -3,
+              4,
+              0,
+              4,
+              4
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        1,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            2,
+            2,
+            6,
+            2,
+            -3
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            -3,
+            4,
+            0,
+            4,
+            4
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "streak_inclusive",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        6,
+        23
+      ],
+      "examples": [
+        {
+          "array": [
+            6,
+            -1,
+            -1,
+            2,
+            2
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            6,
+            2,
+            2,
+            -3,
+            0
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "prefix_equal",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        0,
+        13
+      ],
+      "examples": [
+        {
+          "array": [
+            -1,
+            -3,
+            -3,
+            2,
+            0
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            6,
+            -1,
+            -3,
+            -1,
+            4
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "prefix_above",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        1,
+        18
+      ],
+      "examples": [
+        {
+          "array": [
+            2,
+            2,
+            6,
+            2,
+            -3
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            -3,
+            6,
+            4,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "index_first",
+      "added": [
+        {
+          "variant": "absentZero",
+          "input": {
+            "array": [
+              0,
+              -3,
+              -3,
+              0,
+              -3
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        22,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            0,
+            0,
+            2,
+            -3,
+            2
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            0,
+            -3,
+            -3,
+            0,
+            -3
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "index_last",
+      "added": [
+        {
+          "variant": "absentZero",
+          "input": {
+            "array": [
+              0,
+              -3,
+              -3,
+              0,
+              -3
+            ],
+            "t": 2
+          }
+        }
+      ],
+      "unresolved": [],
+      "changed": true,
+      "indices": [
+        16,
+        24
+      ],
+      "examples": [
+        {
+          "array": [
+            6,
+            2,
+            -1,
+            4,
+            2
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            0,
+            -3,
+            -3,
+            0,
+            -3
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "cap_first",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        4,
+        18
+      ],
+      "examples": [
+        {
+          "array": [
+            -1,
+            2,
+            -3,
+            2,
+            6
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            2,
+            -3,
+            6,
+            4,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    },
+    {
+      "id": "cap_last",
+      "added": [],
+      "unresolved": [],
+      "changed": false,
+      "indices": [
+        8,
+        16
+      ],
+      "examples": [
+        {
+          "array": [
+            4,
+            -3,
+            0,
+            -1,
+            2
+          ],
+          "t": 2
+        },
+        {
+          "array": [
+            6,
+            2,
+            -1,
+            4,
+            2
+          ],
+          "t": 2
+        }
+      ]
+    }
+  ]
+}

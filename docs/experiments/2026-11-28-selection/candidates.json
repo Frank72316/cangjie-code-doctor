@@ -1,0 +1,2604 @@
+{
+  "designSha256": "24e8eedc9ccbd00433a6c3c92a18bb41c76561eaa3f46e72a7bd7cadd11bd537",
+  "commit": "36c99d92ba668f701a3075b7651d5cc178129dbb",
+  "startedAt": "2026-11-28T08:21:58.724Z",
+  "results": [
+    {
+      "caseId": "best_left_start",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "6c74867bbff741f7d0c04413d1419c9974c44a0dd1232db7b465a1e32d69a3fe",
+      "startedAt": "2026-11-28T08:21:58.725Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "281a3112-114d-486a-b9ba-d9bfeb3943de",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 690
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "2736648a956689de76f25a0dac2e4571579ab25c91bf5951b9640f2da20a59f2",
+      "finishedAt": "2026-11-28T08:21:59.726Z"
+    },
+    {
+      "caseId": "best_left_start",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "b7cf8b6462b45af78f8783e99ec474fe686e80919841985945201112c0cba912",
+      "startedAt": "2026-11-28T08:21:59.728Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9323b669-d407-41d9-b111-253ae37e41fc",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 306
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "2736648a956689de76f25a0dac2e4571579ab25c91bf5951b9640f2da20a59f2",
+      "finishedAt": "2026-11-28T08:22:00.515Z"
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "07ae3aef166d2e28bbbe4e85255d333ba367383ed1ed14f7d15bb0bde5a7c23d",
+      "startedAt": "2026-11-28T08:22:00.517Z",
+      "status": "generated",
+      "costCNY": 0.003458,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "30c439d6-b5ab-464f-b530-78cab9e11e4e",
+      "usage": {
+        "prompt_tokens": 693,
+        "completion_tokens": 259,
+        "total_tokens": 952,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 693
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dc7f81ca0f4c0842d084f9d55fa1ec58cbc1715ba21838d770708d5fffd45491",
+      "finishedAt": "2026-11-28T08:22:01.775Z"
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "b6c9cc653074059732a262742b3c7ab2e390d2a1a3895532959574f599ea2adf",
+      "startedAt": "2026-11-28T08:22:01.779Z",
+      "status": "generated",
+      "costCNY": 0.003466,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "95cdeac7-2be5-46ed-be1c-571f86441e19",
+      "usage": {
+        "prompt_tokens": 697,
+        "completion_tokens": 259,
+        "total_tokens": 956,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 313
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dc7f81ca0f4c0842d084f9d55fa1ec58cbc1715ba21838d770708d5fffd45491",
+      "finishedAt": "2026-11-28T08:22:02.689Z"
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "027a2c4115f3c887322ef5e64417ef74403a5186340b5133165feeea981e785c",
+      "startedAt": "2026-11-28T08:22:02.693Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f23f4ace-e944-45ef-9410-1fa3faa4d16b",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 690
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "1085c4f94628707be4624ab64a51e7974429da33e0ddacd185a926bc96f710d3",
+      "finishedAt": "2026-11-28T08:22:03.629Z"
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "a69196fbfd4b8730be20427f16ce83d027463ca90443f1c200dfc4fc01488ff5",
+      "startedAt": "2026-11-28T08:22:03.633Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ac3cb242-e145-482e-8e67-e41fc199bf9f",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 306
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "1085c4f94628707be4624ab64a51e7974429da33e0ddacd185a926bc96f710d3",
+      "finishedAt": "2026-11-28T08:22:04.716Z"
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "7eb8ee89753d189447bef3b319adf2e9a81e9e8c122311b3cf7118c13352087c",
+      "startedAt": "2026-11-28T08:22:04.720Z",
+      "status": "generated",
+      "costCNY": 0.00347,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ebe0e5da-10f9-47e0-b6cb-6bb6629f5975",
+      "usage": {
+        "prompt_tokens": 699,
+        "completion_tokens": 259,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 699
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "be04d16c3e993752527628a61fd6c470f4a90da066e599df3690b5b075981706",
+      "finishedAt": "2026-11-28T08:22:05.940Z"
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "e123486dff00f90aefc588ea6ec740d8689392281458a08585d9cd7322584caa",
+      "startedAt": "2026-11-28T08:22:05.943Z",
+      "status": "generated",
+      "costCNY": 0.00347,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "220fc0a3-8ff3-4623-8035-da8cbc8431a9",
+      "usage": {
+        "prompt_tokens": 699,
+        "completion_tokens": 259,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 315
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "be04d16c3e993752527628a61fd6c470f4a90da066e599df3690b5b075981706",
+      "finishedAt": "2026-11-28T08:22:07.016Z"
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "7bc5af6beb0385ae375ad8529c0b8d37f0e72548b6591875cdf8d37bf4cc55cc",
+      "startedAt": "2026-11-28T08:22:07.020Z",
+      "status": "generated",
+      "costCNY": 0.003144,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "30ad9e52-6122-4b34-b553-f79af688d15c",
+      "usage": {
+        "prompt_tokens": 676,
+        "completion_tokens": 224,
+        "total_tokens": 900,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 676
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 1) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 1) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}",
+      "codeSha256": "5c6f5ebd5df3d63b7671a71bce2c92069bb00488a7e24b0ac358c1b340380a3a",
+      "finishedAt": "2026-11-28T08:22:08.025Z"
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "63e3b0b33637f4ec86d05d44c9bcf9588efdcf5ddd5e9b29cbba5f11d17339ae",
+      "startedAt": "2026-11-28T08:22:08.029Z",
+      "status": "generated",
+      "costCNY": 0.003146,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "676573bb-f016-4682-80ee-315328b2a5e2",
+      "usage": {
+        "prompt_tokens": 673,
+        "completion_tokens": 225,
+        "total_tokens": 898,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 289
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 1) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 1) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "76b718e825bb4962bf030f87e1db5bf1bcd427141b3ae4935bd31b26b0e39ad3",
+      "finishedAt": "2026-11-28T08:22:09.192Z"
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "55a2866378a7744a8b04e27670779d8c6d9d01b4976d3618b66338aa37bc2afd",
+      "startedAt": "2026-11-28T08:22:09.197Z",
+      "status": "generated",
+      "costCNY": 0.00314,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ef4df7fa-e4ea-4410-bab7-f3e62bbddd43",
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 225,
+        "total_tokens": 895,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 670
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "77805bcc7a4f5c555274e592ee072910484ffcffb77d429975d58481f79da104",
+      "finishedAt": "2026-11-28T08:22:10.140Z"
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "5c88d6dde480b8417c23cb51d7e04b55e27056ad2300b35e77ba392a9c0b86d8",
+      "startedAt": "2026-11-28T08:22:10.144Z",
+      "status": "generated",
+      "costCNY": 0.00314,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4e457a99-1550-4368-8ea8-454404dd9bfb",
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 225,
+        "total_tokens": 895,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 286
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "77805bcc7a4f5c555274e592ee072910484ffcffb77d429975d58481f79da104",
+      "finishedAt": "2026-11-28T08:22:10.980Z"
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "1a58367ceab6d118043034103c0a8be2afefb2653b2b076f34222ce5871c2870",
+      "startedAt": "2026-11-28T08:22:10.986Z",
+      "status": "generated",
+      "costCNY": 0.003034,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "61bb0f8d-fdbc-4695-b88f-9a0580862202",
+      "usage": {
+        "prompt_tokens": 669,
+        "completion_tokens": 212,
+        "total_tokens": 881,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 669
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var sum: Int64 = 0\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            return sum\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var sum: Int64 = 0\n    while (i >= 0) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            return sum\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8a7641bda95f1078c10c25b7173e77787888aa66e98c2a993c7f1bfab87b698d",
+      "finishedAt": "2026-11-28T08:22:11.908Z"
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "1f5efa1a7531da1677b24c7d69ff89967aea028cb71aecc312c4bdaf3b345630",
+      "startedAt": "2026-11-28T08:22:11.913Z",
+      "status": "generated",
+      "costCNY": 0.003034,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "084140c5-fe79-4fb4-be3f-a9dcde2da73a",
+      "usage": {
+        "prompt_tokens": 669,
+        "completion_tokens": 212,
+        "total_tokens": 881,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 285
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var sum: Int64 = 0\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            return sum\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var sum: Int64 = 0\n    while (i >= 0) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            return sum\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8a7641bda95f1078c10c25b7173e77787888aa66e98c2a993c7f1bfab87b698d",
+      "finishedAt": "2026-11-28T08:22:13.155Z"
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "42d8f7171da6222f459782a3bd0a399a5222370e07b453ea3c1b21581a4706c6",
+      "startedAt": "2026-11-28T08:22:13.159Z",
+      "status": "generated",
+      "costCNY": 0.003188,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9001ecf5-d7cf-4b3d-be6e-d9476956ebf0",
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 228,
+        "total_tokens": 910,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 682
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i >= 0 && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0 && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "2276d2300146ddba710b99ecec64e170dc926764ec95edf4c3230793f3de6833",
+      "finishedAt": "2026-11-28T08:22:13.886Z"
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "7d7ca6e49aec86f9bcabb7cd7e1dc0410af3188bf89c93c0ec69670b531ee07b",
+      "startedAt": "2026-11-28T08:22:13.889Z",
+      "status": "generated",
+      "costCNY": 0.003182,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "bbbfa2e2-9a40-4022-8074-45f97f9cab73",
+      "usage": {
+        "prompt_tokens": 679,
+        "completion_tokens": 228,
+        "total_tokens": 907,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 295
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i >= 0 && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0 && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "2276d2300146ddba710b99ecec64e170dc926764ec95edf4c3230793f3de6833",
+      "finishedAt": "2026-11-28T08:22:14.723Z"
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "bcf144127f519df3da83963c6cac260f897731fdebf85ff47be591f46be8fd2d",
+      "startedAt": "2026-11-28T08:22:14.728Z",
+      "status": "generated",
+      "costCNY": 0.002828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1039348e-e82a-45c5-a0a7-256fbaa5febb",
+      "usage": {
+        "prompt_tokens": 642,
+        "completion_tokens": 193,
+        "total_tokens": 835,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 642
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i <= q.size - 2) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i <= q.size - 2) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "6da3b835834fd425a5f195f233c0b22aa508574f79d63cb808d350c7b31386e8",
+      "finishedAt": "2026-11-28T08:22:15.833Z"
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "3f722d580de9adaed287c48b30a060cc64721c249e70ce89c002d180a430cc36",
+      "startedAt": "2026-11-28T08:22:15.837Z",
+      "status": "generated",
+      "costCNY": 0.00282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "22fa34fb-48ee-4848-96a2-e325cb069932",
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 193,
+        "total_tokens": 831,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i <= q.size - 2) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i <= q.size - 2) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "6da3b835834fd425a5f195f233c0b22aa508574f79d63cb808d350c7b31386e8",
+      "finishedAt": "2026-11-28T08:22:16.617Z"
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "0c1c609054f5e335ac1840c2ebfbd849c8432ae2eca0b18945fdaf531c7dc091",
+      "startedAt": "2026-11-28T08:22:16.621Z",
+      "status": "generated",
+      "costCNY": 0.002822,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "475d453a-1592-401c-8c16-037745cbfe17",
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 193,
+        "total_tokens": 832,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 639
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i + 1 < q.size) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i + 1 < q.size) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "a1ce9060063395a5439555d847fd9d3553f495a4b7c5dee8ca1bed89a78d5635",
+      "finishedAt": "2026-11-28T08:22:17.475Z"
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "1e772c63d741dcabe1e6dbc43cee8c97dc53ab615d5f830206006c828978d8bb",
+      "startedAt": "2026-11-28T08:22:17.479Z",
+      "status": "generated",
+      "costCNY": 0.002826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e1ef22f1-9ea9-4055-810d-6c26347773a3",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 193,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 257
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i + 1 < q.size) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i + 1 < q.size) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "a1ce9060063395a5439555d847fd9d3553f495a4b7c5dee8ca1bed89a78d5635",
+      "finishedAt": "2026-11-28T08:22:18.271Z"
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "f0b6201ba94746df1aa5c23cbbbaba334da2a05537230625ccb1ac8c84efb124",
+      "startedAt": "2026-11-28T08:22:18.276Z",
+      "status": "generated",
+      "costCNY": 0.00282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "21017708-4ac2-49df-b021-2dc2c1a479a9",
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 193,
+        "total_tokens": 831,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 638
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "63bd5d7a8688adb204ee3e5fc4af6c06b0ff8868eac372c918585ed71bb475d3",
+      "finishedAt": "2026-11-28T08:22:19.067Z"
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "ff591b748f1fbff89e4b7bcdce24f50120ad2bc279fef2bd9d0e060259395bc7",
+      "startedAt": "2026-11-28T08:22:19.072Z",
+      "status": "generated",
+      "costCNY": 0.00282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1d1535a9-a59d-4d35-a08d-c4c3aa0ec4d7",
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 193,
+        "total_tokens": 831,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "63bd5d7a8688adb204ee3e5fc4af6c06b0ff8868eac372c918585ed71bb475d3",
+      "finishedAt": "2026-11-28T08:22:19.808Z"
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "ecf94a4ae5c42e022d131edf40560d058c9d54dcb19a474d8f7697c4c9bba28c",
+      "startedAt": "2026-11-28T08:22:19.812Z",
+      "status": "generated",
+      "costCNY": 0.002826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "77b6f98c-c594-4911-9034-a47b0161df05",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 193,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 641
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8683a496a5b2651e9f50501d23bee5bcb89ac708556c8b861380e5054fe4a8d8",
+      "finishedAt": "2026-11-28T08:22:20.700Z"
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "4fcfd3393c8335a30ec2dc541c7bbf9cc241030aff1cbf1f369f5f9883df654b",
+      "startedAt": "2026-11-28T08:22:20.706Z",
+      "status": "generated",
+      "costCNY": 0.00283,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5262d712-3f09-4f8b-bde3-3d6a1d6e5c2e",
+      "usage": {
+        "prompt_tokens": 643,
+        "completion_tokens": 193,
+        "total_tokens": 836,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 259
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8683a496a5b2651e9f50501d23bee5bcb89ac708556c8b861380e5054fe4a8d8",
+      "finishedAt": "2026-11-28T08:22:21.496Z"
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "aafd2385c94b3f30a2895e10a327d2b733bcc04a7416aa1fd60d3147f8e01c3a",
+      "startedAt": "2026-11-28T08:22:21.499Z",
+      "status": "generated",
+      "costCNY": 0.003954,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0d8f1fc1-7df4-48d6-9b3d-d8f10adb69fc",
+      "usage": {
+        "prompt_tokens": 765,
+        "completion_tokens": 303,
+        "total_tokens": 1068,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 765
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (lo < 0 || hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = lo + 1\\n    while (i < hi) {\\n        if (q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (lo < 0 || hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = lo + 1\n    while (i < hi) {\n        if (q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "59730158e08ca2ce7c50983d4598a3b6670f0e8a06599324e6197403636d38ee",
+      "finishedAt": "2026-11-28T08:22:22.463Z"
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "eb7cb5e736ff590907839f3e9be528c2bfffcc98c8a3fbb43221f4d3509b4f85",
+      "startedAt": "2026-11-28T08:22:22.466Z",
+      "status": "generated",
+      "costCNY": 0.003972,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ceabb796-ab1e-487c-8b4d-4d2df528ebb9",
+      "usage": {
+        "prompt_tokens": 762,
+        "completion_tokens": 306,
+        "total_tokens": 1068,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 250
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i > lo && i < hi) && q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i > lo && i < hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "a0cc04612cf382ee9320ded64c746c59150263f22579b330f092137e3146b2c5",
+      "finishedAt": "2026-11-28T08:22:23.923Z"
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "feb9e06504637973a1ac5bd18e8091638eb3ec570084f2a69d7e0ab361d37940",
+      "startedAt": "2026-11-28T08:22:23.927Z",
+      "status": "generated",
+      "costCNY": 0.003912,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5f97d38c-3526-4803-9184-b7f2e82ed9f3",
+      "usage": {
+        "prompt_tokens": 764,
+        "completion_tokens": 298,
+        "total_tokens": 1062,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 764
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = lo + 1\\n    while (i < hi) {\\n        if (q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = lo + 1\n    while (i < hi) {\n        if (q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "b36c8e2bfcda34023faf93af98001ceb53d373526deba251af2f4e1d197ce6d1",
+      "finishedAt": "2026-11-28T08:22:25.154Z"
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "c9bb55d4a33e0204cf1153dc5b55f86291ec6b97567328f2e1d1af995e55b502",
+      "startedAt": "2026-11-28T08:22:25.159Z",
+      "status": "generated",
+      "costCNY": 0.003912,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b2a20c82-47b1-4863-9de9-8d2a1131c5d6",
+      "usage": {
+        "prompt_tokens": 764,
+        "completion_tokens": 298,
+        "total_tokens": 1062,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = lo + 1\\n    while (i < hi) {\\n        if (q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = lo + 1\n    while (i < hi) {\n        if (q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "b36c8e2bfcda34023faf93af98001ceb53d373526deba251af2f4e1d197ce6d1",
+      "finishedAt": "2026-11-28T08:22:26.382Z"
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "84695ecd7d69f01c72480f8b91acbb999aaec7fa7210abb68450ef8dda35f881",
+      "startedAt": "2026-11-28T08:22:26.386Z",
+      "status": "generated",
+      "costCNY": 0.004124,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ddcdb469-fc24-46be-a4cc-77ab63bfe1e9",
+      "usage": {
+        "prompt_tokens": 782,
+        "completion_tokens": 320,
+        "total_tokens": 1102,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 782
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (lo < 0) { return 0 }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (lo < 0) { return 0 }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dae0ebd9549341e80da384eedc3e352cd261acf30ad9303069e131be9b577222",
+      "finishedAt": "2026-11-28T08:22:27.411Z"
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "a66bc7de42036a31eb8c329c7d742fd7fdf3ba3acf677099d04922c180ea03d2",
+      "startedAt": "2026-11-28T08:22:27.414Z",
+      "status": "generated",
+      "costCNY": 0.004118,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2a3f26c2-160d-4a9a-be71-29ef7daf60e0",
+      "usage": {
+        "prompt_tokens": 779,
+        "completion_tokens": 320,
+        "total_tokens": 1099,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 267
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (lo < 0) { return 0 }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (lo < 0) { return 0 }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dae0ebd9549341e80da384eedc3e352cd261acf30ad9303069e131be9b577222",
+      "finishedAt": "2026-11-28T08:22:28.447Z"
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "6ce84ed236fc680b076966b21ad442e381c6c3b5f262a096fc31915356ada992",
+      "startedAt": "2026-11-28T08:22:28.451Z",
+      "status": "generated",
+      "costCNY": 0.003986,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d1206a75-7e5e-4fe6-8c82-0390e8d4c772",
+      "usage": {
+        "prompt_tokens": 769,
+        "completion_tokens": 306,
+        "total_tokens": 1075,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 769
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dbcdda7e713d1ccc64c44c3b20efda81f584e8dd9ce2068e95819125d242e6f0",
+      "finishedAt": "2026-11-28T08:22:29.474Z"
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "cf293e265d9a9ed0ccb79184335303498d40dadd681e56c5009b1d9563da7738",
+      "startedAt": "2026-11-28T08:22:29.478Z",
+      "status": "generated",
+      "costCNY": 0.00399,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ff3bc082-4d67-4cb8-be78-7558ea15d263",
+      "usage": {
+        "prompt_tokens": 771,
+        "completion_tokens": 306,
+        "total_tokens": 1077,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 259
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dbcdda7e713d1ccc64c44c3b20efda81f584e8dd9ce2068e95819125d242e6f0",
+      "finishedAt": "2026-11-28T08:22:30.518Z"
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "c188e3c58f2bc357e6fce17f41d1e201bc2fbe7b46ccd62853bb79c87c1006dd",
+      "startedAt": "2026-11-28T08:22:30.522Z",
+      "status": "generated",
+      "costCNY": 0.002886,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5a5054df-eb3f-424e-a994-1dc387cb06c8",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 203,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 375
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x > t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "59ebfd543b6190fe843268c3a033ad91bbd4b56fc58993ba22a1ff800218b10c",
+      "finishedAt": "2026-11-28T08:22:31.741Z"
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "a754e5fcd43153aa4dc7c3f099d145b517fb0eff6fc633837fb4bcbfacbba20e",
+      "startedAt": "2026-11-28T08:22:31.745Z",
+      "status": "generated",
+      "costCNY": 0.002892,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1f173299-b8f1-4f0a-be38-bb324868b83e",
+      "usage": {
+        "prompt_tokens": 634,
+        "completion_tokens": 203,
+        "total_tokens": 837,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 250
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x > t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "59ebfd543b6190fe843268c3a033ad91bbd4b56fc58993ba22a1ff800218b10c",
+      "finishedAt": "2026-11-28T08:22:32.581Z"
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "a0ccb3cc961acb0da3e72112fb46a09b68c7b29f4605c64b6b7964dab24664ea",
+      "startedAt": "2026-11-28T08:22:32.584Z",
+      "status": "generated",
+      "costCNY": 0.002886,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5111ef35-504d-41ef-8f1e-d6ada52a1df8",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 203,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "safety_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 375
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x >= t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "bf04f5fe3f64029181bde8b51e64af89cf86a808ef6aa49b5b351753e9f6e7f3",
+      "finishedAt": "2026-11-28T08:22:33.377Z"
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "a0ccb3cc961acb0da3e72112fb46a09b68c7b29f4605c64b6b7964dab24664ea",
+      "startedAt": "2026-11-28T08:22:33.381Z",
+      "status": "generated",
+      "costCNY": 0.002886,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7af30e16-20b1-4e4e-850b-9cad2695438f",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 203,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 247
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x >= t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "bf04f5fe3f64029181bde8b51e64af89cf86a808ef6aa49b5b351753e9f6e7f3",
+      "finishedAt": "2026-11-28T08:22:34.862Z"
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "ec544c7ce4c9eda67193cbac4b385f082c0fdb0caf95c2d889ea416b884a86df",
+      "startedAt": "2026-11-28T08:22:34.867Z",
+      "status": "generated",
+      "costCNY": 0.002634,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f74f9247-68b5-4f1a-ab2a-4ace50e052a8",
+      "usage": {
+        "prompt_tokens": 609,
+        "completion_tokens": 177,
+        "total_tokens": 786,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 353
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x >= t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "4fee84bcc989a63b71173823038f802ae67f411cab342c117e8267f93743d8d5",
+      "finishedAt": "2026-11-28T08:22:35.751Z"
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "a6f5a94dae7d9ae3bbd291eec16d5eb729dc4b7725e1fb3e9e968223b3557209",
+      "startedAt": "2026-11-28T08:22:35.755Z",
+      "status": "generated",
+      "costCNY": 0.002644,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "1178f8da-28fb-4d4e-ac87-fb317735198e",
+      "usage": {
+        "prompt_tokens": 614,
+        "completion_tokens": 177,
+        "total_tokens": 791,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 358
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x >= t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "4fee84bcc989a63b71173823038f802ae67f411cab342c117e8267f93743d8d5",
+      "finishedAt": "2026-11-28T08:22:36.579Z"
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "c54eb9a4ef4304a60124d593d1e34ab22bc7fb95dd822cf123bd5f5983df180e",
+      "startedAt": "2026-11-28T08:22:36.583Z",
+      "status": "generated",
+      "costCNY": 0.00264,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4a8533e7-a3b3-4072-bcda-192112e6c648",
+      "usage": {
+        "prompt_tokens": 612,
+        "completion_tokens": 177,
+        "total_tokens": 789,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 356
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x > t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "2401d37b7e3ebb0dc07a84e3bfd35ad9e78e34a9f95fcb87055bfabd436981a7",
+      "finishedAt": "2026-11-28T08:22:37.627Z"
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "fcecd531fa4adf3994971c676529d1df321060587e4b6a75670738cf459f29b9",
+      "startedAt": "2026-11-28T08:22:37.631Z",
+      "status": "generated",
+      "costCNY": 0.002656,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9e2885ef-c839-4ac0-b5f5-e2c395ca6e87",
+      "usage": {
+        "prompt_tokens": 620,
+        "completion_tokens": 177,
+        "total_tokens": 797,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 364
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x > t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "2401d37b7e3ebb0dc07a84e3bfd35ad9e78e34a9f95fcb87055bfabd436981a7",
+      "finishedAt": "2026-11-28T08:22:38.603Z"
+    },
+    {
+      "caseId": "index_first",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "fcdde14ba80216237db0dbfa82a5d20c421942cf15307cc1cc749ef068c54cd4",
+      "startedAt": "2026-11-28T08:22:38.608Z",
+      "status": "generated",
+      "costCNY": 0.002714,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b6700727-744f-4e26-b343-4c9f6726dd5a",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 186,
+        "total_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 357
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] >= t) {\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "14e88133dc25fe4c2f0113a1e88a439c00bf0119e3b104574d6adefe86847ec2",
+      "finishedAt": "2026-11-28T08:22:39.565Z"
+    },
+    {
+      "caseId": "index_first",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "2cfa1478f0f098a47b085e83e1c346c95b4851d97df46a6162db3d636842874b",
+      "startedAt": "2026-11-28T08:22:39.570Z",
+      "status": "generated",
+      "costCNY": 0.002706,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "79ba8867-dc41-49e9-8d6b-69386e78266e",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 185,
+        "total_tokens": 798,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 357
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] >= t) {\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}",
+      "codeSha256": "012c4f75c2aedb4ef514b9590f4b4a66ef383f4344cbc958bf2a1e2f538663ad",
+      "finishedAt": "2026-11-28T08:22:40.318Z"
+    },
+    {
+      "caseId": "index_last",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "4f280bff02e1791a33c0b8e3df3a64ee7f678896fb7b4f161727f4fdda066662",
+      "startedAt": "2026-11-28T08:22:40.322Z",
+      "status": "generated",
+      "costCNY": 0.002738,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "40cd78f2-2130-422a-85ef-8d2b69380760",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 189,
+        "total_tokens": 802,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] >= t) {\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "782bc0077b1f7625e95488cd7b892e425e21b6af47409fde0285759202483507",
+      "finishedAt": "2026-11-28T08:22:41.250Z"
+    },
+    {
+      "caseId": "index_last",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "db83b4291d567db0009a85ffd01822eea5989ed727c3bc22a23c0880672d4c37",
+      "startedAt": "2026-11-28T08:22:41.255Z",
+      "status": "generated",
+      "costCNY": 0.002744,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "97c01140-f8dc-49f0-af0d-b3158b098f1f",
+      "usage": {
+        "prompt_tokens": 616,
+        "completion_tokens": 189,
+        "total_tokens": 805,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] >= t) {\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "782bc0077b1f7625e95488cd7b892e425e21b6af47409fde0285759202483507",
+      "finishedAt": "2026-11-28T08:22:42.110Z"
+    },
+    {
+      "caseId": "cap_first",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "b050bd4cca6b3dfb873db89a57936f57fea946e2a541b482639b50e36e947f16",
+      "startedAt": "2026-11-28T08:22:42.115Z",
+      "status": "generated",
+      "costCNY": 0.00285,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "755d27cb-d09a-4ff6-89a7-3df8f81a66f7",
+      "usage": {
+        "prompt_tokens": 653,
+        "completion_tokens": 193,
+        "total_tokens": 846,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 397
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "3b51dea2719cf792a052eb7ad662544d5c047dbe40542475fe2927ab19e95931",
+      "finishedAt": "2026-11-28T08:22:43.230Z"
+    },
+    {
+      "caseId": "cap_first",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "86b5fc0187cd359f2efb349df90a94633de44f389849ce3955693adbe1f19341",
+      "startedAt": "2026-11-28T08:22:43.234Z",
+      "status": "generated",
+      "costCNY": 0.003026,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cd7a6434-ce9e-4c5e-9063-b1627c63a28b",
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 216,
+        "total_tokens": 865,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 265
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var found: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            if (found < 0) {\\n                found = i\\n                q[i] = t\\n            }\\n        }\\n        i++\\n    }\\n    return found\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var found: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] > t) {\n            if (found < 0) {\n                found = i\n                q[i] = t\n            }\n        }\n        i++\n    }\n    return found\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "a924f915771fdc1b51c839b5c36b121b749a3a12250e49848c12e5b5f0940b33",
+      "finishedAt": "2026-11-28T08:22:44.244Z"
+    },
+    {
+      "caseId": "cap_last",
+      "group": "D",
+      "repeat": 1,
+      "requestSha256": "5cbdc8e1a644a056434d895c892cc74a6ac931392660c751fe25b0ea19e718be",
+      "startedAt": "2026-11-28T08:22:44.249Z",
+      "status": "generated",
+      "costCNY": 0.002828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "8b975b33-5caf-4ed9-a936-75463acb264d",
+      "usage": {
+        "prompt_tokens": 630,
+        "completion_tokens": 196,
+        "total_tokens": 826,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 374
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "39581e40765481260f369dc3dd92ecd9b58c7ed6b2d4025faec43c52689b95f0",
+      "finishedAt": "2026-11-28T08:22:45.096Z"
+    },
+    {
+      "caseId": "cap_last",
+      "group": "U",
+      "repeat": 1,
+      "requestSha256": "8480067d5175357e1f51cb34da2d9306d791489fd3a04dd63ef024abf6abe3e8",
+      "startedAt": "2026-11-28T08:22:45.102Z",
+      "status": "generated",
+      "costCNY": 0.002828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9bb6afdc-7d1b-467c-904a-15beca2cc12c",
+      "usage": {
+        "prompt_tokens": 630,
+        "completion_tokens": 196,
+        "total_tokens": 826,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 246
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "39581e40765481260f369dc3dd92ecd9b58c7ed6b2d4025faec43c52689b95f0",
+      "finishedAt": "2026-11-28T08:22:46.176Z"
+    },
+    {
+      "caseId": "cap_last",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "8480067d5175357e1f51cb34da2d9306d791489fd3a04dd63ef024abf6abe3e8",
+      "startedAt": "2026-11-28T08:22:46.180Z",
+      "status": "generated",
+      "costCNY": 0.002828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "3771c910-c2ba-43b9-b23b-ba4e2b38487e",
+      "usage": {
+        "prompt_tokens": 630,
+        "completion_tokens": 196,
+        "total_tokens": 826,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 246
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "39581e40765481260f369dc3dd92ecd9b58c7ed6b2d4025faec43c52689b95f0",
+      "finishedAt": "2026-11-28T08:22:46.984Z"
+    },
+    {
+      "caseId": "cap_last",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "5cbdc8e1a644a056434d895c892cc74a6ac931392660c751fe25b0ea19e718be",
+      "startedAt": "2026-11-28T08:22:46.989Z",
+      "status": "generated",
+      "costCNY": 0.002828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f9931d22-8938-4f65-8721-cec203dc85d8",
+      "usage": {
+        "prompt_tokens": 630,
+        "completion_tokens": 196,
+        "total_tokens": 826,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 246
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "39581e40765481260f369dc3dd92ecd9b58c7ed6b2d4025faec43c52689b95f0",
+      "finishedAt": "2026-11-28T08:22:47.707Z"
+    },
+    {
+      "caseId": "cap_first",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "86b5fc0187cd359f2efb349df90a94633de44f389849ce3955693adbe1f19341",
+      "startedAt": "2026-11-28T08:22:47.712Z",
+      "status": "generated",
+      "costCNY": 0.002842,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "aea93794-1bfe-4b6e-b4bd-19de42a4387c",
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 193,
+        "total_tokens": 842,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 137
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "3b51dea2719cf792a052eb7ad662544d5c047dbe40542475fe2927ab19e95931",
+      "finishedAt": "2026-11-28T08:22:48.623Z"
+    },
+    {
+      "caseId": "cap_first",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "b050bd4cca6b3dfb873db89a57936f57fea946e2a541b482639b50e36e947f16",
+      "startedAt": "2026-11-28T08:22:48.628Z",
+      "status": "generated",
+      "costCNY": 0.00285,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5e20e5ba-d09c-43a2-badb-b0ec6b7cbcfb",
+      "usage": {
+        "prompt_tokens": 653,
+        "completion_tokens": 193,
+        "total_tokens": 846,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 141
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            q[i] = t\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,6,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] > t) {\n            q[i] = t\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,6,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,3])\n}\n",
+      "codeSha256": "3b51dea2719cf792a052eb7ad662544d5c047dbe40542475fe2927ab19e95931",
+      "finishedAt": "2026-11-28T08:22:49.431Z"
+    },
+    {
+      "caseId": "index_last",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "db83b4291d567db0009a85ffd01822eea5989ed727c3bc22a23c0880672d4c37",
+      "startedAt": "2026-11-28T08:22:49.437Z",
+      "status": "generated",
+      "costCNY": 0.002744,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5423942d-0416-4e4b-94ec-046cfa5eb1ac",
+      "usage": {
+        "prompt_tokens": 616,
+        "completion_tokens": 189,
+        "total_tokens": 805,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 232
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] >= t) {\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "782bc0077b1f7625e95488cd7b892e425e21b6af47409fde0285759202483507",
+      "finishedAt": "2026-11-28T08:22:50.377Z"
+    },
+    {
+      "caseId": "index_last",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "4f280bff02e1791a33c0b8e3df3a64ee7f678896fb7b4f161727f4fdda066662",
+      "startedAt": "2026-11-28T08:22:50.383Z",
+      "status": "generated",
+      "costCNY": 0.002738,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "87f089ae-d1eb-4c3e-b12a-84367f028493",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 189,
+        "total_tokens": 802,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    while (i >= 0) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    while (i >= 0) {\n        if (q[i] >= t) {\n            return i\n        }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "782bc0077b1f7625e95488cd7b892e425e21b6af47409fde0285759202483507",
+      "finishedAt": "2026-11-28T08:22:51.108Z"
+    },
+    {
+      "caseId": "index_first",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "2cfa1478f0f098a47b085e83e1c346c95b4851d97df46a6162db3d636842874b",
+      "startedAt": "2026-11-28T08:22:51.113Z",
+      "status": "generated",
+      "costCNY": 0.002714,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "612062e2-ac7d-49c6-88fb-9fc2aea280a3",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 186,
+        "total_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] >= t) {\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "14e88133dc25fe4c2f0113a1e88a439c00bf0119e3b104574d6adefe86847ec2",
+      "finishedAt": "2026-11-28T08:22:51.877Z"
+    },
+    {
+      "caseId": "index_first",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "fcdde14ba80216237db0dbfa82a5d20c421942cf15307cc1cc749ef068c54cd4",
+      "startedAt": "2026-11-28T08:22:51.883Z",
+      "status": "generated",
+      "costCNY": 0.002714,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "beb35240-cbb4-4ba2-b7d3-6e5284e8a486",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 186,
+        "total_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 229
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] >= t) {\\n            return i\\n        }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 2 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 2 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] >= t) {\n            return i\n        }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 2 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 2 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "14e88133dc25fe4c2f0113a1e88a439c00bf0119e3b104574d6adefe86847ec2",
+      "finishedAt": "2026-11-28T08:22:52.837Z"
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "fcecd531fa4adf3994971c676529d1df321060587e4b6a75670738cf459f29b9",
+      "startedAt": "2026-11-28T08:22:52.841Z",
+      "status": "generated",
+      "costCNY": 0.002656,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "c4784f7f-0763-4b2d-9dc8-150e00f20042",
+      "usage": {
+        "prompt_tokens": 620,
+        "completion_tokens": 177,
+        "total_tokens": 797,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 236
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x > t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "2401d37b7e3ebb0dc07a84e3bfd35ad9e78e34a9f95fcb87055bfabd436981a7",
+      "finishedAt": "2026-11-28T08:22:54.115Z"
+    },
+    {
+      "caseId": "prefix_above",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "c54eb9a4ef4304a60124d593d1e34ab22bc7fb95dd822cf123bd5f5983df180e",
+      "startedAt": "2026-11-28T08:22:54.118Z",
+      "status": "generated",
+      "costCNY": 0.00264,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e2a0391c-97e5-40e0-a022-74b10fc2d336",
+      "usage": {
+        "prompt_tokens": 612,
+        "completion_tokens": 177,
+        "total_tokens": 789,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 228
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x > t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "2401d37b7e3ebb0dc07a84e3bfd35ad9e78e34a9f95fcb87055bfabd436981a7",
+      "finishedAt": "2026-11-28T08:22:54.828Z"
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "a6f5a94dae7d9ae3bbd291eec16d5eb729dc4b7725e1fb3e9e968223b3557209",
+      "startedAt": "2026-11-28T08:22:54.832Z",
+      "status": "generated",
+      "costCNY": 0.002644,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2e90a9be-948b-43c9-9943-1457c80cf624",
+      "usage": {
+        "prompt_tokens": 614,
+        "completion_tokens": 177,
+        "total_tokens": 791,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 230
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x >= t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "4fee84bcc989a63b71173823038f802ae67f411cab342c117e8267f93743d8d5",
+      "finishedAt": "2026-11-28T08:22:55.746Z"
+    },
+    {
+      "caseId": "prefix_equal",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "ec544c7ce4c9eda67193cbac4b385f082c0fdb0caf95c2d889ea416b884a86df",
+      "startedAt": "2026-11-28T08:22:55.752Z",
+      "status": "generated",
+      "costCNY": 0.002634,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d317b6f9-9e41-4984-af4e-e20d7c598e91",
+      "usage": {
+        "prompt_tokens": 609,
+        "completion_tokens": 177,
+        "total_tokens": 786,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 225
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var total: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { break }\\n        total += x\\n    }\\n    return total\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 5 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == -1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var total: Int64 = 0\n    for (x in q) {\n        if (x >= t) { break }\n        total += x\n    }\n    return total\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 5 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == -1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "4fee84bcc989a63b71173823038f802ae67f411cab342c117e8267f93743d8d5",
+      "finishedAt": "2026-11-28T08:22:56.878Z"
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "a0ccb3cc961acb0da3e72112fb46a09b68c7b29f4605c64b6b7964dab24664ea",
+      "startedAt": "2026-11-28T08:22:56.885Z",
+      "status": "generated",
+      "costCNY": 0.002886,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0b3e4eeb-04e4-4e95-b5bc-d564c71ee739",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 203,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 247
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x >= t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "bf04f5fe3f64029181bde8b51e64af89cf86a808ef6aa49b5b351753e9f6e7f3",
+      "finishedAt": "2026-11-28T08:22:58.071Z"
+    },
+    {
+      "caseId": "streak_inclusive",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "a0ccb3cc961acb0da3e72112fb46a09b68c7b29f4605c64b6b7964dab24664ea",
+      "startedAt": "2026-11-28T08:22:58.079Z",
+      "status": "generated",
+      "costCNY": 0.002886,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "55802f51-ad00-4dcb-a6c9-ac6f395d6d2d",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 203,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 247
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x >= t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x >= t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "bf04f5fe3f64029181bde8b51e64af89cf86a808ef6aa49b5b351753e9f6e7f3",
+      "finishedAt": "2026-11-28T08:22:58.840Z"
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "a754e5fcd43153aa4dc7c3f099d145b517fb0eff6fc633837fb4bcbfacbba20e",
+      "startedAt": "2026-11-28T08:22:58.845Z",
+      "status": "generated",
+      "costCNY": 0.002892,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "a10e1677-7d4d-4eac-9cad-c62da783e047",
+      "usage": {
+        "prompt_tokens": 634,
+        "completion_tokens": 203,
+        "total_tokens": 837,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 250
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x > t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "59ebfd543b6190fe843268c3a033ad91bbd4b56fc58993ba22a1ff800218b10c",
+      "finishedAt": "2026-11-28T08:22:59.665Z"
+    },
+    {
+      "caseId": "streak_strict",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "c188e3c58f2bc357e6fce17f41d1e201bc2fbe7b46ccd62853bb79c87c1006dd",
+      "startedAt": "2026-11-28T08:22:59.669Z",
+      "status": "generated",
+      "costCNY": 0.002886,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "31e25d07-5cd8-4532-9ba5-6aff039f3d9a",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 203,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 247
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var best: Int64 = 0\\n    var run: Int64 = 0\\n    for (x in q) {\\n        if (x > t) { run++ } else { run = 0 }\\n        if (run > best) { best = run }\\n    }\\n    return best\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,4,8,-2]\\nlet r0=repair(q0, 6)\\nprintln(r0 == 1 && q0 == [1,4,8,-2])\\nlet q1: Array<Int64> = [-2,1,7]\\nlet r1=repair(q1, 3)\\nprintln(r1 == 1 && q1 == [-2,1,7])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var best: Int64 = 0\n    var run: Int64 = 0\n    for (x in q) {\n        if (x > t) { run++ } else { run = 0 }\n        if (run > best) { best = run }\n    }\n    return best\n}\n\nmain() {\nlet q0: Array<Int64> = [1,4,8,-2]\nlet r0=repair(q0, 6)\nprintln(r0 == 1 && q0 == [1,4,8,-2])\nlet q1: Array<Int64> = [-2,1,7]\nlet r1=repair(q1, 3)\nprintln(r1 == 1 && q1 == [-2,1,7])\n}\n",
+      "codeSha256": "59ebfd543b6190fe843268c3a033ad91bbd4b56fc58993ba22a1ff800218b10c",
+      "finishedAt": "2026-11-28T08:23:00.970Z"
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "cf293e265d9a9ed0ccb79184335303498d40dadd681e56c5009b1d9563da7738",
+      "startedAt": "2026-11-28T08:23:00.974Z",
+      "status": "generated",
+      "costCNY": 0.00399,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0cc301d9-1513-42af-b364-614c38971684",
+      "usage": {
+        "prompt_tokens": 771,
+        "completion_tokens": 306,
+        "total_tokens": 1077,
+        "prompt_tokens_details": {
+          "cached_tokens": 637
+        },
+        "prompt_cache_hit_tokens": 637,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dbcdda7e713d1ccc64c44c3b20efda81f584e8dd9ce2068e95819125d242e6f0",
+      "finishedAt": "2026-11-28T08:23:01.983Z"
+    },
+    {
+      "caseId": "window_outside_neg",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "6ce84ed236fc680b076966b21ad442e381c6c3b5f262a096fc31915356ada992",
+      "startedAt": "2026-11-28T08:23:01.988Z",
+      "status": "generated",
+      "costCNY": 0.003986,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "57498c22-c0b7-47f3-835c-0cb259f1bc2c",
+      "usage": {
+        "prompt_tokens": 769,
+        "completion_tokens": 306,
+        "total_tokens": 1075,
+        "prompt_tokens_details": {
+          "cached_tokens": 635
+        },
+        "prompt_cache_hit_tokens": 635,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dbcdda7e713d1ccc64c44c3b20efda81f584e8dd9ce2068e95819125d242e6f0",
+      "finishedAt": "2026-11-28T08:23:03.009Z"
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "a66bc7de42036a31eb8c329c7d742fd7fdf3ba3acf677099d04922c180ea03d2",
+      "startedAt": "2026-11-28T08:23:03.013Z",
+      "status": "generated",
+      "costCNY": 0.004118,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "fcb0cb11-201f-44a7-8c7f-8e60a801d50b",
+      "usage": {
+        "prompt_tokens": 779,
+        "completion_tokens": 320,
+        "total_tokens": 1099,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 139
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (lo < 0) { return 0 }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (lo < 0) { return 0 }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dae0ebd9549341e80da384eedc3e352cd261acf30ad9303069e131be9b577222",
+      "finishedAt": "2026-11-28T08:23:03.967Z"
+    },
+    {
+      "caseId": "window_outside_pos",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "84695ecd7d69f01c72480f8b91acbb999aaec7fa7210abb68450ef8dda35f881",
+      "startedAt": "2026-11-28T08:23:03.970Z",
+      "status": "generated",
+      "costCNY": 0.004116,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "114d8850-5a91-4d95-bc67-972b6133dbad",
+      "usage": {
+        "prompt_tokens": 782,
+        "completion_tokens": 319,
+        "total_tokens": 1101,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 142
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (lo < 0) { return 0 }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i < lo || i > hi) && q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (lo < 0) { return 0 }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i < lo || i > hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}",
+      "codeSha256": "6b0add3feee2b663d551279f30a2baceb1ccc4aa97ac18c945c71a3a41b530c6",
+      "finishedAt": "2026-11-28T08:23:05.028Z"
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "c9bb55d4a33e0204cf1153dc5b55f86291ec6b97567328f2e1d1af995e55b502",
+      "startedAt": "2026-11-28T08:23:05.033Z",
+      "status": "generated",
+      "costCNY": 0.003912,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "b6d8d0d8-f701-428b-af48-9083ab463519",
+      "usage": {
+        "prompt_tokens": 764,
+        "completion_tokens": 298,
+        "total_tokens": 1062,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = lo + 1\\n    while (i < hi) {\\n        if (q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = lo + 1\n    while (i < hi) {\n        if (q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "b36c8e2bfcda34023faf93af98001ceb53d373526deba251af2f4e1d197ce6d1",
+      "finishedAt": "2026-11-28T08:23:05.998Z"
+    },
+    {
+      "caseId": "window_inside_neg",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "feb9e06504637973a1ac5bd18e8091638eb3ec570084f2a69d7e0ab361d37940",
+      "startedAt": "2026-11-28T08:23:06.002Z",
+      "status": "generated",
+      "costCNY": 0.003912,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d19ac8f0-622c-4ae8-8d63-174bc5f33c7c",
+      "usage": {
+        "prompt_tokens": 764,
+        "completion_tokens": 298,
+        "total_tokens": 1062,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 252
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = lo + 1\\n    while (i < hi) {\\n        if (q[i] < 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = lo + 1\n    while (i < hi) {\n        if (q[i] < 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "b36c8e2bfcda34023faf93af98001ceb53d373526deba251af2f4e1d197ce6d1",
+      "finishedAt": "2026-11-28T08:23:07.060Z"
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "eb7cb5e736ff590907839f3e9be528c2bfffcc98c8a3fbb43221f4d3509b4f85",
+      "startedAt": "2026-11-28T08:23:07.064Z",
+      "status": "generated",
+      "costCNY": 0.003972,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "52327ff1-9507-4936-83a8-3304248eb70e",
+      "usage": {
+        "prompt_tokens": 762,
+        "completion_tokens": 306,
+        "total_tokens": 1068,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 250
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = 0\\n    while (i < q.size) {\\n        if ((i > lo && i < hi) && q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = 0\n    while (i < q.size) {\n        if ((i > lo && i < hi) && q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "a0cc04612cf382ee9320ded64c746c59150263f22579b330f092137e3146b2c5",
+      "finishedAt": "2026-11-28T08:23:08.253Z"
+    },
+    {
+      "caseId": "window_inside_pos",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "aafd2385c94b3f30a2895e10a327d2b733bcc04a7416aa1fd60d3147f8e01c3a",
+      "startedAt": "2026-11-28T08:23:08.258Z",
+      "status": "generated",
+      "costCNY": 0.003914,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "4a4915af-33e3-43a7-9de2-0dc76160ee24",
+      "usage": {
+        "prompt_tokens": 765,
+        "completion_tokens": 298,
+        "total_tokens": 1063,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 253
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var lo: Int64 = -1\\n    var hi: Int64 = -1\\n    var i: Int64 = 0\\n    while (i < q.size) {\\n        if (q[i] == t) {\\n            if (lo < 0) { lo = i } else { hi = i }\\n        }\\n        i++\\n    }\\n    if (hi < 0) { return 0 }\\n    var changed: Int64 = 0\\n    i = lo + 1\\n    while (i < hi) {\\n        if (q[i] > 0) {\\n            q[i] = 0\\n            changed++\\n        }\\n        i++\\n    }\\n    return changed\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var lo: Int64 = -1\n    var hi: Int64 = -1\n    var i: Int64 = 0\n    while (i < q.size) {\n        if (q[i] == t) {\n            if (lo < 0) { lo = i } else { hi = i }\n        }\n        i++\n    }\n    if (hi < 0) { return 0 }\n    var changed: Int64 = 0\n    i = lo + 1\n    while (i < hi) {\n        if (q[i] > 0) {\n            q[i] = 0\n            changed++\n        }\n        i++\n    }\n    return changed\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "3263d79db3c69a2033afb34388bd5eb17e849481d69e943fb88ecdd22c5df606",
+      "finishedAt": "2026-11-28T08:23:09.225Z"
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "4fcfd3393c8335a30ec2dc541c7bbf9cc241030aff1cbf1f369f5f9883df654b",
+      "startedAt": "2026-11-28T08:23:09.230Z",
+      "status": "generated",
+      "costCNY": 0.00283,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "ffa33bf0-1541-4230-94b5-5a3eaa215619",
+      "usage": {
+        "prompt_tokens": 643,
+        "completion_tokens": 193,
+        "total_tokens": 836,
+        "prompt_tokens_details": {
+          "cached_tokens": 509
+        },
+        "prompt_cache_hit_tokens": 509,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8683a496a5b2651e9f50501d23bee5bcb89ac708556c8b861380e5054fe4a8d8",
+      "finishedAt": "2026-11-28T08:23:10.035Z"
+    },
+    {
+      "caseId": "cross_last_down",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "ecf94a4ae5c42e022d131edf40560d058c9d54dcb19a474d8f7697c4c9bba28c",
+      "startedAt": "2026-11-28T08:23:10.039Z",
+      "status": "generated",
+      "costCNY": 0.002826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "11755feb-17f5-43c6-8c55-1fd07869cd3c",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 193,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 507
+        },
+        "prompt_cache_hit_tokens": 507,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8683a496a5b2651e9f50501d23bee5bcb89ac708556c8b861380e5054fe4a8d8",
+      "finishedAt": "2026-11-28T08:23:10.812Z"
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "ff591b748f1fbff89e4b7bcdce24f50120ad2bc279fef2bd9d0e060259395bc7",
+      "startedAt": "2026-11-28T08:23:10.817Z",
+      "status": "generated",
+      "costCNY": 0.00282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "cb59b1b4-1182-494c-8187-01bb7670409c",
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 193,
+        "total_tokens": 831,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "63bd5d7a8688adb204ee3e5fc4af6c06b0ff8868eac372c918585ed71bb475d3",
+      "finishedAt": "2026-11-28T08:23:11.724Z"
+    },
+    {
+      "caseId": "cross_last_up",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "f0b6201ba94746df1aa5c23cbbbaba334da2a05537230625ccb1ac8c84efb124",
+      "startedAt": "2026-11-28T08:23:11.728Z",
+      "status": "generated",
+      "costCNY": 0.00282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "dfd1ac0d-a133-4ff0-a418-2c5352e9e689",
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 193,
+        "total_tokens": 831,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 2\\n    while (i >= 0) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i--\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 2\n    while (i >= 0) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i--\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "63bd5d7a8688adb204ee3e5fc4af6c06b0ff8868eac372c918585ed71bb475d3",
+      "finishedAt": "2026-11-28T08:23:12.909Z"
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "1e772c63d741dcabe1e6dbc43cee8c97dc53ab615d5f830206006c828978d8bb",
+      "startedAt": "2026-11-28T08:23:12.912Z",
+      "status": "generated",
+      "costCNY": 0.002826,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "9b891d0e-e7f4-40c4-ba61-57268d094994",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 193,
+        "total_tokens": 834,
+        "prompt_tokens_details": {
+          "cached_tokens": 507
+        },
+        "prompt_cache_hit_tokens": 507,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i + 1 < q.size) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i + 1 < q.size) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "a1ce9060063395a5439555d847fd9d3553f495a4b7c5dee8ca1bed89a78d5635",
+      "finishedAt": "2026-11-28T08:23:13.600Z"
+    },
+    {
+      "caseId": "cross_first_down",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "0c1c609054f5e335ac1840c2ebfbd849c8432ae2eca0b18945fdaf531c7dc091",
+      "startedAt": "2026-11-28T08:23:13.605Z",
+      "status": "generated",
+      "costCNY": 0.002822,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "27e10715-c411-4bea-bdba-da2370ab68df",
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 193,
+        "total_tokens": 832,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 255
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i + 1 < q.size) {\\n        if (q[i] > t && q[i+1] < t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i + 1 < q.size) {\n        if (q[i] > t && q[i+1] < t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "a1ce9060063395a5439555d847fd9d3553f495a4b7c5dee8ca1bed89a78d5635",
+      "finishedAt": "2026-11-28T08:23:14.307Z"
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "3f722d580de9adaed287c48b30a060cc64721c249e70ce89c002d180a430cc36",
+      "startedAt": "2026-11-28T08:23:14.311Z",
+      "status": "generated",
+      "costCNY": 0.00282,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d77cd889-0747-458b-8184-424f5f810382",
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 193,
+        "total_tokens": 831,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 254
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i <= q.size - 2) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i <= q.size - 2) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "6da3b835834fd425a5f195f233c0b22aa508574f79d63cb808d350c7b31386e8",
+      "finishedAt": "2026-11-28T08:23:15.099Z"
+    },
+    {
+      "caseId": "cross_first_up",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "bcf144127f519df3da83963c6cac260f897731fdebf85ff47be591f46be8fd2d",
+      "startedAt": "2026-11-28T08:23:15.111Z",
+      "status": "generated",
+      "costCNY": 0.002828,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "dce4e37e-b2ab-42b2-b825-71274a178010",
+      "usage": {
+        "prompt_tokens": 642,
+        "completion_tokens": 193,
+        "total_tokens": 835,
+        "prompt_tokens_details": {
+          "cached_tokens": 508
+        },
+        "prompt_cache_hit_tokens": 508,
+        "prompt_cache_miss_tokens": 134
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    while (i <= q.size - 2) {\\n        if (q[i] < t && q[i+1] > t) { return i }\\n        i++\\n    }\\n    return -1\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 0 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    while (i <= q.size - 2) {\n        if (q[i] < t && q[i+1] > t) { return i }\n        i++\n    }\n    return -1\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 0 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "6da3b835834fd425a5f195f233c0b22aa508574f79d63cb808d350c7b31386e8",
+      "finishedAt": "2026-11-28T08:23:16.137Z"
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "7d7ca6e49aec86f9bcabb7cd7e1dc0410af3188bf89c93c0ec69670b531ee07b",
+      "startedAt": "2026-11-28T08:23:16.141Z",
+      "status": "generated",
+      "costCNY": 0.003174,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "e24e58f4-c349-4620-b650-e897a7e2912d",
+      "usage": {
+        "prompt_tokens": 679,
+        "completion_tokens": 227,
+        "total_tokens": 906,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 167
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i >= 0 && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0 && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}",
+      "codeSha256": "80fd84d3acce29b3d7253e1751fdb4405e0718d2465b5a0ab14841cb1c309459",
+      "finishedAt": "2026-11-28T08:23:17.164Z"
+    },
+    {
+      "caseId": "quota_last_2",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "42d8f7171da6222f459782a3bd0a399a5222370e07b453ea3c1b21581a4706c6",
+      "startedAt": "2026-11-28T08:23:17.170Z",
+      "status": "generated",
+      "costCNY": 0.00318,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "48919622-8f9e-445b-a529-2e50fe70cdfd",
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 227,
+        "total_tokens": 909,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 170
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i >= 0 && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i >= 0 && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}",
+      "codeSha256": "80fd84d3acce29b3d7253e1751fdb4405e0718d2465b5a0ab14841cb1c309459",
+      "finishedAt": "2026-11-28T08:23:18.041Z"
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "1f5efa1a7531da1677b24c7d69ff89967aea028cb71aecc312c4bdaf3b345630",
+      "startedAt": "2026-11-28T08:23:18.045Z",
+      "status": "generated",
+      "costCNY": 0.003026,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f3f2af34-3de4-4f77-a262-96613fe41a77",
+      "usage": {
+        "prompt_tokens": 669,
+        "completion_tokens": 211,
+        "total_tokens": 880,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 157
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var sum: Int64 = 0\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            break\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var sum: Int64 = 0\n    while (i >= 0) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            break\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "9450e47837dadadd271e5bc5c9e7b0e95198a0c88f71e9178dbcc188e9efaae1",
+      "finishedAt": "2026-11-28T08:23:18.908Z"
+    },
+    {
+      "caseId": "quota_last_1",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "1a58367ceab6d118043034103c0a8be2afefb2653b2b076f34222ce5871c2870",
+      "startedAt": "2026-11-28T08:23:18.913Z",
+      "status": "generated",
+      "costCNY": 0.003034,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7899a62e-6b28-4d9d-b8f9-c10e225e3a0a",
+      "usage": {
+        "prompt_tokens": 669,
+        "completion_tokens": 212,
+        "total_tokens": 881,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 157
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = q.size - 1\\n    var sum: Int64 = 0\\n    while (i >= 0) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            return sum\\n        }\\n        i--\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = q.size - 1\n    var sum: Int64 = 0\n    while (i >= 0) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            return sum\n        }\n        i--\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "8a7641bda95f1078c10c25b7173e77787888aa66e98c2a993c7f1bfab87b698d",
+      "finishedAt": "2026-11-28T08:23:19.736Z"
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "5c88d6dde480b8417c23cb51d7e04b55e27056ad2300b35e77ba392a9c0b86d8",
+      "startedAt": "2026-11-28T08:23:19.741Z",
+      "status": "generated",
+      "costCNY": 0.00314,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "5d29ea06-f5f8-4511-b8c7-55e575df16b1",
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 225,
+        "total_tokens": 895,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 158
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "77805bcc7a4f5c555274e592ee072910484ffcffb77d429975d58481f79da104",
+      "finishedAt": "2026-11-28T08:23:20.614Z"
+    },
+    {
+      "caseId": "quota_first_2",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "55a2866378a7744a8b04e27670779d8c6d9d01b4976d3618b66338aa37bc2afd",
+      "startedAt": "2026-11-28T08:23:20.619Z",
+      "status": "generated",
+      "costCNY": 0.00314,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "f8c8fa86-8b99-49be-a4c6-6de88dba7438",
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 225,
+        "total_tokens": 895,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 158
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 2) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 2) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "77805bcc7a4f5c555274e592ee072910484ffcffb77d429975d58481f79da104",
+      "finishedAt": "2026-11-28T08:23:21.668Z"
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "63e3b0b33637f4ec86d05d44c9bcf9588efdcf5ddd5e9b29cbba5f11d17339ae",
+      "startedAt": "2026-11-28T08:23:21.673Z",
+      "status": "generated",
+      "costCNY": 0.003146,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "0c5a3fff-af6e-4946-9da6-e1092b25ae7e",
+      "usage": {
+        "prompt_tokens": 673,
+        "completion_tokens": 225,
+        "total_tokens": 898,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 161
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 1) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 1) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "76b718e825bb4962bf030f87e1db5bf1bcd427141b3ae4935bd31b26b0e39ad3",
+      "finishedAt": "2026-11-28T08:23:22.516Z"
+    },
+    {
+      "caseId": "quota_first_1",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "7bc5af6beb0385ae375ad8529c0b8d37f0e72548b6591875cdf8d37bf4cc55cc",
+      "startedAt": "2026-11-28T08:23:22.521Z",
+      "status": "generated",
+      "costCNY": 0.003152,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "18e830e1-6e0e-4a6c-ad3d-8e0a206f074a",
+      "usage": {
+        "prompt_tokens": 676,
+        "completion_tokens": 225,
+        "total_tokens": 901,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 164
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var used: Int64 = 0\\n    var sum: Int64 = 0\\n    while (i < q.size && used < 1) {\\n        if (q[i] > t) {\\n            sum += q[i]\\n            q[i] = t\\n            used++\\n        }\\n        i++\\n    }\\n    return sum\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 9 && q0 == [1,5,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == 0 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var used: Int64 = 0\n    var sum: Int64 = 0\n    while (i < q.size && used < 1) {\n        if (q[i] > t) {\n            sum += q[i]\n            q[i] = t\n            used++\n        }\n        i++\n    }\n    return sum\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 9 && q0 == [1,5,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == 0 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "76b718e825bb4962bf030f87e1db5bf1bcd427141b3ae4935bd31b26b0e39ad3",
+      "finishedAt": "2026-11-28T08:23:23.411Z"
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "e123486dff00f90aefc588ea6ec740d8689392281458a08585d9cd7322584caa",
+      "startedAt": "2026-11-28T08:23:23.417Z",
+      "status": "generated",
+      "costCNY": 0.00347,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "686d7279-f03d-4031-9ea5-a15c8a495de1",
+      "usage": {
+        "prompt_tokens": 699,
+        "completion_tokens": 259,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 187
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "be04d16c3e993752527628a61fd6c470f4a90da066e599df3690b5b075981706",
+      "finishedAt": "2026-11-28T08:23:24.482Z"
+    },
+    {
+      "caseId": "best_right_end",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "7eb8ee89753d189447bef3b319adf2e9a81e9e8c122311b3cf7118c13352087c",
+      "startedAt": "2026-11-28T08:23:24.488Z",
+      "status": "generated",
+      "costCNY": 0.00347,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "2b5a9b4c-7bfc-4629-95a7-ae730deb1cc4",
+      "usage": {
+        "prompt_tokens": 699,
+        "completion_tokens": 259,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 187
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "be04d16c3e993752527628a61fd6c470f4a90da066e599df3690b5b075981706",
+      "finishedAt": "2026-11-28T08:23:25.430Z"
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "a69196fbfd4b8730be20427f16ce83d027463ca90443f1c200dfc4fc01488ff5",
+      "startedAt": "2026-11-28T08:23:25.435Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d27ec25f-9f90-4bad-bc10-f80441feb7ef",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 178
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "1085c4f94628707be4624ab64a51e7974429da33e0ddacd185a926bc96f710d3",
+      "finishedAt": "2026-11-28T08:23:26.637Z"
+    },
+    {
+      "caseId": "best_right_start",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "027a2c4115f3c887322ef5e64417ef74403a5186340b5133165feeea981e785c",
+      "startedAt": "2026-11-28T08:23:26.643Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "138d7c13-3651-4075-8d20-cf2828920a1b",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 178
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length >= longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length >= longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "1085c4f94628707be4624ab64a51e7974429da33e0ddacd185a926bc96f710d3",
+      "finishedAt": "2026-11-28T08:23:27.669Z"
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "b6c9cc653074059732a262742b3c7ab2e390d2a1a3895532959574f599ea2adf",
+      "startedAt": "2026-11-28T08:23:27.673Z",
+      "status": "generated",
+      "costCNY": 0.003466,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "eadd4d0b-47ba-490b-9b0a-3d3127adafc4",
+      "usage": {
+        "prompt_tokens": 697,
+        "completion_tokens": 259,
+        "total_tokens": 956,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 185
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dc7f81ca0f4c0842d084f9d55fa1ec58cbc1715ba21838d770708d5fffd45491",
+      "finishedAt": "2026-11-28T08:23:28.586Z"
+    },
+    {
+      "caseId": "best_left_end",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "07ae3aef166d2e28bbbe4e85255d333ba367383ed1ed14f7d15bb0bde5a7c23d",
+      "startedAt": "2026-11-28T08:23:28.590Z",
+      "status": "generated",
+      "costCNY": 0.003458,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "d80c019f-cbf6-47e7-ad4e-75bc31fa6cc2",
+      "usage": {
+        "prompt_tokens": 693,
+        "completion_tokens": 259,
+        "total_tokens": 952,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 181
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = i - 1\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = i - 1\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "dc7f81ca0f4c0842d084f9d55fa1ec58cbc1715ba21838d770708d5fffd45491",
+      "finishedAt": "2026-11-28T08:23:29.478Z"
+    },
+    {
+      "caseId": "best_left_start",
+      "group": "D",
+      "repeat": 2,
+      "requestSha256": "b7cf8b6462b45af78f8783e99ec474fe686e80919841985945201112c0cba912",
+      "startedAt": "2026-11-28T08:23:29.485Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "7178f0ae-e8f7-403b-a9a9-f895023904ce",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 178
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "2736648a956689de76f25a0dac2e4571579ab25c91bf5951b9640f2da20a59f2",
+      "finishedAt": "2026-11-28T08:23:30.463Z"
+    },
+    {
+      "caseId": "best_left_start",
+      "group": "U",
+      "repeat": 2,
+      "requestSha256": "6c74867bbff741f7d0c04413d1419c9974c44a0dd1232db7b465a1e32d69a3fe",
+      "startedAt": "2026-11-28T08:23:30.468Z",
+      "status": "generated",
+      "costCNY": 0.003428,
+      "httpStatus": 200,
+      "model": "deepseek-flash",
+      "responseId": "43bc1fae-1208-4dcb-a32a-e540840f28bd",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 256,
+        "total_tokens": 946,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 178
+      },
+      "finishReason": "stop",
+      "answer": "{\"code\":\"func repair(q: Array<Int64>, t: Int64): Int64 {\\n    var i: Int64 = 0\\n    var longest: Int64 = 0\\n    var result: Int64 = -1\\n    while (i < q.size) {\\n        if (q[i] > t) {\\n            let start = i\\n            while (i < q.size && q[i] > t) { i++ }\\n            let length = i - start\\n            if (length > longest) {\\n                longest = length\\n                result = start\\n            }\\n        } else { i++ }\\n    }\\n    return result\\n}\\n\\nmain() {\\nlet q0: Array<Int64> = [1,9,2,0]\\nlet r0=repair(q0, 5)\\nprintln(r0 == 1 && q0 == [1,9,2,0])\\nlet q1: Array<Int64> = [0,2,3]\\nlet r1=repair(q1, 6)\\nprintln(r1 == -1 && q1 == [0,2,3])\\n}\\n\"}",
+      "code": "func repair(q: Array<Int64>, t: Int64): Int64 {\n    var i: Int64 = 0\n    var longest: Int64 = 0\n    var result: Int64 = -1\n    while (i < q.size) {\n        if (q[i] > t) {\n            let start = i\n            while (i < q.size && q[i] > t) { i++ }\n            let length = i - start\n            if (length > longest) {\n                longest = length\n                result = start\n            }\n        } else { i++ }\n    }\n    return result\n}\n\nmain() {\nlet q0: Array<Int64> = [1,9,2,0]\nlet r0=repair(q0, 5)\nprintln(r0 == 1 && q0 == [1,9,2,0])\nlet q1: Array<Int64> = [0,2,3]\nlet r1=repair(q1, 6)\nprintln(r1 == -1 && q1 == [0,2,3])\n}\n",
+      "codeSha256": "2736648a956689de76f25a0dac2e4571579ab25c91bf5951b9640f2da20a59f2",
+      "finishedAt": "2026-11-28T08:23:31.415Z"
+    }
+  ],
+  "finishedAt": "2026-11-28T08:23:31.420Z"
+}

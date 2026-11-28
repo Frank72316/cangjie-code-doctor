@@ -617,3 +617,7 @@
 ## 第一百一十二轮　锁定 SDK 观测和两组模型输入
 
 预登记提交 35dd2c22640a246c7666761f26d07e6eafb3aeb5 于北京时间 16:13:39 提交并同步两端。[材料验收](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46124905577) 成功。本节锁定首次模型调用前的实测输入、均匀抽样基线与逐题检出结果。
+
+## 第一百一十三轮　候选提交及补充选例冻结
+
+冻结请求提交 36c99d92ba668f701a3075b7651d5cc178129dbb 于北京时间 16:21:58 提交，GitCode 与 GitHub 同步，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46125559419) 成功。本节锁定 96 次独立回答、评分前审阅和补充实测输入。

@@ -105,7 +105,7 @@ function uniformIndex(id,n) {
   }
 }
 export function selectExamples(id,inputs,omittedIndex=-1) {
-  assert.equal(inputs.length,24);
+  assert.ok(inputs.length>=2);
   const variants=['correct',...alternatives[id.split('_')[0]]];
   const outputs=inputs.map(({array,t})=>variants.map(v=>JSON.stringify(contractResult(id,array,t,v))));
   const pairs=[];
