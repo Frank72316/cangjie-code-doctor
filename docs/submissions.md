@@ -601,3 +601,7 @@
 ## 第一百零八轮　提交候选用于隔离评分
 
 请求冻结提交 91d307c6637fb0011bac3f7b2bc4e8c316cf7b6a 于北京时间 15:30:15 提交，GitCode 与 GitHub 均已核对，[推送检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46121569258) 成功。本节锁定全部回答、费用记录及评分前的审阅决定。
+
+## 第一百零九轮　成绩揭晓前归档局部修复参照
+
+候选提交 a4dfa1433088bc1f373833dae14db51212ee2ce0 于北京时间 15:35:27 提交并同步两端，随后启动[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46121958249)。本节的补充计算只读取初稿材料与测试分类，用于解释测试本身能区分的行为，不参与主评分。

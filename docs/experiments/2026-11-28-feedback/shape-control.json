@@ -1,0 +1,215 @@
+{
+  "materialSha256": "beed8fd7b0cf24faced5500b65d4bbad05f67c0caef5f0d6fb9db407cef98e12",
+  "panels": {
+    "linked": {
+      "n": 24,
+      "initial": 10,
+      "passes": 15,
+      "fails": 9,
+      "indeterminate": 0,
+      "newPasses": 5
+    },
+    "array": {
+      "n": 8,
+      "initial": 2,
+      "passes": 2,
+      "fails": 6,
+      "indeterminate": 0,
+      "newPasses": 0
+    }
+  },
+  "rows": [
+    {
+      "id": "seek_left_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "seek_left_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "seek_right_mark",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "seek_right_all",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "twin_left_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "twin_left_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "twin_right_mark",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "twin_right_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "alternating_left_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "alternating_left_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "alternating_right_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "alternating_right_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "paint_left_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "paint_left_all",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "paint_right_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "paint_right_all",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "invert_left_mark",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "invert_left_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "passes"
+    },
+    {
+      "id": "invert_right_mark",
+      "panel": "linked",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "invert_right_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "passes"
+    },
+    {
+      "id": "stamp_left_mark",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "stamp_left_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "passes"
+    },
+    {
+      "id": "stamp_right_mark",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "passes"
+    },
+    {
+      "id": "stamp_right_all",
+      "panel": "linked",
+      "initialPassed": false,
+      "classification": "passes"
+    },
+    {
+      "id": "streak_strict",
+      "panel": "array",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "streak_inclusive",
+      "panel": "array",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "prefix_equal",
+      "panel": "array",
+      "initialPassed": true,
+      "classification": "passes"
+    },
+    {
+      "id": "prefix_above",
+      "panel": "array",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "index_first",
+      "panel": "array",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "index_last",
+      "panel": "array",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "cap_first",
+      "panel": "array",
+      "initialPassed": false,
+      "classification": "fails"
+    },
+    {
+      "id": "cap_last",
+      "panel": "array",
+      "initialPassed": false,
+      "classification": "fails"
+    }
+  ]
+}
