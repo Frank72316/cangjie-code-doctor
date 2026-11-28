@@ -8,6 +8,8 @@ import {verificationRequestText} from '../web/process-evidence.mjs';
 import {formalPublicSource} from './formal-public-harness.mjs';
 import {harnessSource} from './pilot-holdout.mjs';
 
+import {probeRequest, observation} from './feedback-probe.mjs';
+const probes = setting.generation === 'api-feedback' ? new Map(read('probes').map(p=>[p.id,p])) : null;
 const key=fs.readFileSync('data/holdout/challenge-v1/key.txt','utf8').trim();
 const fresh=read('transfer'),newPrivate=transferPrivate(key);
 const hiddenTests=h=>[{id:'holdout',stdin:'',expectedStdout:h.expectedStdout}];
@@ -26,7 +28,7 @@ function evidence(phase){
 }
 const materials=evidence('materials');
 assert.ok(materials.receipt.accepted);
-const starters=setting.generation==='api-review' ? read('starters') : null;
+const starters=probes || setting.generation==='api-review' ? read('starters') : null;
 assert.equal(materials.receipt.transferSha256,sha(fresh));assert.equal(materials.receipt.holdoutSha256,read('transfer.enc').sha256);
 for(const [i,c] of fresh.entries()){
  const h=newPrivate.find(x=>x.id===c.id),row=materials.receipt.rows[i];assert.equal(row.caseId,c.id);
@@ -34,6 +36,17 @@ for(const [i,c] of fresh.entries()){
  const checks=[[c.source.text,c.publicTests,starters?starters[i].publicStatus:'test_failed'],[h.reference,c.publicTests,'passed'],[harnessSource(h.reference,h.harness),hiddenTests(h),'passed'],[harnessSource(c.source.text,h.harness),hiddenTests(h),starters?row.originalHoldout:'test_failed']];
  for(const [j,[src,tests,status]] of checks.entries()){const r=materials.take(row.reportIds[j],c.source.name,src,tests);assert.equal(r.status,status);
   if(j===0)assert.deepEqual(row.initial,{caseId:c.id,status:r.status,diagnostics:r.compile.normalized?.diagnostics??[],tests:r.tests.map(t=>({id:t.id,status:t.status,stdout:t.process?.stdout??'',stderr:t.process?.stderr??''}))});
+ }
+}
+if (probes) {
+ assert.equal(materials.receipt.probesSha256, sha(read('probes')));
+ for (const [i, c] of fresh.entries()) {
+  const h = newPrivate.find(x => x.id === c.id), p = materials.receipt.rows[i].probe;
+  for (const [source, id, expected] of [[h.reference,p.referenceId,p.reference],[c.source.text,p.starterId,p.starter]]) {
+   const req = probeRequest(source, probes.get(c.id));
+   assert.deepEqual(observation(materials.take(id,c.source.name,req.source,req.tests)), expected);
+  }
+  assert.deepEqual(p.reference,{status:'passed',...probes.get(c.id).expected});
  }
 }
 materials.finish();
@@ -62,6 +75,10 @@ for(const [i,j] of design.schedule.entries()){
    assert.equal(pub.status,r.publicStatus);status=pub.status;
    if(status==='passed'){
     const h=[...newPrivate,...oldPrivate].find(x=>x.id===c.id);
+    if (probes) {
+     const req = probeRequest(p.code, probes.get(c.id));
+     assert.equal(scoring.take(r.probeId,c.source.name,req.source,req.tests).status, r.probeStatus);
+    }
     const hr=scoring.take(r.holdoutId,c.source.name,harnessSource(p.code,h.harness),hiddenTests(h));
     assert.equal(hr.status,r.holdoutStatus);status=hr.status==='passed'?'passed':'holdout_failed';
    }else assert.ok(!r.holdoutId);

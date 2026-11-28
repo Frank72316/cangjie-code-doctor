@@ -8,6 +8,8 @@ import {verifyPublic} from './sandbox-verify.mjs';
 import {formalPublicSource} from './formal-public-harness.mjs';
 import {harnessSource} from './pilot-holdout.mjs';
 
+import {observation, probeRequest} from './feedback-probe.mjs';
+const probes = setting.generation === 'api-feedback' ? new Map(read('probes').map(p => [p.id,p])) : null;
 const [phase,image]=process.argv.slice(2);
 assert.ok(process.platform==='linux' && ['materials','score'].includes(phase) && /^sha256:[a-f0-9]{64}$/.test(image));
 const key=process.env.CHALLENGE_TEST_KEY; delete process.env.CHALLENGE_TEST_KEY;
@@ -23,6 +25,10 @@ async function check(problem,text,tests){
  }
  reports.push(r);return r;
 }
+async function runProbe(task, source) {
+ const request = probeRequest(source, probes.get(task.id));
+ return check(task, request.source, request.tests);
+}
 const hiddenTests=h=>[{id:'holdout',stdin:'',expectedStdout:h.expectedStdout}];
 if(phase==='materials'){
  receipt.transferSha256=sha(transfer);receipt.holdoutSha256=read('transfer.enc').sha256;
@@ -34,8 +40,16 @@ if(phase==='materials'){
   const bug=await check(c,harnessSource(c.source.text,h.harness),hiddenTests(h));
   receipt.rows.push({caseId:c.id,initial:{caseId:c.id,status:initial.status,diagnostics:initial.compile.normalized?.diagnostics??[],tests:initial.tests.map(t=>({id:t.id,status:t.status,stdout:t.process?.stdout??'',stderr:t.process?.stderr??''}))},initialId:initial.id,referencePublic:ref.status,referenceHoldout:hidden.status,originalHoldout:bug.status,assertions:h.assertions,reportIds:[initial.id,ref.id,hidden.id,bug.id]});
  }
- const starters=setting.generation==='api-review' ? read('starters') : null;
- receipt.accepted=receipt.rows.every((r,i)=>r.referencePublic==='passed' && r.referenceHoldout==='passed' &&
+ if (probes) {
+  receipt.probesSha256 = sha(read('probes'));
+  for (const [i, c] of transfer.entries()) {
+   const reference = newPrivate.find(h => h.id === c.id).reference;
+   const ref = await runProbe(c, reference), initial = await runProbe(c, c.source.text);
+   receipt.rows[i].probe = {referenceId:ref.id, starterId:initial.id, reference:observation(ref), starter:observation(initial)};
+  }
+ }
+ const starters=probes || setting.generation==='api-review' ? read('starters') : null;
+ receipt.accepted=receipt.rows.every((r,i)=>r.referencePublic==='passed' && r.referenceHoldout==='passed' && (!probes || r.probe.reference.status==='passed') &&
    (starters ? r.caseId===starters[i].id && r.initial.status===starters[i].publicStatus && ['compile_failed','test_failed','passed'].includes(r.originalHoldout)
     : r.initial.status==='test_failed' && r.originalHoldout==='test_failed'));
 }else{
@@ -57,7 +71,12 @@ if(phase==='materials'){
   r.publicId=pub.id;r.publicStatus=pub.status;r.status=pub.status;
   if(pub.status==='passed'){
    const h=hidden.find(x=>x.id===c.id);
-   const hreport=await check(c,harnessSource(row.code,h.harness),hiddenTests(h));
+   if (probes) {
+     const pr = await runProbe(c,row.code);
+     r.probeId = pr.id;
+     r.probeStatus = pr.status;
+    }
+    const hreport=await check(c,harnessSource(row.code,h.harness),hiddenTests(h));
    r.holdoutId=hreport.id;r.holdoutStatus=hreport.status;r.status=hreport.status==='passed'?'passed':'holdout_failed';
   }
  }

@@ -1,0 +1,442 @@
+[
+  {
+    "id": "seek_left_mark",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "seek_left_all",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "seek_right_mark",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "seek_right_all",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "twin_left_mark",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "twin_left_all",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "twin_right_mark",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "twin_right_all",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": -1,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "alternating_left_mark",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "alternating_left_all",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "alternating_right_mark",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "alternating_right_all",
+    "input": {
+      "list": [],
+      "position": null,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, None, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "paint_left_mark",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "paint_left_all",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "paint_right_mark",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "paint_right_all",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "invert_left_mark",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "invert_left_all",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "invert_right_mark",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "invert_right_all",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": 0,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "stamp_left_mark",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": -91,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "stamp_left_all",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": -91,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "stamp_right_mark",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": -91,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "stamp_right_all",
+    "input": {
+      "list": [],
+      "position": -1,
+      "t": 37
+    },
+    "expected": {
+      "returned": -91,
+      "after": []
+    },
+    "harness": "let q0=LinkedList<Int64>(Array<Int64>())\nlet r0=repair(q0, -1, 37)\nprintln(r0)\nprintln(q0.toArray().size)\nfor (value in q0.toArray()) { println(value) }"
+  },
+  {
+    "id": "streak_strict",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": 0,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "streak_inclusive",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": 1,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "prefix_equal",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": 0,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "prefix_above",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": 11,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "index_first",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": 0,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "index_last",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": 0,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "cap_first",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": -1,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  },
+  {
+    "id": "cap_last",
+    "input": {
+      "array": [
+        11
+      ],
+      "t": 11
+    },
+    "expected": {
+      "returned": -1,
+      "after": [
+        11
+      ]
+    },
+    "harness": "let q0: Array<Int64> = [11]\nlet r0=repair(q0, 11)\nprintln(r0)\nprintln(q0.size)\nfor (value in q0) { println(value) }"
+  }
+]

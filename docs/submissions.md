@@ -589,3 +589,7 @@
 ## 第一百零五轮　复查实验归档
 
 候选和盲审提交 01cc2f0c78b59ba5d1945eeb68881bd1aee4977d 于北京时间 14:57:34 提交并同步 GitCode、GitHub，[常规检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46119003231) 成功。[隔离评分](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46119017052) 于北京时间 15:05:36 更新为成功，已回收临时评分钥匙。本节提交逐题成绩、加密执行证据、独立复算与[研究报告](experiments/2026-11-28-review/report.md)。
+
+## 第一百零六轮　实测反馈研究预登记
+
+上轮报告提交 db458bebbefbf69d0ce40f5995f311b27fe911af 于北京时间 15:07:28 提交，两平台一致，[常规检查](https://github.com/Frank72316/cangjie-code-doctor/actions/runs/46119794479) 通过。本节锁定新研究材料，完整保留输入只上传密文。
